@@ -52,7 +52,7 @@ def ler(nome):
 
 def conferir_tema(t):
     cap = t.get("capa") or {}
-    if cap.get("moldura", "larga") not in MOLDURAS:
+    if cap.get("moldura", "retrato") not in MOLDURAS:
         raise dados.ErroDeck("tema.json: moldura '%s'; use %s" % (cap.get("moldura"), " ou ".join(MOLDURAS)))
     g = t.get("grafico", "padrao")
     if g == "asas":
@@ -127,7 +127,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         pasta=pasta, painel=painel, rev=t.get("rev", 1), feito=d["feito"],
         cmd=t.get("comandante_pt") or (cmd["n"] if cmd else ""), curto=curto, artigo=t.get("artigo", "o"),
         lede=t.get("lede", ""), verbos=t.get("verbos") or [], eixo=t.get("eixo"),
-        capa=dict(moldura=cap.get("moldura", "larga"), alt=cap.get("alt", ""), credito=cap.get("credito", "Arte da carta, © Wizards of the Coast"), tem=bool(art_css)),
+        capa=dict(moldura=cap.get("moldura", "retrato"), alt=cap.get("alt", ""), credito=cap.get("credito", "Arte da carta, © Wizards of the Coast"), tem=bool(art_css)),
         grafico=t.get("grafico", "padrao"), curva=t.get("curva", "ogiva"), chave_antiga=t.get("chave_antiga", ""),
         gfonts=gfonts, ident=d["ident"], scryfall=d["scryfall_data"], img_padrao=(modo_img != "nenhuma"),
     )

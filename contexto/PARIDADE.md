@@ -98,7 +98,7 @@ Fixo, com os mesmos elementos em todo painel:
 
 Do tema, declarado nos dados do deck:
 - [x] Paleta, fontes e textura de fundo
-- [x] Moldura da capa: `larga` ou `retrato`. Larga mostra a arte inteira, em paisagem, com o gráfico logo abaixo, como no Coro. Retrato recorta a arte na vertical, dentro de uma moldura, com o gráfico ao lado, como o arco do Ritos. O padrão é `larga`, porque não corta a imagem que o dono escolheu; `retrato` só quando a arte tem uma figura central
+- [x] Moldura da capa: `larga` ou `retrato`. Larga mostra a arte inteira, em paisagem, com o gráfico logo abaixo, como no Coro. Retrato recorta a arte na vertical, dentro de uma moldura, com o gráfico ao lado, como o arco do Ritos. O padrão é `retrato`, decidido pelo dono em 08/10/2026: enquadramento, espaçamento e aproveitamento da tela do Ritos valem para todo deck
 - [ ] Desenho do gráfico dos agrupamentos: rosácea, asas, ou o desenho padrão. *Rosácea e padrão prontos; asas pendentes de `/motor`.*
 
-O Ritos de Sangue continua com retrato e rosácea. O Coro da Alvorada continua com capa larga; as asas voltam quando o motor as tiver. Os dois passam a mostrar os mesmos elementos.
+Todo painel usa o retrato. O Ritos de Sangue tem a rosácea; o Coro da Alvorada usa o desenho padrão até as asas existirem no motor. Os dois passam a mostrar os mesmos elementos.

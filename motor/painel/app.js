@@ -493,7 +493,7 @@ function eixoN(st) {
   return st.mk[e.marcador] ? st.mk[e.marcador].n : 0;
 }
 function heroHtml(st, cmd) {
-  var cap = M.capa || {}, art = !!cap.tem, larga = cap.moldura !== 'retrato';
+  var cap = M.capa || {}, art = !!cap.tem, larga = cap.moldura === 'larga';
   var verbos = (M.verbos || []).length ? ' O plano cabe em três verbos: ' + esc(M.verbos.join(', ')) + '.' : '';
   var nome = M.cmd || (cmd ? cmd.n : '');
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +

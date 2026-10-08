@@ -33,6 +33,6 @@ Nenhuma marcada ainda.
 ## Visual
 
 - clima: azul-noite e dourado, com um verso de motivo heráldico
-- moldura da capa: larga, com a arte da Giada enviada pelo dono
+- moldura da capa: retrato, o padrão do Ritos de Sangue
 - gráfico dos agrupamentos: as asas do painel original ainda não existem no motor; usa o desenho padrão até a migração ser completada com uma mudança de motor
 - capa: `capa.webp` (cópia de `entrada/kit-coro-da-alvorada2/imagens/giada-arte.webp`)

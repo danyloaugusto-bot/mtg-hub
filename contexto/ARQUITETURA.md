@@ -109,7 +109,7 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` para foil e `*CM
 ```
 
 - `artigo`: `o` (padrão) ou `a`, para o comandante. Usado nos dois lugares em que o painel fala dele com artigo ("é boa no Clavileño" / "é boa na Giada", "como a comunidade monta o Clavileño" / "monta a Giada").
-- `moldura`: `larga` (padrão) mostra a arte inteira, com o gráfico abaixo; `retrato` recorta a arte num arco, com o gráfico ao lado. `foco` posiciona o recorte; `avatar`, o círculo da barra.
+- `moldura`: `retrato` (padrão, decidido pelo dono em 08/10/2026) recorta a arte num arco, com o texto e o gráfico ao lado, tudo na primeira tela, como o Ritos de Sangue; `larga` mostra a arte inteira em paisagem, com o gráfico abaixo, e fica só como opção. `foco` posiciona o recorte; `avatar`, o círculo da barra.
 - `grafico`: `rosacea` ou `padrao`. As `asas` do Coro chegam na etapa 2. `curva`: `ogiva` ou `barra`. `textura`: `vitral`, `padrao` ou `nenhuma`.
 - `paleta`: as dez chaves de base são `fundo`, `painel`, `acento`, `acento_claro`, `texto`, `suave`, `apagado`, `destaque`, `destaque_claro` e `vinho`. As finas (`fundo2`, `painel2`, `elevado`, `profundo`, `tinta`, `cabecalho`, `coluna`, `realce`, `total`, `botao`, `botao2`, `botao_hover`, `botao2_hover`, `folha`, `folha2`, `contorno`, `ok`, `alerta`, `ruim`) são derivadas quando faltam. Cores de tier, relevância, veredito e símbolos de mana são do motor, iguais em todo deck.
 - `agrupamentos`: cor de cada um, em `"r,g,b"`. Sem ela, vale uma paleta de dez cores.
