@@ -37,20 +37,32 @@ try:
         pg.on("request", lambda r: reqs.append(r.url) if "scryfall" in r.url else None)
         pg.goto(U); pg.wait_for_timeout(1200)
         D = pg.evaluate("window.PAINEL.D"); KEY = pg.evaluate("window.PAINEL.key")
+        pack = bool(D.get("img"))
         carta = next(c for c in D["cards"] if not c.get("cmd") and not c.get("land") and c["tier"] not in ("B", "C"))
         R.ok("nota de armazenamento na conta", "na sua conta" in pg.inner_text("#storeNote"), pg.inner_text("#storeNote")[:60])
         R.ok("caminho privado por pessoa", pg.evaluate("window.__path") == "data/users/u_teste", pg.evaluate("window.__path"))
         R.ok("nenhuma gravação ao abrir", pg.evaluate("window.__sets||0") == 0)
         for t in ("gal", "tab", "radar", "tier", "ctrl", "ofi", "geral"):
             pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(200)
-        R.ok("nenhuma imagem externa nem chamada ao Scryfall", pg.locator("img.ci").count() == 0 and not reqs, (pg.locator("img.ci").count(), reqs[:2]))
+        if pack:
+            R.ok("imagens embutidas aparecem, sem chamada ao Scryfall", pg.locator("img.ci.ci-ok").count() > 0 and not reqs, (pg.locator("img.ci").count(), reqs[:2]))
+        else:
+            R.ok("nenhuma imagem externa nem chamada ao Scryfall", pg.locator("img.ci").count() == 0 and not reqs, (pg.locator("img.ci").count(), reqs[:2]))
         R.ok("liga e desliga das imagens fora da barra", pg.locator(".top [data-act=img]").count() == 0)
-        pg.click('[data-tab="gal"]'); R.ok("aviso sobre imagens", "página publicada" in pg.inner_text("#v-gal [data-imgnote]"))
-        R.ok("sem caixa de imagens na galeria", pg.locator('#v-gal [data-act="img-tog"]').count() == 0)
+        pg.click('[data-tab="gal"]')
+        if pack:
+            R.ok("aviso sobre imagens embutidas", "embutidas" in pg.inner_text("#v-gal [data-imgnote]"))
+            R.ok("caixa de imagens na galeria, com pacote embutido", pg.locator('#v-gal [data-act="img-tog"]').count() == 1)
+        else:
+            R.ok("aviso sobre imagens", "página publicada" in pg.inner_text("#v-gal [data-imgnote]"))
+            R.ok("sem caixa de imagens na galeria", pg.locator('#v-gal [data-act="img-tog"]').count() == 0)
         if D["meta"]["capa"]["tem"]:
             R.ok("capa do comandante embutida segue", pg.evaluate("getComputedStyle(document.querySelector('.ava')).backgroundImage.includes('data:image/jpeg')"))
         pg.click('[data-tab="tier"]'); pg.wait_for_timeout(150)
-        R.ok("tier list em fichas, sem imagens", pg.locator("#v-tier .chip.tile").count() == 0 and pg.locator('[data-act="tier-view"]').count() == 0)
+        if pack:
+            R.ok("tier list em cartas, com o pacote embutido", pg.locator("#v-tier .chip.tile").count() > 0 and pg.locator('[data-act="tier-view"]').count() == 2)
+        else:
+            R.ok("tier list em fichas, sem imagens", pg.locator("#v-tier .chip.tile").count() == 0 and pg.locator('[data-act="tier-view"]').count() == 0)
         pg.click('#v-tier .chip[data-card="%s"]' % carta["id"]); pg.click('[data-act="set-tier"][data-v="C"]'); pg.click('[data-act="set-tier"][data-v="B"]')
         pg.fill('[data-act="nota"]', "teste remoto"); pg.keyboard.press("Tab"); pg.wait_for_timeout(1300)
         doc = json.loads(pg.evaluate("localStorage.getItem('__remoto__')") or "null")

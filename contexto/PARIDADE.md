@@ -77,7 +77,7 @@ Conferido no painel migrado da Giada (`saidas/01. Giada.html`, revisão 3) em 07
 - [ ] **Gráfico dos agrupamentos:** é uma peça do tema. Rosácea no Ritos, asas no Coro. O motor oferece o encaixe e um desenho padrão para deck sem tema próprio. *Encaixe, rosácea e padrão prontos, de 6 a 10 agrupamentos. As asas não entraram na migração da Giada: são mudança de motor, a pedir pelo `/motor`. Até lá a Giada usa o desenho padrão.*
 - [x] **Cores e base de mana:** um painel só, que se adapta a deck de uma cor ou de várias
 - [x] **Comunidade:** um painel só, com os temas, a distribuição por faixa de sinergia e as listas de divergência entre o deck e a comunidade
-- [ ] **Imagens:** o carregamento sob demanda e a nova tentativa do Coro, com a cadeia de fontes e as fichas de texto do Ritos, mais o mapa embutido criado pelo `/imagens`. *Tudo pronto menos o mapa embutido, que nasce na etapa 3. O encaixe para ele já existe.*
+- [x] **Imagens:** o carregamento sob demanda e a nova tentativa do Coro, com a cadeia de fontes e as fichas de texto do Ritos, mais o mapa embutido criado pelo `/imagens`. Conferido em 08/10/2026: os dois decks mostram todas as imagens do deck e do radar sem internet, em arquivo local e publicado.
 - [x] **Tier com imagens:** a alternância fica na Tier list. A Galeria agrupa por tipo e por relevância
 - [x] **Outra face da carta:** uma ação só, com um nome só
 - [ ] **Cartas novas para o deck:** uma seção só, "Potenciais", com duas fontes: a comunidade (edh.wiki, que o Coro já tem) e os lançamentos (Scryfall, criada pelo `/novas-cartas`). As mesmas duas ações nas duas. *A seção e a fonte da comunidade estão prontas. A fonte de lançamentos é da etapa 6.*

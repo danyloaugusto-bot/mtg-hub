@@ -248,6 +248,10 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
             d["cmd"] = 1
             d["g"] = "cmd"
     d["sid"] = sf["id"]
+    d["iset"] = sf["set"]
+    d["inum"] = sf["num"]
+    if d.get("dfc") and len(faces) > 1 and faces[1].get("image"):
+        d["iback"] = 1
     if sf.get("artist") or (faces and faces[0].get("artist")):
         d["ar"] = sf.get("artist") or faces[0].get("artist")
     if sf.get("usd"):

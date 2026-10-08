@@ -133,9 +133,20 @@ Sinergia mede presença nos decks do comandante, não força, e não entra no pl
 
 ## Imagens
 
-Ordem de tentativa no painel: o mapa embutido no arquivo, a imagem exata no servidor do Scryfall (pelo id da impressão, que o build já traz), o redirecionamento da API e, no fim, a ficha de texto. Sem internet, o aviso oferece "Tentar de novo".
+Ordem de tentativa no painel: o mapa embutido no arquivo (`D.img`), a imagem exata no servidor do Scryfall (pelo id da impressão), o redirecionamento da API e, no fim, a ficha de texto. Sem pacote e sem internet, o aviso oferece "Tentar de novo".
 
-O mapa embutido nasce na etapa 3, com o `/imagens`: baixa uma vez para `cache/img/`, compartilhado entre decks, reduz a 340 px de largura e embute no HTML. O encaixe (`D.img`) já existe e hoje vai vazio.
+`motor/imagens.py`, feito na etapa 3, baixa uma vez para `cache/img/<set>-<numero>.jpg` (verso com sufixo `-verso`), compartilhado entre decks, e reduz a 340 px de largura, JPEG qualidade 82:
+
+```
+python motor/imagens.py --deck "02. Clavileno"
+python motor/imagens.py --todos
+```
+
+Cada carta do deck e do radar entra; os potenciais, não. Carta já no cache não é baixada de novo. Capa: usa o `capa.*` da pasta; sem ele, baixa o `art_crop` do comandante como `capa.jpg`.
+
+`motor/build.py --imagens` controla o que vai no HTML: `embutidas` (padrão) lê `cache/img/` e embute cada imagem como `data:` URI, indexada pelo id da carta; `externas` deixa `D.img` vazio e o painel tenta o Scryfall ao vivo, como antes do `/imagens`; `nenhuma` também deixa vazio e começa com as imagens desligadas (`tema.json` não tem campo para isso; é só do build). Build sem rodar o `/imagens` antes simplesmente não encontra nada no cache e sai como `externas`, sem erro.
+
+Com o pacote embutido, a página publicada também mostra as imagens: `data:` URIs não são conteúdo externo, então passam onde o Scryfall ao vivo é bloqueado. O botão de ligar e desligar aparece na Galeria mesmo publicada, porque desligar continua sendo escolha do dono.
 
 ## Onde o estado do usuário mora
 

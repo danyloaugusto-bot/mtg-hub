@@ -143,11 +143,15 @@ with sync_playwright() as p:
     R.ok("backup antigo, sem data e com outro formato, abre", pg.locator('#v-radar .cand h3:has-text("Carta Velha")').count() == 1 and not R.erros)
     pg.click('[data-act="backup"]'); pg.click('[data-act="reset-all"]'); pg.click('[data-act="reset-all"]'); pg.wait_for_timeout(150)
 
-    # imagens: sem internet, o aviso oferece nova tentativa
+    # imagens: com pacote embutido, aparecem mesmo sem internet; sem pacote, o aviso oferece nova tentativa
     pg.click('[data-tab="gal"]'); pg.wait_for_timeout(600)
-    R.ok("imagens fora do ar: aviso com nova tentativa", pg.locator('#v-gal [data-imgnote] [data-act="img-retry"]').count() == 1, pg.inner_text("#v-gal [data-imgnote]")[:70])
-    pg.click('#v-gal [data-act="img-retry"]'); pg.wait_for_timeout(300)
-    R.ok("nova tentativa sem exceção", not R.erros)
+    if D.get("img"):
+        R.ok("imagens embutidas aparecem sem internet", pg.locator("img.ci.ci-ok").count() > 0, pg.locator("img.ci.ci-ok").count())
+        R.ok("aviso de imagens embutidas", "embutidas" in pg.inner_text("#v-gal [data-imgnote]"))
+    else:
+        R.ok("imagens fora do ar: aviso com nova tentativa", pg.locator('#v-gal [data-imgnote] [data-act="img-retry"]').count() == 1, pg.inner_text("#v-gal [data-imgnote]")[:70])
+        pg.click('#v-gal [data-act="img-retry"]'); pg.wait_for_timeout(300)
+        R.ok("nova tentativa sem exceção", not R.erros)
     ctx.close()
 
     # chave antiga: o que o painel anterior deste deck salvou no navegador continua valendo

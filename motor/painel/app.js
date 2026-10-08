@@ -56,7 +56,7 @@ var PUB = !!(window.claude && typeof window.claude.use === 'function');   /* pá
 var canStore = (function () {
   try { return (location.protocol === 'file:' || PUB) && !!window.localStorage; } catch (e) { return false; }
 })();
-function fresh() { return { v: 1, ov: {}, custom: [], inn: {}, out: {}, swaps: [], img: true, ts: 0 }; }
+function fresh() { return { v: 1, ov: {}, custom: [], inn: {}, out: {}, swaps: [], img: M.img_padrao !== false, ts: 0 }; }
 function fitS(a) { a = a.slice(0, NG); while (a.length < NG) a.push(0); return a; }
 function normalize(s) {
   var f = fresh();

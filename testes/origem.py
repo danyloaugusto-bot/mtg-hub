@@ -68,7 +68,7 @@ with open(a.origem, encoding="utf-8") as f:
 with open(novo, encoding="utf-8") as f:
     h = f.read()
 N = json.loads(re.search(r"var D = (\{.*?\});\nvar M = ", h, re.S).group(1))
-IGNORA = {"sid", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain"}
+IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain"}
 dif = []
 for chave in ("cards", "cands"):
     ob = {c["id"]: c for c in O[chave]}

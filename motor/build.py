@@ -7,22 +7,40 @@
 Gera saidas/<pasta>.html e dados/<pasta>/Abrir o painel.html. Sempre com quebra de linha LF,
 para que montar no Windows e no Mac dê o mesmo arquivo.
 """
-import argparse, json, os, sys
+import argparse, base64, json, os, sys
 from urllib.parse import quote
 
 sys.dont_write_bytecode = True
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, MOTOR)
 
-import dados, scryfall, tema  # noqa: E402
+import dados, imagens, scryfall, tema  # noqa: E402
 
 RAIZ = os.path.dirname(MOTOR)
 SAIDAS = os.path.join(RAIZ, "saidas")
 PAINEL = os.path.join(MOTOR, "painel")
+CACHE_IMG = os.path.join(RAIZ, "cache", "img")
 MOLDURAS = ("larga", "retrato")
 GRAFICOS = ("rosacea", "padrao")
 CURVAS = ("ogiva", "barra")
 TEXTURAS = ("vitral", "padrao", "nenhuma")
+MODOS_IMG = ("embutidas", "externas", "nenhuma")
+
+
+def mapa_imagens(cartas):
+    """id -> data: URI, a partir do que já está em cache/img/. Carta sem arquivo no cache fica de fora
+    (volta para as fontes externas ou a ficha de texto, conforme o ambiente)."""
+    out = {}
+    for c in cartas:
+        fa, ve = imagens.precisa(c)
+        for arq, chave in ((fa, c["id"]), (ve, c["id"] + "|b") if ve else (None, None)):
+            if not arq:
+                continue
+            caminho = os.path.join(CACHE_IMG, arq)
+            if os.path.exists(caminho):
+                with open(caminho, "rb") as f:
+                    out[chave] = "data:image/jpeg;base64," + base64.b64encode(f.read()).decode()
+    return out
 
 
 def ler(nome):
@@ -36,7 +54,7 @@ def conferir_tema(t):
         raise dados.ErroDeck("tema.json: moldura '%s'; use %s" % (cap.get("moldura"), " ou ".join(MOLDURAS)))
     g = t.get("grafico", "padrao")
     if g == "asas":
-        raise dados.ErroDeck("tema.json: o desenho 'asas' chega com a migração da Giada (etapa 2); por ora use rosacea ou padrao")
+        raise dados.ErroDeck("tema.json: o desenho 'asas' ainda não existe no motor; é mudança de motor, pelo /motor. Por ora use rosacea ou padrao")
     if g not in GRAFICOS:
         raise dados.ErroDeck("tema.json: gráfico '%s'; use %s" % (g, " ou ".join(GRAFICOS)))
     if t.get("curva", "ogiva") not in CURVAS:
@@ -45,8 +63,10 @@ def conferir_tema(t):
         raise dados.ErroDeck("tema.json: textura '%s'; use %s" % (t.get("textura"), ", ".join(TEXTURAS)))
 
 
-def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=False, avisar=print):
+def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=False, modo_img="embutidas", avisar=print):
     """Devolve (html, resumo). base_dados troca a pasta dados/ (os testes montam variantes numa pasta temporária)."""
+    if modo_img not in MODOS_IMG:
+        raise dados.ErroDeck("--imagens '%s'; use %s" % (modo_img, " ou ".join(MODOS_IMG)))
     if base_dados:
         dados.DADOS = base_dados
     base = os.path.join(dados.DADOS, pasta)
@@ -107,11 +127,12 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         lede=t.get("lede", ""), verbos=t.get("verbos") or [], eixo=t.get("eixo"),
         capa=dict(moldura=cap.get("moldura", "larga"), alt=cap.get("alt", ""), credito=cap.get("credito", "Arte da carta, © Wizards of the Coast"), tem=bool(art_css)),
         grafico=t.get("grafico", "padrao"), curva=t.get("curva", "ogiva"), chave_antiga=t.get("chave_antiga", ""),
-        gfonts=gfonts, ident=d["ident"], scryfall=d["scryfall_data"],
+        gfonts=gfonts, ident=d["ident"], scryfall=d["scryfall_data"], img_padrao=(modo_img != "nenhuma"),
     )
+    img = mapa_imagens(d["cards"] + d["cands"]) if modo_img == "embutidas" else None
     D = dict(meta=meta, grupos=[g for g, _ in grupos], marcadores=d["marcadores"], leituras=d["leituras"], cores=cores,
              tipos=dict(tema.TIPOS, **(t.get("tipos") or {})), cards=d["cards"], cands=d["cands"], pool=d["pool"],
-             combos=d["combos"], edh=d["edh"], img=None)
+             combos=d["combos"], edh=d["edh"], img=(img or None))
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
     html = (ler("template.html")
@@ -139,8 +160,8 @@ def atalho(pasta, painel):
             '<p><a href="%s">Abrir o painel %s</a></p>\n</body>\n</html>\n') % (painel, alvo, alvo, painel)
 
 
-def montar_deck(pasta, atualizar_scryfall=False):
-    html, r = montar_html(pasta, atualizar_scryfall=atualizar_scryfall)
+def montar_deck(pasta, atualizar_scryfall=False, modo_img="embutidas"):
+    html, r = montar_html(pasta, atualizar_scryfall=atualizar_scryfall, modo_img=modo_img)
     mb = r["kb"] / 1024
     if mb > 15:
         raise dados.ErroDeck("o HTML ficou com %.1f MB; o teto da página publicada é 16 MiB e o limite do projeto é 15 MB" % mb)
@@ -165,6 +186,7 @@ def main():
     g.add_argument("--deck", help="nome da pasta do deck, como em dados/")
     g.add_argument("--todos", action="store_true", help="todos os decks de dados/ que já têm avaliação")
     ap.add_argument("--atualizar-scryfall", action="store_true", help="consulta o Scryfall de novo, mesmo para cartas no cache")
+    ap.add_argument("--imagens", choices=MODOS_IMG, default="embutidas", help="embutidas (padrão): lê cache/img/; externas: tenta o Scryfall ao vivo; nenhuma: sem imagens, nem ao vivo")
     a = ap.parse_args()
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -177,7 +199,7 @@ def main():
             print("%s: sem avaliacao.json ainda, pulado" % pasta)
             continue
         try:
-            montar_deck(pasta, a.atualizar_scryfall)
+            montar_deck(pasta, a.atualizar_scryfall, a.imagens)
         except (dados.ErroDeck, scryfall.ErroScryfall, ValueError) as e:
             erros += 1
             print("%s: ERRO: %s" % (pasta, e), file=sys.stderr)
