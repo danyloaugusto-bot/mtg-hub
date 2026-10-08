@@ -155,6 +155,7 @@ function mana(cost) {
 }
 function rich(t) { return esc(t).replace(/\{([^}]+)\}/g, function (m, s) { return '<span class="mana">' + msym(s) + '</span>'; }); }
 function colOf(k) { for (var i = 0; i < COLS.length; i++) if (COLS[i].k === k) return COLS[i]; return { k: k, n: k, c: '#9aa3ad' }; }
+function artigo() { return M.artigo === 'a' ? 'a' : 'o'; }
 function fts(ts) { var d = new Date(ts), p = function (n) { return (n < 10 ? '0' : '') + n; }; return p(d.getDate()) + '/' + p(d.getMonth() + 1) + '/' + d.getFullYear() + ', ' + p(d.getHours()) + ':' + p(d.getMinutes()); }
 
 /* ============ cartas ============ */
@@ -677,7 +678,7 @@ function edhPanel(cs) {
   return '<fieldset class="pn"><legend>Seu deck e a comunidade</legend>' +
     '<p class="hint">Comparação com as recomendações do <a href="' + esc(EDH.url) + '" target="_blank" rel="noopener noreferrer">' + esc(EDH.fonte) + (EDH.pagina ? ' para ' + esc(EDH.pagina) : '') + '</a>, consultadas em ' + esc(EDH.lido) + '. ' +
     on.length + ' das ' + cs.length + ' cartas únicas do seu deck aparecem lá.</p>' +
-    (tleg ? '<h3 class="sub">Como a comunidade monta o ' + esc(M.curto || 'comandante') + '</h3><div class="stack">' + themes + '</div><div class="legend">' + tleg + '</div>' : '') +
+    (tleg ? '<h3 class="sub">Como a comunidade monta ' + artigo() + ' ' + esc(M.curto || 'comandante') + '</h3><div class="stack">' + themes + '</div><div class="legend">' + tleg + '</div>' : '') +
     (tot ? '<h3 class="sub">Sinergia das ' + tot + ' cartas que não são terreno</h3><div class="stack">' +
       bon.map(function (b) { return '<i style="flex:' + nb[b.k] + ';background:' + b.c + '" title="' + b.n + ': ' + nb[b.k] + '"></i>'; }).join('') + '</div><div class="legend">' +
       bon.map(function (b) { return '<span><i style="background:' + b.c + '"></i>' + b.n + ' ' + nb[b.k] + '</span>'; }).join('') + '</div>' : '') +
@@ -924,7 +925,7 @@ function renderRadar() {
   var vo = { entra: 0, avaliar: 1, fora: 2 };
   var all = cands().map(E).sort(function (a, b) { return (vo[a.verdict] - vo[b.verdict]) || (TR[a.tier] - TR[b.tier]) || (pts(b) - pts(a)) || a.n.localeCompare(b.n); });
   var main = all.filter(function (c) { return c.verdict !== 'fora' || c.inDeck; }), no = all.filter(function (c) { return c.verdict === 'fora' && !c.inDeck; });
-  var h = '<p class="hint">Cartas fora do deck que valem acompanhar. Ao colocar uma no deck você escolhe quem sai, e todos os gráficos passam a refletir a troca. Quem você deixa de fora desce para a lista abaixo, com a nota e o motivo guardados. A pergunta de sempre: a carta é boa, ou é boa no ' + esc(M.curto || 'comandante') + '?</p>';
+  var h = '<p class="hint">Cartas fora do deck que valem acompanhar. Ao colocar uma no deck você escolhe quem sai, e todos os gráficos passam a refletir a troca. Quem você deixa de fora desce para a lista abaixo, com a nota e o motivo guardados. A pergunta de sempre: a carta é boa, ou é boa ' + (artigo() === 'a' ? 'na' : 'no') + ' ' + esc(M.curto || 'comandante') + '?</p>';
   h += '<div class="cands">' + main.map(candCard).join('') + '</div>';
   if (no.length) {
     h += '<fieldset class="pn"><legend>Avaliadas, ficam de fora</legend><ul class="fora">' + no.map(function (c) {

@@ -65,16 +65,16 @@ As seções até "Geral" vêm do Ritos de Sangue. As três últimas vêm da comp
 - [x] Marcadores próprios do deck, declarados nos dados e usados nos diagnósticos. No Coro: Anjo, ganho de vida, proteção, ataque. No Ritos: Vampiro, saída de sacrifício, dreno, prioridade de corte
 
 ## Só o Ritos tem, e a Giada ganha na migração
-Todas estas já estão no motor. A Giada ganha cada uma ao migrar; a conferência nela é da etapa 2.
-- [ ] Aba Galeria
-- [ ] Comparador de trocas, lado a lado
-- [ ] Histórico de trocas com data e motivo
-- [ ] Anotações de mesa por carta e a marca "tenho"
-- [ ] Veredito do radar editável dentro da gaveta, e "Reavaliar" na lista das que ficam de fora. A lista em si o Coro já tem
-- [ ] Página publicada com o estado salvo na conta. O Coro hoje só grava no navegador
+Conferido no painel migrado da Giada (`saidas/01. Giada.html`, revisão 3) em 07/10/2026, com os mesmos testes do Clavileño.
+- [x] Aba Galeria
+- [x] Comparador de trocas, lado a lado
+- [x] Histórico de trocas com data e motivo
+- [x] Anotações de mesa por carta e a marca "tenho"
+- [x] Veredito do radar editável dentro da gaveta, e "Reavaliar" na lista das que ficam de fora. A lista em si o Coro já tem
+- [x] Página publicada com o estado salvo na conta. O Coro hoje só grava no navegador
 
 ## Onde os dois fazem a mesma coisa de jeitos diferentes: o que vale
-- [ ] **Gráfico dos agrupamentos:** é uma peça do tema. Rosácea no Ritos, asas no Coro. O motor oferece o encaixe e um desenho padrão para deck sem tema próprio. *Encaixe, rosácea e padrão prontos, de 6 a 10 agrupamentos. As asas entram com a Giada, na etapa 2.*
+- [ ] **Gráfico dos agrupamentos:** é uma peça do tema. Rosácea no Ritos, asas no Coro. O motor oferece o encaixe e um desenho padrão para deck sem tema próprio. *Encaixe, rosácea e padrão prontos, de 6 a 10 agrupamentos. As asas não entraram na migração da Giada: são mudança de motor, a pedir pelo `/motor`. Até lá a Giada usa o desenho padrão.*
 - [x] **Cores e base de mana:** um painel só, que se adapta a deck de uma cor ou de várias
 - [x] **Comunidade:** um painel só, com os temas, a distribuição por faixa de sinergia e as listas de divergência entre o deck e a comunidade
 - [ ] **Imagens:** o carregamento sob demanda e a nova tentativa do Coro, com a cadeia de fontes e as fichas de texto do Ritos, mais o mapa embutido criado pelo `/imagens`. *Tudo pronto menos o mapa embutido, que nasce na etapa 3. O encaixe para ele já existe.*
@@ -99,6 +99,6 @@ Fixo, com os mesmos elementos em todo painel:
 Do tema, declarado nos dados do deck:
 - [x] Paleta, fontes e textura de fundo
 - [x] Moldura da capa: `larga` ou `retrato`. Larga mostra a arte inteira, em paisagem, com o gráfico logo abaixo, como no Coro. Retrato recorta a arte na vertical, dentro de uma moldura, com o gráfico ao lado, como o arco do Ritos. O padrão é `larga`, porque não corta a imagem que o dono escolheu; `retrato` só quando a arte tem uma figura central
-- [ ] Desenho do gráfico dos agrupamentos: rosácea, asas, ou o desenho padrão. *Rosácea e padrão prontos; asas na etapa 2.*
+- [ ] Desenho do gráfico dos agrupamentos: rosácea, asas, ou o desenho padrão. *Rosácea e padrão prontos; asas pendentes de `/motor`.*
 
-O Ritos de Sangue continua com retrato e rosácea. O Coro da Alvorada continua com capa larga e asas. Os dois passam a mostrar os mesmos elementos.
+O Ritos de Sangue continua com retrato e rosácea. O Coro da Alvorada continua com capa larga; as asas voltam quando o motor as tiver. Os dois passam a mostrar os mesmos elementos.

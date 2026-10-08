@@ -44,24 +44,35 @@ def variante(nome, mexer_av=None, mexer_tema=None, sem_capa=False):
     return caminho, len(av["agrupamentos"])
 
 
+def refs(leitura):
+    """Chaves de agrupamento que uma leitura cita, para não deixar uma leitura órfã nas variantes."""
+    return {leitura[k] for k in ("g", "a", "b") if leitura.get(k)}
+
+
 def seis(av):
-    fora = {g["k"] for g in av["agrupamentos"][3:5]}
+    # tira os dois últimos agrupamentos que nenhuma leitura cita por nome, para não precisar reescrever leituras
+    citados = set().union(*(refs(l) for l in av.get("leituras", []))) if av.get("leituras") else set()
+    livres = [g["k"] for g in av["agrupamentos"] if g["k"] not in citados]
+    fora = set(livres[-2:]) if len(livres) >= 2 else {g["k"] for g in av["agrupamentos"][-2:]}
     av["agrupamentos"] = [g for g in av["agrupamentos"] if g["k"] not in fora]
+    av["leituras"] = [l for l in av.get("leituras", []) if not (refs(l) & fora)]
     for bloco in ("cartas", "radar"):
         for c in av[bloco].values():
             c["notas"] = {k: v for k, v in c["notas"].items() if k not in fora}
 
 
 def dez(av):
+    livres = (k for k in ("xp1", "xp2", "xp3") if k not in {g["k"] for g in av["agrupamentos"]})
+    k1, k2 = next(livres), next(livres)
     av["agrupamentos"] += [
-        {"k": "protecao", "nome": "Proteção", "ab": "Prot.", "desc": "Indestrutível, resistência a magia e afins."},
-        {"k": "buff", "nome": "Buff", "ab": "Buff", "desc": "Lordes, marcadores e habilidades de combate para o time."},
+        {"k": k1, "nome": "Extra 1", "ab": "Ex1", "desc": "Agrupamento de teste, só para conferir o layout com dez."},
+        {"k": k2, "nome": "Extra 2", "ab": "Ex2", "desc": "Agrupamento de teste, só para conferir o layout com dez."},
     ]
     for i, c in enumerate(av["cartas"].values()):
         if i % 7 == 0:
-            c["notas"]["protecao"] = 1
+            c["notas"][k1] = 1
         if i % 5 == 0:
-            c["notas"]["buff"] = 2
+            c["notas"][k2] = 2
 
 
 def larga(te):

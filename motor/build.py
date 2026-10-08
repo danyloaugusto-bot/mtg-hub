@@ -103,7 +103,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
     painel = t.get("painel") or pasta
     meta = dict(
         pasta=pasta, painel=painel, rev=t.get("rev", 1), feito=d["feito"],
-        cmd=t.get("comandante_pt") or (cmd["n"] if cmd else ""), curto=curto,
+        cmd=t.get("comandante_pt") or (cmd["n"] if cmd else ""), curto=curto, artigo=t.get("artigo", "o"),
         lede=t.get("lede", ""), verbos=t.get("verbos") or [], eixo=t.get("eixo"),
         capa=dict(moldura=cap.get("moldura", "larga"), alt=cap.get("alt", ""), credito=cap.get("credito", "Arte da carta, © Wizards of the Coast"), tem=bool(art_css)),
         grafico=t.get("grafico", "padrao"), curva=t.get("curva", "ogiva"), chave_antiga=t.get("chave_antiga", ""),

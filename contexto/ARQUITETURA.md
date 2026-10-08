@@ -96,7 +96,7 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` para foil e `*CM
 ```json
 {
   "painel": "Ritos de Sangue", "rev": 3,
-  "comandante_pt": "Clavileño, Primeiro dos Abençoados", "comandante_curto": "Clavileño",
+  "comandante_pt": "Clavileño, Primeiro dos Abençoados", "comandante_curto": "Clavileño", "artigo": "o",
   "lede": "Tribal de Vampiros com sacrifício e recursão.", "verbos": ["atacar", "morrer", "voltar"],
   "eixo": {"rotulo": "Vampiros", "marcador": "tribo"},
   "capa": {"arquivo": "capa.png", "moldura": "retrato", "alt": "...", "credito": "...", "foco": "47% 0", "avatar": "48% 13%/430% auto"},
@@ -108,6 +108,7 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` para foil e `*CM
 }
 ```
 
+- `artigo`: `o` (padrão) ou `a`, para o comandante. Usado nos dois lugares em que o painel fala dele com artigo ("é boa no Clavileño" / "é boa na Giada", "como a comunidade monta o Clavileño" / "monta a Giada").
 - `moldura`: `larga` (padrão) mostra a arte inteira, com o gráfico abaixo; `retrato` recorta a arte num arco, com o gráfico ao lado. `foco` posiciona o recorte; `avatar`, o círculo da barra.
 - `grafico`: `rosacea` ou `padrao`. As `asas` do Coro chegam na etapa 2. `curva`: `ogiva` ou `barra`. `textura`: `vitral`, `padrao` ou `nenhuma`.
 - `paleta`: as dez chaves de base são `fundo`, `painel`, `acento`, `acento_claro`, `texto`, `suave`, `apagado`, `destaque`, `destaque_claro` e `vinho`. As finas (`fundo2`, `painel2`, `elevado`, `profundo`, `tinta`, `cabecalho`, `coluna`, `realce`, `total`, `botao`, `botao2`, `botao_hover`, `botao2_hover`, `folha`, `folha2`, `contorno`, `ok`, `alerta`, `ruim`) são derivadas quando faltam. Cores de tier, relevância, veredito e símbolos de mana são do motor, iguais em todo deck.
