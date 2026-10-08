@@ -635,3 +635,24 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .vs p{margin-top:4px;color:var(--mute);font-size:15px;line-height:1.38}
 .vs-forte{--vc:var(--ok)}.vs-equilibrado{--vc:var(--gold)}.vs-fraco{--vc:var(--bad)}
 @media (max-width:980px){.fases{grid-template-columns:minmax(0,1fr)}}
+
+/* ============ modo claro (tema.json "modo": "claro"): o que foi desenhado para fundo escuro ============ */
+.claro{color-scheme:light}
+.claro .inp,.claro select.inp,.claro .modal textarea,.claro .of textarea{background:var(--sheet);color:var(--bone)}
+.claro .pill,.claro .segw button,.claro .stp button,.claro .x{background:rgba(var(--gold-rgb),.08)}
+.claro .gr-t,.claro .bar-t{background:rgba(var(--gold-rgb),.13)}
+.claro .stack{border-color:rgba(var(--gold-rgb),.35)}
+.claro .btn{color:#fffaf0}
+.claro .btn.ghost{color:var(--gold2)}
+.claro .rb-ALT,.claro .vd-entra{background:rgba(46,138,111,.12);color:#1f6b55;box-shadow:inset 0 0 0 1px rgba(46,138,111,.55)}
+.claro .rb-MED,.claro .vd-avaliar{background:rgba(183,121,31,.12);color:#87570f;box-shadow:inset 0 0 0 1px rgba(183,121,31,.5)}
+.claro .rb-BAX,.claro .vd-fora{background:rgba(192,57,75,.1);color:#a3283b;box-shadow:inset 0 0 0 1px rgba(192,57,75,.5)}
+.claro .cand-a .st,.claro .cmp-lab.in{color:#1f6b55!important}
+.claro .cmp-lab.out{color:#a3283b!important}
+.claro .sc.v2{color:var(--bone)}
+.claro .s-na{background:rgba(var(--gold-rgb),.1)}
+.claro .s-lo{background:#c9cfe0;color:#1f2a44}
+.claro .drawer{box-shadow:-18px 0 50px rgba(60,40,10,.2)}
+.claro .gtile:hover,.claro .gtile:focus-visible{box-shadow:0 0 0 1px var(--gold),0 14px 30px rgba(60,40,10,.25)}
+.claro .tier[data-t="S"] b{color:#a8801f}.claro .tier[data-t="A"] b{color:#c22a3b}.claro .tier[data-t="B"] b{color:#a3386c}
+.claro .tier[data-t="C"] b{color:#6c4f91}.claro .tier[data-t="D"] b{color:#6f666a}

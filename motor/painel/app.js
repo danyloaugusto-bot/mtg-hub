@@ -357,6 +357,18 @@ function flamePath(r0, r1, a0, a1) {
     'C' + pol(r0 + h * 0.6, a1 + w * 0.02) + ' ' + pol(r0 + h * 0.34, a1 + w * 0.07) + ' ' + pol(r0, a1) +
     'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
 }
+function bannerPath(r0, r1, a0, a1) {
+  // estandarte com rabo de andorinha na ponta de fora
+  var am = (a0 + a1) / 2, cut = Math.min(20, (r1 - r0) * 0.3);
+  return 'M' + pol(r0, a0) + 'L' + pol(r1, a0) + 'L' + pol(r1 - cut, am) + 'L' + pol(r1, a1) + 'L' + pol(r0, a1) +
+    'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
+}
+function shieldPath(w, h) {
+  // escudo heráldico centrado no gráfico
+  var x = 230, y = 232;
+  return 'M' + (x - w) + ' ' + (y - h) + 'Q' + x + ' ' + (y - h - 8) + ' ' + (x + w) + ' ' + (y - h) + 'L' + (x + w) + ' ' + (y + h * 0.1) +
+    'Q' + (x + w) + ' ' + (y + h * 0.72) + ' ' + x + ' ' + (y + h) + 'Q' + (x - w) + ' ' + (y + h * 0.72) + ' ' + (x - w) + ' ' + (y + h * 0.1) + 'Z';
+}
 function starBurst(n, rOut, rIn, rot) {
   // estrela de impacto dos jogos de luta, atrás do placar central
   var d = '';
@@ -376,7 +388,7 @@ function gLabel(i, am, R, v) {
     '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.08em">' + v + '</tspan></text>';
 }
 function chartSvg(st) {
-  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios ? 2.4 : 1.2;
+  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band ? 2.4 : 1.2;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
   var o = '<svg viewBox="-58 -2 576 464" role="group" aria-label="' + (rosa && !chamas ? 'Rosácea' : 'Gráfico') + ' dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>';
   for (i = 0; i < NG; i++) {
@@ -384,7 +396,10 @@ function chartSvg(st) {
       '<stop offset=".3" style="stop-color:rgba(var(--g' + i + '),.5)"/><stop offset="1" style="stop-color:rgb(var(--g' + i + '))"/></radialGradient>';
   }
   o += '</defs>';
-  if (chamas) {
+  if (band) {
+    o += '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--gold-rgb),.07);stroke:var(--gold)" stroke-width="1.4"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 14) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.55)" stroke-width="1" stroke-dasharray="6 4"/>';
+  } else if (chamas) {
     o += '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--deep-rgb),.55);stroke:rgba(var(--blood2-rgb),.6)" stroke-width="1.2"/>' +
       '<circle cx="230" cy="230" r="' + (R + 14) + '" style="fill:none;stroke:var(--gold)" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.1 7" opacity=".7"/>';
   } else if (rosa) {
@@ -401,7 +416,7 @@ function chartSvg(st) {
   for (i = 0; i < NG; i++) {
     var a0 = -90 + i * step + gap, a1 = -90 + (i + 1) * step - gap, am = (a0 + a1) / 2;
     var v = st.grp[i].pts, fr = Math.max(0.12, Math.sqrt(Math.max(v, 0) / max)), r1 = r0 + (R - r0) * fr;
-    var shape = fios ? shardPath : chamas ? flamePath : rosa ? petalPath : wedgePath;
+    var shape = fios ? shardPath : chamas ? flamePath : band ? bannerPath : rosa ? petalPath : wedgePath;
     if (fios) o += '<line x1="' + pol(r0 - 7, am).replace(' ', '" y1="') + '" x2="' + pol(R + 14, am).replace(' ', '" y2="') + '" style="stroke:rgba(var(--blood2-rgb),.3)" stroke-width=".7" stroke-dasharray="1 4"/>';
     o += '<g class="' + (rosa ? 'petal' : 'wedge') + '" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
       '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
@@ -411,8 +426,10 @@ function chartSvg(st) {
   }
   if (chamas) o += '<path d="' + starBurst(12, r0 + 16, r0 - 4, -90) + '" style="fill:rgba(var(--blood2-rgb),.55);stroke:var(--gold2)" stroke-width="1.2" stroke-linejoin="round"/>' +
     '<path d="' + starBurst(12, r0 + 6, r0 - 6, -75) + '" style="fill:rgba(var(--gold2-rgb),.35)"/>';
-  o += '<circle cx="230" cy="230" r="' + (r0 - 7) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>' +
-    (rosa && !chamas ? '<circle cx="230" cy="230" r="' + (r0 - 12) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' : '') +
+  if (band) o += '<path d="' + shieldPath(50, 56) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="2"/>' +
+    '<path d="' + shieldPath(42, 48) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.5)" stroke-width="1"/>';
+  else o += '<circle cx="230" cy="230" r="' + (r0 - 7) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>';
+  o += (rosa && !chamas ? '<circle cx="230" cy="230" r="' + (r0 - 12) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' : '') +
     (fios ? xMark(0, r0 - 16, 2.4, .28) : '') +
     '<text class="ctr-n" x="230" y="243" text-anchor="middle">' + st.total + '</text>' +
     '<text class="ctr-l" x="230" y="260" text-anchor="middle">pontos</text></svg>';
@@ -536,7 +553,7 @@ function heroHtml(st, cmd) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : 'fatia';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : 'fatia';
   var chart = '<figure class="rosa">' + chartSvg(st) + '<figcaption>Cada ' + peca +
     ' é um agrupamento e sua área é a soma das notas. Toque numa ' + peca + ' para abrir no tabelão.</figcaption></figure>';
   var fx = cmd && cmd.fx ? '<p class="hero-fx">' + rich(cmd.fx) + '</p>' : '';
@@ -1112,7 +1129,7 @@ function renderDrawer() {
     return '<button data-act="set-rel" data-v="' + r.k + '" data-fid="sr' + r.k + '" aria-pressed="' + (c.rel === r.k) + '">' + r.l + '<small>' + r.n + '</small></button>';
   }).join('') + '</div>';
   h += '<h3>Notas por agrupamento</h3><div class="steps">' + steps + '</div>';
-  h += '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="pet" data-fid="pet"' + (c.pet ? ' checked' : '') + '> <span class="pet">♥</span> PetCard: soma 1 ponto' + (IPET >= 0 ? ' em ' + esc(G[IPET].sh || G[IPET].k) : '') + ' e fica fora da fila de corte</label></div>' +
+  h += '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="pet" data-fid="pet"' + (c.pet ? ' checked' : '') + '> <span class="pet">♥</span> PetCard: ' + (IPET >= 0 ? 'soma 1 ponto em ' + esc(G[IPET].sh || G[IPET].k) + ' e fica' : 'fica') + ' fora da fila de corte</label></div>' +
     (c.cand ? '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="tem" data-fid="tem"' + (c.tem ? ' checked' : '') + '> Tenho esta carta</label></div>' : '') +
     '<div class="dw-row"><label class="fld">Valor em R$ <input class="inp num" type="number" min="0" step="0.01" inputmode="decimal" data-act="val" data-fid="val" value="' + (c.val == null ? '' : c.val) + '" placeholder="0,00"></label>' +
     '<a href="' + esc(liga) + '" target="_blank" rel="noopener noreferrer">Ver preço na LigaMagic</a></div>';

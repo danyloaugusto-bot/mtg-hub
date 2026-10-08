@@ -52,6 +52,10 @@ def ler_json(caminho, obrigatorio=True):
 LINHA = re.compile(r"^(\d+)\s+(.+?)(?:\s+\(([A-Za-z0-9]+)\)\s+(\S+))?((?:\s+(?:\*[A-Za-z]+\*|F|E|CMDR))*)\s*$")
 
 
+# cabeçalhos de seção das exportações de aplicativo ("COMMANDER", "Deck", "Sideboard:")
+CABECALHO = re.compile(r"^(commander|commanders|deck|main ?deck|sideboard|maybeboard|companion)\s*:?$", re.I)
+
+
 def ler_decklist(caminho):
     if not os.path.exists(caminho):
         raise ErroDeck("falta decklist.txt")
@@ -59,7 +63,7 @@ def ler_decklist(caminho):
     with open(caminho, encoding="utf-8-sig") as f:
         for n, linha in enumerate(f, 1):
             linha = linha.strip()
-            if not linha or linha.startswith("#") or linha.startswith("//"):
+            if not linha or linha.startswith("#") or linha.startswith("//") or CABECALHO.match(linha):
                 continue
             m = LINHA.match(linha)
             if not m:

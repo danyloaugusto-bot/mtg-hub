@@ -98,6 +98,16 @@ def textura(nome, p):
         return ("radial-gradient(1000px 540px at 30%% -10%%, rgba(%d,%d,%d,.32), transparent 62%%),"
                 "radial-gradient(640px 400px at 96%% 6%%, rgba(%d,%d,%d,.42), transparent 70%%),"
                 'url("%s"),%s') % (a + w + (svg, grad))
+    if nome == "brasao":
+        # quadrifólios dourados em quincôncio, como o bordado de um tabardo, e luz de vitral vinda do alto
+        q = quote(p["acento"])
+        flor = ("%3Cg fill='" + q + "' fill-opacity='.09'%3E%3Ccircle cx='0' cy='-4' r='3.2'/%3E%3Ccircle cx='0' cy='4' r='3.2'/%3E"
+                "%3Ccircle cx='-4' cy='0' r='3.2'/%3E%3Ccircle cx='4' cy='0' r='3.2'/%3E%3C/g%3E")
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E"
+               "%3Cg transform='translate(18 18)'%3E" + flor + "%3C/g%3E%3Cg transform='translate(54 54)'%3E" + flor + "%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(1100px 560px at 50%% -12%%, rgba(%d,%d,%d,.20), transparent 64%%),"
+                "radial-gradient(700px 420px at 92%% 4%%, rgba(%d,%d,%d,.16), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

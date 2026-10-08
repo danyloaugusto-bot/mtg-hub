@@ -1,0 +1,1401 @@
+{
+ "feito": "08/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana além do terreno do turno, ou redução de custo. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra, busca ou devolve cartas."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Tira permanente da mesa, pontual ou em massa."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Mantém o Greymond ou a mesa vivos: indestrutível, fase, hexproof, proteção de cor."
+  },
+  {
+   "k": "tax",
+   "nome": "Tax",
+   "ab": "Tax",
+   "desc": "Cobra dos oponentes por atacar, conjurar ou agir."
+  },
+  {
+   "k": "buff",
+   "nome": "Buff",
+   "ab": "Buff",
+   "desc": "Aumenta poder ou dá habilidade de combate."
+  },
+  {
+   "k": "token",
+   "nome": "Token",
+   "ab": "Tok.",
+   "desc": "Cria ficha de criatura, de qualquer tipo."
+  },
+  {
+   "k": "sinergia",
+   "nome": "Sinergia",
+   "ab": "Sin.",
+   "desc": "É Humano, cria Humano ou recompensa ter Humanos. Corpo Humano sem mais nada vale 1."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Humano",
+   "plural": "Humanos",
+   "subtipo": "Human"
+  },
+  "ficha_humana": {
+   "nome": "Cria ficha Humana"
+  },
+  "ficha_outra": {
+   "nome": "Cria ficha que não é Humana"
+  },
+  "anti": {
+   "nome": "Para de funcionar com o +2/+2 do Greymond"
+  },
+  "alcance": {
+   "nome": "Faz a mesa passar ou fechar o jogo"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de ramp dedicada",
+    "cartas de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem",
+   "alerta": "Só Sol Ring e Pearl Medallion descem antes do turno 3."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 5,
+   "massa_ref": [
+    3,
+    5
+   ],
+   "alerta": "Num deck que ganha enchendo a mesa, sete limpezas são demais: só Teferi's Protection salva também os artefatos e encantamentos."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "protecao",
+   "rotulo": [
+    "peça de proteção",
+    "peças de proteção"
+   ],
+   "passagem": "de passagem"
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 75,
+   "texto": "o Greymond pede quatro Humanos para o +2/+2, e as habilidades dele só valem para Humanos."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "ficha_humana",
+   "min": 8,
+   "listar": true,
+   "rotulo": [
+    "carta cria ficha Humana",
+    "cartas criam ficha Humana"
+   ],
+   "ok": "As fichas chegam com o +2/+2 e as duas habilidades do Greymond.",
+   "alerta": "Faltam fontes de ficha Humana."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "ficha_outra",
+   "max": 3,
+   "listar": true,
+   "rotulo": [
+    "carta cria ficha que não é Humana",
+    "cartas criam ficha que não é Humana"
+   ],
+   "alerta": "Essas fichas não recebem nada do Greymond.",
+   "ok": "Poucas fichas fora da tribo."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "anti",
+   "max": 0,
+   "listar": true,
+   "rotulo": [
+    "carta perde força com o +2/+2",
+    "cartas perdem força com o +2/+2"
+   ],
+   "alerta": "Com quatro Humanos, as fichas entram 3/3: não morrem com a Skullclamp, não disparam a Enduring Innocence e morrem com Dusk.",
+   "ok": "Nada brigando com o comandante."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "alcance",
+   "min": 5,
+   "listar": true,
+   "rotulo": [
+    "carta faz a mesa passar ou fechar",
+    "cartas fazem a mesa passar ou fechar"
+   ],
+   "alerta": "Pouca evasão: uma mesa larga para numa mesa larga.",
+   "ok": "A mesa tem como passar."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Humano de 1 ou 2 manas por turno e uma pedra: Esper Sentinel ou Mother of Runes no 1, Sol Ring ou Pearl Medallion no 2. Chegar ao turno 4 com três Humanos na mesa.",
+   "fortes": [
+    "Dez Humanos custam 2 ou menos.",
+    "Pearl Medallion e Oketra's Monument barateiam quase tudo."
+   ],
+   "fracos": [
+    "Sete ramps, e só Sol Ring e Pearl Medallion descem antes do turno 3.",
+    "O Greymond não compra nem cria ficha: sem Humanos na mesa ele é um 3/4."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 7",
+   "plano": "O Greymond entra com vigilância e vínculo e liga o +2/+2. Uma fonte de ficha Humana por turno: Horn of Gondor, Lossarnach Captain, Thraben Doomsayer, Cemetery Protector. Segurar uma proteção para a limpeza da mesa.",
+   "fortes": [
+    "Dez cartas criam Humanos, e eles chegam 3/3 com vigilância e vínculo.",
+    "Proteção em massa de sobra: o Flawless Maneuver sai de graça, e Selfless Spirit e Spectacular Spider-Man se sacrificam na hora."
+   ],
+   "fracos": [
+    "Com o Greymond ativo, Skullclamp e Enduring Innocence param de comprar.",
+    "Quase sem evasão: dez 3/3 param numa mesa com dez bloqueadores."
+   ]
+  },
+  "fim": {
+   "turnos": "8 em diante",
+   "plano": "Ataque largo com a mesa protegida. Mirror Entity, True Conviction ou Paladin Class no nível 3 transformam a mesa em dano letal em um ou dois ataques.",
+   "fortes": [
+    "A Mirror Entity soma o +2/+2 do Greymond por cima do X.",
+    "Teferi's Protection em resposta à sua Hour of Revelation zera só os oponentes."
+   ],
+   "fracos": [
+    "Se o Greymond sai duas vezes, o recast custa 8 e a mesa volta a ser de 1/1.",
+    "Sete limpezas de mesa, quase todas contra o próprio time."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "forte",
+    "porque": "Mesa larga com vigilância e vínculo, mais Ghostly Prison e Baird: o aggro bate num muro que ganha vida."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Bounty Agent, Get Lost e Stroke of Midnight tiram o comandante, e Masako e a vigilância deixam bloqueadores sobrando."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "Voice of Victory fecha o seu turno, e Esper Sentinel e Trouble in Pairs taxam, mas não há contramágica."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "Sete proteções em massa seguram a limpeza, mas o deck depende de mesa e compra pouco depois de perdê-la."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Taxa de ataque e de conjurar trava um deck que precisa baixar muita coisa barata e atacar largo."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "As fichas deles bloqueiam a mesa, e o deck tem pouca evasão; o vínculo segura os drenos."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "forte",
+    "porque": "Esper Sentinel, Smothering Tithe, Trouble in Pairs e Paladin Class cobram de quem conjura muito, e Voice of Victory fecha o seu turno."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "Land Tax, Weathered Wayfarer e Verge Rangers rendem contra quem tem mais terrenos, e a mesa larga chega antes."
+   }
+  ]
+ },
+ "cartas": {
+  "Greymond, Avacyn's Stalwart": {
+   "notas": {
+    "buff": 3,
+    "sinergia": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "3/4. Ao entrar, escolhe duas entre first strike, vigilância e vínculo com a vida, e os seus Humanos ganham as duas. Com quatro ou mais Humanos, os seus Humanos ganham +2/+2.",
+   "porque": "É o deck. O dono escolhe vigilância e vínculo com a vida: a mesa ataca sem abrir a guarda e ganha a corrida. Não compra, não gera mana nem ficha: multiplica o que já é Humano."
+  },
+  "Baird, Steward of Argive": {
+   "notas": {
+    "protecao": 1,
+    "tax": 2,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "2/4 vigilância. Atacar você custa 1 por criatura.",
+   "porque": "Defesa enquanto você ataca, que a vigilância do Greymond já entrega. Corpo Humano de 4 manas."
+  },
+  "Bounty Agent": {
+   "notas": {
+    "removal": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "2/2 vigilância. Vira e sacrifica: destrói artefato, criatura ou encantamento lendário.",
+   "porque": "Remoção de comandante em corpo Humano de 2."
+  },
+  "Cathar Commando": {
+   "notas": {
+    "removal": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "3/1 com lampejo. 1 e sacrifica: destrói artefato ou encantamento.",
+   "porque": "Resposta em corpo Humano, e volta com Court of Ardenvale."
+  },
+  "Cemetery Protector": {
+   "notas": {
+    "removal": 1,
+    "token": 3,
+    "sinergia": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/4 com lampejo. Exila uma carta de um cemitério; cada terreno ou mágica sua do mesmo tipo cria um Humano 1/1.",
+   "porque": "Exilando um terreno, cada terreno do turno vira um Humano. Motor de ficha que não custa mana.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Enduring Innocence": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "2/1 vínculo. Compra 1, uma vez por turno, quando outra criatura sua de poder 2 ou menos entra. Volta como encantamento ao morrer.",
+   "porque": "Não é Humano, e para de comprar com o Greymond ativo: o poder é checado na entrada, e a ficha entra 3/3.",
+   "marcas": {
+    "anti": 1
+   },
+   "prioridade": 6
+  },
+  "Esper Sentinel": {
+   "notas": {
+    "draw": 2,
+    "tax": 2,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "1/1. A primeira mágica não criatura de cada oponente por turno custa X a mais ou você compra, X sendo o poder dele.",
+   "porque": "Com o Greymond vira 3/3 e a taxa sobe para 3. Um dos poucos casos em que o bônus melhora a compra."
+  },
+  "Giant Killer": {
+   "notas": {
+    "removal": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "1/2. 1W e vira: vira uma criatura. Aventura: destrói criatura de poder 4 ou mais.",
+   "porque": "Tira bloqueador todo turno ou remove ameaça. Duas funções num Humano de 1.",
+   "marcas": {
+    "alcance": 1
+   }
+  },
+  "Hopeful Initiate": {
+   "notas": {
+    "removal": 2,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "1/2 com training. 2W e remove dois marcadores +1/+1 de criaturas suas: destrói artefato ou encantamento.",
+   "porque": "Depende de marcadores, que só Mikaeus, Mimic e Virtue of Loyalty fornecem."
+  },
+  "Loran of the Third Path": {
+   "notas": {
+    "draw": 1,
+    "removal": 2,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "2/1 vigilância. Ao entrar destrói artefato ou encantamento. Vira: você e um oponente compram.",
+   "porque": "Remoção, compra política e corpo Humano. Volta com Court of Ardenvale."
+  },
+  "Lossarnach Captain": {
+   "notas": {
+    "tax": 1,
+    "sinergia": 3,
+    "token": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/1 first strike. Na sua manutenção, cria um Humano Soldier 1/1. Sempre que ele ou outro Humano seu entra, vira uma criatura de um oponente.",
+   "porque": "Um Humano por turno sem gastar mana, e cada Humano que entra tira um bloqueador. Com Increasing Devotion, cinco bloqueadores virados.",
+   "marcas": {
+    "ficha_humana": 1,
+    "alcance": 1
+   }
+  },
+  "Magus of the Disk": {
+   "notas": {
+    "removal": 3,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Entra virado. 1 e vira: destrói todos os artefatos, criaturas e encantamentos.",
+   "porque": "Destrói a sua mesa, que é o seu plano, mais pedras e encantamentos.",
+   "massa": true,
+   "prioridade": 4
+  },
+  "Masako the Humorless": {
+   "notas": {
+    "protecao": 2,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Lampejo. Suas criaturas viradas bloqueiam como se estivessem desviradas.",
+   "porque": "Faz o que a vigilância do Greymond já faz: com ela escolhida, os Humanos atacam e continuam podendo bloquear.",
+   "prioridade": 3
+  },
+  "Metallic Mimic": {
+   "notas": {
+    "buff": 2,
+    "sinergia": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Escolhe um tipo e é desse tipo. Criaturas desse tipo entram com um marcador +1/+1.",
+   "porque": "Cada ficha de Humano entra maior, e o bônus sobrevive à saída do Greymond."
+  },
+  "Michiko Konda, Truth Seeker": {
+   "notas": {
+    "protecao": 1,
+    "tax": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "2/2. Quando uma fonte de um oponente causa dano a você, ele sacrifica uma permanente.",
+   "porque": "Dissuasão de verdade, e o único efeito político da lista."
+  },
+  "Mikaeus, the Lunarch": {
+   "notas": {
+    "buff": 3,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Entra com X marcadores. Vira: põe um nele. Vira e remove um: põe um em cada outra criatura sua.",
+   "porque": "Buff permanente em todas, Humano ou não, que não depende do Greymond."
+  },
+  "Mirror Entity": {
+   "notas": {
+    "buff": 3,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Changeling. X: suas criaturas viram X/X e ganham todos os tipos até o fim do turno.",
+   "porque": "Finalizador. Transforma Warrior, Pégaso e Besta em Humano, e o +2/+2 do Greymond soma por cima do X.",
+   "marcas": {
+    "alcance": 1
+   }
+  },
+  "Mother of Runes": {
+   "notas": {
+    "protecao": 3,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Vira: uma criatura sua ganha proteção contra uma cor.",
+   "porque": "Protege o Greymond todo turno por 1 mana, e ainda é Humano."
+  },
+  "Recruiter of the Guard": {
+   "notas": {
+    "draw": 2,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Ao entrar, busca criatura de resistência 2 ou menos.",
+   "porque": "Busca Mother, Esper Sentinel, Thalia, Selfless Spirit, Spider-Man, Loran ou Mikaeus conforme a mesa."
+  },
+  "Selfless Spirit": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "2/1 voar. Sacrifica: suas criaturas ganham indestrutível.",
+   "porque": "Não é Humano, mas é a resposta de 2 manas a uma limpeza."
+  },
+  "Spectacular Spider-Man": {
+   "notas": {
+    "protecao": 3,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/2 com lampejo. Paga para voar; paga e sacrifica: suas criaturas ganham hexproof e indestrutível.",
+   "porque": "Selfless Spirit com lampejo, com hexproof, e Humano."
+  },
+  "Thalia, Heretic Cathar": {
+   "notas": {
+    "tax": 3,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "3/2 first strike. Criaturas e terrenos não básicos dos oponentes entram virados.",
+   "porque": "Tira ímpeto e bloqueador surpresa. Tax que ajuda o ataque em vez de só defender."
+  },
+  "The Wandering Rescuer": {
+   "notas": {
+    "protecao": 2,
+    "buff": 1,
+    "sinergia": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "3/4 lampejo, convoke, golpe duplo. Suas outras criaturas viradas têm hexproof.",
+   "porque": "As fichas pagam o convoke. Com a vigilância do Greymond os Humanos atacam sem virar, então o hexproof só pega as criaturas viradas para o convoke e as que não são Humanas."
+  },
+  "Thraben Doomsayer": {
+   "notas": {
+    "buff": 1,
+    "token": 3,
+    "sinergia": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vira: cria um Humano 1/1. Com 5 de vida ou menos, +2/+2 nas outras.",
+   "porque": "Um Humano por turno, sem custo.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Toby, Beastie Befriender": {
+   "notas": {
+    "buff": 1,
+    "token": 2,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "1/1. Cria uma Besta 4/4 que não ataca nem bloqueia sozinha. Com quatro fichas de criatura, suas fichas voam.",
+   "porque": "A Besta não é Humano. O voo para fichas é o que vale: é evasão em massa, que o deck quase não tem.",
+   "marcas": {
+    "ficha_outra": 1,
+    "alcance": 1
+   }
+  },
+  "Verge Rangers": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "3/3 first strike. Se um oponente tem mais terrenos, joga terreno do topo.",
+   "porque": "Meia compra condicional num corpo Humano."
+  },
+  "Voice of Victory": {
+   "notas": {
+    "protecao": 2,
+    "tax": 2,
+    "token": 1,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "1/3. Mobilize 2: ao atacar cria dois Warriors 1/1 atacando, sacrificados no fim. Oponentes não conjuram no seu turno.",
+   "porque": "Fecha a janela de truque e de neblina no seu turno. Os Warriors não são Humanos.",
+   "marcas": {
+    "ficha_outra": 1
+   }
+  },
+  "Weathered Wayfarer": {
+   "notas": {
+    "ramp": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "W e vira: busca um terreno se um oponente tem mais terrenos.",
+   "porque": "Busca Nykthos ou Castle Ardenvale. Em mono-white você quase sempre está atrás em terreno."
+  },
+  "Windborn Muse": {
+   "notas": {
+    "protecao": 1,
+    "tax": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "2/3 voar. Atacar você custa 2 por criatura.",
+   "porque": "Terceira cópia do mesmo efeito defensivo, por 4, e não é Humano.",
+   "prioridade": 5
+  },
+  "Witch Enchanter": {
+   "notas": {
+    "removal": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "2/2. Ao entrar destrói artefato ou encantamento de um oponente. Verso: terreno.",
+   "porque": "É um terreno com opção, e a opção é Humano. Conta como fonte."
+  },
+  "Caduceus, Staff of Hermes": {
+   "notas": {
+    "protecao": 3,
+    "buff": 2,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vínculo com a vida. Com 30 de vida ou mais, +5/+5, indestrutível e previne todo dano à criatura. Equipar WW.",
+   "porque": "O Commander começa com 40 de vida e o vínculo do Greymond a mantém acima de 30: Greymond 8/9, indestrutível e sem levar dano. Não protege de exílio."
+  },
+  "Commander's Plate": {
+   "notas": {
+    "protecao": 3,
+    "buff": 2,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "+3/+3 e proteção contra as cores fora da identidade. Equipar comandante 3.",
+   "porque": "Em mono-white são quatro cores de proteção no Greymond."
+  },
+  "Horn of Gondor": {
+   "notas": {
+    "token": 3,
+    "sinergia": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Ao entrar, cria um Humano Soldier 1/1. {3} e virar: cria um Humano Soldier 1/1 para cada Humano que você controla.",
+   "porque": "O motor de ficha mais forte da lista: cada ativação dobra os Humanos. Ao entrar cria só um, então não liga o Greymond sozinho.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Horn of the Mark": {
+   "notas": {
+    "draw": 2,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Quando duas ou mais criaturas suas atacam um jogador, olha as cinco do topo e pega uma criatura.",
+   "porque": "Com 30 criaturas, acerta quase sempre. Compra que cresce com o plano de atacar."
+  },
+  "Nyx Lotus": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Entra virada. Gera mana igual à devoção a uma cor.",
+   "porque": "Em mono-white rende, mas custa 4 e entra virada, na mesma faixa do comandante."
+  },
+  "Oketra's Monument": {
+   "notas": {
+    "ramp": 2,
+    "token": 2,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Criaturas brancas custam 1 a menos. Cada mágica de criatura cria um Warrior 1/1 com vigilância.",
+   "porque": "Desconto em 28 criaturas e um corpo por mágica. O Warrior não é Humano.",
+   "marcas": {
+    "ficha_outra": 1
+   }
+  },
+  "Pearl Medallion": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Mágicas brancas custam 1 a menos.",
+   "porque": "Desconto em quase tudo."
+  },
+  "Skullclamp": {
+   "notas": {
+    "draw": 3,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "+1/-1; compra 2 quando a criatura equipada morre. Equipar 1.",
+   "porque": "A melhor compra de deck de ficha, até o Greymond ligar: a ficha vira 4/2 e não morre. Rende antes do comandante ou em Warrior.",
+   "marcas": {
+    "anti": 1
+   }
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Gera 2 incolores.",
+   "porque": "Infraestrutura."
+  },
+  "Vanquisher's Banner": {
+   "notas": {
+    "draw": 2,
+    "buff": 2,
+    "sinergia": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Tipo escolhido ganha +1/+1. Conjurar criatura do tipo compra 1.",
+   "porque": "26 mágicas de Humano compram. Ficha não conta, e custa 5."
+  },
+  "Court of Ardenvale": {
+   "notas": {
+    "draw": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Vira monarca. Na manutenção devolve permanente de custo 3 ou menos do cemitério; se monarca, direto em jogo.",
+   "porque": "A maioria dos Humanos custa 3 ou menos. Mesa larga segura a coroa."
+  },
+  "Crackdown": {
+   "notas": {
+    "tax": 3,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Criaturas não brancas de poder 3 ou mais não desviram.",
+   "porque": "Trava de um lado só em mono-white. Atrai a mesa inteira contra você."
+  },
+  "Duelist's Heritage": {
+   "notas": {
+    "buff": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Quando criaturas atacam, uma atacante ganha golpe duplo.",
+   "porque": "Melhora uma criatura num deck que ataca com dez.",
+   "prioridade": 9
+  },
+  "Ghostly Prison": {
+   "notas": {
+    "protecao": 1,
+    "tax": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Atacar você custa 2 por criatura.",
+   "porque": "A melhor das quatro taxas defensivas. Uma basta."
+  },
+  "Land Tax": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Na manutenção, se um oponente tem mais terrenos, busca até três básicos.",
+   "porque": "Garante terreno e alimenta Cemetery Protector."
+  },
+  "Paladin Class": {
+   "notas": {
+    "tax": 1,
+    "buff": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Mágicas dos oponentes custam 1 a mais no seu turno. Nível 2: +1/+1. Nível 3: atacante ganha golpe duplo e +1/+1 por outro atacante.",
+   "porque": "Buff que não depende do Greymond, por 1 mana.",
+   "marcas": {
+    "alcance": 1
+   }
+  },
+  "Smothering Tithe": {
+   "notas": {
+    "ramp": 3,
+    "tax": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Quando um oponente compra, paga 2 ou você cria um Treasure.",
+   "porque": "O melhor ramp do branco."
+  },
+  "Trouble in Pairs": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Compra quando um oponente ataca com duas ou mais, compra a segunda carta ou conjura a segunda mágica do turno.",
+   "porque": "Compra passiva que não depende da sua mesa."
+  },
+  "True Conviction": {
+   "notas": {
+    "buff": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Suas criaturas têm golpe duplo e vínculo com a vida.",
+   "porque": "Fecha jogo, mas custa 3WWW e o vínculo repete o Greymond.",
+   "marcas": {
+    "alcance": 1
+   },
+   "prioridade": 10
+  },
+  "Virtue of Loyalty": {
+   "notas": {
+    "buff": 3,
+    "token": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "No seu fim de turno, marcador +1/+1 em cada criatura e desvira. Aventura: cria um Knight 2/2.",
+   "porque": "Buff permanente. O desvirar repete a vigilância, e o Knight não é Humano.",
+   "marcas": {
+    "ficha_outra": 1
+   }
+  },
+  "Wedding Announcement": {
+   "notas": {
+    "draw": 1,
+    "buff": 2,
+    "token": 2,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Três fins de turno: cria Humano ou compra. Depois vira +1/+1 para todas.",
+   "porque": "Ficha, carta e buff em 3 manas.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Call the Coppercoats": {
+   "notas": {
+    "token": 3,
+    "sinergia": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Cria um Humano por criatura dos oponentes alvo. Strive.",
+   "porque": "No fim do turno do oponente, liga o Greymond e ataca no seu.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Final Showdown": {
+   "notas": {
+    "removal": 3,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Spree: tira habilidades de todas; dá indestrutível a uma sua; destrói todas.",
+   "porque": "Limpeza instantânea que poupa o Greymond.",
+   "massa": true,
+   "pontual": true
+  },
+  "Flawless Maneuver": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Suas criaturas ganham indestrutível. De graça com o comandante.",
+   "porque": "Proteção sem custo com o Greymond na mesa. Em resposta à sua Vanquish the Horde ou Austere Command, a limpeza só pega os oponentes."
+  },
+  "Get Lost": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Destrói criatura, encantamento ou planeswalker.",
+   "porque": "Melhor remoção pontual da lista."
+  },
+  "Kabira Takedown": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dano igual ao número de criaturas suas. Verso: terreno.",
+   "porque": "Terreno com opção, e a opção escala com o deck. Conta como fonte."
+  },
+  "Razorgrass Ambush": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "3 de dano em atacante ou bloqueador. Verso: terreno.",
+   "porque": "Terreno com opção. Conta como fonte."
+  },
+  "Stroke of Midnight": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Destrói permanente não terreno; o dono ganha um Humano 1/1.",
+   "porque": "Resposta universal."
+  },
+  "Teferi's Protection": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Você e suas permanentes saem de fase até o seu próximo turno.",
+   "porque": "Salva a mesa de qualquer coisa. Em resposta à sua própria Hour of Revelation ou Ondu Inversion, só os oponentes perdem a mesa."
+  },
+  "Your Temple Is Under Attack": {
+   "notas": {
+    "draw": 2,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Escolhe: suas criaturas ganham indestrutível, ou você e um oponente compram duas.",
+   "porque": "Nunca é carta morta."
+  },
+  "Austere Command": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Escolhe dois: artefatos, encantamentos, criaturas de custo 3 ou menos, criaturas de custo 4 ou mais.",
+   "porque": "Dá para poupar os seus Humanos baratos, mas ficha tem custo 0 e o Greymond custa 4: sempre perde um dos dois.",
+   "massa": true
+  },
+  "Dusk // Dawn": {
+   "notas": {
+    "draw": 1,
+    "removal": 3
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Dusk destrói poder 3 ou mais. Dawn devolve criaturas de poder 2 ou menos do cemitério.",
+   "porque": "Com o Greymond ativo, as suas fichas têm poder 3 e morrem. Sem ele, é limpeza de um lado só, e Dawn devolve do cemitério os Humanos de poder 2 ou menos.",
+   "marcas": {
+    "anti": 1
+   },
+   "massa": true,
+   "prioridade": 8
+  },
+  "Hour of Revelation": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Destrói todas as permanentes não terreno.",
+   "porque": "Zera você junto, a menos que você responda com Teferi's Protection, a única proteção que salva também artefatos e encantamentos. Custa 3 com dez permanentes na mesa.",
+   "massa": true,
+   "prioridade": 2
+  },
+  "Increasing Devotion": {
+   "notas": {
+    "token": 3,
+    "sinergia": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Cinco Humanos. Flashback: dez.",
+   "porque": "Liga o Greymond numa carta e repete no fim do jogo.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Ondu Inversion": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Destrói todas as permanentes não terreno. Verso: terreno.",
+   "porque": "Terreno com opção de emergência. Conta como fonte.",
+   "massa": true
+  },
+  "Storm Herd": {
+   "notas": {
+    "token": 3
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Cria um Pégaso 1/1 voador por ponto de vida.",
+   "porque": "Dez manas num deck de 7 ramps, e Pégaso não é Humano.",
+   "marcas": {
+    "ficha_outra": 1
+   },
+   "prioridade": 1
+  },
+  "Sunset Revelry": {
+   "notas": {
+    "draw": 1,
+    "token": 1,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Vida, dois Humanos ou carta, conforme você esteja atrás em cada um.",
+   "porque": "O deck quer estar à frente em criaturas, e aí a melhor parte não acontece.",
+   "marcas": {
+    "ficha_humana": 1
+   },
+   "prioridade": 7
+  },
+  "Vanquish the Horde": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Destrói todas as criaturas. Custa 1 a menos por criatura em jogo.",
+   "porque": "Limpeza de 2 manas na prática, para quando você está atrás.",
+   "massa": true
+  },
+  "Visions of Glory": {
+   "notas": {
+    "token": 3,
+    "sinergia": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Cria um Humano por criatura sua. O flashback custa menos pelo custo do comandante.",
+   "porque": "Dobra a mesa duas vezes. O flashback custa {8}{W}{W} menos o custo do Greymond: {4}{W}{W}.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Castle Ardenvale": {
+   "notas": {
+    "token": 2,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Gera W. 2WW e vira: cria um Humano.",
+   "porque": "Ficha de Humano que não ocupa vaga.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Mistveil Plains": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Entra virado. Devolve carta do cemitério para o fundo do grimório.",
+   "porque": "Lento, e o efeito raramente importa aqui.",
+   "virado": true,
+   "prioridade": 12
+  },
+  "Monumental Henge": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Gera W. 2WW e vira: olha cinco e pega uma carta histórica.",
+   "porque": "Cerca de 20 históricas na lista (lendárias e artefatos)."
+  },
+  "Nykthos, Shrine to Nyx": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Gera mana pela devoção.",
+   "porque": "Em mono-white, ao contrário do Ken, rende."
+  },
+  "Path of Ancestry": {
+   "notas": {
+    "ramp": -1,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virado. Scry 1 ao conjurar Humano.",
+   "porque": "26 gatilhos de scry.",
+   "virado": true
+  },
+  "Plains": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "23 cópias."
+  },
+  "Temple of the False God": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Gera 2 incolores com cinco terrenos.",
+   "porque": "Não gera branco e não funciona nos turnos em que o deck mais precisa.",
+   "prioridade": 11
+  },
+  "Tyrite Sanctum": {
+   "notas": {
+    "protecao": 1,
+    "buff": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Faz uma lendária virar God com marcador; depois dá um marcador de indestrutível.",
+   "porque": "Seis manas em dois turnos para proteger o Greymond. Lento, mas não ocupa vaga de mágica."
+  },
+  "War Room": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "3 e vira, paga 1 de vida: compra.",
+   "porque": "Compra em terreno. Em mono, custa 1 de vida."
+  }
+ },
+ "radar": {
+  "Adeline, Resplendent Cathar": {
+   "notas": {
+    "token": 3,
+    "sinergia": 3,
+    "buff": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "sai": "Storm Herd",
+   "faz": "Lendária 1WW, vigilância. Poder igual ao número de criaturas suas. Sempre que você ataca, cria para cada oponente um Humano 1/1 virado e atacando.",
+   "porque": "Três Humanos por ataque, todo turno, e eles entram já com o +2/+2 do Greymond. Sai o feitiço de 10 manas que cria Pégasos.",
+   "marcas": {
+    "ficha_humana": 1
+   }
+  },
+  "Thalia's Lieutenant": {
+   "notas": {
+    "buff": 3,
+    "sinergia": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Masako the Humorless",
+   "faz": "Humano 1W. Ao entrar, um marcador +1/+1 em cada outro Humano seu. Cresce a cada Humano que entra.",
+   "porque": "Buff permanente que sobrevive à saída do Greymond, por 2 manas. Sai a carta que repete a vigilância."
+  },
+  "Champion of the Parish": {
+   "notas": {
+    "buff": 1,
+    "sinergia": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Sunset Revelry",
+   "faz": "Humano W, 1/1. Ganha um marcador +1/+1 a cada outro Humano que entra.",
+   "porque": "Humano de 1 mana que vira ameaça com as fichas. Sai o feitiço que só rende quando você está atrás em criaturas."
+  },
+  "Coppercoat Vanguard": {
+   "notas": {
+    "protecao": 2,
+    "buff": 2,
+    "sinergia": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Windborn Muse",
+   "faz": "Humano 1W, 2/2. Os outros Humanos ganham +1/+0 e ward 1: mirá-los custa 1 a mais.",
+   "porque": "Buff e proteção contra remoção pontual em toda a mesa, num Humano de 2. Sai a terceira taxa defensiva, que não é Humana."
+  },
+  "Grand Abolisher": {
+   "notas": {
+    "protecao": 3,
+    "tax": 2,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Magus of the Disk",
+   "faz": "Humano WW. No seu turno, os oponentes não conjuram nem ativam habilidades de artefato, criatura ou encantamento.",
+   "porque": "Protege o turno do ataque decisivo. Sai a limpeza que destrói também as suas pedras e encantamentos."
+  },
+  "Tocasia's Welcome": {
+   "notas": {
+    "draw": 3,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Enduring Innocence",
+   "faz": "Encantamento 2W. Uma vez por turno, quando entram criaturas suas de custo 3 ou menos, compra uma carta.",
+   "porque": "Checa custo, não poder: continua comprando com o Greymond ativo, ao contrário da Enduring Innocence."
+  },
+  "Swords to Plowshares": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "veredito": "entra",
+   "sai": "Dusk // Dawn",
+   "faz": "Instantânea W: exila uma criatura; o controlador ganha vida igual ao poder dela.",
+   "porque": "Remoção de 1 mana. Sai a limpeza que mata o seu time com o Greymond ativo."
+  },
+  "Akroma's Will": {
+   "notas": {
+    "protecao": 3,
+    "buff": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "sai": "Hour of Revelation",
+   "faz": "Instantânea 3W. Com um comandante, os dois modos: voo, vigilância e golpe duplo; e vínculo, indestrutível e proteção contra todas as cores.",
+   "porque": "É o alcance que falta: voo e golpe duplo para a mesa inteira, e protegida. Sai a limpeza que zera você junto.",
+   "marcas": {
+    "alcance": 1
+   }
+  },
+  "Boromir, Warden of the Tower": {
+   "notas": {
+    "protecao": 3,
+    "tax": 2,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Duelist's Heritage",
+   "faz": "Humano 2W, 3/3 vigilância. Anula mágica de oponente conjurada sem gastar mana. Sacrifique: suas criaturas ganham indestrutível.",
+   "porque": "Proteção em massa num corpo Humano, e resposta a mágica de graça. Sai o golpe duplo para uma criatura só."
+  },
+  "Knight of the White Orchid": {
+   "notas": {
+    "ramp": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "True Conviction",
+   "faz": "Humano WW, 2/2 first strike. Ao entrar, se um oponente tem mais terrenos, põe uma Plains da biblioteca na mesa.",
+   "porque": "Ramp num Humano de 2, e em mono-branco você quase sempre está atrás em terrenos. Sai o encantamento de 6 manas: Akroma's Will cumpre o golpe duplo."
+  },
+  "Myrel, Shield of Argive": {
+   "notas": {
+    "tax": 3,
+    "token": 3,
+    "protecao": 2,
+    "sinergia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Baird, Steward of Argive",
+   "faz": "Humano 3W, 3/4. No seu turno, os oponentes não conjuram nem ativam. Ao atacar, cria um Soldier artefato 1/1 por Soldier seu.",
+   "porque": "O Greymond e outros oito Humanos da lista são Soldiers, como as fichas de Call the Coppercoats, Horn of Gondor e Lossarnach Captain. As fichas dela não são Humanas. Cerca de US$ 19."
+  },
+  "Cavern of Souls": {
+   "notas": {
+    "protecao": 1,
+    "sinergia": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Temple of the False God",
+   "faz": "Terreno. Escolha um tipo: gera incolor, ou mana de qualquer cor só para criaturas do tipo, que não podem ser anuladas.",
+   "porque": "Humanos que não se anulam, terreno por terreno. Cerca de US$ 51."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Nyx Lotus",
+   "faz": "Artefato de 2: gera mana da identidade do comandante.",
+   "porque": "Ramp no turno 2 no lugar de uma pedra de 4 que entra virada. Mesmo número de ramps, mais cedo."
+  },
+  "Mentor of the Meek": {
+   "notas": {
+    "draw": 2,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Humano 2W. Quando entra outra criatura sua de poder 2 ou menos, paga 1 e compra.",
+   "porque": "Checa poder na entrada: com o Greymond ativo as fichas entram 3/3 e não disparam. Mesma falha da Enduring Innocence."
+  },
+  "Kwende, Pride of Femeref": {
+   "notas": {
+    "buff": 2,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Humano 3W, golpe duplo. Suas criaturas com first strike têm golpe duplo.",
+   "porque": "Só rende com first strike, e o dono escolhe vigilância e vínculo no Greymond."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Horn of Gondor dobrando a mesa",
+   "tipo": "Motor",
+   "pecas": [
+    "Horn of Gondor",
+    "Greymond, Avacyn's Stalwart"
+   ],
+   "texto": "Cada ativação cria um Humano para cada Humano seu, e todos chegam com o +2/+2 e as duas habilidades do Greymond."
+  },
+  {
+   "nome": "Um Humano por terreno",
+   "tipo": "Motor",
+   "pecas": [
+    "Cemetery Protector",
+    "Land Tax"
+   ],
+   "texto": "O Cemetery Protector exila um terreno do cemitério: cada terreno que você baixa cria um Humano. A Land Tax garante o terreno do turno."
+  },
+  {
+   "nome": "Ficha no fim do turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Call the Coppercoats",
+    "Greymond, Avacyn's Stalwart"
+   ],
+   "texto": "Conjurado no fim do turno do oponente, cria um Humano por criatura dele. Você desvira com a mesa cheia e o +2/+2 ligado."
+  },
+  {
+   "nome": "Cinco bloqueadores virados",
+   "tipo": "Motor",
+   "pecas": [
+    "Lossarnach Captain",
+    "Increasing Devotion"
+   ],
+   "texto": "Cada Humano que entra vira uma criatura de um oponente: Increasing Devotion vira cinco; o flashback, dez."
+  },
+  {
+   "nome": "Limpeza de um lado só",
+   "tipo": "Combo",
+   "pecas": [
+    "Hour of Revelation",
+    "Teferi's Protection"
+   ],
+   "texto": "Conjure a Hour of Revelation e, segurando a prioridade, responda com Teferi's Protection: as suas permanentes saem de fase e só as dos oponentes são destruídas."
+  },
+  {
+   "nome": "Limpeza de criaturas de um lado só",
+   "tipo": "Combo",
+   "pecas": [
+    "Vanquish the Horde",
+    "Flawless Maneuver"
+   ],
+   "texto": "Em resposta à sua Vanquish the Horde, o Flawless Maneuver, de graça com o Greymond na mesa, deixa as suas criaturas indestrutíveis."
+  },
+  {
+   "nome": "Mesa do tamanho que quiser",
+   "tipo": "Motor",
+   "pecas": [
+    "Mirror Entity",
+    "Greymond, Avacyn's Stalwart"
+   ],
+   "texto": "A Mirror Entity define a base X/X; o +2/+2 do Greymond soma por cima. Fichas que não são Humanas ganham todos os tipos e viram Humanas naquele turno."
+  },
+  {
+   "nome": "Esper Sentinel cobra 3",
+   "tipo": "Motor",
+   "pecas": [
+    "Esper Sentinel",
+    "Greymond, Avacyn's Stalwart"
+   ],
+   "texto": "A Esper Sentinel é Humana: com o Greymond ativo ela tem poder 3, e a taxa sobe para 3."
+  },
+  {
+   "nome": "Não juntar: o bônus que desliga a compra",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Greymond, Avacyn's Stalwart",
+    "Skullclamp"
+   ],
+   "texto": "Com quatro Humanos, as fichas entram 3/3: a Skullclamp não as mata, a Enduring Innocence não compra e Dusk destrói o seu time. Use a Skullclamp antes do Greymond ou nas fichas que não são Humanas."
+  }
+ ]
+}

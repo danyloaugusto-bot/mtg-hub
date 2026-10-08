@@ -23,9 +23,10 @@ SAIDAS = os.path.join(RAIZ, "saidas")
 PAINEL = os.path.join(MOTOR, "painel")
 CACHE_IMG = os.path.join(RAIZ, "cache", "img")
 MOLDURAS = ("larga", "retrato")
-GRAFICOS = ("rosacea", "fios", "chamas", "padrao")
+GRAFICOS = ("rosacea", "fios", "chamas", "estandartes", "padrao")
 CURVAS = ("ogiva", "barra")
-TEXTURAS = ("vitral", "fios", "impacto", "padrao", "nenhuma")
+TEXTURAS = ("vitral", "fios", "impacto", "brasao", "padrao", "nenhuma")
+MODOS = ("escuro", "claro")
 MODOS_IMG = ("embutidas", "externas", "nenhuma")
 
 
@@ -56,11 +57,13 @@ def conferir_tema(t):
         raise dados.ErroDeck("tema.json: moldura '%s'; use %s" % (cap.get("moldura"), " ou ".join(MOLDURAS)))
     g = t.get("grafico", "padrao")
     if g == "asas":
-        raise dados.ErroDeck("tema.json: o desenho 'asas' ainda não existe no motor; é mudança de motor, pelo /motor. Por ora use rosacea, fios, chamas ou padrao")
+        raise dados.ErroDeck("tema.json: o desenho 'asas' ainda não existe no motor; é mudança de motor, pelo /motor. Por ora use rosacea, fios, chamas, estandartes ou padrao")
     if g not in GRAFICOS:
         raise dados.ErroDeck("tema.json: gráfico '%s'; use %s" % (g, " ou ".join(GRAFICOS)))
     if t.get("curva", "ogiva") not in CURVAS:
         raise dados.ErroDeck("tema.json: curva '%s'; use %s" % (t.get("curva"), " ou ".join(CURVAS)))
+    if t.get("modo", "escuro") not in MODOS:
+        raise dados.ErroDeck("tema.json: modo '%s'; use %s" % (t.get("modo"), " ou ".join(MODOS)))
     if t.get("textura", "padrao") not in TEXTURAS:
         raise dados.ErroDeck("tema.json: textura '%s'; use %s" % (t.get("textura"), ", ".join(TEXTURAS)))
 
@@ -131,7 +134,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         cmd=t.get("comandante_pt") or (cmd["n"] if cmd else ""), curto=curto, artigo=t.get("artigo", "o"),
         lede=t.get("lede", ""), verbos=t.get("verbos") or [], eixo=t.get("eixo"),
         capa=dict(moldura=cap.get("moldura", "retrato"), alt=cap.get("alt", ""), credito=cap.get("credito", "Arte da carta, © Wizards of the Coast"), tem=bool(art_css)),
-        grafico=t.get("grafico", "padrao"), curva=t.get("curva", "ogiva"), chave_antiga=t.get("chave_antiga", ""),
+        grafico=t.get("grafico", "padrao"), curva=t.get("curva", "ogiva"), chave_antiga=t.get("chave_antiga", ""), modo=t.get("modo", "escuro"),
         gfonts=gfonts, ident=d["ident"], scryfall=d["scryfall_data"], img_padrao=(modo_img != "nenhuma"),
     )
     img = mapa_imagens(d["cards"] + d["cands"]) if modo_img == "embutidas" else None
@@ -141,6 +144,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
     html = (ler("template.html")
+            .replace('<html lang="pt-BR">', '<html lang="pt-BR" class="claro">' if t.get("modo") == "claro" else '<html lang="pt-BR">')
             .replace("/*__TITULO__*/", "%s: painel do deck de %s" % (painel, curto))
             .replace("/*__PAINEL__*/", painel)
             .replace("/*__FONTS__*/", css_fontes)
