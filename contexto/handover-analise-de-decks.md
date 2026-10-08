@@ -43,9 +43,10 @@ Se faltar algo essencial, pergunte uma vez, no máximo três perguntas: o plano 
 1. **Texto de carta nunca de memória quando houver dúvida.** Para carta recente, ou que você não reconheça com certeza, busque o texto oficial (Scryfall) antes de avaliar. Se não puder buscar, não invente: liste a carta na seção de dúvidas e avalie as demais.
 2. **Regra do jogo também se confere.** Antes de chamar algo de combo ou de recomendar uma interação, verifique na regra. Se não tiver certeza, diga que não tem.
 3. **Carta dupla com terreno no verso conta como fonte de terreno.** Nunca a corte como se fosse só mágica.
-4. **Número de site de comunidade (edh.wiki, EDHREC) mede presença, não força.** É inflado por cartas de pré-construído e baixo para staples que todo deck joga. Use como sinal, nunca como veredito.
-5. **Concordar com outra IA não prova nada.** Se receber outras análises, confira cada afirmação delas contra o texto da carta.
-6. **Preço vem do Scryfall, em dólar.** O painel busca sozinho, carta a carta, e soma o deck. Se citar preço para justificar uma troca, diga que é do Scryfall e de quando.
+4. **Identidade de cor é inegociável.** Nenhuma carta sugerida, no radar ou em qualquer lugar, pode ficar fora da identidade de cor do comandante. Confira o `color_identity` da carta no Scryfall antes de recomendá-la, não a cor do mana que ela produz nem a sensação de que "combina".
+5. **Número de site de comunidade (edh.wiki, EDHREC) mede presença, não força.** É inflado por cartas de pré-construído e baixo para staples que todo deck joga. Use como sinal, nunca como veredito.
+6. **Concordar com outra IA não prova nada.** Se receber outras análises, confira cada afirmação delas contra o texto da carta.
+7. **Preço vem do Scryfall, em dólar.** O painel busca sozinho, carta a carta, e soma o deck. Se citar preço para justificar uma troca, diga que é do Scryfall e de quando.
 
 ## 5. O método, em oito passos
 
@@ -145,6 +146,7 @@ Confira a sua própria análise contra esta lista antes de entregar.
 - **Tratar número de sinergia como nota.** Cartas de pré-construído apareciam no topo e eram as primeiras a sair.
 - **Dar nota a tudo e não discordar de nada.** Se a análise não tem nenhuma carta BAX nem recusa nenhuma sugestão, ela não foi crítica.
 - **Divergir de si mesma.** Dizer que uma carta entra e, na tabela, dar tier C. Releia.
+- **Sugerir carta fora da identidade de cor do comandante.** Já aconteceu: Branching Evolution (verde) recomendada para um comandante preto-vermelho. Confira o `color_identity` de toda carta nova antes de escrevê-la na análise.
 
 ## 9. O formato da entrega
 

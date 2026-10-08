@@ -49,7 +49,7 @@ def ler_json(caminho, obrigatorio=True):
 
 
 # ---------------------------------------------------------------- decklist
-LINHA = re.compile(r"^(\d+)\s+(.+?)(?:\s+\(([A-Za-z0-9]+)\)\s+(\S+))?((?:\s+\*[A-Za-z]+\*)*)\s*$")
+LINHA = re.compile(r"^(\d+)\s+(.+?)(?:\s+\(([A-Za-z0-9]+)\)\s+(\S+))?((?:\s+(?:\*[A-Za-z]+\*|F|CMDR))*)\s*$")
 
 
 def ler_decklist(caminho):
@@ -59,14 +59,14 @@ def ler_decklist(caminho):
     with open(caminho, encoding="utf-8-sig") as f:
         for n, linha in enumerate(f, 1):
             linha = linha.strip()
-            if not linha or linha.startswith("#"):
+            if not linha or linha.startswith("#") or linha.startswith("//"):
                 continue
             m = LINHA.match(linha)
             if not m:
                 raise ErroDeck("decklist.txt, linha %d não está no formato '1 Nome (SET) 123': %s" % (n, linha))
-            flags = m.group(5) or ""
+            flags = {f.strip("*").upper() for f in (m.group(5) or "").split()}
             out.append(dict(q=int(m.group(1)), name=m.group(2), set=m.group(3), num=m.group(4),
-                            foil="*F*" in flags, cmd="*CMDR*" in flags))
+                            foil="F" in flags, cmd="CMDR" in flags))
     if not out:
         raise ErroDeck("decklist.txt está vazia")
     if not any(e["cmd"] for e in out):
@@ -381,9 +381,20 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     pedidos += [dict(name=n) for n in radar_av] + [dict(name=p["nome"]) for p in pot]
     sf = scryfall.buscar(pedidos, atualizar=atualizar_scryfall, avisar=avisar)
 
+    # identidade de cor: nenhuma carta do deck, do radar ou dos potenciais pode ficar fora da identidade do comandante
+    i_cmd = next((i for i, e in enumerate(lista) if e["cmd"]), None)
+    ident = ordem_cores("".join(sf[i_cmd].get("color_identity") or [])) if i_cmd is not None else ""
+    n0 = len(lista)
+    faixas = [("decklist.txt", [(sf[i], e["name"]) for i, e in enumerate(lista)]),
+              ("avaliacao.json, radar", [(sf[n0 + j], n) for j, n in enumerate(radar_av)]),
+              ("comunidade.json, potenciais", [(sf[n0 + len(radar_av) + j], p["nome"]) for j, p in enumerate(pot)])]
+    for onde, itens in faixas:
+        fora = [nome for r, nome in itens if any(c not in ident for c in (r.get("color_identity") or []))]
+        if fora:
+            raise ErroDeck("%s: fora da identidade de cor do comandante (%s): %s" % (onde, ident or "incolor", ", ".join(fora)))
+
     cards = [montar_carta(e["name"], cartas_av[e["name"]], sf[i], grupos, marcadores, e) for i, e in enumerate(lista)]
     ids = {c["n"]: c["id"] for c in cards}
-    n0 = len(lista)
     cands = []
     for j, (n, a) in enumerate(radar_av.items()):
         c = montar_carta(n, a, sf[n0 + j], grupos, marcadores)
@@ -423,8 +434,6 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         edh = dict(fonte=com.get("fonte", "edh.wiki"), url=com.get("url", ""), lido=com.get("lido", ""), pagina=com.get("pagina", ""),
                    temas=com.get("temas") or [], listas=com.get("listas") or [], precon=com.get("precon"))
 
-    cmd = [c for c in cards if c.get("cmd")]
-    ident = ordem_cores("".join(sf[[i for i, e in enumerate(lista) if e["cmd"]][0]].get("color_identity") or [])) if cmd else ""
     estrategia = conferir_estrategia(av.get("estrategia"))
     return dict(cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia,
                 marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,

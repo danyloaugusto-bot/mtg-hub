@@ -40,6 +40,8 @@ Relevância mais baixa primeiro, depois a prioridade sugerida, o tier e os ponto
 
 Cartas de fora, cada uma com veredito (entra, avaliar, fica de fora), motivo e quem sairia. O que foi recusado fica registrado, para não rediscutir a mesma carta a cada coleção.
 
+**Identidade de cor é inegociável.** Nenhuma carta sugerida no radar, nos potenciais ou em qualquer lugar pode ficar fora da identidade de cor do comandante (as cores do custo e do texto dela, pelo `color_identity` do Scryfall; nunca de memória). Isso já aconteceu uma vez (Branching Evolution, verde, sugerida para o Valgavoth, preto-vermelho, por uma IA de fora) e o motor agora recusa o build se acontecer de novo (`dados.py`, checagem de identidade em `decklist.txt`, no radar e nos potenciais). Confira a identidade de toda carta candidata antes de escrevê-la no `avaliacao.json`.
+
 ## Referências usuais de Commander, como regra de bolso
 
 35 a 37 fontes de terreno; 10 a 12 de ramp; 10 a 12 de compra; 8 a 12 remoções, com 3 a 5 em massa. Ajuste ao plano do deck e diga quando estiver se afastando de propósito.

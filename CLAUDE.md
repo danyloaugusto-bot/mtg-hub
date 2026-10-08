@@ -11,10 +11,11 @@ Painéis dos decks de Commander (Magic: The Gathering) do Danylo, um por deck, e
 3. **`contexto/origem/` é somente leitura.** É de onde viemos. Consulte, não edite.
 4. **O que está em `entrada/` é opinião.** Handovers de outras IAs, planilhas e prints são lidos, confrontados com o texto das cartas e registrados em `CONFRONTO.md`. Concordância entre IAs não prova nada.
 5. **Texto de carta nunca sai de memória.** Custo, tipo e texto vêm do Scryfall ou do cache. Se não der para conferir, pare e diga.
-6. **Avaliação é julgamento, com o motivo escrito.** Toda nota, tier e veredito tem uma frase de porquê.
-7. **Diga não.** O dono quer crítica. Se uma carta sugerida por ele é ruim para o deck, ela não entra, e você explica. A pergunta de sempre: a carta é boa, ou é boa neste comandante?
-8. **Mudança grande pede plano antes.** Refatorar o motor ou mudar formato de dado: mostre o plano e espere o "pode".
-9. **Toda sessão termina com** testes passando, `contexto/ESTADO.md` atualizado e commit.
+6. **Identidade de cor é inegociável.** Nenhuma carta no deck, no radar ou nos potenciais pode ficar fora da identidade de cor do comandante. O motor recusa o build se acontecer (`dados.py`); nunca contorne isso.
+7. **Avaliação é julgamento, com o motivo escrito.** Toda nota, tier e veredito tem uma frase de porquê.
+8. **Diga não.** O dono quer crítica. Se uma carta sugerida por ele é ruim para o deck, ela não entra, e você explica. A pergunta de sempre: a carta é boa, ou é boa neste comandante?
+9. **Mudança grande pede plano antes.** Refatorar o motor ou mudar formato de dado: mostre o plano e espere o "pode".
+10. **Toda sessão termina com** testes passando, `contexto/ESTADO.md` atualizado e commit.
 
 ## Ambiente
 

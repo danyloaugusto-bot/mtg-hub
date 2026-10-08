@@ -149,7 +149,8 @@ def _consultar(c, pedidos, faltam, hoje, avisar):
             for i in pendentes:
                 p = pedidos[i]
                 if rodada == "impressao" and "set" in p:
-                    ids.append((i, {"set": p["set"].lower(), "collector_number": str(p["num"]).lower()}))
+                    # o número do colecionador é sensível a maiúsculas no Scryfall (promo "1P" difere de "1p")
+                    ids.append((i, {"set": p["set"].lower(), "collector_number": str(p["num"])}))
                 else:
                     ids.append((i, {"name": p["name"]}))
             nao = []
