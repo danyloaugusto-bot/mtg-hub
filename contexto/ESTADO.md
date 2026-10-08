@@ -64,4 +64,4 @@ Mandar as capas dos decks que faltam e escolher o próximo deck (`/novo-deck 01.
 ## Perguntas em aberto para o dono
 
 - Decidido: o painel publicado do Clavileño (https://claude.ai/artifact/Dp4xH6CuKZowrHzW36MGH3) será substituído pelo novo na mesma URL, na etapa 8, `/publicar`.
-- Root handovers (Grok e Geral): ver "Pela metade".
+- Root handovers confrontados com `contexto/AVALIACAO.md` em 08/10/2026: a maior parte já estava coberta com fraseado diferente; achei algumas adições concretas (menu de agrupamentos por arquétipo, pergunta de estresse do imposto de comandante, vocabulário de remoção/proteção, a regra de CR 707.8a sobre token-cópia transformável, perguntar o que o dono explicitamente não quer) e algumas recusas (nota 0–10 mapeada pro tier, dashboard Excel de 10 abas, watchlist paralela ao radar). O dono decidiu seguir sem nenhuma dessas alterações. Os três arquivos foram só movidos para `contexto/referencias/metodo/`, sem mudar `AVALIACAO.md` nem o handover de método.
