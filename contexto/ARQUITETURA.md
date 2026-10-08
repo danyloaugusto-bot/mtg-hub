@@ -156,7 +156,14 @@ O formato do estado é o do Ritos, com a data da última gravação. Backups do 
 
 ## O hub
 
-Lê as pastas de `dados/`, o `contexto/inventario.csv` (para os decks que ainda não têm pasta) e o resumo de cada deck montado. Mostra os grupos do aplicativo do dono: 01. Top, 02. Tribais, 03. Caos, 04. Forfun, Compras + Precon. O grupo é o número no nome da pasta do deck: mover de grupo é renomear a pasta. Nasce na etapa 4.
+Feito na etapa 4 (`motor/hub.py`, `motor/hub/`). `python motor/build.py --hub` grava `saidas/00. Hub.html` e o atalho `Abrir o Hub.html` na raiz; `--todos` remonta o hub no fim.
+
+- **Fontes:** as pastas de `dados/`, o `contexto/inventario.csv` (nome no aplicativo, cores, situação e link publicado, inclusive dos decks sem pasta) e um resumo de cada deck com avaliação, calculado com a mesma conta do painel: placar, CMC médio, cartas na berlinda, trocas pendentes no radar, data da última montagem.
+- **Grupos:** na ordem do aplicativo: 01. Top, 02. Tribais, 03. Caos, 04. Forfun e Compras + Precon. O grupo é o número no nome da pasta; `05.` é Compras + Precon. Mover de grupo é renomear a pasta.
+- **Cartão:** com capa (`capa.*` da pasta, reduzida e embutida), nome no aplicativo, nome do painel, cores e situação. Deck sem avaliação aparece com fundo neutro e "Em construção"; se a pasta tiver `capa.*`, a capa aparece apagada.
+- **Situação:** nos decks com painel é calculada: **OK** sem troca sugerida no radar, **nOK** com o número de trocas. Quando difere do rótulo do aplicativo, o rótulo aparece ao lado. Nos decks sem painel, vale o rótulo do aplicativo (OK, nOK, OKn, em obras). OK quer dizer deck fechado, conferido e atualizado; nOK e OKn, que há o que mexer ou comprar.
+- **Visões cruzadas:** lista de compras (radar com veredito de entrada, com deck, quem sai, preço em dólar do Scryfall e link da LigaMagic), ranking por pendências e por placar (com o aviso de que o placar não compara decks entre si), e cartas presentes em três ou mais decks (só os que têm decklist no projeto; básicos não contam).
+- **Limite:** a marca "tenho a carta" e as edições feitas dentro de um painel não chegam ao hub; ele mostra a foto do último build.
 
 ## Atalhos que funcionam sem internet
 

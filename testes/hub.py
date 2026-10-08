@@ -1,0 +1,55 @@
+# -*- coding: utf-8 -*-
+"""Confere o hub aberto pelo atalho da raiz, sem internet.
+
+    python testes/hub.py
+"""
+import csv, os, subprocess, sys
+from playwright.sync_api import sync_playwright
+import comum
+
+a = comum.argumentos("Hub dos decks")
+R = comum.Relatorio("hub")
+if not a.sem_montar:
+    r = subprocess.run([sys.executable, "-B", os.path.join(comum.MOTOR, "build.py"), "--hub"], capture_output=True, text=True, encoding="utf-8")
+    if r.returncode:
+        sys.exit("o build do hub falhou:\n" + r.stdout + r.stderr)
+atalho = os.path.join(comum.RAIZ, "Abrir o Hub.html")
+with open(os.path.join(comum.RAIZ, "contexto", "inventario.csv"), encoding="utf-8") as f:
+    inv = [x["pasta"] for x in csv.DictReader(f)]
+
+with sync_playwright() as p:
+    b = p.chromium.launch()
+    for w, h in ((1360, 1000), (375, 812)):
+        pg = b.new_page(viewport={"width": w, "height": h})
+        reqs = []
+        pg.on("pageerror", lambda e: R.erros.append("PAGEERROR " + str(e)))
+        pg.route("**/*", lambda r: (reqs.append(r.request.url), r.abort()) if r.request.url.startswith("http") else r.continue_())
+        pg.goto(comum.url(atalho)); pg.wait_for_timeout(1000)
+        if w > 1000:
+            H = pg.evaluate("window.HUB")
+            R.ok("atalho da raiz abre o hub", pg.url.endswith("00.%20Hub.html"), pg.url[-30:])
+            R.ok("grupos na ordem do aplicativo", pg.eval_on_selector_all(".grupo h2", "e=>e.map(x=>x.firstChild.textContent.trim())") ==
+                 ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "Compras + Precon"])
+            pastas = [d["pasta"] for d in H["decks"]]
+            R.ok("todos os decks do inventário e de dados/", set(inv) <= set(pastas), sorted(set(inv) - set(pastas)))
+            R.ok("um cartão por deck", pg.locator(".deck").count() == len(H["decks"]), pg.locator(".deck").count())
+            prontos = [d for d in H["decks"] if d["painel"]]
+            R.ok("decks sem painel em construção", pg.locator(".deck.vazio").count() == len(H["decks"]) - len(prontos))
+            R.ok("cartões dos painéis apontam para arquivos que existem",
+                 all(os.path.exists(os.path.join(comum.RAIZ, "saidas", d["pasta"] + ".html")) for d in prontos))
+            for d in prontos:
+                R.ok("%s: placar igual ao do controle" % d["pasta"], d["placar"] == comum.controle(d["pasta"]).get("placar", d["placar"]), d["placar"])
+            R.ok("lista de compras com todas as entradas sugeridas", len(H["compras"]) == sum(d["pendentes"] for d in prontos), len(H["compras"]))
+            R.ok("rodapé com o limite do hub", "foto do último build" in pg.inner_text("#foot"))
+            pg.fill("#q", "giada"); pg.wait_for_timeout(100)
+            R.ok("busca filtra os cartões", pg.locator(".deck:not([hidden])").count() == 1)
+            pg.fill("#q", ""); pg.click('[data-aba="ranking"]')
+            R.ok("abas das visões cruzadas", pg.is_visible("#v-ranking") and not pg.is_visible("#v-compras"))
+            if prontos:
+                pg.click('.deck:not(.vazio) .ir >> nth=0'); pg.wait_for_timeout(1200)
+                R.ok("o cartão abre o painel, sem internet", pg.evaluate("!!(window.PAINEL && window.PAINEL.D)"), pg.url[-30:])
+        R.ok("%d px: sem rolagem lateral" % w, pg.evaluate("document.documentElement.scrollWidth") <= w)
+        R.ok("%d px: nenhuma chamada de rede" % w, not reqs, reqs[:2])
+        pg.close()
+    b.close()
+R.fim()

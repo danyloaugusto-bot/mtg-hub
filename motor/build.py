@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Monta o painel de um deck, ou de todos.
+"""Monta o painel de um deck, de todos, ou o hub.
 
     python motor/build.py --deck "02. Clavileno"
-    python motor/build.py --todos
+    python motor/build.py --todos          # todos os decks com avaliação, e o hub no fim
+    python motor/build.py --hub            # só o hub
 
-Gera saidas/<pasta>.html e dados/<pasta>/Abrir o painel.html. Sempre com quebra de linha LF,
+Gera saidas/<pasta>.html e dados/<pasta>/Abrir o painel.html; o hub gera saidas/00. Hub.html e Abrir o Hub.html na raiz.
+Sempre com quebra de linha LF,
 para que montar no Windows e no Mac dê o mesmo arquivo.
 """
 import argparse, base64, json, os, sys
@@ -14,7 +16,7 @@ sys.dont_write_bytecode = True
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, MOTOR)
 
-import dados, imagens, scryfall, tema  # noqa: E402
+import dados, hub, imagens, scryfall, tema  # noqa: E402
 
 RAIZ = os.path.dirname(MOTOR)
 SAIDAS = os.path.join(RAIZ, "saidas")
@@ -171,6 +173,14 @@ def montar_deck(pasta, atualizar_scryfall=False, modo_img="embutidas"):
         pasta, r["painel"], r["cartas"], r["unicas"], r["radar"], r["potenciais"], r["kb"], "  AVISO: passou de 12 MB" if mb > 12 else ""))
 
 
+def montar_hub():
+    html, H = hub.montar()
+    gravar(os.path.join(SAIDAS, hub.NOME + ".html"), html)
+    gravar(os.path.join(RAIZ, "Abrir o Hub.html"), hub.atalho())
+    prontos = sum(1 for d in H["decks"] if d["painel"])
+    print("%s: %d decks, %d com painel | compras %d | %.0f KB" % (hub.NOME, len(H["decks"]), prontos, len(H["compras"]), len(html.encode("utf-8")) / 1024))
+
+
 def decks():
     out = []
     for n in sorted(os.listdir(dados.DADOS)):
@@ -184,7 +194,8 @@ def main():
     ap = argparse.ArgumentParser(description="Monta os painéis dos decks.")
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--deck", help="nome da pasta do deck, como em dados/")
-    g.add_argument("--todos", action="store_true", help="todos os decks de dados/ que já têm avaliação")
+    g.add_argument("--todos", action="store_true", help="todos os decks de dados/ que já têm avaliação, e o hub no fim")
+    g.add_argument("--hub", action="store_true", help="só o hub, saidas/00. Hub.html")
     ap.add_argument("--atualizar-scryfall", action="store_true", help="consulta o Scryfall de novo, mesmo para cartas no cache")
     ap.add_argument("--imagens", choices=MODOS_IMG, default="embutidas", help="embutidas (padrão): lê cache/img/; externas: tenta o Scryfall ao vivo; nenhuma: sem imagens, nem ao vivo")
     a = ap.parse_args()
@@ -193,6 +204,9 @@ def main():
     except Exception:
         pass
     erros = 0
+    if a.hub:
+        montar_hub()
+        sys.exit(0)
     alvos = decks() if a.todos else [a.deck]
     for pasta in alvos:
         if a.todos and not os.path.exists(os.path.join(dados.DADOS, pasta, "avaliacao.json")):
@@ -203,6 +217,8 @@ def main():
         except (dados.ErroDeck, scryfall.ErroScryfall, ValueError) as e:
             erros += 1
             print("%s: ERRO: %s" % (pasta, e), file=sys.stderr)
+    if a.todos:
+        montar_hub()
     sys.exit(1 if erros else 0)
 
 

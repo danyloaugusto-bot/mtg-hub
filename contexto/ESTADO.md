@@ -8,10 +8,11 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 07/10/2026: etapa 1 feita. O motor monta o painel de qualquer deck a partir de `dados/<pasta>/`. O Clavileño foi migrado sem reavaliação e o painel novo bate com o de origem em todos os números e em todas as cartas. Os testes passam: 104 verificações em cinco scripts.
 - 07/10/2026: Giada migrada (Coro da Alvorada, revisão 3). Placar 429, pontos por agrupamento, tiers, relevância e fatos batem com o painel de origem. 90 verificações em quatro scripts.
 - 08/10/2026: imagens embutidas nos dois decks. `motor/imagens.py` baixou 229 impressões (11 MB em `cache/img/`, fora do Git) e `motor/build.py` passou a embutir por padrão. Os painéis mostram as imagens sem internet, em arquivo local e publicado. Clavileño com 7,8 MB, Giada com 6,8 MB — bem abaixo do aviso de 12 MB. Testes: 198 verificações nos dois decks.
+- 08/10/2026: hub feito (etapa 4), visual estante, no estilo do aplicativo. Situação OK/nOK calculada pelas trocas pendentes no radar.
 
 ## Próxima ação
 
-`/novo-deck` para o próximo deck da fila (Vito ou Valgavoth), ou `/motor` para as asas do Coro, se o dono quiser a identidade visual completa da Giada de volta primeiro.
+Mandar as capas dos decks que faltam (cada uma vira `capa.*` na pasta do deck) e escolher o próximo deck: `/novo-deck 01. Vito` ou outro da fila. As asas do Coro continuam pendentes de `/motor`.
 
 ## Feito
 
@@ -23,10 +24,12 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - Clavileño no contrato: `avaliacao.json`, `comunidade.json`, `tema.json`, `HISTORICO.md`. Os dois handovers, a planilha e o HTML antigo foram para `entrada/`.
 - Giada no contrato: `avaliacao.json`, `comunidade.json`, `tema.json`, `capa.webp`, `HISTORICO.md`. Material antigo (dois kits, três HTMLs, handovers, planilha) foi para `entrada/`. Conversor em `motor/importar/coro.py`.
 - Painel ganhou as peças do Coro (tier list em cartas, base de mana, sinal da comunidade, potenciais, "Deixar de fora") e a aba Oficina. `contexto/PARIDADE.md` está marcado item a item.
+- Etapa 4: hub em `motor/hub.py` e `motor/hub/`, com atalho `Abrir o Hub.html` na raiz. 25 decks em cinco grupos, 2 com painel, lista de compras com 14 cartas (US$ 117,51). Teste em `testes/hub.py`.
 - `motor/imagens.py` e `motor/build.py --imagens embutidas|externas|nenhuma`. Cache de imagens em `cache/img/<set>-<numero>.jpg`, compartilhado entre decks. Capa das cartas (frente e verso), não dos potenciais.
 
 ## Pela metade
 
+- O Valgavoth tem `dsc-6-valgavoth-harrower-of-souls.jpg` solto na pasta. Parece capa, mas o dono vai mandar as capas com instruções; por ora o hub não usa.
 - As asas do Coro não estão no motor. A Giada usa o desenho padrão. Pedir pelo `/motor`.
 - Cinco leituras da Giada ficaram mais simples que no Coro: as frases que cruzavam dois números (proteção contra ramp e compra, ramp só para Anjos, cor branca nos custos, compra só atacando) viraram leituras de um número só. Se o dono quiser as frases de volta, é `/motor` com novos tipos de leitura.
 - O download do `art_crop` do comandante quando falta `capa.*` (em `motor/imagens.py`) não foi exercitado: os dois decks já tinham capa. Vale conferir no primeiro deck novo sem capa pronta.
@@ -49,5 +52,4 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 
 ## Perguntas em aberto para o dono
 
-- O que "OK", "nOK" e "OKn" significam nos nomes dos decks no aplicativo?
 - O painel publicado do Clavileño (https://claude.ai/artifact/Dp4xH6CuKZowrHzW36MGH3) deve ser substituído pelo novo na mesma URL, para herdar o que está salvo na conta? Isso é da etapa 8, `/publicar`. Esta instalação do Claude Code publica artefatos.

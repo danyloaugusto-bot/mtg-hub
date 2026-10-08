@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>Hub dos decks</title>
+<style>
+/*__FONTS__*/
+/*__ROOT__*/
+/*__CSS__*/
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="top">
+  <div class="top-in">
+    <h1>Decks</h1>
+    <label class="busca"><span class="sr">Buscar deck</span><input id="q" type="search" placeholder="Buscar deck" autocomplete="off"></label>
+    <span class="resumo" id="resumo"></span>
+  </div>
+</header>
+<main id="main">
+  <p class="legenda" id="legenda"></p>
+  <div id="grupos"></div>
+  <section class="cruz" aria-label="Visões cruzadas">
+    <div class="abas" role="tablist">
+      <button role="tab" id="t-compras" data-aba="compras" aria-selected="true" aria-controls="v-compras">Lista de compras</button>
+      <button role="tab" id="t-ranking" data-aba="ranking" aria-selected="false" aria-controls="v-ranking" tabindex="-1">Ranking</button>
+      <button role="tab" id="t-comuns" data-aba="comuns" aria-selected="false" aria-controls="v-comuns" tabindex="-1">Cartas em comum</button>
+    </div>
+    <div id="v-compras" class="vista" role="tabpanel" aria-labelledby="t-compras"></div>
+    <div id="v-ranking" class="vista" role="tabpanel" aria-labelledby="t-ranking" hidden></div>
+    <div id="v-comuns" class="vista" role="tabpanel" aria-labelledby="t-comuns" hidden></div>
+  </section>
+</main>
+<footer class="foot" id="foot"></footer>
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>
