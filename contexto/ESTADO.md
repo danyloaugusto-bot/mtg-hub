@@ -13,16 +13,16 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 08/10/2026: hub ajustado aos comentários do dono: nomes das pastas, só os pontos no cartão, sem OK/nOK, abas Decks, Pastas e Dashboard, lista de compras e ranking retirados, botão de voltar ao hub em cada painel.
 - 08/10/2026: moldura retrato virou o padrão de todos os painéis. "02. Clavileno" virou "02. Clavileño".
 - 08/10/2026: o motor ganhou a seção Estratégia (início, meio e fim, e contra quem o deck vai bem ou mal), escrita para Clavileño e Giada; preço do Scryfall por carta, por faixa de relevância e do deck inteiro, com o cache renovado a cada 7 dias; `fora_do_corte` para cartas de estimação; o gráfico e a textura `fios` e a fonte Cinzel, feitos para o Valgavoth.
-- 08/10/2026: `/novo-deck 03. Valgavoth` até o passo 4. Lista de 100 cartas, `CONFRONTO.md`, `avaliacao.json` com 84 cartas, radar de 15, 8 combos e estratégia, e `tema.json` "Dízimo das Almas". Placar 329; com as 10 trocas recomendadas, 334. Parado no passo 5, esperando o dono aprovar S, BAX, as dúvidas e as trocas.
+- 08/10/2026: Valgavoth v1.0 fechado. `/novo-deck` completo: avaliação de 100 cartas (84 notadas), radar de 15, 8 combos, estratégia, tema "Dízimo das Almas". O dono aprovou com um ajuste: o título do painel estava grande demais para a fonte Cinzel, então o motor ganhou `titulo_escala` no tema, para reduzir o título sem mexer nos outros painéis. Esclarecido ao dono: as trocas do radar são só sugestão exibida no painel — `decklist.txt` nunca muda sozinho, só por pedido explícito. Imagens embutidas (6,5 MB), testes 87/87 nos quatro scripts, hub com 3 painéis (27/27), controle de números salvo em `testes/controle/03. Valgavoth.json`.
 
 ## Próxima ação
 
-Valgavoth, passo 5: o dono responde à revisão (S, BAX, cinco dúvidas, trocas). Depois, passo 6: `/imagens 03. Valgavoth` (o dono roda), build, testes com controle novo em `testes/controle/03. Valgavoth.json`, hub, `HISTORICO.md` e commit `deck: 03. Valgavoth v1.0`.
+Mandar as capas dos decks que faltam e escolher o próximo deck (`/novo-deck 01. Vito` ou outro da fila). Confrontar os handovers da raiz (Grok e Geral) com o `AVALIACAO.md`, como combinado.
 
 ## Feito
 
 - Kit do Clavileño em `contexto/origem/ritos-de-sangue-kit/`, com handover próprio. Intocado.
-- Pastas `dados/02. Clavileño`, `dados/01. Giada`, `dados/01. Vito` e `dados/03. Valgavoth` iniciadas.
+- Pastas `dados/02. Clavileño`, `dados/01. Giada` e `dados/03. Valgavoth` com deck completo; `dados/01. Vito` iniciada.
 - Inventário inicial com os decks que aparecem nos prints do aplicativo.
 - Dezenove comandos em `.claude/skills/`, com modelo e esforço declarados.
 - Etapa 1: `motor/` (build, dados, Scryfall, tema, painel, fontes), contrato de um deck em `contexto/ARQUITETURA.md`, modelos em `dados/_modelo/`, testes em `testes/`.

@@ -78,7 +78,7 @@ main{max-width:1320px;margin:0 auto;padding:26px 20px 40px}
 
 /* ---------- herói ---------- */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 30px;align-items:center;padding:4px 0 0}
-.hero h1{font:800 clamp(54px,9vw,112px)/.88 var(--fd);color:var(--gold2);letter-spacing:-.005em;text-shadow:0 2px 0 var(--wine),0 0 46px rgba(var(--blood2-rgb),.34)}
+.hero h1{font:800 calc(clamp(54px,9vw,112px)*var(--ts,1))/.88 var(--fd);color:var(--gold2);letter-spacing:-.005em;text-shadow:0 2px 0 var(--wine),0 0 46px rgba(var(--blood2-rgb),.34)}
 .hero-sub{margin-top:18px;font:600 clamp(23px,3vw,31px)/1.15 var(--fd);color:var(--bone)}
 .hero-sub .mana{font-size:.72em;margin-left:8px;vertical-align:.02em}
 .hero-lede{margin-top:10px;max-width:52ch;color:var(--mute);font-size:18.5px}
@@ -416,7 +416,7 @@ select.inp{padding-right:6px}
 /* ---------- retrato do comandante ---------- */
 .ava{flex:none;width:32px;height:32px;border-radius:50%;background:var(--art) var(--ava-pos,50% 20%/300% auto) no-repeat;border:1px solid var(--gold);box-shadow:0 0 0 2px rgba(var(--bg-rgb),.9),0 0 12px rgba(var(--blood2-rgb),.5)}
 .hero.retrato{grid-template-columns:232px minmax(0,1fr) minmax(0,460px);gap:14px 32px}
-.hero h1{font-size:clamp(50px,7.2vw,98px)}
+.hero h1{font-size:calc(clamp(50px,7.2vw,98px)*var(--ts,1));text-wrap:balance}
 .retrato .rosa{width:min(100%,460px);order:0}
 .port{position:relative;margin:0;filter:drop-shadow(0 0 30px rgba(var(--blood2-rgb),.32))}
 .port-img{position:relative;aspect-ratio:5/7;background:var(--art) var(--art-foco,50% 0)/cover no-repeat;clip-path:url(#arch)}

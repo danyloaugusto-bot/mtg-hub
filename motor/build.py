@@ -105,6 +105,9 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         "--fb:'%s',%s" % (texto, fontes.get("texto_reserva", "'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif")),
         "--textura:" + tema.textura(t.get("textura", "padrao"), pal),
     ]
+    if fontes.get("titulo_escala"):
+        # fonte larga (como a Cinzel) pede o título menor para caber em duas linhas
+        extra.append("--ts:%s" % float(fontes["titulo_escala"]))
     if art_css:
         extra += [art_css, "--art-ratio:" + ratio]
         if cap.get("foco"):
