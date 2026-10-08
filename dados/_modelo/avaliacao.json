@@ -1,0 +1,31 @@
+{
+ "_comentario": "Formato completo em contexto/ARQUITETURA.md, seção Contrato de um deck. Campos que começam com _ são ignorados.",
+ "feito": "dd/mm/aaaa",
+ "agrupamentos": [
+  {"k": "ramp", "nome": "Ramp", "ab": "Ramp", "ref": [10, 12], "desc": "Pedras de mana, mana extra e redutores de custo. Terreno que sempre entra virado vale −1."},
+  {"k": "draw", "nome": "Draw", "ab": "Draw", "ref": [10, 12], "desc": "Compra e vantagem de cartas."},
+  {"k": "removal", "nome": "Removal", "ab": "Rem.", "ref": [8, 12], "desc": "Remoção pontual e em massa."},
+  {"k": "eixo1", "nome": "Primeiro eixo do plano", "ab": "Eixo", "desc": "Troque pelo coração do plano do deck."},
+  {"k": "eixo2", "nome": "Segundo eixo do plano", "ab": "Eixo", "desc": "Troque, ou apague se o deck tiver um eixo só."},
+  {"k": "tokens", "nome": "Tokens", "ab": "Tok.", "desc": "Geradores e multiplicadores de fichas."},
+  {"k": "sinergia", "nome": "Sinergia + PetCard", "curto": "Sinergia", "ab": "Sin.", "pet": true, "desc": "Ligação direta com o comandante e com o tema. Marcar a carta como PetCard soma 1 ponto."},
+  {"k": "especial", "nome": "Especial", "ab": "Esp.", "desc": "Combos, condições de vitória e motores que rendem todo turno."}
+ ],
+ "marcadores": {
+  "_exemplo": "tribo pelo tipo da carta; os demais vão em 'marcas' de cada carta",
+  "tribo": {"nome": "Vampiro", "plural": "Vampiros", "subtipo": "Vampire"}
+ },
+ "leituras": [
+  {"tipo": "terrenos", "min": 35},
+  {"tipo": "agrupamento", "g": "ramp", "min": 10, "rotulo": ["carta de ramp dedicada", "cartas de ramp dedicadas"], "passagem": "que aceleram de passagem", "alerta": "Uma ou duas pedras de mana a mais ajudariam."},
+  {"tipo": "agrupamento", "g": "draw", "min": 10, "rotulo": ["fonte de compra dedicada", "fontes de compra dedicadas"], "passagem": "incidentais"},
+  {"tipo": "remocao", "g": "removal", "massa_max": 5, "massa_ref": [3, 5]},
+  {"tipo": "tribo", "min_pct": 75},
+  {"tipo": "curva"}
+ ],
+ "cartas": {
+  "Nome da Carta": {"notas": {"draw": 2, "sinergia": 1}, "tier": "B", "rel": "MED", "faz": "O que a carta faz, em português.", "porque": "Por que ela está neste deck."}
+ },
+ "radar": {},
+ "combos": []
+}

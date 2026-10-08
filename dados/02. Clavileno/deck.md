@@ -31,8 +31,8 @@ Sete trocas sugeridas e ainda não aplicadas; ver o handover em `contexto/origem
 
 ## Fontes
 
-- edh.wiki: https://edh.wiki/commanders/clavileno-first-of-the-blessed/vampires/
-- Avaliação completa: `contexto/origem/ritos-de-sangue-kit/annot.py` e `edh.py`
+- edh.wiki: https://edh.wiki/commanders/clavileno-first-of-the-blessed/vampires/ (leitura em `comunidade.json`)
+- Avaliação completa: `avaliacao.json`, migrada sem alteração de `contexto/origem/ritos-de-sangue-kit/annot.py` e `edh.py`
 
 ## Visual
 

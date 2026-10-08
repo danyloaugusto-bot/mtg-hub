@@ -38,21 +38,22 @@ Na raiz da pasta de um deck ficam só `deck.md`, `decklist.txt`, `capa.*` e o qu
 | `contexto/` | Arquitetura, método de avaliação, paridade, modelos, `ESTADO.md` (o handover vivo), inventário, referências e a origem. Também o `handover-analise-de-decks.md`, que o dono entrega a outras IAs para que analisem um deck neste mesmo método. |
 | `.claude/skills/` | Os comandos do projeto, um por pasta, cada um com seu `SKILL.md`. Cada um declara modelo e esforço. Resumo em `contexto/MODELOS.md`; modelo para criar um novo em `contexto/modelo-de-skill.md`. |
 | `dados/<pasta>/` | Um deck: `deck.md`, `decklist.txt`, `capa.*`, `entrada/`, e o que o motor gera (avaliação, tema, `CONFRONTO.md`, `HISTORICO.md`, `Abrir o painel.html`). |
-| `motor/` | O código do painel e os scripts de montagem. Nasce com `/motor`. |
+| `motor/` | O código do painel e os scripts de montagem. Contrato dos dados em `contexto/ARQUITETURA.md`. |
+| `testes/` | Os testes, que recebem o deck por `--deck`, e os números de controle em `testes/controle/`. |
 | `cache/` | Dados e imagens do Scryfall. Fora do Git. |
 | `saidas/` | Um HTML por deck, com o nome da pasta, e `00. Hub.html`. |
 | `Abrir o Hub.html` | Na raiz. O atalho de um clique, que funciona sem internet. |
 
 ## Comandos de montagem
 
-Até o `/motor` rodar, o painel original se monta com `python contexto/origem/ritos-de-sangue-kit/build.py`.
+Mantenha esta seção atualizada.
 
-Depois (mantenha esta seção atualizada):
-
-- Um deck: `python motor/build.py --deck "02. Clavileno"`
-- Todos: `python motor/build.py --todos`
-- Hub: `python motor/build.py --hub`
-- Testes: os scripts em `testes/`
+- Um deck: `python motor/build.py --deck "02. Clavileno"` (grava `saidas/<pasta>.html` e `dados/<pasta>/Abrir o painel.html`)
+- Todos: `python motor/build.py --todos` (pula, com aviso, os decks sem `avaliacao.json`)
+- Cartas do zero no Scryfall: acrescente `--atualizar-scryfall`
+- Testes de um deck: `python testes/todos.py --deck "02. Clavileno"` (contrato, regressão, página publicada, layout e, no Clavileño, a comparação com o painel de origem). Cada um também roda sozinho, com `--deck`.
+- Hub: ainda não existe; nasce na etapa 4, com `/hub`.
+- Não rode o `build.py` do kit em `contexto/origem/`: ele grava dentro da pasta de origem.
 
 ## Idioma e tom
 

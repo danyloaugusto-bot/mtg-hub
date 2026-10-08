@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>/*__TITULO__*/</title>
+<style>
+/*__FONTS__*/
+/*__ROOT__*/
+/*__CSS__*/
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><clipPath id="arch" clipPathUnits="objectBoundingBox"><path d="M0,1V0.34Q0,0.104 0.5,0Q1,0.104 1,0.34V1Z"/></clipPath></defs></svg>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand" aria-hidden="true"><span class="ava"></span><span>/*__PAINEL__*/</span></div>
+    <nav class="tabs" role="tablist" aria-label="Seções do painel">
+      <button role="tab" id="t-geral" data-tab="geral" aria-selected="true" aria-controls="v-geral">Visão geral</button>
+      <button role="tab" id="t-gal" data-tab="gal" aria-selected="false" aria-controls="v-gal" tabindex="-1">Galeria</button>
+      <button role="tab" id="t-tier" data-tab="tier" aria-selected="false" aria-controls="v-tier" tabindex="-1">Tier list</button>
+      <button role="tab" id="t-tab" data-tab="tab" aria-selected="false" aria-controls="v-tab" tabindex="-1">Tabelão</button>
+      <button role="tab" id="t-ctrl" data-tab="ctrl" aria-selected="false" aria-controls="v-ctrl" tabindex="-1">Painel de controle</button>
+      <button role="tab" id="t-radar" data-tab="radar" aria-selected="false" aria-controls="v-radar" tabindex="-1">Radar</button>
+      <button role="tab" id="t-ofi" data-tab="ofi" aria-selected="false" aria-controls="v-ofi" tabindex="-1">Oficina</button>
+    </nav>
+    <div class="top-act">
+      <span class="count" id="deckCount"></span>
+      <button class="btn ghost pot" id="edhBtn" data-act="edh" hidden>Potenciais</button>
+      <button class="btn ghost" data-act="backup">Backup</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section id="v-geral" class="view" role="tabpanel" aria-labelledby="t-geral"></section>
+  <section id="v-gal" class="view" role="tabpanel" aria-labelledby="t-gal" hidden></section>
+  <section id="v-tier" class="view" role="tabpanel" aria-labelledby="t-tier" hidden></section>
+  <section id="v-tab" class="view" role="tabpanel" aria-labelledby="t-tab" hidden></section>
+  <section id="v-ctrl" class="view" role="tabpanel" aria-labelledby="t-ctrl" hidden></section>
+  <section id="v-radar" class="view" role="tabpanel" aria-labelledby="t-radar" hidden></section>
+  <section id="v-ofi" class="view" role="tabpanel" aria-labelledby="t-ofi" hidden></section>
+</main>
+
+<footer class="foot">
+  <p id="footTxt"></p>
+  <p id="storeNote"></p>
+</footer>
+
+<div id="scrim" class="scrim" hidden></div>
+<aside id="drawer" class="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="dw-title" tabindex="-1"></aside>
+<div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="md-title" tabindex="-1"></div>
+<div id="peek" class="peek" hidden aria-hidden="true"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>
