@@ -46,10 +46,10 @@ function cartao(d) {
       '<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">' + selo(d) + appDifere(d) + pub + '</div></div>' + cores(d.cores) + '</div></article>';
   }
   return '<article class="deck vazio' + (d.capa ? ' com-capa' : '') + '" data-busca="' + esc(semAcento(d.nome + ' ' + d.cmd)) + '">' +
-    (d.capa ? '<img class="capa" src="' + d.capa + '" alt="" style="opacity:.45">' : '') +
-    '<div class="meio"><b>Em construção</b><span>painel a fazer</span></div>' +
+    (d.capa ? '<img class="capa" src="' + d.capa + '" alt=""><div class="tampa"></div>' : '<div class="meio"><b>Em construção</b><span>painel a fazer</span></div>') +
     '<div class="faixa"><h3>' + esc(d.nome) + '</h3>' + (d.cmd ? '<p class="sub">' + esc(d.cmd) + '</p>' : '') + '</div>' +
-    '<div class="base"><div class="pilha"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">' + selo(d) + pub + '</div></div>' + cores(d.cores) + '</div></article>';
+    '<div class="base"><div class="pilha"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">' +
+    (d.capa ? '<span class="selo s-obras" title="Ainda sem painel">em construção</span>' : '') + selo(d) + pub + '</div></div>' + cores(d.cores) + '</div></article>';
 }
 
 function grupos() {

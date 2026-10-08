@@ -9,6 +9,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 07/10/2026: Giada migrada (Coro da Alvorada, revisão 3). Placar 429, pontos por agrupamento, tiers, relevância e fatos batem com o painel de origem. 90 verificações em quatro scripts.
 - 08/10/2026: imagens embutidas nos dois decks. `motor/imagens.py` baixou 229 impressões (11 MB em `cache/img/`, fora do Git) e `motor/build.py` passou a embutir por padrão. Os painéis mostram as imagens sem internet, em arquivo local e publicado. Clavileño com 7,8 MB, Giada com 6,8 MB — bem abaixo do aviso de 12 MB. Testes: 198 verificações nos dois decks.
 - 08/10/2026: hub feito (etapa 4), visual estante, no estilo do aplicativo. Situação OK/nOK calculada pelas trocas pendentes no radar.
+- 08/10/2026: o dono criou uma pasta para cada deck e mandou capas de Markov, Ken e Assassin Creed. Inventário alinhado aos nomes das pastas (Dragões, Turtle Power!, Heads I win, K'rrik, Master Of Evil), Lobos acrescentado, e os comandantes de Markov (Edgar Markov), Assassin Creed (Ezio Auditore da Firenze) e Ken (Aisha of Sparks and Smoke, que é o nome no Scryfall do Ken, Burning Brawler) conferidos no Scryfall. Hub com 26 decks.
 
 ## Próxima ação
 
@@ -33,7 +34,9 @@ Mandar as capas dos decks que faltam (cada uma vira `capa.*` na pasta do deck) e
 - As asas do Coro não estão no motor. A Giada usa o desenho padrão. Pedir pelo `/motor`.
 - Cinco leituras da Giada ficaram mais simples que no Coro: as frases que cruzavam dois números (proteção contra ramp e compra, ramp só para Anjos, cor branca nos custos, compra só atacando) viraram leituras de um número só. Se o dono quiser as frases de volta, é `/motor` com novos tipos de leitura.
 - O download do `art_crop` do comandante quando falta `capa.*` (em `motor/imagens.py`) não foi exercitado: os dois decks já tinham capa. Vale conferir no primeiro deck novo sem capa pronta.
-- `contexto/inventario.csv` tem comandantes em branco e faltam decks do grupo Tribais.
+- `contexto/inventario.csv` ainda tem comandantes em branco ou a confirmar (Vito, Turtle Power!, Dragões, Zumbis, Humanos, Kaalia, Goblins, Elfos, Lobos, Heads I win, Master Of Evil, Zur, Queen, Valgavoth). As cartas que o dono manda junto com a capa resolvem isso.
+- `carta.*` em Markov e Assassin Creed, e os handovers e a planilha do Ken, estão soltos na raiz das pastas: o `/novo-deck` move para `entrada/`.
+- Na raiz do projeto chegaram `Handover_Analise_de_Decks (Grok).md` e `Handover_Geral_Analise_Decks_Commander.md`, de outras IAs, sobre método. Não estão no Git e não foram confrontados com `contexto/AVALIACAO.md`.
 - Sobraram `data.json` e `test/` dentro de `contexto/origem/ritos-de-sangue-kit/`, gravados pelo build e pelos testes antigos na etapa 0. Não estão no Git. Precisam ser apagados à mão.
 
 ## Decisões e porquês
