@@ -43,9 +43,16 @@ with sync_playwright() as p:
         R.ok("tiers", ti == [ctl["tiers"][k] for k in "SABCD"], ti)
 
     abas = ("gal", "tier", "tab", "ctrl", "radar", "ofi", "geral")
+    visto = []
     for t in abas:
         pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(150)
+        visto.append(pg.evaluate("document.querySelector('main').innerText"))
     R.ok("sete abas sem exceção", not R.erros, R.erros)
+    # nome impresso: a página mostra o nome da carta física; o do Scryfall fica só nos dados
+    escondidos = [c["on"] for c in D["cards"] if c.get("on")]
+    if escondidos:
+        R.ok("nome impresso no lugar do nome do Scryfall", not [n for n in escondidos if any(n in v for v in visto)],
+             ", ".join(c["n"] for c in D["cards"] if c.get("on")))
 
     # gaveta: stepper, PetCard, valor e tier (com uma carta que não sai nas trocas sugeridas)
     saem = {c.get("sai") for c in D["cands"] if c["verdict"] == "entra"}
@@ -129,6 +136,8 @@ with sync_playwright() as p:
     R.ok("backup guarda trocas, datas e imagens", len(j["swaps"]) == len(entram) and j["swaps"][0].get("d") and j.get("img") is True and j.get("ts"))
     linhas = pg.input_value("#bk-list").split("\n")
     R.ok("decklist exportada", len(linhas) == len(D["cards"]) and (not entram or entram[0]["n"] in pg.input_value("#bk-list")), len(linhas))
+    if escondidos:
+        R.ok("decklist exportada com o nome do Scryfall", all(n in pg.input_value("#bk-list") for n in escondidos), escondidos)
     pg.click('[data-act="reset-all"]'); pg.click('[data-act="reset-all"]'); pg.wait_for_timeout(200)
     pg.click('[data-tab="radar"]'); pg.wait_for_timeout(150)
     R.ok("recomeçar", cnt() == "%d cartas" % ctl.get("cartas", 100) and pg.locator("#v-radar .hist").count() == 0)

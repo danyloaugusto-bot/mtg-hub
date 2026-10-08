@@ -14,10 +14,13 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 08/10/2026: moldura retrato virou o padrão de todos os painéis. "02. Clavileno" virou "02. Clavileño".
 - 08/10/2026: o motor ganhou a seção Estratégia (início, meio e fim, e contra quem o deck vai bem ou mal), escrita para Clavileño e Giada; preço do Scryfall por carta, por faixa de relevância e do deck inteiro, com o cache renovado a cada 7 dias; `fora_do_corte` para cartas de estimação; o gráfico e a textura `fios` e a fonte Cinzel, feitos para o Valgavoth.
 - 08/10/2026: Valgavoth v1.0 fechado. `/novo-deck` completo: avaliação de 100 cartas (84 notadas), radar de 15, 8 combos, estratégia, tema "Dízimo das Almas". O dono aprovou com um ajuste: o título do painel estava grande demais para a fonte Cinzel, então o motor ganhou `titulo_escala` no tema, para reduzir o título sem mexer nos outros painéis. Esclarecido ao dono: as trocas do radar são só sugestão exibida no painel — `decklist.txt` nunca muda sozinho, só por pedido explícito. Imagens embutidas (6,5 MB), testes 87/87 nos quatro scripts, hub com 3 painéis (27/27), controle de números salvo em `testes/controle/03. Valgavoth.json`.
+- 08/10/2026: trava de identidade de cor no motor (o build recusa carta fora das cores do comandante; tirou a Branching Evolution do radar do Valgavoth). O leitor da decklist aceita o formato de exportação de aplicativo (`// COMMANDER`, foil como `F`), e o número da impressão vai ao Scryfall sem virar minúsculo. O Valgavoth passou a mostrar as impressões exatas do dono (Crypt Ghast DSC 368, entre outras).
+- 08/10/2026: handovers de método da raiz movidos para `contexto/referencias/metodo/`, sem mudar `AVALIACAO.md` nem o handover (decisão do dono).
+- 08/10/2026: Ken v1.0 fechado (`/novo-deck 04. Ken`), painel "Round Extra". Placar 375; com as 11 trocas recomendadas, 409. O motor ganhou: nome impresso (o painel mostra Ken, Ryu, Hadoken e Lórien Brooch; o nome do Scryfall fica guardado para busca e exportação), etched foil (`E`), o mesmo básico em duas linhas, gráfico "chamas", textura "impacto" e a fonte Teko. Testes: Ken 89/89, Valgavoth 87/87, Clavileño 105/105, Giada 91/91, hub 28/28 com quatro painéis.
 
 ## Próxima ação
 
-Mandar as capas dos decks que faltam e escolher o próximo deck (`/novo-deck 01. Vito` ou outro da fila). Confrontar os handovers da raiz (Grok e Geral) com o `AVALIACAO.md`, como combinado.
+Escolher o próximo deck: `/novo-deck 01. Markov` ou `/novo-deck 04. Assassin Creed` (os dois têm capa e a carta do comandante soltas na pasta), ou `/novo-deck 01. Vito`. Mandar as capas dos demais.
 
 ## Feito
 

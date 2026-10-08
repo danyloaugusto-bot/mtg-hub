@@ -49,7 +49,7 @@ def ler_json(caminho, obrigatorio=True):
 
 
 # ---------------------------------------------------------------- decklist
-LINHA = re.compile(r"^(\d+)\s+(.+?)(?:\s+\(([A-Za-z0-9]+)\)\s+(\S+))?((?:\s+(?:\*[A-Za-z]+\*|F|CMDR))*)\s*$")
+LINHA = re.compile(r"^(\d+)\s+(.+?)(?:\s+\(([A-Za-z0-9]+)\)\s+(\S+))?((?:\s+(?:\*[A-Za-z]+\*|F|E|CMDR))*)\s*$")
 
 
 def ler_decklist(caminho):
@@ -66,7 +66,7 @@ def ler_decklist(caminho):
                 raise ErroDeck("decklist.txt, linha %d não está no formato '1 Nome (SET) 123': %s" % (n, linha))
             flags = {f.strip("*").upper() for f in (m.group(5) or "").split()}
             out.append(dict(q=int(m.group(1)), name=m.group(2), set=m.group(3), num=m.group(4),
-                            foil="F" in flags, cmd="CMDR" in flags))
+                            foil="F" in flags or "E" in flags, etched="E" in flags, cmd="CMDR" in flags))
     if not out:
         raise ErroDeck("decklist.txt está vazia")
     if not any(e["cmd"] for e in out):
@@ -181,6 +181,13 @@ def conferir_avaliacao(av, quem, grupos, marcadores, radar=False):
 
 
 # ---------------------------------------------------------------- carta
+def nome_impresso(sf):
+    """Nome que está na carta física, quando difere do nome do Scryfall (ex.: Ken, Burning Brawler, impresso na SLD 430,
+    que o Scryfall chama de Aisha of Sparks and Smoke). Só impressões em inglês: nome de carta é sempre em inglês."""
+    n = sf.get("flavor_name") or (sf.get("printed_name") if sf.get("lang") in (None, "en") else None)
+    return n if n and n != sf.get("name") else None
+
+
 def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
     faces = sf.get("faces") or []
     frente = faces[0] if faces else sf
@@ -257,6 +264,8 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
             d["num"] = entrada["num"]
         if entrada.get("foil"):
             d["foil"] = 1
+        if entrada.get("etched"):
+            d["etched"] = 1
         if entrada.get("cmd"):
             d["cmd"] = 1
             d["g"] = "cmd"
@@ -271,6 +280,12 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
         d["usd"] = sf["usd"]
     if sf.get("usd_foil"):
         d["usdf"] = sf["usd_foil"]
+    if d.get("etched") and sf.get("usd_etched"):
+        d["usdf"] = sf["usd_etched"]
+    if entrada is not None and nome_impresso(sf):
+        # o painel mostra o nome da carta física; o do Scryfall fica guardado para busca, links e exportação
+        d["on"] = nome
+        d["n"] = nome_impresso(sf)
     return d
 
 
@@ -394,7 +409,16 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
             raise ErroDeck("%s: fora da identidade de cor do comandante (%s): %s" % (onde, ident or "incolor", ", ".join(fora)))
 
     cards = [montar_carta(e["name"], cartas_av[e["name"]], sf[i], grupos, marcadores, e) for i, e in enumerate(lista)]
-    ids = {c["n"]: c["id"] for c in cards}
+    # o mesmo básico em duas impressões vira duas linhas: cada uma precisa de id próprio
+    vistos_id = {}
+    for c in cards:
+        k = vistos_id[c["id"]] = vistos_id.get(c["id"], 0) + 1
+        if k > 1:
+            c["id"] = "%s-%d" % (c["id"], k)
+    ids = {}
+    for c in cards:
+        # combos e trocas citam a carta pelo nome do Scryfall, que é o da avaliacao.json
+        ids.setdefault(c.get("on", c["n"]), c["id"])
     cands = []
     for j, (n, a) in enumerate(radar_av.items()):
         c = montar_carta(n, a, sf[n0 + j], grupos, marcadores)
@@ -429,8 +453,9 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     if com:
         sin = com.get("sinergia") or {}
         for c in cards + cands:
-            if c["n"] in sin and sin[c["n"]] is not None:
-                c["syn"] = sin[c["n"]]
+            n = c.get("on", c["n"])
+            if n in sin and sin[n] is not None:
+                c["syn"] = sin[n]
         edh = dict(fonte=com.get("fonte", "edh.wiki"), url=com.get("url", ""), lido=com.get("lido", ""), pagina=com.get("pagina", ""),
                    temas=com.get("temas") or [], listas=com.get("listas") or [], precon=com.get("precon"))
 

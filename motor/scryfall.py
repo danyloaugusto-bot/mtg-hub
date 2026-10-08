@@ -52,8 +52,9 @@ def _reduzir(k, hoje):
         "power": k.get("power"), "toughness": k.get("toughness"), "loyalty": k.get("loyalty"), "defense": k.get("defense"),
         "produced_mana": k.get("produced_mana"), "color_identity": k.get("color_identity"),
         "oracle_text": k.get("oracle_text"), "artist": k.get("artist"),
-        "usd": precos.get("usd"), "usd_foil": precos.get("usd_foil"),
+        "usd": precos.get("usd"), "usd_foil": precos.get("usd_foil"), "usd_etched": precos.get("usd_etched"),
         "released_at": k.get("released_at"), "image": bool(k.get("image_uris")),
+        "printed_name": k.get("printed_name"), "flavor_name": k.get("flavor_name"), "lang": k.get("lang"),
         "consultado": hoje,
     }
     if k.get("card_faces"):

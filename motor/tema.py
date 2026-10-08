@@ -91,6 +91,13 @@ def textura(nome, p):
         return ("radial-gradient(900px 560px at 50%% -12%%, rgba(%d,%d,%d,.3), transparent 64%%),"
                 "radial-gradient(600px 380px at 96%% 4%%, rgba(%d,%d,%d,.45), transparent 70%%),"
                 'url("%s"),%s') % (a + w + (svg, grad))
+    if nome == "impacto":
+        # linhas de velocidade em diagonal, como nos jogos de luta, e um clarão quente vindo do alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento_claro"]) + "' stroke-opacity='.05' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M8 152L58 102M70 150L150 70M20 64L64 20M104 34L138 0M118 160L160 118'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(1000px 540px at 30%% -10%%, rgba(%d,%d,%d,.32), transparent 62%%),"
+                "radial-gradient(640px 400px at 96%% 6%%, rgba(%d,%d,%d,.42), transparent 70%%),"
+                'url("%s"),%s') % (a + w + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

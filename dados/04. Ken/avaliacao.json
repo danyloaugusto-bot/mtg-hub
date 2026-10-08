@@ -1,0 +1,1508 @@
+{
+ "feito": "08/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana além do terreno do turno. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra, seleção e tutores."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Tira permanente da mesa, pontual ou em massa."
+  },
+  {
+   "k": "sinergia",
+   "nome": "Sinergia + PetCard",
+   "curto": "Sinergia",
+   "ab": "Sin.",
+   "pet": true,
+   "desc": "Liga direto com o Ken: mais dano, evasão, ou bom alvo do Shoryuken. Marcar a carta como PetCard soma 1 ponto aqui."
+  },
+  {
+   "k": "eq_protecao",
+   "nome": "Equipamento (Proteção)",
+   "curto": "Eq. Proteção",
+   "ab": "Eq.P",
+   "desc": "Equipamento ou suporte que mantém o Ken vivo."
+  },
+  {
+   "k": "eq_especial",
+   "nome": "Equipamento (Especial)",
+   "curto": "Eq. Especial",
+   "ab": "Eq.E",
+   "desc": "Equipamento de ataque, e o que busca, barateia ou reanexa equipamento."
+  },
+  {
+   "k": "ce_nao_criatura",
+   "nome": "Combate extra (não-criatura)",
+   "curto": "CE não-criatura",
+   "ab": "CE",
+   "desc": "3 se cria combate dentro do combate (gatilho de ataque, ou World at War pelo Shoryuken); 2 se só cria na fase principal, pagando."
+  },
+  {
+   "k": "ce_criatura",
+   "nome": "Combate extra (criatura)",
+   "curto": "CE criatura",
+   "ab": "CE cri.",
+   "desc": "Criatura que cria combate."
+  }
+ ],
+ "marcadores": {
+  "equip": {
+   "nome": "Equipamento",
+   "plural": "Equipamentos",
+   "subtipo": "Equipment"
+  },
+  "dentro": {
+   "nome": "Cria combate dentro do combate"
+  },
+  "principal": {
+   "nome": "Só cria combate na fase principal"
+  },
+  "duplo": {
+   "nome": "Fonte de golpe duplo"
+  },
+  "evasao": {
+   "nome": "Passa pelo bloqueio"
+  },
+  "pro_vermelho": {
+   "nome": "Tira do Ken as peças vermelhas"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de ramp dedicada",
+    "cartas de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem",
+   "alerta": "Um deck que paga equipar e recasta o comandante precisa de mais mana que a média, não de menos."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais",
+   "alerta": "Quando o Ken morre, o deck perde o fôlego: faltam motores de compra que não dependam de conectar."
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 5,
+   "massa_ref": [
+    3,
+    5
+   ],
+   "alerta": "Há remoção em massa sobrando, e quatro delas deixam cada oponente com pelo menos uma criatura."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "eq_protecao",
+   "rotulo": [
+    "peça de proteção",
+    "peças de proteção"
+   ],
+   "passagem": "de passagem"
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "dentro",
+   "listar": true,
+   "rotulo": [
+    "carta cria combate dentro do combate",
+    "cartas criam combate dentro do combate"
+   ],
+   "texto": "São as que funcionam com o Shoryuken ou no meio do combate."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "principal",
+   "listar": true,
+   "rotulo": [
+    "carta só cria combate na fase principal",
+    "cartas só criam combate na fase principal"
+   ],
+   "texto": "Pelo Shoryuken elas só desviram. Pague na segunda fase principal."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "duplo",
+   "listar": true,
+   "rotulo": [
+    "fonte de golpe duplo",
+    "fontes de golpe duplo"
+   ],
+   "texto": "Cada uma dá dois Shoryukens por combate."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "evasao",
+   "min": 5,
+   "listar": true,
+   "rotulo": [
+    "carta faz o Ken passar pelo bloqueio",
+    "cartas fazem o Ken passar pelo bloqueio"
+   ],
+   "alerta": "O bloqueio não desliga o Shoryuken, mas segura o dano de comandante. Só a Embercleave dá atropelar.",
+   "ok": "O bloqueio tem resposta."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "pro_vermelho",
+   "max": 0,
+   "listar": true,
+   "rotulo": [
+    "carta dá ao Ken proteção contra vermelho",
+    "cartas dão ao Ken proteção contra vermelho"
+   ],
+   "alerta": "Com ela no Ken, caem Embercleave, Two-Handed Axe, Hexplate Wallbreaker e Lizard Blades, e Chandra's Ignition e Seize the Day não o miram.",
+   "ok": "Nenhum conflito de cor."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 4",
+   "plano": "Pedra de mana no turno 2 e o Ken no 3, já com Lightning Greaves, Swiftfoot Boots ou Commander's Plate. Fighter Class busca o equipamento que falta.",
+   "fortes": [
+    "Três proteções baratas: Lightning Greaves (equipar 0), Swiftfoot Boots (1) e Commander's Plate (3 no comandante).",
+    "O Ken custa 3 e já ataca com 4 de poder, o custo de Divine Reckoning e Open the Armory."
+   ],
+   "fracos": [
+    "Só seis cartas de ramp, e duas dependem de condição.",
+    "Resistência 2: qualquer bloqueador de poder 2 mata o Ken se você não pagar o first strike."
+   ]
+  },
+  "meio": {
+   "turnos": "5 a 8",
+   "plano": "O Ken ataca sozinho no primeiro combate para ligar Raiyuu, Karlach e Genji Glove. Cada acerto vira um feitiço de graça: tutor, compra ou remoção em massa. As criaturas de combate extra atacam a partir do segundo combate.",
+   "fortes": [
+    "Raiyuu e Karlach juntos dão três combates por turno, sem custo.",
+    "Sram, Akiri e a Glamdring compram ou conjuram a cada equipamento ou acerto."
+   ],
+   "fracos": [
+    "Oito fontes de compra, e três dependem do oponente ou de conectar.",
+    "Sete combates extras só funcionam na fase principal: pelo Shoryuken, apenas desviram."
+   ]
+  },
+  "fim": {
+   "turnos": "9 em diante",
+   "plano": "Golpe duplo e combates extras levam os 21 de comandante a um oponente por turno. Chandra's Ignition e as remoções em massa abrem a mesa no meio do combate.",
+   "fortes": [
+    "Ken com Genji Glove: 8 por combate, dois combates, 16 no turno.",
+    "Seis fontes de golpe duplo, e o golpe duplo dado entre as etapas de dano ainda bate."
+   ],
+   "fracos": [
+    "Só um atropelar (Embercleave): uma ficha segura dez combates.",
+    "A Sword of Fire and Ice no Ken desliga Embercleave, Two-Handed Axe e Chandra's Ignition."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "O Ken ataca sozinho e deixa a defesa vazia, mas Slash the Ranks, Divine Reckoning e Single Combat limpam a mesa e poupam o Ken."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Single Combat, Divine Reckoning e Promise of Loyalty deixam uma criatura só, e Darksteel Mutation desliga o comandante deles sem que ele volte à zona de comando."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Nenhuma contramágica, e o relógio depende de o Ken conectar várias vezes."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "fraco",
+    "porque": "Resistência 2 e pouca compra: cada remoção custa o Ken e o imposto, e o deck perde o fôlego."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Imposto de ataque e de equipar trava o plano, e ódio a artefato desmonta os equipamentos."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Fichas bloqueiam o Ken, mas Whispersilk Cloak, Lórien Brooch, Rogue's Passage e o first strike passam ou limpam o caminho."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "Eles fazem fichas e removem, mas o Ken com três combates fecha mais rápido que o motor deles monta."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "Ramp demora para interagir, e a Land Tax dispara contra quem tem mais terrenos."
+   }
+  ]
+ },
+ "cartas": {
+  "Aisha of Sparks and Smoke": {
+   "notas": {
+    "sinergia": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "4/2 com prowess. {R/W}: first strike até o fim do turno. Shoryuken: sempre que causa dano de combate, você pode conjurar de graça um feitiço da mão com valor de mana até o dano causado.",
+   "porque": "É o deck. Tudo em volta existe para ele causar dano mais vezes e com mais poder. Dano a criatura também dispara o Shoryuken."
+  },
+  "Akiri, Fearless Voyager": {
+   "notas": {
+    "draw": 3,
+    "sinergia": 2,
+    "eq_protecao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Compra 1 quando criaturas equipadas atacam um jogador; W desequipa para dar indestrutível.",
+   "porque": "Compra a cada ataque com criatura equipada, e o deck ataca várias vezes por turno. Também salva o Ken de remoção, ao custo de virá-lo."
+  },
+  "Aurelia, the Warleader": {
+   "notas": {
+    "sinergia": 1,
+    "ce_criatura": 3
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "3/4 voar, vigilância, ímpeto. No primeiro ataque dela no turno, desvira tudo e cria combate extra.",
+   "porque": "Seis manas num deck de 6 ramps, e atrai remoção. Não briga com o Raiyuu se atacar a partir do segundo combate, mas o custo pesa.",
+   "marcas": {
+    "dentro": 1
+   },
+   "prioridade": 8
+  },
+  "Battle Angels of Tyr": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "4/4 voar com myriad; compra, cria Treasure ou ganha vida conforme o jogador atingido esteja à frente.",
+   "porque": "Valor genérico que depende de os oponentes estarem à frente e de ela conectar. Não conversa com o Ken.",
+   "prioridade": 6
+  },
+  "Bruenor Battlehammer": {
+   "notas": {
+    "ramp": 1,
+    "sinergia": 2,
+    "eq_especial": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "+2/+0 por equipamento em cada criatura sua; o primeiro equipar do turno custa 0.",
+   "porque": "Sobe o teto do Shoryuken e paga o equipar do Colossus Hammer."
+  },
+  "Danitha Capashen, Paragon": {
+   "notas": {
+    "ramp": 1,
+    "sinergia": 1,
+    "eq_especial": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "2/2 first strike, vigilância, vínculo; auras e equipamentos custam 1 a menos.",
+   "porque": "Desconto em 19 mágicas do deck. Honesta e trocável."
+  },
+  "Fear of Missing Out": {
+   "notas": {
+    "draw": 1,
+    "sinergia": 1,
+    "ce_criatura": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "2/3. Ao entrar, descarta e compra. Delirium: no primeiro ataque dela no turno, desvira uma criatura e cria um combate extra.",
+   "porque": "Delirium é alcançável aqui. Ela precisa atacar: a partir do segundo combate, não desliga o Raiyuu.",
+   "marcas": {
+    "dentro": 1
+   }
+  },
+  "Karlach, Fury of Avernus": {
+   "notas": {
+    "sinergia": 2,
+    "ce_criatura": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Quando você ataca no primeiro combate, desvira os atacantes, dá first strike e cria combate extra.",
+   "porque": "Dispara com o Ken atacando sozinho, então convive com o Raiyuu: os dois juntos dão três combates.",
+   "marcas": {
+    "dentro": 1
+   }
+  },
+  "Lizard Blades": {
+   "notas": {
+    "sinergia": 2,
+    "eq_especial": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "1/1 golpe duplo; reconfigure 2 vira equipamento que dá golpe duplo.",
+   "porque": "Golpe duplo são dois Shoryukens por combate, por 4 manas no total. Atenção: é vermelha e cai com a proteção da Sword of Fire and Ice.",
+   "marcas": {
+    "duplo": 1
+   }
+  },
+  "Moraug, Fury of Akoum": {
+   "notas": {
+    "sinergia": 1,
+    "ce_criatura": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "6/6; landfall na fase principal cria combate extra; +1/+0 por ataque no turno.",
+   "porque": "Seis manas, e o landfall só cria combate na fase principal: pede guardar o terreno do turno.",
+   "marcas": {
+    "principal": 1
+   },
+   "prioridade": 4
+  },
+  "Port Razer": {
+   "notas": {
+    "ce_criatura": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "4/4; se ela causar dano de combate a um jogador, desvira tudo e cria combate extra. Não ataca o mesmo jogador duas vezes.",
+   "porque": "Quem precisa conectar é ela, uma 4/4 sem evasão. A partir do segundo combate não desliga o Raiyuu, mas raramente conecta.",
+   "marcas": {
+    "dentro": 1
+   },
+   "prioridade": 5
+  },
+  "Raiyuu, Storm's Edge": {
+   "notas": {
+    "sinergia": 3,
+    "ce_criatura": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Quando um Samurai ou Warrior seu ataca sozinho, desvira; se for o primeiro combate, cria combate extra.",
+   "porque": "O Ken é Human Warrior. Combate extra todo turno, sem custo, só por atacar sozinho.",
+   "marcas": {
+    "dentro": 1
+   }
+  },
+  "Reyav, Master Smith": {
+   "notas": {
+    "sinergia": 2,
+    "eq_especial": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Quando uma criatura sua encantada ou equipada ataca, ela ganha golpe duplo até o fim do turno.",
+   "porque": "Golpe duplo em todo combate por duas manas. Dois Shoryukens por ataque.",
+   "marcas": {
+    "duplo": 1
+   }
+  },
+  "Sram, Senior Edificer": {
+   "notas": {
+    "draw": 3,
+    "sinergia": 2,
+    "eq_especial": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Compra 1 ao conjurar Aura, Equipamento ou Veículo.",
+   "porque": "São 19 gatilhos no deck (16 equipamentos e 3 auras). É o melhor motor de compra da lista."
+  },
+  "Vikya, Scorching Stalwart": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "sinergia": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "2/4 com training; Hadoken (4R, desvirar, descartar): causa dano igual ao poder, e compra se sobrar dano numa criatura.",
+   "porque": "Carta de estimação: o Ryu ao lado do Ken. O training pede atacar junto com o Ken e o Hadoken custa 5.",
+   "fora_do_corte": true
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Pedra de 2 que gera R ou W.",
+   "porque": "Infraestrutura. O deck tem pouco ramp."
+  },
+  "Colossus Hammer": {
+   "notas": {
+    "sinergia": 2,
+    "eq_especial": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "+10/+10 e perde voar; equipar 8.",
+   "porque": "Com Sigarda's Aid, Bruenor, Forge Anew, Hammer of Nazahn ou Inventory Management entra de graça e leva o Ken a 14. Sem atropelar, e sem uma dessas cinco é carta morta."
+  },
+  "Commander's Plate": {
+   "notas": {
+    "sinergia": 2,
+    "eq_protecao": 3,
+    "eq_especial": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "+3/+3 e proteção contra as cores fora da identidade (azul, preto, verde); equipar comandante 3.",
+   "porque": "Proteção, poder 7 e evasão numa carta de 1 mana: criaturas azuis, pretas e verdes não bloqueiam o Ken.",
+   "marcas": {
+    "evasao": 1
+   }
+  },
+  "Darksteel Plate": {
+   "notas": {
+    "sinergia": 1,
+    "eq_protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Indestrutível, e dá indestrutível; equipar 2.",
+   "porque": "Resistência 2 é o ponto fraco do Ken. Também deixa ele sobreviver às suas próprias remoções em massa."
+  },
+  "Dowsing Dagger": {
+   "notas": {
+    "ramp": 2,
+    "sinergia": 1,
+    "eq_especial": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "+2/+1; dá dois 0/2 defensores a um oponente; ao conectar num jogador vira terreno que gera 3 manas.",
+   "porque": "É ramp que depende de conectar, e os defensores atrapalham justamente isso. Bom contra o jogador que não recebeu as plantas."
+  },
+  "Embercleave": {
+   "notas": {
+    "sinergia": 3,
+    "eq_especial": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Lampejo, custa menos por atacante, equipa ao entrar; +1/+1, golpe duplo e atropelar.",
+   "porque": "O único atropelar da lista, com golpe duplo e em velocidade de instantânea. Com o Ken sozinho custa 5. É vermelha: cai se a Sword of Fire and Ice estiver no Ken.",
+   "marcas": {
+    "duplo": 1,
+    "evasao": 1
+   }
+  },
+  "Everflowing Chalice": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Pedra com multikicker; por 2 gera 1 incolor.",
+   "porque": "Ramp. Incolor, num comandante de custo 1RR."
+  },
+  "Genji Glove": {
+   "notas": {
+    "sinergia": 3,
+    "eq_especial": 3,
+    "ce_nao_criatura": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Golpe duplo; ao atacar no primeiro combate, desvira o portador e cria combate extra; equipar 3.",
+   "porque": "Dois combates com dois Shoryukens cada, todo turno. Custa 8 no total, e paga.",
+   "marcas": {
+    "dentro": 1,
+    "duplo": 1
+   }
+  },
+  "Glamdring": {
+   "notas": {
+    "draw": 1,
+    "sinergia": 3,
+    "eq_especial": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "First strike e +1/+0 por instantânea ou feitiço no cemitério; ao conectar num jogador, conjura de graça instantânea ou feitiço com custo até o dano; equipar 3.",
+   "porque": "Segundo Shoryuken, e este aceita instantâneas. Com 24 instantâneas e feitiços o bônus de poder cresce rápido."
+  },
+  "Hammer of Nazahn": {
+   "notas": {
+    "sinergia": 2,
+    "eq_protecao": 3,
+    "eq_especial": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "+2/+0 e indestrutível; equipamentos que entram podem ser anexados de graça; equipar 4.",
+   "porque": "Proteção e economia de mana na mesma carta. Anexa o Colossus Hammer."
+  },
+  "Hexplate Wallbreaker": {
+   "notas": {
+    "sinergia": 1,
+    "eq_especial": 2,
+    "ce_nao_criatura": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "For Mirrodin!: entra com um Rebel 2/2 equipado. +2/+2. Quando a criatura equipada ataca no primeiro combate, desvira os atacantes e cria um combate extra. Equipar {3}{R}.",
+   "porque": "Combate extra por gatilho de ataque, que convive com o Shoryuken. Passar para o Ken custa 4. É vermelha: cai se a Sword of Fire and Ice estiver no Ken.",
+   "marcas": {
+    "dentro": 1
+   }
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "sinergia": 2,
+    "eq_protecao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Ímpeto e shroud; equipar 0.",
+   "porque": "Protege e dá ímpeto de graça. O shroud impede de anexar outro equipamento por alvo; tire antes, ou use Inventory Management."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Gera 2 incolores por 1.",
+   "porque": "Infraestrutura."
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "sinergia": 2,
+    "eq_protecao": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Ímpeto e hexproof; equipar 1.",
+   "porque": "Protege sem travar os outros equipamentos, ao contrário de Greaves e Cloak."
+  },
+  "Sword of Fire and Ice": {
+   "notas": {
+    "draw": 2,
+    "removal": 1,
+    "sinergia": 2,
+    "eq_protecao": 1,
+    "eq_especial": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "+2/+2, proteção contra vermelho e azul; ao conectar num jogador, 2 de dano e compra 1; equipar 2.",
+   "porque": "Compra e 2 de dano por acerto, mas a proteção contra vermelho desliga meio deck quando está no Ken: caem Embercleave, Two-Handed Axe, Hexplate Wallbreaker e Lizard Blades, e Chandra's Ignition e Seize the Day não o miram. A Sword of Feast and Famine faz o mesmo papel sem o conflito.",
+   "marcas": {
+    "pro_vermelho": 1
+   },
+   "prioridade": 11
+  },
+  "Talisman of Conviction": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Pedra de 2 que gera R ou W com 1 de dano.",
+   "porque": "Infraestrutura."
+  },
+  "Trailblazer's Boots": {
+   "notas": {
+    "sinergia": 2,
+    "eq_especial": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Travessia de terreno não básico; equipar 2.",
+   "porque": "Em Commander é quase imbloqueável. Converte combate em dano de comandante.",
+   "marcas": {
+    "evasao": 1
+   }
+  },
+  "Two-Handed Axe": {
+   "notas": {
+    "sinergia": 2,
+    "eq_especial": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dobra o poder ao atacar; equipar 1R. Aventura: instantânea 1R que dá golpe duplo.",
+   "porque": "Ken ataca com 8: todo feitiço da lista sai de graça, inclusive Insurrection. A aventura dá golpe duplo entre as etapas de dano, e o Ken bate de novo. É vermelha: cai com a Sword of Fire and Ice.",
+   "marcas": {
+    "duplo": 1
+   }
+  },
+  "Whispersilk Cloak": {
+   "notas": {
+    "sinergia": 2,
+    "eq_protecao": 2,
+    "eq_especial": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Imbloqueável e shroud; equipar 2.",
+   "porque": "Evasão e proteção. Como Greaves, tem de ser o último equipamento a entrar.",
+   "marcas": {
+    "evasao": 1
+   }
+  },
+  "Aggravated Assault": {
+   "notas": {
+    "sinergia": 2,
+    "ce_nao_criatura": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3RR, só como feitiço: desvira suas criaturas e cria combate extra e fase principal.",
+   "porque": "Repetível e imune ao problema do 'After this main phase'. Vira combo com Sword of Feast and Famine, que não está na lista.",
+   "marcas": {
+    "principal": 1
+   }
+  },
+  "Darksteel Mutation": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura: a criatura vira 0/1 indestrutível sem habilidades.",
+   "porque": "Resposta barata a comandante alheio, que não volta para a zona de comando."
+  },
+  "Fall of the First Civilization": {
+   "notas": {
+    "draw": 1,
+    "removal": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Saga: você e um oponente compram 2; exila um artefato; cada jogador fica com três permanentes não terreno e o resto é destruído.",
+   "porque": "O capítulo III destrói seus próprios equipamentos e pedras. Num deck de 16 equipamentos é fogo amigo.",
+   "massa": true,
+   "prioridade": 1
+  },
+  "Fighter Class": {
+   "notas": {
+    "ramp": 1,
+    "sinergia": 2,
+    "eq_especial": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Busca um equipamento ao entrar. Nível 2: equipar custa {2} a menos. Nível 3: quando uma criatura sua ataca, até uma criatura alvo a bloqueia se puder.",
+   "porque": "Tutor de 2 manas que depois barateia todo equipar em {2}."
+  },
+  "Forge Anew": {
+   "notas": {
+    "ramp": 1,
+    "sinergia": 2,
+    "eq_protecao": 1,
+    "eq_especial": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Devolve um equipamento do cemitério; no seu turno equipa em velocidade de instantânea; primeiro equipar do turno custa 0.",
+   "porque": "Recuperação, economia e truque de combate. Equipar em resposta, no seu turno, é a proteção mais ágil que o deck tem."
+  },
+  "Grim Reaper's Sprint": {
+   "notas": {
+    "sinergia": 1,
+    "ce_nao_criatura": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Aura: ao entrar, desvira suas criaturas e, se for fase principal, cria combate extra; +2/+2 e ímpeto. Custa 3 a menos com morbid.",
+   "porque": "Cinco manas por um combate, o Ken não a conjura, e ela cai com a Sword of Fire and Ice.",
+   "marcas": {
+    "principal": 1
+   },
+   "prioridade": 3
+  },
+  "Land Tax": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Na manutenção, se um oponente tem mais terrenos, busca até três básicos.",
+   "porque": "Garante os terrenos do turno e alimenta o retrace de Waves of Aggression e o Faithless Looting."
+  },
+  "Mantle of the Ancients": {
+   "notas": {
+    "sinergia": 2,
+    "eq_protecao": 1,
+    "eq_especial": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura: devolve Auras e Equipamentos do cemitério anexados; +1/+1 por cada um.",
+   "porque": "Reconstrói o Ken depois de uma limpeza de artefatos. Cara, e é branca: funciona com a Sword of Fire and Ice."
+  },
+  "Sigarda's Aid": {
+   "notas": {
+    "ramp": 1,
+    "sinergia": 2,
+    "eq_protecao": 1,
+    "eq_especial": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Auras e equipamentos ganham lampejo; equipamento que entra é anexado de graça.",
+   "porque": "Economiza todo equipar e transforma equipamento de proteção em resposta instantânea."
+  },
+  "Chaos Warp": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Embaralha um permanente no grimório do dono.",
+   "porque": "Resposta universal em vermelho."
+  },
+  "Generous Gift": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Destrói um permanente; o dono ganha um 3/3.",
+   "porque": "Resposta universal. Infraestrutura."
+  },
+  "Great Train Heist": {
+   "notas": {
+    "ramp": 1,
+    "sinergia": 1,
+    "ce_nao_criatura": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Spree. +{2}{R}: desvira suas criaturas e, se for o seu combate, cria um combate extra. +{2}: +1/+0 e first strike. +{R}: Tesouro virado a cada acerto num oponente.",
+   "porque": "Combate extra em velocidade de instantânea, dentro do combate. A Glamdring a conjura sem o custo de mana, mas o custo do spree se paga: o combate extra continua custando {2}{R}.",
+   "marcas": {
+    "dentro": 1
+   }
+  },
+  "Inventory Management": {
+   "notas": {
+    "sinergia": 1,
+    "eq_protecao": 1,
+    "eq_especial": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Split second. Para cada Aura e Equipamento seu, você pode anexá-lo a uma criatura sua.",
+   "porque": "Veste o Ken inteiro depois de recastá-lo e anexa o Colossus Hammer. Não mira: é a única carta que equipa o Ken com Lightning Greaves ou Whispersilk Cloak nele."
+  },
+  "Lightning Bolt": {
+   "notas": {
+    "removal": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "3 de dano em qualquer alvo.",
+   "porque": "Carta de estimação: o Hadoken do Ryu, ao lado do Ken. Barata, e gatilho de prowess no meio do combate.",
+   "fora_do_corte": true
+  },
+  "Path to Exile": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Exila uma criatura; o dono busca um básico.",
+   "porque": "Melhor remoção pontual da lista. Tira bloqueador."
+  },
+  "Razorgrass Ambush": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "3 de dano em criatura atacante ou bloqueadora. Verso: terreno que gera {W}; entra desvirado se você pagar 3 de vida.",
+   "porque": "É um terreno com opção. Conta como fonte."
+  },
+  "Risk Factor": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "O oponente escolhe: leva 4 ou você compra 3. Jump-start.",
+   "porque": "Quem escolhe é o oponente, e 4 de dano fora do comandante não adianta o plano.",
+   "prioridade": 2
+  },
+  "Chandra's Ignition": {
+   "notas": {
+    "removal": 3,
+    "sinergia": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Uma criatura sua causa dano igual ao poder a cada outra criatura e a cada oponente.",
+   "porque": "Melhor alvo do Shoryuken: limpa a mesa e atinge os três oponentes no meio do combate. Custa 5. Não mira o Ken se ele estiver com a Sword of Fire and Ice.",
+   "massa": true
+  },
+  "Divine Reckoning": {
+   "notas": {
+    "removal": 3,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Cada jogador escolhe uma criatura; o resto é destruído. Flashback.",
+   "porque": "Custa 4, o poder base do Ken: sai de graça a cada acerto. Cada jogador escolhe a criatura que fica, e o oponente que bloqueou pode ficar com o bloqueador.",
+   "massa": true
+  },
+  "Faithless Looting": {
+   "notas": {
+    "draw": 2,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Compra 2, descarta 2. Flashback.",
+   "porque": "Seleção barata, que o Ken conjura com qualquer dano, e enche o cemitério para Glamdring."
+  },
+  "Insurrection": {
+   "notas": {
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Ganha o controle de todas as criaturas, desvira e dá ímpeto até o fim do turno.",
+   "porque": "De graça só com 8 de dano, e só serve se ainda houver um combate marcado. No custo cheio são 8 manas num deck de 6 ramps.",
+   "prioridade": 9
+  },
+  "Jeska's Will": {
+   "notas": {
+    "ramp": 2,
+    "draw": 2,
+    "sinergia": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Com comandante, faz os dois: gera R por carta na mão de um oponente e exila três do topo para jogar no turno.",
+   "porque": "Melhor conjurada antes do combate. Pelo Shoryuken, a mana gerada some no fim da etapa."
+  },
+  "Open the Armory": {
+   "notas": {
+    "sinergia": 2,
+    "eq_especial": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Busca uma Aura ou Equipamento.",
+   "porque": "Tutor para a peça que falta, e sai de graça com qualquer acerto."
+  },
+  "Overpowering Attack": {
+   "notas": {
+    "sinergia": 2,
+    "ce_nao_criatura": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Desvira atacantes; se for sua fase principal, cria combate extra. Freerunning 2R.",
+   "porque": "Pelo Shoryuken só desvira. Na fase principal, depois de o Ken acertar um jogador, custa 3.",
+   "marcas": {
+    "principal": 1
+   }
+  },
+  "Promise of Loyalty": {
+   "notas": {
+    "removal": 2,
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Cada jogador fica com uma criatura; as que ficam não podem atacar você.",
+   "porque": "Quarta remoção do tipo 'sobra um'. Deixa a melhor criatura de cada oponente viva para bloquear o Ken.",
+   "massa": true,
+   "prioridade": 7
+  },
+  "Relentless Assault": {
+   "notas": {
+    "sinergia": 1,
+    "ce_nao_criatura": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Desvira atacantes; depois desta fase principal, combate extra.",
+   "porque": "Só cria combate se resolver numa fase principal. Pelo Shoryuken só desvira, e é o único da família sem flashback, retrace ou freerunning.",
+   "marcas": {
+    "principal": 1
+   },
+   "prioridade": 10
+  },
+  "Response // Resurgence": {
+   "notas": {
+    "removal": 2,
+    "sinergia": 1,
+    "ce_nao_criatura": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Response: 5 de dano em atacante ou bloqueador. Resurgence: first strike, vigilância e combate extra depois desta fase principal.",
+   "porque": "Duas cartas em uma. A metade de combate extra tem a mesma limitação de fase principal.",
+   "marcas": {
+    "principal": 1
+   }
+  },
+  "Seize the Day": {
+   "notas": {
+    "sinergia": 2,
+    "ce_nao_criatura": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Desvira uma criatura; depois desta fase principal, combate extra. Flashback 2R.",
+   "porque": "Dois combates extras numa carta. Sempre na fase principal.",
+   "marcas": {
+    "principal": 1
+   }
+  },
+  "Single Combat": {
+   "notas": {
+    "removal": 3,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Cada jogador fica com uma criatura ou planeswalker; ninguém conjura criatura ou planeswalker até o fim do seu próximo turno.",
+   "porque": "Limpa a mesa e garante um turno sem bloqueadores novos.",
+   "massa": true
+  },
+  "Slash the Ranks": {
+   "notas": {
+    "removal": 3,
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Destrói todas as criaturas e planeswalkers, menos comandantes.",
+   "porque": "O Ken fica, porque é comandante. Custa 5: sai de graça com o Ken a partir de 5 de poder, com qualquer equipamento ou um gatilho de prowess.",
+   "massa": true
+  },
+  "Song-Mad Treachery": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Toma uma criatura até o fim do turno, desvira e dá ímpeto. Verso: terreno que entra virado e gera {R}.",
+   "porque": "É um terreno com opção. Conta como fonte."
+  },
+  "Waves of Aggression": {
+   "notas": {
+    "sinergia": 2,
+    "ce_nao_criatura": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Desvira atacantes; depois desta fase principal, combate extra. Retrace.",
+   "porque": "Repetível com terrenos sobrando, e Land Tax garante que sobrem. Sempre na fase principal.",
+   "marcas": {
+    "principal": 1
+   }
+  },
+  "World at War": {
+   "notas": {
+    "sinergia": 3,
+    "ce_nao_criatura": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Depois da segunda fase principal do turno, combate extra. Rebound.",
+   "porque": "O combate extra que funciona conjurado pelo Shoryuken: a ruling garante o efeito inteiro se ela resolver antes do fim da segunda fase principal, o que inclui os combates do Raiyuu e da Karlach. O rebound repete no turno seguinte.",
+   "marcas": {
+    "dentro": 1
+   }
+  },
+  "Axgard Armory": {
+   "notas": {
+    "ramp": -1,
+    "sinergia": 1,
+    "eq_especial": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virado, gera W; 1RRW e sacrificar: busca Aura e Equipamento.",
+   "porque": "Terreno que vira tutor no fim do jogo.",
+   "virado": true
+  },
+  "Battlefield Forge": {
+   "notas": {},
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Gera R ou W com 1 de dano.",
+   "porque": "Dual desvirado."
+  },
+  "Boros Garrison": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virado, devolve um terreno, gera RW.",
+   "porque": "Um mana a mais, que compensa entrar virado.",
+   "virado": true
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Gera R ou W.",
+   "porque": "Infraestrutura."
+  },
+  "Furycalm Snarl": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Dual que entra desvirado se você revelar Mountain ou Plains.",
+   "porque": "Com 14 básicos, quase sempre desvirado."
+  },
+  "Great Furnace": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Terreno artefato que gera R.",
+   "porque": "Uma Mountain que morre para remoção de artefato, sem ganho aqui."
+  },
+  "Idyllic Grange": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Gera W; entra virado sem três outras Plains.",
+   "porque": "Com 6 Plains, entra virado na maior parte das vezes."
+  },
+  "Mines of Moria": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Gera {R}; entra desvirado com criatura lendária. {3}{R}, virar e exilar três cartas do cemitério: dois Tesouros.",
+   "porque": "Desvirado com o Ken na mesa. Os Tesouros disputam o cemitério com a Glamdring."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "8 cópias. Ken custa 1RR."
+  },
+  "Nykthos, Shrine to Nyx": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Gera mana pela devoção a uma cor.",
+   "porque": "Deck de duas cores cheio de artefatos incolores: a devoção raramente passa de 3.",
+   "prioridade": 12
+  },
+  "Opal Palace": {
+   "notas": {
+    "sinergia": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Gera incolor, ou cor da identidade por 1; o comandante entra com marcadores pelas vezes que foi conjurado.",
+   "porque": "Ajuda o Ken recastado a voltar com poder 5."
+  },
+  "Plains": {
+   "notas": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "6 cópias."
+  },
+  "Roadside Reliquary": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Gera incolor; sacrifica para comprar até 2.",
+   "porque": "Aqui quase sempre compra 2."
+  },
+  "Rogue's Passage": {
+   "notas": {
+    "sinergia": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Por 4, uma criatura fica imbloqueável.",
+   "porque": "Conversor de combate em dano de comandante que não ocupa vaga de mágica.",
+   "marcas": {
+    "evasao": 1
+   }
+  },
+  "Scavenger Grounds": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Gera incolor; sacrifica um Desert para exilar todos os cemitérios.",
+   "porque": "Resposta a cemitério. Exila também o seu: Glamdring, flashback e retrace."
+  },
+  "Slayers' Stronghold": {
+   "notas": {
+    "sinergia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Por RW, +2/+0, vigilância e ímpeto.",
+   "porque": "Leva o Ken a 6 de poder e dá ímpeto ao recast."
+  },
+  "Sokenzan, Crucible of Defiance": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Gera R; channel cria dois 1/1 com ímpeto.",
+   "porque": "Uma Mountain com opção, sem custo."
+  },
+  "Spinerock Knoll": {
+   "notas": {
+    "ramp": -1,
+    "sinergia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Hideaway; joga a carta escondida se um oponente levou 7 de dano no turno.",
+   "porque": "O Ken equipado causa 7 com facilidade.",
+   "virado": true
+  },
+  "Sunhome, Fortress of the Legion": {
+   "notas": {
+    "sinergia": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Por 2RW, golpe duplo.",
+   "porque": "Golpe duplo num terreno, em velocidade de instantânea: ativado depois da etapa de first strike, o Ken bate de novo na etapa normal. Dois Shoryukens sem ocupar vaga de mágica.",
+   "marcas": {
+    "duplo": 1
+   }
+  },
+  "Temple of Triumph": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dual que entra virado, com scry 1.",
+   "porque": "Lento.",
+   "virado": true
+  },
+  "Wind-Scarred Crag": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dual que entra virado, ganha 1 de vida.",
+   "porque": "O pior dual da lista.",
+   "virado": true
+  }
+ },
+ "radar": {
+  "Sword of Feast and Famine": {
+   "notas": {
+    "ramp": 2,
+    "sinergia": 2,
+    "eq_especial": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "sai": "Sword of Fire and Ice",
+   "faz": "Equipamento: +2/+2 e proteção contra preto e verde. Ao causar dano de combate a um jogador, ele descarta e você desvira todos os seus terrenos. Equipar {2}.",
+   "porque": "Com Aggravated Assault, combates infinitos: cada acerto desvira os cinco terrenos que pagam o próximo combate. Sem conflito com as peças vermelhas, ao contrário da Sword of Fire and Ice."
+  },
+  "Angelfire Ignition": {
+   "notas": {
+    "sinergia": 3,
+    "eq_protecao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Grim Reaper's Sprint",
+   "faz": "Feitiço: dois marcadores +1/+1, vigilância, atropelar, vínculo, indestrutível e ímpeto até o fim do turno. Flashback {2}{R}{W}.",
+   "porque": "Custa 3, então o Ken a conjura de graça com qualquer acerto. Dá o segundo atropelar do deck e deixa o Ken 6/4 de vez. Mira, então não funciona com a Sword of Fire and Ice no Ken."
+  },
+  "Boros Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Moraug, Fury of Akoum",
+   "faz": "Artefato. {1}, virar: gera {R}{W}.",
+   "porque": "Pedra de 2 nas duas cores. Ramp é a maior lacuna do deck."
+  },
+  "Fellwar Stone": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Port Razer",
+   "faz": "Artefato. Virar: gera mana de uma cor que um terreno de oponente possa gerar.",
+   "porque": "Pedra de 2. Na mesa de quatro, quase sempre gera vermelho ou branco."
+  },
+  "Sword of the Animist": {
+   "notas": {
+    "ramp": 2,
+    "sinergia": 1,
+    "eq_especial": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Aurelia, the Warleader",
+   "faz": "Equipamento lendário: +1/+1. Quando a criatura equipada ataca, busca um terreno básico e o põe virado na mesa. Equipar {2}.",
+   "porque": "Ramp por ataque, e o Ken ataca várias vezes por turno. Leva o Ken a 5, o custo do Slash the Ranks e do Chandra's Ignition."
+  },
+  "Puresteel Paladin": {
+   "notas": {
+    "draw": 3,
+    "sinergia": 1,
+    "eq_especial": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Battle Angels of Tyr",
+   "faz": "2/2. Quando um equipamento seu entra, você pode comprar uma carta. Metalcraft: com três artefatos, equipar custa {0}.",
+   "porque": "Compra a cada equipamento e equipar de graça com três artefatos, o que resolve o Colossus Hammer. Motor de compra no lugar de compra condicional."
+  },
+  "Mask of Memory": {
+   "notas": {
+    "draw": 2,
+    "sinergia": 1,
+    "eq_especial": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Risk Factor",
+   "faz": "Equipamento: ao causar dano de combate a um jogador, você pode comprar duas e descartar uma. Equipar {1}.",
+   "porque": "Compra por acerto, sem dar a escolha ao oponente, e enche o cemitério da Glamdring. É incolor: convive com tudo."
+  },
+  "Mithril Coat": {
+   "notas": {
+    "eq_protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Fall of the First Civilization",
+   "faz": "Equipamento lendário com lampejo e indestrutível. Ao entrar, anexa-se a uma criatura lendária sua. Equipar {3}.",
+   "porque": "Indestrutível em velocidade de instantânea, que se anexa sozinho ao Ken. Sai a carta que destrói os seus próprios equipamentos."
+  },
+  "Steelshaper's Gift": {
+   "notas": {
+    "draw": 2,
+    "sinergia": 2,
+    "eq_especial": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Insurrection",
+   "faz": "Feitiço: busca um equipamento.",
+   "porque": "Tutor de 1 mana que o Ken conjura com qualquer acerto. Sai o feitiço de 8 manas."
+  },
+  "Kediss, Emberclaw Familiar": {
+   "notas": {
+    "sinergia": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Promise of Loyalty",
+   "faz": "Criatura lendária de 2 manas, com partner. Quando um comandante seu causa dano de combate a um oponente, causa a mesma quantidade a cada outro oponente.",
+   "porque": "Cada acerto do Ken vira dano nos três oponentes. Não é dano de comandante, mas com três ou quatro combates fecha a mesa pela vida."
+  },
+  "Sacred Foundry": {
+   "notas": {},
+   "tier": "A",
+   "rel": "INS",
+   "veredito": "entra",
+   "sai": "Nykthos, Shrine to Nyx",
+   "faz": "Terreno Mountain Plains. Entra desvirado se você pagar 2 de vida.",
+   "porque": "Dual desvirado com os dois tipos básicos, no lugar do terreno de devoção que raramente passa de 3."
+  },
+  "Deflecting Swat": {
+   "notas": {
+    "eq_protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Relentless Assault",
+   "faz": "Instantânea. De graça se você controla um comandante. Muda os alvos de uma mágica ou habilidade.",
+   "porque": "A primeira proteção fora de equipamento, e de graça. Fica em avaliação pelo preço: cerca de US$ 73."
+  },
+  "Mother of Runes": {
+   "notas": {
+    "eq_protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Danitha Capashen, Paragon",
+   "faz": "1/1. Virar: uma criatura sua ganha proteção contra a cor que você escolher até o fim do turno.",
+   "porque": "Proteção repetível por 1 mana, que também tira bloqueadores de uma cor. Morre fácil e não protege de efeito sem alvo."
+  },
+  "Temur Battle Rage": {
+   "notas": {
+    "sinergia": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Overpowering Attack",
+   "faz": "Instantânea: golpe duplo; com uma criatura de poder 4 ou mais, também atropelar.",
+   "porque": "Dada depois da etapa de first strike, o Ken bate de novo e atropela. A Glamdring a conjura de graça. É vermelha: não mira o Ken com a Sword of Fire and Ice."
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Feitiço: 13 de dano em cada criatura. Custa {1} a menos por criatura na mesa.",
+   "porque": "Mata o Ken, que tem resistência 2, sem Darksteel Plate. E o custo impresso é 9: não sai pelo Shoryuken."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Combate extra todo turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Aisha of Sparks and Smoke",
+    "Raiyuu, Storm's Edge"
+   ],
+   "texto": "O Ken ataca sozinho no primeiro combate: o Raiyuu o desvira e cria outro combate, sem custo. Os combates extras não têm fase principal no meio."
+  },
+  {
+   "nome": "Três combates no primeiro ataque",
+   "tipo": "Motor",
+   "pecas": [
+    "Raiyuu, Storm's Edge",
+    "Karlach, Fury of Avernus"
+   ],
+   "texto": "Os dois disparam no primeiro combate com o Ken sozinho, e cada um cria o seu combate extra. Com Genji Glove ou Hexplate Wallbreaker, mais um cada."
+  },
+  {
+   "nome": "Dois combates, quatro Shoryukens",
+   "tipo": "Motor",
+   "pecas": [
+    "Aisha of Sparks and Smoke",
+    "Genji Glove"
+   ],
+   "texto": "Golpe duplo são duas etapas de dano, e cada uma dispara o Shoryuken. A Genji Glove ainda cria o segundo combate: quatro feitiços de graça por turno."
+  },
+  {
+   "nome": "Golpe duplo entre as etapas",
+   "tipo": "Motor",
+   "pecas": [
+    "Aisha of Sparks and Smoke",
+    "Sunhome, Fortress of the Legion"
+   ],
+   "texto": "Pague {R/W} para o first strike. Depois da primeira etapa de dano, ative o Sunhome: quem tem golpe duplo bate de novo na etapa normal (CR 510.4). A aventura do Two-Handed Axe faz o mesmo."
+  },
+  {
+   "nome": "Combate extra pelo Shoryuken",
+   "tipo": "Motor",
+   "pecas": [
+    "Aisha of Sparks and Smoke",
+    "World at War"
+   ],
+   "texto": "Conjurado de graça no combate, cria um combate depois da segunda fase principal. Conjurado da mão, o rebound o repete na manutenção seguinte."
+  },
+  {
+   "nome": "Segundo Shoryuken",
+   "tipo": "Motor",
+   "pecas": [
+    "Aisha of Sparks and Smoke",
+    "Glamdring"
+   ],
+   "texto": "Ao acertar um jogador, a Glamdring conjura de graça uma instantânea ou feitiço até o dano. Soma com o do Ken: dois feitiços por acerto."
+  },
+  {
+   "nome": "Ken 14/12",
+   "tipo": "Motor",
+   "pecas": [
+    "Colossus Hammer",
+    "Sigarda's Aid"
+   ],
+   "texto": "O Colossus Hammer entra anexado, sem pagar o equipar de 8. Bruenor, Hammer of Nazahn, Forge Anew e Inventory Management fazem o mesmo."
+  },
+  {
+   "nome": "Combates infinitos",
+   "tipo": "Combo",
+   "pecas": [
+    "Sword of Feast and Famine",
+    "Aggravated Assault"
+   ],
+   "texto": "Na fase principal, ative o Aggravated Assault com cinco terrenos. O Ken conecta, a Sword desvira os terrenos, e na nova fase principal o ciclo recomeça. Precisa que o Ken conecte a cada combate."
+  },
+  {
+   "nome": "Não juntar: a Sword que desveste o Ken",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Sword of Fire and Ice",
+    "Embercleave"
+   ],
+   "texto": "A proteção contra vermelho derruba Embercleave, Two-Handed Axe, Hexplate Wallbreaker e Lizard Blades do Ken, e Chandra's Ignition e Seize the Day não o miram. Escolha uma das duas linhas por jogo."
+  },
+  {
+   "nome": "Shroud trava os equipamentos novos",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Lightning Greaves",
+    "Inventory Management"
+   ],
+   "texto": "Com Lightning Greaves ou Whispersilk Cloak no Ken, Hammer of Nazahn, Sigarda's Aid e Embercleave não o miram. Inventory Management anexa sem mirar e passa pelo shroud."
+  }
+ ]
+}

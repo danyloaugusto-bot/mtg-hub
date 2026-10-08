@@ -19,7 +19,7 @@ Feito na etapa 1 (07/10/2026), a partir do kit do Ritos de Sangue. Nada do códi
 | `motor/scryfall.py` | Custo, tipo, faces, cores, artista e preço de cada carta, com cache em `cache/scryfall.json` (fora do Git, compartilhado entre decks). |
 | `motor/tema.py` | Paleta, cores dos agrupamentos e das cartas, textura, fontes embutidas e capa. O que o tema não declara cai num padrão neutro. |
 | `motor/painel/` | `app.js`, `style.css` e `template.html`: o painel em si. JavaScript puro, sem dependência. |
-| `motor/fontes/<família>/` | Fontes embutidas, `<família>-latin-<peso>-<estilo>.woff2`. Hoje: Grenze Gotisch, Alegreya Sans, Cormorant Unicase, Cinzel. |
+| `motor/fontes/<família>/` | Fontes embutidas, `<família>-latin-<peso>-<estilo>.woff2`. Hoje: Grenze Gotisch, Alegreya Sans, Cormorant Unicase, Cinzel, Teko. |
 | `motor/importar/ritos.py` | Conversão única do `annot.py` e `edh.py` do kit para o contrato. Fica registrada para auditoria. |
 
 O build grava sempre com quebra de linha LF e é determinístico: montar duas vezes dá o mesmo arquivo, em qualquer sistema.
@@ -44,7 +44,11 @@ Campo cujo nome começa com `_` é comentário e o motor ignora.
 
 ### `decklist.txt`
 
-Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` para foil e `*CMDR*` para o comandante. Sem `*CMDR*`, a primeira linha é o comandante. Edição e número são opcionais; sem eles, vale a impressão padrão do Scryfall. O nome é o do Scryfall, em inglês.
+Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` ou `F` para foil, `E` para etched foil e `*CMDR*` para o comandante. Sem `*CMDR*`, a primeira linha é o comandante. Linhas em branco e as que começam com `#` ou `//` (como o `// COMMANDER` das exportações de aplicativo) são ignoradas. Edição e número são opcionais; sem eles, vale a impressão padrão do Scryfall. O número vai como está na carta: o Scryfall diferencia maiúscula de minúscula (`1P` não é `1p`). O mesmo básico pode vir em duas linhas, uma por impressão. O nome é o do Scryfall, em inglês.
+
+**Nome impresso.** Quando a impressão da lista traz um nome diferente do Scryfall (Secret Lair de Street Fighter, nome de fantasia de Universes Beyond), o painel mostra o nome da carta física: `Aisha of Sparks and Smoke` (SLD 430) aparece como Ken, Burning Brawler; `Lightning Bolt` (SLD 675), como Hadoken. O nome do Scryfall continua sendo a chave na `avaliacao.json`, nos combos e no radar, e é o que vai na decklist exportada, porque é o que os sites reconhecem. A busca do tabelão aceita os dois.
+
+**Identidade de cor.** O build recusa qualquer carta da decklist, do radar ou dos potenciais fora da identidade de cor do comandante.
 
 ### `avaliacao.json`
 
@@ -120,7 +124,7 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` para foil e `*CM
 
 - `artigo`: `o` (padrão) ou `a`, para o comandante. Usado nos dois lugares em que o painel fala dele com artigo ("é boa no Clavileño" / "é boa na Giada", "como a comunidade monta o Clavileño" / "monta a Giada").
 - `moldura`: `retrato` (padrão, decidido pelo dono em 08/10/2026) recorta a arte num arco, com o texto e o gráfico ao lado, tudo na primeira tela, como o Ritos de Sangue; `larga` mostra a arte inteira em paisagem, com o gráfico abaixo, e fica só como opção. `foco` posiciona o recorte; `avatar`, o círculo da barra.
-- `grafico`: `rosacea` (pétalas, do Ritos), `fios` (lâminas com um X de luz atravessando as frestas, do Dízimo das Almas) ou `padrao`. As `asas` do Coro ainda não existem; são mudança de motor, pelo `/motor`. `curva`: `ogiva` ou `barra`. `textura`: `vitral`, `fios` (treliça fina em diagonal e um clarão vindo do alto), `padrao` ou `nenhuma`.
+- `grafico`: `rosacea` (pétalas, do Ritos), `fios` (lâminas com um X de luz atravessando as frestas, do Dízimo das Almas), `chamas` (línguas de fogo com a estrela de impacto no centro, do Round Extra) ou `padrao`. As `asas` do Coro ainda não existem; são mudança de motor, pelo `/motor`. `curva`: `ogiva` ou `barra`. `textura`: `vitral`, `fios` (treliça fina em diagonal e um clarão vindo do alto), `impacto` (linhas de velocidade em diagonal e um clarão quente), `padrao` ou `nenhuma`. Em `fontes`, `titulo_escala` reduz o título do topo (0,7 para a Cinzel, que é larga).
 - `paleta`: as dez chaves de base são `fundo`, `painel`, `acento`, `acento_claro`, `texto`, `suave`, `apagado`, `destaque`, `destaque_claro` e `vinho`. As finas (`fundo2`, `painel2`, `elevado`, `profundo`, `tinta`, `cabecalho`, `coluna`, `realce`, `total`, `botao`, `botao2`, `botao_hover`, `botao2_hover`, `folha`, `folha2`, `contorno`, `ok`, `alerta`, `ruim`) são derivadas quando faltam. Cores de tier, relevância, veredito e símbolos de mana são do motor, iguais em todo deck.
 - `agrupamentos`: cor de cada um, em `"r,g,b"`. Sem ela, vale uma paleta de dez cores.
 - `fontes`: famílias de `motor/fontes/`. Fonte nova entra lá antes de entrar no tema.
