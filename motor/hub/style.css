@@ -107,3 +107,10 @@ td.n,th.n{text-align:right;white-space:nowrap}
   .foot{padding:6px 12px 32px}
 }
 @media (prefers-reduced-motion:no-preference){.deck{transition:box-shadow .15s}}
+/* deck sem painel: apagado, para não parecer clicável */
+.deck.vazio{cursor:default;box-shadow:0 0 0 1px rgba(255,255,255,.04)}
+.deck.vazio.com-capa .capa{filter:grayscale(.9) brightness(.42) contrast(.9)}
+.deck.vazio.com-capa .tampa{background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.35))}
+.deck.vazio.com-capa h3{color:#b9b5ad}
+.deck.vazio.com-capa .sub{color:#8f8b84}
+.deck.vazio .cor,.deck.vazio .ms{opacity:.55}
