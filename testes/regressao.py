@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Regressão do painel aberto como arquivo local, sem internet.
 
-    python testes/regressao.py --deck "02. Clavileno"
+    python testes/regressao.py --deck "02. Clavileño"
 
 As cartas usadas nos passos são escolhidas a partir dos dados do próprio deck; os números esperados vêm de
 testes/controle/<pasta>.json, quando existe.
@@ -36,7 +36,7 @@ with sync_playwright() as p:
     if "cmc" in ctl:
         R.ok("fatos do topo", ("cartas %d " % ctl["cartas"]) in facts and ("CMC médio " + ctl["cmc"]) in facts and ("fontes de terreno %d " % ctl["fontes"]) in facts and facts.endswith("foils %d" % ctl["foils"]), facts)
     if "relevancia" in ctl:
-        rel = pg.evaluate("Array.from(document.querySelectorAll('#v-geral .rel-t tbody tr')).map(r=>+r.querySelector('td b').textContent)")
+        rel = pg.evaluate("Array.from(document.querySelectorAll('#v-geral .rel-t tbody tr:not(.tot-r)')).map(r=>+r.querySelector('td b').textContent)")
         R.ok("relevância", rel == [ctl["relevancia"][k] for k in ("INS", "ALT", "MED", "BAX")], rel)
     if "tiers" in ctl:
         ti = pg.evaluate("Array.from(document.querySelectorAll('#v-geral .score-big ~ .legend > span')).map(s=>+s.textContent.trim().split(' ').pop())")

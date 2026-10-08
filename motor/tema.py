@@ -84,6 +84,13 @@ def textura(nome, p):
         return ("radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.34), transparent 62%%),"
                 "radial-gradient(700px 420px at 4%% 2%%, rgba(%d,%d,%d,.5), transparent 70%%),"
                 'url("%s"),%s') % (a + w + (svg, grad))
+    if nome == "fios":
+        # treliça de fios finos em diagonal e um clarão vindo do alto, como luz vazando por uma fresta
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='" +
+               quote(p["destaque_claro"]) + "' stroke-opacity='.05' stroke-width='.8'%3E%3Cpath d='M0 0L120 120M120 0L0 120'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(900px 560px at 50%% -12%%, rgba(%d,%d,%d,.3), transparent 64%%),"
+                "radial-gradient(600px 380px at 96%% 4%%, rgba(%d,%d,%d,.45), transparent 70%%),"
+                'url("%s"),%s') % (a + w + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

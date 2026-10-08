@@ -1,6 +1,6 @@
 # Ficha do deck
 
-- **pasta:** 02. Clavileno
+- **pasta:** 02. Clavileño
 - **nome no aplicativo:** Clavileño (BW) - OK
 - **comandante:** Clavileño, First of the Blessed
 - **impressão do comandante:** LCC 2

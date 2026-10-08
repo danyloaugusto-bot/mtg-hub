@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Baixa, uma vez, as imagens das cartas do deck e do radar, e as reduz para embutir nos painéis.
 
-    python motor/imagens.py --deck "02. Clavileno"
+    python motor/imagens.py --deck "02. Clavileño"
     python motor/imagens.py --todos
 
 O cache fica em cache/img/<set>-<numero>.jpg (verso com sufixo -verso) e é compartilhado entre decks:
@@ -58,7 +58,7 @@ def decks_alvo(nomes):
         return nomes
     out = []
     for n in sorted(os.listdir(dados.DADOS)):
-        if n.startswith(("_", ".")) or not os.path.isdir(os.path.join(dados.DADOS, n)):
+        if not dados.eh_deck(n):
             continue
         if os.path.exists(os.path.join(dados.DADOS, n, "avaliacao.json")):
             out.append(n)

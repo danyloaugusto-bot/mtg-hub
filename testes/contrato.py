@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Confere os dados de um deck contra o contrato (contexto/ARQUITETURA.md) e se o motor recusa dados quebrados.
 
-    python testes/contrato.py --deck "02. Clavileno"
+    python testes/contrato.py --deck "02. Clavileño"
 """
 import json, os, shutil, tempfile
 import comum

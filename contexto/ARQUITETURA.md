@@ -10,7 +10,7 @@ Por que não um código por deck: o mesmo conserto teria de ser feito 25 vezes e
 
 ## O motor
 
-Feito na etapa 1 (07/10/2026), a partir do kit do Ritos de Sangue. Nada do código fala de um deck em particular: tudo o que era do Clavileño saiu para `dados/02. Clavileno/`.
+Feito na etapa 1 (07/10/2026), a partir do kit do Ritos de Sangue. Nada do código fala de um deck em particular: tudo o que era do Clavileño saiu para `dados/02. Clavileño/`.
 
 | Arquivo | O que faz |
 |---|---|
@@ -19,7 +19,7 @@ Feito na etapa 1 (07/10/2026), a partir do kit do Ritos de Sangue. Nada do códi
 | `motor/scryfall.py` | Custo, tipo, faces, cores, artista e preço de cada carta, com cache em `cache/scryfall.json` (fora do Git, compartilhado entre decks). |
 | `motor/tema.py` | Paleta, cores dos agrupamentos e das cartas, textura, fontes embutidas e capa. O que o tema não declara cai num padrão neutro. |
 | `motor/painel/` | `app.js`, `style.css` e `template.html`: o painel em si. JavaScript puro, sem dependência. |
-| `motor/fontes/<família>/` | Fontes embutidas, `<família>-latin-<peso>-<estilo>.woff2`. Hoje: Grenze Gotisch, Alegreya Sans, Cormorant Unicase. |
+| `motor/fontes/<família>/` | Fontes embutidas, `<família>-latin-<peso>-<estilo>.woff2`. Hoje: Grenze Gotisch, Alegreya Sans, Cormorant Unicase, Cinzel. |
 | `motor/importar/ritos.py` | Conversão única do `annot.py` e `edh.py` do kit para o contrato. Fica registrada para auditoria. |
 
 O build grava sempre com quebra de linha LF e é determinístico: montar duas vezes dá o mesmo arquivo, em qualquer sistema.
@@ -60,6 +60,12 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` para foil e `*CM
     "saida": {"nome": "Saída de sacrifício", "valores": {"1": "repetível, com custo", "2": "grátis e instantânea"}}
   },
   "leituras": [ {"tipo": "terrenos", "min": 35} ],
+  "estrategia": {
+    "inicio": {"turnos": "1 a 4", "plano": "...", "fortes": ["..."], "fracos": ["..."]},
+    "meio": {"turnos": "5 a 8", "plano": "...", "fortes": ["..."], "fracos": ["..."]},
+    "fim": {"turnos": "9 em diante", "plano": "...", "fortes": ["..."], "fracos": ["..."]},
+    "contra": [{"tipo": "aggro", "resultado": "fraco", "porque": "..."}]
+  },
   "cartas": {
     "Blood Artist": {"notas": {"sacrifice": 3, "sinergia": 2, "especial": 3}, "tier": "S", "rel": "INS",
                      "faz": "...", "porque": "...", "marcas": {"dreno": 1}}
@@ -75,16 +81,20 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` para foil e `*CM
 
 **Notas.** Por nome do agrupamento, de 0 a 3, omitindo os zeros. 1 é de passagem, 2 é função da carta, 3 é referência no deck.
 
-**Campos de toda carta.** `tier` (S A B C D), `rel` (INS ALT MED BAX), `faz` e `porque` são obrigatórios. Opcionais: `massa` (remoção em massa), `pontual` (remoção em massa que também responde a um alvo), `virado` (terreno que sempre entra virado), `gera` (cores que o terreno gera, como `"WB"` ou `"C"`; sem ele, vale o que o Scryfall diz), `prioridade` (ordem sugerida na fila de corte, 1 sai primeiro). No radar, também `veredito` (entra, avaliar, fora) e `sai`, o nome de uma carta do deck.
+**Campos de toda carta.** `tier` (S A B C D), `rel` (INS ALT MED BAX), `faz` e `porque` são obrigatórios. Opcionais: `massa` (remoção em massa), `pontual` (remoção em massa que também responde a um alvo), `virado` (terreno que sempre entra virado), `gera` (cores que o terreno gera, como `"WB"` ou `"C"`; sem ele, vale o que o Scryfall diz), `prioridade` (ordem sugerida na fila de corte, 1 sai primeiro), `fora_do_corte` (candidata a carta de estimação: nunca entra na fila de corte nem é sugerida como saída; no Valgavoth, as cartas nascidas na DSC). No radar, também `veredito` (entra, avaliar, fora) e `sai`, o nome de uma carta do deck.
 
 **Marcadores.** São do deck: Vampiro e saída de sacrifício no Ritos; Anjo, ganho de vida e proteção no Coro. Um marcador com `subtipo` é dado pelo tipo da carta, sem precisar marcar à mão. Os demais vão em `marcas` de cada carta, com valor 1 ou um número que a leitura pode distinguir.
+
+**Estratégia.** Opcional, mas todo deck novo nasce com ela (decidido pelo dono em 08/10/2026). Três fases, `inicio`, `meio` e `fim`, cada uma com `turnos`, `plano` (obrigatório), `fortes` e `fracos` (listas de frases). Em `contra`, até oito arquétipos, sem repetir: `aggro`, `voltron`, `combo`, `controle`, `stax`, `aristocratas`, `spellslinger` e `ramp`, cada um com `resultado` (`forte`, `equilibrado` ou `fraco`) e `porque`. O painel mostra a seção na Visão geral, logo depois das leituras.
+
+**Preços.** Vêm do Scryfall, em dólar, carta a carta (`usd` e `usd_foil`), e o painel soma o deck inteiro e cada faixa de relevância. O cache consulta de novo a carta com mais de 7 dias, para o preço ficar em dia; sem rede, vale o último preço guardado.
 
 **Leituras.** Os diagnósticos do painel, cada um com seus limiares e textos:
 
 | `tipo` | Campos | O que diz |
 |---|---|---|
 | `terrenos` | `min`, `ref` | Fontes de terreno (terrenos e cartas duplas com terreno no verso). |
-| `agrupamento` | `g`, `min`, `rotulo` [singular, plural], `passagem`, `alerta`, `farto` {`min`, `texto`} | Cartas dedicadas de um agrupamento, as de passagem e a referência. |
+| `agrupamento` | `g`, `min`, `rotulo` [singular, plural], `passagem`, `alerta`, `farto` {`min`, `texto`} | Cartas dedicadas de um agrupamento, as de passagem (omitidas quando são zero) e a referência. |
 | `remocao` | `g`, `massa_max`, `massa_ref`, `min`, `alerta` | Remoções, quantas em massa e a referência. |
 | `contagem` | `marcador`, `min`, `max`, `rotulo`, `listar`, `texto`, `alerta`, `ok` | Cartas com um marcador. No `texto`, `{saida=2}` vira o número de cartas com aquele valor. |
 | `tribo` | `min_pct`, `texto` | Densidade da tribo entre as criaturas. Pede o marcador `tribo`. |
@@ -110,7 +120,7 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` para foil e `*CM
 
 - `artigo`: `o` (padrão) ou `a`, para o comandante. Usado nos dois lugares em que o painel fala dele com artigo ("é boa no Clavileño" / "é boa na Giada", "como a comunidade monta o Clavileño" / "monta a Giada").
 - `moldura`: `retrato` (padrão, decidido pelo dono em 08/10/2026) recorta a arte num arco, com o texto e o gráfico ao lado, tudo na primeira tela, como o Ritos de Sangue; `larga` mostra a arte inteira em paisagem, com o gráfico abaixo, e fica só como opção. `foco` posiciona o recorte; `avatar`, o círculo da barra.
-- `grafico`: `rosacea` ou `padrao`. As `asas` do Coro chegam na etapa 2. `curva`: `ogiva` ou `barra`. `textura`: `vitral`, `padrao` ou `nenhuma`.
+- `grafico`: `rosacea` (pétalas, do Ritos), `fios` (lâminas com um X de luz atravessando as frestas, do Dízimo das Almas) ou `padrao`. As `asas` do Coro ainda não existem; são mudança de motor, pelo `/motor`. `curva`: `ogiva` ou `barra`. `textura`: `vitral`, `fios` (treliça fina em diagonal e um clarão vindo do alto), `padrao` ou `nenhuma`.
 - `paleta`: as dez chaves de base são `fundo`, `painel`, `acento`, `acento_claro`, `texto`, `suave`, `apagado`, `destaque`, `destaque_claro` e `vinho`. As finas (`fundo2`, `painel2`, `elevado`, `profundo`, `tinta`, `cabecalho`, `coluna`, `realce`, `total`, `botao`, `botao2`, `botao_hover`, `botao2_hover`, `folha`, `folha2`, `contorno`, `ok`, `alerta`, `ruim`) são derivadas quando faltam. Cores de tier, relevância, veredito e símbolos de mana são do motor, iguais em todo deck.
 - `agrupamentos`: cor de cada um, em `"r,g,b"`. Sem ela, vale uma paleta de dez cores.
 - `fontes`: famílias de `motor/fontes/`. Fonte nova entra lá antes de entrar no tema.
@@ -138,7 +148,7 @@ Ordem de tentativa no painel: o mapa embutido no arquivo (`D.img`), a imagem exa
 `motor/imagens.py`, feito na etapa 3, baixa uma vez para `cache/img/<set>-<numero>.jpg` (verso com sufixo `-verso`), compartilhado entre decks, e reduz a 340 px de largura, JPEG qualidade 82:
 
 ```
-python motor/imagens.py --deck "02. Clavileno"
+python motor/imagens.py --deck "02. Clavileño"
 python motor/imagens.py --todos
 ```
 

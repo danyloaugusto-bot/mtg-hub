@@ -3,9 +3,9 @@
 Monta o painel de qualquer deck a partir de `dados/<pasta>/`. Nasceu na etapa 1, do kit do Ritos de Sangue, e soma as peças do Coro da Alvorada.
 
 ```
-python motor/build.py --deck "02. Clavileno"     # um deck
+python motor/build.py --deck "02. Clavileño"     # um deck
 python motor/build.py --todos                    # todos os que têm avaliacao.json
-python motor/build.py --deck "02. Clavileno" --atualizar-scryfall
+python motor/build.py --deck "02. Clavileño" --atualizar-scryfall
 ```
 
 Saída: `saidas/<pasta>.html` e `dados/<pasta>/Abrir o painel.html`. Precisa de Pillow e, na primeira vez de cada carta, de internet para o Scryfall.

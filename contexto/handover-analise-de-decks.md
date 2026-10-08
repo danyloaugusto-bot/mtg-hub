@@ -45,6 +45,7 @@ Se faltar algo essencial, pergunte uma vez, no máximo três perguntas: o plano 
 3. **Carta dupla com terreno no verso conta como fonte de terreno.** Nunca a corte como se fosse só mágica.
 4. **Número de site de comunidade (edh.wiki, EDHREC) mede presença, não força.** É inflado por cartas de pré-construído e baixo para staples que todo deck joga. Use como sinal, nunca como veredito.
 5. **Concordar com outra IA não prova nada.** Se receber outras análises, confira cada afirmação delas contra o texto da carta.
+6. **Preço vem do Scryfall, em dólar.** O painel busca sozinho, carta a carta, e soma o deck. Se citar preço para justificar uma troca, diga que é do Scryfall e de quando.
 
 ## 5. O método, em oito passos
 
@@ -56,7 +57,7 @@ Se faltar algo essencial, pergunte uma vez, no máximo três perguntas: o plano 
 
 **Passo 4. Diagnosticar.** Conte e compare com as faixas da seção 7. Aponte as lacunas pelo nome: "8 cartas de ramp, abaixo de 10 a 12" é útil; "o ramp poderia melhorar" não é.
 
-**Passo 5. Combos e linhas de jogo.** Liste os combos de verdade (com as peças e o que acontece) e os motores (duas ou três cartas que juntas rendem todo turno). Separe um do outro. Confira cada um na regra.
+**Passo 5. Combos, linhas de jogo e estratégia.** Liste os combos de verdade (com as peças e o que acontece) e os motores (duas ou três cartas que juntas rendem todo turno). Separe um do outro. Confira cada um na regra. Depois, a estratégia em três fases (início, meio e fim de jogo): os turnos de cada uma, o plano, os pontos fortes e os fracos, citando cartas. E contra quem o deck vai bem, equilibrado ou mal, com o motivo, entre aggro, voltron, combo, controle, stax, aristocratas, spellslinger e ramp. É o pedra, papel e tesoura do deck.
 
 **Passo 6. Fila de corte.** As dez primeiras cartas a sair, em ordem, com motivo. Comandante e cartas de estimação nunca entram. Terreno se avalia à parte: só sai terreno se entrar terreno, ou se a contagem de fontes permitir.
 
@@ -75,7 +76,7 @@ Se faltar algo essencial, pergunte uma vez, no máximo três perguntas: o plano 
 | 2 | É função da carta |
 | 3 | É referência no deck |
 
-Terreno que sempre entra virado leva −1 em Ramp. Carta de estimação soma 1 ponto em Sinergia, e só o dono a marca.
+Terreno que sempre entra virado leva −1 em Ramp. Carta de estimação soma 1 ponto em Sinergia, e só o dono a marca. Ela também nunca entra na fila de corte nem é sugerida como saída de uma troca.
 
 **Tier: força da carta neste deck**
 
@@ -169,8 +170,10 @@ Carta | Notas (na ordem dos agrupamentos) | Tier | Relev. | O que faz | Por que 
 ## 4. Diagnóstico
 As contagens contra as faixas, as lacunas pelo nome e o placar.
 
-## 5. Combos e linhas de jogo
+## 5. Combos, linhas de jogo e estratégia
 Combos de verdade e motores, separados, com as peças.
+Início, meio e fim: turnos, plano, fortes e fracos.
+Contra quem vai bem, equilibrado ou mal, e por quê.
 
 ## 6. Cortes
 As dez primeiras a sair, em ordem, com motivo.

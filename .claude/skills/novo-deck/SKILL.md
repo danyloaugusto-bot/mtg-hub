@@ -40,11 +40,15 @@ Concordância entre IAs não prova nada: elas erram juntas. Quem decide é o tex
 
 ## Passo 3: proposta, antes de avaliar
 
-Devolva para eu aprovar: o plano do deck em uma frase; os agrupamentos que fazem sentido para este deck, com uma linha cada; a proposta de tema (três opções de nome para o painel, no espírito de Ritos de Sangue e Coro da Alvorada; clima; paleta de cinco cores; a moldura da capa, larga ou retrato, olhando a imagem; um motivo gráfico ligado ao comandante e à capa). Pare aqui e espere minha resposta.
+Devolva para eu aprovar: o plano do deck em uma frase; os agrupamentos que fazem sentido para este deck, com uma linha cada; a proposta de tema (três opções de nome para o painel, no espírito de Ritos de Sangue, Coro da Alvorada e Dízimo das Almas; clima; paleta de cinco cores; a moldura, que é retrato por padrão; um motivo gráfico ligado ao comandante e à capa, que se inspira nos painéis existentes sem copiar nenhum). Diga se o motivo já existe no motor ou se é acréscimo ao motor. Pare aqui e espere minha resposta.
 
 ## Passo 4: avaliação carta a carta
 
 Siga `contexto/AVALIACAO.md`. Para cada carta: notas de 0 a 3 nos agrupamentos, tier, relevância, uma frase do que faz e uma do porquê neste deck. Depois: combos e linhas de jogo, diagnóstico, fila de corte, e um radar com 8 a 15 cartas de fora (entra, avaliar, fica de fora), cada uma com motivo e com quem sairia.
+
+Escreva também a `estrategia` (formato em `contexto/ARQUITETURA.md`): início, meio e fim, cada fase com turnos, plano, fortes e fracos, e contra quem o deck vai bem, equilibrado ou mal, com o motivo. Use os números da lista, conferidos.
+
+Cartas de estimação, ou candidatas que o dono apontou, levam `fora_do_corte`: nunca entram na fila de corte nem aparecem como `sai` no radar. Preço não se escreve à mão: vem do Scryfall no build.
 
 ## Passo 5: revisão comigo
 

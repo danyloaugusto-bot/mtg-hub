@@ -3,7 +3,7 @@
 
 Uso único, registrado aqui para que a migração do Clavileño possa ser refeita e auditada:
 
-    python motor/importar/ritos.py contexto/origem/ritos-de-sangue-kit "02. Clavileno"
+    python motor/importar/ritos.py contexto/origem/ritos-de-sangue-kit "02. Clavileño"
 
 Lê o kit sem gravar nada nele (nem __pycache__) e escreve avaliacao.json e comunidade.json em dados/<pasta>/.
 Não reavalia: notas, tiers, relevâncias, textos, vereditos e combos passam como estão.

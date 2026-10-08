@@ -2,7 +2,7 @@
 """Compara o painel montado pelo motor com o painel de origem do kit, número a número e carta a carta.
 
     python testes/origem.py
-    python testes/origem.py --deck "02. Clavileno" --origem contexto/origem/ritos-de-sangue-kit/dist/ritos-de-sangue.html
+    python testes/origem.py --deck "02. Clavileño" --origem contexto/origem/ritos-de-sangue-kit/dist/ritos-de-sangue.html
 
 Lê o kit sem gravar nada nele. Sai com erro se algum número ou campo de carta divergir.
 """
@@ -23,7 +23,7 @@ LER = """() => {
     conta: q('#v-geral .kv tr').map(r => r.textContent.replace(/\\s+/g, ' ').trim()),
     agrupamentos: q('#v-geral .gr').map(g => [g.querySelector('.gr-n').textContent.trim(), g.querySelector('.gr-v').textContent.replace(/\\s+/g, ' ').trim(), g.querySelector('.gr-p').textContent.trim()]),
     tiers: q('#v-geral .score-big ~ .legend > span').map(s => s.textContent.trim()),
-    relevancia: q('#v-geral .rel-t tbody tr').map(r => r.textContent.replace(/\\s+/g, ' ').trim()),
+    relevancia: q('#v-geral .rel-t tbody tr:not(.tot-r)').map(r => r.querySelector('th').textContent.replace(/\\s+/g, ' ').trim() + ' ' + r.querySelector('td').textContent),
     fatos: q('#v-geral .facts div').map(d => d.querySelector('dt').textContent + ' ' + d.querySelector('dd').textContent),
     curva: q('#v-geral .curve text.n').map(x => x.textContent),
     leituras: q('#v-geral .read li').map(l => l.textContent.replace(/\\s+/g, ' ').trim()),

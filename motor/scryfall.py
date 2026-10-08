@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Fatos das cartas vindos do Scryfall, com cache em cache/scryfall.json.
 
-O cache é compartilhado entre decks e fica fora do Git. Uma carta já consultada não é pedida de novo,
-a menos que o build rode com --atualizar-scryfall. Regras do Scryfall: no máximo 10 chamadas por segundo
+O cache é compartilhado entre decks e fica fora do Git. Uma carta é consultada de novo depois de 7 dias
+(para o preço ficar em dia) ou quando o build roda com --atualizar-scryfall; sem rede, vale o que está no cache. Regras do Scryfall: no máximo 10 chamadas por segundo
 (aqui, 100 ms de intervalo) e cabeçalho User-Agent.
 """
 import datetime, json, os, time, urllib.error, urllib.request
@@ -11,6 +11,7 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(RAIZ, "cache", "scryfall.json")
 API = "https://api.scryfall.com/cards/collection"
 UA = "mtg-hub-pessoal/1.0"
+VALIDADE = 7   # dias: depois disso, a carta é consultada de novo (preço do dia)
 
 
 class ErroScryfall(Exception):
@@ -99,13 +100,45 @@ def buscar(pedidos, atualizar=False, avisar=print):
     c = _ler()
     hoje = datetime.date.today().isoformat()
 
+    c.setdefault("alias", {})
+
     def achar(p):
         if "set" in p:
-            return c["cartas"].get(_chave(p["set"], p["num"]))
+            ch = _chave(p["set"], p["num"])
+            return c["cartas"].get(ch) or c["cartas"].get(c["alias"].get(ch, ""))
         ch = c["nomes"].get(p["name"].lower())
         return c["cartas"].get(ch) if ch else None
 
-    faltam = [i for i, p in enumerate(pedidos) if atualizar or not achar(p)]
+    limite = (datetime.date.today() - datetime.timedelta(days=VALIDADE)).isoformat()
+
+    def velho(r):
+        return (r.get("consultado") or "") < limite
+
+    faltam = [i for i, p in enumerate(pedidos) if atualizar or not achar(p) or velho(achar(p))]
+    mudou = False
+    try:
+        mudou = _consultar(c, pedidos, faltam, hoje, avisar)
+    except ErroScryfall as e:
+        # sem rede: segue com o que está no cache, se o cache tem tudo; só para quando falta carta de verdade
+        if any(not achar(pedidos[i]) for i in faltam):
+            raise
+        avisar("aviso: %s; os preços e textos ficam os da última consulta" % e)
+    if mudou:
+        _gravar(c)
+
+    out = {}
+    for i, p in enumerate(pedidos):
+        r = achar(p)
+        if r is None and "set" in p:
+            ch = c["nomes"].get(p["name"].lower())
+            r = c["cartas"].get(ch) if ch else None
+        if r is None:
+            raise ErroScryfall("sem dados para " + p.get("name", "?"))
+        out[i] = r
+    return out
+
+
+def _consultar(c, pedidos, faltam, hoje, avisar):
     mudou = False
     if faltam:
         pendentes = list(faltam)
@@ -142,19 +175,16 @@ def buscar(pedidos, atualizar=False, avisar=print):
                     if "set" in pedidos[i]:
                         avisar("aviso: %s (%s %s) não reconhecida pela edição e número; buscando pelo nome" %
                                (pedidos[i].get("name"), pedidos[i]["set"], pedidos[i]["num"]))
+            else:
+                # impressão achada só pelo nome: guarda o atalho para não perguntar de novo a cada build
+                for i in pendentes:
+                    p = pedidos[i]
+                    if "set" in p and i not in nao and p["name"].lower() in c["nomes"]:
+                        c["alias"][_chave(p["set"], p["num"])] = c["nomes"][p["name"].lower()]
+                        mudou = True
             pendentes = nao
-        if mudou:
-            _gravar(c)
         if pendentes:
+            if mudou:
+                _gravar(c)
             raise ErroScryfall("cartas não encontradas no Scryfall: " + ", ".join(pedidos[i].get("name", "?") for i in pendentes))
-
-    out = {}
-    for i, p in enumerate(pedidos):
-        r = achar(p)
-        if r is None and "set" in p:
-            ch = c["nomes"].get(p["name"].lower())
-            r = c["cartas"].get(ch) if ch else None
-        if r is None:
-            raise ErroScryfall("sem dados para " + p.get("name", "?"))
-        out[i] = r
-    return out
+    return mudou

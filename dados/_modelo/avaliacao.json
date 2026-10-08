@@ -23,8 +23,17 @@
   {"tipo": "tribo", "min_pct": 75},
   {"tipo": "curva"}
  ],
+ "estrategia": {
+  "inicio": {"turnos": "1 a 4", "plano": "O que o deck faz nos primeiros turnos.", "fortes": ["Um ponto forte, citando cartas."], "fracos": ["Um ponto fraco, citando cartas."]},
+  "meio": {"turnos": "5 a 8", "plano": "O que o deck faz no meio do jogo.", "fortes": [], "fracos": []},
+  "fim": {"turnos": "9 em diante", "plano": "Como o deck fecha o jogo.", "fortes": [], "fracos": []},
+  "contra": [
+   {"tipo": "aggro", "resultado": "equilibrado", "porque": "Por quê. Tipos: aggro, voltron, combo, controle, stax, aristocratas, spellslinger, ramp. Resultados: forte, equilibrado, fraco."}
+  ]
+ },
  "cartas": {
-  "Nome da Carta": {"notas": {"draw": 2, "sinergia": 1}, "tier": "B", "rel": "MED", "faz": "O que a carta faz, em português.", "porque": "Por que ela está neste deck."}
+  "Nome da Carta": {"notas": {"draw": 2, "sinergia": 1}, "tier": "B", "rel": "MED", "faz": "O que a carta faz, em português.", "porque": "Por que ela está neste deck."},
+  "_Carta de estimação": {"notas": {"sinergia": 1}, "tier": "C", "rel": "MED", "fora_do_corte": true, "faz": "...", "porque": "fora_do_corte: nunca entra na fila de corte nem é sugerida como saída."}
  },
  "radar": {},
  "combos": []

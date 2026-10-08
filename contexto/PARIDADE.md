@@ -8,7 +8,7 @@ A etapa do motor só termina quando cada linha abaixo foi conferida no painel no
 
 As seções até "Geral" vêm do Ritos de Sangue. As três últimas vêm da comparação com o Coro da Alvorada, refeita em 07/10/2026 com a revisão mais nova do Coro.
 
-**Conferência da etapa 1, em 07/10/2026,** no painel novo do Clavileño (`saidas/02. Clavileno.html`, revisão 3). `[x]` quer dizer conferido no painel e coberto por teste em `testes/`. O que ficou para depois está explicado na própria linha.
+**Conferência da etapa 1, em 07/10/2026,** no painel novo do Clavileño (`saidas/02. Clavileño.html`, revisão 3). `[x]` quer dizer conferido no painel e coberto por teste em `testes/`. O que ficou para depois está explicado na própria linha.
 
 ## Visão geral
 - [x] Retrato do comandante em arco, avatar na barra, título, subtítulo e fatos do deck

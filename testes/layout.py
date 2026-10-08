@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Monta variantes de um deck numa pasta temporária e confere o layout no celular e na tela larga.
 
-    python testes/layout.py --deck "02. Clavileno" [--fotos pasta]
+    python testes/layout.py --deck "02. Clavileño" [--fotos pasta]
 
 Variantes: 6 e 10 agrupamentos, moldura larga com gráfico padrão e curva em barras, e um deck sem tema nem capa.
 Confere: nenhuma rolagem lateral, todas as abas sem erro, um elemento por agrupamento no gráfico, no tabelão e na gaveta.

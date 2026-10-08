@@ -185,6 +185,7 @@ function byId(id) {
 }
 function deck() { return D.cards.concat(cands()).map(E).filter(function (c) { return c.inDeck; }); }
 function gv(c, i) { return (c.s[i] || 0) + (i === IPET && c.pet ? 1 : 0); }
+function usdOf(c) { var u = c.foil && c.usdf ? +c.usdf : (c.usd ? +c.usd : null); return isNaN(u) ? null : u; }
 function pts(c) { var t = 0; for (var i = 0; i < NG; i++) t += gv(c, i); return t; }
 function ov(id) { if (!S.ov[id]) S.ov[id] = {}; return S.ov[id]; }
 function pips(cost) {
@@ -197,7 +198,7 @@ function pips(cost) {
 }
 
 function stats(cs) {
-  var st = { n: 0, nonland: 0, cmcSum: 0, curve: [], types: {}, cols: {}, rel: {}, relVal: {}, relValN: {}, tier: {}, grp: [],
+  var st = { n: 0, nonland: 0, cmcSum: 0, curve: [], types: {}, cols: {}, rel: {}, relVal: {}, relValN: {}, tier: {}, grp: [], usd: 0, usdN: 0, usdSem: 0, relUsd: {},
              pip: {}, src: {}, pw: {}, srcC: 0, lands: 0, mdfc: 0, tapped: 0, cri: 0, tribo: 0, wipes: 0, mk: {},
              foils: 0, sets: {}, low: 0, top: 0 };
   var i;
@@ -213,6 +214,8 @@ function stats(cs) {
     st.tier[c.tier] = (st.tier[c.tier] || 0) + q;
     if (c.val != null) { st.relVal[c.rel] = (st.relVal[c.rel] || 0) + c.val * q; st.relValN[c.rel] = (st.relValN[c.rel] || 0) + q; }
     if (c.foil) st.foils += q;
+    var u = usdOf(c);
+    if (u != null) { st.usd += u * q; st.usdN += q; st.relUsd[c.rel] = (st.relUsd[c.rel] || 0) + u * q; } else st.usdSem += q;
     if (c.set) st.sets[c.set] = (st.sets[c.set] || 0) + q;
     for (var j = 0; j < NG; j++) {
       var v = gv(c, j); st.grp[j].pts += v * q;
@@ -253,7 +256,7 @@ function stats(cs) {
   return st;
 }
 function cutQueue(cs, lands) {
-  return cs.filter(function (c) { return !c.cmd && !c.pet && (!!c.land === !!lands); }).sort(function (a, b) {
+  return cs.filter(function (c) { return !c.cmd && !c.pet && !c.nocut && (!!c.land === !!lands); }).sort(function (a, b) {
     return cutCmp(a, b);
   });
 }
@@ -343,6 +346,15 @@ function petalPath(r0, r1, a0, a1) {
 function wedgePath(r0, r1, a0, a1) {
   return 'M' + pol(r0, a0) + 'L' + pol(r1, a0) + 'A' + r1.toFixed(1) + ' ' + r1.toFixed(1) + ' 0 0 1 ' + pol(r1, a1) + 'L' + pol(r0, a1) + 'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
 }
+function shardPath(r0, r1, a0, a1) {
+  var am = (a0 + a1) / 2, sh = r0 + (r1 - r0) * 0.78;
+  return 'M' + pol(r0, a0) + 'L' + pol(sh, a0) + 'L' + pol(r1, am) + 'L' + pol(sh, a1) + 'L' + pol(r0, a1) + 'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
+}
+function xMark(r1, r2, w, op) {
+  return [45, 135, 225, 315].map(function (a) {
+    return '<line x1="' + pol(r1, a).replace(' ', '" y1="') + '" x2="' + pol(r2, a).replace(' ', '" y2="') + '" style="stroke:var(--blood2)" stroke-width="' + w + '" stroke-linecap="round" opacity="' + op + '"/>';
+  }).join('');
+}
 function gLabel(i, am, R, v) {
   var t = am * Math.PI / 180, cs = Math.cos(t), sn = Math.sin(t), lr = R + 28;
   var x = 230 + lr * cs, y = 230 + lr * sn + (sn < 0 ? -6 : 4);
@@ -351,7 +363,7 @@ function gLabel(i, am, R, v) {
     '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.08em">' + v + '</tspan></text>';
 }
 function chartSvg(st) {
-  var rosa = M.grafico !== 'padrao', r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa ? 2.4 : 1.2;
+  var fios = M.grafico === 'fios', rosa = M.grafico === 'rosacea', r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios ? 2.4 : 1.2;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
   var o = '<svg viewBox="-58 -2 576 464" role="group" aria-label="' + (rosa ? 'Rosácea' : 'Gráfico') + ' dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>';
   for (i = 0; i < NG; i++) {
@@ -362,13 +374,19 @@ function chartSvg(st) {
   if (rosa) {
     o += '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--deep-rgb),.5);stroke:var(--gold)" stroke-width="1.3"/>';
     o += '<circle cx="230" cy="230" r="' + (R + 14) + '" style="fill:none;stroke:var(--gold)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.1 9.2" opacity=".75"/>';
+  } else if (fios) {
+    // o X de luz atravessa o gráfico por baixo das lâminas e aparece nas frestas entre elas
+    o += '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--deep-rgb),.55);stroke:rgba(var(--blood2-rgb),.55)" stroke-width="1"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 14) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.4)" stroke-width="1" stroke-dasharray="14 6 2 6"/>' +
+      xMark(r0 - 7, R + 22, 5, .22) + xMark(r0 - 7, R + 22, 1.6, .9);
   } else {
     o += '<circle cx="230" cy="230" r="' + (R + 6) + '" style="fill:rgba(var(--deep-rgb),.4);stroke:var(--line2)" stroke-width="1"/>';
   }
   for (i = 0; i < NG; i++) {
     var a0 = -90 + i * step + gap, a1 = -90 + (i + 1) * step - gap, am = (a0 + a1) / 2;
     var v = st.grp[i].pts, fr = Math.max(0.12, Math.sqrt(Math.max(v, 0) / max)), r1 = r0 + (R - r0) * fr;
-    var shape = rosa ? petalPath : wedgePath;
+    var shape = fios ? shardPath : rosa ? petalPath : wedgePath;
+    if (fios) o += '<line x1="' + pol(r0 - 7, am).replace(' ', '" y1="') + '" x2="' + pol(R + 14, am).replace(' ', '" y2="') + '" style="stroke:rgba(var(--blood2-rgb),.3)" stroke-width=".7" stroke-dasharray="1 4"/>';
     o += '<g class="' + (rosa ? 'petal' : 'wedge') + '" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
       '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
       '<path class="ghost" d="' + shape(r0, R, a0, a1) + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),' + (rosa ? '.45' : '.25') + ')" stroke-width="1"/>' +
@@ -377,6 +395,7 @@ function chartSvg(st) {
   }
   o += '<circle cx="230" cy="230" r="' + (r0 - 7) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>' +
     (rosa ? '<circle cx="230" cy="230" r="' + (r0 - 12) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' : '') +
+    (fios ? xMark(0, r0 - 16, 2.4, .28) : '') +
     '<text class="ctr-n" x="230" y="243" text-anchor="middle">' + st.total + '</text>' +
     '<text class="ctr-l" x="230" y="260" text-anchor="middle">pontos</text></svg>';
   return o;
@@ -452,7 +471,7 @@ function readings(st) {
     } else if (l.tipo === 'agrupamento') {
       i = gi(l.g); g = st.grp[i]; w = g.hard < l.min;
       add(w ? 'warn' : 'ok', pl(g.hard, esc(l.rotulo[0]), esc(l.rotulo[1])) + '.',
-        'Mais ' + g.soft + ' ' + esc(l.passagem || 'de passagem') + '.' + (G[i].ref ? ' Referência: ' + refTxt(G[i]) + '.' : '') +
+        (g.soft ? 'Mais ' + g.soft + ' ' + esc(l.passagem || 'de passagem') + '.' : '') + (G[i].ref ? ' Referência: ' + refTxt(G[i]) + '.' : '') +
         (w && l.alerta ? ' ' + esc(l.alerta) : '') + (l.farto && g.hard >= l.farto.min ? ' ' + esc(l.farto.texto) : ''));
     } else if (l.tipo === 'remocao') {
       i = gi(l.g); var mr = l.massa_ref || [3, 5];
@@ -499,8 +518,9 @@ function heroHtml(st, cmd) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var chart = '<figure class="rosa">' + chartSvg(st) + '<figcaption>Cada ' + (M.grafico === 'padrao' ? 'fatia' : 'pétala') +
-    ' é um agrupamento e sua área é a soma das notas. Toque numa ' + (M.grafico === 'padrao' ? 'fatia' : 'pétala') + ' para abrir no tabelão.</figcaption></figure>';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : 'fatia';
+  var chart = '<figure class="rosa">' + chartSvg(st) + '<figcaption>Cada ' + peca +
+    ' é um agrupamento e sua área é a soma das notas. Toque numa ' + peca + ' para abrir no tabelão.</figcaption></figure>';
   var fx = cmd && cmd.fx ? '<p class="hero-fx">' + rich(cmd.fx) + '</p>' : '';
   var lede = (M.lede || verbos) ? '<p class="hero-lede">' + esc(M.lede || '') + verbos + '</p>' : '';
   if (!larga) {
@@ -575,8 +595,9 @@ function renderGeral() {
   var relRows = RELS.map(function (r) {
     var n = st.rel[r.k] || 0;
     return '<tr><th scope="row">' + relB(r.k) + ' ' + r.n + '</th><td class="num"><b>' + n + '</b></td><td class="num">' + fmt(st.n ? n / st.n * 100 : 0, 0) + '%</td>' +
+      (st.usdN ? '<td class="num">US$ ' + fmt(st.relUsd[r.k] || 0) + '</td>' : '') +
       (anyVal ? '<td class="num">' + (st.relValN[r.k] ? 'R$ ' + fmt(st.relVal[r.k]) : '—') + '</td><td class="num">' + (st.relValN[r.k] ? 'R$ ' + fmt(st.relVal[r.k] / st.relValN[r.k]) : '—') + '</td>' : '') + '</tr>';
-  }).join('');
+  }).join('') + (st.usdN ? '<tr class="tot-r"><th scope="row">Deck inteiro</th><td class="num"><b>' + st.n + '</b></td><td></td><td class="num"><b>US$ ' + fmt(st.usd) + '</b></td>' + (anyVal ? '<td></td><td></td>' : '') + '</tr>' : '');
 
   var sets = Object.keys(st.sets).sort(function (a, b) { return st.sets[b] - st.sets[a] || a.localeCompare(b); }).slice(0, 5);
   var maxS = sets.length ? st.sets[sets[0]] : 1;
@@ -618,12 +639,14 @@ function renderGeral() {
     '<fieldset class="pn"><legend>Os ' + NUM[NG] + ' agrupamentos</legend><div class="gl">' + groups + '</div>' +
     '<p class="pn-note">O número em destaque conta as cartas com nota 2 ou 3; o que vem depois do sinal de mais, as de nota 1. A faixa tracejada, onde aparece, é a referência usual de Commander, e vale como regra de bolso.</p></fieldset>' +
     '<fieldset class="pn"><legend>Leitura do deck</legend><ul class="read">' + readings(st) + '</ul></fieldset></div>';
+  h += estrategiaPanel();
 
   h += '<div class="grid g-111">' + coresPanel(st) +
     '<fieldset class="pn"><legend>Tipos de carta</legend><div class="bars">' + typeBars + '</div>' +
     '<h3 class="sub">Edições mais presentes</h3><div class="bars">' + setBars + '</div></fieldset>' +
-    '<fieldset class="pn"><legend>Relevância</legend><table class="rel-t"><thead><tr><th></th><th>Qtd</th><th>Do deck</th>' + (anyVal ? '<th>Valor</th><th>Média</th>' : '') + '</tr></thead><tbody>' + relRows + '</tbody></table>' +
-    '<p class="pn-note">' + (anyVal ? 'Valores somam apenas as cartas com preço preenchido.' : 'Para ver valor e média por faixa, como na planilha, preencha o preço em cada carta.') +
+    '<fieldset class="pn"><legend>Relevância e valor</legend><table class="rel-t"><thead><tr><th></th><th>Qtd</th><th>Do deck</th>' + (st.usdN ? '<th>US$</th>' : '') + (anyVal ? '<th>R$</th><th>Média R$</th>' : '') + '</tr></thead><tbody>' + relRows + '</tbody></table>' +
+    '<p class="pn-note">' + (st.usdN ? 'Dólar: preço do Scryfall' + (M.scryfall ? ', consultado em ' + fdate(M.scryfall) : '') + ', na impressão da sua lista e em foil quando a carta é foil' + (st.usdSem ? '; ' + pl(st.usdSem, 'carta está', 'cartas estão') + ' sem preço lá' : '') + '. ' : '') +
+    (anyVal ? 'Reais: somam apenas as cartas com preço preenchido.' : 'Para ver em reais, preencha o preço em cada carta.') +
     ' <button class="linkish" data-act="go" data-v="ctrl">Abrir o painel de controle</button></p></fieldset></div>';
 
   if (D.combos.length) h += '<fieldset class="pn"><legend>Combos e linhas de jogo</legend><div class="combos">' + combos + '</div></fieldset>';
@@ -633,6 +656,26 @@ function renderGeral() {
   el.className = 'view' + (ui.first ? ' anim' : '');
   el.innerHTML = h;
   ui.first = false;
+}
+
+/* ============ estratégia ============ */
+var FASES = [{ k: 'inicio', n: 'Início' }, { k: 'meio', n: 'Meio' }, { k: 'fim', n: 'Fim' }];
+var CONTRA = { aggro: 'Aggro', voltron: 'Voltron', combo: 'Combo', controle: 'Controle', stax: 'Stax', aristocratas: 'Aristocratas', spellslinger: 'Spellslinger', ramp: 'Ramp e big mana' };
+var RES = { forte: 'Vai bem', equilibrado: 'Equilibrado', fraco: 'Vai mal' };
+function estrategiaPanel() {
+  var e = D.estrategia; if (!e) return '';
+  var fases = FASES.filter(function (f) { return e[f.k]; }).map(function (f) {
+    var x = e[f.k];
+    function lst(arr, cls, tit) { return arr && arr.length ? '<h4>' + tit + '</h4><ul class="' + cls + '">' + arr.map(function (t) { return '<li>' + rich(t) + '</li>'; }).join('') + '</ul>' : ''; }
+    return '<div class="fase"><h3>' + f.n + (x.turnos ? ' <small>turnos ' + esc(x.turnos) + '</small>' : '') + '</h3><p class="plano">' + rich(x.plano) + '</p>' +
+      lst(x.fortes, 'fx-mais', 'Fortalezas') + lst(x.fracos, 'fx-menos', 'Fraquezas') + '</div>';
+  }).join('');
+  var ordem = { forte: 0, equilibrado: 1, fraco: 2 };
+  var vs = (e.contra || []).slice().sort(function (a, b) { return ordem[a.resultado] - ordem[b.resultado]; }).map(function (c) {
+    return '<div class="vs vs-' + esc(c.resultado) + '"><div class="vs-h"><b>' + esc(CONTRA[c.tipo] || c.tipo) + '</b><span>' + RES[c.resultado] + '</span></div><p>' + rich(c.porque) + '</p></div>';
+  }).join('');
+  return '<fieldset class="pn estr"><legend>Estratégia</legend>' + (fases ? '<div class="fases">' + fases + '</div>' : '') +
+    (vs ? '<h3 class="sub">Contra quem</h3><div class="vss">' + vs + '</div>' : '') + '</fieldset>';
 }
 
 /* ============ comunidade ============ */
@@ -752,6 +795,7 @@ function sortVal(c, k) {
   if (k === 'cmc') return c.land ? -1 : c.cmc;
   if (k === 'pts') return pts(c);
   if (k === 'syn') return c.syn == null ? -999 : c.syn;
+  if (k === 'usd') { var u = usdOf(c); return u == null ? -1 : u; }
   if (k === 'tier') return TR[c.tier];
   if (k === 'rel') return RR[c.rel];
   return gv(c, +k.slice(1));
@@ -765,7 +809,7 @@ function scCell(v, i) {
   var cl = v > 0 ? 'v' + Math.min(v, 3) : v < 0 ? 'vn' : 'z';
   return '<td class="sc ' + cl + (G[i].lt ? ' lt' : '') + '" style="--c:var(--g' + i + ')">' + (v === 0 ? '·' : (v < 0 ? '−' + (-v) : v)) + '</td>';
 }
-var NCOL = 7 + NG + (EDH ? 1 : 0);
+var NCOL = 8 + NG + (EDH ? 1 : 0);
 function tabRows() {
   var q = ui.q.trim().toLowerCase();
   var cs = deck().filter(function (c) {
@@ -782,13 +826,13 @@ function tabRows() {
       (imgOn() ? '<span class="thb">' + imgTag(c, 'small', false) + '</span>' : '') + '<span class="t">' + esc(c.n) + '</span>' +
       (c.foil ? '<span class="foil" title="Foil">✦</span>' : '') + (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') + (c.edited ? '<span class="edt" title="Avaliação alterada por você"></span>' : '') +
       '</div></td><td class="dimc num hm">' + c.q + '</td><td class="hm">' + (c.cost ? mana(c.cost) : '<span class="dimc">—</span>') + '</td><td class="num">' + (c.land ? '<span class="dimc">—</span>' : c.cmc) + '</td>' + cells +
-      '<td class="pts num">' + pts(c) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + '</td></tr>';
+      '<td class="pts num">' + pts(c) + '</td><td class="num dimc usd">' + (usdOf(c) == null ? '—' : fmt(usdOf(c))) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + '</td></tr>';
   }
-  var tot = [], tp = 0, tn = 0, i;
+  var tot = [], tp = 0, tn = 0, tu = 0, i;
   for (i = 0; i < NG; i++) tot.push(0);
-  cs.forEach(function (c) { for (var i = 0; i < NG; i++) tot[i] += gv(c, i) * c.q; tp += pts(c) * c.q; tn += c.q; });
+  cs.forEach(function (c) { for (var i = 0; i < NG; i++) tot[i] += gv(c, i) * c.q; tp += pts(c) * c.q; tn += c.q; tu += (usdOf(c) || 0) * c.q; });
   var h = '<tr class="tot"><td class="c-name">' + (cs.length === deck().length ? 'Total do deck' : 'Total do filtro') + '</td><td class="num hm">' + tn + '</td><td class="hm"></td><td></td>' +
-    tot.map(function (v) { return '<td class="num">' + v + '</td>'; }).join('') + '<td class="num">' + tp + '</td>' + (EDH ? '<td></td>' : '') + '<td></td><td></td></tr>';
+    tot.map(function (v) { return '<td class="num">' + v + '</td>'; }).join('') + '<td class="num">' + tp + '</td><td class="num">' + fmt(tu) + '</td>' + (EDH ? '<td></td>' : '') + '<td></td><td></td></tr>';
   if (!cs.length) return h + '<tr><td class="c-name" colspan="' + NCOL + '" style="position:static;padding:22px 14px;color:var(--mute);max-width:none">Nenhuma carta com esses filtros. Limpe a busca ou escolha outro agrupamento.</td></tr>';
   if (ui.grouped) {
     TG.forEach(function (g) {
@@ -815,10 +859,10 @@ function renderTab() {
   h += '<div class="pills" role="group" aria-label="Filtrar por agrupamento">' + G.map(function (g, i) {
     return '<button class="pill" style="--c:var(--g' + i + ')" data-act="fg" data-g="' + i + '" data-fid="fg' + i + '" aria-pressed="' + (ui.fg === i) + '" title="' + esc(g.d) + '"><i class="dot" style="--c:var(--g' + i + ')"></i>' + esc(g.k) + '</button>';
   }).join('') + '</div>';
-  h += '<div class="tw" id="tw"><table class="tbl" style="min-width:' + (594 + 52 * NG) + 'px"><thead><tr>' +
+  h += '<div class="tw" id="tw"><table class="tbl" style="min-width:' + (654 + 52 * NG) + 'px"><thead><tr>' +
     th('n', 'Carta', 'c-name') + th('q', 'Qtd', 'hm') + '<th scope="col" class="hm">Custo</th>' + th('cmc', 'CMC') +
     G.map(function (g, i) { return th('g' + i, esc(g.ab), 'gh', g.k + ': ' + g.d, '--c:var(--g' + i + ')'); }).join('') +
-    th('pts', 'Pts') + (EDH ? th('syn', 'Wiki', '', 'Sinergia no ' + EDH.fonte + (EDH.pagina ? ' para ' + EDH.pagina : '') + ': presença na comunidade, não força') : '') +
+    th('pts', 'Pts') + th('usd', 'US$', '', 'Preço no Scryfall, na impressão da lista') + (EDH ? th('syn', 'Wiki', '', 'Sinergia no ' + EDH.fonte + (EDH.pagina ? ' para ' + EDH.pagina : '') + ': presença na comunidade, não força') : '') +
     th('tier', 'Tier') + th('rel', 'Relev.') + '</tr></thead><tbody id="tbody">' + tabRows() + '</tbody></table></div>';
   h += '<p class="hint">Notas de 0 a 3 em cada agrupamento: 1 é efeito de passagem, 2 é função da carta, 3 é referência do deck. Uma carta pode pontuar em vários.' + (EDH ? ' A coluna Wiki é a sinergia no ' + esc(EDH.fonte) + '.' : '') + ' Toque na linha para ver a carta, o motivo e editar.</p>';
   $('#v-tab').innerHTML = h;
@@ -857,7 +901,7 @@ function renderCtrl() {
   });
   if (!pend.length) pend.push('<li><i class="mk okk"></i><span>Nada pendente. Deck com 100 cartas e avaliações coerentes.</span></li>');
   h += '<div class="grid g-11"><fieldset class="pn"><legend>Fila de corte</legend><ol class="queue">' + queue + '</ol>' +
-    '<p class="pn-note">Ordem: relevância mais baixa, depois a prioridade sugerida, o tier e a pontuação. PetCards e o comandante nunca entram na fila; terrenos são avaliados à parte.</p></fieldset>' +
+    '<p class="pn-note">Ordem: relevância mais baixa, depois a prioridade sugerida, o tier e a pontuação. PetCards, o comandante e as cartas marcadas como fora do corte nunca entram na fila; terrenos são avaliados à parte.</p></fieldset>' +
     '<fieldset class="pn"><legend>Pendências</legend><ul class="pend">' + pend.join('') + '</ul></fieldset></div>';
   $('#v-ctrl').innerHTML = h;
 }
@@ -1027,14 +1071,15 @@ function renderDrawer() {
   var h = '<button class="x" data-act="close" aria-label="Fechar">×</button>' +
     '<p class="dw-type">' + esc(c.line) + '</p><h2 id="dw-title">' + esc(c.n) + '</h2>' +
     '<div class="dw-meta">' + (c.cost ? mana(c.cost) : '') + (c.land ? '' : '<span>CMC ' + c.cmc + '</span>') + (c.pt ? '<span>' + (c.ptl ? c.ptl + ' ' : '') + esc(c.pt) + '</span>' : '') +
-    (c.set ? '<span>' + esc(c.set) + ' ' + esc(c.num) + '</span>' : '') + (c.q > 1 ? '<span>' + c.q + ' cópias</span>' : '') + (c.foil ? '<span><span class="foil">✦</span> foil</span>' : '') + (where ? '<span>' + where + '</span>' : '') + '</div>';
+    (c.set ? '<span>' + esc(c.set) + ' ' + esc(c.num) + '</span>' : '') + (c.q > 1 ? '<span>' + c.q + ' cópias</span>' : '') + (c.foil ? '<span><span class="foil">✦</span> foil</span>' : '') + (usdOf(c) != null ? '<span>US$ ' + fmt(usdOf(c)) + ' no Scryfall</span>' : '') + (where ? '<span>' + where + '</span>' : '') + '</div>';
   if (imgOn()) {
     h += '<div class="dw-art"><div class="dw-card c-' + esc(c.col) + '">' + fbTile(c, back, true) + imgTag(c, 'normal', back) + '</div>' +
       (c.dfc && c.back ? '<p><button class="linkish" data-act="face" data-fid="face">' + (back ? 'Ver a frente' : 'Ver a outra face, ' + esc(c.back.n)) + '</button></p>' : '') +
-      (c.ar || c.usd ? '<p class="dw-cred">' + (c.ar ? 'Arte de ' + esc(c.ar) + '. ' : '') + (c.usd ? 'No Scryfall: US$ ' + fmt(+c.usd) + (c.foil && c.usdf ? ', foil US$ ' + fmt(+c.usdf) : '') + (M.scryfall ? ', em ' + fdate(M.scryfall) : '') + '.' : '') + '</p>' : '') +
+      (c.ar ? '<p class="dw-cred">Arte de ' + esc(c.ar) + '.</p>' : '') +
       '<p class="dw-cred" data-imgnote>' + (imgFailN && !imgOk ? imgNoteHtml() : '') + '</p></div>';
   }
   h += (c.fx ? '<p class="dw-fx' + (c.orig ? ' orig' : '') + '">' + rich(c.fx) + '</p>' : '') + (c.why ? '<p class="dw-why">' + rich(c.why) + '</p>' : '') +
+    (c.nocut ? '<p class="dw-back">Fica fora da fila de corte: candidata a carta de estimação.</p>' : '') +
     (c.back ? '<p class="dw-back">Outra face: ' + esc(c.back.n) + ', ' + esc(c.back.line.toLowerCase()) + '.</p>' : '');
   if (EDH && !c.custom && !c.cmd) h += '<p class="dw-syn">' + synB(c.syn) + (c.syn != null ? 'de sinergia' + (EDH.pagina ? ' nos decks de ' + esc(EDH.pagina) : '') + ', segundo o ' + esc(EDH.fonte) + '. Mede presença, não força.' : 'Não aparece na página' + (EDH.pagina ? ' de ' + esc(EDH.pagina) : '') + ' no ' + esc(EDH.fonte) + '.') + '</p>';
   if (c.cand) {

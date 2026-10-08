@@ -76,7 +76,7 @@ def nome_do_deck(pasta):
 def montar(avisar=print):
     inv = ler_inventario()
     pastas = [n for n in sorted(os.listdir(dados.DADOS))
-              if not n.startswith(("_", ".")) and os.path.isdir(os.path.join(dados.DADOS, n))]
+              if dados.eh_deck(n)]
     nomes = list(dict.fromkeys(pastas + sorted(inv)))
     decks, presencas = [], {}
     for pasta in nomes:

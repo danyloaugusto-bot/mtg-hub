@@ -14,7 +14,7 @@ except Exception:
 
 def argumentos(descricao, extra=None):
     ap = argparse.ArgumentParser(description=descricao)
-    ap.add_argument("--deck", default="02. Clavileno", help="pasta do deck em dados/")
+    ap.add_argument("--deck", default="02. Clavileño", help="pasta do deck em dados/")
     ap.add_argument("--sem-montar", action="store_true", help="usa o HTML que já está em saidas/, sem montar de novo")
     if extra:
         extra(ap)

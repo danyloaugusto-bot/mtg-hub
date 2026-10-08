@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Monta o painel de um deck, de todos, ou o hub.
 
-    python motor/build.py --deck "02. Clavileno"
+    python motor/build.py --deck "02. Clavileño"
     python motor/build.py --todos          # todos os decks com avaliação, e o hub no fim
     python motor/build.py --hub            # só o hub
 
@@ -23,9 +23,9 @@ SAIDAS = os.path.join(RAIZ, "saidas")
 PAINEL = os.path.join(MOTOR, "painel")
 CACHE_IMG = os.path.join(RAIZ, "cache", "img")
 MOLDURAS = ("larga", "retrato")
-GRAFICOS = ("rosacea", "padrao")
+GRAFICOS = ("rosacea", "fios", "padrao")
 CURVAS = ("ogiva", "barra")
-TEXTURAS = ("vitral", "padrao", "nenhuma")
+TEXTURAS = ("vitral", "fios", "padrao", "nenhuma")
 MODOS_IMG = ("embutidas", "externas", "nenhuma")
 
 
@@ -56,7 +56,7 @@ def conferir_tema(t):
         raise dados.ErroDeck("tema.json: moldura '%s'; use %s" % (cap.get("moldura"), " ou ".join(MOLDURAS)))
     g = t.get("grafico", "padrao")
     if g == "asas":
-        raise dados.ErroDeck("tema.json: o desenho 'asas' ainda não existe no motor; é mudança de motor, pelo /motor. Por ora use rosacea ou padrao")
+        raise dados.ErroDeck("tema.json: o desenho 'asas' ainda não existe no motor; é mudança de motor, pelo /motor. Por ora use rosacea, fios ou padrao")
     if g not in GRAFICOS:
         raise dados.ErroDeck("tema.json: gráfico '%s'; use %s" % (g, " ou ".join(GRAFICOS)))
     if t.get("curva", "ogiva") not in CURVAS:
@@ -134,7 +134,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
     img = mapa_imagens(d["cards"] + d["cands"]) if modo_img == "embutidas" else None
     D = dict(meta=meta, grupos=[g for g, _ in grupos], marcadores=d["marcadores"], leituras=d["leituras"], cores=cores,
              tipos=dict(tema.TIPOS, **(t.get("tipos") or {})), cards=d["cards"], cands=d["cands"], pool=d["pool"],
-             combos=d["combos"], edh=d["edh"], img=(img or None))
+             combos=d["combos"], edh=d["edh"], estrategia=d.get("estrategia"), img=(img or None))
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
     html = (ler("template.html")
@@ -184,7 +184,7 @@ def montar_hub():
 def decks():
     out = []
     for n in sorted(os.listdir(dados.DADOS)):
-        if n.startswith(("_", ".")) or not os.path.isdir(os.path.join(dados.DADOS, n)):
+        if not dados.eh_deck(n):
             continue
         out.append(n)
     return out

@@ -11,15 +11,18 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 08/10/2026: hub feito (etapa 4), visual estante, no estilo do aplicativo. Situação OK/nOK calculada pelas trocas pendentes no radar.
 - 08/10/2026: o dono criou uma pasta para cada deck e mandou capas de Markov, Ken e Assassin Creed. Inventário alinhado aos nomes das pastas (Dragões, Turtle Power!, Heads I win, K'rrik, Master Of Evil), Lobos acrescentado, e os comandantes de Markov (Edgar Markov), Assassin Creed (Ezio Auditore da Firenze) e Ken (Aisha of Sparks and Smoke, que é o nome no Scryfall do Ken, Burning Brawler) conferidos no Scryfall. Hub com 26 decks.
 - 08/10/2026: hub ajustado aos comentários do dono: nomes das pastas, só os pontos no cartão, sem OK/nOK, abas Decks, Pastas e Dashboard, lista de compras e ranking retirados, botão de voltar ao hub em cada painel.
+- 08/10/2026: moldura retrato virou o padrão de todos os painéis. "02. Clavileno" virou "02. Clavileño".
+- 08/10/2026: o motor ganhou a seção Estratégia (início, meio e fim, e contra quem o deck vai bem ou mal), escrita para Clavileño e Giada; preço do Scryfall por carta, por faixa de relevância e do deck inteiro, com o cache renovado a cada 7 dias; `fora_do_corte` para cartas de estimação; o gráfico e a textura `fios` e a fonte Cinzel, feitos para o Valgavoth.
+- 08/10/2026: `/novo-deck 03. Valgavoth` até o passo 4. Lista de 100 cartas, `CONFRONTO.md`, `avaliacao.json` com 84 cartas, radar de 15, 8 combos e estratégia, e `tema.json` "Dízimo das Almas". Placar 329; com as 10 trocas recomendadas, 334. Parado no passo 5, esperando o dono aprovar S, BAX, as dúvidas e as trocas.
 
 ## Próxima ação
 
-Mandar as capas dos decks que faltam (cada uma vira `capa.*` na pasta do deck) e escolher o próximo deck: `/novo-deck 01. Vito` ou outro da fila. As asas do Coro continuam pendentes de `/motor`.
+Valgavoth, passo 5: o dono responde à revisão (S, BAX, cinco dúvidas, trocas). Depois, passo 6: `/imagens 03. Valgavoth` (o dono roda), build, testes com controle novo em `testes/controle/03. Valgavoth.json`, hub, `HISTORICO.md` e commit `deck: 03. Valgavoth v1.0`.
 
 ## Feito
 
 - Kit do Clavileño em `contexto/origem/ritos-de-sangue-kit/`, com handover próprio. Intocado.
-- Pastas `dados/02. Clavileno`, `dados/01. Giada`, `dados/01. Vito` e `dados/03. Valgavoth` iniciadas.
+- Pastas `dados/02. Clavileño`, `dados/01. Giada`, `dados/01. Vito` e `dados/03. Valgavoth` iniciadas.
 - Inventário inicial com os decks que aparecem nos prints do aplicativo.
 - Dezenove comandos em `.claude/skills/`, com modelo e esforço declarados.
 - Etapa 1: `motor/` (build, dados, Scryfall, tema, painel, fontes), contrato de um deck em `contexto/ARQUITETURA.md`, modelos em `dados/_modelo/`, testes em `testes/`.
@@ -31,13 +34,12 @@ Mandar as capas dos decks que faltam (cada uma vira `capa.*` na pasta do deck) e
 
 ## Pela metade
 
-- O Valgavoth tem `dsc-6-valgavoth-harrower-of-souls.jpg` solto na pasta. Parece capa, mas o dono vai mandar as capas com instruções; por ora o hub não usa.
 - As asas do Coro não estão no motor. A Giada usa o desenho padrão. Pedir pelo `/motor`.
 - Cinco leituras da Giada ficaram mais simples que no Coro: as frases que cruzavam dois números (proteção contra ramp e compra, ramp só para Anjos, cor branca nos custos, compra só atacando) viraram leituras de um número só. Se o dono quiser as frases de volta, é `/motor` com novos tipos de leitura.
 - O download do `art_crop` do comandante quando falta `capa.*` (em `motor/imagens.py`) não foi exercitado: os dois decks já tinham capa. Vale conferir no primeiro deck novo sem capa pronta.
 - `contexto/inventario.csv` ainda tem comandantes em branco ou a confirmar (Vito, Turtle Power!, Dragões, Zumbis, Humanos, Kaalia, Goblins, Elfos, Lobos, Heads I win, Master Of Evil, Zur, Queen, Valgavoth). As cartas que o dono manda junto com a capa resolvem isso.
 - `carta.*` em Markov e Assassin Creed, e os handovers e a planilha do Ken, estão soltos na raiz das pastas: o `/novo-deck` move para `entrada/`.
-- Na raiz do projeto chegaram `Handover_Analise_de_Decks (Grok).md` e `Handover_Geral_Analise_Decks_Commander.md`, de outras IAs, sobre método. Não estão no Git e não foram confrontados com `contexto/AVALIACAO.md`.
+- Na raiz do projeto estão `Handover_Analise_de_Decks (Grok).md` e `Handover_Geral_Analise_Decks_Commander.md`, de outras IAs, sobre método, e `Handover_Analise_de_Decks.md`, cópia idêntica da versão antiga de `contexto/handover-analise-de-decks.md`. Recomendação dada ao dono em 08/10/2026: confrontar Grok e Geral uma vez com `contexto/AVALIACAO.md`, propor o que vale incorporar e mover os três para `contexto/referencias/metodo/`. Espera o "pode".
 - Sobraram `data.json` e `test/` dentro de `contexto/origem/ritos-de-sangue-kit/`, gravados pelo build e pelos testes antigos na etapa 0. Não estão no Git. Precisam ser apagados à mão.
 
 ## Decisões e porquês
@@ -52,8 +54,14 @@ Mandar as capas dos decks que faltam (cada uma vira `capa.*` na pasta do deck) e
 - O estado no navegador fica em `mtg-hub:<pasta>:v1`. O painel lê a chave antiga do deck (`chave_antiga` no tema) para não perder o que foi salvo no painel anterior.
 - `tema.json` ganhou `artigo` (o ou a), para o painel escrever "na Giada" e "no Clavileño".
 - Imagens embutidas por padrão no build (`--imagens embutidas`). `cache/img/` fica fora do Git, como `cache/scryfall.json`; quem clonar o projeto roda o `/imagens` antes do primeiro build com imagem.
-- De 6 a 10 agrupamentos. Rosácea e desenho padrão se ajustam; as asas vão ficar presas a 8.
+- De 6 a 10 agrupamentos. Rosácea, fios e desenho padrão se ajustam; as asas vão ficar presas a 8.
+- Moldura retrato é o padrão de todo painel (dono, 08/10/2026).
+- Preço sempre do Scryfall, por carta e do deck (dono, 08/10/2026).
+- Cartas nascidas na DSC no Valgavoth são candidatas a estimação: `fora_do_corte`, relevância no mínimo MÉD, nunca `sai` no radar (dono, 08/10/2026). Quais são estimação de verdade o dono marca no painel.
+- Motivo gráfico de cada deck se inspira nos painéis existentes sem copiar nenhum (dono, 08/10/2026).
+- Pastas de cartas ficam "em construção" no hub até o dono mandar as listas em `dados/pastas/`.
 
 ## Perguntas em aberto para o dono
 
-- O painel publicado do Clavileño (https://claude.ai/artifact/Dp4xH6CuKZowrHzW36MGH3) deve ser substituído pelo novo na mesma URL, para herdar o que está salvo na conta? Isso é da etapa 8, `/publicar`. Esta instalação do Claude Code publica artefatos.
+- Decidido: o painel publicado do Clavileño (https://claude.ai/artifact/Dp4xH6CuKZowrHzW36MGH3) será substituído pelo novo na mesma URL, na etapa 8, `/publicar`.
+- Root handovers (Grok e Geral): ver "Pela metade".

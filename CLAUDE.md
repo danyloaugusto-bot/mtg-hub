@@ -48,11 +48,11 @@ Na raiz da pasta de um deck ficam só `deck.md`, `decklist.txt`, `capa.*` e o qu
 
 Mantenha esta seção atualizada.
 
-- Imagens, antes do build (uma vez, depois só o que for novo): `python motor/imagens.py --deck "02. Clavileno"` ou `--todos`. Baixa em `cache/img/`, compartilhado entre decks.
-- Um deck: `python motor/build.py --deck "02. Clavileno"` (grava `saidas/<pasta>.html` e `dados/<pasta>/Abrir o painel.html`). Embute as imagens do cache por padrão; `--imagens externas` tenta o Scryfall ao vivo (sem embutir), `--imagens nenhuma` sobe sem imagem nenhuma, nem ao vivo.
+- Imagens, antes do build (uma vez, depois só o que for novo): `python motor/imagens.py --deck "02. Clavileño"` ou `--todos`. Baixa em `cache/img/`, compartilhado entre decks.
+- Um deck: `python motor/build.py --deck "02. Clavileño"` (grava `saidas/<pasta>.html` e `dados/<pasta>/Abrir o painel.html`). Embute as imagens do cache por padrão; `--imagens externas` tenta o Scryfall ao vivo (sem embutir), `--imagens nenhuma` sobe sem imagem nenhuma, nem ao vivo.
 - Todos: `python motor/build.py --todos` (pula, com aviso, os decks sem `avaliacao.json`, e remonta o hub no fim)
 - Cartas do zero no Scryfall: acrescente `--atualizar-scryfall`
-- Testes de um deck: `python testes/todos.py --deck "02. Clavileno"` (contrato, regressão, página publicada, layout e, no Clavileño, a comparação com o painel de origem). Cada um também roda sozinho, com `--deck`.
+- Testes de um deck: `python testes/todos.py --deck "02. Clavileño"` (contrato, regressão, página publicada, layout e, no Clavileño, a comparação com o painel de origem). Cada um também roda sozinho, com `--deck`.
 - Hub: `python motor/build.py --hub` (grava `saidas/00. Hub.html` e `Abrir o Hub.html` na raiz). Teste: `python testes/hub.py`.
 - Não rode o `build.py` do kit em `contexto/origem/`: ele grava dentro da pasta de origem.
 

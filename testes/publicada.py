@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Simula a página publicada (window.claude.use com db e user) e a prévia de chat.
 
-    python testes/publicada.py --deck "02. Clavileno"
+    python testes/publicada.py --deck "02. Clavileño"
 """
 import json, os, socket, subprocess, sys, time
 from urllib.parse import quote

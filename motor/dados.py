@@ -14,10 +14,21 @@ TIERS = ("S", "A", "B", "C", "D")
 RELS = ("INS", "ALT", "MED", "BAX")
 VEREDITOS = ("entra", "avaliar", "fora")
 LEITURAS = ("terrenos", "agrupamento", "remocao", "contagem", "tribo", "proporcao", "curva")
+FASES = ("inicio", "meio", "fim")
+CONTRA = ("aggro", "voltron", "combo", "controle", "stax", "aristocratas", "spellslinger", "ramp")
+RESULTADOS = ("forte", "equilibrado", "fraco")
 
 
 class ErroDeck(Exception):
     pass
+
+
+PASTAS_FORA = {"pastas"}   # dados/pastas guarda as pastas de cartas do dono, não é deck
+
+
+def eh_deck(nome):
+    """Pasta de dados/ que é um deck: não começa com _ ou ., e não é uma das pastas reservadas."""
+    return (not nome.startswith(("_", "."))) and nome.lower() not in PASTAS_FORA and os.path.isdir(os.path.join(DADOS, nome))
 
 
 def slug(s):
@@ -228,6 +239,8 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
             d["tapped"] = 1
         if av.get("prioridade"):
             d["pri"] = av["prioridade"]
+        if av.get("fora_do_corte"):
+            d["nocut"] = 1
         if av.get("gera"):
             d["prod"] = av["gera"]
     if mk:
@@ -278,6 +291,35 @@ def conferir_leituras(leituras, grupos, marcadores):
             raise ErroDeck("%s: 'a' e 'b' precisam ser marcadores declarados" % q)
         if l["tipo"] in ("agrupamento", "contagem") and not (isinstance(l.get("rotulo"), list) and len(l["rotulo"]) == 2):
             raise ErroDeck("%s: 'rotulo' precisa ser [singular, plural]" % q)
+
+
+def conferir_estrategia(e):
+    """Bloco opcional: as três fases do jogo e contra que tipo de deck este vai bem ou mal."""
+    if e is None:
+        return None
+    if not isinstance(e, dict):
+        raise ErroDeck("avaliacao.json: 'estrategia' precisa ser um objeto")
+    for f in FASES:
+        x = e.get(f)
+        if x is None:
+            continue
+        if not isinstance(x, dict) or not str(x.get("plano", "")).strip():
+            raise ErroDeck("estratégia, fase '%s': falta o 'plano'" % f)
+        for k in ("fortes", "fracos"):
+            if not isinstance(x.get(k, []), list):
+                raise ErroDeck("estratégia, fase '%s': '%s' precisa ser uma lista" % (f, k))
+    vistos = set()
+    for c in e.get("contra") or []:
+        if c.get("tipo") not in CONTRA:
+            raise ErroDeck("estratégia, 'contra': tipo '%s'; use %s" % (c.get("tipo"), ", ".join(CONTRA)))
+        if c.get("resultado") not in RESULTADOS:
+            raise ErroDeck("estratégia, contra %s: resultado '%s'; use %s" % (c["tipo"], c.get("resultado"), ", ".join(RESULTADOS)))
+        if not str(c.get("porque", "")).strip():
+            raise ErroDeck("estratégia, contra %s: falta o 'porque'" % c["tipo"])
+        if c["tipo"] in vistos:
+            raise ErroDeck("estratégia, 'contra': %s repetido" % c["tipo"])
+        vistos.add(c["tipo"])
+    return {k: v for k, v in e.items() if not k.startswith("_")}
 
 
 # ---------------------------------------------------------------- deck inteiro
@@ -383,6 +425,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
 
     cmd = [c for c in cards if c.get("cmd")]
     ident = ordem_cores("".join(sf[[i for i, e in enumerate(lista) if e["cmd"]][0]].get("color_identity") or [])) if cmd else ""
-    return dict(cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos,
+    estrategia = conferir_estrategia(av.get("estrategia"))
+    return dict(cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia,
                 marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))
