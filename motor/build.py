@@ -23,9 +23,9 @@ SAIDAS = os.path.join(RAIZ, "saidas")
 PAINEL = os.path.join(MOTOR, "painel")
 CACHE_IMG = os.path.join(RAIZ, "cache", "img")
 MOLDURAS = ("larga", "retrato")
-GRAFICOS = ("rosacea", "fios", "chamas", "estandartes", "padrao")
+GRAFICOS = ("rosacea", "fios", "chamas", "estandartes", "alfinetes", "padrao")
 CURVAS = ("ogiva", "barra")
-TEXTURAS = ("vitral", "fios", "impacto", "brasao", "padrao", "nenhuma")
+TEXTURAS = ("vitral", "fios", "impacto", "brasao", "papel", "padrao", "nenhuma")
 MODOS = ("escuro", "claro")
 MODOS_IMG = ("embutidas", "externas", "nenhuma")
 
@@ -57,7 +57,7 @@ def conferir_tema(t):
         raise dados.ErroDeck("tema.json: moldura '%s'; use %s" % (cap.get("moldura"), " ou ".join(MOLDURAS)))
     g = t.get("grafico", "padrao")
     if g == "asas":
-        raise dados.ErroDeck("tema.json: o desenho 'asas' ainda não existe no motor; é mudança de motor, pelo /motor. Por ora use rosacea, fios, chamas, estandartes ou padrao")
+        raise dados.ErroDeck("tema.json: o desenho 'asas' ainda não existe no motor; é mudança de motor, pelo /motor. Por ora use rosacea, fios, chamas, estandartes, alfinetes ou padrao")
     if g not in GRAFICOS:
         raise dados.ErroDeck("tema.json: gráfico '%s'; use %s" % (g, " ou ".join(GRAFICOS)))
     if t.get("curva", "ogiva") not in CURVAS:

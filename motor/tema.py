@@ -108,6 +108,13 @@ def textura(nome, p):
         return ("radial-gradient(1100px 560px at 50%% -12%%, rgba(%d,%d,%d,.20), transparent 64%%),"
                 "radial-gradient(700px 420px at 92%% 4%%, rgba(%d,%d,%d,.16), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
+    if nome == "papel":
+        # papel de parede listrado de salão vitoriano, à luz de vela
+        g = _hex(p["acento"])
+        listras = ("repeating-linear-gradient(90deg, rgba(%d,%d,%d,.045) 0 2px, transparent 2px 13px, rgba(%d,%d,%d,.025) 13px 20px, transparent 20px 34px)"
+                   % (g + g))
+        return ("radial-gradient(900px 520px at 18%% -8%%, rgba(%d,%d,%d,.28), transparent 64%%),"
+                "radial-gradient(640px 420px at 96%% 4%%, rgba(%d,%d,%d,.35), transparent 70%%),%s,%s") % (_hex(p["destaque"]) + w + (listras, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

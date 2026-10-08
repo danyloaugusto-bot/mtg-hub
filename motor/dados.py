@@ -94,6 +94,8 @@ SUB = {
     "Gate": "Portão", "Cave": "Caverna", "Town": "Cidade", "Desert": "Deserto", "Lair": "Covil", "Sphere": "Esfera",
     "Skeleton": "Esqueleto", "Werewolf": "Lobisomem", "Devil": "Diabo", "Imp": "Diabrete",
     "Faerie": "Fada", "Fungus": "Fungo", "Insect": "Inseto", "Rat": "Rato", "Snake": "Serpente", "Spider": "Aranha",
+    "Curse": "Maldição", "Shapeshifter": "Metamorfo", "Ogre": "Ogro", "Orc": "Orc", "Weird": "Esquisito", "Bat": "Morcego",
+    "Scout": "Batedor", "Leech": "Sanguessuga", "Praetor": "Pretor", "Lamia": "Lâmia", "Nightmare": "Pesadelo",
 }
 PRINCIPAIS = ("Creature", "Artifact", "Enchantment", "Land", "Instant", "Sorcery", "Planeswalker", "Battle")
 

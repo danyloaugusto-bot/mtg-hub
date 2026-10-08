@@ -1,0 +1,1474 @@
+{
+ "feito": "08/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana além do terreno do turno. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra, seleção ou tutor."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Tira permanente da mesa, pontual ou em massa."
+  },
+  {
+   "k": "maldicao",
+   "nome": "Maldição",
+   "ab": "Mald.",
+   "desc": "A carta é Curse. A nota mede quanto ela pesa na mesa."
+  },
+  {
+   "k": "motor",
+   "nome": "Motor",
+   "ab": "Motor",
+   "desc": "Alimenta o ciclo da Lynde: saídas de sacrifício, cópias de encantamento, tutores de Curse, recursão."
+  },
+  {
+   "k": "defesa",
+   "nome": "Defesa",
+   "ab": "Def.",
+   "desc": "Mantém você e a Lynde vivos."
+  },
+  {
+   "k": "politica",
+   "nome": "Política",
+   "ab": "Pol.",
+   "desc": "Faz os oponentes se atacarem ou negociarem."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Mata jogador."
+  }
+ ],
+ "marcadores": {
+  "curse": {
+   "nome": "Maldição",
+   "plural": "Maldições",
+   "subtipo": "Curse"
+  },
+  "barata": {
+   "nome": "Maldição de custo 2 ou menos"
+  },
+  "saida": {
+   "nome": "Saída para reciclar maldição"
+  },
+  "evitar": {
+   "nome": "Maldição que você não quer em você"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de ramp dedicada",
+    "cartas de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais",
+   "farto": {
+    "min": 10,
+    "texto": "E a Lynde compra duas por giro: compra não é o gargalo."
+   }
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 5,
+   "massa_ref": [
+    3,
+    5
+   ],
+   "alerta": "Só Chaos Warp e Cyclonic Rift respondem a artefato."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "curse",
+   "min": 15,
+   "rotulo": [
+    "Maldição",
+    "Maldições"
+   ],
+   "texto": "Cada uma é, além do efeito, o ingresso para duas cartas pela Lynde.",
+   "ok": "O tema tem densidade.",
+   "alerta": "Poucas maldições para o ciclo da Lynde."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "barata",
+   "min": 5,
+   "listar": true,
+   "rotulo": [
+    "maldição de custo 2 ou menos",
+    "maldições de custo 2 ou menos"
+   ],
+   "alerta": "São elas que mantêm o ciclo girando nos turnos 4 a 6, e são poucas.",
+   "ok": "O ciclo tem ingresso barato."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "saida",
+   "min": 3,
+   "listar": true,
+   "rotulo": [
+    "saída para reciclar maldição",
+    "saídas para reciclar maldição"
+   ],
+   "ok": "Use no turno do oponente anterior a você: a maldição volta no fim daquele turno e é repassada na sua manutenção.",
+   "alerta": "Faltam saídas para o ciclo."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "defesa",
+   "min": 8,
+   "rotulo": [
+    "peça de defesa",
+    "peças de defesa"
+   ],
+   "passagem": "de passagem",
+   "alerta": "Uma só proteção para a Lynde (Malakir Rebirth) e nenhuma anulação."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "fechamento",
+   "min": 6,
+   "rotulo": [
+    "carta que fecha o jogo",
+    "cartas que fecham o jogo"
+   ],
+   "passagem": "que ajudam a fechar",
+   "alerta": "O fechamento é fino: contra três oponentes de 40 de vida, o deck compra bem e mata devagar."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "evitar",
+   "listar": true,
+   "rotulo": [
+    "maldição que você não quer em você",
+    "maldições que você não quer em você"
+   ],
+   "texto": "Se a Lynde devolver uma delas, sacrifique-a no turno do oponente anterior a você, antes do fim de turno dele."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Pedra de 2 manas no turno 2 e a Lynde no 3 ou 4. A Curse of Opulence no turno 1, em quem estiver na frente, é ramp para você e convite para a mesa. As maldições de 1 e 2 manas ficam na mão para o ciclo.",
+   "fortes": [
+    "Cinco pedras de 2 manas ou menos: Sol Ring, Arcane Signet e os três Talismãs.",
+    "Quatro maldições de custo 1 ou 2 mantêm o ciclo girando nos primeiros turnos da Lynde."
+   ],
+   "fracos": [
+    "A Lynde custa 4 em três cores, e cinco terrenos sempre entram virados.",
+    "Nenhuma anulação e uma só proteção para ela: Malakir Rebirth."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 7",
+   "plano": "Toda maldição segura entra em você no fim do turno e é repassada na manutenção: duas cartas por giro. A Curse of Misfortunes em você vira tutor e compra todo turno. Propaganda, Kazuul e os bloqueadores com toque mortífero seguram a rodada de exposição.",
+   "fortes": [
+    "A Curse of Misfortunes em você: um tutor, uma maldição num oponente e duas cartas por turno.",
+    "Quatro saídas (Claws of Gix, Despotic Scepter, Staff of Compleation, Read the Runes) reciclam sem expor você."
+   ],
+   "fracos": [
+    "Maldição política em você convida ataque por uma rodada.",
+    "Exílio e devolução para a mão não passam pelo cemitério: a Lynde não salva."
+   ]
+  },
+  "fim": {
+   "turnos": "8 em diante",
+   "plano": "Empilhar as maldições de dano no oponente mais forte: Bloodletting primeiro, depois Maddening Hex, Torment of Scarabs e Cruel Reality. Cada jogador que cai devolve as maldições para você. Notion Thief com Windfall é o atalho.",
+   "fortes": [
+    "Cada jogador eliminado devolve as maldições dele para você, e o ciclo recomeça com mais munição.",
+    "Notion Thief com Windfall esvazia a mão dos três oponentes."
+   ],
+   "fracos": [
+    "O fechamento é fino: cinco cartas matam de verdade, contra três oponentes de 40 de vida.",
+    "O deck compra muito e mata devagar: vira o alvo antes de fechar."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Propaganda, Kazuul e os bloqueadores com toque mortífero seguram, mas a defesa é curta para um deck tão lento."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "O Cruel Reality obriga a sacrificar a única criatura deles, ou a perder 5 por turno."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Nenhuma anulação, e o relógio do deck é lento demais para correr contra combo."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "forte",
+    "porque": "Maldição fica no jogador e sobrevive a limpeza de criaturas; destruída, a Lynde a devolve. A Maddening Hex e a Shaken Faith punem quem conjura muito."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "equilibrado",
+    "porque": "Maldições baratas e quatro saídas de custo baixo passam por boa parte do imposto, mas a Lynde de 4 manas em três cores sofre."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "A Trespasser's Curse cobra a cada criatura que entra, mas eles têm forragem de sobra para o Cruel Reality."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "forte",
+    "porque": "Maddening Hex, Curse of Shaken Faith e Notion Thief transformam cada mágica deles em dano ou em carta para você."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "equilibrado",
+    "porque": "Ramp desenvolve mais rápido que o atrito do deck, mas a Curse of the Restless Dead e a Opulence cobram dos terrenos e ataques deles."
+   }
+  ]
+ },
+ "cartas": {
+  "Lynde, Cheerful Tormentor": {
+   "notas": {
+    "draw": 3,
+    "motor": 3,
+    "defesa": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "2/4 toque mortífero. Maldição sua que vai da mesa ao cemitério volta no fim do turno, anexada a você. Na sua manutenção, você pode passar uma Maldição de você para um oponente e comprar duas.",
+   "porque": "É o deck. Transforma cada maldição em duas cartas e torna todas resistentes a destruição."
+  },
+  "Alexios, Deimos of Kosmos": {
+   "notas": {
+    "politica": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/4 atropelar. Ataca todo combate se puder, não pode ser sacrificado e não ataca o dono. Na manutenção de cada jogador, esse jogador ganha o controle dele, o desvira e põe um marcador +1/+1.",
+   "porque": "Roda a mesa atacando todo mundo menos você, e cada ataque dispara Opulence, Verbosity e Disturbance."
+  },
+  "Archfiend of Depravity": {
+   "notas": {
+    "removal": 3,
+    "defesa": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "5/4 voar. No fim do turno de cada oponente, ele fica com duas criaturas e sacrifica o resto.",
+   "porque": "Limpeza recorrente de um lado só. Com Cruel Reality, o oponente fica sem mesa.",
+   "massa": true
+  },
+  "Baleful Strix": {
+   "notas": {
+    "draw": 2,
+    "defesa": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "1/1 voar, toque mortífero, compra 1.",
+   "porque": "Bloqueador que se paga."
+  },
+  "Clever Impersonator": {
+   "notas": {
+    "maldicao": 1,
+    "motor": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra como cópia de qualquer permanente não terreno.",
+   "porque": "Segunda cópia da melhor maldição, ou da melhor permanente da mesa."
+  },
+  "Darkstar Augur": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "2/3 voar, offspring {B}. Na sua manutenção, revela o topo, põe na mão e perde vida igual ao custo.",
+   "porque": "O deck tem três cartas de 7 e uma de 9. A Lynde já compra duas por turno sem cobrar vida.",
+   "prioridade": 6
+  },
+  "Evil Twin": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Clone que pode destruir a criatura de mesmo nome.",
+   "porque": "Carta boa em qualquer Dimir. Não toca em maldição nem no ciclo.",
+   "prioridade": 4
+  },
+  "Hydroelectric Specimen": {
+   "notas": {
+    "defesa": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "1/4 com lampejo. Ao entrar, pode mudar para si o alvo de uma instantânea ou feitiço de alvo único. Verso: terreno que gera {U}.",
+   "porque": "Terreno com opção de proteger a Lynde. Conta como fonte."
+  },
+  "Kazuul, Tyrant of the Cliffs": {
+   "notas": {
+    "defesa": 3,
+    "politica": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "5/4. Criatura que ataca você: o dono paga 3 ou você cria um Ogre 3/3.",
+   "porque": "Segunda Propaganda, em corpo."
+  },
+  "Keen Duelist": {
+   "notas": {
+    "draw": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Na manutenção, você e um oponente revelam o topo e cada um perde vida igual ao custo da carta do outro; ambos compram.",
+   "porque": "Seu deck é pesado, então o oponente apanha mais. Dá carta a um oponente todo turno.",
+   "prioridade": 10
+  },
+  "Lazav, Dimir Mastermind": {
+   "notas": {
+    "defesa": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "3/3 hexproof. Vira cópia de criatura que cai no cemitério de um oponente.",
+   "porque": "UUBB num deck de três cores, e sem relação com o plano.",
+   "prioridade": 2
+  },
+  "Nightscape Familiar": {
+   "notas": {
+    "ramp": 2,
+    "defesa": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Mágicas azuis e vermelhas custam 1 a menos. Regenera.",
+   "porque": "Metade das maldições é preta e não recebe o desconto."
+  },
+  "Notion Thief": {
+   "notas": {
+    "draw": 2,
+    "politica": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/1 lampejo. Compras extras dos oponentes vão para você.",
+   "porque": "Fecha o combo com Windfall e rouba as compras que Verbosity e Surveillance dariam aos outros."
+  },
+  "Plargg and Nassari": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "5/4. Na manutenção todos exilam até uma não terreno; um oponente veta uma e você conjura até duas das outras de graça.",
+   "porque": "Divertida e aleatória. Não conversa com maldição e o oponente veta a melhor.",
+   "prioridade": 3
+  },
+  "Protean Thaumaturge": {
+   "notas": {
+    "motor": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "2/2. Constellation: vira cópia de outra criatura.",
+   "porque": "24 encantamentos disparam, mas copiar criatura não é o que o deck quer.",
+   "prioridade": 5
+  },
+  "Varragoth, Bloodsky Sire": {
+   "notas": {
+    "draw": 2,
+    "motor": 1,
+    "defesa": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "2/3 toque mortífero. Boast: um jogador busca uma carta e põe no topo.",
+   "porque": "Tutor repetível para Curse of Misfortunes ou a peça que falta. Precisa atacar."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Pedra de 2.",
+   "porque": "Infraestrutura."
+  },
+  "Claws of Gix": {
+   "notas": {
+    "motor": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "1 e sacrifica uma permanente: ganha 1 de vida.",
+   "porque": "Saída repetível e instantânea, por custo 0. Recolhe uma maldição no turno do oponente anterior para repassar na sua manutenção.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Crystal Chimes": {
+   "notas": {
+    "draw": 1,
+    "motor": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "3, vira e sacrifica: devolve todos os encantamentos do cemitério para a mão.",
+   "porque": "Seguro para quando a Lynde não está na mesa e as maldições ficam no cemitério."
+  },
+  "Cursed Mirror": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Gera R. Ao entrar pode ser cópia de uma criatura até o fim do turno, com ímpeto.",
+   "porque": "Pedra de 3 com um truque."
+  },
+  "Despotic Scepter": {
+   "notas": {
+    "motor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vira: destrói uma permanente sua.",
+   "porque": "Saída de 1 mana, uma maldição por rodada.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Midnight Clock": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Gera U. Aos doze marcadores, embaralha mão e cemitério e compra sete.",
+   "porque": "Pedra que vira recarga no fim do jogo."
+  },
+  "Relic of Sauron": {
+   "notas": {
+    "ramp": 3,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Gera duas manas entre U, B e R. Paga 3: compra duas, descarta uma.",
+   "porque": "Duas manas coloridas num deck de três cores."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Gera 2 incolores.",
+   "porque": "Infraestrutura."
+  },
+  "Staff of Compleation": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "motor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Paga vida para: destruir permanente sua, gerar mana, proliferar ou comprar.",
+   "porque": "Saída que também é pedra e compra.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Talisman of Creativity": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Pedra de 2, U ou R.",
+   "porque": "Infraestrutura."
+  },
+  "Talisman of Dominance": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Pedra de 2, U ou B.",
+   "porque": "Infraestrutura."
+  },
+  "Talisman of Indulgence": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Pedra de 2, B ou R.",
+   "porque": "Infraestrutura."
+  },
+  "Cruel Reality": {
+   "notas": {
+    "removal": 2,
+    "maldicao": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Na manutenção do amaldiçoado, ele sacrifica criatura ou planeswalker, ou perde 5.",
+   "porque": "A maldição que mais mata. Nunca em você.",
+   "marcas": {
+    "evitar": 1
+   }
+  },
+  "Curse of Bloodletting": {
+   "notas": {
+    "maldicao": 2,
+    "politica": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dano causado ao amaldiçoado é dobrado.",
+   "porque": "Dobra o dano de todo mundo, o que convida a mesa a bater nele. Dobra a Shaken Faith e o primeiro disparo da Maddening Hex, antes de ela pular de jogador.",
+   "marcas": {
+    "evitar": 1
+   }
+  },
+  "Curse of Disturbance": {
+   "notas": {
+    "maldicao": 2,
+    "defesa": 2,
+    "politica": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Quando o amaldiçoado é atacado, você cria um Zumbi 2/2, e cada atacante também.",
+   "porque": "Paga a mesa para atacar um jogador e ergue os seus bloqueadores."
+  },
+  "Curse of Hospitality": {
+   "notas": {
+    "maldicao": 2,
+    "politica": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Atacantes do amaldiçoado atropelam e, ao conectar, jogam a carta do topo dele.",
+   "porque": "Quem ganha são os atacantes. Você raramente ataca.",
+   "marcas": {
+    "evitar": 1
+   }
+  },
+  "Curse of Leeches": {
+   "notas": {
+    "maldicao": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Na manutenção do amaldiçoado, ele perde 1 e você ganha 1. À noite vira criatura 4/4.",
+   "porque": "A mais fraca das 16. À noite vira a Leeching Lurker, uma criatura; se morrer assim, não era Maldição ao sair da mesa e a Lynde não a devolve.",
+   "prioridade": 8
+  },
+  "Curse of Misfortunes": {
+   "notas": {
+    "draw": 2,
+    "maldicao": 3,
+    "motor": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Na SUA manutenção, busca uma Maldição de nome diferente das que estão no amaldiçoado e a anexa a ele.",
+   "porque": "Em você mesmo, é o motor: busca uma Maldição para você, a Lynde repassa, você compra duas. Todo turno."
+  },
+  "Curse of Opulence": {
+   "notas": {
+    "ramp": 2,
+    "maldicao": 3,
+    "politica": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Quando o amaldiçoado é atacado, você cria um Gold, e cada atacante também.",
+   "porque": "Um de mana, ramp e política. A melhor carta de turno 1 do deck.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Curse of Shaken Faith": {
+   "notas": {
+    "maldicao": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "2 de dano quando o amaldiçoado conjura a segunda mágica do turno em diante ou copia mágica.",
+   "porque": "Barata e punitiva contra deck de mágicas.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Curse of Surveillance": {
+   "notas": {
+    "draw": 3,
+    "maldicao": 3,
+    "politica": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Na manutenção do amaldiçoado, outros jogadores à sua escolha compram cartas igual ao número de Maldições nele.",
+   "porque": "Compra que escala com o empilhamento. Pode ser dividida com um aliado de ocasião."
+  },
+  "Curse of Unbinding": {
+   "notas": {
+    "maldicao": 3,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Na manutenção do amaldiçoado, ele revela até uma criatura, que entra sob o seu controle; o resto vai ao cemitério.",
+   "porque": "Uma criatura roubada por turno, por 7 manas."
+  },
+  "Curse of Vengeance": {
+   "notas": {
+    "draw": 1,
+    "maldicao": 2,
+    "motor": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Acumula marcadores a cada mágica do amaldiçoado. Quando ele perde, você ganha vida e compra.",
+   "porque": "O efeito é lento. O valor é custar 1: conjurada em você e repassada, são duas cartas por uma mana.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Curse of Verbosity": {
+   "notas": {
+    "draw": 3,
+    "maldicao": 2,
+    "politica": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Quando o amaldiçoado é atacado, você compra, e cada atacante também.",
+   "porque": "Compra e política. Com Notion Thief, as compras dos outros são suas."
+  },
+  "Curse of the Restless Dead": {
+   "notas": {
+    "maldicao": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Quando um terreno entra para o amaldiçoado, você cria um Zumbi 2/2 decadente.",
+   "porque": "Em você mesmo rende um Zumbi por terreno. Decadente não bloqueia."
+  },
+  "Maddening Hex": {
+   "notas": {
+    "maldicao": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Quando o amaldiçoado conjura não criatura, rola um d6 de dano nele e a Hex pula para outro oponente ao acaso.",
+   "porque": "Média de 3,5 de dano por mágica não criatura, e circula sozinha. Se for destruída, a Lynde a devolve em você: na sua próxima mágica não criatura você leva o dado, e ela pula para um oponente.",
+   "marcas": {
+    "evitar": 1
+   }
+  },
+  "Torment of Scarabs": {
+   "notas": {
+    "removal": 1,
+    "maldicao": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Na manutenção do amaldiçoado, ele perde 3, a menos que sacrifique permanente não terreno ou descarte.",
+   "porque": "Desgaste garantido por 4 manas.",
+   "marcas": {
+    "evitar": 1
+   }
+  },
+  "Trespasser's Curse": {
+   "notas": {
+    "maldicao": 2,
+    "defesa": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Quando uma criatura entra para o amaldiçoado, ele perde 1 e você ganha 1.",
+   "porque": "Dois de mana e mata deck de fichas. Em você, é neutra.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Captive Audience": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra sob controle de um oponente. A cada manutenção dele, um modo novo: vida vira 4, descarta a mão, ou cada oponente dele cria cinco Zumbis.",
+   "porque": "Mata um jogador em três turnos. Não é Maldição: se for destruída, não volta."
+  },
+  "Copy Enchantment": {
+   "notas": {
+    "maldicao": 1,
+    "motor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Entra como cópia de um encantamento.",
+   "porque": "Segunda Curse of Misfortunes ou segundo Cruel Reality por 3 manas."
+  },
+  "Court of Vantress": {
+   "notas": {
+    "draw": 2,
+    "motor": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Monarca. Na manutenção vira cópia de outro encantamento ou artefato; se monarca, cria ficha cópia.",
+   "porque": "Compra pela coroa e copia maldição, mas o deck defende mal a coroa."
+  },
+  "Estrid's Invocation": {
+   "notas": {
+    "maldicao": 1,
+    "motor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Cópia de um encantamento seu; na manutenção pode sair e voltar copiando outro.",
+   "porque": "Cópia flexível das suas próprias maldições."
+  },
+  "Extravagant Replication": {
+   "notas": {
+    "motor": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Na manutenção, cria ficha cópia de outra permanente não terreno sua.",
+   "porque": "Uma maldição nova por turno, mas custa 6 e ficha não volta pela Lynde."
+  },
+  "Powerbalance": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Quando um oponente conjura, revela o topo; se o custo for igual, conjura de graça.",
+   "porque": "Loteria. Fora de lugar num deck que não manipula o topo.",
+   "prioridade": 1
+  },
+  "Propaganda": {
+   "notas": {
+    "defesa": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Atacar você custa 2 por criatura.",
+   "porque": "Deixa você conjurar maldição política em si mesmo sem virar alvo."
+  },
+  "The Horus Heresy": {
+   "notas": {
+    "draw": 1,
+    "removal": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Saga: rouba uma criatura não lendária de cada oponente; compra por criatura roubada; depois cada jogador escolhe uma e elas morrem.",
+   "porque": "Seis manas por um efeito que se desfaz. Forte, lenta, fora do tema."
+  },
+  "Chaos Warp": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Embaralha uma permanente no grimório do dono.",
+   "porque": "A única resposta universal da lista."
+  },
+  "Cyclonic Rift": {
+   "notas": {
+    "removal": 3,
+    "defesa": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Devolve uma permanente; com overload, todas as dos oponentes.",
+   "porque": "Maldição é Aura em jogador, e a sua mesa fica.",
+   "massa": true,
+   "pontual": true
+  },
+  "Malakir Rebirth": {
+   "notas": {
+    "defesa": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Criatura que morrer neste turno volta virada. Verso: terreno.",
+   "porque": "Terreno com opção de salvar a Lynde. Conta como fonte."
+  },
+  "Read the Runes": {
+   "notas": {
+    "draw": 3,
+    "motor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Compra X; para cada uma, descarta ou sacrifica uma permanente.",
+   "porque": "Sacrifique maldições em vez de descartar: você fica com as cartas e elas voltam para você pela Lynde.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Reality Shift": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Exila uma criatura; o dono manifesta o topo.",
+   "porque": "Exílio por 2."
+  },
+  "Sauron's Ransom": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Um oponente separa as quatro do topo em duas pilhas; você fica com uma.",
+   "porque": "Compra honesta e genérica.",
+   "prioridade": 9
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "13 de dano em cada criatura.",
+   "porque": "Suas maldições ficam. A Lynde morre, e o deck aguenta.",
+   "massa": true
+  },
+  "Chain Reaction": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dano em cada criatura igual ao número de criaturas.",
+   "porque": "Segunda limpeza vermelha.",
+   "massa": true
+  },
+  "Ensnared by the Mara": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Cada oponente escolhe: você conjura de graça a primeira não terreno dele, ou ele leva dano pelo custo das quatro do topo.",
+   "porque": "O oponente escolhe o que dói menos. É feitiço, não Maldição.",
+   "prioridade": 7
+  },
+  "Expressive Iteration": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Olha três: uma na mão, uma exilada para jogar no turno.",
+   "porque": "Seleção barata."
+  },
+  "Feed the Swarm": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Destrói criatura ou encantamento de um oponente; perde vida igual ao custo.",
+   "porque": "Única resposta preta a encantamento."
+  },
+  "Last One Standing": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sobra uma criatura ao acaso.",
+   "porque": "Limpeza de 3 manas. O acaso combina com o deck.",
+   "massa": true
+  },
+  "Plea for Power": {
+   "notas": {
+    "draw": 2,
+    "politica": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Votação: turno extra ou comprar três.",
+   "porque": "Quase sempre são três cartas por 4."
+  },
+  "Role Reversal": {
+   "notas": {
+    "removal": 2,
+    "motor": 1,
+    "politica": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Troca o controle de duas permanentes do mesmo tipo.",
+   "porque": "Troca um encantamento fraco seu pelo melhor de um oponente."
+  },
+  "Sundering Eruption": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Destrói um terreno. Verso: terreno.",
+   "porque": "Terreno com opção. Conta como fonte."
+  },
+  "Windfall": {
+   "notas": {
+    "draw": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Todos descartam e compram igual à maior mão.",
+   "porque": "Recarga, e com Notion Thief esvazia a mão dos três oponentes."
+  },
+  "Blightstep Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "B ou R.",
+   "porque": "Dual desvirado."
+  },
+  "Bojuka Bog": {
+   "notas": {
+    "ramp": -1,
+    "removal": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virado; exila um cemitério.",
+   "porque": "Resposta a cemitério em terreno.",
+   "virado": true
+  },
+  "Clearwater Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "U ou B.",
+   "porque": "Dual desvirado."
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Gera as três cores.",
+   "porque": "Infraestrutura."
+  },
+  "Crumbling Necropolis": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Tri-land virado.",
+   "porque": "Três cores, um turno atrás.",
+   "virado": true
+  },
+  "Crypt of the Eternals": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor, ou filtra para U, B ou R por 1.",
+   "porque": "Conserto de cor lento."
+  },
+  "Dreadship Reef": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Terreno de estoque U/B.",
+   "porque": "Guarda mana para as maldições de 7."
+  },
+  "Drowned Catacomb": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "U ou B.",
+   "porque": "Dual."
+  },
+  "Exotic Orchard": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Cores que os oponentes geram.",
+   "porque": "Dual na prática."
+  },
+  "Fabled Passage": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Busca um básico.",
+   "porque": "Conserto de cor."
+  },
+  "Grixis Panorama": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Incolor; paga para buscar básico.",
+   "porque": "Lento."
+  },
+  "Luxury Suite": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "B ou R.",
+   "porque": "Dual desvirado em multiplayer."
+  },
+  "Mortuary Mire": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Entra virado; criatura do cemitério no topo.",
+   "porque": "Devolve a Lynde só se ela foi ao cemitério.",
+   "virado": true
+  },
+  "Rivendell": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U; scry 2 com lendária.",
+   "porque": "Desvirado com a Lynde."
+  },
+  "Riverglide Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "U ou R.",
+   "porque": "Dual desvirado."
+  },
+  "Roadside Reliquary": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor; sacrifica para comprar até 2.",
+   "porque": "Aqui compra 2 quase sempre."
+  },
+  "Seething Landscape": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Incolor; sacrifica para buscar básico; cycling.",
+   "porque": "Lento."
+  },
+  "Stormcarved Coast": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "U ou R.",
+   "porque": "Dual."
+  },
+  "Sulfur Falls": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "U ou R.",
+   "porque": "Dual."
+  },
+  "Surtland Frostpyre": {
+   "notas": {
+    "ramp": -1,
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "R virado; sacrifica para 2 de dano em cada criatura.",
+   "porque": "Limpeza pequena em terreno.",
+   "virado": true
+  },
+  "Temple of the False God": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "2 incolores com cinco terrenos.",
+   "porque": "Sem cor num deck de três cores.",
+   "prioridade": 11
+  },
+  "Underground River": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "U ou B com 1 de dano.",
+   "porque": "Dual desvirado."
+  },
+  "Unknown Shores": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Incolor; filtra por 1.",
+   "porque": "O pior conserto de cor da lista.",
+   "prioridade": 12
+  },
+  "Xander's Lounge": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Tri-land com tipos básicos e cycling.",
+   "porque": "Três cores.",
+   "virado": true
+  },
+  "Island": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "3 cópias."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "3 cópias."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "2 cópias."
+  }
+ },
+ "radar": {
+  "Curse of Thirst": {
+   "notas": {
+    "maldicao": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Curse of Leeches",
+   "faz": "Maldição 4B. Na manutenção do amaldiçoado, causa dano igual ao número de Maldições nele.",
+   "porque": "O fechamento que o próprio tema oferece: cresce com o empilhamento e dobra com a Curse of Bloodletting. Sai a mais fraca das 16."
+  },
+  "Curse of Fool's Wisdom": {
+   "notas": {
+    "maldicao": 3,
+    "fechamento": 3,
+    "defesa": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Ensnared by the Mara",
+   "faz": "Maldição 4BB. Sempre que o amaldiçoado compra, ele perde 2 e você ganha 2. Madness {3}{B}.",
+   "porque": "Num jogador com Curse of Surveillance ou Verbosity, cada compra extra dele custa 2 de vida."
+  },
+  "Bitterheart Witch": {
+   "notas": {
+    "motor": 3,
+    "draw": 1,
+    "defesa": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Darkstar Augur",
+   "faz": "Humana 4B, 1/2 toque mortífero. Ao morrer, busca uma Maldição e a põe na mesa anexada a um jogador.",
+   "porque": "Tutor de Maldição que bloqueia com toque mortífero; a Claws of Gix a sacrifica na hora certa. Sai a compra que cobra vida."
+  },
+  "Paradox Haze": {
+   "notas": {
+    "motor": 3,
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Powerbalance",
+   "faz": "Aura 2U, encantar jogador. Na primeira manutenção do turno do encantado, ele ganha uma manutenção a mais.",
+   "porque": "Em você, a Lynde e a Curse of Misfortunes disparam duas vezes por turno. Não é Maldição: a Lynde não a recicla, e ela tem de ficar em você."
+  },
+  "Entity Tracker": {
+   "notas": {
+    "draw": 3,
+    "motor": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Protean Thaumaturge",
+   "faz": "Humano 2U, 2/3 lampejo. Sempre que um encantamento seu entra, compra uma carta.",
+   "porque": "Toda Maldição que a Lynde devolve entra em você: uma carta por fim de turno, além das duas do repasse."
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "defesa": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Plargg and Nassari",
+   "faz": "Equipamento de equipar {0}: ímpeto e shroud.",
+   "porque": "A Lynde não vira alvo de remoção, e as habilidades dela não miram nada. Proteção da Lynde de 1 para 2."
+  },
+  "Mirrormade": {
+   "notas": {
+    "motor": 3,
+    "maldicao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Evil Twin",
+   "faz": "Encantamento 1UU que entra como cópia de qualquer artefato ou encantamento.",
+   "porque": "Segunda Curse of Misfortunes ou segundo Cruel Reality. Cópia do tipo certo, no lugar do clone de criatura."
+  },
+  "Counterspell": {
+   "notas": {
+    "defesa": 3,
+    "removal": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Sauron's Ransom",
+   "faz": "Instantânea UU: anula uma mágica.",
+   "porque": "A lista não anula nada. Sai uma compra genérica num deck em que compra sobra."
+  },
+  "Disrupt Decorum": {
+   "notas": {
+    "politica": 3,
+    "defesa": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Lazav, Dimir Mastermind",
+   "faz": "Feitiço 2RR: incita todas as criaturas que você não controla.",
+   "porque": "Uma rodada de trégua garantida, e cada ataque dispara Opulence, Verbosity e Disturbance no amaldiçoado."
+  },
+  "Curse of the Pierced Heart": {
+   "notas": {
+    "maldicao": 2,
+    "motor": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Keen Duelist",
+   "faz": "Maldição 1R. Na manutenção do amaldiçoado, 1 de dano nele ou num planeswalker dele.",
+   "porque": "A quinta maldição de custo 2 ou menos, o ingresso barato do ciclo, e dobra com a Bloodletting. Sai a carta que dá compra a um oponente."
+  },
+  "Blood Crypt": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Temple of the False God",
+   "faz": "Terreno Swamp Mountain. Entra desvirado se você pagar 2 de vida.",
+   "porque": "Dual com tipos básicos, desvirado, no lugar do terreno que não gera cor."
+  },
+  "Fierce Guardianship": {
+   "notas": {
+    "defesa": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "The Horus Heresy",
+   "faz": "Instantânea 2U, de graça com um comandante seu: anula uma mágica não criatura.",
+   "porque": "Anulação de graça com a Lynde na mesa. Cerca de US$ 64."
+  },
+  "Sheoldred, the Apocalypse": {
+   "notas": {
+    "fechamento": 3,
+    "defesa": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Extravagant Replication",
+   "faz": "4/5 toque mortífero. Você ganha 2 por carta que compra; oponente perde 2 por carta que compra.",
+   "porque": "As suas maldições fazem a mesa comprar, e a Lynde faz você comprar duas por giro. Cerca de US$ 99."
+  },
+  "Curse of Echoes": {
+   "notas": {
+    "maldicao": 1,
+    "politica": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Maldição 4U. Quando o amaldiçoado conjura instantânea ou feitiço, cada outro jogador pode copiar.",
+   "porque": "Dá a cópia aos outros dois oponentes também, não só a você."
+  },
+  "Rhystic Study": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento 2U. Quando um oponente conjura, compra uma carta a menos que ele pague 1.",
+   "porque": "Forte em qualquer deck, e compra é o que este já tem de sobra."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Mão vazia na mesa",
+   "tipo": "Combo",
+   "pecas": [
+    "Notion Thief",
+    "Windfall"
+   ],
+   "texto": "Com o Notion Thief na mesa, o Windfall faz todos descartarem. As compras dos oponentes viram suas: eles ficam sem mão e você compra por quatro."
+  },
+  {
+   "nome": "Tutor e duas cartas por turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Curse of Misfortunes",
+    "Lynde, Cheerful Tormentor"
+   ],
+   "texto": "Com a Misfortunes em você, ela busca uma Maldição e a anexa a você na manutenção; a Lynde repassa essa Maldição e você compra duas. Ordene os gatilhos com a Misfortunes primeiro."
+  },
+  {
+   "nome": "Saída no turno do vizinho",
+   "tipo": "Motor",
+   "pecas": [
+    "Claws of Gix",
+    "Lynde, Cheerful Tormentor"
+   ],
+   "texto": "No turno do oponente anterior a você, sacrifique uma Maldição que está num oponente. Ela volta para você no fim daquele turno e é repassada na sua manutenção: duas cartas por 1 mana, sem rodada de exposição."
+  },
+  {
+   "nome": "Comprar sem perder nada",
+   "tipo": "Motor",
+   "pecas": [
+    "Read the Runes",
+    "Lynde, Cheerful Tormentor"
+   ],
+   "texto": "Compre X e, em vez de descartar, sacrifique X Maldições. Todas voltam para você no fim do turno."
+  },
+  {
+   "nome": "Segunda Misfortunes",
+   "tipo": "Motor",
+   "pecas": [
+    "Copy Enchantment",
+    "Curse of Misfortunes"
+   ],
+   "texto": "Copy Enchantment, Estrid's Invocation e Clever Impersonator dão uma segunda Misfortunes, ou um segundo Cruel Reality."
+  },
+  {
+   "nome": "Ataque que paga a você",
+   "tipo": "Motor",
+   "pecas": [
+    "Curse of Opulence",
+    "Curse of Verbosity"
+   ],
+   "texto": "Opulence, Verbosity e Disturbance no mesmo jogador: cada ataque nele rende a você um Gold, uma carta e um Zumbi, e o atacante leva o mesmo."
+  },
+  {
+   "nome": "O atacante de todos",
+   "tipo": "Motor",
+   "pecas": [
+    "Alexios, Deimos of Kosmos",
+    "Curse of Opulence"
+   ],
+   "texto": "O Alexios ataca sempre e nunca ataca você, disparando as maldições de ataque em todo turno."
+  },
+  {
+   "nome": "Mesa vazia todo turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Archfiend of Depravity",
+    "Cruel Reality"
+   ],
+   "texto": "O Archfiend deixa cada oponente com duas criaturas; o Cruel Reality come uma por manutenção."
+  },
+  {
+   "nome": "Cartas pelo empilhamento",
+   "tipo": "Motor",
+   "pecas": [
+    "Curse of Surveillance",
+    "Notion Thief"
+   ],
+   "texto": "Quatro Maldições num jogador são quatro cartas para os jogadores que você escolher a cada manutenção dele. Com o Notion Thief, as compras extras dos oponentes viram suas."
+  },
+  {
+   "nome": "Não juntar: a Hex de volta em você",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Maddening Hex",
+    "Lynde, Cheerful Tormentor"
+   ],
+   "texto": "Se a Maddening Hex for destruída, a Lynde a devolve em você: na sua próxima mágica não criatura você leva o dado. Sacrifique-a com a Claws of Gix no turno do vizinho, ou repasse-a antes de conjurar."
+  }
+ ]
+}

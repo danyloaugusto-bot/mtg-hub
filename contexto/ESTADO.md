@@ -18,10 +18,11 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 08/10/2026: handovers de método da raiz movidos para `contexto/referencias/metodo/`, sem mudar `AVALIACAO.md` nem o handover (decisão do dono).
 - 08/10/2026: Ken v1.0 fechado (`/novo-deck 04. Ken`), painel "Round Extra". Placar 375; com as 11 trocas recomendadas, 409. O motor ganhou: nome impresso (o painel mostra Ken, Ryu, Hadoken e Lórien Brooch; o nome do Scryfall fica guardado para busca e exportação), etched foil (`E`), o mesmo básico em duas linhas, gráfico "chamas", textura "impacto" e a fonte Teko. Testes: Ken 89/89, Valgavoth 87/87, Clavileño 105/105, Giada 91/91, hub 28/28 com quatro painéis.
 - 08/10/2026: Humanos v1.0 fechado (`/novo-deck 02. Humanos`), painel "Catedral dos Vivos", o primeiro claro do projeto, a pedido do dono (o oposto dos decks de mortos). Placar 347; com as 10 trocas recomendadas, 385. O motor ganhou o modo claro (`"modo": "claro"` no tema), o gráfico "estandartes", a textura "brasão", a fonte Marcellus SC e o leitor da decklist passou a ignorar cabeçalhos como `COMMANDER`. Sem PetCard e sem cartas de estimação neste deck.
+- 08/10/2026: Lynde v1.0 fechado (`/novo-deck 03. Lynde`), painel "Chá das Maldições". Placar 308; com as 11 trocas recomendadas, 337. O motor ganhou o gráfico "alfinetes", a textura "papel", a fonte IM Fell English SC e a tradução de mais subtipos (Curse vira Maldição). Sem PetCard e sem cartas de estimação. O dono pôs capas em mais 15 pastas; o hub tem 26 decks, 6 com painel.
 
 ## Próxima ação
 
-Escolher o próximo deck: `/novo-deck 01. Markov` ou `/novo-deck 04. Assassin Creed` (os dois têm capa e a carta do comandante soltas na pasta), ou `/novo-deck 01. Vito`. Mandar as capas dos demais. Cinco decks com painel: Giada, Clavileño, Humanos, Valgavoth e Ken.
+Escolher o próximo deck: `/novo-deck 01. Markov` ou `/novo-deck 04. Assassin Creed` (os dois têm capa e a carta do comandante soltas na pasta), ou `/novo-deck 01. Vito`. Mandar as capas dos demais. Seis decks com painel: Giada, Clavileño, Humanos, Valgavoth, Lynde e Ken.
 
 ## Feito
 
