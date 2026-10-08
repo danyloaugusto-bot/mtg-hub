@@ -1412,6 +1412,7 @@ function footHtml() {
     '<span class="rev">Revisão ' + esc(M.rev) + ' deste painel.</span>';
 }
 $('#footTxt').innerHTML = footHtml();
+if (PUB) { var vh = $('#voltar'); if (vh) vh.hidden = true; }   /* a página publicada não tem o hub ao lado */
 updStoreNote();
 go('geral');
 initRemote();

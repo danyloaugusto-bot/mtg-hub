@@ -4,10 +4,10 @@
 Chamado por `python motor/build.py --hub` (e ao fim de `--todos`). Gera saidas/00. Hub.html, um HTML único com as
 capas reduzidas e embutidas, e o atalho `Abrir o Hub.html` na raiz do projeto.
 
-Fontes: as pastas de dados/ (o número antes do ponto é o grupo), contexto/inventario.csv para o que ainda não tem
-pasta, e um resumo de cada deck com avaliação, calculado aqui com a mesma conta do painel.
+Três abas: Decks (os cartões, por grupo), Pastas (as pastas de cartas do dono, à espera das listas) e Dashboard
+(números cruzados entre os decks). O nome de cada deck é o nome da pasta, sem o número do grupo.
 """
-import base64, csv, datetime, glob, io, json, math, os, re
+import base64, csv, datetime, glob, io, json, math, os
 from urllib.parse import quote
 
 import dados, tema
@@ -20,9 +20,11 @@ PASTA_HUB = os.path.join(MOTOR, "hub")
 NOME = "00. Hub"
 
 GRUPOS = [("01", "01. Top"), ("02", "02. Tribais"), ("03", "03. Caos"), ("04", "04. Forfun"), ("05", "Compras + Precon")]
+# As pastas físicas de cartas do dono. O conteúdo de cada uma entra quando chegarem as listas.
+PASTAS = [("Rosa (sell)", "#f28bb8"), ("Preta (esp)", "#3a3540"), ("Preta", "#2a2a2e"), ("Amarela", "#f2c94c"),
+          ("Laranja", "#f2994a"), ("Rosa", "#f5a3c7"), ("Azul", "#4f8fe0"), ("Vermelha", "#d9534f")]
 BASICOS = {"Plains", "Island", "Swamp", "Mountain", "Forest", "Wastes",
            "Snow-Covered Plains", "Snow-Covered Island", "Snow-Covered Swamp", "Snow-Covered Mountain", "Snow-Covered Forest"}
-SUFIXO = re.compile(r"\s*-\s*(OKn|nOK|OK)\s*$")
 
 
 def placar(cards, grupos):
@@ -67,33 +69,23 @@ def capa_reduzida(base, arquivo=None, largura=640):
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
 
-def situacao_app(rotulo):
-    r = (rotulo or "").strip()
-    if r == "OK":
-        return "ok"
-    if r in ("nOK", "OKn"):
-        return "nok"
-    if r:
-        return "obras"
-    return ""
+def nome_do_deck(pasta):
+    return pasta.split(". ", 1)[1] if ". " in pasta else pasta
 
 
 def montar(avisar=print):
     inv = ler_inventario()
     pastas = [n for n in sorted(os.listdir(dados.DADOS))
               if not n.startswith(("_", ".")) and os.path.isdir(os.path.join(dados.DADOS, n))]
-    nomes = list(dict.fromkeys(pastas + list(inv)))
-    decks, compras, presencas = [], [], {}
+    nomes = list(dict.fromkeys(pastas + sorted(inv)))
+    decks, presencas = [], {}
     for pasta in nomes:
         base = os.path.join(dados.DADOS, pasta)
         r = inv.get(pasta, {})
         grupo = pasta.split(".")[0].strip() if "." in pasta else "05"
-        nome_app = SUFIXO.sub("", r.get("nome_no_app") or "") or pasta.split(". ", 1)[-1]
-        d = dict(pasta=pasta, grupo=grupo, nome=nome_app, cmd=r.get("comandante", ""), cores=r.get("cores", ""),
-                 app=r.get("situacao_no_app", ""), link=r.get("link_publicado", ""), painel=None)
-        av_ok = os.path.exists(os.path.join(base, "avaliacao.json"))
-        html = os.path.join(SAIDAS, pasta + ".html")
-        if av_ok:
+        d = dict(pasta=pasta, grupo=grupo, nome=nome_do_deck(pasta), cmd=(r.get("comandante") or "").replace(" (confirmar)", ""),
+                 cores=dados.ordem_cores(r.get("cores", "")), painel=None)
+        if os.path.exists(os.path.join(base, "avaliacao.json")):
             try:
                 m = dados.montar(pasta, avisar=lambda *x: None)
             except dados.ErroDeck as e:
@@ -102,37 +94,25 @@ def montar(avisar=print):
             if m:
                 t = dados.ler_json(os.path.join(base, "tema.json"), obrigatorio=False) or {}
                 pt, avg = placar(m["cards"], m["grupos"])
-                entra = [c for c in m["cands"] if c.get("verdict") == "entra"]
                 cmd = next((c for c in m["cards"] if c.get("cmd")), None)
-                d.update(
-                    painel=t.get("painel") or pasta, cmd=(cmd["n"] if cmd else d["cmd"]), cores=m["ident"] or d["cores"],
-                    placar=pt, cmc=round(avg, 2), berlinda=sum(c["q"] for c in m["cards"] if c["rel"] == "BAX"),
-                    pendentes=len(entra), href=quote(pasta + ".html"), existe=os.path.exists(html),
-                    montado=(datetime.datetime.fromtimestamp(os.path.getmtime(html)).strftime("%d/%m/%Y %H:%M") if os.path.exists(html) else ""),
-                    capa=capa_reduzida(base, (t.get("capa") or {}).get("arquivo")),
-                    foco=(t.get("capa") or {}).get("foco", "50% 30%"))
-                for c in entra:
-                    compras.append(dict(n=c["n"], deck=d["nome"], pasta=pasta, painel=d["painel"], usd=c.get("usd"),
-                                        sai=next((x["n"] for x in m["cards"] if x["id"] == c.get("sai")), "")))
+                tipos = {}
+                for c in m["cards"]:
+                    k = "cri" if c.get("cmd") else c["t"]
+                    tipos[k] = tipos.get(k, 0) + c["q"]
+                d.update(painel=t.get("painel") or d["nome"], cmd=(cmd["n"] if cmd else d["cmd"]), cores=m["ident"] or d["cores"],
+                         placar=pt, cmc=round(avg, 2), tipos=tipos, href=quote(pasta + ".html"),
+                         capa=capa_reduzida(base, (t.get("capa") or {}).get("arquivo")),
+                         foco=(t.get("capa") or {}).get("foco", "50% 30%"))
                 for c in m["cards"]:
                     if c["n"] not in BASICOS:
                         presencas.setdefault(c["n"], set()).add(d["nome"])
-        elif os.path.exists(os.path.join(base, "decklist.txt")):
-            try:
-                for e in dados.ler_decklist(os.path.join(base, "decklist.txt")):
-                    if e["name"] not in BASICOS:
-                        presencas.setdefault(e["name"], set()).add(d["nome"])
-            except dados.ErroDeck:
-                pass
         if d["painel"] is None:
             d["capa"] = capa_reduzida(base) if os.path.isdir(base) else None
         decks.append(d)
 
-    comuns = sorted(([n, sorted(v)] for n, v in presencas.items() if len(v) >= 3), key=lambda x: (-len(x[1]), x[0]))
-    em_dois = sum(1 for v in presencas.values() if len(v) == 2)
-    compras.sort(key=lambda x: (-(float(x["usd"]) if x["usd"] else 0), x["n"]))
-    H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, compras=compras, comuns=comuns, em_dois=em_dois,
-             gerado=datetime.date.today().strftime("%d/%m/%Y"))
+    comuns = sorted(([n, sorted(v)] for n, v in presencas.items() if len(v) >= 2), key=lambda x: (-len(x[1]), x[0]))
+    H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, comuns=comuns,
+             pastas=[dict(n=n, c=c) for n, c in PASTAS], gerado=datetime.date.today().strftime("%d/%m/%Y"))
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})

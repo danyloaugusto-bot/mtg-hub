@@ -42,6 +42,7 @@ try:
         R.ok("nota de armazenamento na conta", "na sua conta" in pg.inner_text("#storeNote"), pg.inner_text("#storeNote")[:60])
         R.ok("caminho privado por pessoa", pg.evaluate("window.__path") == "data/users/u_teste", pg.evaluate("window.__path"))
         R.ok("nenhuma gravação ao abrir", pg.evaluate("window.__sets||0") == 0)
+        R.ok("sem botão de voltar ao hub, que não vai junto na publicação", pg.locator("#voltar").is_hidden())
         for t in ("gal", "tab", "radar", "tier", "ctrl", "ofi", "geral"):
             pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(200)
         if pack:

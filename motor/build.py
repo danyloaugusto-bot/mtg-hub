@@ -178,7 +178,7 @@ def montar_hub():
     gravar(os.path.join(SAIDAS, hub.NOME + ".html"), html)
     gravar(os.path.join(RAIZ, "Abrir o Hub.html"), hub.atalho())
     prontos = sum(1 for d in H["decks"] if d["painel"])
-    print("%s: %d decks, %d com painel | compras %d | %.0f KB" % (hub.NOME, len(H["decks"]), prontos, len(H["compras"]), len(html.encode("utf-8")) / 1024))
+    print("%s: %d decks, %d com painel | %.0f KB" % (hub.NOME, len(H["decks"]), prontos, len(html.encode("utf-8")) / 1024))
 
 
 def decks():
@@ -208,10 +208,12 @@ def main():
         montar_hub()
         sys.exit(0)
     alvos = decks() if a.todos else [a.deck]
+    if a.todos:
+        sem = [p for p in alvos if not os.path.exists(os.path.join(dados.DADOS, p, "avaliacao.json"))]
+        alvos = [p for p in alvos if p not in sem]
+        if sem:
+            print("%d pastas ainda sem avaliacao.json, puladas" % len(sem))
     for pasta in alvos:
-        if a.todos and not os.path.exists(os.path.join(dados.DADOS, pasta, "avaliacao.json")):
-            print("%s: sem avaliacao.json ainda, pulado" % pasta)
-            continue
         try:
             montar_deck(pasta, a.atualizar_scryfall, a.imagens)
         except (dados.ErroDeck, scryfall.ErroScryfall, ValueError) as e:

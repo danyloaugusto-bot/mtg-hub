@@ -156,14 +156,15 @@ O formato do estado é o do Ritos, com a data da última gravação. Backups do 
 
 ## O hub
 
-Feito na etapa 4 (`motor/hub.py`, `motor/hub/`). `python motor/build.py --hub` grava `saidas/00. Hub.html` e o atalho `Abrir o Hub.html` na raiz; `--todos` remonta o hub no fim.
+Feito na etapa 4 (`motor/hub.py`, `motor/hub/`), ajustado em 08/10/2026 a pedido do dono. `python motor/build.py --hub` grava `saidas/00. Hub.html` e o atalho `Abrir o Hub.html` na raiz; `--todos` remonta o hub no fim.
 
-- **Fontes:** as pastas de `dados/`, o `contexto/inventario.csv` (nome no aplicativo, cores, situação e link publicado, inclusive dos decks sem pasta) e um resumo de cada deck com avaliação, calculado com a mesma conta do painel: placar, CMC médio, cartas na berlinda, trocas pendentes no radar, data da última montagem.
+- **Três abas.** **Decks**, os cartões por grupo; **Pastas**, as oito pastas de cartas do dono, à espera das listas; **Dashboard**, ao lado da busca, com números cruzados.
 - **Grupos:** na ordem do aplicativo: 01. Top, 02. Tribais, 03. Caos, 04. Forfun e Compras + Precon. O grupo é o número no nome da pasta; `05.` é Compras + Precon. Mover de grupo é renomear a pasta.
-- **Cartão:** com capa (`capa.*` da pasta, reduzida e embutida), nome no aplicativo, nome do painel, cores e situação. Deck sem avaliação aparece com fundo neutro e "Em construção"; se a pasta tiver `capa.*`, a capa aparece apagada.
-- **Situação:** nos decks com painel é calculada: **OK** sem troca sugerida no radar, **nOK** com o número de trocas. Quando difere do rótulo do aplicativo, o rótulo aparece ao lado. Nos decks sem painel, vale o rótulo do aplicativo (OK, nOK, OKn, em obras). OK quer dizer deck fechado, conferido e atualizado; nOK e OKn, que há o que mexer ou comprar.
-- **Visões cruzadas:** lista de compras (radar com veredito de entrada, com deck, quem sai, preço em dólar do Scryfall e link da LigaMagic), ranking por pendências e por placar (com o aviso de que o placar não compara decks entre si), e cartas presentes em três ou mais decks (só os que têm decklist no projeto; básicos não contam).
-- **Limite:** a marca "tenho a carta" e as edições feitas dentro de um painel não chegam ao hub; ele mostra a foto do último build.
+- **Cartão:** capa (`capa.*` da pasta, reduzida e embutida), o nome do deck (o nome da pasta, sem o número do grupo), o nome do painel ou o comandante, as cores e, nos decks com painel, só os pontos, no canto superior direito. Sem selo de situação: OK e nOK ainda não têm regra definida. Deck sem avaliação aparece com fundo neutro e "Em construção", ou com a capa e um selo pequeno de "em construção" quando a capa já chegou.
+- **Dashboard:** cores dos decks (quantos decks usam cada cor e quantas cores cada deck usa, a partir do inventário), criaturas por deck e cartas em comum entre os decks com painel. Mais visões entram conforme o dono pedir.
+- **Painel e hub:** cada painel tem um botão de voltar ao hub, no canto da barra. Na página publicada ele some, porque o hub não vai junto.
+- **Fontes:** as pastas de `dados/`, o `contexto/inventario.csv` (comandante e cores dos decks sem painel) e um resumo de cada deck com avaliação, calculado com a mesma conta do painel.
+- **Limite:** as edições feitas dentro de um painel não chegam ao hub; ele mostra a foto do último build.
 
 ## Atalhos que funcionam sem internet
 

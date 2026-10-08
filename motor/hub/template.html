@@ -15,24 +15,18 @@
 <a class="skip" href="#main">Pular para o conteúdo</a>
 <header class="top">
   <div class="top-in">
-    <h1>Decks</h1>
+    <nav class="abas-t" role="tablist" aria-label="Seções do hub">
+      <button role="tab" id="t-decks" data-vista="decks" aria-selected="true" aria-controls="v-decks">Decks</button>
+      <button role="tab" id="t-pastas" data-vista="pastas" aria-selected="false" aria-controls="v-pastas" tabindex="-1">Pastas</button>
+    </nav>
     <label class="busca"><span class="sr">Buscar deck</span><input id="q" type="search" placeholder="Buscar deck" autocomplete="off"></label>
-    <span class="resumo" id="resumo"></span>
+    <button role="tab" class="dash" id="t-dash" data-vista="dash" aria-selected="false" aria-controls="v-dash" tabindex="-1">Dashboard</button>
   </div>
 </header>
 <main id="main">
-  <p class="legenda" id="legenda"></p>
-  <div id="grupos"></div>
-  <section class="cruz" aria-label="Visões cruzadas">
-    <div class="abas" role="tablist">
-      <button role="tab" id="t-compras" data-aba="compras" aria-selected="true" aria-controls="v-compras">Lista de compras</button>
-      <button role="tab" id="t-ranking" data-aba="ranking" aria-selected="false" aria-controls="v-ranking" tabindex="-1">Ranking</button>
-      <button role="tab" id="t-comuns" data-aba="comuns" aria-selected="false" aria-controls="v-comuns" tabindex="-1">Cartas em comum</button>
-    </div>
-    <div id="v-compras" class="vista" role="tabpanel" aria-labelledby="t-compras"></div>
-    <div id="v-ranking" class="vista" role="tabpanel" aria-labelledby="t-ranking" hidden></div>
-    <div id="v-comuns" class="vista" role="tabpanel" aria-labelledby="t-comuns" hidden></div>
-  </section>
+  <section id="v-decks" class="vista" role="tabpanel" aria-labelledby="t-decks"></section>
+  <section id="v-pastas" class="vista" role="tabpanel" aria-labelledby="t-pastas" hidden></section>
+  <section id="v-dash" class="vista" role="tabpanel" aria-labelledby="t-dash" hidden></section>
 </main>
 <footer class="foot" id="foot"></footer>
 <script>

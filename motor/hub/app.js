@@ -6,130 +6,108 @@ window.HUB = H;   /* para os testes; o hub não lê nada daqui */
 
 function $(s) { return document.querySelector(s); }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]; }); }
-function fmt(n, d) { return Number(n).toLocaleString('pt-BR', { minimumFractionDigits: d, maximumFractionDigits: d }); }
 function pl(n, um, varios) { return n + ' ' + (n === 1 ? um : varios); }
 function semAcento(s) { return String(s).normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+var MANA = { W: '#f3e7bf', U: '#a9cdf0', B: '#8a7a92', R: '#f0a28c', G: '#9fd0a6' };
+var NOMEC = { W: 'Branco', U: 'Azul', B: 'Preto', R: 'Vermelho', G: 'Verde' };
 
 function cores(s) {
   var c = String(s || '').toUpperCase();
-  return '<span class="cores" aria-label="Cores: ' + esc(c || 'incolor') + '">' + 'WUBRG'.split('').filter(function (k) { return c.indexOf(k) >= 0; })
+  if (!c) return '';
+  return '<span class="cores" aria-label="Cores: ' + esc(c) + '">' + 'WUBRG'.split('').filter(function (k) { return c.indexOf(k) >= 0; })
     .map(function (k) { return '<i class="ms ms-' + k + '">' + k + '</i>'; }).join('') + '</span>';
 }
-/* OK: sem troca nem compra sugerida no radar. nOK: há o que mexer. Decks sem painel usam o rótulo do aplicativo. */
-function selo(d) {
-  if (d.painel) {
-    return d.pendentes ? '<span class="selo s-nok" title="Há ' + pl(d.pendentes, 'troca sugerida', 'trocas sugeridas') + ' no radar">nOK · ' + pl(d.pendentes, 'troca', 'trocas') + '</span>'
-      : '<span class="selo s-ok" title="Sem troca nem compra pendente no radar">OK</span>';
-  }
-  var a = d.app;
-  if (a === 'OK') return '<span class="selo s-ok">OK</span>';
-  if (a === 'nOK' || a === 'OKn') return '<span class="selo s-nok">' + esc(a) + '</span>';
-  if (a) return '<span class="selo s-obras">' + esc(a) + '</span>';
-  return '';
-}
-function appDifere(d) {
-  if (!d.painel || !d.app) return '';
-  var calc = d.pendentes ? 'nOK' : 'OK', app = d.app === 'OKn' ? 'nOK' : d.app;
-  return app !== calc ? '<span class="app">no aplicativo: ' + esc(d.app) + '</span>' : '';
-}
 
+/* ============ decks ============ */
 function cartao(d) {
-  var pub = d.link ? '<a class="pub" href="' + esc(d.link) + '" target="_blank" rel="noopener noreferrer">publicado</a>' : '';
+  var busca = esc(semAcento(d.nome + ' ' + (d.painel || '') + ' ' + d.cmd));
   if (d.painel) {
-    return '<article class="deck" data-busca="' + esc(semAcento(d.nome + ' ' + d.painel + ' ' + d.cmd)) + '">' +
+    return '<article class="deck" data-busca="' + busca + '">' +
       (d.capa ? '<img class="capa" src="' + d.capa + '" alt="" style="object-position:' + esc(d.foco || '50% 30%') + '">' : '') +
       '<a class="ir" href="' + esc(d.href) + '" aria-label="Abrir o painel ' + esc(d.painel) + ', deck ' + esc(d.nome) + '"></a>' +
       '<div class="tampa"></div>' +
-      '<div class="faixa"><h3>' + esc(d.nome) + '</h3><p class="sub">' + esc(d.painel) + '</p></div>' +
-      '<div class="base"><div class="pilha"><div class="nums"><span><b class="num">' + d.placar + '</b> pts</span><span>CMC <b class="num">' + fmt(d.cmc, 2) + '</b></span>' +
-      '<span><b class="num">' + d.berlinda + '</b> na berlinda</span></div>' +
-      '<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">' + selo(d) + appDifere(d) + pub + '</div></div>' + cores(d.cores) + '</div></article>';
+      '<div class="faixa"><div class="nome"><h3>' + esc(d.nome) + '</h3><p class="sub">' + esc(d.painel) + '</p></div>' +
+      '<span class="pts num" title="Placar do deck">' + d.placar + '<small>pts</small></span></div>' +
+      '<div class="base">' + cores(d.cores) + '</div></article>';
   }
-  return '<article class="deck vazio' + (d.capa ? ' com-capa' : '') + '" data-busca="' + esc(semAcento(d.nome + ' ' + d.cmd)) + '">' +
-    (d.capa ? '<img class="capa" src="' + d.capa + '" alt=""><div class="tampa"></div>' : '<div class="meio"><b>Em construção</b><span>painel a fazer</span></div>') +
-    '<div class="faixa"><h3>' + esc(d.nome) + '</h3>' + (d.cmd ? '<p class="sub">' + esc(d.cmd) + '</p>' : '') + '</div>' +
-    '<div class="base"><div class="pilha"><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">' +
-    (d.capa ? '<span class="selo s-obras" title="Ainda sem painel">em construção</span>' : '') + selo(d) + pub + '</div></div>' + cores(d.cores) + '</div></article>';
+  return '<article class="deck vazio' + (d.capa ? ' com-capa' : '') + '" data-busca="' + busca + '">' +
+    (d.capa ? '<img class="capa" src="' + d.capa + '" alt=""><div class="tampa"></div>' : '<div class="meio"><b>Em construção</b></div>') +
+    '<div class="faixa"><div class="nome"><h3>' + esc(d.nome) + '</h3>' + (d.cmd ? '<p class="sub">' + esc(d.cmd) + '</p>' : '') + '</div></div>' +
+    '<div class="base">' + (d.capa ? '<span class="obra">em construção</span>' : '') + cores(d.cores) + '</div></article>';
 }
-
-function grupos() {
+function vistaDecks() {
   return H.grupos.map(function (g) {
     var ds = H.decks.filter(function (d) { return d.grupo === g.k; });
-    var prontos = ds.filter(function (d) { return d.painel; }).length;
-    return '<section class="grupo" data-grupo="' + g.k + '"><h2>' + esc(g.n) + ' <small>' + pl(ds.length, 'deck', 'decks') + (prontos ? ', ' + prontos + ' com painel' : '') + '</small></h2>' +
+    return '<section class="grupo" data-grupo="' + g.k + '"><h2>' + esc(g.n) + '</h2>' +
       (ds.length ? '<div class="grade">' + ds.map(cartao).join('') + '</div>' : '<p class="vazio-g">Nenhum deck neste grupo ainda.</p>') + '</section>';
   }).join('');
 }
 
-function compras() {
-  if (!H.compras.length) return '<p class="nota">Nenhuma carta com veredito de entrada nos radares.</p>';
-  var tot = 0, sem = 0;
-  var linhas = H.compras.map(function (c) {
-    if (c.usd) tot += +c.usd; else sem++;
-    var liga = 'https://www.ligamagic.com.br/?view=cards/card&card=' + encodeURIComponent(c.n);
-    return '<tr><td>' + esc(c.n) + '</td><td>' + esc(c.deck) + '</td><td>' + (c.sai ? esc(c.sai) : '<span style="color:var(--dim)">ninguém</span>') + '</td>' +
-      '<td class="n num">' + (c.usd ? 'US$ ' + fmt(+c.usd, 2) : '—') + '</td><td><a href="' + esc(liga) + '" target="_blank" rel="noopener noreferrer">LigaMagic</a></td></tr>';
-  }).join('');
-  return '<div class="tw"><table><thead><tr><th>Carta</th><th>Deck</th><th>No lugar de</th><th class="n">Preço no Scryfall</th><th>Preço em R$</th></tr></thead><tbody>' + linhas +
-    '</tbody><tfoot><tr><td>' + pl(H.compras.length, 'carta', 'cartas') + '</td><td></td><td></td><td class="n num">US$ ' + fmt(tot, 2) + '</td><td></td></tr></tfoot></table></div>' +
-    '<p class="nota">Cartas com veredito de entrada no radar de cada deck. A marca "tenho a carta" fica dentro de cada painel e não chega aqui: confira antes de comprar.' +
-    (sem ? ' ' + pl(sem, 'carta está', 'cartas estão') + ' sem preço no Scryfall.' : '') + ' Preço em dólar da impressão padrão, na data do último build.</p>';
+/* ============ pastas ============ */
+function vistaPastas() {
+  return '<p class="intro">As suas pastas de cartas. Quando chegar a lista de cada uma, ela aparece aqui organizada por cor e custo, com o valor de cada carta, ' +
+    'o que tem sinergia com os seus decks e não está sendo usado, o que dá para vender, e os temas que já formariam um deck novo.</p>' +
+    '<div class="pastas">' + H.pastas.map(function (p) {
+      return '<article class="pasta" style="--pc:' + esc(p.c) + '"><div class="lomb"></div><div class="t"><h3>' + esc(p.n) + '</h3><p>Sem lista ainda.</p></div></article>';
+    }).join('') + '</div>';
 }
 
-function ranking() {
-  var ps = H.decks.filter(function (d) { return d.painel; });
-  if (!ps.length) return '<p class="nota">Nenhum deck com painel ainda.</p>';
-  function lista(arr, val, um, varios) {
-    return '<ol>' + arr.map(function (d, i) {
-      return '<li><span class="o">' + (i + 1) + '</span><a href="' + esc(d.href) + '">' + esc(d.nome) + '</a><span class="p num">' + pl(val(d), um, varios) + '</span></li>';
-    }).join('') + '</ol>';
-  }
-  var porPlacar = ps.slice().sort(function (a, b) { return b.placar - a.placar; });
-  var porPend = ps.slice().sort(function (a, b) { return (b.pendentes - a.pendentes) || (b.berlinda - a.berlinda); });
-  return '<div class="rk"><div><h3>Por pendências</h3>' + lista(porPend, function (d) { return d.pendentes; }, 'troca', 'trocas') +
-    '<p class="nota">Trocas sugeridas no radar e ainda não feitas no projeto. Empate desfeito pelas cartas na berlinda.</p></div>' +
-    '<div><h3>Por placar</h3>' + lista(porPlacar, function (d) { return d.placar; }, 'ponto', 'pontos') +
-    '<p class="nota">Cuidado ao comparar: cada deck tem os próprios agrupamentos, então o placar mede um deck contra ele mesmo ao longo do tempo, não um deck contra outro.</p></div></div>';
+/* ============ dashboard ============ */
+function barras(itens, max) {
+  max = Math.max(1, max);
+  return '<div class="barras">' + itens.map(function (it) {
+    return '<div class="barra"><span>' + it.r + '</span><span class="t"><i style="width:' + (it.v / max * 100).toFixed(1) + '%;' + (it.c ? '--c:' + it.c : '') + '"></i></span><b class="num">' + it.v + '</b></div>';
+  }).join('') + '</div>';
 }
-
-function comuns() {
-  if (!H.comuns.length) {
-    return '<p class="nota">Nenhuma carta aparece em três ou mais decks ainda. Conta só os decks que já têm decklist no projeto' +
-      (H.em_dois ? '; ' + pl(H.em_dois, 'carta está', 'cartas estão') + ' em dois.' : '.') + '</p>';
-  }
-  return '<div class="tw"><table><thead><tr><th>Carta</th><th class="n">Decks</th><th>Onde</th></tr></thead><tbody>' + H.comuns.map(function (c) {
-    return '<tr><td>' + esc(c[0]) + '</td><td class="n num">' + c[1].length + '</td><td><div class="chips">' + c[1].map(function (n) { return '<span>' + esc(n) + '</span>'; }).join('') + '</div></td></tr>';
-  }).join('') + '</tbody></table></div><p class="nota">Terrenos básicos não entram. Conta só os decks que já têm decklist no projeto.</p>';
-}
-
-function filtrar() {
-  var q = semAcento($('#q').value.trim());
-  document.querySelectorAll('.deck').forEach(function (el) { el.hidden = !!q && el.dataset.busca.indexOf(q) < 0; });
-  document.querySelectorAll('.grupo').forEach(function (g) {
-    var vis = g.querySelectorAll('.deck:not([hidden])').length;
-    g.hidden = !!q && !vis;
+function vistaDash() {
+  var comCor = H.decks.filter(function (d) { return d.cores; }), semCor = H.decks.length - comCor.length;
+  var porCor = 'WUBRG'.split('').map(function (k) {
+    return { r: '<i class="ms ms-' + k + '" style="width:18px;height:18px;font-size:10px;margin-right:6px;vertical-align:-3px">' + k + '</i>' + NOMEC[k],
+      v: comCor.filter(function (d) { return d.cores.indexOf(k) >= 0; }).length, c: MANA[k] };
   });
+  var nomesN = ['', 'Uma cor', 'Duas cores', 'Três cores', 'Quatro cores', 'Cinco cores'];
+  var porQtd = [1, 2, 3, 4, 5].map(function (n) { return { r: nomesN[n], v: comCor.filter(function (d) { return d.cores.length === n; }).length }; })
+    .filter(function (x) { return x.v; });
+  var maxCor = Math.max.apply(null, porCor.map(function (x) { return x.v; }).concat(porQtd.map(function (x) { return x.v; })));
+  var cxCores = '<div class="cx"><h2>Cores dos seus decks</h2>' + barras(porCor, maxCor) +
+    '<h2 style="margin-top:16px;font-size:17px">Quantas cores cada deck usa</h2>' + barras(porQtd, maxCor) +
+    '<p class="nota">' + pl(comCor.length, 'deck', 'decks') + ' com as cores conhecidas' + (semCor ? '; ' + pl(semCor, 'ainda está', 'ainda estão') + ' sem cor no inventário' : '') + '.</p></div>';
+
+  var ps = H.decks.filter(function (d) { return d.painel; });
+  var cri = ps.map(function (d) { return { r: esc(d.nome), v: (d.tipos && d.tipos.cri) || 0 }; }).sort(function (a, b) { return b.v - a.v; });
+  var cxCri = '<div class="cx"><h2>Criaturas por deck</h2>' + (cri.length ? barras(cri, Math.max.apply(null, cri.map(function (x) { return x.v; }))) : '') +
+    '<p class="nota">Conta o comandante. Só os decks que já têm painel: ' + pl(ps.length, 'deck', 'decks') + ' por enquanto.</p></div>';
+
+  var cxComuns = '<div class="cx"><h2>Cartas em comum</h2>' + (H.comuns.length ?
+    '<div class="tw"><table><thead><tr><th>Carta</th><th class="n">Decks</th><th>Onde</th></tr></thead><tbody>' + H.comuns.map(function (c) {
+      return '<tr><td>' + esc(c[0]) + '</td><td class="n num">' + c[1].length + '</td><td><div class="chips">' + c[1].map(function (n) { return '<span>' + esc(n) + '</span>'; }).join('') + '</div></td></tr>';
+    }).join('') + '</tbody></table></div>' : '<p class="nota">Nenhuma carta repetida entre os decks com painel.</p>') +
+    '<p class="nota">Cartas que aparecem em dois ou mais decks com painel. Terrenos básicos não contam.</p></div>';
+  return '<div class="painel">' + cxCores + cxCri + cxComuns + '</div>';
 }
 
-function aba(k) {
-  document.querySelectorAll('.abas [role=tab]').forEach(function (b) { var on = b.dataset.aba === k; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
+/* ============ navegação ============ */
+function vista(k) {
+  document.querySelectorAll('[role=tab][data-vista]').forEach(function (b) { var on = b.dataset.vista === k; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
   document.querySelectorAll('.vista').forEach(function (v) { v.hidden = v.id !== 'v-' + k; });
 }
+function filtrar() {
+  var q = semAcento($('#q').value.trim());
+  if (q && $('#v-decks').hidden) vista('decks');
+  document.querySelectorAll('.deck').forEach(function (el) { el.hidden = !!q && el.dataset.busca.indexOf(q) < 0; });
+  document.querySelectorAll('.grupo').forEach(function (g) { g.hidden = !!q && !g.querySelectorAll('.deck:not([hidden])').length; });
+}
 
-var ps = H.decks.filter(function (d) { return d.painel; });
-$('#resumo').textContent = pl(H.decks.length, 'deck', 'decks') + ', ' + ps.length + ' com painel';
-$('#legenda').innerHTML = '<b>OK</b>: deck fechado, sem troca nem compra pendente no radar. <b>nOK</b>: há o que mexer ou comprar. Nos decks com painel, o selo é calculado; nos outros, vem do aplicativo.';
-$('#grupos').innerHTML = grupos();
-$('#v-compras').innerHTML = compras();
-$('#v-ranking').innerHTML = ranking();
-$('#v-comuns').innerHTML = comuns();
+$('#v-decks').innerHTML = vistaDecks();
+$('#v-pastas').innerHTML = vistaPastas();
+$('#v-dash').innerHTML = vistaDash();
 $('#foot').innerHTML = '<p>O hub mostra a foto do último build, de ' + esc(H.gerado) + '. O que você edita dentro de um painel fica naquele painel até voltar para o projeto com o <code>/importar-backup</code>, pela aba Oficina.</p>' +
-  '<p>Arte das cartas e dos comandantes: © Wizards of the Coast. Preços e textos: Scryfall.</p>';
+  '<p>Arte das cartas e dos comandantes: © Wizards of the Coast.</p>';
 $('#q').addEventListener('input', filtrar);
-document.addEventListener('click', function (ev) { var t = ev.target.closest('.abas [role=tab]'); if (t) aba(t.dataset.aba); });
+document.addEventListener('click', function (ev) { var t = ev.target.closest('[role=tab][data-vista]'); if (t) vista(t.dataset.vista); });
 document.addEventListener('keydown', function (ev) {
-  var t = ev.target; if (!t.matches || !t.matches('.abas [role=tab]') || (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft')) return;
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.abas [role=tab]')), i = tabs.indexOf(t);
-  var n = tabs[(i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; aba(n.dataset.aba); n.focus();
+  var t = ev.target; if (!t.matches || !t.matches('[role=tab][data-vista]') || (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft')) return;
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role=tab][data-vista]')), i = tabs.indexOf(t);
+  var n = tabs[(i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; vista(n.dataset.vista); n.focus();
 });
 })();

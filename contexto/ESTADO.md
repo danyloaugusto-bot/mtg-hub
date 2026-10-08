@@ -10,6 +10,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 08/10/2026: imagens embutidas nos dois decks. `motor/imagens.py` baixou 229 impressões (11 MB em `cache/img/`, fora do Git) e `motor/build.py` passou a embutir por padrão. Os painéis mostram as imagens sem internet, em arquivo local e publicado. Clavileño com 7,8 MB, Giada com 6,8 MB — bem abaixo do aviso de 12 MB. Testes: 198 verificações nos dois decks.
 - 08/10/2026: hub feito (etapa 4), visual estante, no estilo do aplicativo. Situação OK/nOK calculada pelas trocas pendentes no radar.
 - 08/10/2026: o dono criou uma pasta para cada deck e mandou capas de Markov, Ken e Assassin Creed. Inventário alinhado aos nomes das pastas (Dragões, Turtle Power!, Heads I win, K'rrik, Master Of Evil), Lobos acrescentado, e os comandantes de Markov (Edgar Markov), Assassin Creed (Ezio Auditore da Firenze) e Ken (Aisha of Sparks and Smoke, que é o nome no Scryfall do Ken, Burning Brawler) conferidos no Scryfall. Hub com 26 decks.
+- 08/10/2026: hub ajustado aos comentários do dono: nomes das pastas, só os pontos no cartão, sem OK/nOK, abas Decks, Pastas e Dashboard, lista de compras e ranking retirados, botão de voltar ao hub em cada painel.
 
 ## Próxima ação
 
