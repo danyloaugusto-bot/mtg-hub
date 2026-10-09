@@ -1,5 +1,11 @@
 # Histórico: Coro da Alvorada (Giada)
 
+## Revisão 4, 08/10/2026: as asas de volta
+
+- O gráfico do topo volta a ser as asas do Coro da Alvorada: oito penas, quatro de cada lado, abrindo de uma auréola com o placar. O motor ganhou o desenho "asas".
+- A fila de corte ganhou ordem escrita, como nos outros painéis: Invasion of Gobakhan, Everybody Lives!, Split Up, Horn of the Mark, Angelic Skirmisher, Orim's Chant, Chivalric Alliance, The Immortal Sun, Herald of Eternal Dawn e Steel Seraph; os terrenos Command Beacon e Terrain Generator à parte.
+- Nenhuma nota, tier, relevância ou texto mudou. Placar 429.
+
 ## Revisão 3, 07/10/2026: o painel passa a sair do motor
 
 - O deck não mudou: 100 cartas, 85 entradas, placar 429. Nenhuma nota, tier, relevância, texto, veredito ou combo foi alterado.

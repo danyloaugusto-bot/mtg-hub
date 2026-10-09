@@ -20,6 +20,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 08/10/2026: Humanos v1.0 fechado (`/novo-deck 02. Humanos`), painel "Catedral dos Vivos", o primeiro claro do projeto, a pedido do dono (o oposto dos decks de mortos). Placar 347; com as 10 trocas recomendadas, 385. O motor ganhou o modo claro (`"modo": "claro"` no tema), o gráfico "estandartes", a textura "brasão", a fonte Marcellus SC e o leitor da decklist passou a ignorar cabeçalhos como `COMMANDER`. Sem PetCard e sem cartas de estimação neste deck.
 - 08/10/2026: Lynde v1.0 fechado (`/novo-deck 03. Lynde`), painel "Chá das Maldições". Placar 308; com as 11 trocas recomendadas, 337. O motor ganhou o gráfico "alfinetes", a textura "papel", a fonte IM Fell English SC e a tradução de mais subtipos (Curse vira Maldição). Sem PetCard e sem cartas de estimação. O dono pôs capas em mais 15 pastas; o hub tem 26 decks, 6 com painel.
 - 08/10/2026: hub revisto. 25 das 26 pastas têm capa (falta a Queen). Os decks sem painel ficam acinzentados e escurecidos, para não parecerem clicáveis. Comandante e cores de 18 decks conferidos pelas cartas enviadas e no Scryfall. Heads I win: a carta enviada é Krark's Thumb, que não pode ser comandante. Revisão de padronização dos seis painéis: mesmas sete abas, mesmos botões, mesmas seções e estratégia em todos; só Giada e Clavileño têm a seção da comunidade (edh.wiki), e a Giada não tem fila de corte sugerida.
+- 08/10/2026: padronização dos seis painéis, a pedido do dono. A Giada ganhou fila de corte escrita e as asas do Coro voltaram (gráfico "asas" no motor). Heads I win tem dois comandantes: Zndrsplt, Eye of Wisdom e Okaun, Eye of Chaos. Queen Marchesa conferida, com capa. Sobras da etapa 0 apagadas com autorização do dono. Falta só a seção da comunidade (edh.wiki) e os potenciais em Humanos, Valgavoth, Lynde e Ken: é o `/potenciais`, que só o dono dispara.
 
 ## Próxima ação
 
@@ -40,13 +41,11 @@ Escolher o próximo deck: `/novo-deck 01. Markov` ou `/novo-deck 04. Assassin Cr
 
 ## Pela metade
 
-- As asas do Coro não estão no motor. A Giada usa o desenho padrão. Pedir pelo `/motor`.
 - Cinco leituras da Giada ficaram mais simples que no Coro: as frases que cruzavam dois números (proteção contra ramp e compra, ramp só para Anjos, cor branca nos custos, compra só atacando) viraram leituras de um número só. Se o dono quiser as frases de volta, é `/motor` com novos tipos de leitura.
 - O download do `art_crop` do comandante quando falta `capa.*` (em `motor/imagens.py`) não foi exercitado: os dois decks já tinham capa. Vale conferir no primeiro deck novo sem capa pronta.
 - `contexto/inventario.csv` ainda tem comandantes em branco ou a confirmar (Vito, Turtle Power!, Dragões, Zumbis, Humanos, Kaalia, Goblins, Elfos, Lobos, Heads I win, Master Of Evil, Zur, Queen, Valgavoth). As cartas que o dono manda junto com a capa resolvem isso.
 - `carta.*` em Markov e Assassin Creed, e os handovers e a planilha do Ken, estão soltos na raiz das pastas: o `/novo-deck` move para `entrada/`.
 - Na raiz do projeto estão `Handover_Analise_de_Decks (Grok).md` e `Handover_Geral_Analise_Decks_Commander.md`, de outras IAs, sobre método, e `Handover_Analise_de_Decks.md`, cópia idêntica da versão antiga de `contexto/handover-analise-de-decks.md`. Recomendação dada ao dono em 08/10/2026: confrontar Grok e Geral uma vez com `contexto/AVALIACAO.md`, propor o que vale incorporar e mover os três para `contexto/referencias/metodo/`. Espera o "pode".
-- Sobraram `data.json` e `test/` dentro de `contexto/origem/ritos-de-sangue-kit/`, gravados pelo build e pelos testes antigos na etapa 0. Não estão no Git. Precisam ser apagados à mão.
 
 ## Decisões e porquês
 

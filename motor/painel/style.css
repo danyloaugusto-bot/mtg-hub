@@ -656,3 +656,14 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .claro .gtile:hover,.claro .gtile:focus-visible{box-shadow:0 0 0 1px var(--gold),0 14px 30px rgba(60,40,10,.25)}
 .claro .tier[data-t="S"] b{color:#a8801f}.claro .tier[data-t="A"] b{color:#c22a3b}.claro .tier[data-t="B"] b{color:#a3386c}
 .claro .tier[data-t="C"] b{color:#6c4f91}.claro .tier[data-t="D"] b{color:#6f666a}
+/* asas (gráfico "asas"): penas que abrem a partir da auréola */
+.rosa.asas{width:min(100%,720px)}
+.pena{cursor:pointer;transform-box:view-box;transform-origin:320px 232px}
+.pena .fill{transition:filter .15s}
+.pena:hover .fill,.pena:focus-visible .fill{filter:brightness(1.22) saturate(1.1)}
+.pena:focus-visible{outline:none}
+.pena:focus-visible .ghost{stroke:var(--gold2);stroke-width:2}
+@media (prefers-reduced-motion:no-preference){
+  .anim .pena{animation:abrir .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*70ms + 120ms)}
+  @keyframes abrir{from{opacity:0;transform:rotate(var(--r)) scale(.45)}to{opacity:1;transform:none}}
+}
