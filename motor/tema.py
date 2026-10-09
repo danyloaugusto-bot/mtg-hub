@@ -122,6 +122,13 @@ def textura(nome, p):
         return ("radial-gradient(1000px 560px at 50%% -12%%, rgba(%d,%d,%d,.28), transparent 64%%),"
                 "radial-gradient(640px 400px at 96%% 4%%, rgba(%d,%d,%d,.3), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["destaque"]) + _hex(p["acento"]) + (svg, grad))
+    if nome == "ogivas":
+        # arcos góticos em filete dourado, como as janelas da nave, e luz de vela vinda do alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='72' viewBox='0 0 48 72'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.07' stroke-width='1'%3E%3Cpath d='M6 72V36Q6 14 24 4Q42 14 42 36V72M24 4V72'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(1000px 560px at 50%% -12%%, rgba(%d,%d,%d,.22), transparent 64%%),"
+                "radial-gradient(640px 400px at 96%% 4%%, rgba(%d,%d,%d,.3), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["acento"]) + _hex(p["destaque"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
