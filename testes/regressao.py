@@ -133,7 +133,7 @@ with sync_playwright() as p:
 
     # backup
     pg.click('[data-act="backup"]'); bk = pg.input_value("#bk-out"); j = json.loads(bk)
-    R.ok("backup guarda trocas, datas e imagens", len(j["swaps"]) == len(entram) and j["swaps"][0].get("d") and j.get("img") is True and j.get("ts"))
+    R.ok("backup guarda trocas, datas e imagens", len(j["swaps"]) == len(entram) and (not entram or j["swaps"][0].get("d")) and j.get("img") is True and j.get("ts"))
     linhas = pg.input_value("#bk-list").split("\n")
     R.ok("decklist exportada", len(linhas) == len(D["cards"]) and (not entram or entram[0]["n"] in pg.input_value("#bk-list")), len(linhas))
     if escondidos:

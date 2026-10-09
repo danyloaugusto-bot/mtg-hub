@@ -115,6 +115,13 @@ def textura(nome, p):
                    % (g + g))
         return ("radial-gradient(900px 520px at 18%% -8%%, rgba(%d,%d,%d,.28), transparent 64%%),"
                 "radial-gradient(640px 420px at 96%% 4%%, rgba(%d,%d,%d,.35), transparent 70%%),%s,%s") % (_hex(p["destaque"]) + w + (listras, grad))
+    if nome == "colmeia":
+        # malha hexagonal, como a parede da nave Dalek, e um clarão vermelho de laboratório vindo do alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento_claro"]) + "' stroke-opacity='.055' stroke-width='1'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100M28 0L28 34L0 50M28 34L56 50L56 84L28 100L0 84L0 50'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(1000px 560px at 50%% -12%%, rgba(%d,%d,%d,.28), transparent 64%%),"
+                "radial-gradient(640px 400px at 96%% 4%%, rgba(%d,%d,%d,.3), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["destaque"]) + _hex(p["acento"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

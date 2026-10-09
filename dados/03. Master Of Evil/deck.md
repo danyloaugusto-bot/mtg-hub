@@ -8,7 +8,7 @@
 - **grupo:** 03. Caos
 - **situação:** OK
 - **precon:** Masters of Evil, do Doctor Who Commander (lançado em 13/10/2023). Intacto, exatamente como saiu da caixa.
-- **nome do painel:** (a escolher no `/novo-deck`)
+- **nome do painel:** Mestre do Mal
 
 ## Precon intacto
 

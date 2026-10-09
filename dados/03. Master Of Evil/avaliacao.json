@@ -1,0 +1,1497 @@
+{
+ "feito": "09/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana além do terreno do turno. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra, seleção ou vantagem de cartas."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Tira permanente da mesa, pontual ou em massa."
+  },
+  {
+   "k": "exercito",
+   "nome": "Exército",
+   "ab": "Exérc.",
+   "desc": "Põe criaturas artefato na mesa: Daleks, Cybermen e as fichas de ambos."
+  },
+  {
+   "k": "vida",
+   "nome": "Perda de vida",
+   "ab": "Vida",
+   "desc": "Faz o oponente perder os 3 de vida que ligam o Davros."
+  },
+  {
+   "k": "vilao",
+   "nome": "Escolha vilanesca",
+   "ab": "Esc.",
+   "desc": "A mecânica do precon: o oponente escolhe entre dois males, e você ganha de qualquer jeito."
+  },
+  {
+   "k": "goad",
+   "nome": "Goad",
+   "ab": "Goad",
+   "desc": "Força os oponentes a se atacarem entre si."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Mata jogador: myriad, bônus em massa e dreno."
+  }
+ ],
+ "marcadores": {
+  "dalek": {
+   "nome": "Dalek",
+   "plural": "Daleks",
+   "subtipo": "Dalek"
+  },
+  "cyberman": {
+   "nome": "Cyberman",
+   "plural": "Cybermen",
+   "subtipo": "Cyberman"
+  },
+  "artcri": {
+   "nome": "Criatura artefato"
+  },
+  "escolha": {
+   "nome": "Escolha vilanesca"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de ramp dedicada",
+    "cartas de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais",
+   "alerta": "Compra é o gargalo: o deck depende da escolha do Davros, do Missy e de um único Great Intelligence's Plan."
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 5,
+   "massa_ref": [
+    3,
+    5
+   ],
+   "alerta": "Nenhuma carta do deck destrói artefato, e só o Feed the Swarm responde a encantamento."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "artcri",
+   "min": 12,
+   "listar": false,
+   "rotulo": [
+    "criatura artefato",
+    "criaturas artefato"
+   ],
+   "texto": "Cada uma liga a Cyberman Patrol, o Cybermat, o Cyber-Controller e o Delete a seu favor.",
+   "ok": "O exército tem densidade.",
+   "alerta": "Poucas criaturas artefato de carta para o plano."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "dalek",
+   "min": 4,
+   "listar": true,
+   "rotulo": [
+    "Dalek de carta",
+    "Daleks de carta"
+   ],
+   "texto": "Cada Dalek na mesa barateia o Emperor e vira cópia do Exterminate!.",
+   "ok": "Daleks suficientes para o Emperor e o Exterminate!.",
+   "alerta": "Poucos Daleks de carta."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "escolha",
+   "min": 10,
+   "listar": false,
+   "rotulo": [
+    "carta com escolha vilanesca",
+    "cartas com escolha vilanesca"
+   ],
+   "texto": "Cada uma dá ao Valeyard uma segunda escolha para forçar.",
+   "ok": "A mecânica do precon tem densidade.",
+   "alerta": "Poucas escolhas vilanescas."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "vida",
+   "min": 8,
+   "rotulo": [
+    "fonte de perda de vida",
+    "fontes de perda de vida"
+   ],
+   "passagem": "de passagem",
+   "alerta": "Os 3 de vida são o que liga o Davros: sem fonte de perda de vida, o deck só tem o comandante."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "fechamento",
+   "min": 8,
+   "rotulo": [
+    "carta que fecha o jogo",
+    "cartas que fecham o jogo"
+   ],
+   "passagem": "que ajudam a fechar",
+   "alerta": "O fechamento é pouco: o jogo depende do myriad e do dreno."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 4",
+   "plano": "Sol Ring ou uma pedra de 2 no turno 1 ou 2, e o Davros no turno 4 (ou 3 com uma pedra). Daleks de 3 manas (Squadron, Exterminate! no turno em que há criatura para destruir) e criaturas artefato baratas (Patrol, Clockwork Droid, Cybermat) preparam o ataque.",
+   "fortes": [
+    "Dez cartas de ramp, entre pedras, Solemn e Bauble: Sol Ring, Arcane Signet, dois Talismãs, Mind Stone, Thought Vessel, Commander's Sphere, Laser Screwdriver.",
+    "37 terrenos com fixação das três cores: poucas mãos travam por cor."
+   ],
+   "fracos": [
+    "Dez terrenos sempre entram virados, o que atrasa o Davros.",
+    "Nenhuma compra barata: a mão do começo é o que se tem."
+   ]
+  },
+  "meio": {
+   "turnos": "5 a 8",
+   "plano": "Fazer algum oponente perder 3 de vida por turno: Exterminate!, Dalek Drone, Cyberman Patrol, Cult of Skaro. O Davros transforma isso em Dalek e em escolha vilanesca; o Dalek Emperor e a Genesis fazem o resto do exército.",
+   "fortes": [
+    "Quatro fontes de 3 de vida em cartas baratas: Exterminate!, Dalek Drone, Cyberman Patrol e o Jast do Cult of Skaro.",
+    "O Valeyard dobra cada escolha vilanesca: Davros, Emperor, Missy e Great Intelligence's Plan."
+   ],
+   "fracos": [
+    "Se o Davros morre ou é bloqueado, o deck perde o motor, e há uma só cópia dele.",
+    "Doze escolhas vilanescas deixam o oponente escolher o que dói menos."
+   ]
+  },
+  "fim": {
+   "turnos": "9 em diante",
+   "plano": "Cybermen Squadron e myriad: cada Dalek e Cyberman se copia atacando em cada outro oponente. Wound Reflection dobra a perda do turno. Delete limpa a mesa dos oponentes e deixa os artefatos.",
+   "fortes": [
+    "Squadron, Auton Soldier, Dalek Squadron, The Master, Multiplied: quatro cartas com myriad.",
+    "Delete é varredor que poupa o exército."
+   ],
+   "fracos": [
+    "Blasphemous Act e a Genesis capítulo IV podem destruir o seu próprio exército.",
+    "Nenhuma proteção para o Davros além do Lightning Greaves e do Propaganda."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Propaganda, Delete e o Weeping Angel seguram, mas Snuff Out e Feed the Swarm custam vida, e o deck demora a ligar."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Exterminate!, Snuff Out, This Is How It Ends e o Weeping Angel respondem a um alvo, e a Midnight Crusader Shuttle toma a criatura deles ou a faz sacrificar."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Nenhuma anulação e nenhuma compra rápida: o deck só tem Dalek e Cyberman para tentar chegar antes."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "Delete poupa o seu exército e o Missy lucra com varredura. Mas há uma só cópia do Davros, sem anulação nem proteção para ele."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "O plano é de artefatos e nenhuma carta do deck destrói artefato ou encantamento de stax, além do Feed the Swarm para encantamento."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Delete e Doomsday Confluence cobram a forragem deles, mas a perda de vida do Davros depende do dano que eles já causam entre si."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "O deck não anula e perde corrida se eles montam rápido, mas Exterminate! e o Weeping Angel respondem às criaturas que eles usam."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "Delete e Dalek Emperor atacam a mesa deles, e o deck tem remoção contra as criaturas grandes que o ramp entrega."
+   }
+  ]
+ },
+ "cartas": {
+  "Davros, Dalek Creator": {
+   "notas": {
+    "exercito": 3,
+    "vilao": 3,
+    "draw": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "3/4 ameaça. No fim do seu turno, se um oponente perdeu 3 ou mais de vida, cria um Dalek 3/3 com ameaça. Cada oponente que perdeu 3 ou mais encara uma escolha vilanesca: você compra uma carta, ou ele descarta uma.",
+   "porque": "É o deck. Tudo o que faz o oponente perder 3 de vida vira Dalek e carta. Sem a perda de vida, é só um 3/4.",
+   "marcas": {
+    "artcri": 1,
+    "escolha": 1
+   }
+  },
+  "Ashad, the Lone Cyberman": {
+   "notas": {
+    "exercito": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "3/3. A primeira mágica de artefato não lendária de cada turno tem casualty 2. Ganha um marcador +1/+1 quando você sacrifica outra criatura.",
+   "porque": "Copia o primeiro artefato do turno se houver o que sacrificar: os Cybermen 2/2 de Death in Heaven servem. Sem forragem, fica parado.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Auton Soldier": {
+   "notas": {
+    "exercito": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra como cópia de qualquer criatura, que não é lendária, vira também artefato e ganha myriad.",
+   "porque": "Copia o Dalek Emperor ou a melhor criatura da mesa, e o myriad rende uma cópia atacando cada outro oponente. Custa 6.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Clockwork Droid": {
+   "notas": {
+    "exercito": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "3/1 de 2 manas. Pode ser esgotada ao atacar: não pode ser bloqueada e dá scry 1.",
+   "porque": "Artefato barato que ataca sozinho. Frágil, e o deck tem corpos melhores.",
+   "marcas": {
+    "artcri": 1
+   },
+   "prioridade": 12
+  },
+  "Cult of Skaro": {
+   "notas": {
+    "exercito": 2,
+    "vida": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "4/4 de 4. Quando ataca, escolhe um efeito ao acaso: +1/+1 em cada criatura artefato, comprar duas, criar um Dalek 3/3 ameaça, ou cada oponente perde 4.",
+   "porque": "Todo ataque rende algo: corpo, cartas, Dalek ou 4 de vida, que liga o Davros sozinho.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Cyberman Patrol": {
+   "notas": {
+    "exercito": 1,
+    "vida": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "2/2 de 2. As criaturas artefato têm afflict 3: quando bloqueadas, o jogador defensor perde 3.",
+   "porque": "Liga o Davros toda vez que uma criatura artefato é bloqueada, e quem bloqueia leva 3. Por duas manas.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Cybermat": {
+   "notas": {
+    "exercito": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "2/1 com skulk. Ao atacar sem ser bloqueada, ganha +X/+0, X igual ao número de atacantes artefato.",
+   "porque": "Corpo barato de artefato que cresce no ataque em grupo. Frágil.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Cybermen Squadron": {
+   "notas": {
+    "exercito": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "5/5 de 7. As criaturas artefato não lendárias têm myriad.",
+   "porque": "Daleks, Cybermen e fichas passam a se copiar atacando cada outro oponente. É o fechamento do deck, mas custa 7.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Dalek Drone": {
+   "notas": {
+    "removal": 2,
+    "vida": 3,
+    "exercito": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/3 voar e ameaça de 5. Ao entrar, destrói uma criatura de um oponente, que perde 3.",
+   "porque": "Remoção, corpo e os 3 de vida que o Davros pede, tudo na mesma carta.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Dalek Squadron": {
+   "notas": {
+    "exercito": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/3 ameaça com myriad, por 3 manas.",
+   "porque": "Dalek de 3 manas que já se copia nos outros oponentes. É a base do exército.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Solemn Simulacrum": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "2/2. Ao entrar, busca um básico e o põe virado. Ao morrer, você pode comprar uma carta.",
+   "porque": "Ramp e carta, e é criatura artefato para Davros, Squadron e Cyber-Controller.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "Weeping Angel": {
+   "notas": {
+    "removal": 2,
+    "exercito": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "2/2 flash, iniciativa e vigilância. Deixa de ser criatura quando um oponente conjura criatura. Dano que causaria a uma criatura vira: o dono a embaralha na biblioteca.",
+   "porque": "Bloqueadora que remove o que toca, com flash para surpreender. Duas manas de azul e preto.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "The Cyber-Controller": {
+   "notas": {
+    "exercito": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/3, custa X UUB. Ao entrar, cada oponente tritura X cartas e as criaturas viram Cybermen 2/2 sob seu controle. As outras criaturas artefato ganham +1/+1.",
+   "porque": "Rouba criaturas do topo e dá +1/+1 ao exército. Com X grande, vira o jogo.",
+   "marcas": {
+    "artcri": 1
+   }
+  },
+  "The Dalek Emperor": {
+   "notas": {
+    "exercito": 3,
+    "vilao": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "6/6 de 7, custa 1 a menos por Dalek que você controla. Os outros Daleks têm pressa. No início do combate, cada oponente escolhe: sacrificar uma criatura, ou você cria um Dalek 3/3 ameaça.",
+   "porque": "Todo turno ou tira uma criatura ou dá um Dalek. É o motor do exército e fica mais barato quanto mais Daleks houver.",
+   "marcas": {
+    "artcri": 1,
+    "escolha": 1
+   }
+  },
+  "Missy": {
+   "notas": {
+    "vilao": 3,
+    "exercito": 3,
+    "draw": 2,
+    "vida": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "4/5. Quando outra criatura não artefato morre, volta sob seu controle virada para baixo e virada, como Cyberman 2/2 artefato. No fim do seu turno, cada oponente escolhe: cada criatura artefato sua causa 1 de dano a ele, ou você compra uma carta.",
+   "porque": "Transforma a limpeza de mesa em exército: cada morte é um Cyberman. Todo fim de turno dá dano ou carta.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "The Master, Formed Anew": {
+   "notas": {
+    "exercito": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "0/1 de 2 manas. Ao conjurar, pode exilar uma criatura sua e pôr nela um marcador de tomada; entra como cópia de uma criatura exilada assim.",
+   "porque": "Clone caro de montar: exige uma criatura sua na mesa e o ganho é pequeno.",
+   "prioridade": 5
+  },
+  "The Master, Gallifrey's End": {
+   "notas": {
+    "vilao": 3,
+    "vida": 2,
+    "exercito": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/3. Quando uma criatura artefato não ficha sua morre, pode exilá-la: o oponente com mais vida escolhe perder 4, ou você cria uma ficha cópia dela.",
+   "porque": "Transforma cada Dalek ou Cyberman de carta que morre em perda de vida ou em outra cópia.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "The Master, Mesmerist": {
+   "notas": {
+    "draw": 2,
+    "goad": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "3/3. Vira: criatura de oponente com poder igual ou menor ao dele ganha skulk e é forçada a atacar. Quando uma criatura com skulk causa dano a um oponente, ele ganha +1/+1 e você compra.",
+   "porque": "Faz a mesa se atacar e compra com isso."
+  },
+  "The Master, Multiplied": {
+   "notas": {
+    "exercito": 2,
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/3 de 6 com myriad. A regra da lenda não vale para suas fichas de criatura, e seus gatilhos não as fazem sacrificar ou exilar.",
+   "porque": "Deixa as fichas de myriad e as cópias de lendárias ficarem. Caro e específico."
+  },
+  "The Rani": {
+   "notas": {
+    "goad": 3,
+    "draw": 1,
+    "exercito": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/4 de 4. Ao entrar ou atacar, cria uma Aura Mark of the Rani em outra criatura: +2/+2 e forçada a atacar. Quando uma criatura forçada causa dano a um oponente, você investiga.",
+   "porque": "Põe a mesa para se bater e paga uma pista por golpe. Cada dano de um forçado também ajuda a ligar o Davros."
+  },
+  "The Valeyard": {
+   "notas": {
+    "vilao": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "4/5 de 5. Se um oponente enfrentaria uma escolha vilanesca, ele a enfrenta uma vez a mais.",
+   "porque": "Dobra Davros, Emperor, Missy e Great Intelligence's Plan. Dobrar o Davros é um descarte a mais ou outra carta para você.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Rassilon, the War President": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "3/4 de 5. Na manutenção, você perde 2 e exila a carta do topo da biblioteca, que pode jogar enquanto estiver exilada. As mágicas não criatura que você joga do exílio têm conspire.",
+   "porque": "Uma carta a mais por turno, ao custo de 2 de vida. Com conspire, copia a mágica não criatura."
+  },
+  "Renegade Silent": {
+   "notas": {
+    "goad": 2,
+    "exercito": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "3/3 de 4. No fim do seu turno, força uma criatura de oponente a atacar e ganha +1/+1, mas sai de fase.",
+   "porque": "Cresce sozinho e puxa uma criatura, mas não defende, porque sai de fase.",
+   "prioridade": 11
+  },
+  "Sontaran General": {
+   "notas": {
+    "fechamento": 2,
+    "goad": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "5/5 atropelar e pressa, de 5. Battalion: ao atacar com mais duas criaturas, força uma criatura de cada oponente, que não pode bloquear.",
+   "porque": "Corpo grande com pressa, que tira bloqueadores no ataque em grupo."
+  },
+  "Sycorax Commander": {
+   "notas": {
+    "vida": 1,
+    "vilao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/2 iniciativa e pressa. Ao entrar, cada oponente escolhe: descarta a mão e compra uma a menos, ou leva dano igual ao número de cartas na mão.",
+   "porque": "Pressa e 4 de poder, e a escolha dói de qualquer jeito. Frágil.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Time Reaper": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/4 voar e pressa, de 5. Ao causar dano a um jogador, devolve ao fundo da biblioteca dele uma carta dele exilada e você ganha 3 de vida.",
+   "porque": "Corpo voador com pressa. O efeito do exílio importa pouco."
+  },
+  "Vashta Nerada": {
+   "notas": {
+    "exercito": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "1/1 indestrutível com shadow. No fim de cada turno em que uma criatura morreu, ganha um marcador +1/+1.",
+   "porque": "Sobrevive a Blasphemous Act e cresce depois de cada limpeza. Só bloqueia ou é bloqueada por quem tem shadow."
+  },
+  "Vislor Turlough": {
+   "notas": {
+    "draw": 2,
+    "goad": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "2/5 de 4. Ao entrar, pode dá-lo a um oponente, que o controla forçado. No fim do seu turno, você compra uma carta e perde vida igual ao número de cartas na mão.",
+   "porque": "Compra um pouco, mas a vida que perde cresce com a mão cheia e o deck tem pouco ganho de vida.",
+   "prioridade": 10
+  },
+  "The Beast, Deathless Prince": {
+   "notas": {
+    "fechamento": 1,
+    "goad": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "6/6 de 4. Ao ser conjurado, toma uma criatura até o fim do turno, desvirada, com ameaça e pressa. Entra virado com seis marcadores de atordoamento. Quando uma criatura causa dano ao dono, ele desvira e você compra.",
+   "porque": "O roubo no turno em que é conjurado é o que vale. O corpo demora seis giros para ficar útil."
+  },
+  "The Flood of Mars": {
+   "notas": {
+    "exercito": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "3/3 de 4 com islandwalk. Ao atacar, põe um marcador em outra criatura ou terra: a criatura vira cópia do Flood; a terra vira também Ilha.",
+   "porque": "Cresce a mesa de cópias a cada ataque. Lento, com quatro manas só de azul."
+  },
+  "Zygon Infiltrator": {
+   "notas": {
+    "removal": 1,
+    "exercito": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "3/2 de 3. Por 2U, como feitiço, vira outra criatura e a atordoa enquanto ela estiver virada.",
+   "porque": "Truque de 3 manas por turno que raramente decide. Frágil.",
+   "prioridade": 13
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Vira: dois incolores.",
+   "porque": "A melhor carta de ramp do formato, por 1 mana."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vira: uma mana de qualquer cor da identidade do comandante.",
+   "porque": "Fixa as três cores por 2 manas."
+  },
+  "Mind Stone": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira: um incolor. Por 1, vira e sacrifica: compra uma carta.",
+   "porque": "Ramp que depois vira carta."
+  },
+  "Thought Vessel": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira: um incolor. Sem máximo de mão.",
+   "porque": "Pedra de 2 sem mais efeito."
+  },
+  "Commander's Sphere": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira: uma mana de qualquer cor da identidade. Sacrifica: compra uma carta.",
+   "porque": "Fixação e depois uma carta."
+  },
+  "Talisman of Dominance": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira: incolor, ou azul ou preto com 1 de dano em você.",
+   "porque": "Pedra de 2 que fixa U e B."
+  },
+  "Talisman of Indulgence": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira: incolor, ou preto ou vermelho com 1 de dano em você.",
+   "porque": "Pedra de 2 que fixa B e R. Não há Talisman de U e R no deck."
+  },
+  "Laser Screwdriver": {
+   "notas": {
+    "ramp": 2,
+    "goad": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira: uma mana de qualquer cor. Por 1: vira outro artefato. Por 2: scry 1. Por 3: força uma criatura a atacar.",
+   "porque": "Ramp que depois vira política e scry. Cada uso gasta o virar."
+  },
+  "Wayfarer's Bauble": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "2, vira, sacrifica: busca um básico e o põe virado.",
+   "porque": "Ramp lento por 1 mana, que ajuda a fixar a cor."
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pressa e shroud. Equipar 0.",
+   "porque": "Pressa para o Davros ou o Emperor. O shroud também impede Exterminate!, The Rani e outros alvos seus."
+  },
+  "Exterminate!": {
+   "notas": {
+    "removal": 3,
+    "vida": 3,
+    "vilao": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Replicate: vire um Dalek desvirado seu, a cada vez. Destrói uma criatura; o controlador perde 3.",
+   "porque": "Remoção de 3 manas que liga o Davros. Com Daleks desvirados, copia: cada cópia é uma criatura destruída e 3 de vida."
+  },
+  "Snuff Out": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Se você controla um Pântano, pode pagar 4 de vida em vez do custo. Destrói criatura não preta; ela não pode ser regenerada.",
+   "porque": "Remoção de graça, e há Pântanos no deck. O custo em vida é real contra aggro."
+  },
+  "Feed the Swarm": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Destrói criatura ou encantamento de oponente. Você perde vida igual ao valor de mana dele.",
+   "porque": "Remoção barata e flexível. Dói com alvo caro."
+  },
+  "This Is How It Ends": {
+   "notas": {
+    "removal": 3,
+    "vida": 2,
+    "vilao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea: o dono de uma criatura a embaralha na biblioteca e escolhe entre perder 5 de vida ou embaralhar outra criatura sua.",
+   "porque": "Remoção instantânea que ou tira duas criaturas, ou custa 5 de vida. A escolha é dele, e as duas doem.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Cyber Conversion": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea UU: vira uma criatura virada para baixo como Cyberman 2/2 artefato.",
+   "porque": "Neutraliza uma ameaça, mas deixa o corpo com o dono. Dois azuis no turno.",
+   "prioridade": 7
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "13 de dano a cada criatura; custa 1 a menos por criatura em campo.",
+   "porque": "Reinicia a mesa quando o deck está atrás, mas mata também os Daleks e Cybermen. Reserva.",
+   "massa": true
+  },
+  "Delete": {
+   "notas": {
+    "removal": 3,
+    "vida": 1,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "X de dano a cada criatura não artefato e a cada jogador.",
+   "porque": "Limpeza que poupa o seu exército de artefatos. O dano a cada jogador, inclusive o dono, liga o Davros em quem estiver baixo.",
+   "massa": true
+  },
+  "Doomsday Confluence": {
+   "notas": {
+    "removal": 2,
+    "exercito": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Custa X X B. Escolhe X modos, repetíveis: cada jogador sacrifica uma criatura não artefato; cria um Dalek 3/3 ameaça; cada oponente descarta uma carta.",
+   "porque": "Flexível e escala com a mana. O sacrifício atinge você também, mas seu exército é de artefatos."
+  },
+  "Genesis of the Daleks": {
+   "notas": {
+    "exercito": 3,
+    "fechamento": 3,
+    "vilao": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Saga de 6. I, II, III: cria um Dalek 3/3 ameaça por marcador de saga. IV: um oponente escolhe entre destruir todos os Daleks (e cada oponente perde vida igual ao poder total dos que morreram) ou destruir todas as criaturas não Dalek.",
+   "porque": "Seis Daleks em três turnos. O capítulo IV é uma encruzilhada para o oponente: as duas saídas pesam.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Great Intelligence's Plan": {
+   "notas": {
+    "draw": 3,
+    "vilao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Compra três. Um oponente escolhe: descarta três, ou você conjura uma mágica da mão de graça.",
+   "porque": "A maior compra do deck, com uma escolha que vale em qualquer caso.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Hunted by The Family": {
+   "notas": {
+    "removal": 1,
+    "vilao": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Escolhe até quatro criaturas de oponentes: cada dono escolhe entre ela virar um Humano 1/1 sem habilidades, ou você criar uma ficha cópia dela.",
+   "porque": "Sete manas. Ou apaga as habilidades, ou você ganha cópias. Caro para o que faz.",
+   "marcas": {
+    "escolha": 1
+   },
+   "prioridade": 8
+  },
+  "Ensnared by the Mara": {
+   "notas": {
+    "vilao": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Cada oponente escolhe: você conjura de graça a primeira não terra exilada do topo dele, ou ele exila as quatro do topo e leva dano igual à soma dos valores de mana.",
+   "porque": "Quatro manas vermelhas para uma escolha em que o oponente escolhe o que dói menos.",
+   "marcas": {
+    "escolha": 1
+   },
+   "prioridade": 9
+  },
+  "Don't Blink": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Instantânea. Até o fim do turno, criaturas que entrariam vindas do exílio são embaralhadas. Ciclagem 2.",
+   "porque": "Resposta a um efeito de exílio que quase nunca aparece. A ciclagem só tira da mão.",
+   "prioridade": 3
+  },
+  "The Toymaker's Trap": {
+   "notas": {
+    "vida": 1,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Na sua manutenção, escolhe em segredo um número de 1 a 5 ainda não usado; o oponente adivinha. Errou: perde vida igual ao palpite e você compra. Acertou: você sacrifica a Trap.",
+   "porque": "Aleatória e vive de erro do oponente. Cada acerto dele a apaga.",
+   "prioridade": 4
+  },
+  "Day of the Moon": {
+   "notas": {
+    "goad": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Saga: nos capítulos I, II e III, escolhe um nome de criatura e força todas as criaturas com esse nome a atacar.",
+   "porque": "Força a mesa por três turnos, mas depende dos nomes em campo.",
+   "prioridade": 6
+  },
+  "Blink": {
+   "notas": {
+    "removal": 2,
+    "draw": 1,
+    "exercito": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Saga de 4. I e III: embaralha uma criatura na biblioteca do dono, que investiga. II e IV: cria um Alienígena Anjo 2/2 artefato com iniciativa e vigilância.",
+   "porque": "Duas remoções lentas e dois corpos de artefato, de uma carta."
+  },
+  "Death in Heaven": {
+   "notas": {
+    "exercito": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Saga de 3. I e II: um jogador tritura duas e exila o cemitério. III: as criaturas exiladas voltam sob seu controle, viradas para baixo, como Cybermen 2/2 artefato.",
+   "porque": "Cybermen a partir do cemitério dos outros, e tira a recursão deles. Demora três turnos."
+  },
+  "Propaganda": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Criaturas não podem atacar você, a menos que o controlador pague 2 por atacante.",
+   "porque": "Segura o aggro e protege a vida do deck. Não afeta o plano: a perda de vida dos oponentes vem de outras fontes."
+  },
+  "The Sound of Drums": {
+   "notas": {
+    "goad": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura: a criatura é forçada a atacar e, se causasse dano a um permanente ou jogador, causa o dobro. 2R: volta do cemitério para a mão.",
+   "porque": "Uma criatura de oponente que ataca outro com o dobro de dano liga o Davros por conta dele. Recicla."
+  },
+  "Wound Reflection": {
+   "notas": {
+    "vida": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "No início de cada fim de turno, cada oponente perde vida igual à vida que perdeu no turno.",
+   "porque": "Dobra a perda de vida do turno. Com o Davros já disparado, a escolha ainda fica mais cara."
+  },
+  "Midnight Crusader Shuttle": {
+   "notas": {
+    "removal": 1,
+    "vilao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Veículo 3/4, tripulação 2. Ao atacar, o defensor escolhe: sacrifica uma criatura, ou você toma uma dele até o fim do turno e a ataca.",
+   "porque": "Remoção ou roubo todo turno, sem gastar mana.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Cybership": {
+   "notas": {
+    "fechamento": 2,
+    "exercito": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Veículo 8/8 voar, tripulação 4. Ao causar dano a um jogador, põe as duas cartas do topo da biblioteca dele no campo viradas para baixo, como Cybermen 2/2 artefato.",
+   "porque": "Rouba corpos a cada golpe, mas precisa de tripulação 4 e custa 6."
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Gera uma mana de qualquer cor da identidade do comandante.",
+   "porque": "Infraestrutura: as três cores."
+  },
+  "Crumbling Necropolis": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virada: U, B ou R.",
+   "porque": "Três cores, um turno atrás.",
+   "virado": true
+  },
+  "Darkwater Catacombs": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "1, vira: UB.",
+   "porque": "Duas manas em uma terra, pagando 1."
+  },
+  "Shadowblood Ridge": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "1, vira: BR.",
+   "porque": "Duas manas em uma terra, pagando 1."
+  },
+  "Canyon Slough": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pântano Montanha, entra virada. Ciclagem 2.",
+   "porque": "Fixação com ciclagem.",
+   "virado": true
+  },
+  "Fetid Pools": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Ilha Pântano, entra virada. Ciclagem 2.",
+   "porque": "Fixação com ciclagem.",
+   "virado": true
+  },
+  "Smoldering Marsh": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pântano Montanha. Entra virada, a menos que você controle dois básicos.",
+   "porque": "Fixação com tipos básicos."
+  },
+  "Sunken Hollow": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Ilha Pântano. Entra virada, a menos que você controle dois básicos.",
+   "porque": "Fixação com tipos básicos."
+  },
+  "Choked Estuary": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U ou B. Revele Ilha ou Pântano da mão para entrar desvirada.",
+   "porque": "Duas cores, às vezes virada."
+  },
+  "Foreboding Ruins": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "B ou R. Revele Pântano ou Montanha da mão para entrar desvirada.",
+   "porque": "Duas cores, às vezes virada."
+  },
+  "Frostboil Snarl": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U ou R. Revele Ilha ou Montanha da mão para entrar desvirada.",
+   "porque": "Duas cores, às vezes virada."
+  },
+  "Drowned Catacomb": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U ou B. Entra desvirada se você controla Ilha ou Pântano.",
+   "porque": "Dual de início de jogo."
+  },
+  "Dragonskull Summit": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "B ou R. Entra desvirada se você controla Pântano ou Montanha.",
+   "porque": "Dual de início de jogo."
+  },
+  "Haunted Ridge": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "B ou R. Entra desvirada se você controla duas ou mais outras terras.",
+   "porque": "Dual de meio de jogo."
+  },
+  "Shipwreck Marsh": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U ou B. Entra desvirada se você controla duas ou mais outras terras.",
+   "porque": "Dual de meio de jogo."
+  },
+  "Stormcarved Coast": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U ou R. Entra desvirada se você controla duas ou mais outras terras.",
+   "porque": "Dual de meio de jogo."
+  },
+  "Temple of Deceit": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U ou B. Entra virada, scry 1.",
+   "porque": "Dual com scry.",
+   "virado": true
+  },
+  "Temple of Epiphany": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U ou R. Entra virada, scry 1.",
+   "porque": "Dual com scry.",
+   "virado": true
+  },
+  "Temple of Malice": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "B ou R. Entra virada, scry 1.",
+   "porque": "Dual com scry.",
+   "virado": true
+  },
+  "River of Tears": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U, ou B se você jogou terra no turno.",
+   "porque": "Dual que costuma dar B no turno em que entra."
+  },
+  "Fiery Islet": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "U ou R, com 1 de vida. 1, vira, sacrifica: compra uma carta.",
+   "porque": "Dual que vira carta no fim."
+  },
+  "Thriving Moor": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virada. B ou uma cor à escolha.",
+   "porque": "Fixa a cor que falta.",
+   "virado": true
+  },
+  "Terramorphic Expanse": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Vira, sacrifica: busca um básico e o põe virado.",
+   "porque": "Fixação lenta."
+  },
+  "Path of Ancestry": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virada. Uma mana da identidade; se for para criatura que divide tipo com o comandante, scry 1.",
+   "porque": "O Davros é Alien Scientist: muitas criaturas do deck são Alien.",
+   "virado": true
+  },
+  "Exotic Orchard": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Uma mana de cor que uma terra de oponente poderia gerar.",
+   "porque": "Pode não gerar nada, conforme a mesa."
+  },
+  "Gallifrey Council Chamber": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Surveil 1. Gera C; ou qualquer cor, só para Time Lord ou Alien.",
+   "porque": "Surveil e fixação para boa parte das criaturas do deck."
+  },
+  "Creeping Tar Pit": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Entra virada: U ou B. 1UB: vira criatura 3/2 que não pode ser bloqueada.",
+   "porque": "Terra e atacante que não pode ser bloqueado, o que liga o Davros.",
+   "virado": true
+  },
+  "Lavaclaw Reaches": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virada: B ou R. 1BR: vira criatura 2/2 com X para +X/+0.",
+   "porque": "Terra que ataca.",
+   "virado": true
+  },
+  "Ominous Cemetery": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "C. 5, vira, exila: o dono de uma criatura a embaralha na biblioteca.",
+   "porque": "Remoção em terra, sem gastar carta de mágica."
+  },
+  "Reliquary Tower": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "C. Sem máximo de mão.",
+   "porque": "Sem cor, e o deck não segura cartas.",
+   "prioridade": 2
+  },
+  "Temple of the False God": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Vira: dois incolores, só com cinco ou mais terras.",
+   "porque": "Sem cor num deck de três cores, e só liga com cinco terras.",
+   "prioridade": 1
+  },
+  "Island": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "2 cópias."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "2 cópias. Habilita o Snuff Out de graça."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "2 cópias."
+  }
+ },
+ "radar": {
+  "Unlicensed Disintegration": {
+   "notas": {
+    "removal": 3,
+    "vida": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Instantânea 1BR: destrói uma criatura; se você controla um artefato, causa 3 de dano ao controlador dela.",
+   "porque": "Remoção que liga o Davros quando há um artefato seu, o que é quase sempre. Referência: o precon fica como está.",
+   "sai": "Feed the Swarm"
+  },
+  "Maestros Charm": {
+   "notas": {
+    "draw": 2,
+    "vida": 3,
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Instantânea UBR, escolha uma: olha as cinco do topo, uma vai para a mão e o resto para o cemitério; cada oponente perde 3 e você ganha 3; 5 de dano a criatura ou planeswalker.",
+   "porque": "Os 3 de vida são o que o Davros pede, nas três cores. Referência.",
+   "sai": "Cyber Conversion"
+  },
+  "Loyal Subordinate": {
+   "notas": {
+    "vida": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "3/3 de 3 com ameaça. Lieutenant: no início do combate, se você controla o comandante, cada oponente perde 3.",
+   "porque": "Liga o Davros em todo turno em que ele está em campo. Barata. Referência.",
+   "sai": "Don't Blink"
+  },
+  "Court of Ambition": {
+   "notas": {
+    "vida": 3,
+    "draw": 1,
+    "vilao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Você vira o monarca. Na manutenção: cada oponente perde 3, a menos que descarte uma carta; se você é o monarca, perde 6, a menos que descarte duas.",
+   "porque": "Escolha de mão com 3 ou 6 de vida por turno. O risco é perder o monarca. Referência.",
+   "sai": "The Toymaker's Trap"
+  },
+  "Brudiclad, Telchor Engineer": {
+   "notas": {
+    "exercito": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "6 manas. Suas fichas de criatura têm pressa. No início do combate, cria uma Myr 2/1 artefato; você pode escolher uma ficha, e as outras viram cópia dela.",
+   "porque": "Pode transformar todas as fichas em Daleks 3/3 ameaça, com pressa. Referência.",
+   "sai": "Renegade Silent"
+  },
+  "Thopter Spy Network": {
+   "notas": {
+    "exercito": 2,
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "2UU. Na manutenção, se você controla um artefato, cria um Thopter 1/1 voador. Quando criaturas artefato suas causam dano a um jogador, você compra.",
+   "porque": "O deck tem criaturas artefato de sobra e pouca compra. Referência.",
+   "sai": "The Master, Formed Anew"
+  },
+  "Tezzeret, Master of the Bridge": {
+   "notas": {
+    "vida": 2,
+    "exercito": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "6 manas. Suas criaturas e planeswalkers custam 1 a menos por artefato. +2: X de dano a cada oponente e você ganha X, X igual aos artefatos. -3: devolve um artefato do cemitério.",
+   "porque": "Causa X a cada oponente por turno, o que liga o Davros, e barateia as criaturas. Seis manas e frágil. Referência.",
+   "sai": "Hunted by The Family"
+  },
+  "Strionic Resonator": {
+   "notas": {
+    "vilao": 3,
+    "exercito": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "2, vira: copia uma habilidade disparada sua.",
+   "porque": "Copia o gatilho do Davros no fim do turno: outro Dalek e outra escolha. Também copia o Dalek Emperor e o Missy. Referência.",
+   "sai": "Commander's Sphere"
+  },
+  "Steel Overseer": {
+   "notas": {
+    "exercito": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "2 manas. Vira: um marcador +1/+1 em cada criatura artefato sua.",
+   "porque": "Cresce todas as criaturas artefato, uma vez por turno. Referência.",
+   "sai": "Clockwork Droid"
+  },
+  "Skorpekh Lord": {
+   "notas": {
+    "exercito": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato 2B com ameaça. As outras criaturas artefato suas ganham +1/+0 e ameaça. Unearth 2B.",
+   "porque": "Dá ameaça e +1/+0 a todo o exército, e volta do cemitério. Referência.",
+   "sai": "Zygon Infiltrator"
+  },
+  "Their Name Is Death": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "BBB e 3: destrói todas as criaturas não artefato.",
+   "porque": "Faz o que o Delete já faz, mas sem escolher X e pedindo BBB. Fica de fora."
+  },
+  "Deadly Rollick": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Se você controla um comandante, pode conjurar de graça. Exila uma criatura.",
+   "porque": "US$ 28,68 por uma remoção de 4 manas que já tem Snuff Out ao lado. Fica de fora pelo preço."
+  },
+  "Reverse the Polarity": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Instantânea, escolha uma: anula todas as outras mágicas; troca poder e resistência; criaturas não podem ser bloqueadas.",
+   "porque": "Nenhum modo faz parte do plano. Fica de fora."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Todo bloqueio é Davros",
+   "tipo": "Motor",
+   "pecas": [
+    "Cyberman Patrol",
+    "Davros, Dalek Creator"
+   ],
+   "texto": "Com a Patrol, toda criatura artefato bloqueada faz o defensor perder 3. Isso liga o Davros no fim do turno: um Dalek e a escolha vilanesca."
+  },
+  {
+   "nome": "Replicar o Exterminate!",
+   "tipo": "Combo",
+   "pecas": [
+    "Exterminate!",
+    "Dalek Squadron"
+   ],
+   "texto": "Cada Dalek desvirado que você vira como custo copia o Exterminate!: uma criatura destruída e 3 de vida por cópia. Funciona fora do combate, antes de atacar."
+  },
+  {
+   "nome": "A escolha em dobro",
+   "tipo": "Motor",
+   "pecas": [
+    "The Valeyard",
+    "Davros, Dalek Creator"
+   ],
+   "texto": "Com a Valeyard, cada oponente enfrenta a escolha do Davros duas vezes. O mesmo vale para o Emperor, o Missy e o Great Intelligence's Plan."
+  },
+  {
+   "nome": "O dano em dobro",
+   "tipo": "Motor",
+   "pecas": [
+    "Wound Reflection",
+    "Davros, Dalek Creator"
+   ],
+   "texto": "Os dois disparam no início do fim de turno. O Davros só dispara se um oponente já perdeu 3. Com ele disparado, resolva a Wound Reflection antes: quem perdeu 3 passa a ter perdido 6."
+  },
+  {
+   "nome": "Limpeza que alimenta você",
+   "tipo": "Combo",
+   "pecas": [
+    "Delete",
+    "Missy"
+   ],
+   "texto": "O Delete mata só as criaturas não artefato, e o Missy devolve cada uma sob seu controle como Cyberman 2/2. Os seus Daleks e Cybermen ficam."
+  },
+  {
+   "nome": "Todos copiam",
+   "tipo": "Motor",
+   "pecas": [
+    "Cybermen Squadron",
+    "Genesis of the Daleks"
+   ],
+   "texto": "A Squadron dá myriad a cada Dalek e Cyberman não lendário. Seis Daleks da Genesis passam a se copiar atacando cada outro oponente."
+  },
+  {
+   "nome": "Fichas em Daleks",
+   "tipo": "Motor",
+   "pecas": [
+    "Brudiclad, Telchor Engineer",
+    "Genesis of the Daleks"
+   ],
+   "texto": "O Brudiclad (do radar) transforma as outras fichas em cópias da ficha escolhida: com um Dalek escolhido, toda a mesa vira Daleks 3/3 com ameaça e pressa."
+  },
+  {
+   "nome": "O dano dos outros",
+   "tipo": "Motor",
+   "pecas": [
+    "The Sound of Drums",
+    "The Rani"
+   ],
+   "texto": "Uma criatura forçada que causa dano a um oponente faz ele perder vida, e a Sound of Drums dobra esse dano. Pode ligar o Davros sem atacar com nada seu. A Rani investiga a cada golpe."
+  },
+  {
+   "nome": "Mais uma cópia por turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Ashad, the Lone Cyberman",
+    "Death in Heaven"
+   ],
+   "texto": "A Death in Heaven dá Cybermen 2/2 para sacrificar na casualty 2 do Ashad: o primeiro artefato do turno vira duas cópias, e o Ashad cresce."
+  },
+  {
+   "nome": "Armadilha: a Blasphemous Act no seu exército",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Blasphemous Act",
+    "Genesis of the Daleks"
+   ],
+   "texto": "A Act mata os seus Daleks e Cybermen também. Prefira o Delete, que poupa os artefatos. A Genesis capítulo IV é parecida: o oponente pode escolher destruir todos os seus Daleks."
+  },
+  {
+   "nome": "Armadilha: o shroud",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Lightning Greaves",
+    "The Rani"
+   ],
+   "texto": "A Greaves dá shroud à criatura equipada: você não pode mirá-la com o Exterminate! nem com a Mark of the Rani. Equipe depois de usar o que precisa mirar."
+  }
+ ]
+}
