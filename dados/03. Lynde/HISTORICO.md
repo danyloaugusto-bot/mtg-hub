@@ -10,3 +10,7 @@
 - Dez combos e motores, com uma armadilha: a Maddening Hex destruída volta em você pela Lynde.
 - Tema "Chá das Maldições": salão vitoriano à luz de velas, a anfitriã que serve maldições sorrindo. Paleta da capa (penumbra, vinho, cobre, ouro, rubor), fonte IM Fell English SC. Motivo novo no motor: gráfico "alfinetes" (alfinetes de cabeça colorida numa almofada de costura) e textura "papel" (papel de parede listrado).
 - 117 impressões com imagens embutidas (7,5 MB).
+
+## Comunidade, 08/10/2026
+
+- Lida a página "Curses" da Lynde no EDHREC (893 decks). Cinco potenciais gravados em `comunidade.json`, todos recentes e com sinergia baixa (The Unluckiest Planeswalker é o maior, 22%).

@@ -12,3 +12,7 @@
 - Dez combos e motores, com duas armadilhas: Sword of Fire and Ice contra as peças vermelhas, e o shroud de Lightning Greaves e Whispersilk Cloak, que só a Inventory Management atravessa.
 - Tema "Round Extra": moldura retrato, paleta da capa (carvão, brasa, gi, chama clara e céu do cais), fonte Teko. Motivo novo no motor: gráfico "chamas", com a estrela de impacto no centro, e textura "impacto", com linhas de velocidade.
 - 107 impressões com imagens embutidas (6,9 MB).
+
+## Comunidade, 08/10/2026
+
+- Lida a página "Equipment" do Ken no EDHREC (26 decks). Treze potenciais gravados em `comunidade.json`: os feitiços grandes de vermelho que o Shoryuken conjura de graça (Mizzix's Mastery, Reforge the Soul, Wheel of Fate, Volcanic Vision), mais Swords to Plowshares e Boros Charm.

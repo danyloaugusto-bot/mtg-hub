@@ -40,3 +40,7 @@ Nenhuma marcada ainda. Provável preferência pelas cartas da edição DSC (Barb
 
 - capa: `capa.jpg`, arte do Valgavoth com o X de luz vermelha no peito; figura central.
 - moldura: retrato, no padrão do Ritos de Sangue.
+
+## Comunidade
+
+- https://edhrec.com/commanders/valgavoth-harrower-of-souls, lido em 08/10/2026 (`/potenciais`).

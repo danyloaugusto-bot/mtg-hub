@@ -10,3 +10,7 @@
 - Nove combos e motores, com uma armadilha: o +2/+2 do Greymond desliga a compra da Skullclamp e da Enduring Innocence e põe o time na mira de Dusk.
 - Tema "Catedral dos Vivos": o primeiro painel claro do projeto, a pedido do dono, oposto aos decks de mortos. Marfim, linho e ouro, com aço nos botões; fonte Marcellus SC; gráfico "estandartes" com escudo heráldico no centro; textura "brasão", de quadrifólios dourados. O motor ganhou o modo claro para isso.
 - 100 impressões com imagens embutidas (6,3 MB).
+
+## Comunidade, 08/10/2026
+
+- Lida a página "Humans" do Greymond no EDHREC (271 decks). Nove potenciais gravados em `comunidade.json`. Nenhum entrou automaticamente: Path to Exile e Odric, Master Tactician são os de maior sinergia (76% e 69%) e ainda não avaliados.

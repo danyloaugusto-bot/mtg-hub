@@ -50,3 +50,7 @@ Nenhuma.
 - capa: `capa.jpg`, a Lynde de costas, sorrindo por cima do ombro, espetando um alfinete num boneco, numa sala vitoriana com molduras douradas. Figura central, arte em paisagem.
 - moldura: retrato.
 - painel escuro e quente: salão vitoriano à luz de velas, alfinetes e papel de parede listrado.
+
+## Comunidade
+
+- https://edhrec.com/commanders/lynde-cheerful-tormentor/curses, lido em 08/10/2026 (`/potenciais`).

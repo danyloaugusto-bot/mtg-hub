@@ -42,3 +42,7 @@ Lightning Bolt e Vikya, Scorching Stalwart (Ryu, World Warrior na carta da lista
 ## Visual
 
 - capa: `capa.jpg`, a arte do Ken com o punho em chamas, na proa de um barco, com a plateia atrás. Figura central, arte em paisagem.
+
+## Comunidade
+
+- https://edhrec.com/commanders/aisha-of-sparks-and-smoke/equipment, lido em 08/10/2026 (`/potenciais`).

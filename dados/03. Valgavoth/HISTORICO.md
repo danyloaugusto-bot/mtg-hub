@@ -9,3 +9,7 @@
 - Oito combos e motores, incluindo duas armadilhas (Vilis + Spiteful Visions mata o próprio dono; a Lightning Greaves equipada impede as próprias mágicas de mirar o Valgavoth).
 - Tema "Dízimo das Almas": moldura retrato, paleta tirada da capa, fonte Cinzel. Motivo gráfico novo no motor: o gráfico e a textura "fios", com um X de luz vermelha atravessando as frestas entre as lâminas, ligado à arte da carta.
 - 101 impressões, com imagens embutidas (6,5 MB). Testes: contrato 16/16, regressão 30/30 (com controle de números), publicada 17/17, layout 24/24.
+
+## Comunidade, 08/10/2026
+
+- Lida a página do Valgavoth no EDHREC (29.815 decks, tema Group Slug). Onze potenciais gravados em `comunidade.json`. Blood Seeker (81%), Nightshade Harvester (67%) e Persistent Constrictor (58%) são os de maior sinergia, ainda não avaliados.

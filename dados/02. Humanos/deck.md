@@ -47,3 +47,7 @@ O dono escolhe vigilância e vínculo com a vida.
 - capa: `capa.jpg`, o Greymond diante de uma catedral à noite, com a maça de luz erguida e a capa branca bordada a ouro. Figura central, arte em paisagem.
 - moldura: retrato.
 - painel claro, a pedido do dono: o oposto dos decks de mortos. Marfim, linho, ouro e aço; estandartes e brasão.
+
+## Comunidade
+
+- https://edhrec.com/commanders/greymond-avacyns-stalwart/humans, lido em 08/10/2026 (`/potenciais`).
