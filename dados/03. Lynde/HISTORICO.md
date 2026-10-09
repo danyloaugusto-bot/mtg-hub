@@ -13,4 +13,4 @@
 
 ## Comunidade, 08/10/2026
 
-- Lida a página "Curses" da Lynde no EDHREC (893 decks). Cinco potenciais gravados em `comunidade.json`, todos recentes e com sinergia baixa (The Unluckiest Planeswalker é o maior, 22%).
+- Lida a página "Curses" da Lynde no EDHREC (893 decks). Quatro potenciais gravados em `comunidade.json`, todos recentes e com sinergia baixa (até 6%). A The Unluckiest Planeswalker (22%) ficou de fora: é carta de teste da Mystery Booster Commander, não legal no Commander segundo o Scryfall.
