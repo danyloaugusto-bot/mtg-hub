@@ -25,3 +25,7 @@
 ## Versão 1, 06/10/2026 (kit-coro-da-alvorada)
 
 345 KB. Primeira versão do painel, com imagem só na gaveta e 12 candidatas no radar.
+
+## Custo de mana, 10/10/2026
+
+- O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Vanquish the Horde (custa 1 a menos por criatura em campo) e Steel Seraph (protótipo por {1}{W}{W}).

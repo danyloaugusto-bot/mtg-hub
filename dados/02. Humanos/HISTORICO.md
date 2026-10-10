@@ -14,3 +14,7 @@
 ## Comunidade, 08/10/2026
 
 - Lida a página "Humans" do Greymond no EDHREC (271 decks). Nove potenciais gravados em `comunidade.json`. Nenhum entrou automaticamente: Path to Exile e Odric, Master Tactician são os de maior sinergia (76% e 69%) e ainda não avaliados.
+
+## Custo de mana, 10/10/2026
+
+- O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Vanquish the Horde (custa 1 a menos por criatura em campo).

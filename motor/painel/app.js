@@ -823,6 +823,7 @@ function renderGeral() {
     '<details class="how"><summary>Como a conta é feita</summary><p>É a mesma lógica da sua planilha do Vito. O CMC médio vale de 1 a 5 pontos, e quanto mais baixo, melhor. O potencial de aceleração é a soma da coluna ' + esc(G[IR].k) + ' dividida pelo CMC médio, e cada 0,5 vale 5 pontos, até 90. O restante é a soma das notas de 0 a 3 que cada carta recebe nos ' + NUM[NG] + ' agrupamentos. Como os agrupamentos mudam de um deck para outro, o total serve para acompanhar este deck ao longo das trocas, não para compará-lo com outro.</p></details>' +
     '</fieldset></div>';
 
+  h += custoPanel(cs, st);
   h += '<div class="grid g-11">' +
     '<fieldset class="pn"><legend>Os ' + NUM[NG] + ' agrupamentos</legend><div class="gl">' + groups + '</div>' +
     '<p class="pn-note">O número em destaque conta as cartas com nota 2 ou 3; o que vem depois do sinal de mais, as de nota 1. A faixa tracejada, onde aparece, é a referência usual de Commander, e vale como regra de bolso.</p></fieldset>' +
@@ -1018,11 +1019,15 @@ function renderPk() {
         (st === 'falta' ? 'falta reforço' : st === 'cheio' ? 'acima da referência' : 'na faixa');
     }
     var fraca = cutQueue(list, false)[0];
+    var cara = list.filter(function (c) { return pesada(c) && c.cmc >= 4; }).sort(function (a, b) { return (b.cmc - a.cmc) || (TR[b.tier] - TR[a.tier]) || a.n.localeCompare(b.n); })[0];
+    var barata = cara ? maisBarata(cara, out) : null;
     var radar = out.filter(function (c) { return pkOf(c) === g.k; }).sort(function (a, b) { return TR[a.tier] - TR[b.tier]; }).slice(0, 4);
     var foot = '';
-    if (g.k !== 'mana' && g.k !== 'sem' && (fraca || radar.length)) {
+    if (g.k !== 'mana' && g.k !== 'sem' && (fraca || radar.length || cara)) {
       foot = '<div class="pk-foot">' +
         (fraca ? '<div class="pk-line pk-f"><span>Mais fraca</span>' + chip(fraca, { tier: true }) + relB(fraca.rel) + '</div>' : '') +
+        (cara ? '<div class="pk-line pk-c"><span>Mais cara</span>' + chip(cara, { mana: true }) +
+          (barata ? '<span class="pk-alt"><span class="ar">→</span>' + chip(barata, { mana: true }) + '<small>−' + (cara.cmc - barata.cmc) + '</small></span>' : '') + '</div>' : '') +
         (radar.length ? '<div class="pk-line pk-r"><span>Do radar</span>' + radar.map(function (c) {
           var sai = c.sai ? byId(c.sai) : null;
           return chip(c, { tier: true }).replace('<div class="chip', '<div title="' + esc(c.n + (sai ? ' · sairia ' + sai.n : '')) + '" class="chip');
@@ -1034,6 +1039,112 @@ function renderPk() {
         '<span class="empty">Nenhuma carta aqui.</span>') + '</div>' + foot + '</section>';
   }).join('') + '</div>';
   $('#v-pk').innerHTML = h;
+}
+
+/* ============ custo de mana ============ */
+/* Quanto uma troca baixa o custo e adianta a carta. Ficam fora da conta: terrenos, o comandante, custo variável (X) e
+   cartas duplas com terreno no verso. As que custam menos na prática (caro_por_desenho) não contam como ganho quando
+   saem, e não entram na lista das mais caras, assim como tier S, intocáveis e cartas de estimação, que são o plano. */
+function custoX(c) { return /\{X\}/.test(c.cost || ''); }
+/* com dez peças de ramp de nota 2 ou mais, o deck costuma jogar uma carta de custo C no turno C − 1 */
+function rampDesc(cs) {
+  var i = gi('ramp'), n = 0; if (i < 0) return 0;
+  cs.forEach(function (c) { if (gv(c, i) >= 2) n += c.q; });
+  return n >= 10 ? 1 : 0;
+}
+/* o ramp só começa a render do turno 2 em diante: carta de custo 2 ou menos sai no turno do próprio custo */
+function turnoDe(cmc, desc) { return cmc <= 2 ? Math.max(1, cmc) : Math.max(2, cmc - desc); }
+function ganho(e, s, desc) {
+  if (!s || e.land || s.land || e.mdfc || s.mdfc || custoX(e) || custoX(s)) return null;
+  var k = pkOf(s), i = PKI[k], pe = pips(e.cost), ps = pips(s.cost);
+  return { d: s.cmc - e.cmc, cpd: !!s.cpd, t0: turnoDe(s.cmc, desc), t1: turnoDe(e.cmc, desc),
+           papel: i != null && pkOf(e) === k && !!e.wipe === !!s.wipe && gv(e, i) >= gv(s, i) && TR[e.tier] <= TR[s.tier],
+           cor: WUBRG.filter(function (ch) { return pe[ch] >= 2 && pe[ch] > ps[ch]; }) };
+}
+function baixa(g) { return !!(g && g.d >= 1 && g.papel && !g.cpd); }
+function ganhoTxt(g, s) {
+  var h;
+  if (g.d > 0) h = '<b>−' + g.d + ' de mana</b> contra ' + esc(s.n) + (g.t1 < g.t0 ? ', chega no turno ' + g.t1 + ' em vez do ' + g.t0 : '');
+  else if (g.d === 0) h = 'Mesmo custo de ' + esc(s.n);
+  else h = '<b>+' + (-g.d) + ' de mana</b> contra ' + esc(s.n) + ': o ganho, se houver, está em outro lugar';
+  if (g.d > 0) h += g.papel ? ' · <span class="cv-ok">mesmo papel</span>' : ' · papel diferente';
+  if (g.cpd) h += ' · ' + esc(s.n) + ' já custa menos na prática';
+  if (g.cor.length) h += ' · pede mais ' + g.cor.map(function (ch) { return mana('{' + ch + '}'); }).join('');
+  return h;
+}
+function pesada(c) { return !c.land && !c.mdfc && !c.cmd && !custoX(c) && !c.nocut && !c.pet && !c.cpd && c.tier !== 'S' && c.rel !== 'INS'; }
+/* a melhor carta do radar no mesmo pacote do 8×8, com pelo menos 1 de mana a menos (usadas: já sugeridas para outra) */
+function maisBarata(c, out, usadas) {
+  var k = pkOf(c);
+  return out.filter(function (x) { return !(usadas && usadas[x.id]) && !x.land && !x.mdfc && !custoX(x) && x.cmc <= c.cmc - 1 && pkOf(x) === k && !!x.wipe === !!c.wipe; })
+    .sort(function (a, b) { return (TR[a.tier] - TR[b.tier]) || (a.cmc - b.cmc) || a.n.localeCompare(b.n); })[0] || null;
+}
+function jaEm(c) {
+  var os = ((D.outros && D.outros[chaveN(c)]) || []).filter(function (o) { return o.w === 'deck'; });
+  return !os.length ? '' : '<small class="cv-ja">' + (os.length > 2 ? 'já está em ' + os.length + ' outros decks' : 'já está no ' + esc(lista(os.map(function (o) { return o.d; })))) + '</small>';
+}
+function cvNome(c) { return '<button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + '</button> ' + (c.cost ? mana(c.cost) + ' ' : '') + tierB(c.tier, true); }
+function custoPanel(cs, st) {
+  var desc = rampDesc(cs), aqui = {}; cs.forEach(function (c) { aqui[c.id] = c; });
+  var out = cands().map(E).filter(function (c) { return !c.inDeck && c.verdict !== 'fora'; });
+  var vo = { entra: 0, avaliar: 1 }, sw = out.filter(function (c) { return c.sai && aqui[c.sai]; })
+    .sort(function (a, b) { return (vo[a.verdict] - vo[b.verdict]) || (TR[a.tier] - TR[b.tier]) || a.n.localeCompare(b.n); });
+  function uma(lst) { var v = {}; return lst.filter(function (c) { if (v[c.sai]) return false; v[c.sai] = 1; return true; }); }
+  function aplica(lst) { var sai = {}; lst.forEach(function (c) { sai[c.sai] = 1; }); return cs.filter(function (c) { return !sai[c.id]; }).concat(lst); }
+  var rec = uma(sw.filter(function (c) { return c.verdict === 'entra'; }));
+  var boas = uma(sw.map(function (c) { return { c: c, g: ganho(c, aqui[c.sai], desc) }; }).filter(function (x) { return baixa(x.g); })
+    .sort(function (a, b) { return b.g.d - a.g.d || (TR[a.c.tier] - TR[b.c.tier]); }).map(function (x) { return x.c; }));
+  function seis(s) { return s.curve[6].n + s.curve[7].n; }
+  function linha(rot, s, n) {
+    var d = s.avg - st.avg;
+    return '<tr><th scope="row">' + rot + (n != null ? ' <small>(' + n + ')</small>' : '') + '</th><td class="num"><b>' + fmt(s.avg) + '</b>' +
+      (n != null && Math.abs(d) >= 0.005 ? ' <small class="' + (d < 0 ? 'cv-ok' : 'cv-up') + '">' + (d < 0 ? '−' : '+') + fmt(Math.abs(d)) + '</small>' : '') + '</td>' +
+      '<td class="num">' + s.cmcSum + '</td><td class="num">' + seis(s) + '</td><td class="num">' + s.total + '</td></tr>';
+  }
+  var stR = rec.length ? stats(aplica(rec)) : null, stB = boas.length ? stats(aplica(boas)) : null;
+  var h = '<fieldset class="pn cv"><legend>Custo e curva</legend>' +
+    '<div class="scx"><table class="cvt"><thead><tr><th></th><th>CMC médio</th><th>CMC somado</th><th>Custo 6+</th><th>Placar</th></tr></thead><tbody>' +
+    linha('Hoje', st) + (stR ? linha('Com as trocas marcadas para entrar', stR, rec.length) : '') +
+    (stB ? linha('Só as trocas que baixam o custo sem perder o papel', stB, boas.length) : '') + '</tbody></table></div>';
+  function ganhoCel(g) {
+    return '<td class="num c-g"><b>−' + g.d + '</b>' + (g.t1 < g.t0 ? '<small>turno ' + g.t1 + ', não ' + g.t0 + '</small>' : '') + (g.papel ? '<small class="cv-ok">mesmo papel</small>' : '') + '</td>';
+  }
+  h += '<h3 class="sub">Trocas do radar que baixam o custo</h3>' + (boas.length ? '<div class="scx"><table class="cvt2"><thead><tr><th>Entra</th><th>Sai</th><th class="num">Ganho</th></tr></thead><tbody>' +
+    boas.map(function (c) {
+      var s = aqui[c.sai];
+      return '<tr><th scope="row" class="c-a">' + cvNome(c) + jaEm(c) + '</th><td class="c-b" data-pre="sai">' + cvNome(s) + '</td>' + ganhoCel(ganho(c, s, desc)) + '</tr>';
+    }).join('') + '</tbody></table></div>' : '<p class="hint">Nenhuma troca do radar baixa o custo mantendo o papel da carta que sai.</p>');
+  /* cada carta do radar é sugerida uma vez só, da mais cara do deck para a menos cara */
+  var caras = cs.filter(function (c) { return pesada(c) && c.cmc >= 5; })
+    .sort(function (a, b) { return (b.cmc - a.cmc) || (TR[b.tier] - TR[a.tier]) || a.n.localeCompare(b.n); });
+  var po = poolOpen().filter(function (p) { return !p.land && !custoX(p); }), usadas = {};
+  var porSai = {}, tira = {};
+  boas.forEach(function (c) { usadas[c.id] = 1; porSai[c.sai] = c; });
+  out.forEach(function (c) { if (c.sai && !tira[c.sai]) tira[c.sai] = c; });
+  h += '<h3 class="sub">As mais caras, e o que faria o mesmo por menos</h3>' + (caras.length ? '<div class="scx"><table class="cvt2"><thead><tr><th>Carta</th><th>Pacote</th><th>Mais barata no radar</th><th class="num">Ganho</th></tr></thead><tbody>' +
+    caras.slice(0, 10).map(function (c) {
+      var alt = porSai[c.id] || maisBarata(c, out, usadas), r;
+      if (alt) {
+        usadas[alt.id] = 1;
+        r = '<td class="c-b" data-pre="→">' + cvNome(alt) + jaEm(alt) + '</td>' + ganhoCel(ganho(alt, c, desc));
+      } else {
+        var ps = po.filter(function (p) { return p.t === c.t && p.cmc <= c.cmc - 2; }).sort(function (a, b) { return (b.syn || 0) - (a.syn || 0); }).slice(0, 2);
+        r = '<td colspan="2" class="cv-n c-b">' + (ps.length ? 'Nenhuma no mesmo pacote. Potenciais do mesmo tipo, ainda sem avaliação: ' + esc(lista(ps.map(function (p) { return p.n + ' (' + p.cmc + ')'; }))) + '.' :
+          'Nenhuma no mesmo pacote do radar.') + '</td>';
+      }
+      var ja = tira[c.id] && tira[c.id] !== alt ? '<small class="cv-ja">no radar, sai para ' + esc(tira[c.id].n) + ' entrar</small>' : '';
+      return '<tr><th scope="row" class="c-a">' + cvNome(c) + ja + '</th><td class="c-p">' + esc(pkNome(pkOf(c))) + '</td>' + r + '</tr>';
+    }).join('') + '</tbody></table></div>' + (caras.length > 10 ? '<p class="pn-note">E mais ' + pl(caras.length - 10, 'carta', 'cartas') + ' de custo 5 ou mais.</p>' : '') :
+    '<p class="hint">Nenhuma carta de custo 5 ou mais fora do plano: as caras deste deck são tier S, intocáveis ou de estimação.</p>');
+  var cpd = cs.filter(function (c) { return c.cpd; });
+  h += '<p class="pn-note">' + (cpd.length ? 'Custam menos na prática, e ficam fora da conta: ' + esc(lista(cpd.map(function (c) { return c.n; }))) + '. ' : '') +
+    'Tier S, intocáveis e cartas de estimação não entram na lista das mais caras: o custo delas é o plano.</p>' +
+    '<details class="how"><summary>Como a conta é feita</summary><p>Cada mana a menos adianta a carta em cerca de um turno no começo do jogo. ' +
+    (desc ? 'Com dez ou mais peças de Ramp de nota 2 ou 3, como aqui, o deck costuma jogar uma carta de custo C no turno C − 1. ' : 'Sem dez peças de Ramp de nota 2 ou 3, a conta supõe uma carta de custo C no turno C. ') +
+    'Uma troca mantém o papel quando a carta que entra fica no mesmo pacote do 8×8 que a que sai, com nota igual ou maior nele e tier igual ou melhor. ' +
+    'Ficam fora: terrenos, o comandante, custo variável (X), cartas com terreno no verso e as que custam menos na prática. ' +
+    'O CMC somado é a soma dos custos das mágicas: trocar uma carta de 5 por uma de 2 corta 3, e o placar sobe um ponto cada vez que o CMC médio cruza um número inteiro para baixo.</p></details></fieldset>';
+  return h;
 }
 
 /* ============ tabelão ============ */
@@ -1173,6 +1284,8 @@ function candCard(c) {
   var id = esc(c.id), sw = null;
   S.swaps.forEach(function (s) { if (s.i === c.id) sw = s; });
   var outC = sw && sw.o ? byId(sw.o) : null;
+  var alvo = c.inDeck ? outC : (c.sai ? byId(c.sai) : null), gn = alvo ? ganho(c, alvo, rampDesc(deck())) : null;
+  var cv = gn ? ganhoTxt(gn, alvo) : (alvo && !c.land && !alvo.land && (custoX(c) || custoX(alvo)) ? 'Custo variável (X): fica fora da conta de mana' : '');
   return '<article class="cand' + (c.inDeck ? ' in' : '') + '" id="cand-' + id + '"><div class="cand-top' + (imgOn() ? ' wi' : '') + '">' +
     (imgOn() ? '<div class="cand-img c-' + esc(c.col) + '" data-card="' + id + '" role="button" tabindex="0" aria-label="Abrir ' + esc(c.n) + '">' + fbTile(c) + imgTag(c, 'small', false) + '</div>' : '') +
     '<div class="cand-txt"><div class="cand-h">' + tierB(c.tier) + '<div><h3><button class="linkish" data-card="' + id + '">' + esc(c.n) + '</button></h3><p class="cand-m">' + (c.cost ? mana(c.cost) + ' ' : '') + esc(c.line) + (c.pt ? ', ' + esc(c.pt) : '') + '</p></div>' +
@@ -1180,6 +1293,7 @@ function candCard(c) {
     (c.fx ? '<p class="cand-fx' + (c.orig ? ' orig' : '') + '">' + rich(c.fx) + '</p>' : '') + (c.why ? '<p class="cand-why">' + rich(c.why) + '</p>' : '') + '</div></div>' +
     '<div class="gtags">' + gtags(c) + '<span class="gt" style="--c:var(--gold-rgb)">' + pts(c) + ' pts</span>' +
     (c.syn != null && EDH ? '<span class="gt" style="--c:160,170,182" title="Sinergia no ' + esc(EDH.fonte) + '">' + esc(EDH.fonte) + ' ' + synTxt(c.syn) + '</span>' : '') + (c.tem ? '<span class="gt" style="--c:95,191,167">tenho a carta</span>' : '') + '</div>' +
+    (cv ? '<p class="cand-cv">' + cv + '.</p>' : '') +
     '<div class="cand-a">' + (c.inDeck ?
       '<span class="st">No deck' + (outC ? ', no lugar de ' + esc(outC.n) : '') + '</span><button class="btn ghost sm" data-act="unswap" data-id="' + id + '" data-fid="us' + id + '">Desfazer</button>' :
       '<select class="inp" id="sel-' + id + '" aria-label="Quem sai do deck para ' + esc(c.n) + ' entrar">' + cutOptions(c) + '</select>' +

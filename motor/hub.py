@@ -88,7 +88,7 @@ def preco(c):
         return None
 
 
-FLAGS = (("land", "L"), ("mdfc", "md"), ("tapped", "tp"), ("wipe", "w"), ("cmd", "cm"), ("nocut", "nc"), ("foil", "f"))
+FLAGS = (("land", "L"), ("mdfc", "md"), ("tapped", "tp"), ("wipe", "w"), ("cmd", "cm"), ("nocut", "nc"), ("foil", "f"), ("cpd", "cp"))
 
 
 def compacta(c, sf_lancamento=None):
@@ -106,7 +106,7 @@ def compacta(c, sf_lancamento=None):
     for k, kk in FLAGS:
         if c.get(k):
             x[kk] = 1
-    for k, kk in (("pri", "pr"), ("mk", "mk"), ("prod", "pd"), ("cost", "co")):
+    for k, kk in (("pri", "pr"), ("mk", "mk"), ("prod", "pd"), ("cost", "co"), ("pk0", "pk")):
         if c.get(k):
             x[kk] = c[k]
     if c.get("syn") is not None:

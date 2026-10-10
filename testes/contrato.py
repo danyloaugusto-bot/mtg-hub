@@ -84,7 +84,15 @@ try:
     def leitura(av):
         av["leituras"].append({"tipo": "agrupamento", "g": "nao-existe", "min": 1, "rotulo": ["a", "b"]})
 
+    def pacote(av):
+        next(iter(av["cartas"].values()))["pacote"] = "nao-existe"
+
+    def caro(av):
+        next(iter(av["cartas"].values()))["caro_por_desenho"] = "sim"
+
     recusa("nota-4", nota4, "vale de")
+    recusa("pacote-inexistente", pacote, "não é um agrupamento")
+    recusa("caro-por-desenho-nao-booleano", caro, "caro_por_desenho")
     recusa("carta-sem-avaliacao", sem_avaliacao, "sem avaliação")
     recusa("onze-agrupamentos", onze, "de 6 a 10")
     recusa("marca-nao-declarada", marca, "não está declarada")

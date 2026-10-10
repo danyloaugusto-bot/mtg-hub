@@ -15,3 +15,7 @@
 ## Comunidade, 10/10/2026
 
 - Lida a página do Vito no edh.wiki (tema Lifegain, 45%). Doze potenciais gravados em `comunidade.json`. Bloodthirsty Aerialist, Veinwitch Coven, Falkenrath Noble e Crypt Incursion são os de maior sinergia ainda sem avaliação. Sanguine Bond, Vampire Nighthawk e Sangromancer, os mais pedidos pela página, já estão no radar.
+
+## Custo de mana, 10/10/2026
+
+- O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: K'rrik, Son of Yawgmoth (cada {B} pode ser pago com 2 de vida) e Blasphemous Edict ({B} com treze criaturas em campo).

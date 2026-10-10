@@ -85,7 +85,7 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` ou `F` para foil
 
 **Notas.** Por nome do agrupamento, de 0 a 3, omitindo os zeros. 1 é de passagem, 2 é função da carta, 3 é referência no deck.
 
-**Campos de toda carta.** `tier` (S A B C D), `rel` (INS ALT MED BAX), `faz` e `porque` são obrigatórios. Opcionais: `massa` (remoção em massa), `pontual` (remoção em massa que também responde a um alvo), `virado` (terreno que sempre entra virado), `gera` (cores que o terreno gera, como `"WB"` ou `"C"`; sem ele, vale o que o Scryfall diz), `prioridade` (ordem sugerida na fila de corte, 1 sai primeiro), `fora_do_corte` (candidata a carta de estimação: nunca entra na fila de corte nem é sugerida como saída; no Valgavoth, as cartas nascidas na DSC). No radar, também `veredito` (entra, avaliar, fora) e `sai`, o nome de uma carta do deck.
+**Campos de toda carta.** `tier` (S A B C D), `rel` (INS ALT MED BAX), `faz` e `porque` são obrigatórios. Opcionais: `massa` (remoção em massa), `pontual` (remoção em massa que também responde a um alvo), `virado` (terreno que sempre entra virado), `gera` (cores que o terreno gera, como `"WB"` ou `"C"`; sem ele, vale o que o Scryfall diz), `prioridade` (ordem sugerida na fila de corte, 1 sai primeiro), `fora_do_corte` (candidata a carta de estimação: nunca entra na fila de corte nem é sugerida como saída; no Valgavoth, as cartas nascidas na DSC), `pacote` (fixa o quadro da carta na aba 8×8), `caro_por_desenho` (`true` quando a carta custa menos na prática: redução de custo, custo alternativo, protótipo ou aventura; fica fora da conta de custo). No radar, também `veredito` (entra, avaliar, fora) e `sai`, o nome de uma carta do deck.
 
 **Marcadores.** São do deck: Vampiro e saída de sacrifício no Ritos; Anjo, ganho de vida e proteção no Coro. Um marcador com `subtipo` é dado pelo tipo da carta, sem precisar marcar à mão. Os demais vão em `marcas` de cada carta, com valor 1 ou um número que a leitura pode distinguir.
 
@@ -195,6 +195,18 @@ Foi acrescentada em 10/10/2026, a pedido do dono, entre a Tier list e o Tabelão
 - **Referência.** Cada quadro mostra o número de cartas contra a faixa `ref` do agrupamento; sem `ref`, vale 8. Mana vale de 35 a 37. A referência é guia, não regra de corte.
 - **Para trocar com sabedoria.** Cada quadro mostra a carta mais fraca (pela mesma ordem da fila de corte) e as cartas do radar cujo pacote primário é aquele. Passando o mouse numa do radar, aparece quem sairia.
 - **O comandante** fica fora da contagem.
+
+## Custo de mana: o que faria o mesmo por menos
+
+Acrescentado em 10/10/2026, a pedido do dono: carta que chega mais cedo pesa mais no jogo. A conta mora em três lugares do painel e num do Dashboard, sempre com a mesma regra.
+
+- **A regra.** Uma troca do radar *baixa o custo sem perder o papel* quando a carta que entra custa pelo menos 1 a menos que a que sai, fica no mesmo pacote do 8×8, é do mesmo tipo de remoção (limpeza de mesa só troca por limpeza de mesa), tem nota igual ou maior nesse pacote e tier igual ou melhor. Ficam fora da conta: terrenos, o comandante, custo variável (`{X}` no custo), cartas com terreno no verso e as marcadas com `caro_por_desenho`. Cada carta do radar é sugerida para uma carta cara só, da mais cara para a menos cara.
+- **Como se mede o ganho.** Em mana (custo da que sai menos o da que entra), em turno e no deck inteiro. Turno: carta de custo 2 ou menos sai no turno do próprio custo; acima disso, com dez ou mais peças de Ramp de nota 2 ou 3, no turno custo − 1 (nunca antes do 2); sem isso, no turno do custo. Deck: CMC médio, CMC somado, cartas de custo 6 ou mais e placar, hoje, com as trocas marcadas para entrar e só com as que baixam o custo sem perder o papel.
+- **Visão geral, quadro "Custo e curva".** A tabela de antes e depois, as trocas do radar que baixam o custo e as mais caras do deck (custo 5 ou mais), cada uma com a carta mais barata do mesmo pacote no radar (a da própria troca, quando a carta já sai para uma mais barata) e o aviso quando o radar já a tira para outra carta entrar. Sem ela no radar, aponta até dois potenciais do mesmo tipo que custam 2 ou mais a menos, avisando que ainda não têm avaliação. Diz quando a carta mais barata já está no deck de outro. Tier S, intocáveis e cartas de estimação não entram na lista das mais caras: o custo delas é o plano.
+- **Radar.** Cada cartão com quem sai mostra a diferença de mana, o turno em que a carta chega, se mantém o papel e se pede mais de uma cor.
+- **8×8.** Cada quadro mostra a mais cara do pacote (custo 4 ou mais, pela mesma regra) e a do radar que faria o mesmo por menos.
+- **Dashboard, seção Trocas.** A coluna "CMC médio" (antes e depois das trocas recomendadas), "Trocas que baixam o custo" de todos os decks e "As mais caras sem troca barata no radar" (custo 6 ou mais), que é por onde começar a procurar carta nova.
+- **Falta:** buscar no Scryfall cartas mais baratas que façam o mesmo, para além do radar e dos potenciais. Fica para um comando novo.
 
 ## Cartas entre decks e pastas
 

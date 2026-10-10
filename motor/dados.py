@@ -238,6 +238,8 @@ def conferir_avaliacao(av, quem, grupos, marcadores, radar=False):
         raise ErroDeck("%s: veredito %r; use %s" % (quem, av.get("veredito"), ", ".join(VEREDITOS)))
     if av.get("pacote") is not None and av["pacote"] not in [g["k"] for g in grupos] + ["mana", "sem"]:
         raise ErroDeck("%s: pacote %r não é um agrupamento do deck (nem 'mana' ou 'sem')" % (quem, av["pacote"]))
+    if av.get("caro_por_desenho") is not None and not isinstance(av["caro_por_desenho"], bool):
+        raise ErroDeck("%s: 'caro_por_desenho' é true ou false" % quem)
     for k in (av.get("marcas") or {}):
         if k not in marcadores:
             raise ErroDeck("%s: marca '%s' não está declarada em 'marcadores'" % (quem, k))
@@ -316,6 +318,8 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
             d["nocut"] = 1
         if av.get("pacote"):
             d["pk0"] = av["pacote"]
+        if av.get("caro_por_desenho"):
+            d["cpd"] = 1
         if av.get("gera"):
             d["prod"] = av["gera"]
     if mk:

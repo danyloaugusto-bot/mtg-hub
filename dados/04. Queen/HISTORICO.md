@@ -15,3 +15,7 @@
 ## Comunidade, 10/10/2026
 
 - Lida a página de monarca da Marchesa no edh.wiki (tema Monarca, 24%). Quinze potenciais gravados em `comunidade.json`; Deflecting Palm, Kardur, Breena e Xantcha são os de maior sinergia. Mangara, Teferi's Protection e Palace Jailer, que a página também pede, já estão no radar.
+
+## Custo de mana, 10/10/2026
+
+- O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Blasphemous Act (custa 1 a menos por criatura em campo) e Blasphemous Edict ({B} com treze criaturas em campo).

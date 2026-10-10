@@ -14,3 +14,7 @@
 ## Comunidade, 10/10/2026
 
 - Lida a página de artefatos do Davros no edh.wiki (sem contagem de decks). Doze potenciais gravados em `comunidade.json`, todos azul, preto ou vermelho; os de maior sinergia são os que baratearam artefatos (Enthusiastic Mechanaut, Etherium Sculptor), Sygg, River Cutthroat e Labyrinth Raptor. O deck é precon intacto: são referência, não troca.
+
+## Custo de mana, 10/10/2026
+
+- O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Blasphemous Act (custa 1 a menos por criatura em campo). A lista do precon não muda: a marca só tira a carta da conta de custo.

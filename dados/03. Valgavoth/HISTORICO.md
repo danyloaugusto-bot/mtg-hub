@@ -13,3 +13,7 @@
 ## Comunidade, 08/10/2026
 
 - Lida a página do Valgavoth no EDHREC (29.815 decks, tema Group Slug). Onze potenciais gravados em `comunidade.json`. Blood Seeker (81%), Nightshade Harvester (67%) e Persistent Constrictor (58%) são os de maior sinergia, ainda não avaliados.
+
+## Custo de mana, 10/10/2026
+
+- O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Blasphemous Act (custa 1 a menos por criatura em campo) e Blasphemous Edict ({B} com treze criaturas em campo).

@@ -42,6 +42,18 @@ with sync_playwright() as p:
         ti = pg.evaluate("Array.from(document.querySelectorAll('#v-geral .score-big ~ .legend > span')).map(s=>+s.textContent.trim().split(' ').pop())")
         R.ok("tiers", ti == [ctl["tiers"][k] for k in "SABCD"], ti)
 
+    # custo e curva: a linha de hoje bate com o topo; as trocas que baixam o custo batem com a conta em Python
+    R.ok("custo e curva na visão geral", pg.locator("#v-geral fieldset.cv .cvt tbody tr").count() >= 1)
+    if "cmc" in ctl:
+        hoje = pg.inner_text("#v-geral fieldset.cv .cvt tbody tr:first-child td b")
+        R.ok("custo e curva: CMC médio de hoje igual ao do topo", hoje == ctl["cmc"], hoje)
+    nb, cmc_b = comum.custo_baixo(D)
+    linhas_cv = pg.evaluate("Array.from(document.querySelectorAll('#v-geral fieldset.cv .cvt tbody tr')).map(r=>r.innerText)")
+    so = [l for l in linhas_cv if l.startswith("Só as trocas")]
+    R.ok("custo e curva: trocas que baixam o custo iguais à conta em Python",
+         (not so and nb == 0) or (len(so) == 1 and ("(%d)" % nb) in so[0] and abs(float(so[0].split("	")[1].split()[0].replace(",", ".")) - cmc_b) < 0.006),
+         (so, nb, round(cmc_b, 2)))
+
     abas = ("gal", "tier", "pk", "tab", "ctrl", "radar", "ofi", "geral")
     visto = []
     for t in abas:
@@ -87,6 +99,10 @@ with sync_playwright() as p:
     gks = [g["k"] for g in D["grupos"]]
     R.ok("8×8: um quadro por agrupamento e um de Mana", pg.locator("#v-pk .kcol").count() in (NG + 1, NG + 2), pg.locator("#v-pk .kcol").count())
     R.ok("8×8: todas as cartas, menos o comandante, em algum quadro", pg.locator("#v-pk .kcol .chip").count() >= 1)
+    caras = pg.evaluate("Array.from(document.querySelectorAll('#v-pk .pk-c > .chip')).map(e=>e.dataset.card)")
+    porid = {c["id"]: c for c in D["cards"]}
+    R.ok("8×8: a mais cara de cada pacote fica fora do plano (sem tier S, intocável ou custo que já cai)",
+         all(porid[i]["cmc"] >= 4 and porid[i]["tier"] != "S" and porid[i]["rel"] != "INS" and not porid[i].get("cpd") for i in caras), caras)
     orig = next((k for k in gks if pg.locator('#v-pk [data-drop="pk:%s"] .chip' % k).count() > 0), None)
     dest = next((k for k in gks if k != orig), None)
     if orig and dest:
@@ -113,6 +129,12 @@ with sync_playwright() as p:
     pg.click('[data-tab="radar"]'); pg.wait_for_timeout(200)
     sug = [c for c in D["cands"] if c.get("sai") and c["verdict"] != "fora"]
     R.ok("sugestões de saída", all(pg.eval_on_selector("#sel-" + c["id"], "e=>e.value") == c["sai"] for c in sug), len(sug))
+    porid = {c["id"]: c for c in D["cards"]}
+    temx = lambda c: "{X}" in (c.get("cost") or "")
+    com_cv = [c for c in sug if not c.get("land") and not porid[c["sai"]].get("land") and
+              (temx(c) or temx(porid[c["sai"]]) or not (c.get("mdfc") or porid[c["sai"]].get("mdfc")))]
+    R.ok("radar: o ganho de custo em cada cartão com quem sai", all(pg.locator("#cand-%s .cand-cv" % c["id"]).count() == 1 for c in com_cv) and
+         pg.locator("#v-radar .cand-cv").count() == len(com_cv), (pg.locator("#v-radar .cand-cv").count(), len(com_cv)))
     for c in entram:
         pg.click('[data-act="swap"][data-id="%s"]' % c["id"]); pg.wait_for_timeout(120)
     R.ok("trocas sugeridas mantêm a contagem", cnt() == "%d cartas" % ctl.get("cartas", 100), cnt())

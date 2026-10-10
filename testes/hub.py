@@ -85,6 +85,13 @@ with sync_playwright() as p:
                 ctl = comum.controle(d["pasta"]).get("placar_trocas")
                 if ctl is not None:
                     R.ok("%s: placar com as trocas igual ao controle" % d["pasta"], x.get("placar_trocas") == ctl, (x.get("placar_trocas"), ctl))
+                nb, cmc_b = comum.custo_baixo(dados.montar(d["pasta"], avisar=lambda *x: None))
+                R.ok("%s: trocas que baixam o custo iguais à conta em Python" % d["pasta"],
+                     x.get("baixa_custo") == nb and abs(x.get("cmc_custo", 0) - round(cmc_b, 2)) < 0.006, (x.get("baixa_custo"), x.get("cmc_custo"), nb, round(cmc_b, 2)))
+            R.ok("Trocas: coluna de CMC médio antes e depois", pg.locator("#d-trocas thead th:text('CMC médio')").count() == 1)
+            R.ok("Trocas: as que baixam o custo e as mais caras sem troca barata",
+                 pg.locator("#d-trocas .cx h3:text('Trocas que baixam o custo')").count() == 1 and
+                 pg.locator("#d-trocas .cx h3:text('As mais caras sem troca barata no radar')").count() == 1)
             R.ok("KPIs do resumo", pg.locator("#d-resumo .kpi").count() >= 5, pg.locator("#d-resumo .kpi").count())
             R.ok("lista do que pede atenção", pg.locator("#d-resumo .att > li:not(.mais)").count() >= 1)
             # mesa: com um oponente de combo, o ranking aparece com todos os decks e explica o porquê

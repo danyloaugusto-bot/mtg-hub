@@ -42,6 +42,42 @@ def controle(pasta):
     return {}
 
 
+def custo_baixo(m):
+    """Conta independente, em Python, das trocas do radar que baixam o custo sem perder o papel (a regra da Visão geral
+    e do Dashboard): devolve quantas são, uma por carta que sai, e o CMC médio do deck com todas elas."""
+    G = [g["k"] for g in m["grupos"]]
+    TR = "SABCD"
+
+    def pk(c):
+        if c.get("land") or c.get("mdfc"):
+            return "mana"
+        if c.get("pk0"):
+            return c["pk0"]
+        b, bi = 0, -1
+        for i, v in enumerate(c.get("s") or []):
+            if v > b:
+                b, bi = v, i
+        return G[bi] if bi >= 0 else "sem"
+
+    def x(c):
+        return "{X}" in (c.get("cost") or "")
+
+    idx = {c["id"]: c for c in m["cards"]}
+    melhor = {}
+    for c in m["cands"]:
+        s = idx.get(c.get("sai"))
+        if c["verdict"] == "fora" or not s or s.get("cpd") or any(k.get("land") or k.get("mdfc") or x(k) for k in (c, s)):
+            continue
+        d, k = s["cmc"] - c["cmc"], pk(s)
+        if d < 1 or k not in G or pk(c) != k or bool(c.get("wipe")) != bool(s.get("wipe")) or c["s"][G.index(k)] < s["s"][G.index(k)] or TR.index(c["tier"]) > TR.index(s["tier"]):
+            continue
+        if d > melhor.get(s["id"], (0, None))[0]:
+            melhor[s["id"]] = (d, c)
+    cs = [c for c in m["cards"] if c["id"] not in melhor] + [v[1] for v in melhor.values()]
+    nl = [c for c in cs if not c.get("land")]
+    return len(melhor), sum(c["cmc"] * c.get("q", 1) for c in nl) / sum(c.get("q", 1) for c in nl)
+
+
 class Relatorio:
     def __init__(self, titulo):
         self.titulo, self.linhas, self.falhas, self.erros = titulo, [], 0, []

@@ -688,3 +688,38 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .dw-out .w{flex:1;color:var(--mute);font-size:14.5px}
 .dw-out-n{margin-top:8px;font-size:15.5px;color:var(--mute)}
 .dw-out-n b{color:var(--bone)}
+
+/* custo de mana */
+.cvt{width:100%;border-collapse:collapse;margin:4px 0 10px}
+.cvt th,.cvt td{padding:8px 4px;text-align:right;white-space:nowrap}
+.cvt thead th{color:var(--dim);font-weight:400;font-size:14.5px;padding-bottom:4px}
+.cvt tbody tr+tr>*{border-top:1px solid var(--line)}
+.cvt tbody th{font-weight:400}
+.cvt th:first-child{text-align:left;white-space:normal;min-width:160px}
+.cvt small{color:var(--mute);font-weight:400}
+.cand-cv{margin:8px 0 0;font-size:14px;color:var(--dim)}.cand-cv b{color:var(--bone)}
+.cv-ok{color:var(--ok);font-weight:700}.cvt small.cv-ok{color:var(--ok)}.cvt small.cv-up{color:var(--warn)}
+.cvt2{width:100%;border-collapse:collapse;margin:4px 0 14px;min-width:520px}
+.cvt2 th,.cvt2 td{padding:7px 8px;text-align:left;vertical-align:middle;font-weight:400}
+.cvt2 thead th{color:var(--dim);font-size:14.5px;padding-bottom:4px}
+.cvt2 tbody tr>*{border-top:1px solid var(--line)}
+.cvt2 .num{text-align:right;white-space:nowrap}
+.cvt2 td.num small{display:block;color:var(--dim);font-size:13px}.cvt2 td.num small.cv-ok{color:var(--ok)}
+.cvt2 .linkish{font-weight:700;color:var(--bone);text-align:left}
+.cvt2 .tb{vertical-align:middle}
+.cvt2 .cv-ja{display:block;color:var(--mute);font-size:13px}
+.cvt2 .cv-n{color:var(--mute);font-size:14px}
+.pk-c .chip{flex:0 1 auto;min-width:0}
+.pk-alt{display:inline-flex;align-items:center;gap:6px;min-width:0}
+.pk-line small{color:var(--dim);font-size:13px}
+.pk-line .ar{color:var(--mute);font-size:13px}
+@media (max-width:640px){
+  .cvt th:first-child{min-width:0}.cvt thead th{white-space:normal}.cvt th,.cvt td{padding:7px 3px}
+  .cvt2{min-width:0}.cvt2 thead{display:none}
+  .cvt2 tbody tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;border-top:1px solid var(--line);padding:7px 0}
+  .cvt2 tbody tr>*{border-top:0;padding:2px 2px}
+  .cvt2 .c-a,.cvt2 .c-p,.cvt2 .c-b{grid-column:1}
+  .cvt2 .c-g{grid-column:2;grid-row:1/span 3;align-self:center}
+  .cvt2 .c-p{color:var(--mute);font-size:13px}
+  .cvt2 .c-b[data-pre]::before{content:attr(data-pre) " ";color:var(--mute);font-size:13px}
+}

@@ -273,6 +273,40 @@ function basicosRel() {
   return { moda: moda, fora: por.filter(function (x) { return x.r !== moda; }) };
 }
 
+/* ---------- custo de mana: a mesma conta da Visão geral de cada painel ---------- */
+function custoX(c) { return /\{X\}/.test(c.co || ''); }
+function pkDe(A, c) {
+  if (c.L || c.md) return 'mana';
+  if (c.pk && (c.pk === 'mana' || c.pk === 'sem' || gix(A, c.pk) >= 0)) return c.pk;
+  var b = 0, bi = -1; (c.s || []).forEach(function (v, i) { if (v > b) { b = v; bi = i; } });
+  return bi < 0 ? 'sem' : A.grupos[bi].k;
+}
+/* a troca baixa o custo sem perder o papel: mesmo pacote do 8×8, nota igual ou maior nele, tier igual ou melhor */
+function baixaCusto(A, e, s) {
+  if (!s || e.L || s.L || e.md || s.md || custoX(e) || custoX(s) || s.cp || s.c - e.c < 1) return false;
+  var k = pkDe(A, s), i = gix(A, k);
+  return i >= 0 && pkDe(A, e) === k && !!e.w === !!s.w && (e.s[i] || 0) >= (s.s[i] || 0) && TR[e.T] <= TR[s.T];
+}
+function pesada(c) { return !c.L && !c.md && !c.cm && !custoX(c) && !c.nc && !c.cp && c.T !== 'S' && c.r !== 'INS'; }
+function custoDeck(A) {
+  var out = A.cands.filter(function (c) { return c.v !== 'fora'; }), vistos = {}, sel = {};
+  var boas = out.filter(function (c) { return baixaCusto(A, c, c.sa ? A.idx[c.sa] : null); })
+    .sort(function (a, b) { return (A.idx[b.sa].c - b.c) - (A.idx[a.sa].c - a.c) || TR[a.T] - TR[b.T]; })
+    .filter(function (c) { if (vistos[c.sa]) return false; vistos[c.sa] = 1; sel[c.i] = 1; return true; })
+    .map(function (c) { return { c: c, s: A.idx[c.sa], d: A.idx[c.sa].c - c.c, deck: A }; });
+  /* cada carta do radar é sugerida uma vez só, da mais cara do deck para a menos cara, como no painel */
+  var usadas = {}, porSai = {}; boas.forEach(function (b) { usadas[b.c.i] = 1; porSai[b.s.i] = b.c; });
+  var caras = A.cards.filter(function (c) { return pesada(c) && c.c >= 5; })
+    .sort(function (a, b) { return b.c - a.c || TR[b.T] - TR[a.T] || a.n.localeCompare(b.n); }).map(function (c) {
+      var k = pkDe(A, c);
+      var alt = porSai[c.i] || out.filter(function (x) { return !usadas[x.i] && !x.L && !x.md && !custoX(x) && x.c <= c.c - 1 && pkDe(A, x) === k && !!x.w === !!c.w; })
+        .sort(function (a, b) { return TR[a.T] - TR[b.T] || a.c - b.c || a.n.localeCompare(b.n); })[0];
+      if (alt) usadas[alt.i] = 1;
+      return { c: c, alt: alt || null, deck: A };
+    });
+  return { boas: boas, st: boas.length ? contas(aplicar(A, sel), A) : A.st, caras: caras };
+}
+
 /* ---------- preparo de cada deck ---------- */
 var DK = H.decks.filter(function (d) { return d.a; });
 DK.forEach(function (d) {
@@ -288,6 +322,7 @@ DK.forEach(function (d) {
   A.custo = soma(A.tr, function (t) { return t.u || 0; }); A.semPreco = A.tr.filter(function (t) { return t.u == null; }).length;
   A.libera = soma(A.tr, function (t) { return t.uo; });
   A.combos0 = combosEm(A, A.cards); A.combos2 = combosEm(A, A.cs2);
+  A.cv = custoDeck(A);
 });
 
 /* ---------- o que pede atenção ---------- */
@@ -615,11 +650,13 @@ function secTrocas() {
   var todas = []; DK.forEach(function (d) { todas = todas.concat(d.a.tr); });
   var rows = DK.map(function (d) {
     var A = d.a, aval = A.cands.filter(function (c) { return c.v === 'avaliar'; }).length, dp = A.st2.total - A.st.total, saldo = A.custo - A.libera;
-    var marg = soma(A.tr, function (t) { return t.d; });
+    var marg = soma(A.tr, function (t) { return t.d; }), dc = A.st2.avg - A.st.avg;
     return '<tr><th scope="row">' + deckLink(A) + '</th><td class="n num">' + A.tr.length + '</td><td class="n num">' + aval + '</td>' +
       '<td class="n num">' + dol(A.custo, 0) + (A.semPreco ? '<small>+' + A.semPreco + ' sem preço</small>' : '') + '</td><td class="n num">' + dol(A.libera, 0) + '</td>' +
       '<td class="n num' + (saldo < -0.005 ? ' pos' : '') + '">' + dolS(saldo, 0) + '</td>' +
       '<td class="n num">' + A.st.total + ' <span class="seta">→</span> ' + A.st2.total + '<small class="' + (dp >= 0 ? 'pos' : 'neg') + '">' + sinal(dp) + ' (' + sinal(dp / A.st.total * 100, 1) + '%)</small></td>' +
+      '<td class="n num">' + num(A.st.avg, 2) + ' <span class="seta">→</span> ' + num(A.st2.avg, 2) +
+        (Math.abs(dc) >= 0.005 ? '<small class="' + (dc < 0 ? 'pos' : 'neg') + '">' + sinal(dc, 2) + '</small>' : '') + '</td>' +
       '<td class="n num" data-tip="' + esc('Somando as trocas uma a uma: ' + sinal(marg) + '. Juntas: ' + sinal(dp) + '.') + '">' + sinal(marg) + '</td>' +
       '<td class="n num">' + nAlertas(A.le) + ' <span class="seta">→</span> ' + nAlertas(A.le2) + '</td></tr>';
   }).join('');
@@ -629,7 +666,7 @@ function secTrocas() {
   var semp = todas.filter(function (t) { return t.d > 0 && t.u == null; });
   var maior = DK.map(function (d) { return { d: d, x: d.a.st2.total - d.a.st.total - soma(d.a.tr, function (t) { return t.d; }) }; }).sort(function (a, b) { return Math.abs(b.x) - Math.abs(a.x); })[0];
   var h = caixa('', '<div class="tw"><table class="tbl"><thead><tr><th scope="col">Deck</th><th scope="col" class="n">Entram</th><th scope="col" class="n">Em avaliação</th>' +
-    '<th scope="col" class="n">Custo</th><th scope="col" class="n">Valor que sai</th><th scope="col" class="n">Saldo</th><th scope="col" class="n">Placar</th><th scope="col" class="n">Soma das partes</th><th scope="col" class="n">Alertas</th></tr></thead><tbody>' + rows +
+    '<th scope="col" class="n">Custo</th><th scope="col" class="n">Valor que sai</th><th scope="col" class="n">Saldo</th><th scope="col" class="n">Placar</th><th scope="col" class="n">CMC médio</th><th scope="col" class="n">Soma das partes</th><th scope="col" class="n">Alertas</th></tr></thead><tbody>' + rows +
     '</tbody></table></div>' + nota('Custo: as cartas que entram, no Scryfall. Valor que sai: as que deixam o deck, no mesmo preço. No total, as trocas custam ' + dol(custo, 0) + ' e tiram ' + dol(libera, 0) +
       ' em cartas do deck. Preço de Scryfall é de varejo: numa troca ou venda, carta usada vale menos. ' +
       (maior && Math.abs(maior.x) >= 5 ? 'O placar anda em degraus: ' + esc(maior.d.nome) + ' soma ' + sinal(soma(maior.d.a.tr, function (t) { return t.d; })) + ' com as trocas uma a uma e ' + sinal(maior.d.a.st2.total - maior.d.a.st.total) + ' com todas juntas. Julgue o pacote, não a carta.' : '')), 'larga');
@@ -641,6 +678,21 @@ function secTrocas() {
     caixa('Trocas que o placar não paga', '<ul class="naopaga">' + mais('naopaga', neg, 6, function (t) {
       return '<li><span class="num neg">' + sinal(t.d) + '</span><div><b>' + esc(t.c.n) + '</b> <span class="dim">no ' + esc(t.deck.nome) + (t.out ? ', no lugar de ' + esc(t.out.n) : '') + '</span><p>' + esc(t.porque) + '</p></div></li>';
     }) + '</ul>' + nota('Placar não é tudo: terreno, qualidade e proteção nem sempre viram nota. Essas trocas se justificam pelo motivo escrito no radar de cada painel.')) + '</div>';
+  var boas = [], semAlt = [];
+  DK.forEach(function (d) { boas = boas.concat(d.a.cv.boas); semAlt = semAlt.concat(d.a.cv.caras.filter(function (x) { return !x.alt && x.c.c >= 6; })); });
+  boas.sort(function (a, b) { return b.d - a.d || TR[a.c.T] - TR[b.c.T] || a.c.n.localeCompare(b.c.n); });
+  semAlt.sort(function (a, b) { return b.c.c - a.c.c || TR[b.c.T] - TR[a.c.T] || a.c.n.localeCompare(b.c.n); });
+  var mudam = DK.filter(function (d) { return d.a.cv.boas.length; });
+  h += '<div class="g2">' + caixa('Trocas que baixam o custo', '<ul class="naopaga custo">' + (boas.length ? mais('baixa', boas, 8, function (b) {
+      return '<li><span class="num pos">−' + b.d + '</span><div><b>' + esc(b.c.n) + '</b> <span class="dim">no ' + esc(b.deck.nome) + ', no lugar de ' + esc(b.s.n) +
+        ' (custo ' + b.s.c + ' → ' + b.c.c + ')</span>' + (b.c.v === 'avaliar' ? ' ' + pill('info', 'em avaliação') : '') + '</div></li>';
+    }) : '<li class="dim">Nenhuma troca do radar baixa o custo mantendo o papel.</li>') + '</ul>' +
+    nota((mudam.length ? 'Com essas trocas, o CMC médio fica assim: ' + esc(lista(mudam.map(function (d) { return d.nome + ' ' + num(d.a.st.avg, 2) + ' → ' + num(d.a.cv.st.avg, 2); }))) + '. ' : '') +
+      'Mantém o papel quando a carta que entra fica no mesmo pacote do 8×8 que a que sai, com nota igual ou maior nele e tier igual ou melhor. Cada mana a menos adianta a carta em cerca de um turno no começo do jogo.')) +
+    caixa('As mais caras sem troca barata no radar', '<ul class="naopaga custo">' + (semAlt.length ? mais('caras', semAlt, 8, function (x) {
+      return '<li><span class="num">' + x.c.c + '</span><div><b>' + esc(x.c.n) + '</b> <span class="dim">no ' + esc(x.deck.nome) + ', tier ' + x.c.T + ', ' + RELL[x.c.r] + '</span></div></li>';
+    }) : '<li class="dim">Toda carta de custo 6 ou mais fora do plano já tem alternativa mais barata no radar.</li>') + '</ul>' +
+    nota('Custo 6 ou mais, sem carta mais barata no mesmo pacote do radar. Ficam fora tier S, intocáveis, estimação, custo variável (X) e as que custam menos na prática. É por onde começar a procurar uma carta mais barata que faça o mesmo.')) + '</div>';
   h += caixa('Simulador de trocas', '<div id="sim">' + boxSim() + '</div>', 'larga sim-box');
   return secao('trocas', 'Trocas recomendadas: custo, retorno e risco', 'O radar de cada painel, somado: o que entra, o que sai, quanto custa e o que muda.', h);
 }
@@ -1157,5 +1209,6 @@ document.addEventListener('keydown', function (ev) {
   var n = tabs[(i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; vista(n.dataset.vista); n.focus();
 });
 /* para os testes e para conferência: as contas do Dashboard, deck a deck */
-window.HUB_DASH = { decks: DK.map(function (d) { var A = d.a; return { pasta: d.pasta, placar: A.st.total, placar_trocas: A.st2.total, alertas: nAlertas(A.le), alertas_trocas: nAlertas(A.le2), valor: Math.round(A.st.usd * 100) / 100, fontes: A.mana.src, karsten: Math.round(A.kar.sug * 10) / 10 }; }) };
+window.HUB_DASH = { decks: DK.map(function (d) { var A = d.a; return { pasta: d.pasta, placar: A.st.total, placar_trocas: A.st2.total, alertas: nAlertas(A.le), alertas_trocas: nAlertas(A.le2), valor: Math.round(A.st.usd * 100) / 100, fontes: A.mana.src, karsten: Math.round(A.kar.sug * 10) / 10,
+  cmc: Math.round(A.st.avg * 100) / 100, cmc_custo: Math.round(A.cv.st.avg * 100) / 100, baixa_custo: A.cv.boas.length }; }) };
 })();

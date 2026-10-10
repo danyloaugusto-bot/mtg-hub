@@ -14,3 +14,7 @@
 ## Comunidade, 10/10/2026
 
 - Lida a página de toque mortífero do Fynn no edh.wiki. Treze potenciais gravados em `comunidade.json`: os corpos baratos com toque mortífero que a lista ainda não tem (Moss Viper, Wasteland Viper, Gnarlwood Dryad, Mirkwood Spider, Narnam Renegade) e três proliferar baratos de um feitiço (Smell Fear, Unnatural Restoration, Thirsting Roots). A página de infect, citada no handover, não foi lida.
+
+## Custo de mana, 10/10/2026
+
+- O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Beanstalk Giant (a aventura, Fertile Footsteps, sai por 3).
