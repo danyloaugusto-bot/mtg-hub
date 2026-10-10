@@ -6,8 +6,13 @@ capas reduzidas e embutidas, e o atalho `Abrir o Hub.html` na raiz do projeto.
 
 Três abas: Decks (os cartões, por grupo), Pastas (as pastas de cartas do dono, à espera das listas) e Dashboard
 (números cruzados entre os decks). O nome de cada deck é o nome da pasta, sem o número do grupo.
+
+O Dashboard recebe de cada deck com painel um resumo compacto: as cartas, o radar, os agrupamentos, as leituras, a
+estratégia, os combos e as datas de cada fonte. As contas (placar, leituras, trocas, base de mana, valor) são feitas no
+navegador, com a mesma lógica do painel, para que o simulador de trocas e o seletor de mesa respondam na hora. O build
+só lê e empacota; não decide nada.
 """
-import base64, csv, datetime, glob, io, json, math, os
+import base64, csv, datetime, glob, io, json, math, os, re
 from urllib.parse import quote
 
 import dados, tema
@@ -73,18 +78,147 @@ def nome_do_deck(pasta):
     return pasta.split(". ", 1)[1] if ". " in pasta else pasta
 
 
+# ---------------------------------------------------------------- resumo para o Dashboard
+def preco(c):
+    """O preço que o painel soma (usdOf no app.js): o foil quando a carta é foil e tem preço foil; senão, o comum."""
+    u = c.get("usdf") if (c.get("foil") and c.get("usdf")) else c.get("usd")
+    try:
+        return round(float(u), 2) if u not in (None, "") else None
+    except (TypeError, ValueError):
+        return None
+
+
+FLAGS = (("land", "L"), ("mdfc", "md"), ("tapped", "tp"), ("wipe", "w"), ("cmd", "cm"), ("nocut", "nc"), ("foil", "f"))
+
+
+def compacta(c, sf_lancamento=None):
+    """Uma carta em chaves curtas: o que o Dashboard precisa para refazer as contas do painel."""
+    x = {"i": c["id"], "n": c["n"], "q": c.get("q", 1), "c": c["cmc"], "t": c["t"], "s": c.get("s") or [], "T": c.get("tier"), "r": c.get("rel")}
+    if c.get("on"):
+        x["o"] = c["on"]
+    u = preco(c)
+    if u is not None:
+        x["u"] = u
+    elif sf_lancamento:
+        x["rl"] = sf_lancamento   # sem preço: a impressão padrão do Scryfall é de coleção que ainda vai sair
+    if c.get("foil") and c.get("usdf") and c.get("usd"):
+        x["u0"] = round(float(c["usd"]), 2)   # o preço da versão comum, para medir o que o foil acrescenta
+    for k, kk in FLAGS:
+        if c.get(k):
+            x[kk] = 1
+    for k, kk in (("pri", "pr"), ("mk", "mk"), ("prod", "pd"), ("cost", "co")):
+        if c.get(k):
+            x[kk] = c[k]
+    if c.get("syn") is not None:
+        x["y"] = c["syn"]
+    if c.get("cand"):
+        x["v"] = c["verdict"]
+        if c.get("sai"):
+            x["sa"] = c["sai"]
+    return x
+
+
+DATA = re.compile(r"(\d{2})/(\d{2})/(\d{4})")
+
+
+def ler_historico(base):
+    """A versão mais recente do painel, pela primeira entrada datada do HISTORICO.md que não seja de comunidade."""
+    cam = os.path.join(base, "HISTORICO.md")
+    if not os.path.exists(cam):
+        return None
+    with open(cam, encoding="utf-8") as f:
+        for linha in f:
+            m = re.match(r"^##\s+(.+?),\s*(\d{2}/\d{2}/\d{4})", linha)
+            if m and not m.group(1).lower().startswith("comunidade"):
+                return dict(v=m.group(1).strip(), d=m.group(2))
+    return None
+
+
+def ler_confronto(base):
+    """O resumo do CONFRONTO.md: cada análise de fora (sigla, arquivo, IA quando o arquivo diz) e quantas afirmações
+    dela o texto oficial desmentiu, mais o que nenhuma viu. Lê as seções pelo título; se o formato mudar, devolve None
+    e o Dashboard só deixa o deck de fora desse quadro."""
+    cam = os.path.join(base, "CONFRONTO.md")
+    if not os.path.exists(cam):
+        return None
+    with open(cam, encoding="utf-8") as f:
+        txt = f.read()
+    topo = txt.split("\n## ", 1)[0]
+    siglas = {}
+    for m in re.finditer(r"^\|\s*([A-Z])\s*\|\s*(.+?)\s*\|", topo, re.M):
+        arq = re.findall(r"`([^`]+)`", m.group(2))
+        nome = arq[0] if arq else m.group(2)
+        baixo = m.group(2).lower()
+        ia = "Grok" if "grok" in baixo else "Claude" if "claude" in baixo else ""
+        siglas[m.group(1)] = dict(s=m.group(1), a=nome, ia=ia, e=0)
+    sec = re.search(r"^## [^\n]*desmente[^\n]*\n(.*?)(?=^## |\Z)", txt, re.M | re.S)
+    if not siglas or not sec:
+        return None
+    atual = None
+    for linha in sec.group(1).splitlines():
+        b = re.match(r"^\*\*(.+?)\*\*", linha)
+        if b:
+            s = re.match(r"^(?:Em )?([A-Z])$", b.group(1).strip())
+            atual = s.group(1) if s and s.group(1) in siglas else None
+        elif atual and re.match(r"^\s*-\s", linha):
+            siglas[atual]["e"] += 1
+    nv = re.search(r"^## O que nenhuma viu[^\n]*\n(.*?)(?=^## |\Z)", txt, re.M | re.S)
+    achados = len(re.findall(r"^(?:\d+\.|-)\s", nv.group(1), re.M)) if nv else 0
+    return dict(an=[siglas[k] for k in sorted(siglas)], nv=achados)
+
+
+def lancamentos_futuros(cartas, cache):
+    """Nome -> data de lançamento, para as cartas cuja impressão no cache é de coleção que ainda não saiu (sem preço)."""
+    hoje = datetime.date.today().isoformat()
+    out = {}
+    for c in cartas:
+        nome = c.get("on", c["n"])
+        ch = (cache.get("nomes") or {}).get(nome.lower())
+        rl = ((cache.get("cartas") or {}).get(ch) or {}).get("released_at") if ch else None
+        if rl and rl > hoje:
+            out[nome] = rl
+    return out
+
+
+def resumo_dashboard(pasta, base, m, t, cache):
+    """O pacote do Dashboard para um deck com painel."""
+    cmd = next((c for c in m["cards"] if c.get("cmd")), None)
+    pool = m.get("pool") or []
+    edh = m.get("edh") or {}
+    est = m.get("estrategia") or {}
+    futuro = lancamentos_futuros(m["cands"], cache)
+    cands = [compacta(c, futuro.get(c.get("on", c["n"])) if preco(c) is None else None) for c in m["cands"]]
+    return dict(
+        painel=t.get("painel") or nome_do_deck(pasta), rev=t.get("rev", 1), feito=m.get("feito", ""), scryfall=m.get("scryfall_data", ""),
+        hist=ler_historico(base), conf=ler_confronto(base), ident=m["ident"],
+        cmd=dict(n=cmd["n"], c=cmd["cmc"], co=cmd.get("cost", "")) if cmd else None,
+        grupos=[dict(k=g["k"], n=g.get("curto") or g["nome"], ab=g["ab"], ref=g.get("ref")) for g in m["grupos"]],
+        marcadores={k: {kk: v[kk] for kk in ("nome", "plural") if v.get(kk)} for k, v in m["marcadores"].items()},
+        leituras=m["leituras"],
+        cards=[compacta(c) for c in m["cards"]], cands=cands,
+        combos=[dict(n=x["n"], k=x["kind"], p=x["p"], t=x.get("t", "")) for x in m["combos"]],
+        contra=[dict(k=c["tipo"], r=c["resultado"], p=c.get("porque", "")) for c in (est.get("contra") or [])],
+        pool=[dict(n=p["n"], y=p.get("syn"), nv=1 if p.get("novo") else 0) for p in pool],
+        edh=dict(f=edh.get("fonte", ""), l=edh.get("lido", ""), p=edh.get("pagina", "")) if edh else None,
+    )
+
+
 def montar(avisar=print):
+    import scryfall
     inv = ler_inventario()
     pastas = [n for n in sorted(os.listdir(dados.DADOS))
               if dados.eh_deck(n)]
     nomes = list(dict.fromkeys(pastas + sorted(inv)))
-    decks, presencas = [], {}
+    decks = []
+    cache = scryfall._ler()
     for pasta in nomes:
         base = os.path.join(dados.DADOS, pasta)
         r = inv.get(pasta, {})
         grupo = pasta.split(".")[0].strip() if "." in pasta else "05"
+        prio = (r.get("prioridade") or "").strip()
         d = dict(pasta=pasta, grupo=grupo, nome=nome_do_deck(pasta), cmd=(r.get("comandante") or "").replace(" (confirmar)", ""),
-                 cores=dados.ordem_cores(r.get("cores", "")), painel=None)
+                 cores=dados.ordem_cores(r.get("cores", "")), painel=None,
+                 lista=os.path.exists(os.path.join(base, "decklist.txt")), prio=int(prio) if prio.isdigit() else None)
         if os.path.exists(os.path.join(base, "avaliacao.json")):
             try:
                 m = dados.montar(pasta, avisar=lambda *x: None)
@@ -103,15 +237,12 @@ def montar(avisar=print):
                          placar=pt, cmc=round(avg, 2), tipos=tipos, href=quote(pasta + ".html"),
                          capa=capa_reduzida(base, (t.get("capa") or {}).get("arquivo")),
                          foco=(t.get("capa") or {}).get("foco", "50% 30%"))
-                for c in m["cards"]:
-                    if c["n"] not in BASICOS:
-                        presencas.setdefault(c["n"], set()).add(d["nome"])
+                d["a"] = resumo_dashboard(pasta, base, m, t, cache)
         if d["painel"] is None:
             d["capa"] = capa_reduzida(base) if os.path.isdir(base) else None
         decks.append(d)
 
-    comuns = sorted(([n, sorted(v)] for n, v in presencas.items() if len(v) >= 2), key=lambda x: (-len(x[1]), x[0]))
-    H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, comuns=comuns,
+    H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS),
              pastas=[dict(n=n, c=c) for n, c in PASTAS], gerado=datetime.date.today().strftime("%d/%m/%Y"))
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",

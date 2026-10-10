@@ -54,7 +54,7 @@ Mantenha esta seção atualizada.
 - Todos: `python motor/build.py --todos` (pula, com aviso, os decks sem `avaliacao.json`, e remonta o hub no fim)
 - Cartas do zero no Scryfall: acrescente `--atualizar-scryfall`
 - Testes de um deck: `python testes/todos.py --deck "02. Clavileño"` (contrato, regressão, página publicada, layout e, no Clavileño, a comparação com o painel de origem). Cada um também roda sozinho, com `--deck`.
-- Hub: `python motor/build.py --hub` (grava `saidas/00. Hub.html` e `Abrir o Hub.html` na raiz). Teste: `python testes/hub.py`.
+- Hub: `python motor/build.py --hub` (grava `saidas/00. Hub.html` e `Abrir o Hub.html` na raiz). Teste: `python testes/hub.py`, que também confere as contas do Dashboard contra o motor e contra cada painel (os painéis precisam estar montados em `saidas/`).
 - Não rode o `build.py` do kit em `contexto/origem/`: ele grava dentro da pasta de origem.
 
 ## Idioma e tom
