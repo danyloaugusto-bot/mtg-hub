@@ -352,6 +352,12 @@ function thornPath(r0, r1, a0, a1) {
   return 'M' + pol(r0, a0) + 'Q' + pol(r0 + h * 0.45, a0 + d * 0.30) + ' ' + pol(r1, tip) +
     'Q' + pol(r0 + h * 0.38, a1 - d * 0.02) + ' ' + pol(r0, a1) + 'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
 }
+function fangPath(r0, r1, a0, a1) {
+  // presa de serpente: base larga no anel, curva suave e ponta fina
+  var d = a1 - a0, tip = a0 + d * 0.55, h = r1 - r0;
+  return 'M' + pol(r0, a0) + 'C' + pol(r0 + h * 0.5, a0 + d * 0.05) + ' ' + pol(r0 + h * 0.85, tip - d * 0.12) + ' ' + pol(r1, tip) +
+    'C' + pol(r0 + h * 0.8, tip + d * 0.02) + ' ' + pol(r0 + h * 0.45, a1 - d * 0.02) + ' ' + pol(r0, a1) + 'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
+}
 function shardPath(r0, r1, a0, a1) {
   var am = (a0 + a1) / 2, sh = r0 + (r1 - r0) * 0.78;
   return 'M' + pol(r0, a0) + 'L' + pol(sh, a0) + 'L' + pol(r1, am) + 'L' + pol(sh, a1) + 'L' + pol(r0, a1) + 'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
@@ -448,7 +454,7 @@ function wingsSvg(st) {
 }
 function chartSvg(st) {
   if (M.grafico === 'asas' && NG === 8) return wingsSvg(st);
-  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp ? 2.4 : 1.2;
+  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang ? 2.4 : 1.2;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
   var o = '<svg viewBox="-58 -2 576 464" role="group" aria-label="' + (rosa && !chamas ? 'Rosácea' : 'Gráfico') + ' dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>';
   for (i = 0; i < NG; i++) {
@@ -456,7 +462,11 @@ function chartSvg(st) {
       '<stop offset=".3" style="stop-color:rgba(var(--g' + i + '),.5)"/><stop offset="1" style="stop-color:rgb(var(--g' + i + '))"/></radialGradient>';
   }
   o += '</defs>';
-  if (esp) {
+  if (fang) {
+    // aro de couro com pesponto, como a borda do escudo do Fynn
+    o += '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--deep-rgb),.5);stroke:rgba(var(--gold-rgb),.6)" stroke-width="1.2"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 14) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.45)" stroke-width="1" stroke-dasharray="5 4"/>';
+  } else if (esp) {
     // a haste da coroa: anel escuro com pequenos espinhos em volta
     o += '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--deep-rgb),.5);stroke:rgba(var(--gold-rgb),.55)" stroke-width="1.2"/>' +
       '<circle cx="230" cy="230" r="' + (R + 14) + '" style="fill:none;stroke:rgba(var(--blood2-rgb),.55)" stroke-width="2" stroke-dasharray="2 10"/>';
@@ -487,7 +497,7 @@ function chartSvg(st) {
   for (i = 0; i < NG; i++) {
     var a0 = -90 + i * step + gap, a1 = -90 + (i + 1) * step - gap, am = (a0 + a1) / 2;
     var v = st.grp[i].pts, fr = Math.max(0.12, Math.sqrt(Math.max(v, 0) / max)), r1 = r0 + (R - r0) * fr;
-    var shape = esp ? thornPath : fios ? shardPath : chamas ? flamePath : band ? bannerPath : rosa ? petalPath : wedgePath;
+    var shape = fang ? fangPath : esp ? thornPath : fios ? shardPath : chamas ? flamePath : band ? bannerPath : rosa ? petalPath : wedgePath;
     if (reb) {
       // painel da saia: a fatia acende conforme os pontos, e cada terço ganha um rebite aceso
       var rv = '';
@@ -519,6 +529,11 @@ function chartSvg(st) {
       '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
       '<path class="ghost" d="' + shape(r0, R, a0, a1) + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),' + (rosa ? '.45' : '.25') + ')" stroke-width="1"/>' +
       '<path class="fill" d="' + shape(r0, r1, a0, a1) + '" fill="url(#rg' + i + ')" style="stroke:rgba(var(--gold2-rgb),' + (rosa ? '.85' : '.55') + ')" stroke-width="' + (rosa ? '1.3' : '1') + '" stroke-linejoin="round"/></g>';
+    if (fang && v > 0) {
+      // a gota de veneno na ponta da presa
+      var gp = pol(r1 + 7, -90 + i * step + gap + (step - 2 * gap) * 0.55).split(' ');
+      o += '<circle cx="' + gp[0] + '" cy="' + gp[1] + '" r="3.4" style="fill:rgb(var(--blood2-rgb));stroke:rgba(255,255,255,.35)" stroke-width=".7"/>';
+    }
     o += gLabel(i, am, R, v);
   }
   if (chamas) o += '<path d="' + starBurst(12, r0 + 16, r0 - 4, -90) + '" style="fill:rgba(var(--blood2-rgb),.55);stroke:var(--gold2)" stroke-width="1.2" stroke-linejoin="round"/>' +
@@ -529,6 +544,10 @@ function chartSvg(st) {
     for (var k = 0; k < 8; k++) o += '<line x1="230" y1="230" x2="' + pol(r0 + 2, k * 45).replace(' ', '" y2="') + '" style="stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>';
     o += '<circle cx="230" cy="230" r="' + (r0 - 9) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.4"/>' +
       '<circle cx="230" cy="230" r="' + (r0 - 3) + '" style="fill:none;stroke:var(--gold2)" stroke-width="1" stroke-dasharray="3 3"/>';
+  } else if (fang) {
+    // nó entrelaçado no centro, como o emblema do escudo
+    o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>';
+    for (var kn = 0; kn < 3; kn++) o += '<ellipse cx="230" cy="230" rx="' + (r0 - 14) + '" ry="' + (r0 - 34) + '" transform="rotate(' + (kn * 60) + ' 230 230)" style="fill:none;stroke:rgba(var(--gold-rgb),.38)" stroke-width="1.4"/>';
   } else if (esp) {
     // botão de rosa no centro: pétalas fechadas em volta do placar
     o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>';
@@ -666,7 +685,7 @@ function heroHtml(st, cmd) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
   var chart = '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
     ' é um agrupamento e sua área é a soma das notas. Toque ' + (/^(estandarte|alfinete|painel|espinho)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
   var fx = cmd && cmd.fx ? '<p class="hero-fx">' + rich(cmd.fx) + '</p>' : '';

@@ -129,6 +129,16 @@ def textura(nome, p):
         return ("radial-gradient(1000px 560px at 50%% -12%%, rgba(%d,%d,%d,.22), transparent 64%%),"
                 "radial-gradient(640px 400px at 96%% 4%%, rgba(%d,%d,%d,.3), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["acento"]) + _hex(p["destaque"]) + (svg, grad))
+    if nome == "neve":
+        # flocos espalhados caindo sobre a floresta escura, e a névoa fria vinda do alto
+        q = quote(p["texto"])
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='" + q + "'%3E"
+               "%3Ccircle cx='12' cy='18' r='1.4' fill-opacity='.10'/%3E%3Ccircle cx='58' cy='6' r='1' fill-opacity='.08'/%3E%3Ccircle cx='96' cy='34' r='1.8' fill-opacity='.09'/%3E"
+               "%3Ccircle cx='30' cy='70' r='1.1' fill-opacity='.08'/%3E%3Ccircle cx='122' cy='88' r='1.3' fill-opacity='.10'/%3E%3Ccircle cx='74' cy='104' r='1.6' fill-opacity='.07'/%3E"
+               "%3Ccircle cx='8' cy='124' r='1' fill-opacity='.09'/%3E%3Ccircle cx='108' cy='130' r='1.1' fill-opacity='.08'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(1100px 560px at 50%% -14%%, rgba(%d,%d,%d,.16), transparent 64%%),"
+                "radial-gradient(640px 400px at 92%% 6%%, rgba(%d,%d,%d,.22), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["texto"]) + _hex(p["destaque"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
