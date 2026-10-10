@@ -10,3 +10,7 @@
 - 11 combos e armadilhas, com duas armadilhas: a Blasphemous Act no próprio exército e o shroud do Lightning Greaves.
 - Tema "Mestre do Mal": laboratório de Skaro, aço escuro, carmim e o azul do raio da capa, fonte Oxanium. Motivo novo no motor: gráfico "rebites" (os agrupamentos como painéis da saia de um Dalek, com rebites que acendem e o olho azul no domo) e textura "colmeia" (malha hexagonal). Corrigido de passagem o artigo da legenda do gráfico ("num estandarte", "num alfinete", "num painel").
 - 110 impressões com imagens embutidas (6,7 MB). O teste de regressão passou a aceitar deck sem veredito "entra" no radar.
+
+## Comunidade, 10/10/2026
+
+- Lida a página de artefatos do Davros no edh.wiki (sem contagem de decks). Doze potenciais gravados em `comunidade.json`, todos azul, preto ou vermelho; os de maior sinergia são os que baratearam artefatos (Enthusiastic Mechanaut, Etherium Sculptor), Sygg, River Cutthroat e Labyrinth Raptor. O deck é precon intacto: são referência, não troca.

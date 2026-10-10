@@ -11,3 +11,7 @@
 - 13 combos e armadilhas.
 - Tema "Trono Inabalável": corte de Paliano, trono verde e dourado, carmesim, fonte Cinzel Decorative (título a 0,78). Motivo novo no motor: gráfico "coroa" (pontas de coroa com uma pedra na cor do agrupamento) e textura "damasco" (brocado do trono).
 - Imagens embutidas (7,4 MB).
+
+## Comunidade, 10/10/2026
+
+- Lida a página de monarca da Marchesa no edh.wiki (tema Monarca, 24%). Quinze potenciais gravados em `comunidade.json`; Deflecting Palm, Kardur, Breena e Xantcha são os de maior sinergia. Mangara, Teferi's Protection e Palace Jailer, que a página também pede, já estão no radar.

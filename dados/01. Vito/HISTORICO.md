@@ -11,3 +11,7 @@
 - 14 combos e armadilhas, com três armadilhas: Necrodominance contra o cemitério, o Sorin descendo o Conqueror com o Vito em campo, e o Kalitas desligando os gatilhos de morte.
 - Tema "Sangria Sagrada": catedral gótica à luz de vela, violeta, ouro velho e o vermelho das mãos do Vito, fonte Pirata One. Motivo novo no motor: gráfico "espinhos" (coroa de espinhos com um botão de rosa no centro) e textura "ogivas" (arcos góticos em filete dourado).
 - 73 impressões com imagens embutidas (6,1 MB).
+
+## Comunidade, 10/10/2026
+
+- Lida a página do Vito no edh.wiki (tema Lifegain, 45%). Doze potenciais gravados em `comunidade.json`. Bloodthirsty Aerialist, Veinwitch Coven, Falkenrath Noble e Crypt Incursion são os de maior sinergia ainda sem avaliação. Sanguine Bond, Vampire Nighthawk e Sangromancer, os mais pedidos pela página, já estão no radar.

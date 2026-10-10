@@ -10,3 +10,7 @@
 - Duas perguntas ficaram sem resposta do dono e seguem o padrão da avaliação: o deck é tratado como só de veneno (Colossification é a segunda a sair), e os três cortes anti-voador saem pela fila.
 - Tema "Presas da Serpente": floresta nórdica sob neve, pinheiro, ouro de entalhe e verde de veneno, fonte Uncial Antiqua (título reduzido a 0,74). Motivo novo no motor: gráfico "presas" (presas curvas com a gota de veneno na ponta e um nó entrelaçado no centro) e textura "neve".
 - Imagens embutidas (5,6 MB).
+
+## Comunidade, 10/10/2026
+
+- Lida a página de toque mortífero do Fynn no edh.wiki. Treze potenciais gravados em `comunidade.json`: os corpos baratos com toque mortífero que a lista ainda não tem (Moss Viper, Wasteland Viper, Gnarlwood Dryad, Mirkwood Spider, Narnam Renegade) e três proliferar baratos de um feitiço (Smell Fear, Unnatural Restoration, Thirsting Roots). A página de infect, citada no handover, não foi lida.
