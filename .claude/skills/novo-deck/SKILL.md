@@ -50,6 +50,8 @@ Escreva também a `estrategia` (formato em `contexto/ARQUITETURA.md`): início, 
 
 Cartas de estimação, ou candidatas que o dono apontou, levam `fora_do_corte`: nunca entram na fila de corte nem aparecem como `sai` no radar. Preço não se escreve à mão: vem do Scryfall no build.
 
+A aba 8×8 nasce sozinha: cada carta cai no agrupamento de maior nota (terreno em Mana). Só use `"pacote"` numa carta quando o maior valor não for onde ela deve contar na teoria 8×8. Confira, depois do build, se algum quadro ficou muito cheio ou vazio sem querer.
+
 ## Passo 5: revisão comigo
 
 Antes de montar, mostre: todas as cartas tier S e todas as BAX, com o motivo; as cinco avaliações em que você tem menos certeza; as trocas que recomenda. Ajuste o que eu contestar.

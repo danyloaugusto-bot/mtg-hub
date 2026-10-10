@@ -42,12 +42,12 @@ with sync_playwright() as p:
         ti = pg.evaluate("Array.from(document.querySelectorAll('#v-geral .score-big ~ .legend > span')).map(s=>+s.textContent.trim().split(' ').pop())")
         R.ok("tiers", ti == [ctl["tiers"][k] for k in "SABCD"], ti)
 
-    abas = ("gal", "tier", "tab", "ctrl", "radar", "ofi", "geral")
+    abas = ("gal", "tier", "pk", "tab", "ctrl", "radar", "ofi", "geral")
     visto = []
     for t in abas:
         pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(150)
         visto.append(pg.evaluate("document.querySelector('main').innerText"))
-    R.ok("sete abas sem exceção", not R.erros, R.erros)
+    R.ok("oito abas sem exceção", not R.erros, R.erros)
     # nome impresso: a página mostra o nome da carta física; o do Scryfall fica só nos dados
     escondidos = [c["on"] for c in D["cards"] if c.get("on")]
     if escondidos:
@@ -79,6 +79,27 @@ with sync_playwright() as p:
     mover = next(c for c in D["cards"] if not c.get("cmd") and not c.get("land") and c["tier"] not in ("B", "D") and c["id"] != alvo["id"])
     pg.drag_and_drop('#v-tier .chip[data-card="%s"]' % mover["id"], '#v-tier [data-drop="tier:B"]'); pg.wait_for_timeout(250)
     R.ok("arrastar entre tiers", pg.locator('#v-tier .tier[data-t="B"] .chip[data-card="%s"]' % mover["id"]).count() == 1, mover["n"])
+    # 8×8: um quadro por agrupamento e um de Mana; arrastar muda a contagem e não o placar
+    pg.click('[data-tab="geral"]'); pg.wait_for_timeout(200)
+    pt0 = int(pg.inner_text("#v-geral .score-big b"))
+    pg.click('[data-tab="pk"]'); pg.wait_for_timeout(250)
+    gks = [g["k"] for g in D["grupos"]]
+    R.ok("8×8: um quadro por agrupamento e um de Mana", pg.locator("#v-pk .kcol").count() in (NG + 1, NG + 2), pg.locator("#v-pk .kcol").count())
+    R.ok("8×8: todas as cartas, menos o comandante, em algum quadro", pg.locator("#v-pk .kcol .chip").count() >= 1)
+    orig = next((k for k in gks if pg.locator('#v-pk [data-drop="pk:%s"] .chip' % k).count() > 0), None)
+    dest = next((k for k in gks if k != orig), None)
+    if orig and dest:
+        n_o = pg.locator('#v-pk [data-drop="pk:%s"] .chip' % orig).count(); n_d2 = pg.locator('#v-pk [data-drop="pk:%s"] .chip' % dest).count()
+        cid = pg.get_attribute('#v-pk [data-drop="pk:%s"] .chip' % orig, "data-card")
+        pg.drag_and_drop('#v-pk [data-drop="pk:%s"] .chip[data-card="%s"]' % (orig, cid), '#v-pk [data-drop="pk:%s"]' % dest); pg.wait_for_timeout(250)
+        R.ok("8×8: arrastar muda a contagem dos dois quadros",
+             pg.locator('#v-pk [data-drop="pk:%s"] .chip' % orig).count() == n_o - 1 and pg.locator('#v-pk [data-drop="pk:%s"] .chip' % dest).count() == n_d2 + 1, cid)
+        pg.click('[data-tab="geral"]'); pg.wait_for_timeout(200)
+        R.ok("8×8: a simulação não muda o placar", int(pg.inner_text("#v-geral .score-big b")) == pt0, pt0)
+        pg.click('[data-act="backup"]'); R.ok("8×8: o backup guarda o pacote movido", cid in json.loads(pg.input_value("#bk-out")).get("pk", {}))
+        pg.keyboard.press("Escape")
+        pg.click('[data-tab="pk"]'); pg.click('[data-act="pk-reset"]'); pg.wait_for_timeout(200)
+        R.ok("8×8: desfazer a simulação", pg.locator('#v-pk [data-drop="pk:%s"] .chip' % orig).count() == n_o)
     pg.click('[data-tab="ctrl"]'); pg.wait_for_timeout(150)
     faixa = next(c for c in D["cards"] if not c.get("cmd") and not c.get("land") and c["rel"] != "BAX" and c["id"] not in (alvo["id"], mover["id"]))
     pg.drag_and_drop('#v-ctrl .kan .chip[data-card="%s"]' % faixa["id"], '#v-ctrl [data-drop="rel:BAX"]'); pg.wait_for_timeout(250)

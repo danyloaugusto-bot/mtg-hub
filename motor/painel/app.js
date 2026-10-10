@@ -56,13 +56,14 @@ var PUB = !!(window.claude && typeof window.claude.use === 'function');   /* pá
 var canStore = (function () {
   try { return (location.protocol === 'file:' || PUB) && !!window.localStorage; } catch (e) { return false; }
 })();
-function fresh() { return { v: 1, ov: {}, custom: [], inn: {}, out: {}, swaps: [], img: M.img_padrao !== false, ts: 0 }; }
+function fresh() { return { v: 1, ov: {}, custom: [], inn: {}, out: {}, pk: {}, swaps: [], img: M.img_padrao !== false, ts: 0 }; }
 function fitS(a) { a = a.slice(0, NG); while (a.length < NG) a.push(0); return a; }
 function normalize(s) {
   var f = fresh();
   if (!s || typeof s !== 'object') return f;
-  ['ov', 'inn', 'out'].forEach(function (k) { if (s[k] && typeof s[k] === 'object' && !Array.isArray(s[k])) f[k] = s[k]; });
+  ['ov', 'inn', 'out', 'pk'].forEach(function (k) { if (s[k] && typeof s[k] === 'object' && !Array.isArray(s[k])) f[k] = s[k]; });
   Object.keys(f.ov).forEach(function (id) { var o = f.ov[id]; if (o && Array.isArray(o.s) && o.s.length !== NG) o.s = fitS(o.s); });
+  Object.keys(f.pk).forEach(function (id) { if (typeof f.pk[id] !== 'string') delete f.pk[id]; });
   if (Array.isArray(s.custom)) f.custom = s.custom.filter(function (c) { return c && c.id && c.n && Array.isArray(c.s); }).map(function (c) {
     if (c.s.length !== NG) c.s = fitS(c.s);
     /* backups antigos: o Ritos marcava "vamp", o Coro marcava "angel" */
@@ -322,6 +323,7 @@ function chip(c, o) {
     (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') +
     (c.edited ? '<span class="edt" title="Avaliação alterada por você"></span>' : '') +
     (o.mana && c.cost ? mana(c.cost) : '') +
+    (o.moved ? '<span class="edt" title="Movida por você nesta aba"></span>' : '') +
     (o.tier ? '<span class="tb sm t' + c.tier + '">' + c.tier + '</span>' : '') +
     (o.pts ? '<span class="p">' + pts(c) + '</span>' : '') +
     '</div>';
@@ -974,6 +976,66 @@ function renderTier() {
   $('#v-tier').innerHTML = h;
 }
 
+/* ============ 8×8 ============ */
+/* Cada carta conta em um só pacote: o de maior nota (empate: o primeiro da ordem). Terreno e carta dupla com terreno no verso
+   ficam em Mana. Mover uma carta aqui é só simulação: não muda as notas, o tier nem o placar. */
+var PKI = {}; G.forEach(function (g, i) { PKI[g.id] = i; });
+function pkNome(k) { return k === 'mana' ? 'Mana' : k === 'sem' ? 'Sem pacote' : G[PKI[k]].k; }
+function pkDef(c) {
+  if (c.land || c.mdfc) return 'mana';
+  var best = 0, bi = -1;
+  for (var i = 0; i < NG; i++) { var v = gv(c, i); if (v > best) { best = v; bi = i; } }
+  return bi < 0 ? 'sem' : G[bi].id;
+}
+function pkOf(c) {
+  var k = S.pk[c.id] || c.pk0 || pkDef(c);
+  return (k === 'mana' || k === 'sem' || PKI[k] != null) ? k : pkDef(c);
+}
+function renderPk() {
+  var all = deck(), cmd = null, body = [];
+  all.forEach(function (c) { if (c.cmd) cmd = c; else body.push(c); });
+  var cols = G.map(function (g, i) {
+    return { k: g.id, n: g.k, d: g.d, ref: g.ref || [8, 8], col: 'rgb(var(--g' + i + '))' };
+  });
+  cols.push({ k: 'mana', n: 'Mana', d: 'Terrenos e cartas duplas com terreno no verso.', ref: [35, 37], col: 'var(--gold)' });
+  var by = { sem: [] }; cols.forEach(function (c) { by[c.k] = []; });
+  body.forEach(function (c) { by[pkOf(c)].push(c); });
+  if (by.sem.length) cols.push({ k: 'sem', n: 'Sem pacote', d: 'Cartas sem nota em nenhum agrupamento. Arraste para um pacote.', ref: null, col: 'var(--mute)' });
+  var out = cands().map(E).filter(function (c) { return !c.inDeck && c.verdict !== 'fora'; });
+  var nMoved = Object.keys(S.pk).length, total = 0;
+  body.forEach(function (c) { total += c.q; });
+  var h = '<div class="tools"><p class="hint" style="flex:1;min-width:260px">Cada carta conta em um só pacote: o de maior nota (empate: o primeiro da ordem). ' +
+    'Arraste uma carta para outro pacote para ver o equilíbrio mudar. É só simulação: as notas, o tier e o placar não mudam.</p>' +
+    (nMoved ? '<button class="btn ghost" data-act="pk-reset" data-fid="pkr">Desfazer ' + pl(nMoved, 'simulação', 'simulações') + '</button>' : '') + '</div>';
+  h += '<p class="pk-tot"><b>' + total + '</b> cartas fora o comandante' + (cmd ? ' (' + esc(cmd.n) + ')' : '') + '. Referência da teoria: 35 de mana e 64 em oito pacotes de oito.</p>';
+  h += '<div class="pkg">' + cols.map(function (g) {
+    var list = by[g.k].slice().sort(function (a, b) { return (TR[a.tier] - TR[b.tier]) || (pts(b) - pts(a)) || a.n.localeCompare(b.n); });
+    var n = 0; list.forEach(function (c) { n += c.q; });
+    var st = '', msg = '';
+    if (g.ref) {
+      st = n < g.ref[0] ? 'falta' : n > g.ref[1] ? 'cheio' : 'ok';
+      msg = (g.ref[0] === g.ref[1] ? 'referência ' + g.ref[0] : 'referência ' + g.ref[0] + ' a ' + g.ref[1]) + ' · ' +
+        (st === 'falta' ? 'falta reforço' : st === 'cheio' ? 'acima da referência' : 'na faixa');
+    }
+    var fraca = cutQueue(list, false)[0];
+    var radar = out.filter(function (c) { return pkOf(c) === g.k; }).sort(function (a, b) { return TR[a.tier] - TR[b.tier]; }).slice(0, 4);
+    var foot = '';
+    if (g.k !== 'mana' && g.k !== 'sem' && (fraca || radar.length)) {
+      foot = '<div class="pk-foot">' +
+        (fraca ? '<div class="pk-line pk-f"><span>Mais fraca</span>' + chip(fraca, { tier: true }) + relB(fraca.rel) + '</div>' : '') +
+        (radar.length ? '<div class="pk-line pk-r"><span>Do radar</span>' + radar.map(function (c) {
+          var sai = c.sai ? byId(c.sai) : null;
+          return chip(c, { tier: true }).replace('<div class="chip', '<div title="' + esc(c.n + (sai ? ' · sairia ' + sai.n : '')) + '" class="chip');
+        }).join('') + '</div>' : '') + '</div>';
+    }
+    return '<section class="kcol pk pk-' + st + '" style="--kc:' + g.col + '"><header><h3>' + esc(g.n) + ' <small>' + n + (g.ref && g.ref[0] === g.ref[1] ? ' de ' + g.ref[0] : '') + '</small></h3>' +
+      (g.d ? '<p>' + esc(g.d) + '</p>' : '') + (msg ? '<div class="kn">' + msg + '</div>' : '') + '</header>' +
+      '<div class="drop" data-drop="pk:' + g.k + '">' + (list.length ? list.map(function (c) { return chip(c, { tier: true, moved: !!S.pk[c.id] }); }).join('') :
+        '<span class="empty">Nenhuma carta aqui.</span>') + '</div>' + foot + '</section>';
+  }).join('') + '</div>';
+  $('#v-pk').innerHTML = h;
+}
+
 /* ============ tabelão ============ */
 function sortVal(c, k) {
   if (k === 'n') return c.n.toLowerCase();
@@ -1360,7 +1422,7 @@ function renderModal() {
 }
 
 /* ============ orquestração ============ */
-var RENDER = { geral: renderGeral, gal: renderGal, tier: renderTier, tab: renderTab, ctrl: renderCtrl, radar: renderRadar, ofi: renderOfi };
+var RENDER = { geral: renderGeral, gal: renderGal, tier: renderTier, pk: renderPk, tab: renderTab, ctrl: renderCtrl, radar: renderRadar, ofi: renderOfi };
 function renderCount() {
   var n = 0; deck().forEach(function (c) { n += c.q; });
   var el = $('#deckCount');
@@ -1442,6 +1504,7 @@ function act(a, t, ev) {
       else ui.sort = { k: t.dataset.k, d: (t.dataset.k === 'n' || t.dataset.k === 'tier' || t.dataset.k === 'rel') ? 1 : -1 };
       render(); break;
     case 'tier-type': ui.tierType = t.dataset.v; render(); break;
+    case 'pk-reset': S.pk = {}; commit('Simulação do 8×8 desfeita'); break;
     case 'tier-view': ui.tierView = t.dataset.v; render(); break;
     case 'gal-by': ui.galBy = t.dataset.v; render(); break;
     case 'img': S.img = !imgOn(); save(); render(); break;
@@ -1462,6 +1525,7 @@ function act(a, t, ev) {
       commit(); break;
     case 'reset-card':
       o = S.ov[ui.drawer]; if (o) { delete o.s; delete o.tier; delete o.rel; if (!Object.keys(o).length) delete S.ov[ui.drawer]; }
+      delete S.pk[ui.drawer];
       commit('Avaliação original restaurada'); break;
     case 'cut':
       c = byId(id); if (!c) break;
@@ -1594,6 +1658,11 @@ document.addEventListener('drop', function (ev) {
   var z = ev.target.closest && ev.target.closest('[data-drop]'); if (!z) return;
   ev.preventDefault();
   var id = ev.dataTransfer.getData('text/plain'), kv = z.dataset.drop.split(':'), c = byId(id);
+  if (kv[0] === 'pk') {
+    if (!c || pkOf(c) === kv[1]) { z.classList.remove('over'); return; }
+    if (kv[1] === (c.pk0 || pkDef(c))) delete S.pk[id]; else S.pk[id] = kv[1];
+    commit(c.n + ': pacote ' + pkNome(kv[1])); return;
+  }
   if (!c || c[kv[0]] === kv[1]) { z.classList.remove('over'); return; }
   ov(id)[kv[0]] = kv[1];
   commit(c.n + (kv[0] === 'tier' ? ': tier ' + kv[1] : ': ' + RELS[RR[kv[1]]].n));

@@ -187,6 +187,15 @@ Feito na etapa 4 (`motor/hub.py`, `motor/hub/`), ajustado em 08/10/2026 a pedido
 
 `Abrir o Hub.html`, na raiz, leva ao hub. Cada pasta de deck ganha `Abrir o painel.html`, que o build grava a cada montagem. Tudo por caminho relativo.
 
+## A aba 8×8 de cada painel
+
+Foi acrescentada em 10/10/2026, a pedido do dono, entre a Tier list e o Tabelão. Mostra um quadro por agrupamento do deck, mais um de Mana, para ver qual pacote está cheio ou pede reforço, na linha da teoria 8×8 (35 de mana e 64 cartas em oito pacotes de oito). **É só para enxergar:** arrastar uma carta de um quadro para outro simula o equilíbrio e não muda as notas, o tier nem o placar. A simulação fica em `S.pk` (no navegador, ou na conta se publicado), vai no backup e se desfaz com um botão.
+
+- **Pacote primário.** Cada carta conta em um só quadro: o agrupamento de maior nota (empate: o primeiro da ordem do deck). Terreno e carta dupla com terreno no verso ficam em Mana. Carta sem nota em nenhum agrupamento vai para um quadro "Sem pacote", que só aparece quando há alguma. Para fixar o pacote de uma carta, ponha `"pacote": "<chave do agrupamento>"` (ou `"mana"`, `"sem"`) no `avaliacao.json`; o motor recusa uma chave que não exista.
+- **Referência.** Cada quadro mostra o número de cartas contra a faixa `ref` do agrupamento; sem `ref`, vale 8. Mana vale de 35 a 37. A referência é guia, não regra de corte.
+- **Para trocar com sabedoria.** Cada quadro mostra a carta mais fraca (pela mesma ordem da fila de corte) e as cartas do radar cujo pacote primário é aquele. Passando o mouse numa do radar, aparece quem sairia.
+- **O comandante** fica fora da contagem.
+
 ## A Oficina de cada painel
 
 O painel não tem IA dentro dele quando é um arquivo local. A aba Oficina faz a ponte: lista o que dá para pedir ao Claude Code sobre aquele deck, com o comando já preenchido com o nome da pasta e um botão de copiar. Hoje: auditar, comparar duas cartas, avaliar coleção nova, atualizar a leitura da comunidade, trocar a capa, propor variações de tema, conferir a decklist, e levar ao projeto o que foi editado no painel, com o backup copiado junto. O caminho de volta é o `/importar-backup`.

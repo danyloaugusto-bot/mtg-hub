@@ -104,7 +104,7 @@ try:
                 pg.on("pageerror", lambda e: err.append(str(e)))
                 pg.goto(comum.url(arq)); pg.wait_for_timeout(700)
                 largos = []
-                for t in ("geral", "gal", "tier", "tab", "ctrl", "radar", "ofi"):
+                for t in ("geral", "gal", "tier", "pk", "tab", "ctrl", "radar", "ofi"):
                     pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(120)
                     sw = pg.evaluate("document.documentElement.scrollWidth")
                     if sw > w + 1:

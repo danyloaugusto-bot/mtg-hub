@@ -43,7 +43,7 @@ try:
         R.ok("caminho privado por pessoa", pg.evaluate("window.__path") == "data/users/u_teste", pg.evaluate("window.__path"))
         R.ok("nenhuma gravação ao abrir", pg.evaluate("window.__sets||0") == 0)
         R.ok("sem botão de voltar ao hub, que não vai junto na publicação", pg.locator("#voltar").is_hidden())
-        for t in ("gal", "tab", "radar", "tier", "ctrl", "ofi", "geral"):
+        for t in ("gal", "tab", "radar", "tier", "pk", "ctrl", "ofi", "geral"):
             pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(200)
         if pack:
             R.ok("imagens embutidas aparecem, sem chamada ao Scryfall", pg.locator("img.ci.ci-ok").count() > 0 and not reqs, (pg.locator("img.ci").count(), reqs[:2]))
