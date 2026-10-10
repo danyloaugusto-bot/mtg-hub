@@ -62,6 +62,7 @@ with sync_playwright() as p:
     pg.click('#v-tier .chip[data-card="%s"]' % alvo["id"]); pg.wait_for_timeout(200)
     p0 = int(pg.inner_text(".dw-sum b"))
     pg.click('[data-act="step"][data-g="1"][data-d="1"]'); pg.check('[data-act="pet"]'); pg.wait_for_timeout(120)
+    R.ok("gaveta mostra onde a carta aparece em outros decks e pastas", "Em outros decks e pastas" in pg.inner_text("#drawer"))
     R.ok("stepper e PetCard", int(pg.inner_text(".dw-sum b")) == p0 + (2 if ipet >= 0 else 1), alvo["n"])
     R.ok("gaveta com uma nota por agrupamento", pg.locator(".drawer .step").count() == NG)
     pg.fill('[data-act="val"]', "12.5"); pg.click('[data-act="set-tier"][data-v="D"]'); pg.wait_for_timeout(150)

@@ -138,7 +138,8 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
     img = mapa_imagens(d["cards"] + d["cands"]) if modo_img == "embutidas" else None
     D = dict(meta=meta, grupos=[g for g, _ in grupos], marcadores=d["marcadores"], leituras=d["leituras"], cores=cores,
              tipos=dict(tema.TIPOS, **(t.get("tipos") or {})), cards=d["cards"], cands=d["cands"], pool=d["pool"],
-             combos=d["combos"], edh=d["edh"], estrategia=d.get("estrategia"), img=(img or None))
+             combos=d["combos"], edh=d["edh"], estrategia=d.get("estrategia"), img=(img or None),
+             outros=d["outros"], em_pastas=d["em_pastas"], pastas_com_lista=d["pastas_com_lista"])
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
     html = (ler("template.html")

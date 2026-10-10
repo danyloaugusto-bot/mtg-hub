@@ -31,6 +31,64 @@ def eh_deck(nome):
     return (not nome.startswith(("_", "."))) and nome.lower() not in PASTAS_FORA and os.path.isdir(os.path.join(DADOS, nome))
 
 
+BASICOS_IDX = {"Plains", "Island", "Swamp", "Mountain", "Forest", "Wastes",
+                "Snow-Covered Plains", "Snow-Covered Island", "Snow-Covered Swamp", "Snow-Covered Mountain", "Snow-Covered Forest"}
+
+
+def chave_nome(n):
+    """O nome de uma carta como chave de comparação entre decks: sem a face de trás e sem maiúsculas."""
+    return n.split(" // ")[0].strip().lower()
+
+
+def ler_pastas():
+    """As listas das pastas de cartas do dono, em dados/pastas/<nome da pasta>.txt.
+
+    Cada linha é `2 Nome da carta`, com ou sem `(SET) 123` e acabamento depois. Devolve {pasta: {chave: quantidade}}.
+    O formato definitivo fecha quando a primeira lista chegar; até lá, só o texto simples é lido.
+    """
+    base = os.path.join(DADOS, "pastas")
+    out = {}
+    if not os.path.isdir(base):
+        return out
+    pad = re.compile(r"^(\d+)\s*x?\s+(.+?)(?:\s+\([A-Za-z0-9]+\)\s+\S+.*)?\s*$", re.I)
+    for f in sorted(os.listdir(base)):
+        if not f.lower().endswith(".txt"):
+            continue
+        cartas = {}
+        with open(os.path.join(base, f), encoding="utf-8-sig") as fh:
+            for linha in fh:
+                linha = linha.strip()
+                if not linha or linha.startswith(("#", "//")):
+                    continue
+                m = pad.match(linha)
+                if m:
+                    k = chave_nome(m.group(2))
+                    cartas[k] = cartas.get(k, 0) + int(m.group(1))
+        out[f[:-4]] = cartas
+    return out
+
+
+def indice_outros(pasta_atual):
+    """Onde cada carta aparece nos outros decks com avaliação (no deck ou no radar), com tier e relevância."""
+    out = {}
+    for n in sorted(os.listdir(DADOS)):
+        if n == pasta_atual or not eh_deck(n):
+            continue
+        av = ler_json(os.path.join(DADOS, n, "avaliacao.json"), obrigatorio=False)
+        if not av:
+            continue
+        nome = n.split(". ", 1)[1] if ". " in n else n
+        for sec, onde in (("cartas", "deck"), ("radar", "radar")):
+            for nc, c in (av.get(sec) or {}).items():
+                if nc in BASICOS_IDX or (onde == "radar" and c.get("veredito") == "fora"):
+                    continue
+                x = dict(d=nome, w=onde, t=c["tier"], r=c["rel"])
+                if onde == "radar":
+                    x["v"] = c.get("veredito", "avaliar")
+                out.setdefault(chave_nome(nc), []).append(x)
+    return out
+
+
 def slug(s):
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")
@@ -470,6 +528,16 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
                    temas=com.get("temas") or [], listas=com.get("listas") or [], precon=com.get("precon"))
 
     estrategia = conferir_estrategia(av.get("estrategia"))
-    return dict(cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia,
+    # onde as cartas deste painel aparecem nos outros decks e nas pastas (foto do último build de cada um)
+    minhas = {chave_nome(c.get("on", c["n"])) for c in cards + cands + pool}
+    todos = indice_outros(pasta)
+    outros = {k: v for k, v in todos.items() if k in minhas}
+    listas = ler_pastas()
+    em_pastas = {}
+    for p, cs in listas.items():
+        for k, q in cs.items():
+            if k in minhas:
+                em_pastas.setdefault(k, []).append(dict(p=p, q=q))
+    return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia,
                 marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))

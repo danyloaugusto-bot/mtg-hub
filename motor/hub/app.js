@@ -841,8 +841,8 @@ function secComp() {
   var extra = soma(cs, function (x) { return x.v.length - 1; }), cap = soma(cs, function (x) { return x.cap; });
   var rows = mais('comp', cs, 12, function (x) {
     return '<tr><td>' + esc(x.k) + (x.div ? ' ' + pill('info', 'berlinda num deck') : '') + '</td><td class="n num">' + x.v.length + '</td><td><div class="chips">' + x.v.map(function (y) {
-      return '<span data-tip="' + esc(y.A.nome + ': tier ' + y.c.T + ', ' + RELN[y.c.r].toLowerCase() + (y.c.u != null ? ', ' + dol(y.c.u) : '')) + '" class="ch-' + y.c.r + '">' + esc(y.A.nome) +
-        '<span class="sr">, ' + esc(RELN[y.c.r]) + '</span></span>';
+      return '<span data-tip="' + esc(y.A.nome + ': tier ' + y.c.T + ', ' + RELN[y.c.r].toLowerCase() + (y.c.u != null ? ', ' + dol(y.c.u) : '')) + '" class="ch-' + y.c.r + '">' + esc(y.A.nome) + ' ' + esc(y.c.T) +
+        '<span class="sr">, tier ' + esc(y.c.T) + ', ' + esc(RELN[y.c.r]) + '</span></span>';
     }).join('') + '</div></td><td class="n num">' + dol(x.cap) + '</td></tr>';
   }, 4);
   var rad = {}; DK.forEach(function (d) { d.a.cands.forEach(function (c) { if (c.v === 'fora') return; (rad[chave(c)] = rad[chave(c)] || []).push({ A: d.a, c: c }); }); });
@@ -851,7 +851,38 @@ function secComp() {
     var onde = m[k].map(function (y) { return y.A.nome; });
     return '<li><b>' + esc(k) + '</b>, no radar ' + esc(lista(rad[k].map(function (y) { return 'do ' + y.A.nome; }))) + ', já está ' + esc(onde.length > 1 ? 'em ' + lista(onde) : 'no ' + onde[0]) + '.</li>';
   });
-  var h = '<div class="g2">' + caixa('Cartas em mais de um deck', '<p class="dest">' + pl(cs.length, 'carta aparece', 'cartas aparecem') + ' em dois ou mais decks: para jogar com todos montados, são <b>' + extra + ' cópias a mais</b>, somando ' + dol(cap, 0) + '.</p>' +
+  /* onde cada carta rende mais: no deck ou no radar de dois ou mais decks, com o tier de cada lugar, e o que já está numa pasta */
+  var lug = {};
+  DK.forEach(function (d) {
+    d.a.cards.forEach(function (c) { var k = chave(c); if (BAS[k]) return; (lug[k] = lug[k] || []).push({ A: d.a, c: c, w: 'deck' }); });
+    d.a.cands.forEach(function (c) { if (c.v === 'fora') return; var k = chave(c); (lug[k] = lug[k] || []).push({ A: d.a, c: c, w: 'radar' }); });
+  });
+  var pas = H.em_pastas || {}, temPastas = Object.keys(pas).length > 0;
+  function ch(c) { return String(c.o || c.n).split(' // ')[0].trim().toLowerCase(); }
+  var pesa = Object.keys(lug).map(function (k) {
+    var v = lug[k].slice().sort(function (a, b) { return TR[a.c.T] - TR[b.c.T] || (a.w === b.w ? 0 : a.w === 'deck' ? -1 : 1); });
+    var nDecks = {}; v.forEach(function (x) { nDecks[x.A.nome] = 1; });
+    return { k: k, v: v, nd: Object.keys(nDecks).length, melhor: v[0], pior: v[v.length - 1] };
+  }).filter(function (x) { return x.nd >= 2 && TR[x.melhor.c.T] < TR[x.pior.c.T]; })
+    .sort(function (a, b) { return (TR[b.pior.c.T] - TR[b.melhor.c.T]) - (TR[a.pior.c.T] - TR[a.melhor.c.T]) || a.k.localeCompare(b.k); });
+  var rows2 = mais('pesa', pesa, 12, function (x) {
+    return '<tr><td>' + esc(x.k) + '</td><td><div class="chips">' + x.v.map(function (y) {
+      return '<span data-tip="' + esc(y.A.nome + ': tier ' + y.c.T + ', ' + RELN[y.c.r].toLowerCase() + ', ' + (y.w === 'deck' ? 'no deck' : 'no radar (' + (y.c.v === 'entra' ? 'entra' : 'avaliar') + ')')) + '" class="ch-' + y.c.r + '">' + esc(y.A.nome) + ' ' + esc(y.c.T) + (y.w === 'radar' ? ' <i>radar</i>' : '') +
+        '<span class="sr">, tier ' + esc(y.c.T) + ', ' + (y.w === 'deck' ? 'no deck' : 'no radar') + '</span></span>';
+    }).join('') + '</div></td><td>' + esc('rende mais em ' + x.melhor.A.nome + ' (' + x.melhor.c.T + ') do que em ' + x.pior.A.nome + ' (' + x.pior.c.T + ')') + '</td></tr>';
+  }, 3);
+  var radarEmPasta = [];
+  DK.forEach(function (d) { d.a.cands.forEach(function (c) { if (c.v === 'fora') return; var p = pas[ch(c)]; if (p) radarEmPasta.push({ A: d.a, c: c, p: p }); }); });
+  var pastasBox = temPastas
+    ? (radarEmPasta.length ? '<ul class="lst">' + radarEmPasta.map(function (x) {
+        return '<li><b>' + esc(x.c.n) + '</b>, no radar do ' + esc(x.A.nome) + ' (' + esc(x.c.v === 'entra' ? 'entra' : 'avaliar') + '), já está em ' + esc(lista(x.p.map(function (q) { return q.p + ' ×' + q.q; }))) + '. Dá para pegar de lá em vez de comprar.</li>';
+      }).join('') + '</ul>' : '<p class="hint">Nenhuma carta dos radares está nas pastas.</p>')
+    : '<p class="hint">As listas das pastas ainda não chegaram. Quando chegarem (em <code>dados/pastas/</code>), esta caixa mostra o que o radar pede e você já tem.</p>';
+  var h = '<div class="g2">' + caixa('Onde cada carta rende mais', (pesa.length ? '<p class="dest">' + pl(pesa.length, 'carta tem', 'cartas têm') + ' tier diferente entre os lugares onde aparece (deck ou radar): a mesma carta pode ser fraca num deck e forte em outro.</p>' +
+      '<div class="tw"><table class="tbl"><thead><tr><th scope="col">Carta</th><th scope="col">Cada lugar</th><th scope="col">Leitura</th></tr></thead><tbody>' + rows2 + '</tbody></table></div>' : '<p class="hint">Nenhuma carta aparece em dois lugares com tiers diferentes.</p>') +
+      nota('Em vez de comprar duas cartas, vale mover uma para onde ela rende mais e comprar a mais forte. O tier é o de cada deck, do último build.')) +
+    caixa('O radar contra as pastas', pastasBox) + '</div>' +
+    '<div class="g2">' + caixa('Cartas em mais de um deck', '<p class="dest">' + pl(cs.length, 'carta aparece', 'cartas aparecem') + ' em dois ou mais decks: para jogar com todos montados, são <b>' + extra + ' cópias a mais</b>, somando ' + dol(cap, 0) + '.</p>' +
       '<div class="tw"><table class="tbl"><thead><tr><th scope="col">Carta</th><th scope="col" class="n">Decks</th><th scope="col">Onde</th><th scope="col" class="n">Capital</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
       nota('Terrenos básicos não contam. A cor do nome mostra a relevância da carta em cada deck; passe o mouse para ver tier e preço.')) +
     caixa('O radar entre os decks', (dem.length ? '<h4>Pedida em mais de um deck</h4><ul class="lst">' + dem.join('') + '</ul>' : '') + (ja.length ? '<h4>Já existe em outro deck</h4><ul class="lst">' + ja.join('') + '</ul>' : '') +

@@ -1301,6 +1301,33 @@ function renderOfi() {
 }
 
 /* ============ gaveta ============ */
+/* onde a carta aparece nos outros decks e nas pastas: foto do último build de cada um */
+function chaveN(c) { return String(c.on || c.n).split(' // ')[0].trim().toLowerCase(); }
+function outrosHtml(c) {
+  var k = chaveN(c), os = (D.outros && D.outros[k]) || [], ps = (D.em_pastas && D.em_pastas[k]) || [];
+  var h = '<h3>Em outros decks e pastas</h3>';
+  if (!os.length && !ps.length) {
+    h += '<p class="dw-out-n">Não está em nenhum outro deck' + (D.pastas_com_lista && D.pastas_com_lista.length ? ' nem nas pastas.' : '. As listas das pastas ainda não chegaram: quando chegarem, aparecem aqui.') + '</p>';
+    return h;
+  }
+  os = os.slice().sort(function (a, b) { return (a.w === b.w ? 0 : a.w === 'deck' ? -1 : 1) || TR[a.t] - TR[b.t] || a.d.localeCompare(b.d); });
+  h += '<ul class="dw-out">' + os.map(function (o) {
+    return '<li><b>' + esc(o.d) + '</b><span class="w">' + (o.w === 'deck' ? 'no deck' : 'no radar, ' + (o.v === 'entra' ? 'entra' : 'avaliar')) + '</span>' +
+      '<span class="tb sm t' + o.t + '" title="Tier ' + o.t + '">' + o.t + '</span>' + relB(o.r) + '</li>';
+  }).join('') + '</ul>';
+  var aqui = TR[c.tier], melhores = os.filter(function (o) { return o.w === 'deck' && TR[o.t] < aqui; });
+  var jaTem = os.filter(function (o) { return o.w === 'deck'; });
+  if (c.cand && !c.inDeck && jaTem.length) {
+    h += '<p class="dw-out-n">Já está ' + (jaTem.length > 1 ? 'nos decks ' + jaTem.map(function (o) { return esc(o.d); }).join(', ') : 'no deck ' + esc(jaTem[0].d)) +
+      '. Se for a mesma cópia, ela sai de lá. Aqui o tier é ' + c.tier + '.</p>';
+  } else if (melhores.length) {
+    h += '<p class="dw-out-n">Pesa mais em ' + melhores.map(function (o) { return esc(o.d) + ' (tier ' + o.t + ')'; }).join(', ') + ' do que aqui (tier ' + c.tier + ').</p>';
+  } else if (c.inDeck && os.some(function (o) { return o.w === 'radar'; }) && !jaTem.length) {
+    h += '<p class="dw-out-n">É pedida no radar de outro deck. Aqui ela já joga.</p>';
+  }
+  if (ps.length) h += '<p class="dw-out-n"><b>Nas pastas:</b> ' + ps.map(function (p) { return esc(p.p) + ' ×' + p.q; }).join(', ') + '.</p>';
+  return h;
+}
 function renderDrawer() {
   var el = $('#drawer'), c = ui.drawer ? byId(ui.drawer) : null;
   if (!c) { el.hidden = true; $('#scrim').hidden = !ui.modal; return; }
@@ -1330,6 +1357,7 @@ function renderDrawer() {
     (c.nocut ? '<p class="dw-back">Fica fora da fila de corte: candidata a carta de estimação.</p>' : '') +
     (c.back ? '<p class="dw-back">Outra face: ' + esc(c.back.n) + ', ' + esc(c.back.line.toLowerCase()) + '.</p>' : '');
   if (EDH && !c.custom && !c.cmd) h += '<p class="dw-syn">' + synB(c.syn) + (c.syn != null ? 'de sinergia' + (EDH.pagina ? ' nos decks de ' + esc(EDH.pagina) : '') + ', segundo o ' + esc(EDH.fonte) + '. Mede presença, não força.' : 'Não aparece na página' + (EDH.pagina ? ' de ' + esc(EDH.pagina) : '') + ' no ' + esc(EDH.fonte) + '.') + '</p>';
+  if (!c.cmd && !c.custom) h += outrosHtml(c);
   if (c.cand) {
     h += '<h3>Veredito</h3><div class="segw" role="group" aria-label="Veredito">' + ['entra', 'avaliar', 'fora'].map(function (v) {
       return '<button data-act="set-verdict" data-v="' + v + '" data-fid="vd' + v + '" aria-pressed="' + (c.verdict === v) + '">' + VERD[v] + '</button>';

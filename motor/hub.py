@@ -203,6 +203,15 @@ def resumo_dashboard(pasta, base, m, t, cache):
     )
 
 
+def em_pastas_hub():
+    """{chave da carta: [{p: pasta, q: quantidade}]} das listas em dados/pastas/. Vazio até a primeira lista chegar."""
+    out = {}
+    for p, cs in dados.ler_pastas().items():
+        for k, q in cs.items():
+            out.setdefault(k, []).append(dict(p=p, q=q))
+    return out
+
+
 def montar(avisar=print):
     import scryfall
     inv = ler_inventario()
@@ -243,7 +252,7 @@ def montar(avisar=print):
         decks.append(d)
 
     H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS),
-             pastas=[dict(n=n, c=c) for n, c in PASTAS], gerado=datetime.date.today().strftime("%d/%m/%Y"))
+             pastas=[dict(n=n, c=c) for n, c in PASTAS], em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"))
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})

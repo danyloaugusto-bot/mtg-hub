@@ -70,6 +70,11 @@ with sync_playwright() as p:
             R.ok("aba Dashboard", pg.is_visible("#v-dash"))
             R.ok("Dashboard com as dez seções e o índice", all(pg.locator("#d-" + s).count() == 1 for s in SECOES) and
                  pg.locator(".dnav a").count() == len(SECOES), [s for s in SECOES if not pg.locator("#d-" + s).count()])
+            R.ok("Dashboard: onde cada carta rende mais, com o tier de cada lugar",
+                 pg.locator("#d-compartilhadas .cx h3:text('Onde cada carta rende mais')").count() == 1 and
+                 pg.locator("#d-compartilhadas .cx:has(h3:text('Onde cada carta rende mais')) tbody tr").count() >= 1)
+            R.ok("Dashboard: o radar contra as pastas",
+                 pg.locator("#d-compartilhadas .cx h3:text('O radar contra as pastas')").count() == 1)
             dash = {x["pasta"]: x for x in pg.evaluate("window.HUB_DASH.decks")}
             R.ok("Dashboard cobre todos os decks com painel", sorted(dash) == sorted(d["pasta"] for d in prontos), sorted(dash))
             for d in prontos:

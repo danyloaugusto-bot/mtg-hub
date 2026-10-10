@@ -196,6 +196,15 @@ Foi acrescentada em 10/10/2026, a pedido do dono, entre a Tier list e o Tabelão
 - **Para trocar com sabedoria.** Cada quadro mostra a carta mais fraca (pela mesma ordem da fila de corte) e as cartas do radar cujo pacote primário é aquele. Passando o mouse numa do radar, aparece quem sairia.
 - **O comandante** fica fora da contagem.
 
+## Cartas entre decks e pastas
+
+Acrescentado em 10/10/2026, a pedido do dono, para trocar de lugar em vez de comprar duas cartas: uma carta que pesa pouco num deck pode ser forte em outro, ou já estar numa pasta.
+
+- **Na gaveta de cada carta** (as janelas do painel), a seção "Em outros decks e pastas" lista onde a carta aparece nos outros decks, no deck ou no radar, com o tier e a relevância de cada lugar. Diz quando a carta "pesa mais" em outro deck, quando a carta do radar já está no deck de outro ("se for a mesma cópia, ela sai de lá") e em que pasta ela está.
+- **Como o painel sabe.** O build lê a `avaliacao.json` de todos os outros decks (`dados.indice_outros`) e grava no painel só as cartas que aparecem nele, em `D.outros`. As pastas vêm de `dados/pastas/<nome da pasta>.txt` (`dados.ler_pastas`; uma linha por carta, `2 Nome da carta`, com ou sem `(SET) 123` depois), em `D.em_pastas`. Chave de comparação: o nome do Scryfall, sem a face de trás e em minúsculas. É a foto do último build de cada deck: se outro deck mudou, é preciso montar de novo.
+- **No Dashboard do hub**, a seção Compartilhadas ganhou "Onde cada carta rende mais" (as cartas que aparecem em dois ou mais lugares com tiers diferentes, ordenadas pela maior diferença) e "O radar contra as pastas" (o que o radar pede e já está numa pasta). A coluna "Onde" da tabela de cartas em mais de um deck passou a mostrar o tier. Sem lista de pasta, a caixa das pastas avisa que as listas ainda não chegaram.
+- **Falta:** o formato definitivo das listas das pastas fecha quando a primeira chegar; hoje só o texto simples é lido.
+
 ## A Oficina de cada painel
 
 O painel não tem IA dentro dele quando é um arquivo local. A aba Oficina faz a ponte: lista o que dá para pedir ao Claude Code sobre aquele deck, com o comando já preenchido com o nome da pasta e um botão de copiar. Hoje: auditar, comparar duas cartas, avaliar coleção nova, atualizar a leitura da comunidade, trocar a capa, propor variações de tema, conferir a decklist, e levar ao projeto o que foi editado no painel, com o backup copiado junto. O caminho de volta é o `/importar-backup`.
