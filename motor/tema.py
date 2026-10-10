@@ -139,6 +139,14 @@ def textura(nome, p):
         return ("radial-gradient(1100px 560px at 50%% -14%%, rgba(%d,%d,%d,.16), transparent 64%%),"
                 "radial-gradient(640px 400px at 92%% 6%%, rgba(%d,%d,%d,.22), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["texto"]) + _hex(p["destaque"]) + (svg, grad))
+    if nome == "damasco":
+        # brocado do trono: medalhões em ogiva, em ouro discreto, e luz de salão vinda do alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='88' viewBox='0 0 64 88'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.07' stroke-width='1'%3E%3Cpath d='M32 4C48 18 48 32 32 44C16 32 16 18 32 4Z'/%3E"
+               "%3Cpath d='M0 44C16 58 16 72 0 84M64 44C48 58 48 72 64 84'/%3E%3Ccircle cx='32' cy='24' r='3'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(1000px 560px at 50%% -12%%, rgba(%d,%d,%d,.2), transparent 64%%),"
+                "radial-gradient(640px 400px at 94%% 4%%, rgba(%d,%d,%d,.24), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["acento"]) + _hex(p["destaque"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

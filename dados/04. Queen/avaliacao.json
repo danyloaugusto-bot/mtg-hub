@@ -1,0 +1,1550 @@
+{
+ "feito": "10/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    8,
+    10
+   ],
+   "desc": "Pedras, tesouros, mana a mais. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "coroa",
+   "nome": "Coroa",
+   "ab": "Coroa",
+   "desc": "Dá a monarquia ou a retoma."
+  },
+  {
+   "k": "fortaleza",
+   "nome": "Fortaleza",
+   "ab": "Fort.",
+   "ref": [
+    8,
+    8
+   ],
+   "desc": "Taxa, dissuasão e bloqueio: o que impede a mesa de bater em você e levar a coroa."
+  },
+  {
+   "k": "removal",
+   "nome": "Remoção",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Resposta pontual a uma permanente."
+  },
+  {
+   "k": "limpeza",
+   "nome": "Limpeza",
+   "ab": "Limp.",
+   "ref": [
+    3,
+    5
+   ],
+   "desc": "Remoção em massa."
+  },
+  {
+   "k": "politica",
+   "nome": "Política",
+   "ab": "Pol.",
+   "ref": [
+    8,
+    8
+   ],
+   "desc": "Forçar ataques, presentear, votar: aponta a mesa para outro jogador."
+  },
+  {
+   "k": "motor",
+   "nome": "Motor",
+   "ab": "Motor",
+   "ref": [
+    8,
+    8
+   ],
+   "desc": "Vantagem de cartas e reposição além da coroa."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "ref": [
+    8,
+    8
+   ],
+   "desc": "Encerra o jogo, sozinho ou em poucas voltas."
+  }
+ ],
+ "marcadores": {
+  "coroa": {
+   "nome": "Fonte de coroa",
+   "plural": "Fontes de coroa"
+  },
+  "mesa": {
+   "nome": "Proteção de mesa"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 34
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 8,
+   "rotulo": [
+    "carta de ramp dedicada",
+    "cartas de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem",
+   "alerta": "A coroa compra duas por turno, mas a mana fica abaixo da faixa usual de 10 a 12."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "coroa",
+   "min": 8,
+   "listar": false,
+   "rotulo": [
+    "fonte de coroa",
+    "fontes de coroa"
+   ],
+   "texto": "Perder a coroa não é o problema: o deck a retoma fácil. Cada troca desliga as Cortes por uma manutenção.",
+   "ok": "Não falta coroa."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "fortaleza",
+   "min": 8,
+   "rotulo": [
+    "peça de fortaleza",
+    "peças de fortaleza"
+   ],
+   "passagem": "de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "removal",
+   "min": 8,
+   "rotulo": [
+    "remoção pontual",
+    "remoções pontuais"
+   ],
+   "passagem": "de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "limpeza",
+   "min": 3,
+   "rotulo": [
+    "limpeza de mesa",
+    "limpezas de mesa"
+   ],
+   "passagem": "de passagem",
+   "farto": {
+    "min": 6,
+    "texto": "Seis limpezas num deck de fortaleza: Feast, Edict e Austere (no modo de encantamentos) pegam a sua mesa também."
+   }
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "politica",
+   "min": 6,
+   "rotulo": [
+    "peça política",
+    "peças políticas"
+   ],
+   "passagem": "de passagem",
+   "alerta": "Pouca política dedicada para um deck que o dono quer bem político."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "motor",
+   "min": 8,
+   "rotulo": [
+    "motor de cartas",
+    "motores de cartas"
+   ],
+   "passagem": "de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "fechamento",
+   "min": 8,
+   "rotulo": [
+    "carta que fecha o jogo",
+    "cartas que fecham o jogo"
+   ],
+   "passagem": "que ajudam a fechar",
+   "alerta": "O fim é o elo fraco: sete dos fechamentos pedem quatro voltas ou mais, e cinco se apagam sem a coroa."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "mesa",
+   "min": 1,
+   "listar": true,
+   "rotulo": [
+    "proteção de mesa",
+    "proteções de mesa"
+   ],
+   "texto": "Dezoito encantamentos e nada que os salve de uma limpeza.",
+   "alerta": "Nenhuma carta protege a mesa: um Farewell do outro lado encerra o seu jogo.",
+   "ok": "A mesa tem proteção."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Não chamar atenção: uma pedra de 2 manas, Esper Sentinel, Kambal, Blind Obedience e a Ghostly Prison no turno 3. Guardar a coroa para quando houver taxa na mesa.",
+   "fortes": [
+    "Sol Ring, Arcane Signet e três Talismãs põem a Marchesa no turno 3.",
+    "Esper Sentinel e Kambal cobram sem parecer ameaça."
+   ],
+   "fracos": [
+    "A pedra de turno 2 aparece em menos da metade dos jogos.",
+    "Sete terrenos sempre entram virados, e seis não geram cor."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 7",
+   "plano": "A Marchesa ou uma Corte dá a coroa; a fortaleza (Ghostly Prison, Sphere of Safety, Norn's Annex, Windborn Muse, Maze of Ith) cobra quem quiser tomá-la. Duas cartas por turno, e The One Ring sem depender da coroa.",
+   "fortes": [
+    "20 fontes de coroa: perdê-la é passageiro.",
+    "Remoção pontual de qualidade alta para quem ameaça a coroa."
+   ],
+   "fracos": [
+    "Cada troca de coroa desliga as Cortes por uma manutenção.",
+    "Dezoito encantamentos e nenhuma proteção de mesa."
+   ]
+  },
+  "fim": {
+   "turnos": "8 em diante",
+   "plano": "Ruinous Ultimatum limpa os três lados e deixa a sua mesa; Court of Grace e Skyline Despot fecham com Anjos e Dragões; Approach of the Second Sun é a vitória que não depende de combate.",
+   "fortes": [
+    "A Ruinous Ultimatum limpa só os oponentes.",
+    "A Approach volta à mão em quatro voltas com duas compras por turno."
+   ],
+   "fracos": [
+    "Sete dos fechamentos pedem quatro voltas ou mais.",
+    "Cinco fechamentos se apagam quando a coroa troca de mão."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "forte",
+    "porque": "Ghostly Prison, Sphere, Norn's Annex, Windborn Muse, Kazuul e No Mercy tornam cada ataque caro."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Swords, Darksteel Mutation, Maze of Ith e No Mercy respondem ao atacante único."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Nenhuma anulação. Esper Sentinel e Kambal só cobram, e o fim do deck é lento."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "A coroa e The One Ring compram muito, mas uma limpeza de encantamentos derruba a fortaleza inteira."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "equilibrado",
+    "porque": "Pedras baratas e Smothering Tithe passam por imposto; a mana colorida sofre com a base."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Fichas pagam taxa uma a uma e Path of Peril limpa os pequenos, mas eles não precisam atacar para ganhar."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "Kambal e Esper Sentinel cobram cada mágica, mas o deck não anula e eles correm mais."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "equilibrado",
+    "porque": "Smothering Tithe pune a compra deles e a remoção responde ao que é grande; o fim lento dá tempo a eles."
+   }
+  ]
+ },
+ "cartas": {
+  "Queen Marchesa": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 2,
+    "removal": 1,
+    "politica": 2,
+    "motor": 2,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "3/3 toque mortífero e pressa. Ao entrar, você vira o monarca. Na sua manutenção, se um oponente é o monarca, cria um Assassino 1/1 com toque mortífero e pressa.",
+   "porque": "Dá a coroa ao entrar e fabrica o meio de retomá-la: o Assassino ataca no turno em que nasce, e qualquer dano de combate no monarca devolve a coroa.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Alexios, Deimos of Kosmos": {
+   "notas": {
+    "fortaleza": 1,
+    "politica": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/4 atropelar. Ataca todo combate, não pode ser sacrificado nem atacar o dono. Na manutenção de cada jogador, passa a ele, desvira, ganha +1/+1 e pressa.",
+   "porque": "Pressão que roda a mesa e nunca bate em você: política sem você ser o agressor."
+  },
+  "Archon of Coronation": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 3,
+    "motor": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "5/5 voar. Ao entrar, você vira o monarca. Enquanto for o monarca, dano não faz você perder vida.",
+   "porque": "Com a coroa, você fica imune a dano. O dano ainda é causado: quem conecta toma a coroa e a imunidade acaba.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Caesar, Legion's Emperor": {
+   "notas": {
+    "removal": 1,
+    "motor": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/4. Sempre que você ataca, pode sacrificar outra criatura e escolher dois: dois Soldados atacando, comprar uma carta, ou dano igual às suas fichas.",
+   "porque": "Pede ataque e ficha para sacrificar, e a fortaleza ataca pouco."
+  },
+  "Champions of Minas Tirith": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 3,
+    "motor": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "4/6. Ao entrar, você vira o monarca. No combate de cada oponente, se você é o monarca, ele paga X igual às cartas na mão ou não ataca você.",
+   "porque": "Coroa e a taxa de ataque mais cara da lista numa carta.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Crimson Fleet Commodore": {
+   "notas": {
+    "coroa": 2,
+    "motor": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "5/2 atropelar. Ao entrar, você vira o monarca.",
+   "porque": "Carta de estimação, pelo sabor do tema. Só dá a coroa, e há outras 19 fontes.",
+   "marcas": {
+    "coroa": 1
+   },
+   "fora_do_corte": true
+  },
+  "Custodi Lich": {
+   "notas": {
+    "coroa": 2,
+    "removal": 1,
+    "motor": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "4/2. Ao entrar, você vira o monarca. Sempre que você vira o monarca, um jogador sacrifica uma criatura.",
+   "porque": "Carta de estimação, de Conspiracy. O gatilho só dispara se você ainda não era o monarca.",
+   "marcas": {
+    "coroa": 1
+   },
+   "fora_do_corte": true
+  },
+  "Emberwilde Captain": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 2,
+    "motor": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/2. Ao entrar, você vira o monarca. Quando um oponente ataca você e você é o monarca, causa a ele dano igual às cartas na mão dele.",
+   "porque": "Coroa com dissuasão, que só funciona com a coroa.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Esper Sentinel": {
+   "notas": {
+    "fortaleza": 1,
+    "motor": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "1/1. Na primeira mágica não criatura de cada oponente por turno, você compra, a menos que ele pague X, igual ao poder do Sentinel.",
+   "porque": "Compra de turno 1 que não depende da coroa e não chama atenção."
+  },
+  "Irencrag Pyromancer": {
+   "notas": {
+    "removal": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "0/4. Quando você compra a segunda carta do turno, causa 3 de dano a qualquer alvo.",
+   "porque": "A compra da coroa, no seu fim de turno, é a segunda do turno: 3 de dano por volta. Sem a coroa, é um 0/4.",
+   "prioridade": 7
+  },
+  "Kambal, Consul of Allocation": {
+   "notas": {
+    "fortaleza": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "2/3. Sempre que um oponente conjura mágica não criatura, ele perde 2 e você ganha 2.",
+   "porque": "Taxa discreta sobre mágicas, desde o turno 3."
+  },
+  "Kazuul, Tyrant of the Cliffs": {
+   "notas": {
+    "fortaleza": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "5/4. Cada criatura que ataca você rende um Ogro 3/3, a menos que o dono pague 3.",
+   "porque": "Taxa por atacante que, ignorada, constrói o seu exército."
+  },
+  "Knights of the Black Rose": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 1,
+    "motor": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/4. Ao entrar, você vira o monarca. Se um oponente vira o monarca e você era no começo do turno, ele perde 2 e você ganha 2.",
+   "porque": "Coroa com um pedágio para quem a toma.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Master of Ceremonies": {
+   "notas": {
+    "ramp": 1,
+    "politica": 2,
+    "motor": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "3/4. Na sua manutenção, cada oponente escolhe tesouro, ficha 1/1 ou carta; você e ele recebem.",
+   "porque": "O oponente escolhe o que serve a ele, e o tesouro dele paga a sua Ghostly Prison.",
+   "prioridade": 6
+  },
+  "Nelly Borca, Impulsive Accuser": {
+   "notas": {
+    "fortaleza": 1,
+    "politica": 3,
+    "motor": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "2/4 vigilância. Ao atacar, torna uma criatura suspeita e força as suspeitas a atacar. Quando criaturas de um oponente causam dano a outro oponente, você e ele compram.",
+   "porque": "Tira atacantes de cima de você e paga em cartas. A peça política mais completa."
+  },
+  "Ophiomancer": {
+   "notas": {
+    "fortaleza": 2,
+    "motor": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "2/2. Em cada manutenção, se você não controla Cobra, cria uma 1/1 com toque mortífero.",
+   "porque": "Um bloqueador com toque mortífero por turno. Com Skullclamp, duas cartas por cobra."
+  },
+  "Royal Assassin": {
+   "notas": {
+    "fortaleza": 2,
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "1/1. Vira: destrói uma criatura virada.",
+   "porque": "Quem atacou você perde a criatura no seu turno."
+  },
+  "Skyline Despot": {
+   "notas": {
+    "coroa": 3,
+    "motor": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "5/5 voar. Ao entrar, você vira o monarca. Na sua manutenção, se for o monarca, cria um Dragão 5/5 voador.",
+   "porque": "Um Dragão por turno com a coroa: fecha em três ou quatro voltas.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Thorn of the Black Rose": {
+   "notas": {
+    "coroa": 2,
+    "fortaleza": 1,
+    "motor": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "1/3 toque mortífero. Ao entrar, você vira o monarca.",
+   "porque": "Coroa com um bloqueador que ninguém quer enfrentar.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Windborn Muse": {
+   "notas": {
+    "fortaleza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "2/3 voar. Atacar você custa 2 por criatura.",
+   "porque": "Uma Ghostly Prison com asas."
+  },
+  "Anguished Unmaking": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Exila uma permanente não terreno. Você perde 3.",
+   "porque": "Resposta universal, em exílio."
+  },
+  "Chaos Warp": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "O dono embaralha a permanente e revela o topo; se for permanente, entra.",
+   "porque": "Resolve o que é indestrutível."
+  },
+  "Generous Gift": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Destrói uma permanente. O dono cria um Elefante 3/3.",
+   "porque": "Resposta universal."
+  },
+  "Get Lost": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Destrói criatura, encantamento ou planeswalker. O dono cria dois Mapas.",
+   "porque": "Duas manas, instantânea."
+  },
+  "Swords to Plowshares": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Exila uma criatura. O dono ganha vida igual ao poder.",
+   "porque": "A melhor remoção de criatura do formato."
+  },
+  "Take the Bait": {
+   "notas": {
+    "fortaleza": 2,
+    "politica": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Só no combate de um oponente: previne o dano de combate em você, desvira e força os atacantes a atacar, e há outro combate.",
+   "porque": "Salva um turno e joga o ataque em outro. Sem dano, a coroa fica.",
+   "prioridade": 8
+  },
+  "Terminate": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Destrói uma criatura; não pode ser regenerada.",
+   "porque": "Remoção barata."
+  },
+  "Legion Leadership": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dobra o poder de uma criatura e dá iniciativa. O verso é um terreno virado que gera R ou W.",
+   "porque": "Fonte de terreno; o efeito é bônus."
+  },
+  "Approach of the Second Sun": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Conjurada da mão pela segunda vez no jogo, você vence. Na primeira, ganha 7 e vai para a sétima posição do grimório.",
+   "porque": "A única vitória que não depende da coroa nem de combate. Com duas compras por turno, volta em quatro voltas."
+  },
+  "Austere Command": {
+   "notas": {
+    "removal": 1,
+    "limpeza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Escolha dois: destrói artefatos; encantamentos; criaturas de valor 3 ou menos; de valor 4 ou mais.",
+   "porque": "Limpeza sob medida. O modo de encantamentos leva os seus 18.",
+   "massa": true
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "limpeza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "13 de dano a cada criatura; custa 1 a menos por criatura.",
+   "porque": "Em mesa cheia, custa uma mana vermelha.",
+   "massa": true
+  },
+  "Blasphemous Edict": {
+   "notas": {
+    "limpeza": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Cada jogador sacrifica treze criaturas. Custa {B} com treze criaturas em campo.",
+   "porque": "A sexta limpeza, e leva a sua mesa junto.",
+   "massa": true,
+   "prioridade": 3
+  },
+  "Bloodsoaked Insight": {
+   "notas": {
+    "motor": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Um oponente exila as três do topo; você pode jogá-las. O verso é um terreno virado que gera B ou R.",
+   "porque": "Fonte de terreno."
+  },
+  "Council's Judgment": {
+   "notas": {
+    "removal": 3,
+    "politica": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Cada jogador vota numa permanente que você não controla; as mais votadas são exiladas.",
+   "porque": "Sem alvo, passa por hexproof. E o voto é conversa de mesa."
+  },
+  "Feast of Succession": {
+   "notas": {
+    "coroa": 3,
+    "limpeza": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Todas as criaturas ganham −4/−4. Você vira o monarca.",
+   "porque": "Limpa os pequenos e devolve a coroa. Mata a Marchesa também.",
+   "marcas": {
+    "coroa": 1
+   },
+   "massa": true
+  },
+  "Forth Eorlingas!": {
+   "notas": {
+    "coroa": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Cria X Cavaleiros 2/2 com atropelar e pressa. Se suas criaturas causarem dano de combate a um jogador, você vira o monarca.",
+   "porque": "Retoma a coroa no mesmo turno e, com X alto, fecha por combate.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Idyllic Tutor": {
+   "notas": {
+    "motor": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Busca um encantamento para a mão.",
+   "porque": "Dezoito alvos: a Corte certa, a fortaleza ou o Smothering Tithe."
+  },
+  "Path of Peril": {
+   "notas": {
+    "limpeza": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Destrói criaturas de valor 2 ou menos. Por {4}{W}{B}, destrói todas.",
+   "porque": "Limpa as fichas que roubam a coroa.",
+   "massa": true
+  },
+  "Ruinous Ultimatum": {
+   "notas": {
+    "limpeza": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Destrói todas as permanentes não terreno dos oponentes.",
+   "porque": "A limpeza que só pega os outros: a jogada decisiva do fim. Pede {R}{R}{W}{W}{W}{B}{B}.",
+   "massa": true
+  },
+  "Vindicate": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Destrói uma permanente.",
+   "porque": "Pega terreno também."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vira: uma mana de qualquer cor da comandante.",
+   "porque": "Pedra de 2 que conserta as três cores."
+  },
+  "Decanter of Endless Water": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sem limite de mão. Vira: qualquer cor.",
+   "porque": "Pedra de 3 e o terceiro efeito de mão sem limite.",
+   "prioridade": 2
+  },
+  "Norn's Annex": {
+   "notas": {
+    "fortaleza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Atacar você custa {W/P} por criatura.",
+   "porque": "Quem não joga branco paga com 2 de vida por atacante."
+  },
+  "Skullclamp": {
+   "notas": {
+    "motor": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "+1/−1. Quando a criatura equipada morre, compra duas. Equipar 1.",
+   "porque": "Com Ophiomancer e os Assassinos, duas cartas por ficha."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Vira: dois incolores.",
+   "porque": "A Marchesa no turno 3."
+  },
+  "Talisman of Conviction": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vira: incolor, ou R ou W com 1 de dano.",
+   "porque": "Pedra de 2."
+  },
+  "Talisman of Hierarchy": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vira: incolor, ou W ou B com 1 de dano.",
+   "porque": "Pedra de 2."
+  },
+  "Talisman of Indulgence": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vira: incolor, ou B ou R com 1 de dano.",
+   "porque": "Pedra de 2."
+  },
+  "Thaumatic Compass": {
+   "notas": {
+    "ramp": 1,
+    "fortaleza": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "{3}, vira: busca um básico para a mão. Com sete terras, vira um terreno que tira um atacante do combate.",
+   "porque": "Com cinco básicos no deck, busca pouco.",
+   "prioridade": 4
+  },
+  "The One Ring": {
+   "notas": {
+    "fortaleza": 2,
+    "motor": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Indestrutível. Ao entrar, proteção contra tudo até o seu turno. Vira: um marcador e compra uma por marcador.",
+   "porque": "O melhor motor de cartas da lista, e não depende da coroa."
+  },
+  "Thought Vessel": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sem limite de mão. Vira: incolor.",
+   "porque": "Pedra de 2."
+  },
+  "Assemble the Legion": {
+   "notas": {
+    "fortaleza": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Na manutenção, mais um marcador e um Soldado 1/1 com pressa por marcador.",
+   "porque": "Exército que cresce atrás da fortaleza. Fecha em cinco ou seis voltas."
+  },
+  "Blind Obedience": {
+   "notas": {
+    "fortaleza": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Extorquir. Artefatos e criaturas dos oponentes entram virados.",
+   "porque": "Tira a pressa da mesa, que é como se rouba uma coroa de surpresa."
+  },
+  "Court of Ambition": {
+   "notas": {
+    "coroa": 3,
+    "motor": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Ao entrar, você vira o monarca. Na manutenção, cada oponente perde 3 ou descarta; com a coroa, 6 ou duas.",
+   "porque": "Desgaste que acaba com as mãos da mesa.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Court of Ardenvale": {
+   "notas": {
+    "coroa": 3,
+    "motor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Ao entrar, você vira o monarca. Na manutenção, devolve do cemitério uma permanente de valor 3 ou menos à mão; com a coroa, ao campo.",
+   "porque": "Recupera Ghostly Prison, pedras e peças baratas todo turno.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Court of Embereth": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Ao entrar, você vira o monarca. Na manutenção, cria um Cavaleiro 3/1; com a coroa, dano a cada oponente igual às suas criaturas.",
+   "porque": "Rende pouco numa mesa de poucas criaturas.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Court of Grace": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 1,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Ao entrar, você vira o monarca. Na manutenção, um Espírito 1/1 voador; com a coroa, um Anjo 4/4 voador.",
+   "porque": "A Corte que ganha jogo: um Anjo por turno defende a coroa e depois ataca.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Court of Ire": {
+   "notas": {
+    "coroa": 3,
+    "removal": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Ao entrar, você vira o monarca. Na manutenção, 2 de dano a qualquer alvo; com a coroa, 7.",
+   "porque": "Sete por turno mata criatura, planeswalker ou jogador.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Court of Locthwain": {
+   "notas": {
+    "coroa": 3,
+    "motor": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Ao entrar, você vira o monarca. Na manutenção, exila o topo de um oponente para você jogar; com a coroa, conjura uma de graça.",
+   "porque": "Vantagem com as cartas dos outros.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Darksteel Mutation": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "A criatura vira um Inseto 0/1 indestrutível sem habilidades.",
+   "porque": "Anula um comandante sem mandá-lo à zona de comando."
+  },
+  "Descent into Avernus": {
+   "notas": {
+    "ramp": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Na manutenção, dois marcadores; cada jogador cria X Tesouros e recebe X de dano.",
+   "porque": "Dá à mesa a mana que paga as suas taxas de ataque. Só trabalha para você com o Archon of Coronation.",
+   "prioridade": 1
+  },
+  "Duelist's Heritage": {
+   "notas": {
+    "politica": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Quando criaturas atacam, pode dar golpe duplo a uma atacante.",
+   "porque": "Presente político pequeno para uma vaga.",
+   "prioridade": 5
+  },
+  "Ghostly Prison": {
+   "notas": {
+    "fortaleza": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Atacar você custa 2 por criatura.",
+   "porque": "A peça que define a fortaleza."
+  },
+  "Grave Venerations": {
+   "notas": {
+    "coroa": 3,
+    "motor": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Ao entrar, você vira o monarca. No seu fim de turno, com a coroa, devolve uma criatura do cemitério à mão. Criatura sua que morre drena 1.",
+   "porque": "Coroa com reposição.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Marchesa's Decree": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Ao entrar, você vira o monarca. Sempre que uma criatura ataca você, o dono perde 1.",
+   "porque": "Coroa e pedágio que não depende da coroa.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "No Mercy": {
+   "notas": {
+    "fortaleza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sempre que uma criatura causa dano a você, é destruída.",
+   "porque": "Não impede a perda da coroa; cobra o preço depois."
+  },
+  "Smothering Tithe": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Quando um oponente compra, ele paga 2 ou você cria um Tesouro.",
+   "porque": "A melhor fonte de mana da lista. Paga Ruinous Ultimatum e Forth Eorlingas."
+  },
+  "Sphere of Safety": {
+   "notas": {
+    "fortaleza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Atacar você custa X por criatura, X igual aos seus encantamentos.",
+   "porque": "Com 18 encantamentos na lista, chega fácil a 5."
+  },
+  "Glasswing Grace": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Aura: +2/+2, voar e vínculo. O verso é um terreno virado que gera W ou B.",
+   "porque": "Fonte de terreno."
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Qualquer cor da comandante.",
+   "porque": "O melhor terreno do deck."
+  },
+  "Savai Triome": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Entra virada. R, W ou B. Reciclar 3.",
+   "porque": "As três cores.",
+   "virado": true
+  },
+  "Nomad Outpost": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virada. R, W ou B.",
+   "porque": "As três cores, sempre virada.",
+   "virado": true
+  },
+  "Elegant Parlor": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Entra virada. R ou W. Vigiar 1.",
+   "porque": "Duas cores, sempre virada.",
+   "virado": true
+  },
+  "Exotic Orchard": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Cor que um terreno de oponente gere.",
+   "porque": "Quase sempre as três."
+  },
+  "Blightstep Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "B ou R, escolhido ao jogar.",
+   "porque": "Desvirada."
+  },
+  "Brightclimb Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "W ou B, escolhido ao jogar.",
+   "porque": "Desvirada."
+  },
+  "Needleverge Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "R ou W, escolhido ao jogar.",
+   "porque": "Desvirada."
+  },
+  "Fetid Heath": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Incolor, ou filtra para W e B.",
+   "porque": "Conserta custos pesados."
+  },
+  "Graven Cairns": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Incolor, ou filtra para B e R.",
+   "porque": "Conserta custos pesados."
+  },
+  "Rugged Prairie": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Incolor, ou filtra para R e W.",
+   "porque": "Conserta custos pesados."
+  },
+  "Luxury Suite": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "B ou R. Desvirada com dois ou mais oponentes.",
+   "porque": "Dual sem custo em mesa de quatro."
+  },
+  "Vault of Champions": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "W ou B. Desvirada com dois ou mais oponentes.",
+   "porque": "Dual sem custo em mesa de quatro."
+  },
+  "Inspiring Vantage": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "R ou W. Desvirada só até a terceira terra.",
+   "porque": "Boa cedo, virada depois."
+  },
+  "Shineshadow Snarl": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "W ou B. Desvirada se revelar Plains ou Swamp.",
+   "porque": "Poucos alvos para revelar."
+  },
+  "Smoldering Marsh": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "B ou R. Desvirada com dois básicos.",
+   "porque": "Com cinco básicos, entra virada quase sempre."
+  },
+  "Cave of the Frost Dragon": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "W. Vira um Dragão 3/4 voador por {4}{W}.",
+   "porque": "Terra que ataca para retomar a coroa."
+  },
+  "Den of the Bugbear": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "R. Vira um Goblin 3/2 por {3}{R}.",
+   "porque": "Terra que ataca para retomar a coroa."
+  },
+  "Hive of the Eye Tyrant": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "B. Vira um Observador 3/3 com ameaça por {3}{B}.",
+   "porque": "Terra que ataca, com evasão."
+  },
+  "Shattered Landscape": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor. Sacrifica: busca um básico virado. Reciclar RWB.",
+   "porque": "Conserta cor, devagar."
+  },
+  "Maze of Ith": {
+   "notas": {
+    "fortaleza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Não gera mana. Vira: desvira um atacante e previne o dano de combate dele.",
+   "porque": "Fortaleza num terreno: segura quem vinha buscar a coroa."
+  },
+  "Throne of the High City": {
+   "notas": {
+    "coroa": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Incolor. {4}, sacrifica: você vira o monarca.",
+   "porque": "Retoma a coroa sem carta da mão.",
+   "marcas": {
+    "coroa": 1
+   }
+  },
+  "Hall of Heliod's Generosity": {
+   "notas": {
+    "motor": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Incolor. {1}{W}, vira: um encantamento do cemitério vai ao topo.",
+   "porque": "Devolve a fortaleza depois de uma remoção."
+  },
+  "Rogue's Passage": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor. {4}, vira: uma criatura não pode ser bloqueada.",
+   "porque": "Um Assassino imbloqueável retoma a coroa."
+  },
+  "Reliquary Tower": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Incolor. Sem limite de mão.",
+   "porque": "O terceiro efeito de mão sem limite, num terreno sem cor.",
+   "prioridade": 9
+  },
+  "Field of Ruin": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Incolor. {2}, sacrifica: destrói um terreno não básico; cada jogador busca um básico.",
+   "porque": "Não gera cor, e a lista tem cinco básicos.",
+   "prioridade": 10
+  },
+  "Plains": {
+   "notas": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "2 cópias."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "2 cópias."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "1 cópia."
+  }
+ },
+ "radar": {
+  "Teferi's Protection": {
+   "notas": {
+    "fortaleza": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Instantânea de 3: até o seu turno, sua vida não muda e você ganha proteção contra tudo; suas permanentes saem de fase.",
+   "porque": "A proteção de mesa que a lista não tem: salva os 18 encantamentos de uma limpeza. Terceiro Game Changer.",
+   "sai": "Descent into Avernus"
+  },
+  "Insurrection": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 8: desvira e toma todas as criaturas até o fim do turno, com pressa.",
+   "porque": "O fechamento de quem ficou atrás da fortaleza vendo os outros montarem exércitos.",
+   "sai": "Blasphemous Edict"
+  },
+  "Palace Jailer": {
+   "notas": {
+    "coroa": 3,
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "2/2 de 4. Ao entrar, você vira o monarca e exila uma criatura de oponente até um oponente virar o monarca.",
+   "porque": "Coroa com remoção, que dura enquanto a coroa for sua.",
+   "sai": "Irencrag Pyromancer"
+  },
+  "Queen Mother Ramonda": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "3/5 de 5. Ao entrar, você vira o monarca. Com a coroa, criaturas de poder 2 ou menos não atacam você.",
+   "porque": "Fecha a porta das fichas, que é quem rouba a coroa.",
+   "sai": "Master of Ceremonies"
+  },
+  "Trouble in Pairs": {
+   "notas": {
+    "fortaleza": 1,
+    "motor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 4. Compra quando um oponente ataca você com duas ou mais, compra a segunda carta ou conjura a segunda mágica no turno.",
+   "porque": "Motor que não depende da coroa.",
+   "sai": "Decanter of Endless Water"
+  },
+  "Disrupt Decorum": {
+   "notas": {
+    "fortaleza": 1,
+    "politica": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Feitiço de 4: força todas as criaturas que não são suas a atacar outro jogador.",
+   "porque": "Um turno inteiro da mesa batendo em si mesma.",
+   "sai": "Duelist's Heritage"
+  },
+  "Gleaming Splendor": {
+   "notas": {
+    "ramp": 2,
+    "politica": 1,
+    "motor": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Encantamento de 2. Tesouro quando um oponente compra a segunda carta do turno. {2}{W}: dois jogadores compram uma cada.",
+   "porque": "Ramp discreto de turno 2 e moeda de negociação.",
+   "sai": "Thaumatic Compass"
+  },
+  "Godless Shrine": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Plains Swamp. Desvirada por 2 de vida.",
+   "porque": "Branco e preto, e alvo para o Snarl. Terra por terra.",
+   "sai": "Reliquary Tower"
+  },
+  "Sacred Foundry": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Mountain Plains. Desvirada por 2 de vida.",
+   "porque": "Vermelho e branco. Terra por terra.",
+   "sai": "Field of Ruin"
+  },
+  "Mangara, the Diplomat": {
+   "notas": {
+    "fortaleza": 1,
+    "motor": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "2/4 vínculo. Compra quando duas ou mais criaturas atacam você e na segunda mágica de um oponente.",
+   "porque": "Motor independente da coroa.",
+   "sai": "Take the Bait"
+  },
+  "Tamiyo, Upriser Crowned": {
+   "notas": {
+    "coroa": 3,
+    "fortaleza": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "3/5 voar, golpe duplo e pressa, de 6. Ao entrar, você vira o monarca. Com a coroa, quem causa dano de combate a você é virado e atordoado.",
+   "porque": "Atacante de verdade que também prende quem tomou a coroa.",
+   "sai": "Caesar, Legion's Emperor"
+  },
+  "Inkshield": {
+   "notas": {
+    "fortaleza": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 5: previne o dano de combate em você e cria um Inkling 2/1 voador por ponto prevenido.",
+   "porque": "Segura o ataque que leva a coroa e devolve um exército.",
+   "sai": "Path of Peril"
+  },
+  "Spectator Seating": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terra: R ou W, desvirada com dois ou mais oponentes.",
+   "porque": "Dual sem custo em mesa de quatro, no lugar do Marsh quase sempre virado.",
+   "sai": "Smoldering Marsh"
+  },
+  "Farewell": {
+   "notas": {
+    "limpeza": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "fora",
+   "faz": "Escolha um ou mais: exila artefatos, criaturas, encantamentos, cemitérios.",
+   "porque": "Exilaria os seus 18 encantamentos."
+  },
+  "Solitary Confinement": {
+   "notas": {
+    "fortaleza": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Pula a compra, você tem shroud e todo dano em você é prevenido; descarte na manutenção.",
+   "porque": "Com a coroa pagando o descarte, tranca o jogo. É o oposto de não chamar atenção."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Imune com a coroa",
+   "tipo": "Motor",
+   "pecas": [
+    "Archon of Coronation",
+    "Descent into Avernus"
+   ],
+   "texto": "Com a coroa, o dano do Descent não tira a sua vida e tira a de todos os outros, crescendo dois por turno. Depende de ninguém conectar um ataque."
+  },
+  {
+   "nome": "Cartas por cobra",
+   "tipo": "Motor",
+   "pecas": [
+    "Ophiomancer",
+    "Skullclamp"
+   ],
+   "texto": "Uma Cobra por manutenção, de qualquer jogador, e duas cartas cada vez que ela morre equipada."
+  },
+  {
+   "nome": "A coroa que queima",
+   "tipo": "Motor",
+   "pecas": [
+    "Irencrag Pyromancer",
+    "Queen Marchesa"
+   ],
+   "texto": "A compra da coroa no seu fim de turno é a segunda do turno: 3 de dano em qualquer alvo a cada volta."
+  },
+  {
+   "nome": "A fortaleza que volta",
+   "tipo": "Motor",
+   "pecas": [
+    "Court of Ardenvale",
+    "Ghostly Prison"
+   ],
+   "texto": "Com a coroa, a Ardenvale devolve ao campo a Ghostly Prison, pedras, Esper Sentinel ou Kambal todo turno."
+  },
+  {
+   "nome": "Encantamento destruído volta",
+   "tipo": "Motor",
+   "pecas": [
+    "Hall of Heliod's Generosity",
+    "Sphere of Safety"
+   ],
+   "texto": "O Hall põe um encantamento do cemitério no topo, e a compra da coroa o traz no mesmo turno."
+  },
+  {
+   "nome": "A taxa que cresce",
+   "tipo": "Motor",
+   "pecas": [
+    "Sphere of Safety",
+    "Court of Grace"
+   ],
+   "texto": "Cada encantamento soma 1 à taxa de ataque. Com as Cortes, a taxa chega a 5 ou 6 por criatura."
+  },
+  {
+   "nome": "Tesouros para o X",
+   "tipo": "Motor",
+   "pecas": [
+    "Smothering Tithe",
+    "Forth Eorlingas!"
+   ],
+   "texto": "Os Tesouros do Tithe pagam um Forth Eorlingas! grande, que fecha por combate e devolve a coroa."
+  },
+  {
+   "nome": "A mesa bate em si mesma",
+   "tipo": "Motor",
+   "pecas": [
+    "Nelly Borca, Impulsive Accuser",
+    "Take the Bait"
+   ],
+   "texto": "O Take the Bait força os atacantes a outro jogador; a Nelly compra para você quando eles conectam."
+  },
+  {
+   "nome": "Duas vezes o Sol",
+   "tipo": "Combo",
+   "pecas": [
+    "Approach of the Second Sun",
+    "The One Ring"
+   ],
+   "texto": "A primeira conjuração a põe na sétima posição. Com a coroa e o Ring, ela volta à mão em duas voltas. A fortaleza precisa segurar enquanto todos veem chegar."
+  },
+  {
+   "nome": "Limpa e ataca",
+   "tipo": "Combo",
+   "pecas": [
+    "Ruinous Ultimatum",
+    "Court of Grace"
+   ],
+   "texto": "O Ultimatum limpa os três lados e deixa os seus Anjos, Dragões e Soldados com a mesa aberta para a volta seguinte."
+  },
+  {
+   "nome": "Retomar no mesmo turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Queen Marchesa",
+    "Rogue's Passage"
+   ],
+   "texto": "O Assassino nasce com pressa na sua manutenção; o Rogue's Passage o torna imbloqueável e a coroa volta."
+  },
+  {
+   "nome": "Armadilha: a mana dos outros",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Descent into Avernus",
+    "Ghostly Prison"
+   ],
+   "texto": "Os Tesouros que o Descent e o Master of Ceremonies dão aos oponentes pagam a Ghostly Prison, a Sphere e o Norn's Annex."
+  },
+  {
+   "nome": "Armadilha: a limpeza leva os seus",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Austere Command",
+    "Sphere of Safety"
+   ],
+   "texto": "O modo de encantamentos do Austere Command leva as suas Cortes e a fortaleza. Feast of Succession e Blasphemous Edict matam a Marchesa e os bloqueadores."
+  }
+ ]
+}
