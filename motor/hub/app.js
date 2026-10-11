@@ -1168,14 +1168,27 @@ window.addEventListener('scroll', esconderDica, { passive: true });
 document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') esconderDica(); });
 
 /* ============ navegação ============ */
+/* Cada aba tem endereço próprio (#decks, #pastas, #dashboard; as seções do Dashboard, #d-…). Atualizar a página,
+   ou voltar e avançar no navegador, abre a aba que o endereço diz. */
+var ROTA = { decks: '#decks', pastas: '#pastas', dash: '#dashboard' };
 function vista(k) {
   document.querySelectorAll('[role=tab][data-vista]').forEach(function (b) { var on = b.dataset.vista === k; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
   document.querySelectorAll('.vista').forEach(function (v) { v.hidden = v.id !== 'v-' + k; });
   esconderDica();
 }
+function irPara(k) {
+  if (location.hash === ROTA[k]) { vista(k); window.scrollTo(0, 0); }
+  else location.hash = ROTA[k];   /* o hashchange chama rota() */
+}
+function rota(inicio) {
+  var h = location.hash, el = /^#d-/.test(h) ? document.getElementById(h.slice(1)) : null;
+  if (el) { vista('dash'); setTimeout(function () { el.scrollIntoView(); }, 0); return; }
+  vista(h === '#pastas' ? 'pastas' : h === '#dashboard' ? 'dash' : 'decks');
+  if (!inicio) window.scrollTo(0, 0);
+}
 function filtrar() {
   var q = semAcento($('#q').value.trim());
-  if (q && $('#v-decks').hidden) vista('decks');
+  if (q && $('#v-decks').hidden) irPara('decks');
   document.querySelectorAll('.deck').forEach(function (el) { el.hidden = !!q && el.dataset.busca.indexOf(q) < 0; });
   document.querySelectorAll('.grupo').forEach(function (g) { g.hidden = !!q && !g.querySelectorAll('.deck:not([hidden])').length; });
 }
@@ -1186,10 +1199,11 @@ $('#v-dash').innerHTML = vistaDash();
 $('#foot').innerHTML = '<p>O hub mostra a foto do último build, de ' + esc(H.gerado) + '. O que você edita dentro de um painel fica naquele painel até voltar para o projeto com o <code>/importar-backup</code>, pela aba Oficina.</p>' +
   '<p>Arte das cartas e dos comandantes: © Wizards of the Coast.</p>';
 $('#q').addEventListener('input', filtrar);
-if (/^#d-/.test(location.hash) && document.getElementById(location.hash.slice(1))) { vista('dash'); setTimeout(function () { var el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }, 0); }
+rota(true);
+window.addEventListener('hashchange', function () { rota(false); });
 document.addEventListener('click', function (ev) { var a = ev.target.closest && ev.target.closest('a[href^="#d-"]'); if (a && $('#v-dash').hidden) vista('dash'); });
 document.addEventListener('click', function (ev) {
-  var t = ev.target.closest('[role=tab][data-vista]'); if (t) { vista(t.dataset.vista); return; }
+  var t = ev.target.closest('[role=tab][data-vista]'); if (t) { irPara(t.dataset.vista); return; }
   var a = ev.target.closest('#v-dash [data-act]'); if (!a) return;
   var act = a.dataset.act, k = a.dataset.k;
   if (act === 'mesa') { var v = (mesa[k] || 0) + (+a.dataset.v); mesa[k] = Math.max(0, Math.min(3, v)); redesenharMesa(); }
@@ -1206,7 +1220,7 @@ document.addEventListener('change', function (ev) {
 document.addEventListener('keydown', function (ev) {
   var t = ev.target; if (!t.matches || !t.matches('[role=tab][data-vista]') || (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft')) return;
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[role=tab][data-vista]')), i = tabs.indexOf(t);
-  var n = tabs[(i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; vista(n.dataset.vista); n.focus();
+  var n = tabs[(i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; irPara(n.dataset.vista); n.focus();
 });
 /* para os testes e para conferência: as contas do Dashboard, deck a deck */
 window.HUB_DASH = { decks: DK.map(function (d) { var A = d.a; return { pasta: d.pasta, placar: A.st.total, placar_trocas: A.st2.total, alertas: nAlertas(A.le), alertas_trocas: nAlertas(A.le2), valor: Math.round(A.st.usd * 100) / 100, fontes: A.mana.src, karsten: Math.round(A.kar.sug * 10) / 10,
