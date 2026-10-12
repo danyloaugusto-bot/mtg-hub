@@ -9,3 +9,7 @@
 - Radar com 24 cartas: 12 trocas recomendadas (Voldaren Epicure, Sanctum Seeker, Emeritus of Woe, Bloodline Keeper, Vicious Conquistador, Bloodletter of Aclazotz, Urza's Incubator, Lightning Greaves, Deflecting Swat, Deadly Rollick, Terminate, Combat Celebrant), 6 para avaliar e 6 de fora. Com as trocas, placar 388, CMC médio de 3,51 para 3,32 e três Vampiros a mais. As trocas ficam como sugestão; a lista não muda.
 - 14 combos, motores e armadilhas, com Combat Celebrant fechando o combo do dono em duas cartas.
 - Tema "Baile Carmesim": palco de ópera gótica, veludo carmesim e ouro velho, fonte Playfair Display SC. Motivos novos no motor: gráfico "frascos" (frascos de Sangue que enchem com a soma das notas) e textura "cortinas" (bambinela e pregas de veludo).
+
+## Comunidade, 12/10/2026
+
+- Lida a página de Sangue do Strefan no edh.wiki (temas: Vampiros 33%, Sangue 11%, Fichas 10%). Treze potenciais gravados em `comunidade.json`; Crossway Troublemakers, Cordial Vampire e Necropolis Regent são os de maior sinergia. Sanctum Seeker, Patron of the Vein, Voldaren Epicure, Markov Enforcer e Glass-Cast Heart, que a página também pede, já estão no deck ou no radar.

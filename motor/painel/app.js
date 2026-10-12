@@ -929,7 +929,7 @@ function edhPanel(cs) {
   cs.forEach(function (c) { if (c.cmd || c.land || c.custom) return; var k = synCls(c.syn); nb[k] = (nb[k] || 0) + c.q; tot += c.q; });
   var bon = BANDS.filter(function (b) { return nb[b.k]; });
   var inDeck = {}, radar = {}; cs.forEach(function (c) { inDeck[c.id] = 1; }); cands().forEach(function (c) { radar[c.id] = 1; });
-  function nomes(a) { return lista(a.map(function (nm) { var id = slug(nm); return (inDeck[id] || radar[id]) ? '<button class="linkish" data-card="' + esc(id) + '">' + esc(nm) + '</button>' : esc(nm); })); }
+  function nomes(a) { return lista(a.map(function (nm) { var id = slug(nm), c = (inDeck[id] || radar[id]) ? byId(id) : null; return c ? '<button class="linkish" data-card="' + esc(id) + '">' + esc(c.n) + '</button>' : esc(nm); })); }
   var listas = (EDH.listas || []).map(function (l) {
     var ok = [], miss = [];
     l.cards.forEach(function (nm) { (inDeck[slug(nm)] ? ok : miss).push(nm); });
