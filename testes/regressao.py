@@ -89,7 +89,7 @@ with sync_playwright() as p:
     R.ok("visão em fichas", pg.locator("#v-tier .chip.tile").count() == 0 and pg.locator("#v-tier .chip").count() > 0)
     pg.click('[data-act="tier-view"][data-v="cartas"]'); pg.wait_for_timeout(150)
     R.ok("visão em cartas", pg.locator("#v-tier .chip.tile").count() > 0)
-    mover = next(c for c in D["cards"] if not c.get("cmd") and not c.get("land") and c["tier"] not in ("B", "D") and c["id"] != alvo["id"])
+    mover = next(c for c in D["cards"] if not c.get("cmd") and not c.get("land") and c["tier"] not in ("B", "D") and c["id"] != alvo["id"] and c["id"] not in saem)
     pg.drag_and_drop('#v-tier .chip[data-card="%s"]' % mover["id"], '#v-tier [data-drop="tier:B"]'); pg.wait_for_timeout(250)
     R.ok("arrastar entre tiers", pg.locator('#v-tier .tier[data-t="B"] .chip[data-card="%s"]' % mover["id"]).count() == 1, mover["n"])
     # 8×8: um quadro por agrupamento e um de Mana; arrastar muda a contagem e não o placar

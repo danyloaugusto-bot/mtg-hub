@@ -147,6 +147,19 @@ def textura(nome, p):
         return ("radial-gradient(1000px 560px at 50%% -12%%, rgba(%d,%d,%d,.2), transparent 64%%),"
                 "radial-gradient(640px 400px at 94%% 4%%, rgba(%d,%d,%d,.24), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["acento"]) + _hex(p["destaque"]) + (svg, grad))
+    if nome == "cortinas":
+        # palco de ópera: bambinela em festões logo abaixo da barra, pregas de veludo que somem para baixo e luz de ribalta vinda do alto
+        q, o = quote(p["destaque"]), quote(p["acento"])
+        bambinela = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='34' viewBox='0 0 96 34'%3E"
+                     "%3Cpath d='M0 0H96V8Q72 32 48 8Q24 32 0 8Z' fill='" + q + "' fill-opacity='.34'/%3E"
+                     "%3Cpath d='M0 8Q24 32 48 8Q72 32 96 8' fill='none' stroke='" + o + "' stroke-opacity='.42' stroke-width='1.2'/%3E"
+                     "%3Ccircle cx='48' cy='11' r='2' fill='" + o + "' fill-opacity='.5'/%3E%3C/svg%3E")
+        dobra = _hex(p["destaque"])
+        pregas = ("repeating-linear-gradient(90deg, rgba(0,0,0,.16) 0, rgba(%d,%d,%d,.07) 16px, rgba(0,0,0,.05) 30px, rgba(%d,%d,%d,.06) 44px, rgba(0,0,0,.16) 60px)"
+                  % (dobra + dobra))
+        return ('url("%s") 0 58px/96px 34px repeat-x,'
+                "radial-gradient(900px 520px at 50%% -10%%, rgba(%d,%d,%d,.22), transparent 64%%),"
+                "linear-gradient(180deg, transparent 0, transparent 120px, var(--bg) 820px),%s,%s") % ((bambinela,) + _hex(p["acento_claro"]) + (pregas, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

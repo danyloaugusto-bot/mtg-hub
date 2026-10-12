@@ -1177,8 +1177,9 @@ function vista(k) {
   esconderDica();
 }
 function irPara(k) {
-  if (location.hash === ROTA[k]) { vista(k); window.scrollTo(0, 0); }
-  else location.hash = ROTA[k];   /* o hashchange chama rota() */
+  /* troca na hora; o endereço vem em seguida, e o hashchange que ele dispara só repete a mesma vista */
+  vista(k); window.scrollTo(0, 0);
+  if (location.hash !== ROTA[k]) location.hash = ROTA[k];
 }
 function rota(inicio) {
   var h = location.hash, el = /^#d-/.test(h) ? document.getElementById(h.slice(1)) : null;

@@ -366,6 +366,22 @@ function crownPath(r0, r1, a0, a1) {
   return 'M' + pol(r0, a0) + 'Q' + pol(r0 + h * 0.55, a0 + d * 0.32) + ' ' + pol(r1, am) +
     'Q' + pol(r0 + h * 0.55, a1 - d * 0.32) + ' ' + pol(r0, a1) + 'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
 }
+function vialPath(r0, R, a0, a1) {
+  // frasco de Sangue: fundo redondo perto do centro, corpo que se alarga até o ombro, gargalo e boca. Larguras em pixels,
+  // para o vidro não abrir como fatia
+  var am = (a0 + a1) / 2, d = (a1 - a0) / 2 * Math.PI / 180, h = R - r0;
+  var w0 = Math.min(24, (r0 + 10) * Math.sin(d) * 0.92), w1 = w0 * 1.3, wn = w0 * 0.5, wl = w0 * 0.68;
+  var rb = r0 + w0 + 2, rs = r0 + h * 0.66, rn = r0 + h * 0.82;
+  function pt(r, w) { return pol(r, am + w / r * 180 / Math.PI); }
+  return 'M' + pt(rb, -w0) + 'L' + pt(rs, -w1) + 'Q' + pt(rn, -w1) + ' ' + pt(rn, -wn) + 'L' + pt(R - 6, -wn) + 'L' + pt(R - 6, -wl) + 'L' + pt(R, -wl) +
+    'L' + pt(R, wl) + 'L' + pt(R - 6, wl) + 'L' + pt(R - 6, wn) + 'L' + pt(rn, wn) + 'Q' + pt(rn, w1) + ' ' + pt(rs, w1) + 'L' + pt(rb, w0) +
+    'C' + pt(rb - w0 * 1.33, w0) + ' ' + pt(rb - w0 * 1.33, -w0) + ' ' + pt(rb, -w0) + 'Z';
+}
+function dropPath(cx, cy, h) {
+  // gota de sangue atrás do placar
+  return 'M' + cx + ' ' + (cy - h) + 'C' + (cx + h * 0.12) + ' ' + (cy - h * 0.52) + ' ' + (cx + h * 0.62) + ' ' + (cy - h * 0.14) + ' ' + (cx + h * 0.62) + ' ' + (cy + h * 0.26) +
+    'A' + (h * 0.62) + ' ' + (h * 0.62) + ' 0 0 1 ' + (cx - h * 0.62) + ' ' + (cy + h * 0.26) + 'C' + (cx - h * 0.62) + ' ' + (cy - h * 0.14) + ' ' + (cx - h * 0.12) + ' ' + (cy - h * 0.52) + ' ' + cx + ' ' + (cy - h) + 'Z';
+}
 function shardPath(r0, r1, a0, a1) {
   var am = (a0 + a1) / 2, sh = r0 + (r1 - r0) * 0.78;
   return 'M' + pol(r0, a0) + 'L' + pol(sh, a0) + 'L' + pol(r1, am) + 'L' + pol(sh, a1) + 'L' + pol(r0, a1) + 'A' + r0 + ' ' + r0 + ' 0 0 0 ' + pol(r0, a0) + 'Z';
@@ -462,15 +478,20 @@ function wingsSvg(st) {
 }
 function chartSvg(st) {
   if (M.grafico === 'asas' && NG === 8) return wingsSvg(st);
-  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown ? 2.4 : 1.2;
+  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial ? 2.4 : 1.2;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
   var o = '<svg viewBox="-58 -2 576 464" role="group" aria-label="' + (rosa && !chamas ? 'Rosácea' : 'Gráfico') + ' dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>';
   for (i = 0; i < NG; i++) {
     o += '<radialGradient id="rg' + i + '" gradientUnits="userSpaceOnUse" cx="230" cy="230" r="' + R + '">' +
       '<stop offset=".3" style="stop-color:rgba(var(--g' + i + '),.5)"/><stop offset="1" style="stop-color:rgb(var(--g' + i + '))"/></radialGradient>';
   }
+  if (vial) for (i = 0; i < NG; i++) o += '<clipPath id="cv' + i + '"><path d="' + vialPath(r0, R, -90 + i * step + gap, -90 + (i + 1) * step - gap) + '"/></clipPath>';
   o += '</defs>';
-  if (crown) {
+  if (vial) {
+    // a moldura do palco: um disco de veludo e um fio de ouro por fora das rolhas
+    o += '<circle cx="230" cy="230" r="' + (R + 12) + '" style="fill:rgba(var(--deep-rgb),.5);stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 18) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.5)" stroke-width="1.4" stroke-dasharray="10 4 1 4"/>';
+  } else if (crown) {
     // aro da coroa com uma fileira de pérolas
     o += '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--deep-rgb),.5);stroke:rgba(var(--gold-rgb),.7)" stroke-width="1.4"/>' +
       '<circle cx="230" cy="230" r="' + (R + 14) + '" style="fill:none;stroke:rgba(var(--gold2-rgb),.55)" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 9"/>';
@@ -524,6 +545,21 @@ function chartSvg(st) {
       o += gLabel(i, am, R, v);
       continue;
     }
+    if (vial) {
+      // frasco: o vidro inteiro fica desenhado, o sangue sobe até a soma das notas e a rolha fecha a boca
+      var vp = vialPath(r0, R, a0, a1), dd = (a1 - a0) / 2 * Math.PI / 180, vw = Math.min(24, (r0 + 10) * Math.sin(dd) * 0.92) * 0.68;
+      var c0 = pol(R, am - vw / R * 180 / Math.PI), c1 = pol(R, am + vw / R * 180 / Math.PI), c2 = pol(R + 9, am + vw * 0.85 / (R + 9) * 180 / Math.PI), c3 = pol(R + 9, am - vw * 0.85 / (R + 9) * 180 / Math.PI);
+      var lv = Math.max(r0 + 6, r1);
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+        '<path class="ghost" d="' + vp + '" style="fill:rgba(var(--g' + i + '),.08);stroke:rgba(var(--gold2-rgb),.55)" stroke-width="1.2" stroke-linejoin="round"/>' +
+        '<circle class="fill" cx="230" cy="230" r="' + lv.toFixed(1) + '" fill="url(#rg' + i + ')" clip-path="url(#cv' + i + ')"/>' +
+        '<circle cx="230" cy="230" r="' + lv.toFixed(1) + '" fill="none" style="stroke:rgba(255,255,255,.55)" stroke-width="1.4" clip-path="url(#cv' + i + ')" pointer-events="none"/>' +
+        '<path d="M' + c0 + 'L' + c1 + 'L' + c2 + 'L' + c3 + 'Z" style="fill:rgba(var(--gold-rgb),.85);stroke:rgba(0,0,0,.35)" stroke-width=".8" pointer-events="none"/>' +
+        '<path d="' + vp + '" fill="none" style="stroke:rgba(255,255,255,.18)" stroke-width="3" stroke-dasharray="0 ' + (r0 * 0.4).toFixed(0) + ' 40 999" pointer-events="none"/></g>';
+      o += gLabel(i, am, R, v);
+      continue;
+    }
     if (pin) {
       // alfinete: a fatia fica translúcida, a agulha sai da almofada e a cabeça colorida marca os pontos
       o += '<g class="petal" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
@@ -561,6 +597,10 @@ function chartSvg(st) {
     for (var k = 0; k < 8; k++) o += '<line x1="230" y1="230" x2="' + pol(r0 + 2, k * 45).replace(' ', '" y2="') + '" style="stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>';
     o += '<circle cx="230" cy="230" r="' + (r0 - 9) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.4"/>' +
       '<circle cx="230" cy="230" r="' + (r0 - 3) + '" style="fill:none;stroke:var(--gold2)" stroke-width="1" stroke-dasharray="3 3"/>';
+  } else if (vial) {
+    // medalhão com uma gota de sangue atrás do placar
+    o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.8"/>' +
+      '<path d="' + dropPath(230, 236, 38) + '" style="fill:rgba(var(--blood-rgb),.42);stroke:rgba(var(--blood2-rgb),.5)" stroke-width="1"/>';
   } else if (crown) {
     // o aro interno da coroa, cravejado
     o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.8"/>' +
@@ -706,9 +746,9 @@ function heroHtml(st, cmd) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
   var chart = '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
-    ' é um agrupamento e sua área é a soma das notas. Toque ' + (/^(estandarte|alfinete|painel|espinho)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
+    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
   var fx = cmd && cmd.fx ? '<p class="hero-fx">' + rich(cmd.fx) + '</p>' : '';
   var lede = (M.lede || verbos) ? '<p class="hero-lede">' + esc(M.lede || '') + verbos + '</p>' : '';
   if (!larga) {
