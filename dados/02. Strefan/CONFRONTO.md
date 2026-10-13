@@ -7,6 +7,7 @@
 | A | `Strefan_Maurer_Progenitor_HANDOVER_MASTER_V4.md` e `Strefan_Maurer_Progenitor_Dashboard_V3.xlsx` | Mesmo autor. Propõe uma V2 e uma V3 ("High-Power Blood Court") com laço de Enduring Tenacity. Na planilha, a nota da maior parte das cartas é genérica: os 29 terrenos têm todos 7,2 e o mesmo texto. |
 | B | `analise-claude-strefan-rodada2.md` e `Handover_Strefan_Analise_de_Deck.md` | Claude, duas rodadas. A mais recente e a mais completa: texto das 95 cartas não básicas, regra oficial do comandante, varredura das 43 cartas de Sangue e dos Vampiros de 2024 a 2026. |
 | C | `TikTok/strefan1.jpg` a `strefan9.jpg` | Guia de terceiros, "Strefan's Blood Court", bracket 3, com outra lista de 100 cartas. Material de apoio: não analisa a lista do dono. |
+| D | `Análise completa — Strefan.md` | Outra IA (13/10/2026), sem lista exata de trocas. Entra como mais um voto, não como decisão. |
 
 ## A lista
 
@@ -46,6 +47,25 @@ Confere: 100 cartas em 97 linhas, um comandante, só básicos repetidos (4 Swamp
 | Westgate Regent | B, fica | sai | não cita | **C, BAX.** Sem efeito ao entrar: posto pelo Strefan, é só um corpo. |
 | Belligerent Guest | C, corte | fica, como estimação suposta | não cita | **Fica.** O dono confirmou as onze cartas de estimação (11/10/2026): as oito de B mais Anje, Henrika e Pointed Discussion. |
 | Wound Reflection | fica | sai | não cita | **B, MÉD.** Seis manas, mas dobra a perda de quem já foi pingado no turno. |
+
+## Mais um voto: a análise D (13/10/2026)
+
+Serve para contar votos, não para decidir. Quem decide continua sendo o texto da carta e o plano do dono.
+
+| Ponto | Votos a favor | Votos contra | O que sigo |
+|---|---|---|---|
+| Cortar Alesha, Stromkirk Occultist, Nullpriest, Westgate Regent, High-Society Hunter, Moonstone Eulogist | B e D | A (que os mantinha) | **B e D.** Já estão como BAX, C ou saindo no radar. |
+| Cortar Lobelia | D | B (sai por Combat Celebrant) e a avaliação (B, MÉD) | **Segue a avaliação.** Blood é artefato: Lobelia o sacrifica por 2 de dreno em cada oponente ou uma carta grátis. D a chamou de "fora do tema". |
+| Cortar Markov Baron | D | Dono (mais Vampiros) | **Fica.** Vampiro, e a loucura o joga descartado na ficha de Sangue. |
+| Cortar City of Brass | D | A, B | **Fica.** É terreno, e a lista tem 34 fontes. |
+| Necropolis Regent | D | B | **Fica fora.** Seis manas, sem efeito ao entrar. |
+| Crossway Troublemakers, Cordial Vampire | A (a página) e D | — | **Potenciais.** Crossway é a mais votada; falta o dono decidir se vai ao radar. |
+| Swiftfoot Boots | B (rodada 1) e D | — | **Radar, avaliar.** |
+| Blood Artist, Scion of Opulence | C (guia) e D | B (aristocratas pedem um plano de sacrifício) | **Radar, avaliar.** Vampiros baratos, e o dono quer mais Vampiros. |
+| Inspiring Statuary | D e a página (+42%) | — | **Não entrou.** Cada Blood vira {1}, mas gasta a ficha do Strefan; concorre com o Urza's Incubator. |
+| Anowon, Blood Artist/Zulaport como plano de sacrifício, Bolas's Citadel, Exquisite Blood + Sanguine Bond | D | B | **Ficam fora**, pelos motivos já escritos. |
+
+O que o texto oficial desmente em D: Terminate e Bedevil não estão na lista (Terminate está só no radar); Bloodlord of Vaasgoth e Butcher of Malakir não estão na lista, mas D os cita como alvos do Strefan; só a Anje da lista faz oponentes perderem vida, mas D chama de "chip damage" também Bloodtithe Harvester, Glass-Cast Heart e Florian; Patron of the Vein não faz exílio em massa; Kindred Dominance é limpeza, não condição de vitória; a lista é bracket 4, não "3 / baixo 4"; "86% de inclusão" é o número de sinergia do edh.wiki.
 
 ## O que o guia do TikTok acrescenta
 

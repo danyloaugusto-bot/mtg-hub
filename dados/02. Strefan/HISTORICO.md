@@ -13,3 +13,7 @@
 ## Comunidade, 12/10/2026
 
 - Lida a página de Sangue do Strefan no edh.wiki (temas: Vampiros 33%, Sangue 11%, Fichas 10%). Treze potenciais gravados em `comunidade.json`; Crossway Troublemakers, Cordial Vampire e Necropolis Regent são os de maior sinergia. Sanctum Seeker, Patron of the Vein, Voldaren Epicure, Markov Enforcer e Glass-Cast Heart, que a página também pede, já estão no deck ou no radar.
+
+## Nova análise de fora, 13/10/2026
+
+- Entrou `Análise completa — Strefan.md` como quarta fonte (D), só como voto no `CONFRONTO.md`. Nenhuma nota, tier, estimação, combo nem troca recomendada mudou. Foram ao radar, para avaliar, Swiftfoot Boots, Blood Artist e Scion of Opulence (27 cartas no radar). Crossway Troublemakers e Cordial Vampire seguem como potenciais, à espera do dono.
