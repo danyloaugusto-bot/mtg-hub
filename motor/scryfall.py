@@ -10,6 +10,7 @@ import datetime, json, os, time, urllib.error, urllib.request
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(RAIZ, "cache", "scryfall.json")
 API = "https://api.scryfall.com/cards/collection"
+BUSCA_GC = "https://api.scryfall.com/cards/search?q=is%3Agamechanger&unique=cards&order=name"
 UA = "mtg-hub-pessoal/1.0"
 VALIDADE = 7   # dias: depois disso, a carta é consultada de novo (preço do dia)
 
@@ -55,6 +56,7 @@ def _reduzir(k, hoje):
         "usd": precos.get("usd"), "usd_foil": precos.get("usd_foil"), "usd_etched": precos.get("usd_etched"),
         "released_at": k.get("released_at"), "image": bool(k.get("image_uris")),
         "printed_name": k.get("printed_name"), "flavor_name": k.get("flavor_name"), "lang": k.get("lang"),
+        "game_changer": True if k.get("game_changer") else None, "edhrec_rank": k.get("edhrec_rank"),
         "consultado": hoje,
     }
     if k.get("card_faces"):
@@ -190,3 +192,50 @@ def _consultar(c, pedidos, faltam, hoje, avisar):
                 _gravar(c)
             raise ErroScryfall("cartas não encontradas no Scryfall: " + ", ".join(pedidos[i].get("name", "?") for i in pendentes))
     return mudou
+
+
+def _get(url):
+    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": UA})
+    for tentativa in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=40) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and tentativa < 2:
+                time.sleep(1.5 * (tentativa + 1))
+                continue
+            raise ErroScryfall("Scryfall respondeu %s" % e.code)
+        except urllib.error.URLError as e:
+            raise ErroScryfall("sem acesso ao Scryfall (%s)" % e.reason)
+    raise ErroScryfall("Scryfall recusou depois de três tentativas")
+
+
+def game_changers(atualizar=False, avisar=print):
+    """A lista oficial de Game Changers do Commander, pela busca `is:gamechanger` do Scryfall, com o mesmo prazo de 7 dias
+    das cartas. Devolve {"nomes": [...], "consultado": data} ou None quando nunca deu para consultar. A lista muda algumas
+    vezes por ano (Wizards); por isso não fica escrita no motor."""
+    c = _ler()
+    gc = c.get("gc") or {}
+    limite = (datetime.date.today() - datetime.timedelta(days=VALIDADE)).isoformat()
+    if gc.get("nomes") and not atualizar and (gc.get("consultado") or "") >= limite:
+        return gc
+    try:
+        nomes, url = [], BUSCA_GC
+        while url:
+            r = _get(url)
+            nomes += [k["name"] for k in r.get("data", [])]
+            url = r.get("next_page") if r.get("has_more") else None
+            if url:
+                time.sleep(0.1)
+        if not nomes:
+            raise ErroScryfall("a busca de Game Changers voltou vazia")
+        c = _ler()   # relê: outro passo do build pode ter gravado cartas no meio
+        c["gc"] = {"nomes": sorted(set(nomes)), "consultado": datetime.date.today().isoformat()}
+        _gravar(c)
+        return c["gc"]
+    except ErroScryfall as e:
+        if gc.get("nomes"):
+            avisar("aviso: %s; a lista de Game Changers fica a de %s" % (e, gc.get("consultado")))
+            return gc
+        avisar("aviso: %s; sem a lista de Game Changers, o hub não estima o bracket por ela" % e)
+        return None

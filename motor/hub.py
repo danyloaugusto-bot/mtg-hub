@@ -91,9 +91,49 @@ def preco(c):
 FLAGS = (("land", "L"), ("mdfc", "md"), ("tapped", "tp"), ("wipe", "w"), ("cmd", "cm"), ("nocut", "nc"), ("foil", "f"), ("cpd", "cp"))
 
 
-def compacta(c, sf_lancamento=None):
+# Sinais do bracket lidos no texto oficial (cache do Scryfall). São heurísticas de leitura, não regra: o Dashboard escreve
+# o motivo de cada estimativa, e quem decide o bracket é o dono.
+MLD = re.compile(r"(?:destroy|exile) all (?:other )?(?:nonbasic )?lands|return all lands|each player sacrifices (?:all|half|four|five|six|seven)\b[^.]*lands", re.I)
+TURNO_EXTRA = re.compile(r"\btakes? an extra turn|extra turns? after this one", re.I)
+
+
+def registro(c, cache):
+    """O registro do cache do Scryfall de uma carta do deck: pela impressão, depois pelo nome."""
+    import scryfall
+    cartas, alias, nomes = cache.get("cartas") or {}, cache.get("alias") or {}, cache.get("nomes") or {}
+    s, n = c.get("iset") or c.get("set"), c.get("inum") or c.get("num")
+    if s and n:
+        ch = scryfall._chave(s, n)
+        r = cartas.get(ch) or cartas.get(alias.get(ch, ""))
+        if r:
+            return r
+    ch = nomes.get(str(c.get("on") or c.get("n") or "").lower())
+    return cartas.get(ch) if ch else None
+
+
+def frente(nome):
+    return str(nome or "").split(" // ")[0].strip().lower()
+
+
+def sinais(c, cache, gc):
+    """Game Changer, destruição de terrenos em massa e turno extra, a partir do nome oficial e do texto oficial."""
+    r = registro(c, cache) or {}
+    txt = " ".join([r.get("oracle_text") or ""] + [f.get("oracle_text") or "" for f in r.get("faces") or []])
+    out = {}
+    if gc is not None and (r.get("game_changer") or frente(c.get("on") or c["n"]) in gc or frente(r.get("name")) in gc):
+        out["gc"] = 1
+    if MLD.search(txt):
+        out["ml"] = 1
+    if TURNO_EXTRA.search(txt):
+        out["xt"] = 1
+    return out
+
+
+def compacta(c, sf_lancamento=None, sn=None):
     """Uma carta em chaves curtas: o que o Dashboard precisa para refazer as contas do painel."""
     x = {"i": c["id"], "n": c["n"], "q": c.get("q", 1), "c": c["cmc"], "t": c["t"], "s": c.get("s") or [], "T": c.get("tier"), "r": c.get("rel")}
+    if sn:
+        x.update(sn)
     if c.get("on"):
         x["o"] = c["on"]
     u = preco(c)
@@ -180,22 +220,85 @@ def lancamentos_futuros(cartas, cache):
     return out
 
 
-def resumo_dashboard(pasta, base, m, t, cache):
+ALVO = re.compile(r"^\s*-\s.*?\bbracket\s*(\d)\b", re.I | re.M)
+
+
+def ler_alvo(base):
+    """O bracket que o dono declarou na ficha do deck (deck.md), quando ele deu um número."""
+    cam = os.path.join(base, "deck.md")
+    if not os.path.exists(cam):
+        return None
+    with open(cam, encoding="utf-8") as f:
+        m = ALVO.search(f.read())
+    return int(m.group(1)) if m else None
+
+
+LINHA_REF = re.compile(r"^\s*(\d+)x?\s+(.+?)\s*(?:\([A-Za-z0-9]+\)\s*[\w-]*\s*)?(?:\*[A-Z]\*)?\s*$")
+
+
+def ler_referencias(base, cache, gc):
+    """Listas de referência de um deck sem painel: os .txt de entrada/ com cara de decklist (40 linhas ou mais no formato
+    "1 Nome"). A primeira linha que começa com "# " é o título; o primeiro endereço que aparecer num comentário, a fonte.
+    Para cada carta, o que o cache do Scryfall já sabe (preço, identidade, Game Changer); o que ele não tem fica sem dado,
+    nunca de memória."""
+    pasta = os.path.join(base, "entrada")
+    if not os.path.isdir(pasta):
+        return []
+    out = []
+    nomes, cartas = cache.get("nomes") or {}, cache.get("cartas") or {}
+    for arq in sorted(glob.glob(os.path.join(pasta, "*.txt"))):
+        with open(arq, encoding="utf-8") as f:
+            linhas = f.read().splitlines()
+        titulo, fonte, cs = "", "", {}
+        for ln in linhas:
+            if ln.startswith("#") or ln.startswith("//"):
+                if not titulo and ln.startswith("# "):
+                    titulo = ln[2:].strip()
+                u = re.search(r"https?://\S+", ln)
+                if u and not fonte:
+                    fonte = u.group(0)
+                continue
+            m = LINHA_REF.match(ln)
+            if m:
+                cs[m.group(2)] = cs.get(m.group(2), 0) + int(m.group(1))
+        if sum(cs.values()) < 40:
+            continue
+        lista = []
+        for n, q in cs.items():
+            ch = nomes.get(n.lower())
+            r = cartas.get(ch) if ch else None
+            x = {"n": n, "q": q}
+            if r:
+                x["ci"] = "".join(r.get("color_identity") or [])
+                if r.get("usd"):
+                    x["u"] = round(float(r["usd"]), 2)
+                if r.get("game_changer") or (gc is not None and frente(n) in gc):
+                    x["gc"] = 1
+                if "Land" in (r.get("type_line") or ""):
+                    x["L"] = 1
+            else:
+                x["sem"] = 1
+            lista.append(x)
+        out.append(dict(a=os.path.basename(arq), t=titulo or os.path.splitext(os.path.basename(arq))[0], f=fonte, cartas=lista))
+    return out
+
+
+def resumo_dashboard(pasta, base, m, t, cache, gc=None):
     """O pacote do Dashboard para um deck com painel."""
     cmd = next((c for c in m["cards"] if c.get("cmd")), None)
     pool = m.get("pool") or []
     edh = m.get("edh") or {}
     est = m.get("estrategia") or {}
     futuro = lancamentos_futuros(m["cands"], cache)
-    cands = [compacta(c, futuro.get(c.get("on", c["n"])) if preco(c) is None else None) for c in m["cands"]]
+    cands = [compacta(c, futuro.get(c.get("on", c["n"])) if preco(c) is None else None, sinais(c, cache, gc)) for c in m["cands"]]
     return dict(
         painel=t.get("painel") or nome_do_deck(pasta), rev=t.get("rev", 1), feito=m.get("feito", ""), scryfall=m.get("scryfall_data", ""),
-        hist=ler_historico(base), conf=ler_confronto(base), ident=m["ident"],
+        hist=ler_historico(base), conf=ler_confronto(base), ident=m["ident"], alvo=ler_alvo(base),
         cmd=dict(n=cmd["n"], c=cmd["cmc"], co=cmd.get("cost", "")) if cmd else None,
         grupos=[dict(k=g["k"], n=g.get("curto") or g["nome"], ab=g["ab"], ref=g.get("ref")) for g in m["grupos"]],
         marcadores={k: {kk: v[kk] for kk in ("nome", "plural") if v.get(kk)} for k, v in m["marcadores"].items()},
         leituras=m["leituras"],
-        cards=[compacta(c) for c in m["cards"]], cands=cands,
+        cards=[compacta(c, None, sinais(c, cache, gc)) for c in m["cards"]], cands=cands,
         combos=[dict(n=x["n"], k=x["kind"], p=x["p"], t=x.get("t", "")) for x in m["combos"]],
         contra=[dict(k=c["tipo"], r=c["resultado"], p=c.get("porque", "")) for c in (est.get("contra") or [])],
         pool=[dict(n=p["n"], y=p.get("syn"), nv=1 if p.get("novo") else 0) for p in pool],
@@ -219,6 +322,8 @@ def montar(avisar=print):
               if dados.eh_deck(n)]
     nomes = list(dict.fromkeys(pastas + sorted(inv)))
     decks = []
+    G = scryfall.game_changers(avisar=avisar)
+    gc = {frente(n) for n in G["nomes"]} if G else None
     cache = scryfall._ler()
     for pasta in nomes:
         base = os.path.join(dados.DADOS, pasta)
@@ -246,13 +351,15 @@ def montar(avisar=print):
                          placar=pt, cmc=round(avg, 2), tipos=tipos, href=quote(pasta + ".html"),
                          capa=capa_reduzida(base, (t.get("capa") or {}).get("arquivo")),
                          foco=(t.get("capa") or {}).get("foco", "50% 30%"))
-                d["a"] = resumo_dashboard(pasta, base, m, t, cache)
+                d["a"] = resumo_dashboard(pasta, base, m, t, cache, gc)
         if d["painel"] is None:
             d["capa"] = capa_reduzida(base) if os.path.isdir(base) else None
+            d["ref"] = ler_referencias(base, cache, gc) if os.path.isdir(base) else []
         decks.append(d)
 
     H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS),
-             pastas=[dict(n=n, c=c) for n, c in PASTAS], em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"))
+             pastas=[dict(n=n, c=c) for n, c in PASTAS], em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"),
+             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None)
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
