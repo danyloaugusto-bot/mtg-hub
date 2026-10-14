@@ -59,6 +59,8 @@ def seis(av):
     for bloco in ("cartas", "radar"):
         for c in av[bloco].values():
             c["notas"] = {k: v for k, v in c["notas"].items() if k not in fora}
+            if c.get("pacote") in fora:
+                del c["pacote"]
 
 
 def dez(av):

@@ -1,0 +1,1786 @@
+{
+ "feito": "13/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana e aceleração. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra. Tutor vale 1: acha a carta, mas não soma carta."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Tira uma ameaça da mesa. Edito também conta."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Mantém a Tergrid ou a mesa viva."
+  },
+  {
+   "k": "descarte",
+   "nome": "Descarte",
+   "ab": "Desc.",
+   "desc": "Faz o oponente descartar. Vale mais quando ele não escolhe: ao acaso, a mão inteira, metade, ou você escolhendo."
+  },
+  {
+   "k": "sacrificio",
+   "nome": "Sacrifício",
+   "ab": "Sac.",
+   "desc": "Faz o oponente sacrificar. Vale mais quando ele não pode entregar uma ficha."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Tira jogadores do jogo, ou é peça de uma linha que tira."
+  },
+  {
+   "k": "recursao",
+   "nome": "Recursão",
+   "ab": "Rec.",
+   "desc": "Traz de volta, de qualquer cemitério. A Tergrid conta: o roubo dela é recursão do cemitério alheio."
+  }
+ ],
+ "marcadores": {
+  "forca": {
+   "nome": "Forçador em que o oponente não escolhe"
+  },
+  "escolha": {
+   "nome": "Forçador à escolha do oponente"
+  },
+  "motor": {
+   "nome": "Motor recorrente"
+  },
+  "protege": {
+   "nome": "Proteção da Tergrid"
+  },
+  "simetrico": {
+   "nome": "Pega você também"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "34 fontes no papel, mas Dark Depths não gera mana: são 33 de fato, e nove terrenos só dão incolor. Urborg e Cabal Coffers, no radar, consertam a cor sem tirar terreno."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de ramp dedicada",
+    "cartas de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem",
+   "alerta": "A conta do deck depende do turno em que a Tergrid entra, e só cinco aceleradores custam duas manas ou menos."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 5,
+   "massa_ref": [
+    3,
+    5
+   ],
+   "alerta": "As limpezas que destroem (Mutilate) não acionam a Tergrid; as que sacrificam (Death Cloud, Fraying Omnipotence) acionam."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "forca",
+   "min": 10,
+   "listar": true,
+   "rotulo": [
+    "forçador em que o oponente não escolhe",
+    "forçadores em que o oponente não escolhe"
+   ],
+   "texto": "Descarte ao acaso, a mão inteira, metade de tudo, a maior criatura, criatura não-ficha ou você escolhendo: é aí que a Tergrid acerta.",
+   "alerta": "Pouco forçador sem escolha: quando o oponente escolhe, entrega ficha ou mágica, e a Tergrid não pega nada.",
+   "ok": "A Tergrid acerta com frequência."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "escolha",
+   "listar": false,
+   "rotulo": [
+    "forçador à escolha do oponente",
+    "forçadores à escolha do oponente"
+   ],
+   "texto": "Rendem volume, mas o oponente entrega a ficha ou a mágica que menos importa."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "motor",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "motor recorrente",
+    "motores recorrentes"
+   ],
+   "texto": "Cada um gera um evento por oponente a cada volta, sem gastar carta.",
+   "alerta": "Poucos motores fora a comandante: sem a Tergrid, o deck vira uma pilha de descartes simétricos.",
+   "ok": "O deck gira sozinho."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "protege",
+   "min": 4,
+   "listar": true,
+   "rotulo": [
+    "proteção da Tergrid",
+    "proteções da Tergrid"
+   ],
+   "ok": "A Tergrid tem cobertura."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "simetrico",
+   "max": 8,
+   "listar": true,
+   "rotulo": [
+    "carta que pega você também",
+    "cartas que pegam você também"
+   ],
+   "texto": "O preço do plano: a Library of Leng, a reanimação e o que você roubou pagam a sua parte.",
+   "alerta": "Simetria demais: quando você está atrás, o descarte e o sacrifício pesam mais em você."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Pedra, Dark Ritual ou Jet Medallion, e o primeiro motor: Bottomless Pit, Liliana of the Veil ou Waste Not. Parecer discreto: o descarte ao acaso pega todo mundo, você incluído, e ainda não há nada para roubar.",
+   "fortes": [
+    "Sol Ring, Arcane Signet, Jet Medallion, Mind Stone e Dark Ritual põem a Tergrid no turno 4.",
+    "Bottomless Pit e Liliana of the Veil custam três e já giram."
+   ],
+   "fracos": [
+    "Só cinco aceleradores custam duas manas ou menos: a Tergrid sai, em geral, no turno 5 ou 6.",
+    "Nove terrenos só dão incolor, num deck de {B}{B}{B}{B}."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "A Tergrid entra protegida (Lightning Greaves, Swiftfoot Boots, Commander's Plate, Tyrite Sanctum) e o deck assume o papel de vilão: Dark Deal, Smallpox e os editos de maior criatura viram roubo. Geth's Grimoire e Waste Not pagam cada descarte.",
+   "fortes": [
+    "Dark Deal e Pelakka Predation entregam permanentes certas: a mão inteira, ou a carta que você escolhe.",
+    "Cinco proteções para a Tergrid, mais a Lantern quando ela fica cara."
+   ],
+   "fracos": [
+    "Metade dos forçadores deixa o oponente escolher, e ele entrega ficha ou mágica.",
+    "Oppression, Tainted Aether e Living Death jogam contra o próprio roubo."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "Torment of Hailfire com a Cabal Stronghold, Marit Lage (Dark Depths com Thespian's Stage), o Archon reanimado ou o Obliterator, e o que foi roubado. Fechar um ou dois jogadores sem combate longo.",
+   "fortes": [
+    "Duas linhas que fecham em duas cartas: Marit Lage e Torment com a Stronghold.",
+    "O que a Tergrid roubou fica, mesmo se ela sair."
+   ],
+   "fracos": [
+    "Vorpal Sword, Westvale Abbey e Curse of the Cabal são fechamentos lentos demais.",
+    "Sem tutor, a peça que falta do Marit Lage pode não vir."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Os editos são muitos, mas à escolha deles: o aggro entrega as fichas e segue batendo."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Soul Shatter, Sheoldred's Edict e os editos pegam a única criatura que importa, e ela vem para você."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "O descarte cedo desmonta a mão deles, mas nada anula a peça que já está na pilha."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "O descarte esvazia a mão deles, mas a Tergrid morre para limpeza e eles têm resposta para o lock."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "equilibrado",
+    "porque": "O deck também é um pouco stax, com Bottomless Pit e Oppression, e paga a sua parte se tiver roubado algo."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "fraco",
+    "porque": "Eles adoram sacrificar e têm fichas de sobra para entregar: a Tergrid não pega ficha."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "forte",
+    "porque": "Oppression pune cada mágica, e o descarte esvazia a mão de quem vive dela."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "Smallpox e Death Cloud roubam os terrenos deles, e as permanentes grandes descartadas vêm para você."
+   }
+  ]
+ },
+ "cartas": {
+  "Tergrid, God of Fright": {
+   "notas": {
+    "removal": 1,
+    "descarte": 2,
+    "sacrificio": 2,
+    "fechamento": 2,
+    "recursao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "4/5 ameaça, de 5. Sempre que um oponente sacrifica uma permanente que não é ficha ou descarta uma carta de permanente, você pode pôr a carta em campo sob seu controle. A outra face é Tergrid's Lantern, de 4: vira, um jogador perde 3 a menos que sacrifique uma permanente não-terreno ou descarte.",
+   "porque": "É o deck: cada descarte e cada sacrifício forçado vira uma permanente sua, e o que ela trouxe fica mesmo se ela sair. A Lantern sai um turno antes, quando recomprar a Tergrid ficou caro.",
+   "marcas": {
+    "motor": 1
+   }
+  },
+  "Aclazotz, Deepest Betrayal": {
+   "notas": {
+    "draw": 1,
+    "protecao": 1,
+    "descarte": 2,
+    "fechamento": 1,
+    "recursao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "4/4 voar e vínculo, de 5. Ao atacar, cada oponente descarta; quem não pode faz você comprar. Descarte de terreno de oponente vira Morcego. Ao morrer, volta como terreno.",
+   "porque": "Descarte em todos a cada ataque, à escolha deles, e não some: volta como terreno e pode virar de novo.",
+   "marcas": {
+    "escolha": 1,
+    "motor": 1
+   }
+  },
+  "Archon of Cruelty": {
+   "notas": {
+    "draw": 2,
+    "removal": 2,
+    "descarte": 2,
+    "sacrificio": 2,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "6/6 voar, de 8. Ao entrar ou atacar, um oponente sacrifica criatura ou planeswalker, descarta e perde 3; você compra e ganha 3.",
+   "porque": "A melhor criatura do deck e o alvo da reanimação: descartada no Bottomless Pit ou no Dark Deal, volta com Exhume ou Sheoldred.",
+   "marcas": {
+    "escolha": 1
+   },
+   "pacote": "fechamento"
+  },
+  "Bloodghast": {
+   "notas": {
+    "sacrificio": 1,
+    "recursao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "2/1 de 2, não bloqueia. Volta do cemitério a cada terreno que entra.",
+   "porque": "Só paga a sua parte de Smallpox e Death Cloud. Sheoldred, the Apocalypse faz mais pela vaga.",
+   "prioridade": 6
+  },
+  "Clackbridge Troll": {
+   "notas": {
+    "draw": 1,
+    "sacrificio": 1,
+    "fechamento": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "8/8 atropelar e ímpeto, de 5. Ao entrar, um oponente ganha três Cabras 0/1. No seu combate, qualquer oponente pode sacrificar uma criatura para virá-lo; você ganha 3 e compra.",
+   "porque": "Dá as Cabras que eles vão sacrificar: ficha não aciona a Tergrid. Joga contra o plano.",
+   "prioridade": 1
+  },
+  "Crypt Ghast": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "2/2 de 4, extorquir. Cada Pântano virado para mana dá um {B} a mais.",
+   "porque": "Com 21 Pântanos, dobra a mana para o X do Torment of Hailfire e do Death Cloud. Chega tarde para acelerar a Tergrid."
+  },
+  "Erebos, God of the Dead": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Indestrutível; só é criatura com devoção 5. Oponentes não ganham vida. {1}{B}, 2 de vida: compre.",
+   "porque": "Compra cara, de uma carta por vez. Opposition Agent faz mais pela vaga.",
+   "prioridade": 12
+  },
+  "Henrika Domnathi": {
+   "notas": {
+    "draw": 1,
+    "sacrificio": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Voar, de 4. No combate, um modo novo: cada jogador sacrifica uma criatura; compra e perde 1; ou transforma.",
+   "porque": "O sacrifício pega você também, à escolha de cada um. Está também no Vito, no Clavileño e no Strefan.",
+   "prioridade": 7
+  },
+  "Hypnotic Specter": {
+   "notas": {
+    "descarte": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "2/2 voar, de 3. Quando causa dano a um oponente, ele descarta ao acaso.",
+   "porque": "Descarte ao acaso, que é o que a Tergrid mais quer, mas só conectando com um 2/2.",
+   "marcas": {
+    "forca": 1
+   },
+   "prioridade": 9
+  },
+  "Liliana's Reaver": {
+   "notas": {
+    "descarte": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "4/3 toque mortífero, de 4. Dano de combate num jogador: ele descarta e você cria um Zumbi 2/2.",
+   "porque": "Precisa conectar, e o descarte é à escolha dele.",
+   "marcas": {
+    "escolha": 1
+   },
+   "prioridade": 5
+  },
+  "Liliana, Heretical Healer": {
+   "notas": {
+    "descarte": 1,
+    "recursao": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "2/3 vínculo, de 3. Vira planeswalker quando outra criatura sua não-ficha morre: +2 cada jogador descarta; −X reanima.",
+   "porque": "O gatilho de virar é difícil de forçar aqui, e o descarte é à escolha de cada um.",
+   "prioridade": 3
+  },
+  "Phyrexian Obliterator": {
+   "notas": {
+    "removal": 1,
+    "protecao": 1,
+    "sacrificio": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "5/5 atropelar, de {B}{B}{B}{B}. Quem causa dano a ele sacrifica esse tanto de permanentes.",
+   "porque": "Ninguém ataca nem bloqueia sem entregar permanentes, e cada uma vem para você.",
+   "marcas": {
+    "escolha": 1
+   },
+   "pacote": "fechamento"
+  },
+  "Rankle, Master of Pranks": {
+   "notas": {
+    "draw": 1,
+    "descarte": 2,
+    "sacrificio": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "3/3 voar e ímpeto, de 4. Dano de combate: escolha quantos modos quiser: cada jogador descarta; cada um perde 1 e compra; cada um sacrifica uma criatura.",
+   "porque": "Escolhe os modos a cada ataque: pula o sacrifício quando só tem a Tergrid. Motor que ataca no turno em que entra.",
+   "marcas": {
+    "escolha": 1,
+    "motor": 1
+   }
+  },
+  "Sheoldred, Whispering One": {
+   "notas": {
+    "removal": 1,
+    "sacrificio": 3,
+    "fechamento": 1,
+    "recursao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "6/6 passa-pântano, de 7. Na sua manutenção, reanima uma criatura sua. Na de cada oponente, ele sacrifica uma criatura.",
+   "porque": "Três sacrifícios por volta e uma reanimação por turno. Alvo de reanimação.",
+   "marcas": {
+    "escolha": 1,
+    "motor": 1
+   }
+  },
+  "Vindictive Lich": {
+   "notas": {
+    "removal": 1,
+    "descarte": 2,
+    "sacrificio": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "4/1 de 4. Ao morrer, um ou mais modos em oponentes diferentes: sacrifica criatura, descarta duas, perde 5.",
+   "porque": "Precisa morrer, e as escolhas são deles. Mindslicer faz mais pela mesma morte.",
+   "marcas": {
+    "escolha": 1
+   },
+   "prioridade": 10
+  },
+  "Liliana of the Veil": {
+   "notas": {
+    "removal": 1,
+    "descarte": 3,
+    "sacrificio": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "De 3. +1: cada jogador descarta. −2: um jogador sacrifica uma criatura. −6: separa as permanentes de um jogador em duas pilhas; ele sacrifica uma.",
+   "porque": "Motor de três manas desde o turno 3, que também se protege com o −2.",
+   "marcas": {
+    "escolha": 1,
+    "motor": 1,
+    "simetrico": 1
+   }
+  },
+  "Liliana Vess": {
+   "notas": {
+    "draw": 1,
+    "descarte": 2,
+    "fechamento": 1,
+    "recursao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "De 5. +1: um jogador descarta. −2: busca uma carta para o topo. −8: todas as criaturas de todos os cemitérios para você.",
+   "porque": "Cinco manas por um descarte à escolha por turno. O −2 é um tutor lento.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Liliana of the Dark Realms": {
+   "notas": {
+    "ramp": 1,
+    "removal": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "De 4. +1: busca um Pântano. −3: uma criatura ganha ou perde X, X os seus Pântanos.",
+   "porque": "Não força ninguém a nada.",
+   "prioridade": 2
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Gera {B}.",
+   "porque": "Pedra de duas manas."
+  },
+  "Commander's Plate": {
+   "notas": {
+    "protecao": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Equipamento de 1, equipar comandante {3}. +3/+3 e proteção contra cada cor fora da identidade do comandante.",
+   "porque": "Em mono-preto, é proteção contra branco, azul, vermelho e verde: quase toda remoção com alvo e quase todo bloqueador.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Geth's Grimoire": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 4. Sempre que um oponente descarta, você pode comprar.",
+   "porque": "Com Bottomless Pit e Dark Deal, compra três ou mais por volta."
+  },
+  "Jet Medallion": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Artefato de 2. Mágicas pretas custam {1} a menos.",
+   "porque": "Todo o deck é preto: vale como ramp para a Tergrid e para o resto."
+  },
+  "Library of Leng": {
+   "notas": {
+    "draw": 1,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 1. Sem limite de mão. Quando um efeito faz você descartar, pode pôr a carta no topo do grimório no lugar do cemitério.",
+   "porque": "Desarma a simetria: com Dark Deal, você descarta a mão no topo e a compra de volta; no Bottomless Pit, a carta perdida volta na compra seguinte.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Equipamento de 2: ímpeto e manto, equipar {0}.",
+   "porque": "A Tergrid ataca e fica fora de alcance no turno em que entra.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Mind Stone": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Pedra de 2. Sacrifique: compre.",
+   "porque": "Lenta para um deck que quer a Tergrid no turno 3 ou 4.",
+   "prioridade": 13
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "MED",
+   "faz": "Vira: {C}{C}.",
+   "porque": "Tergrid no turno 3."
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Equipamento de 2: resistência a magia e ímpeto, equipar {1}.",
+   "porque": "A segunda cobertura da Tergrid.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Sword of Feast and Famine": {
+   "notas": {
+    "ramp": 1,
+    "protecao": 1,
+    "descarte": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento de 3, equipar {2}. +2/+2 e proteção contra preto e verde. Dano de combate num jogador: ele descarta e você desvira os terrenos.",
+   "porque": "Na Tergrid ameaçadora, proteção contra a remoção preta e um descarte por ataque.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Thran Dynamo": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Pedra de 4: {C}{C}{C}.",
+   "porque": "Chega junto com a Tergrid, não antes.",
+   "prioridade": 11
+  },
+  "Vorpal Sword": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Equipamento de 1, equipar {B}{B}. +2/+0 e toque mortífero. {5}{B}{B}{B}: o dano de combate da criatura faz o jogador perder o jogo.",
+   "porque": "Oito manas e um combate. Marit Lage e Torment fecham antes.",
+   "prioridade": 4
+  },
+  "Bottomless Pit": {
+   "notas": {
+    "descarte": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 3. Na manutenção de cada jogador, ele descarta uma carta ao acaso.",
+   "porque": "Três descartes ao acaso por volta: o motor mais eficiente do deck. A Library of Leng desarma o lado que cai em você.",
+   "marcas": {
+    "forca": 1,
+    "motor": 1,
+    "simetrico": 1
+   }
+  },
+  "Curse of the Cabal": {
+   "notas": {
+    "removal": 1,
+    "sacrificio": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 10, ou suspenso por 4 em duas voltas: um jogador sacrifica metade das permanentes à escolha dele. Suspenso, cada jogador pode sacrificar uma permanente na manutenção para atrasar.",
+   "porque": "Lento, e quem sacrifica para atrasar escolhe uma ficha.",
+   "caro_por_desenho": true
+  },
+  "Oppression": {
+   "notas": {
+    "descarte": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 3. Sempre que um jogador conjura uma mágica, descarta uma carta.",
+   "porque": "Pune quem conjura, e quem mais conjura é você. Necrogen Mists faz o papel sem pesar na sua curva.",
+   "marcas": {
+    "escolha": 1,
+    "motor": 1,
+    "simetrico": 1
+   }
+  },
+  "Phyrexian Arena": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 3. Na sua manutenção, compre e perca 1.",
+   "porque": "Repõe a mão que o Bottomless Pit cobra de você."
+  },
+  "Tainted Aether": {
+   "notas": {
+    "sacrificio": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Encantamento de 4. Sempre que uma criatura entra, quem a controla sacrifica uma criatura ou um terreno.",
+   "porque": "Cobra cada roubo da Tergrid: a criatura que ela traz entra sob o seu controle.",
+   "marcas": {
+    "simetrico": 1
+   },
+   "prioridade": 1
+  },
+  "The Eldest Reborn": {
+   "notas": {
+    "removal": 1,
+    "descarte": 2,
+    "sacrificio": 2,
+    "recursao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Saga de 5. I: cada oponente sacrifica criatura ou planeswalker. II: cada oponente descarta. III: põe sob seu controle uma criatura ou planeswalker de qualquer cemitério.",
+   "porque": "Três eventos que a Tergrid lê, e o terceiro traz a melhor criatura de qualquer cemitério. Lenta.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "The Long Reach of Night": {
+   "notas": {
+    "descarte": 1,
+    "sacrificio": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Saga de 4. I e II: cada oponente sacrifica uma criatura, a menos que descarte. III: vira uma criatura com ameaça.",
+   "porque": "Nos dois capítulos o oponente escolhe, e escolhe o que perde menos.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Waste Not": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2,
+    "descarte": 1,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 2. Oponente descarta criatura: Zumbi 2/2. Terreno: {B}{B}. Outra carta: você compra.",
+   "porque": "Paga cada descarte, inclusive o de mágica que a Tergrid não pega."
+  },
+  "Dark Ritual": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Instantânea de 1: {B}{B}{B}.",
+   "porque": "Tergrid ou Bottomless Pit um turno antes."
+  },
+  "Dismember": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1 mais 4 de vida: −5/−5.",
+   "porque": "Resposta barata em qualquer turno."
+  },
+  "Fake Your Own Death": {
+   "notas": {
+    "protecao": 2,
+    "recursao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 2: +2/+0; se morrer, volta virada e você cria um Tesouro.",
+   "porque": "Salva a Tergrid de destruição, como Not Dead After All, que custa uma.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Fatal Push": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: destrói criatura de valor até 2, ou até 4 com revolta.",
+   "porque": "Mata as peças rápidas."
+  },
+  "Feign Death": {
+   "notas": {
+    "protecao": 2,
+    "recursao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea de 1: se a criatura morrer, volta virada com um marcador.",
+   "porque": "Terceira cópia do mesmo efeito.",
+   "marcas": {
+    "protege": 1
+   },
+   "prioridade": 8
+  },
+  "Imp's Mischief": {
+   "notas": {
+    "removal": 1,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: muda o alvo de uma mágica de alvo único; você perde o valor dela.",
+   "porque": "Devolve a remoção a quem a conjurou.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Liliana's Triumph": {
+   "notas": {
+    "removal": 1,
+    "descarte": 1,
+    "sacrificio": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 2: cada oponente sacrifica uma criatura; com uma Liliana sua, também descarta.",
+   "porque": "À escolha deles: entrega ficha.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Not Dead After All": {
+   "notas": {
+    "protecao": 2,
+    "recursao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: se a criatura morrer, volta virada com um Papel que tira 1 de cada oponente.",
+   "porque": "Salva a Tergrid de destruição por uma mana.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Sheoldred's Edict": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2. Um modo: cada oponente sacrifica criatura não-ficha, ficha ou planeswalker.",
+   "porque": "O modo não-ficha garante a Tergrid.",
+   "marcas": {
+    "forca": 1
+   }
+  },
+  "Soul Shatter": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: cada oponente sacrifica a criatura ou planeswalker de maior valor.",
+   "porque": "A maior costuma ser não-ficha e a melhor carta da mesa.",
+   "marcas": {
+    "forca": 1
+   }
+  },
+  "Stinging Study": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 5: compre e perca X, X o valor do seu comandante (5).",
+   "porque": "Cinco cartas no turno dos outros."
+  },
+  "Supernatural Stamina": {
+   "notas": {
+    "protecao": 2,
+    "recursao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea de 1: +2/+0; se morrer, volta virada.",
+   "porque": "Quarta cópia do mesmo efeito.",
+   "marcas": {
+    "protege": 1
+   },
+   "prioridade": 8
+  },
+  "Vona's Hunger": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: cada oponente sacrifica uma criatura; com a bênção da cidade, metade.",
+   "porque": "À escolha deles, até a bênção.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Withering Torment": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: destrói criatura ou encantamento; você perde 2.",
+   "porque": "Resposta a encantamento em velocidade instantânea."
+  },
+  "Dark Deal": {
+   "notas": {
+    "draw": 1,
+    "descarte": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Feitiço de 3: cada jogador descarta a mão e compra uma a menos.",
+   "porque": "A mão inteira de cada oponente: cada permanente nela vem para você. Com a Library of Leng, você recompra a sua.",
+   "marcas": {
+    "forca": 1,
+    "simetrico": 1
+   }
+  },
+  "Death Cloud": {
+   "notas": {
+    "removal": 2,
+    "descarte": 3,
+    "sacrificio": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de X+3: cada jogador perde X, descarta X, sacrifica X criaturas e X terrenos.",
+   "porque": "Com a Tergrid em campo, reconstrói a sua mesa com o que era deles. Escolha um X que poupe a Tergrid.",
+   "marcas": {
+    "forca": 1,
+    "simetrico": 1
+   },
+   "massa": true
+  },
+  "Exhume": {
+   "notas": {
+    "fechamento": 1,
+    "recursao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: cada jogador reanima uma criatura do próprio cemitério.",
+   "porque": "O Archon descartado volta no turno 3. Os oponentes também reanimam: use depois do Dark Deal."
+  },
+  "Feed the Swarm": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: destrói criatura ou encantamento de oponente; você perde o valor.",
+   "porque": "Uma das poucas respostas a encantamento."
+  },
+  "Fraying Omnipotence": {
+   "notas": {
+    "removal": 2,
+    "descarte": 3,
+    "sacrificio": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 5: cada jogador perde metade da vida, descarta metade da mão e sacrifica metade das criaturas.",
+   "porque": "Metade é metade: muita carta de permanente para a Tergrid. Pega você também.",
+   "marcas": {
+    "forca": 1,
+    "simetrico": 1
+   },
+   "massa": true
+  },
+  "Living Death": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 1,
+    "fechamento": 1,
+    "recursao": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 5: cada jogador exila as criaturas do próprio cemitério, sacrifica as que controla e devolve as exiladas.",
+   "porque": "Desfaz o roubo: as criaturas roubadas são sacrificadas por você e ficam no cemitério do dono.",
+   "massa": true
+  },
+  "Mire in Misery": {
+   "notas": {
+    "removal": 1,
+    "sacrificio": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 2: cada oponente sacrifica criatura ou encantamento.",
+   "porque": "À escolha deles.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Mutilate": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 4: todas as criaturas recebem −1/−1 por Pântano seu.",
+   "porque": "Limpa a mesa, mas destrói: a Tergrid não pega nada.",
+   "massa": true
+  },
+  "Pelakka Predation": {
+   "notas": {
+    "descarte": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: o oponente revela a mão e você escolhe uma carta de valor 3 ou mais para ele descartar. O verso é um terreno virado que gera {B}.",
+   "porque": "Você escolhe: sempre uma permanente para a Tergrid. Ou terreno.",
+   "marcas": {
+    "forca": 1
+   }
+  },
+  "Rankle's Prank": {
+   "notas": {
+    "removal": 1,
+    "descarte": 2,
+    "sacrificio": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 4. Um ou mais: cada jogador descarta duas; cada um perde 4; cada um sacrifica duas criaturas.",
+   "porque": "Seis eventos em três oponentes, à escolha deles.",
+   "marcas": {
+    "escolha": 1,
+    "simetrico": 1
+   }
+  },
+  "Rush of Dread": {
+   "notas": {
+    "removal": 1,
+    "descarte": 2,
+    "sacrificio": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço com spree, de 3 a 8: um oponente sacrifica metade das criaturas, descarta metade da mão, perde metade da vida.",
+   "porque": "Metade é metade, mas num oponente só.",
+   "marcas": {
+    "forca": 1
+   }
+  },
+  "Scheming Symmetry": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 1: dois jogadores buscam uma carta para o topo.",
+   "porque": "Dá um tutor a um oponente.",
+   "prioridade": 2
+  },
+  "Smallpox": {
+   "notas": {
+    "removal": 1,
+    "descarte": 2,
+    "sacrificio": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: cada jogador perde 1, descarta, sacrifica uma criatura e um terreno.",
+   "porque": "O terreno sacrificado é sempre permanente não-ficha: a Tergrid rouba um terreno de cada oponente.",
+   "marcas": {
+    "forca": 1,
+    "simetrico": 1
+   }
+  },
+  "Syphon Mind": {
+   "notas": {
+    "draw": 3,
+    "descarte": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 4: cada outro jogador descarta; você compra uma por descarte.",
+   "porque": "Três descartes e três cartas.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Torment of Hailfire": {
+   "notas": {
+    "removal": 1,
+    "descarte": 2,
+    "sacrificio": 2,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Feitiço de X+2. X vezes: cada oponente perde 3, a menos que sacrifique uma permanente não-terreno ou descarte.",
+   "porque": "O fechamento: cada escolha deles alimenta a Tergrid, e quem não escolhe perde 3. Cabal Stronghold e Crypt Ghast pagam o X.",
+   "marcas": {
+    "escolha": 1
+   }
+  },
+  "Dark Depths": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Não gera mana. Entra com dez marcadores; {3}: tira um. Sem marcadores, vira Marit Lage, 20/20 voadora indestrutível.",
+   "porque": "Com Thespian's Stage, fecha o jogo em duas cartas."
+  },
+  "Thespian's Stage": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Incolor. {2}, vira: vira cópia de um terreno.",
+   "porque": "A outra metade do Marit Lage. Fora do combo, copia a Cabal Stronghold."
+  },
+  "Cabal Stronghold": {
+   "notas": {
+    "ramp": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Incolor. {3}, vira: {B} por Pântano básico.",
+   "porque": "Com 21 Pântanos básicos, paga o X do Torment no fim."
+  },
+  "Geier Reach Sanitarium": {
+   "notas": {
+    "draw": 1,
+    "descarte": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Incolor. {2}, vira: cada jogador compra e descarta.",
+   "porque": "Descarte em todos, em velocidade instantânea, todo turno; alimenta Waste Not e Geth's Grimoire.",
+   "marcas": {
+    "escolha": 1,
+    "motor": 1
+   }
+  },
+  "Tyrite Sanctum": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Incolor. {4}, vira e sacrifica: marcador de indestrutível num Deus.",
+   "porque": "A Tergrid é Deusa: proteção permanente contra destruição num terreno.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Vesuva": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Entra virada como cópia de um terreno.",
+   "porque": "Copia a Cabal Stronghold. Não monta o Marit Lage: a cópia entra com os marcadores.",
+   "virado": true
+  },
+  "Westvale Abbey": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Incolor. {5}, 1 de vida: ficha 1/1. {5} e cinco criaturas: vira Ormendahl.",
+   "porque": "Fechamento lento e incolor."
+  },
+  "Bojuka Bog": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sempre virada. Ao entrar, exila o cemitério de um jogador.",
+   "porque": "Corta reanimação inimiga, mas a Tergrid já pega primeiro.",
+   "prioridade": 3,
+   "virado": true
+  },
+  "Mikokoro, Center of the Sea": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Incolor. {2}, vira: cada jogador compra.",
+   "porque": "Dá carta aos três oponentes por uma sua.",
+   "prioridade": 2
+  },
+  "Buried Ruin": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Incolor. {2}, vira e sacrifica: devolve um artefato do cemitério à mão.",
+   "porque": "Poucos artefatos que valha devolver.",
+   "prioridade": 4
+  },
+  "Blighted Fen": {
+   "notas": {
+    "sacrificio": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Incolor. {4}{B}, vira e sacrifica: um oponente sacrifica uma criatura.",
+   "porque": "Cinco manas por um sacrifício à escolha dele.",
+   "prioridade": 5
+  },
+  "Encroaching Wastes": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Incolor. {4}, vira e sacrifica: destrói um terreno não básico.",
+   "porque": "Destruir não é sacrificar: a Tergrid não pega.",
+   "prioridade": 1
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "21 cópias. Conta para a Cabal Stronghold e para o Crypt Ghast."
+  }
+ },
+ "radar": {
+  "Sheoldred, the Apocalypse": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "2/5 toque mortífero, de 4. Você ganha 2 a cada compra sua; cada oponente perde 2 a cada compra dele.",
+   "porque": "Dark Deal e Geth's Grimoire viram dano; com Peer into the Abyss, mata um jogador.",
+   "sai": "Bloodghast"
+  },
+  "Archfiend of Depravity": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "5/4 voar, de 5. No fim do turno de cada oponente, ele fica com duas criaturas e sacrifica o resto.",
+   "porque": "Contra mesa larga, tudo além de duas criaturas que não é ficha vem para você. Está também no Lynde.",
+   "sai": "Tainted Aether",
+   "marcas": {
+    "motor": 1
+   }
+  },
+  "Toxic Deluge": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Feitiço de 3: pague X de vida; todas as criaturas recebem −X/−X.",
+   "porque": "Limpeza que escolhe o tamanho e poupa a Tergrid 4/5, por uma mana a menos que o Mutilate. Está também no Vito, no Clavileño e no Strefan.",
+   "sai": "Mutilate",
+   "massa": true
+  },
+  "Demonic Tutor": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Feitiço de 2: busca qualquer carta.",
+   "porque": "Acha a Tergrid, o motor ou o fechamento. Está também no Vito e no Strefan.",
+   "sai": "Scheming Symmetry"
+  },
+  "Vampiric Tutor": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Instantânea de 1: busca uma carta para o topo; você perde 2.",
+   "porque": "Tutor de uma mana. Está também no Vito e no Strefan.",
+   "sai": "Feign Death"
+  },
+  "Necrogen Mists": {
+   "notas": {
+    "descarte": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 3. Na manutenção de cada jogador, ele descarta uma carta.",
+   "porque": "O segundo Bottomless Pit: três descartes por volta, sem pesar na sua curva como o Oppression.",
+   "sai": "Oppression",
+   "marcas": {
+    "escolha": 1,
+    "motor": 1,
+    "simetrico": 1
+   }
+  },
+  "Liliana, Waker of the Dead": {
+   "notas": {
+    "removal": 1,
+    "descarte": 3,
+    "recursao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "De 4. +1: cada jogador descarta; oponente que não pode perde 3. −3: −X/−X, X as cartas no seu cemitério.",
+   "porque": "Segundo motor de descarte em planeswalker, que pune a mão vazia que o deck cria.",
+   "sai": "Liliana, Heretical Healer",
+   "marcas": {
+    "escolha": 1,
+    "motor": 1,
+    "simetrico": 1
+   }
+  },
+  "Hymn to Tourach": {
+   "notas": {
+    "descarte": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 2: um jogador descarta duas cartas ao acaso.",
+   "porque": "Duas ao acaso no turno 1 ou 2, antes de a mão deles virar mesa.",
+   "sai": "Hypnotic Specter",
+   "marcas": {
+    "forca": 1
+   }
+  },
+  "Mind Twist": {
+   "notas": {
+    "descarte": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de X+1: um jogador descarta X cartas ao acaso.",
+   "porque": "Com a Cabal Stronghold, a mão inteira de um.",
+   "sai": "Liliana's Reaver",
+   "marcas": {
+    "forca": 1
+   }
+  },
+  "Thoughtseize": {
+   "notas": {
+    "removal": 1,
+    "descarte": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 1: você vê a mão e escolhe uma carta não-terreno para ele descartar; você perde 2.",
+   "porque": "Você escolhe a melhor permanente da mão, e ela vem com a Tergrid.",
+   "sai": "Liliana's Triumph",
+   "marcas": {
+    "forca": 1
+   }
+  },
+  "Mindslicer": {
+   "notas": {
+    "descarte": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "4/3 de 4. Ao morrer, cada jogador descarta a mão.",
+   "porque": "A mão de três oponentes sob a Tergrid. Morre no seu Smallpox, no Death Cloud ou no Accursed Marauder.",
+   "sai": "Vindictive Lich",
+   "marcas": {
+    "forca": 1,
+    "simetrico": 1
+   }
+  },
+  "Flare of Malice": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 4, ou de graça sacrificando uma criatura preta não-ficha: cada oponente sacrifica a criatura ou planeswalker de maior valor.",
+   "porque": "Soul Shatter que pode sair de graça: a maior é não-ficha.",
+   "sai": "Vona's Hunger",
+   "marcas": {
+    "forca": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Accursed Marauder": {
+   "notas": {
+    "removal": 1,
+    "sacrificio": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "2/1 de 2. Ao entrar, cada jogador sacrifica uma criatura não-ficha.",
+   "porque": "Não-ficha garantida por duas manas. Você sacrifica o próprio Marauder.",
+   "sai": "Mire in Misery",
+   "marcas": {
+    "forca": 1
+   }
+  },
+  "Pox Plague": {
+   "notas": {
+    "removal": 2,
+    "descarte": 3,
+    "sacrificio": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de {B}{B}{B}{B}{B}: cada jogador perde metade da vida, descarta metade da mão e sacrifica metade das permanentes.",
+   "porque": "Metade de tudo de três oponentes, terrenos incluídos, vem para você. Você escolhe a sua metade.",
+   "sai": "Fraying Omnipotence",
+   "marcas": {
+    "forca": 1,
+    "simetrico": 1
+   },
+   "massa": true
+  },
+  "Animate Dead": {
+   "notas": {
+    "recursao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Aura de 2: reanima uma criatura de qualquer cemitério sob seu controle.",
+   "porque": "O seu Archon descartado ou a melhor criatura que eles perderam, sem desfazer o roubo como o Living Death.",
+   "sai": "Living Death"
+  },
+  "Reanimate": {
+   "notas": {
+    "recursao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 1: reanima uma criatura de qualquer cemitério; você perde o valor dela.",
+   "porque": "O Archon no turno 2. Está também no Strefan.",
+   "sai": "Rush of Dread"
+  },
+  "Deadly Rollick": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 4, de graça com o comandante em campo: exila uma criatura.",
+   "porque": "Resposta de graça enquanto a Tergrid está viva. Está também no Vito.",
+   "sai": "Withering Torment",
+   "caro_por_desenho": true
+  },
+  "Orcish Bowmasters": {
+   "notas": {
+    "removal": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "1/1 com lampejo, de 2. Ao entrar e quando um oponente compra além da primeira do turno, 1 de dano em qualquer alvo e amassar.",
+   "porque": "Pune Dark Deal, Syphon Mind e Geier Reach do lado deles; mata as criaturas de 1.",
+   "sai": "Clackbridge Troll"
+  },
+  "Opposition Agent": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "protecao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "2/2 com lampejo, de 3. Você controla os oponentes enquanto buscam; o que acham fica exilado e você pode jogar.",
+   "porque": "Corta tutores e ramp de busca, e você joga o que eles buscaram.",
+   "sai": "Erebos, God of the Dead"
+  },
+  "Emeritus of Woe": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "5/4 de 4. Entra preparada: você pode conjurar uma cópia de Demonic Tutor por {1}{B}. Prepara de novo se duas criaturas morreram no turno.",
+   "porque": "Tutor que deixa corpo, e reprepara com as limpezas.",
+   "sai": "Henrika Domnathi"
+  },
+  "Bolas's Citadel": {
+   "notas": {
+    "draw": 3,
+    "sacrificio": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 6. Você joga do topo pagando vida. Vira e sacrifica dez permanentes não-terreno: cada oponente perde 10.",
+   "porque": "Compra contínua, e o roubo vira munição: dez permanentes, metade deles dos outros. Está também no Vito.",
+   "sai": "Stinging Study"
+  },
+  "Imperial Seal": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 1: busca uma carta para o topo; você perde 2.",
+   "porque": "Terceiro tutor de uma mana.",
+   "sai": "Fake Your Own Death"
+  },
+  "Braids, Cabal Minion": {
+   "notas": {
+    "sacrificio": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "2/2 de 4. Na manutenção de cada jogador, ele sacrifica um artefato, criatura ou terreno.",
+   "porque": "O lock: você sacrifica o que roubou, eles sacrificam o que é deles. Faz de você o vilão da mesa, e pune quando você está atrás.",
+   "sai": "The Long Reach of Night",
+   "marcas": {
+    "motor": 1,
+    "simetrico": 1
+   }
+  },
+  "Smokestack": {
+   "notas": {
+    "sacrificio": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Artefato de 4. Na sua manutenção, pode pôr um marcador. Na de cada jogador, ele sacrifica uma permanente por marcador.",
+   "porque": "O lock mais duro: a mesa deles diminui e vem para a sua. Mesmo aviso da Braids.",
+   "sai": "Curse of the Cabal",
+   "marcas": {
+    "motor": 1,
+    "simetrico": 1
+   }
+  },
+  "Peer into the Abyss": {
+   "notas": {
+    "draw": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 7: um jogador compra metade do grimório e perde metade da vida.",
+   "porque": "Com Sheoldred, the Apocalypse, o alvo morre. Sem ela, é compra cara para você.",
+   "sai": "Vorpal Sword"
+  },
+  "Necropotence": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "S",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 3. Pula a compra; o que você descarta vai para o exílio; pague 1 de vida: uma carta na mão no fim do turno.",
+   "porque": "A melhor compra do formato, mas exila o que você descarta: desliga o Archon descartado para o Exhume e para a reanimação. Está também no Vito.",
+   "sai": "Phyrexian Arena"
+  },
+  "The One Ring": {
+   "notas": {
+    "draw": 3,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Artefato de 4. Conjurado, dá proteção contra tudo até o seu turno. Vira: compra uma por marcador; perde 1 por marcador na manutenção.",
+   "porque": "Compra crescente e um turno de imunidade. A Commander's Plate protege a Tergrid por mais tempo. Está também na Giada e no Queen.",
+   "sai": "Commander's Plate"
+  },
+  "Mana Vault": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Pedra de 1: {C}{C}{C}; não desvira sozinha.",
+   "porque": "Tergrid no turno 2 ou 3. Base de mana: avaliar até o teste.",
+   "sai": "Thran Dynamo"
+  },
+  "Grim Monolith": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Pedra de 2: {C}{C}{C}; {4} desvira.",
+   "porque": "Segundo Mana Vault. Base de mana: avaliar até o teste.",
+   "sai": "Mind Stone"
+  },
+  "Ancient Tomb": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {C}{C} e 2 de dano em você.",
+   "porque": "Tergrid no turno 3 sem pedra. Está também no Vito e no Strefan.",
+   "sai": "Buried Ruin"
+  },
+  "Cabal Coffers": {
+   "notas": {
+    "ramp": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Terreno. {2}, vira: {B} por Pântano.",
+   "porque": "Com 21 Pântanos, paga o Torment, o Mind Twist e o Marit Lage no mesmo turno. Está também no Vito.",
+   "sai": "Encroaching Wastes"
+  },
+  "Urborg, Tomb of Yawgmoth": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: todo terreno é Pântano.",
+   "porque": "Os nove incolores passam a dar {B} e contam para a Cabal Coffers. Está também no Vito.",
+   "sai": "Mikokoro, Center of the Sea"
+  }
+ },
+ "combos": [
+  {
+   "nome": "Marit Lage",
+   "tipo": "Combo",
+   "pecas": [
+    "Dark Depths",
+    "Thespian's Stage"
+   ],
+   "texto": "A Stage vira cópia de Dark Depths sem marcadores, e o gatilho cria Marit Lage, 20/20 voadora e indestrutível. Pela regra de lenda, fique com a Stage. Vesuva não faz: a cópia entra com os dez marcadores."
+  },
+  {
+   "nome": "A compra que mata",
+   "tipo": "Combo",
+   "pecas": [
+    "Sheoldred, the Apocalypse",
+    "Peer into the Abyss"
+   ],
+   "texto": "O alvo compra metade do grimório e perde 2 por carta, mais metade da vida pelo Peer."
+  },
+  {
+   "nome": "Três descartes por volta",
+   "tipo": "Motor",
+   "pecas": [
+    "Tergrid, God of Fright",
+    "Bottomless Pit"
+   ],
+   "texto": "Cada oponente descarta ao acaso na própria manutenção, e cada carta de permanente vem para você."
+  },
+  {
+   "nome": "A mão inteira",
+   "tipo": "Motor",
+   "pecas": [
+    "Tergrid, God of Fright",
+    "Dark Deal"
+   ],
+   "texto": "Cada oponente descarta a mão: todas as permanentes nela vêm para você de uma vez."
+  },
+  {
+   "nome": "Você recompra a sua mão",
+   "tipo": "Motor",
+   "pecas": [
+    "Library of Leng",
+    "Dark Deal"
+   ],
+   "texto": "Você põe a mão descartada no topo e compra de volta quase tudo; os oponentes perdem a deles."
+  },
+  {
+   "nome": "Cada descarte paga duas vezes",
+   "tipo": "Motor",
+   "pecas": [
+    "Waste Not",
+    "Geth's Grimoire",
+    "Bottomless Pit"
+   ],
+   "texto": "A carta que eles descartam vira Zumbi, mana ou carta, mais uma compra; e a Tergrid ainda leva as permanentes."
+  },
+  {
+   "nome": "O Archon volta",
+   "tipo": "Motor",
+   "pecas": [
+    "Archon of Cruelty",
+    "Exhume"
+   ],
+   "texto": "Descarte o Archon no Bottomless Pit ou no Dark Deal e traga de volta por duas manas no turno seguinte."
+  },
+  {
+   "nome": "Terreno por terreno",
+   "tipo": "Motor",
+   "pecas": [
+    "Tergrid, God of Fright",
+    "Smallpox"
+   ],
+   "texto": "Cada oponente sacrifica um terreno, que é sempre permanente não-ficha: a Tergrid rouba um terreno de cada um."
+  },
+  {
+   "nome": "Torment com Stronghold",
+   "tipo": "Motor",
+   "pecas": [
+    "Torment of Hailfire",
+    "Cabal Stronghold"
+   ],
+   "texto": "Com 21 Pântanos básicos, o X passa de dez. Cada escolha deles alimenta a Tergrid, e quem não escolhe perde 3."
+  },
+  {
+   "nome": "Sacrifício todo turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Tergrid, God of Fright",
+    "Sheoldred, Whispering One"
+   ],
+   "texto": "Cada oponente sacrifica uma criatura na própria manutenção, e você reanima uma na sua."
+  },
+  {
+   "nome": "A Tergrid blindada",
+   "tipo": "Motor",
+   "pecas": [
+    "Tergrid, God of Fright",
+    "Commander's Plate"
+   ],
+   "texto": "Proteção contra branco, azul, vermelho e verde: só remoção preta ou incolor a alcança."
+  },
+  {
+   "nome": "Armadilha: Living Death desfaz o roubo",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Living Death",
+    "Tergrid, God of Fright"
+   ],
+   "texto": "Você sacrifica as criaturas que a Tergrid roubou, e elas voltam ao cemitério do dono."
+  },
+  {
+   "nome": "Armadilha: Tainted Aether cobra cada roubo",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Tainted Aether",
+    "Tergrid, God of Fright"
+   ],
+   "texto": "A criatura que a Tergrid traz entra sob o seu controle, e quem a controla sacrifica uma criatura ou um terreno."
+  },
+  {
+   "nome": "Armadilha: as Cabras do Troll",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Clackbridge Troll",
+    "Tergrid, God of Fright"
+   ],
+   "texto": "O oponente sacrifica as Cabras que o Troll deu: ficha não aciona a Tergrid."
+  }
+ ]
+}

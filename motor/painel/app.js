@@ -377,6 +377,18 @@ function vialPath(r0, R, a0, a1) {
     'L' + pt(R, wl) + 'L' + pt(R - 6, wl) + 'L' + pt(R - 6, wn) + 'L' + pt(rn, wn) + 'Q' + pt(rn, w1) + ' ' + pt(rs, w1) + 'L' + pt(rb, w0) +
     'C' + pt(rb - w0 * 1.33, w0) + ' ' + pt(rb - w0 * 1.33, -w0) + ' ' + pt(rb, -w0) + 'Z';
 }
+function stonePath(r0, R, a0, a1) {
+  // pedra rúnica: base reta perto do centro, lados que se alargam um pouco e topo arredondado. Larguras em pixels
+  var am = (a0 + a1) / 2, d = (a1 - a0) / 2 * Math.PI / 180;
+  var w0 = Math.min(24, (r0 + 8) * Math.sin(d) * 0.9), w1 = Math.min(w0 * 1.35, R * Math.sin(d) * 0.85), rt = R - w1 * 0.9;
+  function pt(r, w) { return pol(r, am + w / r * 180 / Math.PI); }
+  return 'M' + pt(r0 + 2, -w0) + 'L' + pt(rt, -w1) + 'Q' + pt(R, -w1) + ' ' + pt(R, 0) + 'Q' + pt(R, w1) + ' ' + pt(rt, w1) + 'L' + pt(r0 + 2, w0) + 'Z';
+}
+function lanternPath(cx, cy) {
+  // a lanterna da Tergrid: argola, tampa e gaiola hexagonal
+  return 'M' + (cx - 5) + ' ' + (cy - 34) + 'a5 5 0 1 1 10 0' + 'M' + (cx - 12) + ' ' + (cy - 26) + 'H' + (cx + 12) + 'L' + (cx + 17) + ' ' + (cy - 14) + 'V' + (cy + 14) +
+    'L' + (cx + 10) + ' ' + (cy + 24) + 'H' + (cx - 10) + 'L' + (cx - 17) + ' ' + (cy + 14) + 'V' + (cy - 14) + 'Z' + 'M' + cx + ' ' + (cy - 26) + 'V' + (cy + 24);
+}
 function dropPath(cx, cy, h) {
   // gota de sangue atrás do placar
   return 'M' + cx + ' ' + (cy - h) + 'C' + (cx + h * 0.12) + ' ' + (cy - h * 0.52) + ' ' + (cx + h * 0.62) + ' ' + (cy - h * 0.14) + ' ' + (cx + h * 0.62) + ' ' + (cy + h * 0.26) +
@@ -478,7 +490,7 @@ function wingsSvg(st) {
 }
 function chartSvg(st) {
   if (M.grafico === 'asas' && NG === 8) return wingsSvg(st);
-  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial ? 2.4 : 1.2;
+  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa ? 2.4 : 1.2;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
   var o = '<svg viewBox="-58 -2 576 464" role="group" aria-label="' + (rosa && !chamas ? 'Rosácea' : 'Gráfico') + ' dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>';
   for (i = 0; i < NG; i++) {
@@ -486,8 +498,13 @@ function chartSvg(st) {
       '<stop offset=".3" style="stop-color:rgba(var(--g' + i + '),.5)"/><stop offset="1" style="stop-color:rgb(var(--g' + i + '))"/></radialGradient>';
   }
   if (vial) for (i = 0; i < NG; i++) o += '<clipPath id="cv' + i + '"><path d="' + vialPath(r0, R, -90 + i * step + gap, -90 + (i + 1) * step - gap) + '"/></clipPath>';
+  if (runa) for (i = 0; i < NG; i++) o += '<clipPath id="cr' + i + '"><path d="' + stonePath(r0, R, -90 + i * step + gap, -90 + (i + 1) * step - gap) + '"/></clipPath>';
   o += '</defs>';
-  if (vial) {
+  if (runa) {
+    // o círculo de pedras: chão escuro e um anel de nós entalhados
+    o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.55);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1.2"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 16) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.45)" stroke-width="1.4" stroke-dasharray="8 3 2 3"/>';
+  } else if (vial) {
     // a moldura do palco: um disco de veludo e um fio de ouro por fora das rolhas
     o += '<circle cx="230" cy="230" r="' + (R + 12) + '" style="fill:rgba(var(--deep-rgb),.5);stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' +
       '<circle cx="230" cy="230" r="' + (R + 18) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.5)" stroke-width="1.4" stroke-dasharray="10 4 1 4"/>';
@@ -545,6 +562,18 @@ function chartSvg(st) {
       o += gLabel(i, am, R, v);
       continue;
     }
+    if (runa) {
+      // pedra rúnica: a pedra fica desenhada, a luz fria sobe com a soma das notas e a runa acende quando a luz chega nela
+      var sp = stonePath(r0, R, a0, a1), lr = Math.max(r0 + 6, r1), rg = R - 30, on = lr >= rg;
+      var q0 = pol(rg - 11, am), q1 = pol(rg + 11, am), q2 = pol(rg + 3, am), dw = 7 / (rg + 10) * 180 / Math.PI, q3 = pol(rg + 11, am - dw), q4 = pol(rg + 11, am + dw);
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+        '<path class="ghost" d="' + sp + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),.5)" stroke-width="1.2" stroke-linejoin="round"/>' +
+        '<circle class="fill" cx="230" cy="230" r="' + lr.toFixed(1) + '" fill="url(#rg' + i + ')" clip-path="url(#cr' + i + ')"/>' +
+        '<path d="M' + q0 + 'L' + q1 + 'M' + q2 + 'L' + q3 + 'M' + q2 + 'L' + q4 + '" fill="none" style="stroke:' + (on ? 'rgb(var(--gold2-rgb))' : 'rgba(var(--gold-rgb),.35)') + '" stroke-width="2" stroke-linecap="round" pointer-events="none"/></g>';
+      o += gLabel(i, am, R, v);
+      continue;
+    }
     if (vial) {
       // frasco: o vidro inteiro fica desenhado, o sangue sobe até a soma das notas e a rolha fecha a boca
       var vp = vialPath(r0, R, a0, a1), dd = (a1 - a0) / 2 * Math.PI / 180, vw = Math.min(24, (r0 + 10) * Math.sin(dd) * 0.92) * 0.68;
@@ -597,6 +626,11 @@ function chartSvg(st) {
     for (var k = 0; k < 8; k++) o += '<line x1="230" y1="230" x2="' + pol(r0 + 2, k * 45).replace(' ', '" y2="') + '" style="stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>';
     o += '<circle cx="230" cy="230" r="' + (r0 - 9) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.4"/>' +
       '<circle cx="230" cy="230" r="' + (r0 - 3) + '" style="fill:none;stroke:var(--gold2)" stroke-width="1" stroke-dasharray="3 3"/>';
+  } else if (runa) {
+    // a lanterna acesa atrás do placar
+    o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.8"/>' +
+      '<circle cx="230" cy="226" r="24" style="fill:rgba(var(--gold2-rgb),.16)"/>' +
+      '<path d="' + lanternPath(230, 224) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.5)" stroke-width="1.4" stroke-linejoin="round"/>';
   } else if (vial) {
     // medalhão com uma gota de sangue atrás do placar
     o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.8"/>' +
@@ -746,9 +780,9 @@ function heroHtml(st, cmd) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
   var chart = '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
-    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
+    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
   var fx = cmd && cmd.fx ? '<p class="hero-fx">' + rich(cmd.fx) + '</p>' : '';
   var lede = (M.lede || verbos) ? '<p class="hero-lede">' + esc(M.lede || '') + verbos + '</p>' : '';
   if (!larga) {

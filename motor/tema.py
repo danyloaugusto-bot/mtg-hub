@@ -160,6 +160,14 @@ def textura(nome, p):
         return ('url("%s") 0 58px/96px 34px repeat-x,'
                 "radial-gradient(900px 520px at 50%% -10%%, rgba(%d,%d,%d,.22), transparent 64%%),"
                 "linear-gradient(180deg, transparent 0, transparent 120px, var(--bg) 820px),%s,%s") % ((bambinela,) + _hex(p["acento_claro"]) + (pregas, grad))
+    if nome == "entalhe":
+        # nós nórdicos entalhados em pedra, como a moldura de Kaldheim, e a luz fria da lanterna vinda do alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='48' viewBox='0 0 72 48'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.07' stroke-width='1.4'%3E%3Cpath d='M0 24C18 0 54 48 72 24M0 24C18 48 54 0 72 24'/%3E"
+               "%3Ccircle cx='36' cy='24' r='3'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(900px 540px at 62%% -10%%, rgba(%d,%d,%d,.18), transparent 64%%),"
+                "radial-gradient(640px 400px at 6%% 4%%, rgba(%d,%d,%d,.22), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
