@@ -8,3 +8,7 @@
 - Radar com 16 cartas: 4 trocas (Expedite, Twinferno, Archmage of Runes, Regrowth), 11 para avaliar (Ice Storm do drop, as cartas Marvel, payoffs e três duais de orçamento no lugar dos da Reserved List) e Lion's Eye Diamond de fora. Com as trocas, placar 361.
 - 11 combos, motores e armadilhas, com Underworld Breach + Lotus Petal + Brain Freeze como o fechamento.
 - Tema "Tempestade Mutante": céu de tempestade cortado por relâmpagos, azul-gelo e o dourado do uniforme, fonte Bebas Neue. Motivos novos no motor: gráfico "raios" (relâmpagos que vão até a soma das notas, o olho da tempestade atrás do placar) e textura "tempestade" (chuva de vento e o clarão de um relâmpago).
+
+## Temas da comunidade, 14/10/2026
+
+- Os temas estavam gravados como contagem de decks do EDHREC (Spellslinger 2.861) e o painel os mostrava como porcentagem. Passaram a ser os estilos do edh.wiki, a fonte da página: Spellslinger 39%, Storm 17%, Cópia de mágica 8%, Cantrips 4%, Combo 4%.

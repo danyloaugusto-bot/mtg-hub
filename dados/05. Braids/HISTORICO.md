@@ -8,3 +8,7 @@
 - Radar com 17 cartas: 5 trocas (Scourge of Fleets, Vedalken Orrery, Strionic Resonator, Agent of Treachery, Font of Mythos), 11 para avaliar (big mana simétrico, caos e três candidatas a pet: Mirari, Ertai e Frozen Aether) e Thassa's Oracle de fora. Com as trocas, placar 406.
 - 13 combos, motores e armadilhas, com Hullbreaker Horror e Sol Ring (mana infinita) e Stormtide Leviathan com Archetype of Imagination (lock).
 - Tema "Presente de Grego": arcadas douradas de Tolaria e o azul dos óculos da Braids, fonte Forum. Motivos novos no motor: gráfico "trancas" (tranças cujos gomos acendem com a soma das notas, os óculos da Braids atrás do placar) e textura "astrolabio" (astrolábios em filete).
+
+## Temas da comunidade, 14/10/2026
+
+- Os temas estavam gravados como contagem de decks do EDHREC (Group Hug 243) e o painel os mostrava como porcentagem. Passaram a ser os estilos do edh.wiki, a fonte da página: Group Hug 21%, Big Mana 13%, Clones 10%, Controle 6%, Wheels 2%.

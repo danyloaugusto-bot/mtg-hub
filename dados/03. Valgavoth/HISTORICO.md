@@ -17,3 +17,7 @@
 ## Custo de mana, 10/10/2026
 
 - O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Blasphemous Act (custa 1 a menos por criatura em campo) e Blasphemous Edict ({B} com treze criaturas em campo).
+
+## Temas da comunidade, 14/10/2026
+
+- Os temas estavam gravados como contagem de decks (Group Slug 2.300) e o painel os mostrava como porcentagem. Relidos no EDHREC (29.609 decks do Valgavoth) e convertidos em porcentagem do total: Group Slug 8%, Dano direto 6%, Marcadores +1/+1 1%, Agressivo 1%, Dreno 1%.

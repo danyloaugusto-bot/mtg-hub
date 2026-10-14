@@ -9,3 +9,7 @@
 - Agrupamento "Goad e doação", a pedido do dono, que já tem cartas de goad: entrou no lugar de "Presentes de grego", nome que se confundia com o painel da Braids.
 - 12 combos, motores e armadilhas, com Saw in Half no Deadpool e The Master, Multiplied como os motores de troca.
 - Tema "4ª Parede": gibi em vermelho e preto, fonte Luckiest Guy. Motivos novos no motor: gráfico "baloes" (balões de fala que crescem com a soma das notas, a máscara do Deadpool espiando o placar) e textura "reticula" (pontos de meio-tom).
+
+## Temas da comunidade, 14/10/2026
+
+- Os temas estavam gravados como contagem de decks do EDHREC (Clones 724) e o painel os mostrava como porcentagem. Passaram a ser os estilos do edh.wiki, a fonte da página: Clones 18%, Caos 10%, Fichas 7%, Group Slug 5%, Reanimação 5%.

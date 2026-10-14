@@ -16,3 +16,7 @@
 ## Comunidade, 08/10/2026
 
 - Lida a página "Equipment" do Ken no EDHREC (26 decks). Treze potenciais gravados em `comunidade.json`: os feitiços grandes de vermelho que o Shoryuken conjura de graça (Mizzix's Mastery, Reforge the Soul, Wheel of Fate, Volcanic Vision), mais Swords to Plowshares e Boros Charm.
+
+## Temas da comunidade, 14/10/2026
+
+- Os temas estavam gravados como contagem de decks (Equipment 26) e o painel os mostrava como porcentagem. Relidos no EDHREC (1.401 decks da Aisha) e convertidos em porcentagem do total: Spellslinger 8%, Combates extras 6%, Voltron 4%, Agressivo 3%, Equipamentos 2%.

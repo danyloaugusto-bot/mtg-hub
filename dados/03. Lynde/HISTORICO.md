@@ -14,3 +14,7 @@
 ## Comunidade, 08/10/2026
 
 - Lida a página "Curses" da Lynde no EDHREC (893 decks). Quatro potenciais gravados em `comunidade.json`, todos recentes e com sinergia baixa (até 6%). A The Unluckiest Planeswalker (22%) ficou de fora: é carta de teste da Mystery Booster Commander, não legal no Commander segundo o Scryfall.
+
+## Temas da comunidade, 14/10/2026
+
+- Os temas estavam gravados como contagem de decks (Curses 893) e o painel os mostrava como porcentagem. Relidos no EDHREC (7.690 decks da Lynde) e convertidos em porcentagem do total: Maldições 11%, Encantamentos 7%, Auras 4%, Controle 1%, Pillow Fort 1%.

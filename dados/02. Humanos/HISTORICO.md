@@ -18,3 +18,7 @@
 ## Custo de mana, 10/10/2026
 
 - O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Vanquish the Horde (custa 1 a menos por criatura em campo).
+
+## Temas da comunidade, 14/10/2026
+
+- Os temas estavam gravados como contagem de decks (Humans 271) e o painel os mostrava como porcentagem. Relidos no EDHREC (2.844 decks do Greymond) e convertidos em porcentagem do total: Humanos 9%, Ganho de vida 2%, Fichas 2%, Agressivo 2%, Marcadores +1/+1 1%.
