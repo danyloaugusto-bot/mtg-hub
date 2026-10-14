@@ -254,6 +254,16 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(820px 500px at 84%% -10%%, rgba(%d,%d,%d,.14), transparent 62%%),"
                 "radial-gradient(700px 440px at 2%% 6%%, rgba(%d,%d,%d,.11), transparent 70%%),%s") % ((svg,) + _hex(p["destaque"]) + _hex(p["acento"]) + (grad,))
+    if nome == "telhados":
+        # a rua de Innistrad na capa da Wilhelt: telhados, empenas e chaminés em filete, faíscas da chama azul e a névoa da noite
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='130' viewBox='0 0 180 130'%3E%3Cg fill='none' stroke='" +
+               quote(p["suave"]) + "' stroke-opacity='.07' stroke-width='1.3' stroke-linejoin='round'%3E"
+               "%3Cpath d='M0 118L18 96L36 118M30 118V84L50 62L70 84V118M60 72V58h7v15M82 118V92L106 70L130 92V118M116 79V64h6v15M136 118L158 98L180 118'/%3E"
+               "%3Cpath d='M44 96h12v12H44zM100 98h8v10h-8z'/%3E%3C/g%3E%3Cg fill='" + quote(p["acento"]) +
+               "' fill-opacity='.18'%3E%3Ccircle cx='150' cy='34' r='1.4'/%3E%3Ccircle cx='24' cy='22' r='1'/%3E%3Ccircle cx='98' cy='40' r='1.2'/%3E%3C/g%3E%3C/svg%3E")
+        return ('url("%s"),'
+                "radial-gradient(900px 520px at 80%% -12%%, rgba(%d,%d,%d,.14), transparent 62%%),"
+                "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.10), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

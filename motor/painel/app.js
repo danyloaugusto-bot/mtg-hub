@@ -592,6 +592,39 @@ function thumbSvg(y) {
   return '<path d="M224 ' + (y + 14) + 'L224 ' + (y + 2) + 'Q224 ' + (y - 7) + ' 230 ' + (y - 7) + 'Q236 ' + (y - 7) + ' 236 ' + (y + 2) + 'L236 ' + (y + 14) + 'Z" style="fill:rgba(var(--blood2-rgb),.9);stroke:rgba(var(--deep-rgb),.8)" stroke-width="1.2"/>' +
     '<path d="M226.5 ' + (y + 1) + 'Q226.5 ' + (y - 4.5) + ' 230 ' + (y - 4.5) + 'Q233.5 ' + (y - 4.5) + ' 233.5 ' + (y + 1) + 'Z" style="fill:rgba(var(--gold2-rgb),.9)"/>';
 }
+function handSvg(i, t, aw, open, fill) {
+  // a mão de Zumbi saindo da cova, deitada no eixo x: o antebraço de 10 até t, a palma e os dedos, abertos ou em garra
+  var cor = fill ? 'rgb(var(--g' + i + '))' : 'rgba(var(--g' + i + '),.05)', tr = fill ? 'rgba(var(--deep-rgb),.85)' : 'rgba(var(--gold-rgb),.28)',
+    da = fill ? '' : ' stroke-dasharray="3 2"', px = t + 6, o, k;
+  o = '<path d="M10 ' + (-aw / 2).toFixed(1) + 'L' + t.toFixed(1) + ' ' + (-aw / 2 - 0.8).toFixed(1) + 'L' + t.toFixed(1) + ' ' + (aw / 2 + 0.8).toFixed(1) + 'L10 ' + (aw / 2).toFixed(1) + 'Z" style="fill:' + cor + ';stroke:' + tr + '" stroke-width="1.1"' + da + '/>';
+  // os dedos: quatro e o polegar; abertos, em leque; em garra, curtos e dobrados para dentro
+  var ang = open ? [-48, -16, 16, 48] : [-30, -10, 10, 30], len = open ? [10, 13, 12.5, 10] : [6, 7.5, 7.5, 6], d = '';
+  for (k = 0; k < 4; k++) {
+    var a = ang[k] * Math.PI / 180, x0 = px + 6.2 * Math.cos(a), y0 = 6.6 * Math.sin(a), dir = a * (open ? 0.75 : 0.3),
+      x1 = x0 + len[k] * Math.cos(dir), y1 = y0 + len[k] * Math.sin(dir);
+    d += open ? 'M' + x0.toFixed(1) + ' ' + y0.toFixed(1) + 'L' + x1.toFixed(1) + ' ' + y1.toFixed(1)
+      : 'M' + x0.toFixed(1) + ' ' + y0.toFixed(1) + 'Q' + (x1 + 2).toFixed(1) + ' ' + y1.toFixed(1) + ' ' + (x1 - 1.5).toFixed(1) + ' ' + (y1 * 0.4).toFixed(1);
+  }
+  var ta = (open ? -112 : -100) * Math.PI / 180, td = (open ? -62 : -80) * Math.PI / 180, tx0 = px + 6.2 * Math.cos(ta), ty0 = 6.6 * Math.sin(ta), tl = open ? 8.5 : 5;
+  d += 'M' + tx0.toFixed(1) + ' ' + ty0.toFixed(1) + 'L' + (tx0 + tl * Math.cos(td)).toFixed(1) + ' ' + (ty0 + tl * Math.sin(td)).toFixed(1);
+  if (fill) o += '<path d="' + d + '" style="fill:none;stroke:rgba(var(--deep-rgb),.85)" stroke-width="5.2" stroke-linecap="round"/>';
+  o += '<path d="' + d + '" style="fill:none;stroke:' + (fill ? 'rgb(var(--g' + i + '))' : 'rgba(var(--gold-rgb),.25)') + '" stroke-width="' + (fill ? 3.2 : 1) + '" stroke-linecap="round"' + da + '/>' +
+    '<ellipse cx="' + px.toFixed(1) + '" cy="0" rx="7" ry="7.6" style="fill:' + cor + ';stroke:' + tr + '" stroke-width="1.1"' + da + '/>';
+  // o punho esfarrapado da manga
+  if (fill && t > 18) o += '<path d="M' + (t - 6).toFixed(1) + ' ' + (-aw / 2 - 2).toFixed(1) + 'l2 3l2 -3l2 3V' + (aw / 2 + 2).toFixed(1) + 'l-2 -3l-2 3l-2 -3Z" style="fill:rgba(var(--wine-rgb),.95);stroke:rgba(var(--deep-rgb),.8)" stroke-width=".8"/>';
+  return o;
+}
+function cleaverSvg(y) {
+  // o cutelo da Wilhelt cravado no alto do placar: as línguas de chama azul atrás, a lâmina larga com o furo, o cabo no canto
+  return '<g transform="translate(230 ' + y + ') rotate(-28) scale(.95)">' +
+    '<path d="M-14 7Q-17 -6 -10 -15Q-8 -6 -3 -10Q-2 -22 4 -26Q6 -14 10 -12Q14 -18 15 -10Q19 -2 15 7Z" style="fill:rgba(var(--gold-rgb),.62)"/>' +
+    '<path d="M-14 -6Q-15 -10 -9 -10H-6Q-4 -16 2 -17Q4 -11 9 -10Q12 -14 13 -8" style="fill:none;stroke:rgba(var(--gold2-rgb),.7)" stroke-width="1"/>' +
+    '<path d="M-15 -6H11V8Q-2 12 -15 9Z" style="fill:rgba(var(--bone-rgb),.94);stroke:rgba(var(--deep-rgb),.85)" stroke-width="1.2" stroke-linejoin="round"/>' +
+    '<path d="M-13 7Q-2 10 9 6.5" style="fill:none;stroke:rgba(255,255,255,.55)" stroke-width="1"/>' +
+    '<circle cx="-10" cy="-1.5" r="2" style="fill:var(--sheet2)"/>' +
+    '<rect x="10" y="-5" width="3.5" height="6" rx="1" style="fill:rgba(var(--gold2-rgb),.8)"/>' +
+    '<path d="M13 -2H27" style="stroke:rgba(var(--wine-rgb),1)" stroke-width="4.4" stroke-linecap="round"/></g>';
+}
 function maskSvg() {
   // a bandana do Leonardo atrás do placar: a faixa com os dois olhos acesos e as pontas do nó
   var y = 194, e = function (x) { return 'M' + (x - 11) + ' ' + y + 'Q' + x + ' ' + (y - 8) + ' ' + (x + 11) + ' ' + (y - 1) + 'Q' + x + ' ' + (y + 6) + ' ' + (x - 11) + ' ' + y + 'Z'; };
@@ -701,7 +734,7 @@ function wingsSvg(st) {
 }
 function chartSvg(st) {
   if (M.grafico === 'asas' && NG === 8) return wingsSvg(st);
-  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', casco = M.grafico === 'cascos', leque = M.grafico === 'leque', lua = M.grafico === 'luas', raio = M.grafico === 'raios', balao = M.grafico === 'baloes', tranca = M.grafico === 'trancas', folha = M.grafico === 'folhas', ovo = M.grafico === 'ovos', fenda = M.grafico === 'fendas', moeda = M.grafico === 'moedas', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa || casco || leque || lua || raio || balao || tranca || folha || ovo || fenda || moeda ? 2.4 : 1.2;
+  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', casco = M.grafico === 'cascos', leque = M.grafico === 'leque', lua = M.grafico === 'luas', raio = M.grafico === 'raios', balao = M.grafico === 'baloes', tranca = M.grafico === 'trancas', folha = M.grafico === 'folhas', ovo = M.grafico === 'ovos', fenda = M.grafico === 'fendas', moeda = M.grafico === 'moedas', mao = M.grafico === 'maos', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa || casco || leque || lua || raio || balao || tranca || folha || ovo || fenda || moeda || mao ? 2.4 : 1.2;
   // o ovo tem o mesmo tamanho em todos os agrupamentos: a, meio comprimento; b, a largura de desenho
   var eA = Math.min((R - r0) * 0.44, 58), eRc = r0 + (R - r0) * 0.52, eB = Math.min(eRc * Math.sin((step / 2 - gap) * Math.PI / 180) * 0.92 / 0.75, eA * 0.95), eCut = eA * 0.28;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
@@ -728,6 +761,11 @@ function chartSvg(st) {
     // a mesa de jogo: disco escuro e o aro serrilhado de uma moeda grande
     o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.6);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1.2"/>' +
       '<circle cx="230" cy="230" r="' + (R + 16) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.32)" stroke-width="5" stroke-dasharray="1.6 2.6"/>';
+  } else if (mao) {
+    // o chão do cemitério: disco de terra escura, o trilho e as barras de uma grade de ferro
+    o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.6);stroke:rgba(var(--gold-rgb),.3)" stroke-width="1.2"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 13) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.35)" stroke-width="1.2"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 17) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.3)" stroke-width="8" stroke-dasharray="1.4 6.4"/>';
   } else if (fenda) {
     // o céu de guerra: disco de fumaça, um aro fino e brasas soltas em volta
     o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.6);stroke:rgba(var(--gold-rgb),.35)" stroke-width="1.2"/>' +
@@ -856,6 +894,22 @@ function chartSvg(st) {
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + mp[0] + ' ' + mp[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' + coinStack(i, 8, mh, mW, false) +
         '<g class="fill">' + coinStack(i, mn, mh, mW, true) + (mv >= 0.94 ? flipCoinSvg(8 + 8 * (mh + 2.2) + 14, mW) : '') + '</g></g></g>';
+      o += gLabel(i, am, R, v);
+      continue;
+    }
+    if (mao) {
+      // mão: o antebraço sobe da cova em proporção direta à soma das notas; o caminho inteiro fica tracejado,
+      // e só a mão do agrupamento perto do mais cheio abre os dedos
+      var hv = Math.max(0, v) / max, hL = R - r0 - 36, ht = 10 + hL * Math.max(0.08, hv), hw = 8,
+        hM = Math.min(30, 2 * (r0 + 8) * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.9), hp = pol(r0, am).split(' ');
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+        '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
+        '<g transform="translate(' + hp[0] + ' ' + hp[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' + handSvg(i, 10 + hL, hw, true, false) +
+        '<g class="fill">' + handSvg(i, ht, hw, hv >= 0.94, true) + '</g>' +
+        // o monte de terra da cova, por cima da base do braço
+        '<path d="M2 ' + (-hM / 2).toFixed(1) + 'Q18 0 2 ' + (hM / 2).toFixed(1) + 'Z" style="fill:rgba(var(--wine-rgb),.95);stroke:rgba(var(--gold-rgb),.3)" stroke-width="1" stroke-linejoin="round"/>' +
+        '<circle cx="9" cy="' + (-hM / 5).toFixed(1) + '" r="1.1" style="fill:rgba(var(--bone-rgb),.35)"/><circle cx="5" cy="' + (hM / 6).toFixed(1) + '" r=".9" style="fill:rgba(var(--bone-rgb),.3)"/></g></g>';
       o += gLabel(i, am, R, v);
       continue;
     }
@@ -1033,6 +1087,9 @@ function chartSvg(st) {
     // medalhão como uma moeda: o aro de dentro e o polegar cunhado no alto
     o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>' +
       '<circle cx="230" cy="230" r="' + (r0 - 10) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.4)" stroke-width="1" stroke-dasharray="2 2"/>' + thumbSvg(188);
+  } else if (mao) {
+    // medalhão com o cutelo em chama azul no alto
+    o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>' + cleaverSvg(192);
   } else if (fenda) {
     // medalhão com o sigilo mardu no alto
     o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>' + sigilSvg(194);
@@ -1208,9 +1265,9 @@ function heroHtml(st, cmds) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'maos' ? 'mão' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
   var chart = '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
-    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : peca === 'relâmpago' ? ' é um agrupamento, e o relâmpago vai até a soma das notas.' : peca === 'balão' ? ' é um agrupamento, e cresce com a soma das notas.' : peca === 'trança' ? ' é um agrupamento: os gomos acendem até a soma das notas.' : peca === 'pilha' ? ' de moedas é um agrupamento: cresce em proporção à soma das notas, e na mais alta a moeda do topo salta.' : peca === 'fenda' ? ' é um agrupamento: abre e acende em proporção à soma das notas, e a mais cheia solta uma asa.' : peca === 'ovo' ? ' é um agrupamento: a cor acende e as rachaduras se abrem em proporção à soma das notas, e o mais cheio eclode.' : peca === 'galho' ? ' é um agrupamento com sete folhas, que acendem em proporção à soma das notas: o mais cheio tem as sete.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago|galho|ovo)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
+    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : peca === 'relâmpago' ? ' é um agrupamento, e o relâmpago vai até a soma das notas.' : peca === 'balão' ? ' é um agrupamento, e cresce com a soma das notas.' : peca === 'trança' ? ' é um agrupamento: os gomos acendem até a soma das notas.' : peca === 'pilha' ? ' de moedas é um agrupamento: cresce em proporção à soma das notas, e na mais alta a moeda do topo salta.' : peca === 'mão' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta abre os dedos.' : peca === 'fenda' ? ' é um agrupamento: abre e acende em proporção à soma das notas, e a mais cheia solta uma asa.' : peca === 'ovo' ? ' é um agrupamento: a cor acende e as rachaduras se abrem em proporção à soma das notas, e o mais cheio eclode.' : peca === 'galho' ? ' é um agrupamento com sete folhas, que acendem em proporção à soma das notas: o mais cheio tem as sete.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago|galho|ovo)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
   // dois comandantes (parceiros): nome, custo, tipo e texto de cada um
   var sub = '<p class="hero-sub' + (par ? ' par' : '') + '">' + (par ? cmds.map(function (c) { return esc(c.n) + mana(c.cost); }).join(' <span class="hero-mais">+</span> ') : esc(nome) + (cmd ? mana(cmd.cost) : '')) + '</p>';
   // parceiros do mesmo tipo (as Tartarugas) mostram a linha uma vez só, com as duas forças
