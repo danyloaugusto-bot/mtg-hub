@@ -32,7 +32,7 @@ def com_trocas(pasta):
     return motor_hub.placar(cartas, m["grupos"])[0]
 
 
-SECOES = ["resumo", "fichas", "comparar", "movimentacoes", "compartilhadas", "mesa", "trocas", "placar", "valor", "fundamentos", "mana", "potencial", "auditoria", "carteira"]
+SECOES = ["resumo", "fichas", "comparar", "movimentacoes", "compartilhadas", "mesa", "trocas", "reserva", "placar", "fundamentos", "mana", "potencial", "auditoria", "carteira"]
 ABAS = ["resumo", "fichas", "mov", "mesa", "trocas", "mana", "potencial", "bastidores"]
 
 
@@ -69,6 +69,17 @@ def movimentos_py():
             if max(TR[t] for _, t in onde) > TR[c["tier"]]:
                 mova.add((k, p))
     return dict(cartas=len(cartas), mova=len(mova))
+
+def reserva_py(m):
+    """Funções sem reserva, contadas em Python: até duas cartas dedicadas (nota 2 ou 3) fora o comandante, e o comandante não cumpre a função."""
+    out = []
+    for j, g in enumerate(m["grupos"]):
+        nota = lambda c: (c.get("s") or [0] * (j + 1))[j] if j < len(c.get("s") or []) else 0
+        nb = sum(c.get("q", 1) for c in m["cards"] if not c.get("cmd") and nota(c) >= 2)
+        cmd = any(c.get("cmd") and nota(c) >= 2 for c in m["cards"])
+        if nb <= 2 and not cmd:
+            out.append(g["k"])
+    return out
 
 with sync_playwright() as p:
     b = p.chromium.launch()
@@ -193,10 +204,30 @@ with sync_playwright() as p:
                 nb, cmc_b = comum.custo_baixo(dados.montar(d["pasta"], avisar=lambda *x: None))
                 R.ok("%s: trocas que baixam o custo iguais à conta em Python" % d["pasta"],
                      x.get("baixa_custo") == nb and abs(x.get("cmc_custo", 0) - round(cmc_b, 2)) < 0.006, (x.get("baixa_custo"), x.get("cmc_custo"), nb, round(cmc_b, 2)))
+            for d in prontos:
+                m = dados.montar(d["pasta"], avisar=lambda *x: None)
+                x = dash.get(d["pasta"], {})
+                R.ok("%s: funções sem reserva iguais à conta em Python" % d["pasta"], x.get("sem_reserva") == reserva_py(m), (x.get("sem_reserva"), reserva_py(m)))
+                por_n = {c["n"]: c for c in m["cards"]}
+                ruins = [n for ns in (x.get("cortes") or {}).values() for n in ns
+                         if n not in por_n or (por_n[n].get("tier") not in ("C", "D") and por_n[n].get("rel") != "BAX") or por_n[n].get("rel") == "INS" or por_n[n].get("nocut") or por_n[n].get("cmd")]
+                R.ok("%s: cortes seguros só de tier C ou D, ou na berlinda, fora de intocáveis e comandante" % d["pasta"], not ruins, ruins)
+                faixa = {g["k"]: g.get("ref") for g in m["grupos"] if g["k"] in ("ramp", "draw", "removal")}
+                for k, ns in (x.get("cortes") or {}).items():
+                    j = [g["k"] for g in m["grupos"]].index(k)
+                    n = sum(c.get("q", 1) for c in m["cards"] if j < len(c.get("s") or []) and c["s"][j] >= 2)
+                    R.ok("%s: cortes de %s não passam do que sobra" % (d["pasta"], k), faixa.get(k) and len(ns) <= n - faixa[k][1], (len(ns), n, faixa.get(k)))
+            R.ok("Reserva: funções sem reserva, trocas dentro do deck e a tabela deck a deck",
+                 pg.locator("#d-reserva .cx h3:text('Funções sem reserva')").count() == 1 and
+                 pg.locator("#d-reserva .cx h3:text('Trocas dentro do deck')").count() == 1 and
+                 pg.locator("#d-reserva .cx h3:text('Funções curtas e pacotes com sobra, deck a deck')").count() == 1)
+            R.ok("Fichas: reserva função a função em cada ficha", pg.locator(".fi .rs").count() == len(prontos))
+            R.ok("preço e valor fora do hub, a pedido do dono",
+                 not re.search(r"US\$|dólar|Scryfall, carta a carta|Valor que sai", pg.text_content("#v-dash") + pg.text_content("#v-decks")) and pg.locator("#d-valor").count() == 0)
             R.ok("Trocas: coluna de CMC médio antes e depois", pg.locator("#d-trocas thead th:text('CMC médio')").count() == 1)
             R.ok("Trocas: as que baixam o custo e as mais caras sem troca barata",
                  pg.locator("#d-trocas .cx h3:text('Trocas que baixam o custo')").count() == 1 and
-                 pg.locator("#d-trocas .cx h3:text('As mais caras sem troca barata no radar')").count() == 1)
+                 pg.locator("#d-trocas .cx h3:text('Custo 6 ou mais, sem troca mais barata no radar')").count() == 1)
             aba(pg, "resumo")
             R.ok("KPIs do resumo", pg.locator("#d-resumo .kpi").count() >= 5, pg.locator("#d-resumo .kpi").count())
             R.ok("Faça agora: no máximo cinco ações", 1 <= pg.locator("#d-resumo .acoes > li").count() <= 5, pg.locator("#d-resumo .acoes > li").count())
