@@ -449,6 +449,43 @@ function clawsSvg(y) {
   // os três entalhes de garra no alto da lua do placar, um por lobo da condição da noite
   return [-14, 0, 14].map(function (dx) { var x = 230 + dx; return '<path d="M' + (x - 3) + ' ' + y + 'Q' + (x + 1) + ' ' + (y + 9) + ' ' + (x + 4) + ' ' + (y + 19) + '" style="fill:none;stroke:rgb(var(--blood2-rgb))" stroke-width="2.6" stroke-linecap="round"/>'; }).join('');
 }
+function boltPath(r0, r1, a0, a1) {
+  // raio: base larga perto do centro, um zigue-zague no meio e a ponta fina para fora. Larguras em pixels
+  var am = (a0 + a1) / 2, d = (a1 - a0) / 2 * Math.PI / 180, W = Math.min(30, (r0 + 12) * Math.sin(d) * 1.05), ri = r0 + 2, h = r1 - ri;
+  function pt(u, v) { var r = ri + u * h; return pol(r, am + v * W / r * 180 / Math.PI); }
+  return 'M' + pt(0, -0.25) + 'L' + pt(0, 0.45) + 'L' + pt(0.48, 0.1) + 'L' + pt(0.48, 0.45) + 'L' + pt(1, -0.35) + 'L' + pt(0.56, -0.05) + 'L' + pt(0.56, -0.4) + 'Z';
+}
+function eyeStormSvg(r) {
+  // o olho da tempestade atrás do placar: duas espirais de nuvem em volta do centro
+  var o = '', k;
+  for (k = 0; k < 2; k++) {
+    var a = k * 180, p0 = pol(r * 0.95, a - 90), p1 = pol(r * 0.55, a + 10), p2 = pol(r * 0.25, a + 100);
+    o += '<path d="M' + p0 + 'Q' + pol(r * 0.95, a) + ' ' + p1 + 'Q' + pol(r * 0.4, a + 60) + ' ' + p2 + '" style="fill:none;stroke:rgba(var(--gold-rgb),.28)" stroke-width="5" stroke-linecap="round"/>';
+  }
+  return o;
+}
+function bubbleSvg(cx, cy, r, tx, ty) {
+  // balão de fala de quadrinho, com o rabicho apontando para o centro
+  var dx = tx - cx, dy = ty - cy, L = Math.sqrt(dx * dx + dy * dy) || 1, ux = dx / L, uy = dy / L, px = -uy, py = ux;
+  var b1x = cx + ux * r * 0.82 + px * r * 0.32, b1y = cy + uy * r * 0.82 + py * r * 0.32, b2x = cx + ux * r * 0.82 - px * r * 0.32, b2y = cy + uy * r * 0.82 - py * r * 0.32;
+  var tipx = cx + ux * (r + 12), tipy = cy + uy * (r + 12);
+  return 'M' + b1x.toFixed(1) + ' ' + b1y.toFixed(1) + 'L' + tipx.toFixed(1) + ' ' + tipy.toFixed(1) + 'L' + b2x.toFixed(1) + ' ' + b2y.toFixed(1) +
+    'A' + r.toFixed(1) + ' ' + r.toFixed(1) + ' 0 1 0 ' + b1x.toFixed(1) + ' ' + b1y.toFixed(1) + 'Z';
+}
+function poolMaskSvg(y) {
+  // a máscara do Deadpool espiando por cima do placar: os dois remendos pretos com os olhos brancos
+  return [[-1, 212], [1, 248]].map(function (q) {
+    var x = q[1], s = q[0];
+    return '<path d="M' + (x - 13 * s) + ' ' + (y + 2) + 'Q' + x + ' ' + (y - 9) + ' ' + (x + 13 * s) + ' ' + (y - 2) + 'Q' + (x + 11 * s) + ' ' + (y + 13) + ' ' + (x - 13 * s) + ' ' + (y + 2) + 'Z" style="fill:rgb(var(--ink-rgb))"/>' +
+      '<path d="M' + (x - 7 * s) + ' ' + (y + 3) + 'Q' + x + ' ' + (y - 2) + ' ' + (x + 7 * s) + ' ' + (y + 1) + '" style="fill:none;stroke:rgba(255,255,255,.92)" stroke-width="2.4" stroke-linecap="round"/>';
+  }).join('');
+}
+function gogglesSvg(y) {
+  // os óculos de aviadora da Braids no alto do placar: duas lentes azuis e a tira
+  return '<path d="M180 ' + y + 'H280" style="stroke:rgba(var(--gold-rgb),.5)" stroke-width="3"/>' +
+    [214, 246].map(function (x) { return '<circle cx="' + x + '" cy="' + y + '" r="11" style="fill:rgba(var(--blood-rgb),.85);stroke:rgba(var(--gold-rgb),.85)" stroke-width="2.2"/>' +
+      '<circle cx="' + (x - 4) + '" cy="' + (y - 4) + '" r="3" style="fill:rgba(255,255,255,.55)"/>'; }).join('');
+}
 function maskSvg() {
   // a bandana do Leonardo atrás do placar: a faixa com os dois olhos acesos e as pontas do nó
   var y = 194, e = function (x) { return 'M' + (x - 11) + ' ' + y + 'Q' + x + ' ' + (y - 8) + ' ' + (x + 11) + ' ' + (y - 1) + 'Q' + x + ' ' + (y + 6) + ' ' + (x - 11) + ' ' + y + 'Z'; };
@@ -558,7 +595,7 @@ function wingsSvg(st) {
 }
 function chartSvg(st) {
   if (M.grafico === 'asas' && NG === 8) return wingsSvg(st);
-  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', casco = M.grafico === 'cascos', leque = M.grafico === 'leque', lua = M.grafico === 'luas', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa || casco || leque || lua ? 2.4 : 1.2;
+  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', casco = M.grafico === 'cascos', leque = M.grafico === 'leque', lua = M.grafico === 'luas', raio = M.grafico === 'raios', balao = M.grafico === 'baloes', tranca = M.grafico === 'trancas', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa || casco || leque || lua || raio || balao || tranca ? 2.4 : 1.2;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
   var o = '<svg viewBox="-58 -2 576 464" role="group" aria-label="' + (rosa && !chamas ? 'Rosácea' : 'Gráfico') + ' dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>';
   for (i = 0; i < NG; i++) {
@@ -573,7 +610,11 @@ function chartSvg(st) {
     o += '<clipPath id="ckm"><circle cx="230" cy="230" r="' + (r0 - 6) + '"/></clipPath>';
   }
   o += '</defs>';
-  if (lua) {
+  if (raio || balao || tranca) {
+    // o palco: disco escuro e um aro no estilo de cada tema (nuvem tracejada, borda de quadrinho, fio de trança)
+    o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.55);stroke:rgba(var(--gold-rgb),' + (balao ? '.75' : '.4') + ')" stroke-width="' + (balao ? 3 : 1.2) + '"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 16) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.35)" stroke-width="' + (tranca ? 2.4 : 1.2) + '" stroke-dasharray="' + (raio ? '22 5 6 5' : balao ? '3 5' : '9 3') + '" stroke-linecap="round"/>';
+  } else if (lua) {
     // o céu da colheita: disco escuro, a órbita pontilhada das luas e um aro fino
     o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.55);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1.2"/>' +
       '<circle cx="230" cy="230" r="' + (R + 16) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.3)" stroke-width="1" stroke-dasharray="1 7" stroke-linecap="round"/>' +
@@ -647,6 +688,32 @@ function chartSvg(st) {
         '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' +
         '<path class="fill" d="' + wedgePath(r0, r1, a0, a1) + '" fill="url(#rg' + i + ')" style="stroke:rgba(var(--gold2-rgb),.7)" stroke-width="1.1" stroke-linejoin="round"/>' + rv + '</g>';
+      o += gLabel(i, am, R, v);
+      continue;
+    }
+    if (raio || balao || tranca) {
+      var gTit = '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>', gAbre = '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' + gTit;
+      if (raio) {
+        // raio: o contorno inteiro fica desenhado, e o raio aceso vai até a soma das notas, com um brilho branco
+        o += gAbre + '<path class="ghost" d="' + boltPath(r0, R, a0, a1) + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1" stroke-linejoin="round"/>' +
+          '<path class="fill" d="' + boltPath(r0, r1, a0, a1) + '" fill="url(#rg' + i + ')" style="stroke:rgba(255,255,255,.75)" stroke-width="1.3" stroke-linejoin="round"/></g>';
+      } else if (balao) {
+        // balão: o tamanho cresce com a soma das notas; o contorno tracejado é o tamanho máximo
+        var brc = r0 + (R - r0) * 0.56, bmx = Math.min((R - r0) * 0.4, brc * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.92), bs = bmx * (0.38 + 0.62 * fr), bp = pol(brc, am).split(' ');
+        o += gAbre + '<circle class="ghost" cx="' + bp[0] + '" cy="' + bp[1] + '" r="' + bmx.toFixed(1) + '" style="fill:rgba(var(--g' + i + '),.05);stroke:rgba(var(--gold-rgb),.3)" stroke-width="1" stroke-dasharray="4 4"/>' +
+          '<path class="fill" d="' + bubbleSvg(+bp[0], +bp[1], bs, 230, 230) + '" fill="url(#rg' + i + ')" style="stroke:rgb(var(--ink-rgb))" stroke-width="2.6" stroke-linejoin="round"/>' +
+          '<path d="' + bubbleSvg(+bp[0], +bp[1], bs, 230, 230) + '" fill="none" style="stroke:rgba(255,255,255,.25)" stroke-width="1" transform="translate(-1.5 -1.5)" pointer-events="none"/></g>';
+      } else {
+        // trança: sete gomos alternados ao longo do raio; acendem até a soma das notas
+        var tL = (R - r0 - 6) / 7, tW = Math.min(16, (r0 + 20) * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.7), tg = '';
+        for (var tk = 0; tk < 7; tk++) {
+          var trc = r0 + 6 + tL * (tk + 0.5), side = tk % 2 ? 1 : -1, tpp = pol(trc, am + side * (tW * 0.32) / trc * 180 / Math.PI).split(' '), ton = trc <= r1 + tL * 0.3;
+          tg += '<ellipse cx="' + tpp[0] + '" cy="' + tpp[1] + '" rx="' + (tL * 0.82).toFixed(1) + '" ry="' + (tW * 0.5).toFixed(1) + '" transform="rotate(' + (am + side * 24).toFixed(1) + ' ' + tpp[0] + ' ' + tpp[1] + ')"' +
+            (ton ? ' fill="url(#rg' + i + ')" style="stroke:rgba(var(--deep-rgb),.6)" stroke-width="1.2"' : ' style="fill:rgba(var(--g' + i + '),.06);stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"') + '/>';
+        }
+        o += gAbre + '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' + '<g class="fill">' + tg + '</g>' +
+          '<circle cx="' + pol(r0 + 4, am).split(' ')[0] + '" cy="' + pol(r0 + 4, am).split(' ')[1] + '" r="3" style="fill:rgba(var(--gold-rgb),.7)" pointer-events="none"/></g>';
+      }
       o += gLabel(i, am, R, v);
       continue;
     }
@@ -754,6 +821,10 @@ function chartSvg(st) {
     for (var k = 0; k < 8; k++) o += '<line x1="230" y1="230" x2="' + pol(r0 + 2, k * 45).replace(' ', '" y2="') + '" style="stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>';
     o += '<circle cx="230" cy="230" r="' + (r0 - 9) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.4"/>' +
       '<circle cx="230" cy="230" r="' + (r0 - 3) + '" style="fill:none;stroke:var(--gold2)" stroke-width="1" stroke-dasharray="3 3"/>';
+  } else if (raio || balao || tranca) {
+    // o centro: medalhão com o olho da tempestade, a máscara do Deadpool ou os óculos da Braids
+    o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="' + (balao ? 2.6 : 1.6) + '"/>' +
+      (raio ? eyeStormSvg(r0 - 10) : balao ? poolMaskSvg(190) : gogglesSvg(190));
   } else if (lua) {
     // a lua cheia do placar, com os três entalhes de garra no alto
     o += '<circle cx="230" cy="230" r="' + (r0 - 3) + '" style="fill:rgba(var(--gold2-rgb),.12)"/>' +
@@ -919,9 +990,9 @@ function heroHtml(st, cmds) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
   var chart = '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
-    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
+    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : peca === 'relâmpago' ? ' é um agrupamento, e o relâmpago vai até a soma das notas.' : peca === 'balão' ? ' é um agrupamento, e cresce com a soma das notas.' : peca === 'trança' ? ' é um agrupamento: os gomos acendem até a soma das notas.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
   // dois comandantes (parceiros): nome, custo, tipo e texto de cada um
   var sub = '<p class="hero-sub' + (par ? ' par' : '') + '">' + (par ? cmds.map(function (c) { return esc(c.n) + mana(c.cost); }).join(' <span class="hero-mais">+</span> ') : esc(nome) + (cmd ? mana(cmd.cost) : '')) + '</p>';
   // parceiros do mesmo tipo (as Tartarugas) mostram a linha uma vez só, com as duas forças

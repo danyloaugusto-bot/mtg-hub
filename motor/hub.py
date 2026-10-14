@@ -24,7 +24,7 @@ INVENTARIO = os.path.join(RAIZ, "contexto", "inventario.csv")
 PASTA_HUB = os.path.join(MOTOR, "hub")
 NOME = "00. Hub"
 
-GRUPOS = [("01", "01. Top"), ("02", "02. Tribais"), ("03", "03. Caos"), ("04", "04. Forfun"), ("05", "Compras + Precon")]
+GRUPOS = [("01", "01. Top"), ("02", "02. Tribais"), ("03", "03. Caos"), ("04", "04. Forfun"), ("05", "05. Desejo")]
 # As pastas físicas de cartas do dono. O conteúdo de cada uma entra quando chegarem as listas.
 PASTAS = [("Rosa (sell)", "#f28bb8"), ("Preta (esp)", "#3a3540"), ("Preta", "#2a2a2e"), ("Amarela", "#f2c94c"),
           ("Laranja", "#f2994a"), ("Rosa", "#f5a3c7"), ("Azul", "#4f8fe0"), ("Vermelha", "#d9534f")]

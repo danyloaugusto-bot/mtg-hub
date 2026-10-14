@@ -47,7 +47,7 @@ with sync_playwright() as p:
             R.ok("atalho da raiz abre o hub", pg.url.endswith("00.%20Hub.html"), pg.url[-30:])
             R.ok("abas Decks, Pastas e Dashboard", pg.eval_on_selector_all("[role=tab][data-vista]", "e=>e.map(x=>x.textContent)") == ["Decks", "Pastas", "Dashboard"])
             R.ok("grupos na ordem do aplicativo", pg.eval_on_selector_all(".grupo h2", "e=>e.map(x=>x.textContent.trim())") ==
-                 ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "Compras + Precon"])
+                 ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "05. Desejo"])
             pastas = [d["pasta"] for d in H["decks"]]
             R.ok("todos os decks do inventário e de dados/", set(inv) <= set(pastas), sorted(set(inv) - set(pastas)))
             R.ok("um cartão por deck, sem repetição", pg.locator(".deck").count() == len(H["decks"]) == len(set(pastas)), pg.locator(".deck").count())

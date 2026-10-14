@@ -192,6 +192,28 @@ def textura(nome, p):
         return ("radial-gradient(760px 480px at 76%% -12%%, rgba(%d,%d,%d,.14), transparent 62%%),"
                 "radial-gradient(700px 420px at 0%% 100%%, rgba(%d,%d,%d,.10), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
+    if nome == "tempestade":
+        # chuva de vento em diagonal e o clarão de um relâmpago atrás das nuvens, como na capa da Storm
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.06' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M12 0l-7 20M36 16l-7 20M26 34l-5 14'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(980px 520px at 68%% -14%%, rgba(%d,%d,%d,.16), transparent 62%%),"
+                "radial-gradient(520px 360px at 10%% 6%%, rgba(%d,%d,%d,.12), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
+    if nome == "reticula":
+        # retícula de gibi: pontos de meio-tom e o vermelho do uniforme do Deadpool num canto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cg fill='" +
+               quote(p["acento"]) + "' fill-opacity='.07'%3E%3Ccircle cx='3.5' cy='3.5' r='1.5'/%3E%3Ccircle cx='10.5' cy='10.5' r='1.5'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(900px 520px at 80%% -10%%, rgba(%d,%d,%d,.22), transparent 62%%),"
+                "radial-gradient(600px 400px at 0%% 10%%, rgba(%d,%d,%d,.10), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["destaque"]) + _hex(p["acento"]) + (svg, grad))
+    if nome == "astrolabio":
+        # astrolábios de Tolaria em filete, círculos e marcas de hora, e a luz dourada das arcadas da capa
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.055' stroke-width='1'%3E%3Ccircle cx='60' cy='60' r='44'/%3E%3Ccircle cx='60' cy='60' r='34'/%3E"
+               "%3Cpath d='M60 12v10M60 98v10M12 60h10M98 60h10M60 60l18-22'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(900px 520px at 78%% -10%%, rgba(%d,%d,%d,.14), transparent 62%%),"
+                "radial-gradient(620px 420px at 4%% 4%%, rgba(%d,%d,%d,.12), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

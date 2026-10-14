@@ -169,7 +169,8 @@ SUB = {
     "Scout": "Batedor", "Leech": "Sanguessuga", "Praetor": "Pretor", "Lamia": "Lâmia", "Nightmare": "Pesadelo",
     "Mutant": "Mutante", "Lizard": "Lagarto", "Frog": "Sapo", "Scientist": "Cientista", "Ooze": "Lodo", "Fish": "Peixe",
     "Detective": "Detetive", "Robot": "Robô", "Assembly-Worker": "Operário", "Illusion": "Ilusão", "Rebel": "Rebelde",
-    "Incarnation": "Encarnação",
+    "Incarnation": "Encarnação", "Mercenary": "Mercenário", "Hero": "Herói", "Time Lord": "Senhor do Tempo", "Dauthi": "Dauthi", "Archer": "Arqueiro",
+    "Minion": "Lacaio", "Monkey": "Macaco", "Sphinx": "Esfinge", "Kraken": "Kraken", "Leviathan": "Leviatã", "Eldrazi": "Eldrazi",
 }
 PRINCIPAIS = ("Creature", "Artifact", "Enchantment", "Land", "Instant", "Sorcery", "Planeswalker", "Battle")
 

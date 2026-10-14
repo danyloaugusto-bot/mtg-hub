@@ -7,7 +7,7 @@ Preencha o que souber. Cinco minutos bastam; o resto sai na conversa do `/novo-d
 - **comandante:** (nome exato, em inglês)
 - **impressão do comandante:** (SET e número, se você fizer questão de uma arte)
 - **cores:**
-- **grupo:** 01. Top | 02. Tribais | 03. Caos | 04. Forfun | Compras + Precon
+- **grupo:** 01. Top | 02. Tribais | 03. Caos | 04. Forfun | 05. Desejo
 - **situação:** OK | nOK | em obras
 - **nome do painel:** (se já tiver um; senão o `/novo-deck` propõe)
 
