@@ -1,0 +1,1854 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Ramp de criatura: os Elfos de mana. Terreno que sempre entra virado vale −1 aqui."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra. Tutor vale 1."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção e limpeza."
+  },
+  {
+   "k": "wincon",
+   "nome": "WinCon",
+   "ab": "Win",
+   "desc": "Fecha o jogo ou drena."
+  },
+  {
+   "k": "tokens",
+   "nome": "Tokens",
+   "ab": "Tok.",
+   "desc": "Cria fichas de Elfo."
+  },
+  {
+   "k": "untap",
+   "nome": "Untap + Sinergia",
+   "curto": "Untap",
+   "ab": "Untap",
+   "desc": "Desvira a Lathril ou faz a engrenagem girar; a proteção entra aqui, por falta de eixo próprio."
+  },
+  {
+   "k": "buff",
+   "nome": "Buff",
+   "ab": "Buff",
+   "desc": "Pump e lordes."
+  },
+  {
+   "k": "ramp2",
+   "nome": "Ramp2",
+   "ab": "Ramp2",
+   "ref": [
+    6,
+    10
+   ],
+   "desc": "Ramp que não é criatura: pedras, terrenos e feitiços."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Elfo",
+   "plural": "Elfos",
+   "subtipo": "Elf"
+  },
+  "desvira": {
+   "nome": "Desvira a Lathril"
+  },
+  "dreno": {
+   "nome": "Dreno"
+  },
+  "protege": {
+   "nome": "Proteção"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 33,
+   "alerta": "29 terrenos e quatro cartas duplas: 33 fontes, abaixo da faixa usual, compensadas por nove Elfos de mana e sete outras cartas de ramp. Cinco terrenos sempre entram virados."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 8,
+   "rotulo": [
+    "Elfo de mana dedicado",
+    "Elfos de mana dedicados"
+   ],
+   "passagem": "que ajudam de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 3,
+   "massa_ref": [
+    1,
+    3
+   ],
+   "alerta": "As limpezas poupam os Elfos; o Kindred Dominance mata o Seedborn Muse."
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 80,
+   "texto": "Dez Elfos desvirados pagam a Lathril."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "desvira",
+   "min": 8,
+   "listar": true,
+   "rotulo": [
+    "carta que desvira a Lathril",
+    "cartas que desviram a Lathril"
+   ],
+   "texto": "As que desviram todas as criaturas (Vitalize, Seedborn Muse) valem uma ativação inteira; as que desviram uma só pedem outros dez Elfos desvirados.",
+   "alerta": "Poucos desviradores: na maior parte dos turnos, a Lathril ativa uma vez só.",
+   "ok": "A Lathril ativa várias vezes por turno."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "protege",
+   "min": 3,
+   "listar": true,
+   "rotulo": [
+    "proteção",
+    "proteções"
+   ],
+   "alerta": "Pouca proteção: uma limpeza apaga Elfos e fichas.",
+   "ok": "A mesa tem cobertura."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "dreno",
+   "min": 4,
+   "listar": true,
+   "rotulo": [
+    "carta de dreno",
+    "cartas de dreno"
+   ],
+   "ok": "O deck fecha sem combate."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Elfo de mana no turno 1 (Elvish Mystic, Fyndhorn Elves), Priest of Titania ou Elvish Archdruid no 2, e a Lathril no 3 ou 4.",
+   "fortes": [
+    "Nove Elfos de mana e sete outras cartas de ramp; dois Elfos de mana de uma mana.",
+    "Sol Ring e Emerald Medallion aceleram ainda mais."
+   ],
+   "fracos": [
+    "Só dois Elfos de mana de turno 1.",
+    "Cinco terrenos sempre entram virados."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "Fichas em massa (Lys Alana, Imperious Perfect, Elvish Promenade, Elven Ambush, Wolverine Riders) até ter dez Elfos desvirados além da Lathril; a primeira ativação drena 10 de cada oponente.",
+   "fortes": [
+    "Elven Ambush no fim do turno de quem joga antes de você dobra os Elfos.",
+    "Seedborn Muse dá uma ativação em cada turno alheio."
+   ],
+   "fracos": [
+    "Só seis cartas desviram a Lathril.",
+    "Pouca proteção: uma limpeza apaga a mesa."
+   ]
+  },
+  "fim": {
+   "turnos": "6 em diante",
+   "plano": "Lathril com Vitalize, Staff of Domination, Umbral Mantle, Seeker of Skybreak ou Puppet Strings; mana infinita com Staff ou Mantle; Bolas's Citadel; Craterhoof como plano B.",
+   "fortes": [
+    "Dois combos de mana infinita já na lista.",
+    "Vários drenos de entrada e morte."
+   ],
+   "fracos": [
+    "Concentração alta na Lathril.",
+    "O plano B de combate é o Elfos comum."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Muitos corpos e dreno de vida, mas os Elfos de mana são frágeis."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Mesa larga para bloquear e o dreno da Lathril não precisa atacar."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "O deck é rápido, mas não tem contramágica."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "fraco",
+    "porque": "Uma limpeza leva os Elfos e as fichas."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Taxa por criatura e limites de mana travam o turno grande."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Eles bloqueiam com fichas, mas a Lathril drena sem combate."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "forte",
+    "porque": "O dreno de 10 por ativação vence a corrida."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "Os Elfos de mana são mais rápidos que o ramp de terreno."
+   }
+  ]
+ },
+ "cartas": {
+  "Lathril, Blade of the Elves": {
+   "notas": {
+    "wincon": 3,
+    "tokens": 3,
+    "untap": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Elfa 2/3 de 4 com ameaça. Dano de combate num jogador: esse tanto de Elfos Guerreiros 1/1. {T}, vire dez Elfos desvirados: cada oponente perde 10 e você ganha 10.",
+   "porque": "É a vitória do deck: quatro ativações matam a mesa. Os dez podem ter acabado de entrar (ruling); ela não conta entre eles e precisa estar em campo desde o começo do turno.",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Beast Whisperer": {
+   "notas": {
+    "draw": 3,
+    "untap": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfo de 4. Sempre que você conjura uma criatura, compre.",
+   "porque": "Motor de compra num deck de criaturas."
+  },
+  "Canopy Tactician": {
+   "notas": {
+    "ramp": 2,
+    "untap": 1,
+    "buff": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfo de 4. Outros Elfos +1/+1; vira: {G}{G}{G}.",
+   "porque": "Lorde e ramp na mesma carta."
+  },
+  "Craterhoof Behemoth": {
+   "notas": {
+    "wincon": 3,
+    "buff": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Fera de 8 com ímpeto. Ao entrar, suas criaturas ganham atropelar e +X/+X, X o número delas.",
+   "porque": "Plano B de combate, por decisão do dono. É a carta mais comum dos decks de Elfos; a vitória daqui é a Lathril."
+  },
+  "Cultivator of Blades": {
+   "notas": {
+    "tokens": 1,
+    "buff": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Elfo de 5. Fabricar 2; ao atacar, os outros atacantes ganham +X/+X.",
+   "porque": "Fichas de Servo, não de Elfo.",
+   "prioridade": 8
+  },
+  "Disciple of Freyalise": {
+   "notas": {
+    "draw": 2,
+    "ramp2": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 6: ao entrar, sacrifique outra criatura e compre e ganhe vida igual à força dela. O verso é um terreno.",
+   "porque": "Terreno quando falta, compra quando sobra."
+  },
+  "Dwynen, Gilt-Leaf Daen": {
+   "notas": {
+    "untap": 1,
+    "buff": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfa lendária de 4, alcance. Outros Elfos +1/+1; vida por Elfo atacando.",
+   "porque": "Lorde."
+  },
+  "Elvish Archdruid": {
+   "notas": {
+    "ramp": 3,
+    "wincon": 1,
+    "untap": 2,
+    "buff": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Elfo de 3. Outros Elfos +1/+1; vira: {G} por Elfo seu.",
+   "porque": "Ramp explosivo; mana infinita com o Umbral Mantle e quatro Elfos, ou com o Staff of Domination e cinco."
+  },
+  "Elvish Mystic": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 1: {G}.",
+   "porque": "Elfo de mana de turno 1."
+  },
+  "Fyndhorn Elves": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 1: {G}.",
+   "porque": "Elfo de mana de turno 1."
+  },
+  "Gala Greeters": {
+   "notas": {
+    "buff": 1,
+    "ramp2": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Elfo de 2. Quando outra criatura sua entra, escolhe um modo não usado no turno: marcador, Treasure virado ou 2 de vida.",
+   "porque": "Pequeno demais.",
+   "prioridade": 9
+  },
+  "Glissa Sunslayer": {
+   "notas": {
+    "draw": 2,
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfa lendária de 3 com primeiro golpe e toque mortífero. Ao conectar, compre, destrua um encantamento ou tire três marcadores.",
+   "porque": "Valor a cada conexão."
+  },
+  "Harald, King of Skemfar": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo lendário de 3, ameaça. Ao entrar, das cinco do topo, um Elfo, Guerreiro ou Tyvar para a mão.",
+   "porque": "Acha peças."
+  },
+  "Imperious Perfect": {
+   "notas": {
+    "tokens": 2,
+    "buff": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfo de 3. Outros Elfos +1/+1; {G}, vira: um Elfo Guerreiro 1/1.",
+   "porque": "Lorde e uma ficha por turno."
+  },
+  "Jagged-Scar Archers": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Elfo de 3, força igual aos Elfos. Vira: dano numa criatura voadora.",
+   "porque": "Anti-voador que não conversa com o plano.",
+   "prioridade": 7
+  },
+  "Jaheira, Friend of the Forest": {
+   "notas": {
+    "ramp": 1,
+    "untap": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Elfa de 3. Suas fichas têm \"vira: {G}\".",
+   "porque": "Ficha com enjoo não vira, e ficha virada para mana não paga a Lathril."
+  },
+  "Leaf-Crowned Visionary": {
+   "notas": {
+    "draw": 2,
+    "buff": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfo de 2. Outros Elfos +1/+1; ao conjurar Elfo, pague {G} e compre.",
+   "porque": "Lorde e compra de turno 2."
+  },
+  "Llanowar Tribe": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfo de 3: {G}{G}{G}.",
+   "porque": "Ramp grande."
+  },
+  "Llanowar Visionary": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 3. Ao entrar, compre; vira: {G}.",
+   "porque": "Ramp com carta."
+  },
+  "Lys Alana Huntmaster": {
+   "notas": {
+    "tokens": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfo de 4. Ao conjurar Elfo, um Elfo Guerreiro 1/1.",
+   "porque": "Fábrica de fichas."
+  },
+  "Marwyn, the Nurturer": {
+   "notas": {
+    "ramp": 2,
+    "untap": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfa lendária de 3. Ganha marcador a cada Elfo que entra; vira: {G} igual à força.",
+   "porque": "Ramp que escala; mana infinita com o Umbral Mantle."
+  },
+  "Nullmage Shepherd": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Elfo de 4. Vire quatro criaturas: destrua artefato ou encantamento.",
+   "porque": "Disputa os Elfos desvirados com a Lathril.",
+   "prioridade": 11
+  },
+  "Oracle of Mul Daya": {
+   "notas": {
+    "draw": 2,
+    "ramp2": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 4. Terreno a mais por turno; jogue terrenos do topo.",
+   "porque": "Valor."
+  },
+  "Poison-Tip Archer": {
+   "notas": {
+    "removal": 1,
+    "wincon": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 4, alcance e toque mortífero. Outra criatura morre: cada oponente perde 1.",
+   "porque": "Dreno passivo: conta no quadro de WinCon do 8×8.",
+   "marcas": {
+    "dreno": 1
+   },
+   "pacote": "wincon"
+  },
+  "Priest of Titania": {
+   "notas": {
+    "ramp": 3,
+    "wincon": 1,
+    "untap": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Elfo de 2: {G} por Elfo em campo.",
+   "porque": "Ramp explosivo e peça de combo com Staff e Mantle."
+  },
+  "Reclamation Sage": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 3. Ao entrar, destrua artefato ou encantamento.",
+   "porque": "Interação no corpo."
+  },
+  "Ruthless Winnower": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Elfo de 5. Na manutenção de cada jogador, ele sacrifica uma criatura não-Elfo.",
+   "porque": "Faz você sacrificar o Seedborn Muse e o Craterhoof.",
+   "prioridade": 6
+  },
+  "Seedborn Muse": {
+   "notas": {
+    "wincon": 2,
+    "untap": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Espírito 2/4 de 5. Desvira suas permanentes no desvirar de cada outro jogador.",
+   "porque": "Uma ativação da Lathril em cada turno alheio. Game Changer.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Seeker of Skybreak": {
+   "notas": {
+    "wincon": 1,
+    "untap": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Elfo de 2. Vira: desvira uma criatura.",
+   "porque": "Desvira a Lathril; com o Illusionist's Bracers do radar, desvirar infinito.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Shaman of the Pack": {
+   "notas": {
+    "wincon": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 3. Ao entrar, um oponente perde vida igual aos seus Elfos.",
+   "porque": "Dreno de alcance.",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Skemfar Shadowsage": {
+   "notas": {
+    "wincon": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 4. Ao entrar, cada oponente perde X (o maior tipo em comum), ou você ganha X.",
+   "porque": "Dreno de alcance.",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Sylvan Messenger": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 4 com atropelar. Ao entrar, os Elfos das quatro do topo para a mão.",
+   "porque": "Recarga."
+  },
+  "Timberwatch Elf": {
+   "notas": {
+    "buff": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Elfo de 3. Vira: +X/+X numa criatura, X os Elfos em campo.",
+   "porque": "Pump de combate.",
+   "prioridade": 10
+  },
+  "Wirewood Channeler": {
+   "notas": {
+    "ramp": 3,
+    "wincon": 1,
+    "untap": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfo de 4: X manas de uma cor, X os Elfos em campo.",
+   "porque": "Ramp e peça de combo."
+  },
+  "Wolverine Riders": {
+   "notas": {
+    "tokens": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo de 6. Um Elfo Guerreiro 1/1 em toda manutenção; vida quando outro Elfo entra.",
+   "porque": "Quatro fichas por volta numa mesa de quatro."
+  },
+  "Assassin's Trophy": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Instantânea de 2: destrói uma permanente de oponente.",
+   "porque": "Resposta universal."
+  },
+  "Bounty of Skemfar": {
+   "notas": {
+    "draw": 2,
+    "ramp2": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: das seis do topo, um terreno para o campo e um Elfo para a mão.",
+   "porque": "Ramp e carta."
+  },
+  "Bridgeworks Battle": {
+   "notas": {
+    "removal": 2,
+    "buff": 1,
+    "ramp2": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: +2/+2 e luta. O verso é um terreno.",
+   "porque": "Remoção ou terreno."
+  },
+  "Casualties of War": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 6: destrói até um de cada tipo.",
+   "porque": "Remoção múltipla."
+  },
+  "Crippling Fear": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 4: não-tipo escolhido −3/−3.",
+   "porque": "Limpeza que poupa os Elfos; o Seedborn Muse (2/4) sobrevive.",
+   "massa": true
+  },
+  "Damnable Pact": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de X+2: um jogador compra X e perde X.",
+   "porque": "O Pact of the Serpent faz melhor aqui.",
+   "prioridade": 12
+  },
+  "Elven Ambush": {
+   "notas": {
+    "wincon": 1,
+    "tokens": 3,
+    "untap": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 4: um Elfo Guerreiro 1/1 por Elfo seu.",
+   "porque": "No fim do turno anterior ao seu, dobra os Elfos que pagam a Lathril."
+  },
+  "Elvish Promenade": {
+   "notas": {
+    "tokens": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 4: um Elfo Guerreiro 1/1 por Elfo seu.",
+   "porque": "Dobra a mesa."
+  },
+  "Eyeblight Massacre": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 4: não-Elfos −2/−2.",
+   "porque": "Limpeza unilateral.",
+   "massa": true
+  },
+  "Feed the Swarm": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: destrói criatura ou encantamento de oponente.",
+   "porque": "Remoção barata."
+  },
+  "Galadhrim Ambush": {
+   "notas": {
+    "tokens": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea de 4: X fichas (X os atacantes); névoa de não-Elfos.",
+   "porque": "Pede ataque largo.",
+   "prioridade": 13
+  },
+  "Harvest Season": {
+   "notas": {
+    "ramp2": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 3: X básicos virados, X as suas criaturas viradas.",
+   "porque": "Conta os Elfos de mana virados também."
+  },
+  "Khalni Ambush": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: luta. O verso é um terreno.",
+   "porque": "Remoção ou terreno."
+  },
+  "Kindred Dominance": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 7: destrói as criaturas que não são do tipo escolhido.",
+   "porque": "Sete manas, e mata o seu Seedborn Muse.",
+   "massa": true,
+   "prioridade": 14
+  },
+  "Kodama's Reach": {
+   "notas": {
+    "ramp2": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 3: dois básicos.",
+   "porque": "Ramp de três num deck de Elfos de mana.",
+   "prioridade": 15
+  },
+  "Overrun": {
+   "notas": {
+    "wincon": 2,
+    "buff": 3
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 5: +3/+3 e atropelar.",
+   "porque": "O Elfos comum; o Craterhoof já cobre o plano B.",
+   "prioridade": 1
+  },
+  "Pact of the Serpent": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: um jogador compra e perde X, X as criaturas dele do tipo escolhido.",
+   "porque": "Compra em massa."
+  },
+  "Return Upon the Tide": {
+   "notas": {
+    "tokens": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 5: reanima; duas fichas se for Elfo.",
+   "porque": "Lento.",
+   "prioridade": 2
+  },
+  "Revitalizing Repast": {
+   "notas": {
+    "untap": 1,
+    "buff": 1,
+    "ramp2": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: marcador e indestrutível. O verso é um terreno.",
+   "porque": "Protege a Lathril, ou terreno.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Vitalize": {
+   "notas": {
+    "wincon": 1,
+    "untap": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 1: desvira suas criaturas.",
+   "porque": "Segunda ativação da Lathril por uma mana.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Withering Torment": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: destrói criatura ou encantamento; perca 2.",
+   "porque": "Remoção instantânea."
+  },
+  "Bolas's Citadel": {
+   "notas": {
+    "draw": 2,
+    "wincon": 2,
+    "ramp2": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 6. Jogue do topo pagando vida; sacrifique dez permanentes: 10 em cada oponente.",
+   "porque": "Segunda vitória com fichas; o dreno da Lathril paga a vida. Game Changer.",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Emerald Medallion": {
+   "notas": {
+    "ramp2": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: mágicas verdes custam {1} a menos.",
+   "porque": "Redutor."
+  },
+  "Lothlórien Blade": {
+   "notas": {
+    "removal": 1,
+    "buff": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Equipamento de 3: ao atacar, dano igual à força numa criatura.",
+   "porque": "Lento.",
+   "prioridade": 3
+  },
+  "Puppet Strings": {
+   "notas": {
+    "wincon": 1,
+    "untap": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3. {2}, vira: vire ou desvire uma criatura.",
+   "porque": "Desvira a Lathril.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp2": 3
+   },
+   "tier": "S",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Lathril no turno 2."
+  },
+  "Staff of Domination": {
+   "notas": {
+    "draw": 1,
+    "wincon": 3,
+    "untap": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato de 3. {1}: desvira-se; {3}, vira: desvira uma criatura; {5}, vira: compre.",
+   "porque": "Com um Elfo que gera cinco, mana e compra infinitas; e desvira a Lathril e os Elfos sem fim.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Rhonas's Monument": {
+   "notas": {
+    "buff": 2,
+    "ramp2": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 3. Verdes custam {1} a menos; cada criatura conjurada dá +2/+2 e atropelar.",
+   "porque": "Combate, não dreno.",
+   "prioridade": 16
+  },
+  "The Great Henge": {
+   "notas": {
+    "draw": 3,
+    "buff": 1,
+    "ramp2": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 9, X a menos. {G}{G} e vida; criatura não-ficha que entra ganha marcador e compra.",
+   "porque": "Valor.",
+   "caro_por_desenho": true
+  },
+  "Trailblazer's Boots": {
+   "notas": {
+    "buff": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Equipamento de 2: deslizar em terreno não-básico.",
+   "porque": "A Lathril já tem ameaça.",
+   "prioridade": 4
+  },
+  "Umbral Mantle": {
+   "notas": {
+    "wincon": 2,
+    "untap": 3,
+    "buff": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Equipamento de 3, equipar {0}: {3}, desvirar: +2/+2.",
+   "porque": "Desvira a Lathril; mana infinita com um Elfo que gere quatro ou mais.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Binding the Old Gods": {
+   "notas": {
+    "removal": 2,
+    "buff": 1,
+    "ramp2": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Saga de 4: destrói não-terreno, busca Forest, dá toque mortífero.",
+   "porque": "Saga de valor."
+  },
+  "Phyrexian Arena": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Encantamento de 3: compre e perca 1 por turno.",
+   "porque": "O deck compra por Elfo.",
+   "prioridade": 17
+  },
+  "Primal Vigor": {
+   "notas": {
+    "tokens": 2,
+    "buff": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Encantamento de 5: dobra fichas e marcadores de todos.",
+   "porque": "Dobra as fichas dos oponentes também.",
+   "prioridade": 5
+  },
+  "Unnatural Growth": {
+   "notas": {
+    "wincon": 1,
+    "buff": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 5: dobra força e resistência em cada combate.",
+   "porque": "Lathril maior faz mais fichas."
+  },
+  "Vraska Joins Up": {
+   "notas": {
+    "draw": 1,
+    "buff": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Encantamento de 2: toque mortífero; compra quando lendária conecta.",
+   "porque": "Pequeno.",
+   "prioridade": 18
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Mana da identidade.",
+   "porque": "As duas cores desvirado."
+  },
+  "Darkbore Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{B} ou {G}, uma face.",
+   "porque": "As duas cores desvirado."
+  },
+  "Deathcap Glade": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{B} ou {G}; virado sem dois outros terrenos.",
+   "porque": "As duas cores desvirado."
+  },
+  "Twilight Mire": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}, ou filtra {B/G} em duas.",
+   "porque": "As duas cores desvirado."
+  },
+  "Undergrowth Stadium": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{B} ou {G}; desvirado com dois ou mais oponentes.",
+   "porque": "As duas cores desvirado."
+  },
+  "Secluded Courtyard": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}, ou qualquer cor para criatura do tipo escolhido.",
+   "porque": "As duas cores desvirado."
+  },
+  "Jungle Hollow": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sempre virado; {B} ou {G}; 1 de vida.",
+   "porque": "Virado.",
+   "prioridade": 1,
+   "virado": true
+  },
+  "Temple of Malady": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sempre virado; {B} ou {G}; vidência 1.",
+   "porque": "Virado.",
+   "prioridade": 2,
+   "virado": true
+  },
+  "Path of Ancestry": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sempre virado; mana da identidade; vidência com Elfo.",
+   "porque": "Virado.",
+   "prioridade": 3,
+   "virado": true
+  },
+  "Myriad Landscape": {
+   "notas": {
+    "ramp": -1,
+    "ramp2": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado; {C}; sacrifique: dois básicos virados.",
+   "porque": "Virado, mas rende dois terrenos.",
+   "virado": true
+  },
+  "Skemfar Elderhall": {
+   "notas": {
+    "ramp": -1,
+    "removal": 1,
+    "tokens": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sempre virado; {G}; sacrifique: −2/−2 numa criatura e dois Elfos.",
+   "porque": "Utilitário de fichas.",
+   "virado": true
+  },
+  "Forest": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  }
+ },
+ "radar": {
+  "Dionus, Elvish Archdruid": {
+   "notas": {
+    "wincon": 2,
+    "untap": 3,
+    "buff": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Elfo lendário de 4. Seus Elfos têm: na primeira vez que viram no seu turno, desviram e ganham um marcador.",
+   "porque": "A Lathril também é Elfa: ela e os dez que a pagam desviram uma vez por turno. Duas ativações, 20 de cada oponente, sem outro desvirador. Fontes A e B.",
+   "sai": "Cultivator of Blades",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Illusionist's Bracers": {
+   "notas": {
+    "wincon": 3,
+    "untap": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Equipamento de 2, equipar {3}: copia as habilidades ativadas (não de mana) da criatura equipada.",
+   "porque": "Na Lathril, cada ativação drena 20; no Seeker of Skybreak, desvirar infinito. Fonte B.",
+   "sai": "Overrun",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "High Perfect Morcant": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Elfo lendário de 4. Ele ou outro Elfo seu entra: cada oponente põe um marcador −1/−1 numa criatura dele. Vire três Elfos: proliferar.",
+   "porque": "A interação com as entradas que o dono pediu: cada Elfo que entra, ficha ou não, põe um marcador −1/−1 numa criatura de cada oponente, à escolha dele. Mata fichas e criaturas pequenas. Fonte B.",
+   "sai": "Kindred Dominance"
+  },
+  "Heroic Intervention": {
+   "notas": {
+    "untap": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Instantânea de 2: suas permanentes ganham resistência a magia e indestrutível.",
+   "porque": "A resposta à limpeza. Nas três fontes.",
+   "sai": "Crippling Fear",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Elvish Harbinger": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "untap": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Elfo de 3. Ao entrar, um Elfo do grimório para o topo; vira: mana de qualquer cor.",
+   "porque": "Busca o Dionus, o Seeker ou o Priest. Fonte B.",
+   "sai": "Damnable Pact"
+  },
+  "Skullclamp": {
+   "notas": {
+    "draw": 3,
+    "untap": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Equipamento de 1: +1/−1; a criatura equipada morre: compre duas.",
+   "porque": "Ficha 1/1 vira duas cartas por uma mana. Nas três fontes.",
+   "sai": "Phyrexian Arena"
+  },
+  "Thousand-Year Elixir": {
+   "notas": {
+    "wincon": 1,
+    "untap": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 3. Suas criaturas ativam como se tivessem ímpeto; {1}, vira: desvira uma criatura.",
+   "porque": "A Lathril ativa no turno em que entra, e desvira por uma mana. Fonte B.",
+   "sai": "Lothlórien Blade",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Throne of the God-Pharaoh": {
+   "notas": {
+    "wincon": 3,
+    "untap": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato lendário de 2. No seu fim de turno, cada oponente perde vida igual às suas criaturas viradas.",
+   "porque": "Depois da Lathril, onze criaturas viradas: mais 11 em cada um. Fonte B.",
+   "sai": "Trailblazer's Boots",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Doubling Season": {
+   "notas": {
+    "tokens": 3,
+    "buff": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 5: dobra as suas fichas e marcadores.",
+   "porque": "Fichas e marcadores do Dionus e da Marwyn. Fontes A, B e C.",
+   "sai": "Return Upon the Tide"
+  },
+  "Parallel Lives": {
+   "notas": {
+    "tokens": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 4: dobra as suas fichas.",
+   "porque": "O Primal Vigor sem dar o mesmo aos oponentes. Fontes B e C.",
+   "sai": "Primal Vigor"
+  },
+  "Llanowar Elves": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Elfo de 1: {G}.",
+   "porque": "Terceiro Elfo de mana de turno 1. Fontes A e B.",
+   "sai": "Jagged-Scar Archers"
+  },
+  "Selfless Safewright": {
+   "notas": {
+    "untap": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Elfo de 5 com lampejo e convocar. Ao entrar, as suas permanentes do tipo escolhido ganham resistência a magia e indestrutível.",
+   "porque": "Proteção paga com Elfos virados, no lugar do Winnower que mata o Seedborn. Fontes A e B.",
+   "sai": "Ruthless Winnower",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Elvish Warmaster": {
+   "notas": {
+    "wincon": 1,
+    "tokens": 3,
+    "buff": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Elfo de 2. Uma vez por turno, outros Elfos entram: um Elfo Guerreiro 1/1. {5}{G}{G}: Elfos +2/+2 e toque mortífero.",
+   "porque": "Ficha por turno a partir do turno 2. Nas três fontes.",
+   "sai": "Gala Greeters"
+  },
+  "Elderfang Venom": {
+   "notas": {
+    "wincon": 2,
+    "buff": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 4. Elfos atacantes com toque mortífero; Elfo seu morre: cada oponente perde 1.",
+   "porque": "Transforma a limpeza deles em dreno. Fonte B.",
+   "sai": "Galadhrim Ambush",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Nadier's Nightblade": {
+   "notas": {
+    "wincon": 2,
+    "untap": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Elfo de 3. Ficha sua sai do campo: cada oponente perde 1.",
+   "porque": "Paga pela morte das fichas, com o Skullclamp. Fonte B.",
+   "sai": "Timberwatch Elf",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Quest for Renewal": {
+   "notas": {
+    "wincon": 1,
+    "untap": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 2. Com quatro marcadores, desvira suas criaturas no desvirar de cada outro jogador.",
+   "porque": "Um segundo Seedborn para criaturas. Fontes B e C.",
+   "sai": "Vraska Joins Up",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Tyvar Kell": {
+   "notas": {
+    "ramp": 1,
+    "tokens": 2,
+    "untap": 2,
+    "buff": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Planeswalker de 4. Elfos têm \"vira: {B}\"; +1: marcador e desvira um Elfo; 0: um Elfo Guerreiro.",
+   "porque": "Desvira a Lathril ou faz um Elfo por turno. Fonte B.",
+   "sai": "Rhonas's Monument",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp2": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Artefato de 2: mana da identidade.",
+   "porque": "Ramp de duas. Fonte B.",
+   "sai": "Kodama's Reach"
+  },
+  "Wirewood Symbiote": {
+   "notas": {
+    "untap": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Inseto de 1. Devolva um Elfo seu à mão: desvira uma criatura, uma vez por turno.",
+   "porque": "Desvira a Lathril sem gastar mana, devolvendo um Elfo à mão, e reaproveita entradas como a do Shaman of the Pack. Fontes B e C.",
+   "sai": "Nullmage Shepherd",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Overgrown Tomb": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno: {B} ou {G}; pague 2 ou entra virado.",
+   "porque": "Dual desvirada. Fontes B e C.",
+   "sai": "Jungle Hollow"
+  },
+  "Woodland Cemetery": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno: {B} ou {G}; virado sem Swamp ou Forest.",
+   "porque": "Dual desvirada. Fonte B.",
+   "sai": "Temple of Malady"
+  },
+  "Wirewood Lodge": {
+   "notas": {
+    "untap": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno: {C}; {G}, vira: desvira um Elfo.",
+   "porque": "Desvira a Lathril num terreno. Fontes A e B.",
+   "sai": "Path of Ancestry",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Gaea's Cradle": {
+   "notas": {
+    "ramp2": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Terreno lendário: {G} por criatura sua.",
+   "porque": "Mana enorme com a mesa de Elfos, no lugar do Twilight Mire, que sozinho só gera incolor. Game Changer da Reserved List: US$ 1.635 no Scryfall. Fonte B.",
+   "sai": "Twilight Mire"
+  },
+  "Circle of Dreams Druid": {
+   "notas": {
+    "ramp": 3,
+    "untap": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Elfo de 3: {G} por criatura sua.",
+   "porque": "Conta as fichas também. Fontes A e C.",
+   "sai": "Llanowar Visionary"
+  },
+  "Finale of Devastation": {
+   "notas": {
+    "draw": 1,
+    "wincon": 3,
+    "buff": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de X+2: uma criatura de valor até X do grimório ou cemitério para o campo; com X 10 ou mais, +X/+X e ímpeto para o time.",
+   "porque": "Tutor e fechamento numa carta. Fonte A.",
+   "sai": "Harvest Season"
+  },
+  "Chord of Calling": {
+   "notas": {
+    "draw": 1,
+    "untap": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Instantânea de X+3, convocar: uma criatura de valor até X para o campo.",
+   "porque": "Acha o Dionus ou o Seedborn em velocidade instantânea, pagando com Elfos. Fonte A.",
+   "sai": "Bounty of Skemfar"
+  },
+  "Mirkwood Bats": {
+   "notas": {
+    "wincon": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Morcego voador de 4. Sempre que você cria ou sacrifica uma ficha, cada oponente perde 1.",
+   "porque": "Cada ficha criada tira 1 de cada oponente; o Bolas's Citadel e o Disciple of Freyalise sacrificam fichas e tiram de novo. Fonte A.",
+   "sai": "Jaheira, Friend of the Forest",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Tyvar, Jubilant Brawler": {
+   "notas": {
+    "wincon": 1,
+    "untap": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Planeswalker de 3. Criaturas suas ativam como se tivessem ímpeto; +1: desvira uma criatura; −2: reanima uma de valor até 2.",
+   "porque": "Ímpeto para a Lathril e desvirar todo turno. Fontes A e C.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Champions of the Perfect": {
+   "notas": {
+    "draw": 3,
+    "buff": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfo 6/6 de 4. Exile um Elfo ao conjurar; sempre que você conjura criatura, compre.",
+   "porque": "Compra por criatura num corpo grande. Fonte A; banco de B."
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "untap": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Equipamento de 2: resistência a magia e ímpeto.",
+   "porque": "Protege a Lathril e a faz ativar no turno. Fonte A.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "untap": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "Mesma função das Boots. Fonte C.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Green Sun's Zenith": {
+   "notas": {
+    "draw": 1,
+    "wincon": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Feitiço de X+1: uma criatura verde de valor até X para o campo.",
+   "porque": "Tutor de criatura que volta ao grimório. Opcional de A."
+  },
+  "Worldly Tutor": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: uma criatura para o topo.",
+   "porque": "Tutor de uma mana. Game Changer; opcional de A."
+  },
+  "Natural Order": {
+   "notas": {
+    "draw": 1,
+    "wincon": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 4: sacrifique uma criatura verde; uma criatura verde do grimório para o campo.",
+   "porque": "Põe o Craterhoof ou o Dionus em campo. Game Changer; opcional de A."
+  },
+  "Demonic Tutor": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 2: qualquer carta para a mão.",
+   "porque": "O melhor tutor. Game Changer; opcional de A."
+  },
+  "Allosaurus Shepherd": {
+   "notas": {
+    "ramp": 1,
+    "wincon": 1,
+    "untap": 1,
+    "buff": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfo de 1 que não pode ser anulado; suas mágicas verdes também não. {4}{G}{G}: Elfos viram 5/5.",
+   "porque": "Contra mesa de contramágica. Opcional de A."
+  },
+  "Quirion Ranger": {
+   "notas": {
+    "untap": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfo de 1. Devolva um Forest à mão: desvira uma criatura, uma vez por turno.",
+   "porque": "Mais um desvirador barato. Fonte C.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Second Harvest": {
+   "notas": {
+    "wincon": 1,
+    "tokens": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 4: uma cópia de cada ficha sua.",
+   "porque": "Dobra as fichas no fim do turno anterior ao seu. Fonte C."
+  },
+  "Presence of Gond": {
+   "notas": {
+    "tokens": 2,
+    "untap": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Aura de 3: a criatura ganha \"vira: um Elfo Guerreiro 1/1\".",
+   "porque": "Ficha por turno. Fonte C."
+  },
+  "Herald's Horn": {
+   "notas": {
+    "draw": 2,
+    "ramp2": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3. O tipo escolhido custa {1} a menos; na manutenção, se o topo é desse tipo, vai para a mão.",
+   "porque": "Redutor e compra. Fonte C."
+  },
+  "Vanquisher's Banner": {
+   "notas": {
+    "draw": 2,
+    "buff": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 5. O tipo escolhido +1/+1; conjurar dele: compre.",
+   "porque": "Lorde e compra. Fonte C."
+  },
+  "Prowess of the Fair": {
+   "notas": {
+    "tokens": 2,
+    "untap": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 2. Elfo seu não-ficha morre: um Elfo Guerreiro 1/1.",
+   "porque": "Resposta a limpeza; primeiro do banco de B."
+  },
+  "Arbor Elf": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfo de 1. Vira: desvira um Forest.",
+   "porque": "Mana de turno 1 no lugar de um terreno lento. Fonte A.",
+   "sai": "Myriad Landscape"
+  },
+  "Bayou": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno Swamp Forest, sempre desvirado.",
+   "porque": "O melhor dual, Reserved List e sem preço no Scryfall. Fonte C."
+  },
+  "Blooming Marsh": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {B} ou {G}; desvirado com dois ou menos outros terrenos.",
+   "porque": "Dual de início. Fonte C."
+  },
+  "Morcant's Loyalist": {
+   "notas": {
+    "draw": 1,
+    "buff": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfo de 3. Outros Elfos +1/+1; ao morrer, um Elfo do cemitério volta à mão.",
+   "porque": "Lorde do banco de B."
+  },
+  "Elvish Champion": {
+   "notas": {
+    "wincon": 1,
+    "buff": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfo de 3. Outros Elfos +1/+1 e deslizar em floresta.",
+   "porque": "Lorde do banco de B."
+  },
+  "Ezuri, Renegade Leader": {
+   "notas": {
+    "wincon": 2,
+    "untap": 1,
+    "buff": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Elfo lendário de 3. {G}: regenera outro Elfo; {2}{G}{G}{G}: Elfos +3/+3 e atropelar.",
+   "porque": "Um Overrun com outro nome: o Elfos comum que o dono quer evitar. Fonte C; B recusa."
+  },
+  "Crown of Skemfar": {
+   "notas": {
+    "wincon": 1,
+    "buff": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Aura de 4: +1/+1 por Elfo seu e alcance; volta do cemitério.",
+   "porque": "Faz a Lathril atacar grande: o plano de combate. B recusa."
+  },
+  "Copperhorn Scout": {
+   "notas": {
+    "untap": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Elfo de 1. Ao atacar, desvira suas outras criaturas.",
+   "porque": "Só desvira no ataque, e a Lathril drena sem atacar. B recusa."
+  },
+  "Ashnod's Altar": {
+   "notas": {
+    "ramp": 1,
+    "wincon": 1,
+    "untap": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Artefato de 3. Sacrifique uma criatura: {C}{C}.",
+   "porque": "Aristocrata genérico; Elderfang Venom e Nightblade são as versões de Elfo. B recusa."
+  },
+  "Zulaport Cutthroat": {
+   "notas": {
+    "wincon": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Humano de 2. Criatura sua morre: cada oponente perde 1.",
+   "porque": "Não é Elfo. B recusa."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Mana infinita",
+   "tipo": "Combo",
+   "pecas": [
+    "Umbral Mantle",
+    "Elvish Archdruid"
+   ],
+   "texto": "Com quatro Elfos ou mais, o Archdruid gera quatro, e o Mantle desvira por três: sobra uma por volta. Também com Priest of Titania ou Wirewood Channeler, e com a Marwyn a partir de força 3 (o Mantle a faz crescer a cada volta)."
+  },
+  {
+   "nome": "Mana, compra e dreno infinitos",
+   "tipo": "Combo",
+   "pecas": [
+    "Staff of Domination",
+    "Priest of Titania"
+   ],
+   "texto": "Com um Elfo que gere cinco, o Staff desvira o Priest por três e a si mesmo por um. Com a mana infinita, desvira a Lathril e os Elfos sem fim: dreno infinito (leitura do texto)."
+  },
+  {
+   "nome": "Desvirar infinito",
+   "tipo": "Combo",
+   "pecas": [
+    "Illusionist's Bracers",
+    "Seeker of Skybreak"
+   ],
+   "texto": "O Bracers copia a habilidade do Seeker: ele desvira a si mesmo e outra criatura, sem fim. Na Lathril, ativações infinitas."
+  },
+  {
+   "nome": "Uma ativação por turno alheio",
+   "tipo": "Motor",
+   "pecas": [
+    "Seedborn Muse",
+    "Lathril, Blade of the Elves"
+   ],
+   "texto": "Tudo desvira no desvirar de cada oponente: a Lathril drena 10 em cada turno, se houver dez Elfos."
+  },
+  {
+   "nome": "Os dez voltam desvirados",
+   "tipo": "Motor",
+   "pecas": [
+    "Dionus, Elvish Archdruid",
+    "Lathril, Blade of the Elves"
+   ],
+   "texto": "A Lathril e os dez que pagaram a ativação desviram na primeira vez que viram no seu turno: a segunda ativação sai sem outro desvirador, 20 de cada oponente no total."
+  },
+  {
+   "nome": "Vinte por ativação",
+   "tipo": "Motor",
+   "pecas": [
+    "Illusionist's Bracers",
+    "Lathril, Blade of the Elves"
+   ],
+   "texto": "O Bracers copia a habilidade: cada ativação tira 20 de cada oponente. Duas matam a mesa."
+  },
+  {
+   "nome": "Onze no fim do turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Throne of the God-Pharaoh",
+    "Lathril, Blade of the Elves"
+   ],
+   "texto": "Depois da ativação, a Lathril e os dez estão virados: no seu fim de turno, cada oponente perde mais 11."
+  },
+  {
+   "nome": "Ficha vira carta",
+   "tipo": "Motor",
+   "pecas": [
+    "Skullclamp",
+    "Elvish Warmaster"
+   ],
+   "texto": "Cada Elfo Guerreiro 1/1 equipado morre e compra duas."
+  },
+  {
+   "nome": "Cada Elfo encolhe a mesa deles",
+   "tipo": "Motor",
+   "pecas": [
+    "High Perfect Morcant",
+    "Elvish Promenade"
+   ],
+   "texto": "Cada Elfo que entra faz cada oponente pôr um marcador −1/−1 numa criatura dele, à escolha dele: uma Elvish Promenade com dez Elfos são dez marcadores em cada mesa."
+  },
+  {
+   "nome": "Dobra a mesa no fim do turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Elven Ambush",
+    "Lathril, Blade of the Elves"
+   ],
+   "texto": "Instantânea: no fim do turno de quem joga antes de você, uma ficha por Elfo, a salvo das limpezas de feitiço. Na sua vez, os dez da Lathril já estão lá (ficha nova também paga o custo)."
+  },
+  {
+   "nome": "Armadilha: o Winnower leva o Seedborn",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Ruthless Winnower",
+    "Seedborn Muse"
+   ],
+   "texto": "Na sua manutenção, você sacrifica uma criatura que não é Elfo: o Seedborn Muse ou o Craterhoof."
+  },
+  {
+   "nome": "Armadilha: Jaheira e a Lathril",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Jaheira, Friend of the Forest",
+    "Lathril, Blade of the Elves"
+   ],
+   "texto": "Ficha virada para mana não paga a Lathril, e ficha recém-criada nem pode virar para mana."
+  }
+ ]
+}
