@@ -1,0 +1,1727 @@
+{
+ "feito": "13/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Acelera a mana. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Compra",
+   "ab": "Compra",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Carta nova ou vantagem de carta."
+  },
+  {
+   "k": "removal",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remove ou responde."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Protege o Tovolar ou a mesa."
+  },
+  {
+   "k": "matilha",
+   "nome": "Matilha",
+   "ab": "Mat.",
+   "desc": "É Wolf ou Werewolf, ou cria um."
+  },
+  {
+   "k": "noite",
+   "nome": "Noite",
+   "ab": "Noite",
+   "desc": "Força, sustenta ou paga pela noite e pelas transformações."
+  },
+  {
+   "k": "pressao",
+   "nome": "Pressão",
+   "ab": "Press.",
+   "desc": "Anthem, pump e ímpeto."
+  },
+  {
+   "k": "evasao",
+   "nome": "Evasão",
+   "ab": "Evas.",
+   "desc": "Atropelar, ameaça, imbloqueável: o que faz o dano chegar, ou fecha o jogo."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Lobo ou lobisomem",
+   "plural": "Lobos e lobisomens",
+   "subtipo": [
+    "Wolf",
+    "Werewolf"
+   ]
+  },
+  "evm": {
+   "nome": "Evasão em massa"
+  },
+  "protege": {
+   "nome": "Proteção"
+  },
+  "contra": {
+   "nome": "Limpeza que leva a matilha"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "35 fontes contando as três cartas duplas, mas sete terrenos sempre entram virados: num deck de turno 3, um terreno virado no turno 2 atrasa o Tovolar."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de ramp dedicada",
+    "cartas de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais",
+   "alerta": "A compra é quase toda do Tovolar e depende de lobo conectando. Toski e Ohran Frostfang, no radar, pagam pela mesma conexão."
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 2,
+   "massa_ref": [
+    1,
+    2
+   ],
+   "alerta": "As duas limpezas levam a matilha junto; ficam como plano B, por decisão do dono. O Savage Twister é o mais afinável."
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 75,
+   "texto": "Três na manutenção trazem a noite; cada um que conecta compra."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "evm",
+   "min": 5,
+   "listar": true,
+   "rotulo": [
+    "carta de evasão em massa",
+    "cartas de evasão em massa"
+   ],
+   "texto": "O Tovolar paga por conexão: o deck precisa que a matilha inteira passe.",
+   "alerta": "Pouca evasão em massa: o deck gera corpo e não converte em dano nem em compra.",
+   "ok": "A matilha passa."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "protege",
+   "min": 4,
+   "listar": true,
+   "rotulo": [
+    "proteção",
+    "proteções"
+   ],
+   "ok": "O Tovolar e a mesa têm cobertura."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Lobo de uma ou duas manas e ramp (Sol Ring, os Signets, Kessig Naturalist, Scorned Villager), para o Tovolar entrar no turno 3 com dois lobos ao lado.",
+   "fortes": [
+    "Onze lobos custam uma ou duas manas.",
+    "Sol Ring, Arcane Signet e Gruul Signet põem o Tovolar no turno 2 ou 3."
+   ],
+   "fracos": [
+    "Sete terrenos sempre entram virados.",
+    "Metade dos lobos baratos é 1/1 sem texto."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "Três lobos na manutenção trazem a noite; o Tovolar vira Mayor of Avabruck e Scorned Villager; Immerwolf, Kessig Naturalist e o Mayor viram lordes. Cada lobo que conecta compra.",
+   "fortes": [
+    "Child of the Pack, Spirit of the Hunt e Hollowhenge Overlord põem lobo no turno dos outros, sem trazer o dia.",
+    "Werewolf Pack Leader e Lurking Predators somam carta ao Tovolar."
+   ],
+   "fracos": [
+    "Só quatro cartas dão evasão à matilha inteira: muitos lobos param em bloqueio.",
+    "A mesa vira dia quase toda volta, e os lobisomens encolhem no turno dos outros."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "Gruul Charm, Gruul War Chant ou Hound Tamer de noite para passar; Unnatural Growth, Berserkers' Onslaught, Kessig Wolf Run e o pump do Tovolar para fechar. Se a mesa deles passou da sua, a limpeza é o plano B.",
+   "fortes": [
+    "Berserkers' Onslaught dobra o dano e a compra.",
+    "Unnatural Growth dobra a matilha em todo combate, também na defesa."
+   ],
+   "fracos": [
+    "Fechamento lento: Obelisk of Urd, Icon of Ancestry e Sylvan Anthem são anthems pequenos.",
+    "As duas limpezas matam o próprio motor."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "A matilha bloqueia bem e o Unnatural Growth dobra na defesa, mas os lobos baratos são pequenos."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Muitos corpos para bloquear, Chaos Warp e o Moonlight Hunt do radar para a criatura grande."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Nenhuma contramágica, e a pressão chega tarde para cortar o combo."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "fraco",
+    "porque": "Uma limpeza leva a matilha e a compra junto; Heroic Intervention está só no radar."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "equilibrado",
+    "porque": "Outland Liberator e Destructive Revelry respondem a artefato e encantamento, mas a curva sofre com taxas."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Eles bloqueiam com fichas e drenam; a matilha atropela à noite."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "Lurking Predators pune cada mágica, mas eles viram o dia todo turno."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "A matilha pressiona antes da criatura grande deles, e Gruul Charm passa por cima dela."
+   }
+  ]
+ },
+ "cartas": {
+  "Tovolar, Dire Overlord": {
+   "notas": {
+    "draw": 3,
+    "matilha": 3,
+    "noite": 3,
+    "pressao": 1,
+    "evasao": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Lobisomem de 3, com Daybound. Nas duas faces: sempre que um Wolf ou Werewolf seu causa dano de combate a um jogador, você compra. Na sua manutenção, com três ou mais Wolves e Werewolves, vira noite e você pode transformar seus Human Werewolves. Verso: {X}{R}{G}, +X/+0 e atropelar num Wolf ou Werewolf.",
+   "porque": "É o motor de compra e a chave da noite. A compra vale de dia; a noite pede três lobos no começo da manutenção. Custa três: volta barato da zona de comando."
+  },
+  "Ascendant Packleader": {
+   "notas": {
+    "matilha": 2,
+    "pressao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Lobo de 1. Entra com um marcador se você controla permanente de valor 4 ou mais; cresce a cada mágica de valor 4 ou mais.",
+   "porque": "Conta para os três lobos, mas a condição quase não dispara nesta curva.",
+   "prioridade": 6
+  },
+  "Augur of Autumn": {
+   "notas": {
+    "ramp": 2,
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano de 3. Você vê o topo e joga terrenos de lá; com coven, conjura criaturas do topo.",
+   "porque": "Vantagem de carta que não depende de combate."
+  },
+  "Burly Breaker": {
+   "notas": {
+    "protecao": 1,
+    "matilha": 2,
+    "noite": 2,
+    "pressao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Lobisomem 6/5 de 5 com ward 1; à noite, 8/7 com ward 3 (Daybound).",
+   "porque": "Corpo grande e difícil de responder, sem evasão.",
+   "pacote": "noite"
+  },
+  "Child of the Pack": {
+   "notas": {
+    "matilha": 3,
+    "noite": 2,
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Lobisomem de 4. {2}{R}{G}: um Lobo 2/2, em qualquer turno. Verso: atropelar e +1/+0 nas outras criaturas (Daybound).",
+   "porque": "Cria lobo no fim do turno de um oponente: o terceiro lobo da sua manutenção, sem empurrar a mesa para o dia."
+  },
+  "Dire Wolf Prowler": {
+   "notas": {
+    "matilha": 2,
+    "pressao": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Lobo de 3. {1}{G}: +2/+2 e ímpeto, uma vez por turno.",
+   "porque": "Lobo de enchimento que pede mana."
+  },
+  "Fearless Pup": {
+   "notas": {
+    "matilha": 2,
+    "pressao": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Lobo 1/1 de 1 com iniciativa. Boast {2}{R}: +2/+0.",
+   "porque": "O lobo mais fraco da lista; só conta para os três.",
+   "prioridade": 4
+  },
+  "Goblin Anarchomancer": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Goblin de 2. Mágicas vermelhas e verdes custam {1} a menos.",
+   "porque": "Não conta para os três lobos nem compra quando conecta.",
+   "prioridade": 3
+  },
+  "Halana and Alena, Partners": {
+   "notas": {
+    "pressao": 2,
+    "evasao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Humanas de 4, alcance e iniciativa. No começo do seu combate, marcadores iguais à força delas noutra criatura sua, que ganha ímpeto.",
+   "porque": "Não contam para a noite, mas dão ímpeto e tamanho a um lobo recém-conjurado, que conecta e compra no mesmo turno."
+  },
+  "Hollowhenge Overlord": {
+   "notas": {
+    "matilha": 3,
+    "noite": 1,
+    "pressao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Lobo de 6 com lampejo. Na sua manutenção, um Lobo 2/2 para cada Wolf ou Werewolf seu.",
+   "porque": "Dobra a matilha a cada volta. As fichas garantem a noite da volta seguinte, não a desta: os gatilhos da manutenção disparam juntos."
+  },
+  "Hound Tamer": {
+   "notas": {
+    "matilha": 2,
+    "noite": 2,
+    "pressao": 1,
+    "evasao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Lobisomem de 3 com atropelar. {3}{G}: um marcador numa criatura. Verso: outros Wolves e Werewolves seus têm atropelar (Daybound).",
+   "porque": "Atropelar para a matilha inteira à noite.",
+   "marcas": {
+    "evm": 1
+   },
+   "pacote": "evasao"
+  },
+  "Howlpack Piper": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "protecao": 1,
+    "matilha": 2,
+    "noite": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Lobisomem de 4 que não pode ser anulado. {1}{G}, vira: uma criatura da mão no campo. Verso: ao entrar ou virar, cava seis por uma criatura (Daybound).",
+   "porque": "Põe os corpos caros em campo sem pagar."
+  },
+  "Immerwolf": {
+   "notas": {
+    "matilha": 3,
+    "noite": 3,
+    "pressao": 2,
+    "evasao": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Lobo de 3, intimidar. Outros Wolves e Werewolves seus ganham +1/+1. Werewolves não-Humanos seus não podem se transformar.",
+   "porque": "Lorde e trava da noite: o verso dos seus lobisomens fica de noite quando a mesa vira dia (leitura do mtg.wiki, sem ruling impressa).",
+   "pacote": "noite"
+  },
+  "Kessig Naturalist": {
+   "notas": {
+    "ramp": 2,
+    "matilha": 2,
+    "noite": 2,
+    "pressao": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Lobisomem de 2. Ao atacar, gera {R} ou {G}. Verso: outros Wolves e Werewolves seus ganham +1/+1 (Daybound).",
+   "porque": "Lobo de turno 2 que acelera e vira lorde à noite.",
+   "pacote": "noite"
+  },
+  "Kessig Prowler": {
+   "notas": {
+    "matilha": 2,
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Lobisomem de 1. {4}{G}: transforma num 4/4 que não pode ser bloqueado por mais de uma criatura.",
+   "porque": "Lobo de turno 1 com uso tardio."
+  },
+  "Mayor of Avabruck": {
+   "notas": {
+    "matilha": 3,
+    "noite": 2,
+    "pressao": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Lobisomem antigo de 2: a frente dá +1/+1 aos Humanos. Verso: +1/+1 aos Wolves e Werewolves e um Lobo 2/2 no começo do seu fim de turno.",
+   "porque": "O Tovolar o vira na manutenção: um lorde e uma fábrica de lobo por volta.",
+   "pacote": "noite"
+  },
+  "Outland Liberator": {
+   "notas": {
+    "removal": 2,
+    "matilha": 2,
+    "noite": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Lobisomem de 2. {1}, sacrifique: destrói artefato ou encantamento. Verso: destrói um ao atacar (Daybound).",
+   "porque": "Interação que conta como lobo."
+  },
+  "Packsong Pup": {
+   "notas": {
+    "matilha": 2,
+    "pressao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Lobo de 2. Cresce no seu combate se há outro Wolf ou Werewolf; ao morrer, você ganha vida igual à força.",
+   "porque": "Corpo barato da tribo."
+  },
+  "Runebound Wolf": {
+   "notas": {
+    "matilha": 2,
+    "evasao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Lobo de 2. {3}{R}, vira: dano a um oponente igual ao número de Wolves e Werewolves seus, em qualquer turno.",
+   "porque": "Alcance direto quando a mesa trava, no fim do turno de quem está perto de morrer.",
+   "pacote": "evasao"
+  },
+  "Scorned Villager": {
+   "notas": {
+    "ramp": 2,
+    "matilha": 2,
+    "noite": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Lobisomem antigo de 2: gera {G}. Verso: vigilância e gera {G}{G}.",
+   "porque": "Ramp que conta como lobo; o Tovolar o vira e dobra a mana.",
+   "pacote": "noite"
+  },
+  "Snarling Wolf": {
+   "notas": {
+    "matilha": 2,
+    "pressao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Lobo de 1. {1}{G}: +2/+2 uma vez por turno.",
+   "porque": "Lobo de turno 1 para a contagem."
+  },
+  "Spirit of the Hunt": {
+   "notas": {
+    "protecao": 1,
+    "matilha": 2,
+    "pressao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Lobo de 3 com lampejo. Ao entrar, outros Wolves e Werewolves seus ganham +0/+3.",
+   "porque": "Entra no fim do turno alheio e garante o terceiro lobo na manutenção."
+  },
+  "Tovolar's Huntmaster": {
+   "notas": {
+    "removal": 1,
+    "matilha": 3,
+    "noite": 2,
+    "pressao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Lobisomem de 6. Ao entrar, dois Lobos 2/2. Verso: dois lobos ao entrar ou atacar, e {2}{G}{G} faz um lobo lutar (Daybound).",
+   "porque": "Três corpos por uma carta."
+  },
+  "Weaver of Blossoms": {
+   "notas": {
+    "ramp": 2,
+    "matilha": 2,
+    "noite": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Lobisomem de 3: mana de qualquer cor. Verso: duas de uma cor (Daybound).",
+   "porque": "Ramp que conta como lobo.",
+   "pacote": "noite"
+  },
+  "Werewolf Pack Leader": {
+   "notas": {
+    "draw": 2,
+    "matilha": 2,
+    "pressao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Lobisomem de 2, de uma face só. Ao atacar com força total 6 ou mais, compre. {3}{G}: vira 5/3 com atropelar.",
+   "porque": "Segundo motor de compra pelo ataque."
+  },
+  "Arlinn, the Pack's Hope": {
+   "notas": {
+    "ramp": 1,
+    "matilha": 3,
+    "noite": 1,
+    "pressao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Planeswalker de 4 (Daybound). +1: até o seu turno, criaturas com lampejo e um marcador a mais. −3: dois Lobos 2/2. Verso: {R}{G}, ou vira 5/5.",
+   "porque": "Dois lobos de uma vez, ou lobos conjurados no turno dos outros sem trazer o dia."
+  },
+  "Domri, Anarch of Bolas": {
+   "notas": {
+    "ramp": 1,
+    "removal": 2,
+    "protecao": 1,
+    "pressao": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Planeswalker de 3. Criaturas suas +1/+0. +1: {R} ou {G} e criaturas não podem ser anuladas. −2: luta.",
+   "porque": "Anthem, remoção e mana numa carta."
+  },
+  "Bala Ged Recovery": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: devolve uma carta do cemitério à mão. Verso: terreno virado que gera {G}.",
+   "porque": "Terreno quando falta, recursão quando sobra."
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 9, uma a menos por criatura em campo: 13 de dano em cada criatura.",
+   "porque": "Mata a matilha também. Fica como plano B, por decisão do dono: o reset quando a mesa deles passou da sua.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true
+  },
+  "Bramblecrush": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 4: destrói uma permanente que não é criatura.",
+   "porque": "Cara e de feitiço; Beast Within faz mais por menos.",
+   "prioridade": 8
+  },
+  "Cathartic Reunion": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 2: descarte duas e compre três.",
+   "porque": "Compra fraca num deck cujo comandante já compra.",
+   "prioridade": 5
+  },
+  "Chaos Warp": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: o dono embaralha uma permanente no grimório e revela o topo; se for permanente, entra.",
+   "porque": "Responde a qualquer tipo."
+  },
+  "Cultivate": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: dois básicos, um no campo virado e outro na mão.",
+   "porque": "Ramp de terreno."
+  },
+  "Destructive Revelry": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: destrói artefato ou encantamento e causa 2 ao controlador.",
+   "porque": "Interação barata e instantânea."
+  },
+  "Dire-Strain Rampage": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 3: destrói artefato, encantamento ou terreno; o controlador busca básicos. Flashback.",
+   "porque": "Flexível, mas de feitiço; vira ramp só destruindo o próprio terreno.",
+   "prioridade": 9
+  },
+  "Evolution Charm": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Instantânea de 2: um básico na mão, uma criatura do cemitério na mão, ou voar.",
+   "porque": "Três coisas pequenas, nenhuma que o deck precise.",
+   "prioridade": 7
+  },
+  "Fog": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Instantânea de 1: previne todo dano de combate do turno.",
+   "porque": "Defesa simétrica num deck que vence atacando.",
+   "prioridade": 1
+  },
+  "Gruul Charm": {
+   "notas": {
+    "removal": 1,
+    "evasao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2. Um modo: criaturas sem voar não bloqueiam; ou recupera suas permanentes; ou 3 de dano em cada voadora.",
+   "porque": "O primeiro modo tira os bloqueadores de chão: a matilha inteira conecta e compra.",
+   "marcas": {
+    "evm": 1
+   }
+  },
+  "Khalni Ambush": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: sua criatura luta com uma de oponente. Verso: terreno virado que gera {G}.",
+   "porque": "Remoção quando sobra terreno."
+  },
+  "Moment's Peace": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Instantânea de 2: previne todo dano de combate do turno. Flashback.",
+   "porque": "Mesma razão do Fog.",
+   "prioridade": 2
+  },
+  "Roiling Regrowth": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea de 3: sacrifique um terreno e busque dois básicos virados.",
+   "porque": "Ramp de +1 por três manas.",
+   "prioridade": 10
+  },
+  "Savage Twister": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de X+2: X de dano em cada criatura.",
+   "porque": "Plano B do dono, e o mais afinável: com X pequeno, mata as fichas deles e poupa os lobos crescidos pelo Immerwolf e pelos lordes da noite.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true
+  },
+  "Storm the Festival": {
+   "notas": {
+    "draw": 2,
+    "matilha": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 6: das cinco do topo, até duas permanentes de valor 5 ou menos no campo. Flashback.",
+   "porque": "Seis manas por um resultado variável.",
+   "prioridade": 11
+  },
+  "Turntimber Symbiosis": {
+   "notas": {
+    "draw": 1,
+    "matilha": 1,
+    "pressao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 7: das sete do topo, uma criatura no campo. Verso: terreno que entra virado ou por 3 de vida.",
+   "porque": "Terreno quando falta, uma criatura grande quando sobra."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: uma mana da identidade.",
+   "porque": "Ramp de turno 2."
+  },
+  "Decanter of Endless Water": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 3: mana de qualquer cor; sem limite de mão.",
+   "porque": "Pedra de três que faz o que o Signet faz por duas.",
+   "prioridade": 12
+  },
+  "Doors of Durin": {
+   "notas": {
+    "draw": 1,
+    "matilha": 1,
+    "pressao": 2,
+    "evasao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 5. Sempre que você ataca, vidência 2 e, se o topo é criatura, ela entra virada e atacando.",
+   "porque": "Corpo extra a cada ataque; os bônus pedem Dwarf e Elf."
+  },
+  "Gruul Cluestone": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Artefato de 3: {R} ou {G}; {R}{G}, vira e sacrifique: compre.",
+   "porque": "Pedra lenta.",
+   "prioridade": 13
+  },
+  "Gruul Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2. {1}, vira: {R}{G}.",
+   "porque": "Ramp de turno 2."
+  },
+  "Icon of Ancestry": {
+   "notas": {
+    "draw": 1,
+    "pressao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 3. O tipo escolhido ganha +1/+1; {3}, vira: cava uma criatura do tipo.",
+   "porque": "Anthem pequeno de um tipo só, e Wolf e Werewolf são dois.",
+   "prioridade": 14
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 2,
+    "pressao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "Protege o Tovolar e o faz atacar no turno em que entra.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Mind Stone": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}; sacrifique: compre.",
+   "porque": "Incolor num deck de duas cores."
+  },
+  "Mystic Skull": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 2. {1}, vira: uma mana de qualquer cor. {5}, vira: transforma.",
+   "porque": "Ramp ruim.",
+   "prioridade": 15
+  },
+  "Obelisk of Urd": {
+   "notas": {
+    "pressao": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 6, convocar. O tipo escolhido ganha +2/+2.",
+   "porque": "Anthem de um tipo só; a convocação baixa o custo.",
+   "prioridade": 16,
+   "caro_por_desenho": true
+  },
+  "Rhonas's Monument": {
+   "notas": {
+    "ramp": 1,
+    "pressao": 2,
+    "evasao": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 3. Criaturas verdes custam {1} a menos; cada criatura conjurada dá +2/+2 e atropelar a uma criatura sua.",
+   "porque": "Atropelar a cada criatura conjurada.",
+   "pacote": "evasao"
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Tovolar no turno 2."
+  },
+  "Spellbook": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Artefato de 0: sem limite de mão.",
+   "porque": "O Reliquary Tower já faz isso sem ocupar vaga de mágica.",
+   "prioridade": 1
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "protecao": 3,
+    "pressao": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
+   "porque": "A segunda proteção do Tovolar.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Asceticism": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Encantamento de 5: suas criaturas têm resistência a magia; {1}{G}: regenera.",
+   "porque": "Cinco manas por proteção que não segura limpeza.",
+   "marcas": {
+    "protege": 1
+   },
+   "prioridade": 17
+  },
+  "Berserkers' Onslaught": {
+   "notas": {
+    "draw": 2,
+    "pressao": 3,
+    "evasao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 5: suas criaturas atacantes têm golpe duplo.",
+   "porque": "Cada golpe é dano de combate separado: o Tovolar compra duas por lobo que conecta."
+  },
+  "Bow of Nylea": {
+   "notas": {
+    "removal": 1,
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato encantamento de 3. Atacantes com toque mortífero; {1}{G}, vira: um de quatro modos pequenos.",
+   "porque": "Faz pouco por três manas.",
+   "prioridade": 18
+  },
+  "Fires of Yavimaya": {
+   "notas": {
+    "pressao": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Encantamento de 3: suas criaturas têm ímpeto.",
+   "porque": "Repete o Rhythm of the Wild.",
+   "prioridade": 19
+  },
+  "Full Moon's Rise": {
+   "notas": {
+    "protecao": 2,
+    "noite": 1,
+    "pressao": 2,
+    "evasao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 2. Werewolves seus +1/+0 e atropelar; sacrifique: regenera todos.",
+   "porque": "Atropelar em massa e proteção contra limpeza.",
+   "marcas": {
+    "evm": 1,
+    "protege": 1
+   },
+   "pacote": "evasao"
+  },
+  "Gruul War Chant": {
+   "notas": {
+    "pressao": 2,
+    "evasao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 4: atacantes +1/+0 e ameaça.",
+   "porque": "Ameaça em massa: a matilha passa e compra.",
+   "marcas": {
+    "evm": 1
+   }
+  },
+  "Lurking Predators": {
+   "notas": {
+    "draw": 2,
+    "matilha": 1,
+    "pressao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 6. Sempre que um oponente conjura, revele o topo; se for criatura, ela entra.",
+   "porque": "Corpos no turno dos outros, pagos pelo mesmo evento que vira o dia."
+  },
+  "Rhythm of the Wild": {
+   "notas": {
+    "protecao": 1,
+    "pressao": 2,
+    "evasao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3. Criaturas suas não podem ser anuladas; as não-ficha entram com ímpeto ou um marcador.",
+   "porque": "Ímpeto para conectar no turno em que entra."
+  },
+  "Sylvan Anthem": {
+   "notas": {
+    "pressao": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Encantamento de 2. Criaturas verdes +1/+1; vidência 1 quando uma entra.",
+   "porque": "Metade dos lobisomens é vermelha.",
+   "prioridade": 20
+  },
+  "Unnatural Growth": {
+   "notas": {
+    "protecao": 1,
+    "pressao": 3,
+    "evasao": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 5. No começo de cada combate, dobra a força e a resistência das suas criaturas.",
+   "porque": "O melhor multiplicador da lista. Vale em todo combate, inclusive no dos oponentes: os bloqueadores também dobram."
+  },
+  "Castle Embereth": {
+   "notas": {
+    "pressao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{R}; entra virado sem Mountain. {1}{R}{R}, vira: criaturas suas +1/+0.",
+   "porque": "Pressão num terreno."
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Mana da identidade.",
+   "porque": "As duas cores desvirado."
+  },
+  "Field of Ruin": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "{C}. {2}, vira e sacrifique: destrói terreno não-básico de oponente; cada jogador busca um básico.",
+   "porque": "Incolor e simétrico.",
+   "prioridade": 5
+  },
+  "Fire-Lit Thicket": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}, ou filtra {R/G} em duas.",
+   "porque": "Acerta a cor desvirado."
+  },
+  "Forgotten Cave": {
+   "notas": {
+    "ramp": -1,
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Sempre virado, {R}. Ciclo {R}.",
+   "porque": "Virado.",
+   "prioridade": 2,
+   "virado": true
+  },
+  "Gruul Guildgate": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Sempre virado, {R} ou {G}.",
+   "porque": "Virado, sem nada mais.",
+   "prioridade": 1,
+   "virado": true
+  },
+  "Highland Forest": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado; Mountain Forest, {R} ou {G}.",
+   "porque": "Virado, mas o Cultivate e as buscas de Forest o acham.",
+   "virado": true
+  },
+  "Kessig Wolf Run": {
+   "notas": {
+    "pressao": 2,
+    "evasao": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "{C}. {X}{R}{G}, vira: uma criatura ganha +X/+0 e atropelar.",
+   "porque": "Fechamento num terreno."
+  },
+  "Oran-Rief, the Vastwood": {
+   "notas": {
+    "ramp": -1,
+    "pressao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sempre virado, {G}. Vira: marcador em cada criatura verde que entrou no turno.",
+   "porque": "Virado e pequeno.",
+   "prioridade": 3,
+   "virado": true
+  },
+  "Path of Ancestry": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sempre virado. Mana da identidade; vidência ao conjurar criatura que divide tipo com o comandante.",
+   "porque": "Virado; a vidência sai nos lobisomens, não nos lobos.",
+   "prioridade": 4,
+   "virado": true
+  },
+  "Reliquary Tower": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}. Sem limite de mão.",
+   "porque": "O Tovolar enche a mão."
+  },
+  "Rockfall Vale": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{R} ou {G}; virado com menos de dois outros terrenos.",
+   "porque": "Desvirado do turno 3 em diante."
+  },
+  "Skarrg, the Rage Pits": {
+   "notas": {
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}. {R}{G}, vira: +1/+1 e atropelar numa criatura.",
+   "porque": "Utilitário de fechamento."
+  },
+  "Spire Garden": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{R} ou {G}; desvirado com dois ou mais oponentes.",
+   "porque": "Duas cores desvirado na mesa de quatro."
+  },
+  "Temple of Abandon": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sempre virado, {R} ou {G}; vidência 1.",
+   "porque": "Virado.",
+   "prioridade": 6,
+   "virado": true
+  },
+  "Tranquil Thicket": {
+   "notas": {
+    "ramp": -1,
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Sempre virado, {G}. Ciclo {G}.",
+   "porque": "Virado.",
+   "prioridade": 7,
+   "virado": true
+  },
+  "Forest": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo do Cultivate e do Roiling Regrowth."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo do Cultivate e do Roiling Regrowth."
+  }
+ },
+ "radar": {
+  "Huntmaster of the Fells": {
+   "notas": {
+    "removal": 2,
+    "matilha": 3,
+    "noite": 3,
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Lobisomem antigo de 4. Ao entrar ou virar para a frente: um Lobo 2/2 e 2 de vida. Verso: atropelar; ao virar, 2 de dano num oponente e 2 numa criatura.",
+   "porque": "O Tovolar o vira na manutenção, e a mesa o desvira com duas mágicas: lobo, vida e dano a cada volta. O Immerwolf trava o ciclo no verso.",
+   "sai": "Dire-Strain Rampage"
+  },
+  "Kruin Outlaw": {
+   "notas": {
+    "draw": 1,
+    "matilha": 2,
+    "noite": 2,
+    "pressao": 2,
+    "evasao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Lobisomem antigo de 3 com iniciativa. Verso: golpe duplo, e seus Werewolves têm ameaça.",
+   "porque": "Ameaça em massa para os lobisomens e golpe duplo, que compra duas. O Tovolar o vira.",
+   "sai": "Evolution Charm",
+   "marcas": {
+    "evm": 1
+   }
+  },
+  "Pyreheart Wolf": {
+   "notas": {
+    "protecao": 1,
+    "matilha": 2,
+    "pressao": 1,
+    "evasao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Lobo 1/1 de 3. Ao atacar, suas criaturas ganham ameaça. Persistir.",
+   "porque": "Evasão em massa que volta uma vez do cemitério: a carta que mais converte.",
+   "sai": "Moment's Peace",
+   "marcas": {
+    "evm": 1
+   }
+  },
+  "Howlpack Resurgence": {
+   "notas": {
+    "pressao": 2,
+    "evasao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Encantamento de 3 com lampejo. Wolves e Werewolves seus +1/+1 e atropelar.",
+   "porque": "Atropelar em massa por três, para os dois tipos, no lugar do Icon que só pega um.",
+   "sai": "Icon of Ancestry",
+   "marcas": {
+    "evm": 1
+   }
+  },
+  "Heroic Intervention": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Instantânea de 2: suas permanentes ganham resistência a magia e indestrutível até o fim do turno.",
+   "porque": "A resposta à limpeza deles que o deck não tem, por duas manas no lugar de cinco.",
+   "sai": "Asceticism",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Torgal, A Fine Hound": {
+   "notas": {
+    "ramp": 2,
+    "matilha": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Lobo 2/2 de 2. Vira: mana de qualquer cor. Seu primeiro Humano conjurado no turno entra com marcadores por Dog e Wolf.",
+   "porque": "Lobo de turno 2 que acelera.",
+   "sai": "Fearless Pup"
+  },
+  "Duskwatch Recruiter": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2,
+    "matilha": 2,
+    "noite": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Lobisomem antigo de 2. {2}{G}: cava uma criatura nas três do topo. Verso: suas criaturas custam {1} a menos.",
+   "porque": "Pia de mana que acha corpos e conta para a noite; o Tovolar o vira.",
+   "sai": "Goblin Anarchomancer"
+  },
+  "Nightpack Ambusher": {
+   "notas": {
+    "matilha": 3,
+    "pressao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Lobo 4/4 de 4 com lampejo. Outros Wolves e Werewolves +1/+1. No seu fim de turno, se você não conjurou nada, um Lobo 2/2.",
+   "porque": "Lorde que entra no turno alheio e garante a contagem.",
+   "sai": "Gruul Cluestone"
+  },
+  "Avabruck Caretaker": {
+   "notas": {
+    "protecao": 3,
+    "matilha": 2,
+    "noite": 2,
+    "pressao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Lobisomem de 6 com resistência a magia. No seu combate, dois marcadores noutra criatura. Verso: suas outras permanentes têm resistência a magia, e dois marcadores em cada criatura (Daybound).",
+   "porque": "Proteção da mesa e crescimento em massa à noite.",
+   "sai": "Bow of Nylea",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Toski, Bearer of Secrets": {
+   "notas": {
+    "draw": 3,
+    "protecao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Esquilo lendário de 4, indestrutível, não pode ser anulado, ataca todo combate. Sempre que uma criatura sua causa dano de combate a um jogador, compre.",
+   "porque": "Soma com o Tovolar: cada lobo que conecta compra duas. Não é lobo.",
+   "sai": "Cathartic Reunion"
+  },
+  "Ohran Frostfang": {
+   "notas": {
+    "draw": 3,
+    "removal": 1,
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Cobra 2/6 de 5. Atacantes seus têm toque mortífero; sempre que uma criatura sua causa dano de combate a um jogador, compre.",
+   "porque": "Terceiro motor de compra, e bloquear a matilha vira perder criatura. Não é lobo.",
+   "sai": "Storm the Festival"
+  },
+  "Craterhoof Behemoth": {
+   "notas": {
+    "pressao": 3,
+    "evasao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Fera 5/5 de 8 com ímpeto. Ao entrar, suas criaturas ganham atropelar e +X/+X, X o número delas.",
+   "porque": "Fechamento de mesa larga. Não é Game Changer.",
+   "sai": "Obelisk of Urd",
+   "marcas": {
+    "evm": 1
+   }
+  },
+  "Overwhelming Stampede": {
+   "notas": {
+    "pressao": 3,
+    "evasao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 5: suas criaturas ganham atropelar e +X/+X, X a maior força entre elas.",
+   "porque": "O fechamento de cinco manas, ao lado do Craterhoof, a pedido do dono.",
+   "sai": "Sylvan Anthem",
+   "marcas": {
+    "evm": 1
+   }
+  },
+  "Arlinn Kord": {
+   "notas": {
+    "removal": 1,
+    "matilha": 2,
+    "pressao": 2,
+    "evasao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Planeswalker de 4. +1: +2/+2, vigilância e ímpeto numa criatura. 0: um Lobo 2/2 e transforma. Verso: +1/+1 e atropelar no time; −1: 3 de dano.",
+   "porque": "Lobo por turno, ímpeto e atropelar em massa.",
+   "sai": "Fires of Yavimaya",
+   "marcas": {
+    "evm": 1
+   }
+  },
+  "Moonmist": {
+   "notas": {
+    "protecao": 3,
+    "noite": 1,
+    "evasao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 2: transforma todos os Humans; previne o dano de combate de quem não é Wolf nem Werewolf.",
+   "porque": "Névoa só para os outros: protege o ataque e o bloqueio, e vira os lobisomens antigos.",
+   "sai": "Fog"
+  },
+  "Moonlight Hunt": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 2: cada Wolf e Werewolf seu causa dano igual à força numa criatura de oponente.",
+   "porque": "Remoção instantânea que escala com a matilha, na vaga de uma carta que não faz nada.",
+   "sai": "Spellbook"
+  },
+  "Beast Within": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3: destrói uma permanente; o controlador ganha uma Fera 3/3.",
+   "porque": "Remoção instantânea de qualquer coisa. Está também no Fynn.",
+   "sai": "Bramblecrush"
+  },
+  "The Great Henge": {
+   "notas": {
+    "ramp": 2,
+    "draw": 3,
+    "pressao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 9, X a menos (X a maior força entre suas criaturas). Vira: {G}{G} e 2 de vida. Criatura não-ficha que entra ganha um marcador e compra.",
+   "porque": "Com um 5/5 em campo, custa quatro: ramp e compra por corpo.",
+   "sai": "Decanter of Endless Water",
+   "caro_por_desenho": true
+  },
+  "Nature's Lore": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 2: um terreno Forest para o campo desvirado.",
+   "porque": "Ramp de duas no lugar do de três; acha o Highland Forest e os duais do radar.",
+   "sai": "Roiling Regrowth"
+  },
+  "Talisman of Impulse": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 2: {C}, ou {R} ou {G} com 1 de dano.",
+   "porque": "Pedra de duas nas cores.",
+   "sai": "Mystic Skull"
+  },
+  "Bejeweled Warg": {
+   "notas": {
+    "ramp": 1,
+    "matilha": 2,
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Lobo 3/2 de 2 com atropelar. Ao conectar, um marcador num Lobo seu ou um Treasure.",
+   "porque": "Lobo de turno 2 que já conecta.",
+   "sai": "Ascendant Packleader"
+  },
+  "Reckless Stormseeker": {
+   "notas": {
+    "matilha": 2,
+    "noite": 2,
+    "pressao": 2,
+    "evasao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Lobisomem de 3. No seu combate, +1/+0 e ímpeto numa criatura; à noite, +2/+0, atropelar e ímpeto (Daybound).",
+   "porque": "O mesmo ímpeto da Halana and Alena, mas contando como lobo.",
+   "sai": "Halana and Alena, Partners"
+  },
+  "Beast Whisperer": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfo de 4. Sempre que você conjura uma criatura, compre.",
+   "porque": "Compra que não depende de conectar. Sugerido pela fonte A.",
+   "sai": "Mind Stone"
+  },
+  "Ill-Tempered Loner": {
+   "notas": {
+    "removal": 1,
+    "matilha": 2,
+    "noite": 2,
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Lobisomem de 4. Quando recebe dano, causa esse tanto a qualquer alvo. Verso: o mesmo para qualquer permanente sua (Daybound).",
+   "porque": "Pune bloqueio e limpeza. Sugerido pela fonte C."
+  },
+  "Shared Animosity": {
+   "notas": {
+    "pressao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 3. Cada criatura sua que ataca ganha +1/+0 por outra atacante que divide um tipo com ela.",
+   "porque": "Lobos com lobos e lobisomens com lobisomens. Sugerido pela fonte C. Está também na Evelyn."
+  },
+  "Cemetery Prowler": {
+   "notas": {
+    "removal": 1,
+    "matilha": 2,
+    "pressao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Lobo 3/4 de 3 com vigilância. Ao entrar ou atacar, exila uma carta de um cemitério; mágicas que dividem tipo com as exiladas custam menos.",
+   "porque": "Lobo de três com corpo e um pouco de interação. Sugerido pela fonte C."
+  },
+  "Unnatural Moonrise": {
+   "notas": {
+    "draw": 1,
+    "noite": 3,
+    "pressao": 1,
+    "evasao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 2: vira noite; uma criatura ganha +1/+0, atropelar e compra quando conecta. Flashback.",
+   "porque": "Só vale quando faltam os três lobos. Primeiro do banco da fonte B."
+  },
+  "Stomping Ground": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Mountain Forest: {R} ou {G}; pague 2 de vida ou entra virado.",
+   "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste.",
+   "sai": "Gruul Guildgate"
+  },
+  "Cinder Glade": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Mountain Forest: {R} ou {G}; virado sem dois básicos.",
+   "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste.",
+   "sai": "Temple of Abandon"
+  },
+  "Karplusan Forest": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "{C}, ou {R} ou {G} com 1 de dano.",
+   "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste.",
+   "sai": "Tranquil Thicket"
+  },
+  "Cragcrown Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Terreno de duas faces: {R} ou {G}, desvirado.",
+   "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste.",
+   "sai": "Forgotten Cave"
+  },
+  "Wooded Foothills": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Pague 1 de vida e sacrifique: um Mountain ou Forest para o campo.",
+   "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste.",
+   "sai": "Oran-Rief, the Vastwood"
+  },
+  "Rogue's Passage": {
+   "notas": {
+    "evasao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {C}. {4}, vira: uma criatura não pode ser bloqueada.",
+   "porque": "Evasão num terreno, no lugar de um incolor simétrico. Está também em quatro decks.",
+   "sai": "Field of Ruin"
+  },
+  "Cavern of Souls": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Terreno: escolha um tipo; mana para criatura desse tipo, que não pode ser anulada.",
+   "porque": "O dono não quer (13/10/2026)."
+  },
+  "Triumph of the Hordes": {
+   "notas": {
+    "pressao": 3,
+    "evasao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Feitiço de 4: suas criaturas ganham +1/+1, atropelar e infectar até o fim do turno.",
+   "porque": "Um turno só, e o deck já tem Craterhoof e Overwhelming Stampede no radar."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Compra dupla",
+   "tipo": "Motor",
+   "pecas": [
+    "Tovolar, Dire Overlord",
+    "Berserkers' Onslaught"
+   ],
+   "texto": "Golpe duplo é dano de combate duas vezes: cada lobo que conecta compra duas cartas."
+  },
+  {
+   "nome": "A noite que não acaba",
+   "tipo": "Motor",
+   "pecas": [
+    "Tovolar, Dire Overlord",
+    "Immerwolf"
+   ],
+   "texto": "O Tovolar traz a noite na sua manutenção, e o Immerwolf impede os seus lobisomens de voltarem para a frente quando a mesa vira dia. Leitura do mtg.wiki, sem ruling impressa."
+  },
+  {
+   "nome": "O terceiro lobo no fim do turno deles",
+   "tipo": "Motor",
+   "pecas": [
+    "Child of the Pack",
+    "Tovolar, Dire Overlord"
+   ],
+   "texto": "A Child cria um lobo em velocidade instantânea, e mágica no turno dos outros não traz o dia: a noite vem na sua manutenção."
+  },
+  {
+   "nome": "O prefeito vira lorde",
+   "tipo": "Motor",
+   "pecas": [
+    "Tovolar, Dire Overlord",
+    "Mayor of Avabruck"
+   ],
+   "texto": "O Tovolar vira o Mayor na manutenção: +1/+1 para a matilha e um Lobo 2/2 no começo do seu fim de turno."
+  },
+  {
+   "nome": "A matilha dobra",
+   "tipo": "Motor",
+   "pecas": [
+    "Hollowhenge Overlord",
+    "Tovolar, Dire Overlord"
+   ],
+   "texto": "Um Lobo por Wolf ou Werewolf seu na manutenção. As fichas garantem a noite da volta seguinte."
+  },
+  {
+   "nome": "Ninguém bloqueia",
+   "tipo": "Motor",
+   "pecas": [
+    "Gruul Charm",
+    "Tovolar, Dire Overlord"
+   ],
+   "texto": "Criaturas sem voar não bloqueiam: toda a matilha conecta, e cada lobo compra."
+  },
+  {
+   "nome": "Atropelar dobrado",
+   "tipo": "Motor",
+   "pecas": [
+    "Unnatural Growth",
+    "Hound Tamer"
+   ],
+   "texto": "À noite, o Hound Tamer dá atropelar aos lobos, e o Unnatural Growth dobra a força deles no combate."
+  },
+  {
+   "nome": "O pump do comandante",
+   "tipo": "Motor",
+   "pecas": [
+    "Unnatural Growth",
+    "Kessig Wolf Run"
+   ],
+   "texto": "O Wolf Run soma +X/+0 e atropelar antes do dobro do Unnatural Growth no começo do combate seguinte; no mesmo combate, use o pump do verso do Tovolar."
+  },
+  {
+   "nome": "Dano direto da matilha",
+   "tipo": "Motor",
+   "pecas": [
+    "Runebound Wolf",
+    "Hollowhenge Overlord"
+   ],
+   "texto": "O Runebound Wolf causa um de dano por Wolf e Werewolf, em qualquer turno."
+  },
+  {
+   "nome": "Lobos no turno dos outros",
+   "tipo": "Motor",
+   "pecas": [
+    "Arlinn, the Pack's Hope",
+    "Tovolar, Dire Overlord"
+   ],
+   "texto": "O +1 da Arlinn dá lampejo às suas criaturas até o seu turno: conjure os lobos no turno dos outros, sem empurrar a mesa para o dia."
+  },
+  {
+   "nome": "Plano B: limpeza afinada",
+   "tipo": "Motor",
+   "pecas": [
+    "Savage Twister",
+    "Immerwolf"
+   ],
+   "texto": "Com X igual à resistência das fichas deles, a limpeza mata a mesa deles e poupa os lobos crescidos pelo Immerwolf."
+  },
+  {
+   "nome": "Armadilha: o Blasphemous leva a matilha",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Blasphemous Act",
+    "Tovolar, Dire Overlord"
+   ],
+   "texto": "13 de dano em tudo: é o reset quando a mesa deles passou da sua, mas a noite e a compra param até a matilha voltar."
+  },
+  {
+   "nome": "Ciclo do caçador",
+   "tipo": "Motor",
+   "pecas": [
+    "Huntmaster of the Fells",
+    "Tovolar, Dire Overlord"
+   ],
+   "texto": "O Tovolar vira o Huntmaster na manutenção (2 de dano num oponente e 2 numa criatura); a mesa o desvira com duas mágicas (um lobo e 2 de vida). Sem Immerwolf em campo."
+  }
+ ]
+}
