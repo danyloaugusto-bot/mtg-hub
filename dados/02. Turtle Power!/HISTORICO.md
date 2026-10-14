@@ -1,0 +1,11 @@
+# Histórico: Cowabunga (Leonardo, the Balance + Michelangelo, the Heart)
+
+## Versão 1.0, 13/10/2026
+
+- Painel feito a partir de três análises de fora: o handover V2 com a planilha de auditoria, a análise do Claude com a reconstrução de 41 saídas e 47 entradas, e uma terceira sem lista de trocas. Confrontadas em `CONFRONTO.md` contra o texto oficial no Scryfall.
+- O primeiro deck com dois comandantes: os parceiros Leonardo e Michelangelo, ambos com Partner—Character select. O motor passou a ler os dois sob o cabeçalho `COMMANDER` e a conferir a identidade pela união das cores (WUBRG, que vem do Leonardo).
+- 100 cartas em 93 linhas, na impressão exata da lista (26 foils, entre eles os 12 básicos). Placar 396, CMC médio 3,27. 4 S, 29 BAX, nenhuma carta de estimação. Os oito agrupamentos aprovados pelo dono: Mana e cor, Compra, Interação, Proteção, Fichas, Marcadores, Fechamento e Tartarugas.
+- O que o confronto achou: o Double Jump não apaga os marcadores (eles somam por cima da base 5/5); são 17 Tartarugas, não 16; o Raphael, the Muscle dobra o dano do Casey Jones, que nenhuma análise viu; o Splinter, Radical Rat não dobra o Leonardo, por causa do "uma vez por turno".
+- Radar com 47 cartas, no critério da Tergrid: 26 trocas de tier alto da reconstrução do Claude (multiplicadores, Casey Jones e All Will Be One, fichas no turno dos oponentes, interação unilateral no lugar das quatro limpezas simétricas, proteção e mana), 16 para avaliar (os seis shocks, Mana Confluence, Prismatic Vista e The World Tree trocando terreno por terreno, e as sugestões da terceira análise) e 4 de fora. Com as trocas, placar 414 e CMC médio 3,05; as Tartarugas cairiam de 17 para 11. Três Game Changers entre as trocas (Smothering Tithe, Teferi's Protection, Cyclonic Rift), aceitos pelo dono. As trocas ficam como sugestão; a lista não muda.
+- 13 combos, motores e armadilhas, com o Casey Jones e o Raphael, the Muscle como o fechamento sem combate.
+- Tema "Cowabunga": esgoto de Nova York inundado de mutagênico, verde-casco e azul-bandana, fonte Bangers. Motivos novos no motor: gráfico "cascos" (cascos de tartaruga cujas placas acendem, a bandana do Leonardo atrás do placar) e textura "redemoinho" (a espiral de água com bolhas da capa).
