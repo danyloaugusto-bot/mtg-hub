@@ -1,0 +1,1514 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Big mana",
+   "ab": "Mana",
+   "ref": [
+    10,
+    14
+   ],
+   "desc": "Pedras, terrenos e rituais que geram muita mana azul ou incolor."
+  },
+  {
+   "k": "draw",
+   "nome": "Compra",
+   "ab": "Compra",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra e seleção."
+  },
+  {
+   "k": "removal",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Contramágica, remoção e devolução."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Mantém a Braids, as criaturas grandes e você vivos."
+  },
+  {
+   "k": "hug",
+   "nome": "Mesa farta",
+   "ab": "Hug",
+   "desc": "Group hug: dá carta, mana ou mesa a todos."
+  },
+  {
+   "k": "braids",
+   "nome": "De graça com a Braids",
+   "curto": "Braids",
+   "ab": "Braids",
+   "desc": "Artefato ou criatura cara que vale pôr de graça na manutenção, e o que dá manutenção a mais."
+  },
+  {
+   "k": "caos",
+   "nome": "Confusão",
+   "ab": "Conf.",
+   "desc": "Cópia, roubo, troca e simetria que pesa mais nos outros."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "O que tira jogadores do jogo, ou é peça de uma linha que tira."
+  }
+ ],
+ "marcadores": {
+  "gratis": {
+   "nome": "Sai de graça com a Braids"
+  },
+  "upkeep": {
+   "nome": "Manutenção ou gatilho a mais"
+  },
+  "simetrico": {
+   "nome": "Simétrico (ajuda todos)"
+  },
+  "copia": {
+   "nome": "Cópia ou roubo"
+  },
+  "protege": {
+   "nome": "Proteção"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "Mono-azul com 22 Islands: a cor nunca falta, mas nove terrenos não dão azul."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 12,
+   "rotulo": [
+    "peça de big mana",
+    "peças de big mana"
+   ],
+   "passagem": "que ajudam de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 2,
+   "massa_ref": [
+    1,
+    2
+   ],
+   "alerta": "Quase toda a interação é contramágica: a remoção de permanente é pouca para o que a Braids dá aos outros."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "gratis",
+   "min": 12,
+   "listar": true,
+   "rotulo": [
+    "carta que sai de graça com a Braids",
+    "cartas que saem de graça com a Braids"
+   ],
+   "texto": "Artefatos e criaturas de seis manas ou mais: é aí que a Braids paga a vaga.",
+   "ok": "A Braids tem o que pôr."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "upkeep",
+   "min": 3,
+   "listar": true,
+   "rotulo": [
+    "manutenção ou gatilho a mais",
+    "manutenções ou gatilhos a mais"
+   ],
+   "ok": "A Braids dispara mais de uma vez por turno."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "simetrico",
+   "max": 12,
+   "listar": true,
+   "rotulo": [
+    "carta simétrica",
+    "cartas simétricas"
+   ],
+   "texto": "O group hug: ajuda todos, e você converte melhor com o Consecrated Sphinx e o Jin-Gitaxias.",
+   "alerta": "Simetria demais: a mesa deles cresce mais que a sua."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Sol Ring, Mana Vault, Ancient Tomb e pedras de duas manas para a Braids no turno 2 ou 3; Kami of the Crescent Moon ou Howling Mine para encher a mão de todos.",
+   "fortes": [
+    "Muita aceleração barata: Sol Ring, Mana Vault, Ancient Tomb e quatro pedras de duas manas.",
+    "Contramágica de uma ou duas manas para proteger a Braids."
+   ],
+   "fracos": [
+    "A Braids dá permanentes aos oponentes desde o primeiro turno dela.",
+    "Group hug cedo enche a mão deles também."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 7",
+   "plano": "A Braids põe de graça o que custa seis ou mais: Gilded Lotus, Caged Sun, Consecrated Sphinx, Portal to Phyrexia, Sphinx of the Second Sun. Paradox Haze e Shadow of the Second Sun dão manutenção a mais.",
+   "fortes": [
+    "Vinte cartas caras que saem de graça.",
+    "Consecrated Sphinx e Jin-Gitaxias convertem o group hug em vantagem só sua."
+   ],
+   "fracos": [
+    "Pouca remoção de permanente para o que os oponentes põem com a Braids.",
+    "Se a Braids morre, as cartas de doze manas ficam presas na mão."
+   ]
+  },
+  "fim": {
+   "turnos": "8 em diante",
+   "plano": "Blightsteel Colossus, Stormtide Leviathan com Archetype of Imagination, Hullbreaker Horror com Sol Ring, Omniscience ou It That Betrays.",
+   "fortes": [
+    "Várias vitórias que não dependem uma da outra.",
+    "Platinum Angel, Propaganda e Maze of Ith seguram a mesa."
+   ],
+   "fracos": [
+    "Fechamento caro, que depende da Braids ou do big mana.",
+    "Os oponentes também fecham com o que a Braids deu a eles."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Propaganda, Maze of Ith e a Stormtide seguram, mas a Braids dá corpos a eles."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Pongify, Rapid Hybridization e o Hullbreaker respondem à criatura única."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "Muita contramágica barata, mas o group hug dá as peças a eles."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "Contramágica contra contramágica; a Braids põe sem conjurar, e isso escapa da anulação."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "A Braids e as pedras sofrem com taxa e destruição de artefato."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "O Portal to Phyrexia limpa as criaturas deles, mas eles gostam das que a Braids dá."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "Nezahal e Rhystic Study compram com as mágicas deles, mas o group hug as alimenta."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "fraco",
+    "porque": "A Braids põe a criatura grande deles de graça também."
+   }
+  ]
+ },
+ "cartas": {
+  "Braids, Conjurer Adept": {
+   "notas": {
+    "ramp": 2,
+    "hug": 3,
+    "braids": 3,
+    "caos": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Mago 2/2 de 4. Na manutenção de cada jogador, ele pode pôr em campo um artefato, uma criatura ou um terreno da mão.",
+   "porque": "É o deck: você põe de graça o artefato ou a criatura de oito manas, e os oponentes também ganham, o que é group hug e confusão ao mesmo tempo. Terreno posto por ela não conta como a jogada de terreno do turno (ruling oficial)."
+  },
+  "Akroma's Memorial": {
+   "notas": {
+    "protecao": 1,
+    "braids": 2,
+    "caos": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 7. Suas criaturas têm voar, iniciativa, vigilância, atropelar, ímpeto e proteção contra preto e vermelho.",
+   "porque": "Sete manas que saem de graça com a Braids e fazem as criaturas grandes fecharem no turno em que entram.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: uma mana azul.",
+   "porque": "Pedra de duas manas."
+  },
+  "Caged Sun": {
+   "notas": {
+    "ramp": 3,
+    "braids": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 6. Escolha uma cor: suas criaturas dela +1/+1, e cada terreno que gera essa cor gera uma a mais.",
+   "porque": "Dobra as Islands, e sai de graça com a Braids.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Gate to the Aether": {
+   "notas": {
+    "hug": 3,
+    "braids": 2,
+    "caos": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 6. Na manutenção de cada jogador, ele revela o topo e pode pôr em campo se for artefato, criatura, encantamento ou terreno.",
+   "porque": "Uma segunda Braids, do topo do grimório: mais mesa para todos, e mais confusão.",
+   "marcas": {
+    "gratis": 1,
+    "simetrico": 1
+   }
+  },
+  "Gilded Lotus": {
+   "notas": {
+    "ramp": 3,
+    "braids": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 5: três manas de uma cor.",
+   "porque": "Big mana que sai de graça com a Braids.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Horn of Greed": {
+   "notas": {
+    "draw": 2,
+    "hug": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3. Sempre que um jogador joga um terreno, compra.",
+   "porque": "Compra para todos, mas o terreno posto pela Braids não conta como jogado: não dispara.",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Howling Mine": {
+   "notas": {
+    "draw": 2,
+    "hug": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 2. Na etapa de compra de cada jogador, se desvirado, ele compra uma a mais.",
+   "porque": "Group hug clássico, e mais cartas na mão de todos para a Braids pôr em campo.",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "Protege a Braids e a criatura grande que ela pôs.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Mana Vault": {
+   "notas": {
+    "ramp": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}{C}; não desvira sozinho.",
+   "porque": "Big mana no turno 1. Com o Hullbreaker Horror, mana infinita. Game Changer."
+  },
+  "Mind Stone": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}; sacrifique: compre.",
+   "porque": "Pedra de duas que vira carta."
+  },
+  "Portal to Phyrexia": {
+   "notas": {
+    "removal": 3,
+    "braids": 3,
+    "caos": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 9. Ao entrar, cada oponente sacrifica três criaturas. Na sua manutenção, uma criatura de qualquer cemitério entra sob seu controle.",
+   "porque": "Nove manas de graça com a Braids: limpeza de um lado e reanimação toda volta.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Sapphire Medallion": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: mágicas azuis custam {1} a menos.",
+   "porque": "Quase todo o deck é azul."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Braids no turno 2. Com o Hullbreaker Horror, mana infinita."
+  },
+  "The Magic Mirror": {
+   "notas": {
+    "draw": 3,
+    "braids": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato lendário de 9, uma a menos por instantânea e feitiço no seu cemitério. Sem limite de mão; na sua manutenção, um marcador e compre um por marcador.",
+   "porque": "Compra crescente; sai de graça com a Braids.",
+   "marcas": {
+    "gratis": 1
+   },
+   "caro_por_desenho": true
+  },
+  "The One Ring": {
+   "notas": {
+    "draw": 3,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato lendário de 4, indestrutível. Conjurado, dá proteção contra tudo até o seu turno. Vira: compre uma por marcador; perde 1 por marcador na manutenção.",
+   "porque": "Compra e um turno de proteção. Posto pela Braids, não dá a proteção: ela pede que seja conjurado. Game Changer."
+  },
+  "The Ten Rings": {
+   "notas": {
+    "draw": 3,
+    "braids": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato lendário de 8. Mão máxima dez; no seu fim de turno, compre até ter dez.",
+   "porque": "Oito manas que saem de graça com a Braids e enchem a mão toda volta.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Thought Vessel": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}; sem limite de mão.",
+   "porque": "Pedra de duas."
+  },
+  "Thran Dynamo": {
+   "notas": {
+    "ramp": 3,
+    "braids": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 4: {C}{C}{C}.",
+   "porque": "Big mana."
+  },
+  "Academy Ruins": {
+   "notas": {
+    "draw": 1,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}. {1}{U}, vira: um artefato do cemitério vai para o topo do grimório.",
+   "porque": "Recupera Portal, Gilded Lotus ou Blightsteel."
+  },
+  "Ancient Tomb": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{C}{C}, com 2 de dano em você.",
+   "porque": "Big mana num terreno. Game Changer."
+  },
+  "Maze of Ith": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira: desvira uma criatura atacante; ela não causa nem recebe dano de combate.",
+   "porque": "Defesa num terreno."
+  },
+  "Mikokoro, Center of the Sea": {
+   "notas": {
+    "draw": 1,
+    "hug": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}. {2}, vira: cada jogador compra.",
+   "porque": "Group hug num terreno."
+  },
+  "Minamo, School at Water's Edge": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{U}. {U}, vira: desvira uma permanente lendária.",
+   "porque": "Desvira Arcanis (mais três cartas), Nykthos ou The One Ring."
+  },
+  "Mystic Sanctuary": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Island; entra virada sem outras três Islands. Ao entrar desvirada, uma instantânea ou feitiço do cemitério volta ao topo.",
+   "porque": "Recupera a contramágica ou o Rift."
+  },
+  "Nykthos, Shrine to Nyx": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}. {2}, vira: mana da cor escolhida igual à sua devoção.",
+   "porque": "Big mana com a Braids, o Kami e os Sphinx."
+  },
+  "Otawara, Soaring City": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{U}. Canalizar {3}{U}: devolve uma permanente à mão.",
+   "porque": "Remoção num terreno."
+  },
+  "Reliquary Tower": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}. Sem limite de mão.",
+   "porque": "Com tanta compra, a mão passa de sete."
+  },
+  "Riptide Laboratory": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}. {1}{U}, vira: devolve um Wizard seu à mão.",
+   "porque": "Salva a Braids, o Arcanis e a Archetype da remoção."
+  },
+  "Rogue's Passage": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}. {4}, vira: uma criatura não pode ser bloqueada.",
+   "porque": "Fecha com a criatura grande."
+  },
+  "Urza's Saga": {
+   "notas": {
+    "ramp": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Saga terreno: dá {C}, depois cria Construtos, e no III busca um artefato de custo 0 ou 1 para o campo.",
+   "porque": "Busca Sol Ring ou Mana Vault; a Braids também a põe em campo."
+  },
+  "Island": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "22 cópias: o High Tide, o Caged Sun e a Stormtide Leviathan contam com elas."
+  },
+  "Ancient Silver Dragon": {
+   "notas": {
+    "draw": 3,
+    "braids": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dragão 8/8 voador de 8. Dano de combate num jogador: role um d20 e compre esse tanto; sem limite de mão.",
+   "porque": "Oito manas de graça com a Braids, e uma mão inteira por ataque.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Arcanis the Omnipotent": {
+   "notas": {
+    "draw": 3,
+    "protecao": 1,
+    "braids": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Mago de 6. Vira: compre três. {2}{U}{U}: volta à mão.",
+   "porque": "Três cartas por turno, e se protege voltando à mão.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Archetype of Imagination": {
+   "notas": {
+    "protecao": 1,
+    "braids": 2,
+    "caos": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Mago de 6. Suas criaturas têm voar; as dos oponentes perdem voar e não podem ganhar.",
+   "porque": "Com a Stormtide Leviathan, ninguém mais ataca e você ataca com tudo.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Auton Soldier": {
+   "notas": {
+    "braids": 2,
+    "caos": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato criatura de 6: entra como cópia de qualquer criatura em campo, sem ser lendária, com miríade.",
+   "porque": "Copia a melhor criatura da mesa, inclusive a deles.",
+   "marcas": {
+    "gratis": 1,
+    "copia": 1
+   }
+  },
+  "Blightsteel Colossus": {
+   "notas": {
+    "protecao": 1,
+    "braids": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato criatura 11/11 de 12, atropelar, infectar e indestrutível; volta ao grimório se fosse ao cemitério.",
+   "porque": "Doze manas que a Braids põe de graça: um ataque mata um jogador.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Clever Impersonator": {
+   "notas": {
+    "braids": 1,
+    "caos": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Troca-forma de 4: entra como cópia de qualquer permanente não-terreno.",
+   "porque": "Copia o Gilded Lotus, o Sphinx ou a ameaça de um oponente.",
+   "marcas": {
+    "copia": 1
+   }
+  },
+  "Consecrated Sphinx": {
+   "notas": {
+    "draw": 3,
+    "hug": 1,
+    "braids": 2
+   },
+   "tier": "S",
+   "rel": "ALT",
+   "faz": "Esfinge 4/6 voadora de 6. Sempre que um oponente compra, você pode comprar duas.",
+   "porque": "Com Howling Mine, Kami e Dictate, cada carta a mais dos oponentes vira duas suas: o group hug que só você aproveita. Game Changer.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Hullbreaker Horror": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2,
+    "braids": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Kraken 7/8 de 7 com lampejo, não pode ser anulado. Sempre que você conjura, devolve uma mágica deles ou uma permanente não-terreno à mão.",
+   "porque": "Controle da mesa a cada mágica, e com Sol Ring ou Mana Vault, mana infinita.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "It That Betrays": {
+   "notas": {
+    "removal": 1,
+    "braids": 3,
+    "caos": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Eldrazi 11/11 de 12, aniquilador 2. Quando um oponente sacrifica permanente não-ficha, ela vem para você.",
+   "porque": "Doze manas de graça com a Braids; cada ataque tira duas permanentes de alguém.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Jin-Gitaxias, Core Augur": {
+   "notas": {
+    "draw": 3,
+    "braids": 3,
+    "caos": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Phyrexiano de 10 com lampejo. No seu fim de turno, compre sete. A mão máxima de cada oponente cai sete.",
+   "porque": "O group hug ao contrário: os oponentes compram com o seu Howling Mine e descartam tudo no fim do turno.",
+   "marcas": {
+    "gratis": 1,
+    "simetrico": 1
+   }
+  },
+  "Kami of the Crescent Moon": {
+   "notas": {
+    "draw": 2,
+    "hug": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Espírito lendário de 2. Na etapa de compra de cada jogador, ele compra uma a mais.",
+   "porque": "Group hug de duas manas.",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Kira, Great Glass-Spinner": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Espírito voador de 3. Suas criaturas anulam a primeira mágica ou habilidade que as alveja em cada turno.",
+   "porque": "Protege a Braids e as criaturas grandes.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Nezahal, Primal Tide": {
+   "notas": {
+    "draw": 3,
+    "protecao": 2,
+    "braids": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dinossauro 7/7 de 7, não pode ser anulado. Sem limite de mão. Quando um oponente conjura não-criatura, compre. Descarte três: exila e volta no fim do turno.",
+   "porque": "Compra no turno deles e se protege de qualquer remoção.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Phyrexian Metamorph": {
+   "notas": {
+    "braids": 1,
+    "caos": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato criatura de 4 (ou 3 e 2 de vida): entra como cópia de artefato ou criatura.",
+   "porque": "Copia o Gilded Lotus ou a ameaça deles.",
+   "marcas": {
+    "copia": 1
+   }
+  },
+  "Platinum Angel": {
+   "notas": {
+    "protecao": 3,
+    "braids": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato criatura voadora de 7. Você não perde o jogo e os oponentes não ganham.",
+   "porque": "De graça com a Braids, segura a mesa enquanto ela estiver viva.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Platinum Emperion": {
+   "notas": {
+    "protecao": 3,
+    "braids": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato criatura de 8. Sua vida não muda.",
+   "porque": "Segunda proteção de vida; redundante com o Platinum Angel.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Sakashima of a Thousand Faces": {
+   "notas": {
+    "braids": 3,
+    "caos": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Ladino lendário de 4: entra como cópia de outra criatura sua, com as habilidades dele. A regra de lendárias não vale para as suas permanentes.",
+   "porque": "Copia a Braids: dois gatilhos em cada manutenção.",
+   "marcas": {
+    "copia": 1
+   }
+  },
+  "Sphinx of the Second Sun": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2,
+    "braids": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "ALT",
+   "faz": "Esfinge voadora de 8. No começo de cada uma das suas fases principais pós-combate, há uma fase inicial a mais.",
+   "porque": "Mais uma manutenção (outro gatilho da Braids), mais uma compra e mais um desvirar, todo turno seu.",
+   "marcas": {
+    "gratis": 1,
+    "upkeep": 1
+   }
+  },
+  "Stormtide Leviathan": {
+   "notas": {
+    "protecao": 2,
+    "braids": 2,
+    "caos": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Leviatã 8/8 de 8 com passa-ilha. Todo terreno é Island. Criaturas sem voar ou passa-ilha não podem atacar.",
+   "porque": "Ninguém ataca você no chão, e ele não pode ser bloqueado. Com a Archetype, o lock.",
+   "marcas": {
+    "gratis": 1,
+    "simetrico": 1
+   }
+  },
+  "Variable Chaser": {
+   "notas": {
+    "draw": 2,
+    "hug": 1,
+    "caos": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Mago voador de 3 com prowess, que entra preparado: você pode conjurar a cópia de Arc of Fortune (cada jogador pode descartar a mão e comprar sete).",
+   "porque": "Um wheel opcional e um corpo; pouco efeito pelo custo."
+  },
+  "Dictate of Kruphix": {
+   "notas": {
+    "draw": 2,
+    "hug": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3 com lampejo. Na etapa de compra de cada jogador, ele compra uma a mais.",
+   "porque": "Howling Mine com lampejo.",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Mystic Remora": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Encantamento de 1, manutenção cumulativa {1}. Quando um oponente conjura não-criatura, você compra, a menos que ele pague {4}.",
+   "porque": "Compra forte no início."
+  },
+  "Omniscience": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 10. Você conjura da mão sem pagar.",
+   "porque": "A Braids não põe encantamento: precisa do big mana ou do Show and Tell. Depois dela, tudo sai de graça."
+  },
+  "Paradox Haze": {
+   "notas": {
+    "braids": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Aura de 3 num jogador. Na primeira manutenção dele em cada turno, ele ganha mais uma manutenção.",
+   "porque": "No seu turno, a Braids dispara duas vezes. Entre as que mais sinergia têm na comunidade.",
+   "marcas": {
+    "upkeep": 1
+   }
+  },
+  "Propaganda": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3. Criaturas não podem atacar você a menos que o controlador pague {2} por cada uma.",
+   "porque": "As criaturas que a Braids deu a eles não atacam você.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Rhystic Study": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Encantamento de 3. Quando um oponente conjura, você compra, a menos que ele pague {1}.",
+   "porque": "Compra no turno dos outros. Game Changer."
+  },
+  "Shadow of the Second Sun": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "braids": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Aura de 6 num jogador. Em cada fase principal pós-combate dele, há uma fase inicial a mais.",
+   "porque": "Em você: mais uma manutenção, compra e desvirar por turno. A Braids não põe aura: precisa ser conjurada.",
+   "marcas": {
+    "upkeep": 1
+   }
+  },
+  "An Offer You Can't Refuse": {
+   "notas": {
+    "removal": 2,
+    "hug": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: anula uma mágica não-criatura; o dono ganha dois Treasures.",
+   "porque": "Contramágica que ainda é presente."
+  },
+  "Arcane Denial": {
+   "notas": {
+    "removal": 2,
+    "hug": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: anula uma mágica; o dono pode comprar duas e você uma.",
+   "porque": "Contramágica política."
+  },
+  "Brainstorm": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: compre três, devolva duas ao topo.",
+   "porque": "Seleção barata."
+  },
+  "Counterspell": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: anula uma mágica.",
+   "porque": "A contramágica de referência."
+  },
+  "Cyclonic Rift": {
+   "notas": {
+    "removal": 3,
+    "protecao": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: devolve uma permanente alheia; com sobrecarga de 7, todas.",
+   "porque": "Desfaz tudo o que a Braids deu aos oponentes. Game Changer.",
+   "massa": true,
+   "pontual": true
+  },
+  "Fierce Guardianship": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3, de graça com o comandante: anula mágica não-criatura.",
+   "porque": "Proteção grátis com a Braids em campo. Game Changer.",
+   "caro_por_desenho": true
+  },
+  "Force of Will": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 5, ou exilando uma carta azul e 1 de vida: anula uma mágica.",
+   "porque": "Contramágica grátis. Game Changer.",
+   "caro_por_desenho": true
+  },
+  "High Tide": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: até o fim do turno, cada Island virada para mana dá uma a mais.",
+   "porque": "Big mana num turno; com a Stormtide, vale para as terras de todos."
+  },
+  "Mana Drain": {
+   "notas": {
+    "ramp": 1,
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: anula; na sua próxima fase principal, ganhe {C} igual ao custo.",
+   "porque": "Contramágica que vira big mana."
+  },
+  "Mystical Tutor": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: uma instantânea ou feitiço para o topo.",
+   "porque": "Acha o Show and Tell ou o Rift. Game Changer."
+  },
+  "Pongify": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: destrói uma criatura; o dono ganha um Macaco 3/3.",
+   "porque": "Remoção de uma mana."
+  },
+  "Rapid Hybridization": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: destrói uma criatura; o dono ganha um Sapo Lagarto 3/3.",
+   "porque": "Remoção de uma mana."
+  },
+  "Swan Song": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: anula encantamento, instantânea ou feitiço; o dono ganha uma Ave 2/2.",
+   "porque": "Contramágica de uma mana."
+  },
+  "Jace Beleren": {
+   "notas": {
+    "draw": 2,
+    "hug": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Planeswalker de 3. +2: cada jogador compra. −1: um jogador compra. −10: um jogador mói vinte.",
+   "porque": "Group hug num planeswalker.",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Fabricate": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: um artefato do grimório para a mão.",
+   "porque": "Acha o Portal, o Blightsteel ou o Gilded Lotus para a Braids pôr."
+  },
+  "Ponder": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 1: veja três, reordene ou embaralhe; compre.",
+   "porque": "Seleção barata."
+  },
+  "Preordain": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 1: vidência 2, compre.",
+   "porque": "Seleção barata."
+  },
+  "Rush of Knowledge": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 5: compre igual ao maior custo entre suas permanentes.",
+   "porque": "Com o Blightsteel em campo, doze cartas."
+  },
+  "Show and Tell": {
+   "notas": {
+    "hug": 1,
+    "braids": 2,
+    "caos": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: cada jogador pode pôr em campo um artefato, criatura, encantamento ou terreno da mão.",
+   "porque": "A Braids em forma de feitiço, e põe Omniscience.",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Windfall": {
+   "notas": {
+    "draw": 2,
+    "hug": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: cada jogador descarta a mão e compra o maior número descartado.",
+   "porque": "Mão nova para todos, e mais cartas para a Braids pôr.",
+   "marcas": {
+    "simetrico": 1
+   }
+  }
+ },
+ "radar": {
+  "Scourge of Fleets": {
+   "notas": {
+    "removal": 3,
+    "braids": 2,
+    "caos": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Kraken 6/6 de 7. Ao entrar, devolve à mão cada criatura dos oponentes com resistência até o número de Islands seus.",
+   "porque": "Desfaz a mesa que a Braids deu a eles; 62% dos decks da Braids a usam.",
+   "sai": "Variable Chaser",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Vedalken Orrery": {
+   "notas": {
+    "protecao": 1,
+    "braids": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Artefato de 4: você conjura qualquer mágica como se tivesse lampejo.",
+   "porque": "A Braids entra no fim do turno de quem joga antes de você: o seu gatilho vem primeiro.",
+   "sai": "Thought Vessel"
+  },
+  "Strionic Resonator": {
+   "notas": {
+    "braids": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Artefato de 2. {2}, vira: copia uma habilidade disparada sua.",
+   "porque": "Copia o gatilho da Braids, do Paradox Haze ou do Portal.",
+   "sai": "Platinum Emperion",
+   "marcas": {
+    "upkeep": 1
+   }
+  },
+  "Agent of Treachery": {
+   "notas": {
+    "removal": 2,
+    "braids": 2,
+    "caos": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Mago de 7. Ao entrar, ganhe o controle de uma permanente. No fim do turno, se você controla três ou mais permanentes de outros, vence.",
+   "porque": "Rouba o melhor da mesa, e as trocas da Braids viram condição de vitória.",
+   "sai": "Auton Soldier",
+   "marcas": {
+    "gratis": 1,
+    "copia": 1
+   }
+  },
+  "Font of Mythos": {
+   "notas": {
+    "draw": 2,
+    "hug": 3,
+    "braids": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Artefato de 4. Na etapa de compra de cada jogador, ele compra duas a mais.",
+   "porque": "Group hug forte, de graça com a Braids; o Horn of Greed não dispara com os terrenos dela.",
+   "sai": "Horn of Greed",
+   "marcas": {
+    "simetrico": 1,
+    "gratis": 1
+   }
+  },
+  "Extraplanar Lens": {
+   "notas": {
+    "ramp": 3,
+    "hug": 1,
+    "braids": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3: exila um terreno básico seu; terrenos com o mesmo nome dão uma mana a mais.",
+   "porque": "Simétrico, mas o deck tem 22 Islands. Com a Stormtide, todos ganham.",
+   "sai": "Mind Stone",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Gauntlet of Power": {
+   "notas": {
+    "ramp": 3,
+    "hug": 1,
+    "braids": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 5. Escolha uma cor: criaturas dela +1/+1 e básicos dela dão uma a mais.",
+   "porque": "Big mana simétrico que pesa a favor do mono-azul.",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Coveted Jewel": {
+   "notas": {
+    "ramp": 3,
+    "hug": 1,
+    "braids": 1,
+    "caos": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 6: três manas de uma cor. Quem te ataca sem ser bloqueado ganha o controle dela.",
+   "porque": "Big mana de graça com a Braids, e confusão quando muda de dono.",
+   "marcas": {
+    "gratis": 1,
+    "simetrico": 1
+   }
+  },
+  "Minds Aglow": {
+   "notas": {
+    "draw": 2,
+    "hug": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 1. Cada jogador pode pagar qualquer mana; cada um compra o total pago.",
+   "porque": "Group hug que você paga com o big mana."
+  },
+  "Kederekt Leviathan": {
+   "notas": {
+    "removal": 3,
+    "braids": 2,
+    "caos": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Leviatã de 8. Ao entrar, devolve todas as outras permanentes não-terreno à mão. Ilhar {6}{U}.",
+   "porque": "O reset da mesa que a Braids encheu.",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Knowledge Pool": {
+   "notas": {
+    "removal": 1,
+    "protecao": 1,
+    "hug": 1,
+    "caos": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 6. Cada jogador exila três do topo; quem conjura da mão troca a mágica por uma do Pool.",
+   "porque": "Confusão pura: ninguém conjura o que queria.",
+   "marcas": {
+    "simetrico": 1,
+    "gratis": 1
+   }
+  },
+  "Teferi's Puzzle Box": {
+   "notas": {
+    "draw": 1,
+    "hug": 1,
+    "braids": 1,
+    "caos": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 4. Na etapa de compra de cada jogador, ele põe a mão embaixo do grimório e compra o mesmo tanto.",
+   "porque": "Ninguém guarda carta; a Braids põe em campo o que vier.",
+   "marcas": {
+    "simetrico": 1
+   }
+  },
+  "Mirari": {
+   "notas": {
+    "braids": 2,
+    "caos": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato lendário de 5. Quando você conjura instantânea ou feitiço, pode pagar {3} e copiá-la.",
+   "porque": "Carta pet: o texto de ambientação da impressão C13 é assinado por \"Braids, dementia summoner\".",
+   "marcas": {
+    "gratis": 1
+   }
+  },
+  "Ertai, Wizard Adept": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Mago de 3. {2}{U}{U}, vira, sacrifique uma criatura: anula uma mágica.",
+   "porque": "Carta pet: \"Wizard Adept\" ecoa \"Conjurer Adept\", mago da mesma Dominaria."
+  },
+  "Frozen Aether": {
+   "notas": {
+    "protecao": 1,
+    "braids": 1,
+    "caos": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 4. Artefatos, criaturas e terrenos dos oponentes entram virados.",
+   "porque": "Carta pet: de cor trocada em Planar Chaos, a mesma realidade alternativa da Braids azul. Pune o que eles põem com ela."
+  },
+  "Spark Double": {
+   "notas": {
+    "braids": 3,
+    "caos": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Ilusão de 4: entra como cópia de criatura ou planeswalker seu, com um marcador; a cópia não é lendária.",
+   "porque": "Uma segunda Braids, como o Sakashima.",
+   "marcas": {
+    "copia": 1
+   }
+  },
+  "Thassa's Oracle": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Mago de 2. Ao entrar, olhe o topo X (X a sua devoção ao azul); se X for maior ou igual ao grimório, vence.",
+   "porque": "Combo de vitória, Game Changer. O deck já tem o Hullbreaker e o Blightsteel; fica de fora pelo tom."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Mana infinita",
+   "tipo": "Combo",
+   "pecas": [
+    "Hullbreaker Horror",
+    "Sol Ring"
+   ],
+   "texto": "Conjure o Sol Ring e, com o gatilho do Hullbreaker, devolva-o à mão em resposta à própria mágica; repita com a mana dele. Também com o Mana Vault."
+  },
+  {
+   "nome": "Ninguém ataca",
+   "tipo": "Combo",
+   "pecas": [
+    "Stormtide Leviathan",
+    "Archetype of Imagination"
+   ],
+   "texto": "Só quem voa ou tem passa-ilha ataca, e só você voa: lock de combate, e a Stormtide passa por todos."
+  },
+  {
+   "nome": "Duas manutenções",
+   "tipo": "Motor",
+   "pecas": [
+    "Braids, Conjurer Adept",
+    "Paradox Haze"
+   ],
+   "texto": "O Paradox Haze em você dá uma manutenção a mais: a Braids põe duas permanentes por turno seu."
+  },
+  {
+   "nome": "Turno em dobro",
+   "tipo": "Motor",
+   "pecas": [
+    "Sphinx of the Second Sun",
+    "Braids, Conjurer Adept"
+   ],
+   "texto": "Uma fase inicial a mais depois do combate: desvira tudo, outra manutenção da Braids e outra compra."
+  },
+  {
+   "nome": "Duas Braids",
+   "tipo": "Motor",
+   "pecas": [
+    "Sakashima of a Thousand Faces",
+    "Braids, Conjurer Adept"
+   ],
+   "texto": "O Sakashima copia a Braids e a regra de lendárias não vale: dois gatilhos em cada manutenção."
+  },
+  {
+   "nome": "O group hug que só você aproveita",
+   "tipo": "Motor",
+   "pecas": [
+    "Consecrated Sphinx",
+    "Howling Mine"
+   ],
+   "texto": "Cada carta a mais que os oponentes compram vira duas suas."
+  },
+  {
+   "nome": "Eles compram e descartam",
+   "tipo": "Motor",
+   "pecas": [
+    "Jin-Gitaxias, Core Augur",
+    "Kami of the Crescent Moon"
+   ],
+   "texto": "A mão máxima deles cai sete: compram com o Kami e jogam tudo fora no fim do turno."
+  },
+  {
+   "nome": "Doze manas de graça",
+   "tipo": "Motor",
+   "pecas": [
+    "Braids, Conjurer Adept",
+    "Blightsteel Colossus"
+   ],
+   "texto": "Na sua manutenção, a Braids põe o Blightsteel em campo; um ataque com infectar mata um jogador."
+  },
+  {
+   "nome": "Reanimação toda volta",
+   "tipo": "Motor",
+   "pecas": [
+    "Braids, Conjurer Adept",
+    "Portal to Phyrexia"
+   ],
+   "texto": "O Portal sai de graça: cada oponente sacrifica três criaturas, e você reanima a melhor de qualquer cemitério a cada manutenção."
+  },
+  {
+   "nome": "A mão de doze",
+   "tipo": "Motor",
+   "pecas": [
+    "Rush of Knowledge",
+    "Blightsteel Colossus"
+   ],
+   "texto": "Com o Blightsteel em campo, o Rush of Knowledge compra doze."
+  },
+  {
+   "nome": "Big mana de uma vez",
+   "tipo": "Motor",
+   "pecas": [
+    "High Tide",
+    "Caged Sun"
+   ],
+   "texto": "Cada Island dá três azuis: Omniscience ou Jin-Gitaxias no mesmo turno."
+  },
+  {
+   "nome": "Armadilha: a Braids dá a eles também",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Braids, Conjurer Adept",
+    "Show and Tell"
+   ],
+   "texto": "Todos põem o que quiserem: guarde a contramágica ou a Cyclonic Rift para a ameaça deles."
+  },
+  {
+   "nome": "Armadilha: Horn of Greed e os terrenos da Braids",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Horn of Greed",
+    "Braids, Conjurer Adept"
+   ],
+   "texto": "Terreno posto pela Braids não conta como jogado (ruling oficial): o Horn não dispara com ele."
+  }
+ ]
+}
