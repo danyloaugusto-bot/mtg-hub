@@ -225,6 +225,26 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(820px 480px at 74%% -12%%, rgba(%d,%d,%d,.16), transparent 62%%),"
                 "linear-gradient(180deg, transparent 0, transparent 140px, var(--bg) 900px),%s,%s") % ((svg,) + sol + (fachos, grad))
+    if nome == "caverna":
+        # o ninho do The First Sliver: estalactites logo abaixo da barra, em quitina escura com filete âmbar, e o brilho dos ovos vindo de baixo
+        q, o = quote(p["vinho"]), quote(p["acento"])
+        estalactites = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='54' viewBox='0 0 120 54'%3E"
+                        "%3Cpath d='M0 0H120V5L111 22L104 6L95 46L86 7L74 28L66 6L55 52L45 8L36 25L28 6L18 38L9 7L0 18Z' fill='" + q + "' fill-opacity='.85'/%3E"
+                        "%3Cpath d='M0 18L9 7L18 38L28 6L36 25L45 8L55 52L66 6L74 28L86 7L95 46L104 6L111 22L120 5' fill='none' stroke='" + o +
+                        "' stroke-opacity='.3' stroke-width='1'/%3E%3C/svg%3E")
+        brilho = _hex(p["acento"])
+        return ('url("%s") 0 58px/120px 54px repeat-x,'
+                "radial-gradient(1000px 520px at 30%% 620px, rgba(%d,%d,%d,.13), transparent 66%%),"
+                "radial-gradient(700px 420px at 92%% 120px, rgba(%d,%d,%d,.10), transparent 70%%),%s") % ((estalactites,) + brilho + _hex(p["destaque"]) + (grad,))
+    if nome == "cinzas":
+        # o céu de guerra da Kaalia: flocos de cinza caindo, umas brasas soltas, a fumaça no alto e o clarão de fogo embaixo
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'%3E%3Cg fill='" +
+               quote(p["suave"]) + "' fill-opacity='.07'%3E%3Cpath d='M12 18l5-2 2 4-4 3z'/%3E%3Cpath d='M64 9l4 1-1 4-4-1z'/%3E%3Cpath d='M88 52l5-1 1 3-5 2z'/%3E"
+               "%3Cpath d='M31 71l3 2-2 4-3-2z'/%3E%3Cpath d='M70 92l4-2 2 3-4 2z'/%3E%3C/g%3E%3Cg fill='" + quote(p["acento"]) +
+               "' fill-opacity='.22'%3E%3Ccircle cx='48' cy='40' r='1.2'/%3E%3Ccircle cx='97' cy='83' r='1'/%3E%3Ccircle cx='18' cy='99' r='1.1'/%3E%3C/g%3E%3C/svg%3E")
+        return ('url("%s"),'
+                "radial-gradient(900px 520px at 78%% -12%%, rgba(%d,%d,%d,.12), transparent 62%%),"
+                "radial-gradient(1000px 520px at 18%% 640px, rgba(%d,%d,%d,.13), transparent 66%%),%s") % ((svg,) + _hex(p["suave"]) + _hex(p["acento"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
