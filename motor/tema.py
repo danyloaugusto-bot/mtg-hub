@@ -264,6 +264,16 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(900px 520px at 80%% -12%%, rgba(%d,%d,%d,.14), transparent 62%%),"
                 "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.10), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
+    if nome == "nervuras":
+        # o braço phyrexiano do K'rrik: nervuras biomecânicas em filete, fagulhas laranja e o brilho de sangue no alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='" +
+               quote(p["suave"]) + "' stroke-opacity='.07' stroke-width='1.3' stroke-linecap='round'%3E"
+               "%3Cpath d='M20 10C34 40 34 70 20 100M30 14C44 42 44 68 30 96M40 20C52 44 52 66 40 90'/%3E"
+               "%3Cpath d='M100 70C114 100 114 130 100 160M110 74C124 102 124 128 110 156M120 80C132 104 132 126 120 150'/%3E%3C/g%3E"
+               "%3Cg fill='" + quote(p["alerta"]) + "' fill-opacity='.22'%3E%3Ccircle cx='76' cy='28' r='1.2'/%3E%3Ccircle cx='140' cy='44' r='1'/%3E%3Ccircle cx='62' cy='132' r='1.3'/%3E%3C/g%3E%3C/svg%3E")
+        return ('url("%s"),'
+                "radial-gradient(900px 520px at 80%% -12%%, rgba(%d,%d,%d,.14), transparent 62%%),"
+                "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.10), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
