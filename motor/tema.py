@@ -245,6 +245,15 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(900px 520px at 78%% -12%%, rgba(%d,%d,%d,.12), transparent 62%%),"
                 "radial-gradient(1000px 520px at 18%% 640px, rgba(%d,%d,%d,.13), transparent 66%%),%s") % ((svg,) + _hex(p["suave"]) + _hex(p["acento"]) + (grad,))
+    if nome == "gosma":
+        # o gibi gosmento do Krark's Thumb: fios de fumaça em filete, umas gotas verdes e o brilho de gosma nos cantos
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='120' viewBox='0 0 140 120'%3E%3Cg fill='none' stroke='" +
+               quote(p["suave"]) + "' stroke-opacity='.06' stroke-width='1.4' stroke-linecap='round'%3E"
+               "%3Cpath d='M8 92c14-10 4-24 18-30s20 8 34-2'/%3E%3Cpath d='M78 30c12-8 2-20 16-24s16 8 30 0'/%3E%3C/g%3E%3Cg fill='" + quote(p["acento"]) +
+               "' fill-opacity='.10'%3E%3Cpath d='M112 70q3 6 0 9a3 3 0 0 1-5-3q2-3 5-6z'/%3E%3Cpath d='M40 14q3 6 0 9a3 3 0 0 1-5-3q2-3 5-6z'/%3E%3C/g%3E%3C/svg%3E")
+        return ('url("%s"),'
+                "radial-gradient(820px 500px at 84%% -10%%, rgba(%d,%d,%d,.14), transparent 62%%),"
+                "radial-gradient(700px 440px at 2%% 6%%, rgba(%d,%d,%d,.11), transparent 70%%),%s") % ((svg,) + _hex(p["destaque"]) + _hex(p["acento"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

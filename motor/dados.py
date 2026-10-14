@@ -499,7 +499,10 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     if len(i_cmds) > 2:
         raise ErroDeck("decklist.txt: %d comandantes; o formato aceita um, ou dois parceiros" % len(i_cmds))
     if len(i_cmds) == 2:
-        sem = [lista[i]["name"] for i in i_cmds if not PARCERIA.search("%s %s" % (sf[i].get("oracle_text") or "", sf[i].get("type_line") or ""))]
+        # carta reversível (Secret Lair) guarda o texto só nas faces
+        def texto(r):
+            return " ".join("%s %s" % (f.get("oracle_text") or "", f.get("type_line") or "") for f in [r] + (r.get("faces") or []))
+        sem = [lista[i]["name"] for i in i_cmds if not PARCERIA.search(texto(sf[i]))]
         if sem:
             raise ErroDeck("decklist.txt: dois comandantes, mas sem parceria no texto: " + ", ".join(sem))
     ident = ordem_cores("".join(c for i in i_cmds for c in (sf[i].get("color_identity") or [])))
