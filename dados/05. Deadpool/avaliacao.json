@@ -1,0 +1,1820 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Mana",
+   "ab": "Mana",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Pedras, rituais e terrenos. Terreno de duas cores desvirado vale 1; virado, −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Compra",
+   "ab": "Compra",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra e tutor."
+  },
+  {
+   "k": "removal",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção, contramágica e limpeza."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Protege o Deadpool e o traz de volta."
+  },
+  {
+   "k": "caos",
+   "nome": "Caos",
+   "ab": "Caos",
+   "desc": "Sorteio, troca de controle, goad e mágicas que viram a mesa."
+  },
+  {
+   "k": "troca",
+   "nome": "O Deadpool troca de novo",
+   "curto": "Troca",
+   "ab": "Troca",
+   "desc": "Cópias, reentrada e relançamento: cada Deadpool novo troca a caixa de texto outra vez."
+  },
+  {
+   "k": "goad",
+   "nome": "Goad e doação",
+   "curto": "Goad",
+   "ab": "Goad",
+   "desc": "Faz os oponentes se atacarem: goad, ataque obrigatório e criaturas que você dá a eles e que jogam contra eles."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Dano em massa, combos e o que tira jogadores do jogo."
+  }
+ ],
+ "marcadores": {
+  "retroca": {
+   "nome": "Faz o Deadpool trocar de novo"
+  },
+  "caotica": {
+   "nome": "Carta de caos"
+  },
+  "goadm": {
+   "nome": "Faz os oponentes se atacarem"
+  },
+  "protege": {
+   "nome": "Proteção"
+  },
+  "pet": {
+   "nome": "Carta pet (Deadpool, Marvel)"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 34,
+   "alerta": "33 terrenos e o verso do Malakir Rebirth: 34 fontes. O Badlands é o mais caro da lista."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de mana dedicada",
+    "cartas de mana dedicadas"
+   ],
+   "passagem": "que ajudam de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "de tutor"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 3,
+   "massa_ref": [
+    2,
+    3
+   ]
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "retroca",
+   "min": 10,
+   "listar": true,
+   "rotulo": [
+    "carta que faz o Deadpool trocar de novo",
+    "cartas que fazem o Deadpool trocar de novo"
+   ],
+   "texto": "Cada Deadpool novo, cópia ou o mesmo voltando, troca com outra criatura.",
+   "ok": "O Deadpool troca várias vezes por partida."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "caotica",
+   "min": 12,
+   "listar": true,
+   "rotulo": [
+    "carta de caos",
+    "cartas de caos"
+   ],
+   "alerta": "A lista-base é de clones e combo: pouco caos para o plano do dono. As trocas de caos estão no radar.",
+   "ok": "A mesa vira caos."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "goadm",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "carta que faz os oponentes se atacarem",
+    "cartas que fazem os oponentes se atacarem"
+   ],
+   "texto": "Goad e ataque obrigatório: a mesa perde vida e criaturas sem você atacar.",
+   "alerta": "Pouco goad: as trocas de goad estão no radar.",
+   "ok": "A mesa briga entre si."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Sol Ring, Mana Vault, Ancient Tomb ou Dark Ritual para o Deadpool no turno 2 ou 3. Xantcha e Alexios entram cedo para a mesa brigar entre si.",
+   "fortes": [
+    "Muita aceleração: quatro pedras de duas manas, Mana Vault, Ancient Tomb e rituais.",
+    "Xantcha e Alexios viram o problema de outro jogador desde cedo."
+   ],
+   "fracos": [
+    "As 3 vidas da manutenção pesam enquanto o Deadpool não trocou com ninguém.",
+    "Pouco a trocar se a mesa deles ainda está vazia."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "O Deadpool troca com a melhor criatura de um oponente: você fica com a habilidade, ele perde 3 por volta. Saw in Half, Electroduplicate, Helm of the Host e Conjurer's Closet fazem novas trocas; Kardur faz a mesa se atacar.",
+   "fortes": [
+    "A troca não alveja: passa por hexproof e proteção.",
+    "Muitas formas de o Deadpool trocar de novo."
+   ],
+   "fracos": [
+    "A lista-base tem pouco caos de verdade: é de clones e combo.",
+    "Depois da troca, o Deadpool perde o próprio sacrifício."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "Terror of the Peaks com as fichas de Deadpool, Dualcaster Mage com Twinflame, ou Worldgorger Dragon com Animate Dead e Mount Doom. Com as trocas do radar, Insurrection e Warp World.",
+   "fortes": [
+    "Três combos de duas ou três cartas.",
+    "Sheoldred e Valgavoth convertem a perda de vida deles em vantagem."
+   ],
+   "fracos": [
+    "Onze Game Changers: joga no bracket 4.",
+    "Hate de cemitério corta o Worldgorger e a reanimação."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Kardur e Alexios desviam os ataques, mas as 3 vidas por volta pesam."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "O Deadpool troca de texto com a criatura principal deles, e o voltron perde o motor."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "Opposition Agent e Tibalt's Trickery atrapalham, mas há pouca contramágica."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "A troca não usa a pilha, mas uma limpeza leva as fichas."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Taxas e limite de criaturas desligam as cópias."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "forte",
+    "porque": "Mayhem Devil e Terror of the Peaks punem os sacrifícios deles."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "Pouca contramágica, mas o Bowmasters pune a compra."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "A criatura grande deles é o melhor alvo de troca."
+   }
+  ]
+ },
+ "cartas": {
+  "Deadpool, Trading Card": {
+   "notas": {
+    "draw": 1,
+    "caos": 2,
+    "troca": 3,
+    "goad": 2,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Mutante 5/3 de 4. Ao entrar, você pode trocar a caixa de texto dele com a de outra criatura. Na sua manutenção, você perde 3. {3}, sacrifique: cada outro jogador compra.",
+   "porque": "É o deck: troque com a melhor criatura da mesa, inclusive a de um oponente. Você fica com a habilidade dela; ela fica com o texto do Deadpool, e quem a controla perde 3 na própria manutenção. A troca não alveja (passa por hexproof) e dura enquanto os dois estiverem em campo."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: mana das duas cores.",
+   "porque": "Pedra de duas manas."
+  },
+  "Blade of Selves": {
+   "notas": {
+    "caos": 1,
+    "troca": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Equipamento de 2, equipar {4}: miríade. Ao atacar, uma cópia virada e atacando para cada outro oponente.",
+   "porque": "Cada cópia do Deadpool é um Deadpool novo: troca com a criatura de outro oponente.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Conjurer's Closet": {
+   "notas": {
+    "protecao": 1,
+    "troca": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 5. No seu fim de turno, exile uma criatura sua e devolva-a.",
+   "porque": "O Deadpool sai e volta todo turno: uma troca nova por volta.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Cursed Mirror": {
+   "notas": {
+    "ramp": 2,
+    "troca": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 3: {R}. Ao entrar, pode virar cópia de qualquer criatura até o fim do turno, com ímpeto.",
+   "porque": "Copia o Deadpool ao entrar: mais uma troca, e depois vira pedra.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Fellwar Stone": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 2: uma cor que terreno de oponente geraria.",
+   "porque": "Pedra de duas manas."
+  },
+  "Helm of the Host": {
+   "notas": {
+    "troca": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Equipamento lendário de 4, equipar {5}. No seu combate, uma cópia não lendária da criatura equipada, com ímpeto.",
+   "porque": "Um Deadpool não lendário por turno, e cada um troca de novo.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "Protege o Deadpool depois da troca.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Lotus Petal": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 0. Sacrifique: uma mana de qualquer cor.",
+   "porque": "Aceleração de uma vez."
+  },
+  "Mana Vault": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}{C}; não desvira sozinho.",
+   "porque": "Deadpool no turno 2. Game Changer."
+  },
+  "Mirror Box": {
+   "notas": {
+    "troca": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3. A regra de lendárias não vale para as suas permanentes; lendárias e não-ficha crescem.",
+   "porque": "Vários Deadpools ficam em campo ao mesmo tempo.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Rakdos Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2. {1}, vira: {B}{R}.",
+   "porque": "Pedra de duas manas."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Deadpool no turno 2."
+  },
+  "Talisman of Indulgence": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}, ou {B} ou {R} com 1 de dano.",
+   "porque": "Pedra de duas manas."
+  },
+  "The One Ring": {
+   "notas": {
+    "draw": 3,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato lendário de 4. Conjurado, proteção contra tudo até o seu turno. Vira: compre uma por marcador.",
+   "porque": "Compra e um turno a salvo. Game Changer."
+  },
+  "Ancient Tomb": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{C}{C}, com 2 de dano.",
+   "porque": "Deadpool no turno 2. Game Changer."
+  },
+  "Badlands": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Swamp Mountain: {B} ou {R}, sempre desvirado.",
+   "porque": "O melhor dual, e caríssimo: Reserved List, sem preço no Scryfall pela impressão padrão."
+  },
+  "Blazemire Verge": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{B}; {R} só com Swamp ou Mountain.",
+   "porque": "As duas cores desvirado."
+  },
+  "Blightstep Pathway": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno de duas faces: {B} ou {R}.",
+   "porque": "As duas cores desvirado."
+  },
+  "Blood Crypt": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Swamp Mountain; pague 2 de vida ou entra virado.",
+   "porque": "As duas cores desvirado."
+  },
+  "Dragonskull Summit": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{B} ou {R}; virado sem Swamp ou Mountain.",
+   "porque": "As duas cores desvirado."
+  },
+  "Haunted Ridge": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{B} ou {R}; virado sem dois outros terrenos.",
+   "porque": "As duas cores desvirado."
+  },
+  "Luxury Suite": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{B} ou {R}; desvirado com dois ou mais oponentes.",
+   "porque": "As duas cores desvirado."
+  },
+  "Smoldering Marsh": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Swamp Mountain; virado sem dois básicos.",
+   "porque": "As duas cores desvirado."
+  },
+  "Sulfurous Springs": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}, ou {B} ou {R} com 1 de dano.",
+   "porque": "As duas cores desvirado."
+  },
+  "Graven Cairns": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}; ou filtra {B/R} em duas.",
+   "porque": "As duas cores desvirado."
+  },
+  "City of Brass": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Qualquer cor, com 1 de dano.",
+   "porque": "As duas cores desvirado."
+  },
+  "Command Tower": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Mana da identidade.",
+   "porque": "As duas cores desvirado."
+  },
+  "Exotic Orchard": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Uma cor que terreno de oponente geraria.",
+   "porque": "As duas cores desvirado."
+  },
+  "Bloodstained Mire": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pague 1 de vida e sacrifique: um Swamp ou Mountain.",
+   "porque": "Acha o Badlands, o Blood Crypt ou um básico."
+  },
+  "Wooded Foothills": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pague 1 de vida e sacrifique: um Mountain ou Forest.",
+   "porque": "Acha o Badlands, o Blood Crypt ou um básico."
+  },
+  "Command Beacon": {
+   "notas": {
+    "troca": 1,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}. Vira e sacrifique: o comandante vai da zona de comando para a mão.",
+   "porque": "Relança o Deadpool sem o imposto: troca nova.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Mount Doom": {
+   "notas": {
+    "ramp": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira e pague 1 de vida: {B} ou {R}. {1}{B}{R}, vira: 1 de dano em cada oponente.",
+   "porque": "Fecha o combo do Worldgorger Dragon."
+  },
+  "Phyrexian Tower": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}. Vira e sacrifique uma criatura: {B}{B}.",
+   "porque": "Sacrifica o Deadpool depois da troca, que perdeu o próprio sacrifício."
+  },
+  "Raucous Theater": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Swamp Mountain, sempre virado; vigiar 1 ao entrar.",
+   "porque": "Duas cores, um turno depois.",
+   "virado": true
+  },
+  "Urborg, Tomb of Yawgmoth": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Todo terreno é Swamp.",
+   "porque": "Os incolores passam a dar {B}."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo das fetches."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo das fetches."
+  },
+  "Alexios, Deimos of Kosmos": {
+   "notas": {
+    "caos": 2,
+    "goad": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano 4/4 de 4 com atropelar; ataca todo combate, não pode ser sacrificado. Na manutenção de cada jogador, ele ganha o controle, e o Alexios ganha marcador e ímpeto.",
+   "porque": "Presente rotativo: um 4/4 que cresce e ataca todo mundo, menos o dono.",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Dauthi Voidwalker": {
+   "notas": {
+    "draw": 1,
+    "removal": 2,
+    "caos": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dauthi 3/2 de 2 com shadow. Cartas que iriam ao cemitério de oponente vão ao exílio com marcador; sacrifique: jogue uma delas de graça.",
+   "porque": "Corta a recursão deles e devolve a melhor carta para você."
+  },
+  "Delina, Wild Mage": {
+   "notas": {
+    "caos": 1,
+    "troca": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfa de 4. Ao atacar, role um d20: ficha cópia de uma criatura sua atacando; com 15+, role de novo.",
+   "porque": "Cada cópia do Deadpool troca: caos de dado.",
+   "marcas": {
+    "retroca": 1,
+    "caotica": 1
+   }
+  },
+  "Dualcaster Mage": {
+   "notas": {
+    "removal": 1,
+    "troca": 1,
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Mago de 3 com lampejo. Ao entrar, copia uma instantânea ou feitiço.",
+   "porque": "Com Saw in Half, Twinflame, Heat Shimmer, Electroduplicate ou Molten Duplication, fichas infinitas com ímpeto."
+  },
+  "Hexing Squelcher": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin de 2 com ward. Suas mágicas não podem ser anuladas.",
+   "porque": "Protege o turno das trocas.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Jaxis, the Troublemaker": {
+   "notas": {
+    "draw": 1,
+    "troca": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Guerreira de 4. {R}, vira, descarte: ficha cópia de outra criatura sua, com ímpeto, que compra ao morrer.",
+   "porque": "Um Deadpool novo por turno, e cada um troca.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Kardur, Doomscourge": {
+   "notas": {
+    "caos": 2,
+    "goad": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Demônio de 4. Ao entrar, as criaturas dos oponentes atacam outro jogador até o seu turno. Cada atacante que morre: perdem 1 e você ganha 1.",
+   "porque": "Goad em massa: a mesa se ataca, e você assiste.",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Mayhem Devil": {
+   "notas": {
+    "removal": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Diabo de 3. Sempre que um jogador sacrifica uma permanente, 1 de dano em qualquer alvo.",
+   "porque": "Dano a cada Treasure, Clue ou ficha sacrificada da mesa."
+  },
+  "Opposition Agent": {
+   "notas": {
+    "removal": 2,
+    "caos": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Humano de 3 com lampejo. Você controla os oponentes enquanto buscam; o que acham é exilado e você pode jogar.",
+   "porque": "Corta tutores e ramp de busca. Game Changer.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Orcish Bowmasters": {
+   "notas": {
+    "removal": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Orc de 2 com lampejo. Ao entrar e quando um oponente compra além da primeira, 1 de dano e amassar.",
+   "porque": "Pune o Wheel of Fortune deles. Game Changer."
+  },
+  "Orthion, Hero of Lavabrink": {
+   "notas": {
+    "troca": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano de 4. {1}{R}, vira: ficha cópia de outra criatura sua, com ímpeto, sacrificada no fim do turno (velocidade de feitiço).",
+   "porque": "Um Deadpool novo por turno; com o Terror of the Peaks, dano em massa.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Pitiless Plunderer": {
+   "notas": {
+    "ramp": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pirata de 4. Sempre que outra criatura sua morre, um Treasure.",
+   "porque": "As fichas de Deadpool que morrem viram mana."
+  },
+  "Professional Face-Breaker": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Guerreiro de 3 com ameaça. Dano de combate: um Treasure; sacrifique um Treasure: exile o topo e jogue no turno.",
+   "porque": "Compra e mana pelo ataque."
+  },
+  "Ragavan, Nimble Pilferer": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "caos": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Macaco de 1. Dano de combate num jogador: Treasure e exile o topo dele para conjurar. Arrancada {1}{R}.",
+   "porque": "Rouba carta no turno 1.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Sheoldred, the Apocalypse": {
+   "notas": {
+    "protecao": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Phyrexiana 4/5 de 4 com toque mortífero. Você ganha 2 a cada compra; cada oponente perde 2 a cada compra dele.",
+   "porque": "Paga as 3 vidas do Deadpool e pune o Wheel."
+  },
+  "Terror of the Peaks": {
+   "notas": {
+    "removal": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dragão 5/4 voador de 5. Mágicas deles que o alvejam custam 3 de vida. Outra criatura sua entra: dano igual à força dela.",
+   "porque": "Cada ficha de Deadpool causa 5 de dano ao entrar."
+  },
+  "The Master, Multiplied": {
+   "notas": {
+    "caos": 1,
+    "troca": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Senhor do Tempo de 6, miríade. A regra de lendárias não vale para as suas fichas de criatura; gatilhos seus não as sacrificam.",
+   "porque": "As fichas de Deadpool ficam, e cada uma trocou de texto. A carta mais forte do deck, segundo o artigo da EDHREC.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Valgavoth, Harrower of Souls": {
+   "notas": {
+    "draw": 2,
+    "goad": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Demônio voador de 4, ward 2 de vida. Na primeira vez em cada turno que um oponente perde vida no próprio turno, marcador e compre.",
+   "porque": "O oponente que ganhou o texto do Deadpool perde 3 na manutenção: carta para você."
+  },
+  "Worldgorger Dragon": {
+   "notas": {
+    "caos": 1,
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão de 6. Ao entrar, exila todas as suas outras permanentes; ao sair, elas voltam.",
+   "porque": "Com Animate Dead ou Necromancy, mana infinita e entradas infinitas (o Deadpool troca a cada volta). É combo, não caos."
+  },
+  "Xantcha, Sleeper Agent": {
+   "notas": {
+    "draw": 1,
+    "caos": 2,
+    "goad": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Phyrexiana 5/5 de 3 que entra sob o controle de um oponente; ataca todo combate e não ataca você. {3}: o controlador perde 2 e você compra.",
+   "porque": "Doação clássica: um 5/5 que ataca os outros, e compra para você.",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Animate Dead": {
+   "notas": {
+    "troca": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura de 2: reanima uma criatura de qualquer cemitério sob seu controle.",
+   "porque": "Reanima a melhor criatura da mesa, e completa o combo do Worldgorger."
+  },
+  "Black Market Connections": {
+   "notas": {
+    "ramp": 2,
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3. Na sua primeira fase principal, escolha: Treasure, compre, ou ficha 3/2, pagando vida.",
+   "porque": "Mana e carta todo turno. Carta pet: o modo \"Hire a Mercenary\"."
+  },
+  "Impact Tremors": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 2. Criatura sua entra: 1 de dano em cada oponente.",
+   "porque": "Cada ficha de Deadpool é dano na mesa."
+  },
+  "Necromancy": {
+   "notas": {
+    "troca": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 3, com lampejo: reanima uma criatura de qualquer cemitério.",
+   "porque": "Segunda peça do combo do Worldgorger."
+  },
+  "Necropotence": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Encantamento de 3. Pule a compra; pague 1 de vida: uma carta na mão no fim do turno.",
+   "porque": "Compra enorme, mas soma com as 3 vidas do Deadpool. Game Changer."
+  },
+  "Splinter Twin": {
+   "notas": {
+    "troca": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura de 4. Vira: ficha cópia da criatura, com ímpeto, exilada no fim do turno.",
+   "porque": "No Deadpool, a cópia troca antes da regra de lendárias agir; uma das duas sai.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Chaos Warp": {
+   "notas": {
+    "removal": 3,
+    "caos": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: o dono embaralha uma permanente e revela o topo; se for permanente, entra.",
+   "porque": "Responde a qualquer coisa, com um sorteio.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Dark Ritual": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: {B}{B}{B}.",
+   "porque": "Deadpool no turno 1 ou 2."
+  },
+  "Deadly Dispute": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: sacrifique artefato ou criatura; compre duas e um Treasure.",
+   "porque": "Sacrifica o Deadpool depois da troca e compra."
+  },
+  "Deadly Rollick": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 4, de graça com o comandante: exila uma criatura.",
+   "porque": "Remoção grátis. Carta pet: impressa no drop Secret Lair do Deadpool (SLD 1754).",
+   "marcas": {
+    "pet": 1
+   },
+   "fora_do_corte": true,
+   "caro_por_desenho": true
+  },
+  "Deflecting Swat": {
+   "notas": {
+    "removal": 1,
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3, de graça com o comandante: muda o alvo de uma mágica ou habilidade.",
+   "porque": "Protege o Deadpool de graça.",
+   "marcas": {
+    "protege": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Malakir Rebirth": {
+   "notas": {
+    "protecao": 2,
+    "troca": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: perca 2; se a criatura morrer neste turno, volta. O verso é um terreno virado que gera {B}.",
+   "porque": "O Deadpool morre e volta como objeto novo: troca de novo.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Not Dead After All": {
+   "notas": {
+    "protecao": 2,
+    "troca": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: se a criatura morrer, volta virada com um Papel.",
+   "porque": "Mesma coisa: o Deadpool volta e troca de novo.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Pyroblast": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea de 1: anula ou destrói algo azul.",
+   "porque": "Depende da mesa ter azul.",
+   "prioridade": 1
+  },
+  "Rakdos Charm": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2. Um modo: exila um cemitério, destrói um artefato, ou cada criatura causa 1 de dano ao controlador.",
+   "porque": "Interação flexível."
+  },
+  "Saw in Half": {
+   "notas": {
+    "removal": 2,
+    "troca": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Instantânea de 3: destrói uma criatura; se morrer, o controlador cria duas cópias com metade da força e resistência.",
+   "porque": "No Deadpool, dois Deadpools novos: duas trocas por três manas. Carta pet: drop Secret Lair do Deadpool (SLD 1755).",
+   "marcas": {
+    "retroca": 1,
+    "pet": 1
+   },
+   "fora_do_corte": true
+  },
+  "Terminate": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: destrói uma criatura.",
+   "porque": "Remoção de duas manas."
+  },
+  "Tibalt's Trickery": {
+   "notas": {
+    "removal": 2,
+    "caos": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: anula uma mágica; o dono mói e conjura de graça uma carta aleatória do topo.",
+   "porque": "Contramágica que vira loteria.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Vampiric Tutor": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Instantânea de 1: uma carta para o topo; perca 2.",
+   "porque": "Tutor de uma mana. Game Changer."
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "removal": 3,
+    "caos": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 9, uma a menos por criatura: 13 de dano em cada criatura.",
+   "porque": "O reset. Carta pet: drop Secret Lair do Deadpool (SLD 1756), \"why I've killed the Marvel Universe yet again\".",
+   "marcas": {
+    "pet": 1
+   },
+   "massa": true,
+   "fora_do_corte": true
+  },
+  "Damnation": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 4: destrói todas as criaturas.",
+   "porque": "Segunda limpeza; o Deadpool volta da zona de comando.",
+   "massa": true
+  },
+  "Demonic Tutor": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Feitiço de 2: busque qualquer carta.",
+   "porque": "Acha o Saw in Half ou o The Master, Multiplied. Game Changer."
+  },
+  "Electroduplicate": {
+   "notas": {
+    "troca": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: ficha cópia de uma criatura sua, com ímpeto, sacrificada no fim do turno. Flashback.",
+   "porque": "Dois Deadpools novos numa carta: duas trocas.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Gamble": {
+   "notas": {
+    "draw": 1,
+    "caos": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 1: busque uma carta e descarte uma ao acaso.",
+   "porque": "Tutor com sorteio. Game Changer."
+  },
+  "Heat Shimmer": {
+   "notas": {
+    "troca": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: ficha cópia de qualquer criatura, com ímpeto, exilada no fim do turno.",
+   "porque": "Copia o Deadpool, ou a melhor criatura da mesa.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Imperial Seal": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 1: uma carta para o topo; perca 2.",
+   "porque": "Tutor de uma mana, caro. Game Changer."
+  },
+  "Jeska's Will": {
+   "notas": {
+    "ramp": 2,
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3. Com comandante, os dois modos: {R} por carta na mão de um oponente, e exile três do topo para jogar.",
+   "porque": "Ritual e compra. Game Changer."
+  },
+  "Molten Duplication": {
+   "notas": {
+    "troca": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: ficha cópia de artefato ou criatura sua, com ímpeto, sacrificada no fim do turno.",
+   "porque": "Um Deadpool novo por duas manas.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Reanimate": {
+   "notas": {
+    "troca": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 1: reanima uma criatura de qualquer cemitério; perca o valor.",
+   "porque": "A melhor criatura morta da mesa, por uma mana."
+  },
+  "Twinflame": {
+   "notas": {
+    "troca": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: fichas cópia de criaturas suas, com ímpeto, exiladas no fim do turno.",
+   "porque": "Um Deadpool novo, e combo com o Dualcaster Mage.",
+   "marcas": {
+    "retroca": 1
+   }
+  },
+  "Vandalblast": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 1: destrói um artefato alheio; com sobrecarga de 5, todos.",
+   "porque": "Limpa as pedras deles. Carta pet: drop Secret Lair do Deadpool (SLD 1757), \"Look at me! I'm Chandra Nalaar!\".",
+   "marcas": {
+    "pet": 1
+   },
+   "massa": true,
+   "pontual": true,
+   "fora_do_corte": true
+  },
+  "Wheel of Fortune": {
+   "notas": {
+    "draw": 3,
+    "caos": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: cada jogador descarta a mão e compra sete.",
+   "porque": "Mão nova para todos; o Bowmasters e a Sheoldred punem.",
+   "marcas": {
+    "caotica": 1
+   }
+  }
+ },
+ "radar": {
+  "Harmless Offering": {
+   "notas": {
+    "caos": 2,
+    "goad": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 3: um oponente ganha o controle de uma permanente sua.",
+   "porque": "Dá o Deadpool trocado ou o Xantcha a quem você quiser. Carta pet: lançada com o drop do Deadpool (SLD 868).",
+   "sai": "Pyroblast",
+   "marcas": {
+    "caotica": 1,
+    "pet": 1
+   }
+  },
+  "Disrupt Decorum": {
+   "notas": {
+    "caos": 3,
+    "goad": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 4: goad em todas as criaturas que você não controla.",
+   "porque": "A mesa inteira se ataca; 30% dos decks de caos do Deadpool.",
+   "sai": "Lotus Petal",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Seize the Spotlight": {
+   "notas": {
+    "draw": 1,
+    "caos": 3,
+    "goad": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Feitiço de 3. Cada oponente escolhe: você ganha uma criatura dele até o fim do turno, ou você compra.",
+   "porque": "Caos com escolha deles, e você ganha sempre.",
+   "sai": "Imperial Seal",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Warp World": {
+   "notas": {
+    "removal": 1,
+    "caos": 3,
+    "troca": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Feitiço de 8: cada jogador embaralha as permanentes e revela o mesmo tanto, pondo as permanentes em campo.",
+   "porque": "O caos total, e o Deadpool que volta troca de novo.",
+   "sai": "Splinter Twin",
+   "marcas": {
+    "caotica": 1,
+    "retroca": 1
+   }
+  },
+  "Insurrection": {
+   "notas": {
+    "caos": 3,
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Feitiço de 8: ganhe o controle de todas as criaturas até o fim do turno; elas ganham ímpeto.",
+   "porque": "Fecha o jogo com o exército dos outros.",
+   "sai": "Molten Duplication",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Possibility Storm": {
+   "notas": {
+    "caos": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Encantamento de 5. Quem conjura da mão exila do topo até achar uma carta do mesmo tipo e pode conjurá-la de graça.",
+   "porque": "Caos em cada mágica de todos.",
+   "sai": "Gamble",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Mutinous Massacre": {
+   "notas": {
+    "removal": 3,
+    "caos": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Feitiço de 5. Escolha par ou ímpar: destrói as criaturas de custo do tipo escolhido, ganha o controle das outras até o fim do turno, com ímpeto.",
+   "porque": "Limpeza que ainda rouba o resto.",
+   "sai": "Damnation",
+   "marcas": {
+    "caotica": 1
+   },
+   "massa": true
+  },
+  "Prisoner's Dilemma": {
+   "notas": {
+    "removal": 1,
+    "caos": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Feitiço de 5. Cada oponente escolhe em segredo cooperar ou trair; o dano depende das escolhas.",
+   "porque": "Política e caos; 13% dos decks de caos.",
+   "sai": "Heat Shimmer",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Slicer, Hired Muscle": {
+   "notas": {
+    "draw": 1,
+    "caos": 2,
+    "goad": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Robô de 6 com dupla investida e ímpeto. No começo do combate de cada oponente, ele ganha o controle e o Slicer ataca outro jogador; você compra.",
+   "porque": "Mais uma doação que ataca os outros, Mercenário de nascença.",
+   "sai": "Mirror Box",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Humble Defector": {
+   "notas": {
+    "draw": 2,
+    "caos": 1,
+    "goad": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Humano de 2. Vira: compre duas e dê o controle dele a um oponente.",
+   "porque": "Compra que circula pela mesa.",
+   "sai": "Pitiless Plunderer",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Karazikar, the Eye Tyrant": {
+   "notas": {
+    "draw": 2,
+    "caos": 2,
+    "goad": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Beholder de 5. Quando você ataca um jogador, vira e dá goad numa criatura dele. Quando um oponente ataca outro, você e ele compram.",
+   "porque": "O motor de goad em preto e vermelho: a mesa se ataca e você compra; no lugar do combo do Worldgorger, que não é caos.",
+   "sai": "Worldgorger Dragon",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Bothersome Quasit": {
+   "notas": {
+    "caos": 2,
+    "goad": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Demônio 3/2 de 3 com ameaça. Criaturas com goad dos oponentes não bloqueiam. Sempre que você conjura não-criatura, dá goad numa criatura de oponente.",
+   "porque": "Cada mágica sua manda uma criatura deles atacar outro jogador, e quem tem goad não te bloqueia.",
+   "sai": "Fellwar Stone",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Vengeful Ancestor": {
+   "notas": {
+    "removal": 1,
+    "caos": 2,
+    "goad": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Dragão espírito voador de 4. Ao entrar ou atacar, dá goad numa criatura. Sempre que uma criatura com goad ataca, causa 1 de dano ao controlador.",
+   "porque": "Goad que ainda cobra pedágio de quem ataca.",
+   "sai": "Impact Tremors",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Grenzo, Havoc Raiser": {
+   "notas": {
+    "draw": 1,
+    "caos": 2,
+    "goad": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Goblin lendário de 2. Sempre que uma criatura sua causa dano de combate a um jogador, escolha: goad numa criatura dele, ou exile o topo dele e conjure no turno.",
+   "porque": "Cada ataque que conecta vira goad ou carta roubada.",
+   "sai": "Hexing Squelcher",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Shiny Impetus": {
+   "notas": {
+    "ramp": 1,
+    "caos": 1,
+    "goad": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Aura de 3: +2/+2 e goad na criatura; quando ela ataca, você cria um Treasure.",
+   "porque": "Goad que paga mana a cada ataque deles.",
+   "marcas": {
+    "goadm": 1
+   }
+  },
+  "Bloodthirsty Blade": {
+   "notas": {
+    "caos": 1,
+    "goad": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Equipamento de 2: +2/+0 e goad. {1}: equipa numa criatura de oponente.",
+   "porque": "Goad repetível que passa de criatura em criatura da mesa.",
+   "marcas": {
+    "goadm": 1
+   }
+  },
+  "Spectacular Showdown": {
+   "notas": {
+    "caos": 2,
+    "goad": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 2, esforço: marcador de golpe duplo numa criatura e goad nela; com esforço, em várias.",
+   "porque": "As criaturas deles atacam com golpe duplo, umas contra as outras.",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Baeloth Barrityl, Entertainer": {
+   "notas": {
+    "caos": 2,
+    "goad": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfo lendário de 5. Criaturas dos oponentes com força menor que a dele têm goad; quando uma criatura com goad morre atacando ou bloqueando, você cria um Treasure.",
+   "porque": "Goad automático para as criaturas pequenas da mesa.",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1
+   }
+  },
+  "Puppet Master, String Puller": {
+   "notas": {
+    "caos": 2,
+    "goad": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Vilão lendário de 3. Sempre que você ataca, goad numa criatura de oponente, que não pode bloquear neste turno.",
+   "porque": "Carta pet Marvel: o mestre dos fantoches pondo a mesa para brigar.",
+   "marcas": {
+    "goadm": 1,
+    "pet": 1
+   }
+  },
+  "Carnage, Crimson Chaos": {
+   "notas": {
+    "caos": 2,
+    "troca": 1,
+    "goad": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Simbionte lendário de 4 com atropelar. Ao entrar, reanima uma criatura de valor até 3, que passa a atacar todo combate.",
+   "porque": "Carta pet Marvel, o Carnificina: caos no nome e ataque obrigatório.",
+   "marcas": {
+    "caotica": 1,
+    "pet": 1
+   }
+  },
+  "Maximum Carnage": {
+   "notas": {
+    "ramp": 1,
+    "caos": 3,
+    "goad": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Saga de 5. I: até o seu turno, toda criatura ataca e ataca outro jogador. II: {R}{R}{R}. III: dano em cada oponente.",
+   "porque": "Carta pet Marvel: a saga Carnificina Total, a mesa toda brigando.",
+   "marcas": {
+    "caotica": 1,
+    "goadm": 1,
+    "pet": 1
+   }
+  },
+  "Scrambleverse": {
+   "notas": {
+    "caos": 3,
+    "goad": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 8: cada permanente não-terreno vai para um jogador sorteado.",
+   "porque": "Caos máximo, e às vezes você fica com a mesa.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Thieves' Auction": {
+   "notas": {
+    "caos": 3,
+    "troca": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 7: exile todas as permanentes não-ficha; em rodízio, cada jogador escolhe uma e a põe em campo.",
+   "porque": "Leilão da mesa; o Deadpool que você escolher troca de novo.",
+   "marcas": {
+    "caotica": 1,
+    "retroca": 1
+   }
+  },
+  "Confusion in the Ranks": {
+   "notas": {
+    "caos": 3,
+    "goad": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 5. Sempre que artefato, criatura ou encantamento entra, o controlador troca com uma permanente do mesmo tipo de um oponente.",
+   "porque": "Cada ficha de Deadpool vira troca de controle.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Grip of Chaos": {
+   "notas": {
+    "caos": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 6. Mágica ou habilidade com um alvo muda de alvo ao acaso.",
+   "porque": "Ninguém controla mais nada.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Tempt with Mayhem": {
+   "notas": {
+    "caos": 3,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 3: copia uma mágica; cada oponente pode copiar também, e você copia de novo por cada um.",
+   "porque": "Caos tentador.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "Demonic Pact": {
+   "notas": {
+    "draw": 2,
+    "removal": 1,
+    "caos": 1,
+    "goad": 2,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 4. Na sua manutenção, escolha um modo novo; no quarto, você perde o jogo.",
+   "porque": "Com o Harmless Offering, dá a um oponente o turno em que ele perde.",
+   "marcas": {
+    "caotica": 1
+   }
+  },
+  "The Scarlet Witch": {
+   "notas": {
+    "ramp": 1,
+    "caos": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Mutante de 3. Instantâneas e feitiços de custo 4 ou mais custam X a menos, X a força dela.",
+   "porque": "Carta pet Marvel (\"whims of chaos\"), e barateia Warp World e Insurrection.",
+   "marcas": {
+    "pet": 1
+   }
+  },
+  "Typhoid Mary, Fractured": {
+   "notas": {
+    "caos": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Mutante de 3. Ao atacar, um modo ao acaso.",
+   "porque": "Carta pet Marvel, de caos aleatório.",
+   "marcas": {
+    "caotica": 1,
+    "pet": 1
+   }
+  },
+  "Hot Dog Cart": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato incolor: Food e mana.",
+   "porque": "Carta pet: a piada da chimichanga.",
+   "marcas": {
+    "pet": 1
+   }
+  },
+  "Gratuitous Violence": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento: dobra o dano das suas criaturas.",
+   "porque": "Carta pet: drop Secret Lair do Hulk (SLD 2596). Dobra os 5 de força de cada Deadpool.",
+   "marcas": {
+    "pet": 1
+   }
+  },
+  "Kiki-Jiki, Mirror Breaker": {
+   "notas": {
+    "troca": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Goblin de 5 com ímpeto. Vira: ficha cópia de criatura não lendária sua.",
+   "porque": "Não copia o Deadpool, que é lendário."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Dois Deadpools, duas trocas",
+   "tipo": "Motor",
+   "pecas": [
+    "Saw in Half",
+    "Deadpool, Trading Card"
+   ],
+   "texto": "O Deadpool morre e volta em duas cópias novas, cada uma com o texto impresso: duas trocas por três manas."
+  },
+  {
+   "nome": "As fichas que ficam",
+   "tipo": "Motor",
+   "pecas": [
+    "The Master, Multiplied",
+    "Deadpool, Trading Card"
+   ],
+   "texto": "A regra de lendárias não vale para as fichas: cada Deadpool copiado fica, e cada um trocou com uma criatura."
+  },
+  {
+   "nome": "Uma troca por volta",
+   "tipo": "Motor",
+   "pecas": [
+    "Conjurer's Closet",
+    "Deadpool, Trading Card"
+   ],
+   "texto": "No fim do seu turno, o Deadpool sai e volta como objeto novo, e troca com outra criatura."
+  },
+  {
+   "nome": "Uma troca por oponente",
+   "tipo": "Motor",
+   "pecas": [
+    "Blade of Selves",
+    "Deadpool, Trading Card"
+   ],
+   "texto": "A miríade faz uma cópia para cada outro oponente; cada uma troca com uma criatura dele."
+  },
+  {
+   "nome": "O oponente paga a conta",
+   "tipo": "Motor",
+   "pecas": [
+    "Deadpool, Trading Card",
+    "Valgavoth, Harrower of Souls"
+   ],
+   "texto": "Troque com a criatura de um oponente: ele perde 3 na própria manutenção, e o Valgavoth compra para você."
+  },
+  {
+   "nome": "Fichas infinitas",
+   "tipo": "Combo",
+   "pecas": [
+    "Dualcaster Mage",
+    "Twinflame"
+   ],
+   "texto": "O Dualcaster copia o Twinflame mirando a si mesmo; cada ficha copia de novo: fichas com ímpeto infinitas. Também com Saw in Half, Heat Shimmer, Electroduplicate e Molten Duplication."
+  },
+  {
+   "nome": "Mana infinita",
+   "tipo": "Combo",
+   "pecas": [
+    "Worldgorger Dragon",
+    "Animate Dead"
+   ],
+   "texto": "O dragão exila tudo, a Aura sai, o dragão volta ao cemitério e as permanentes voltam: entradas e mana infinitas. O Mount Doom fecha; o Deadpool troca a cada volta."
+  },
+  {
+   "nome": "Cada Deadpool é dano",
+   "tipo": "Motor",
+   "pecas": [
+    "Terror of the Peaks",
+    "Orthion, Hero of Lavabrink"
+   ],
+   "texto": "Cada ficha de Deadpool que entra causa 5 de dano."
+  },
+  {
+   "nome": "A mesa se ataca",
+   "tipo": "Motor",
+   "pecas": [
+    "Kardur, Doomscourge",
+    "Alexios, Deimos of Kosmos"
+   ],
+   "texto": "Goad em massa e um 4/4 rotativo: os oponentes lutam entre si."
+  },
+  {
+   "nome": "O 5/5 que você empresta",
+   "tipo": "Motor",
+   "pecas": [
+    "Xantcha, Sleeper Agent",
+    "Deadpool, Trading Card"
+   ],
+   "texto": "A Xantcha entra com um oponente e ataca os outros; você paga {3} para ele perder 2 e você comprar."
+  },
+  {
+   "nome": "Armadilha: trocar com criatura sua",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Deadpool, Trading Card",
+    "Sheoldred, the Apocalypse"
+   ],
+   "texto": "Se a troca for com uma criatura sua, você continua perdendo as 3 vidas, porque controla quem ficou com o texto. Prefira trocar com a criatura de um oponente."
+  },
+  {
+   "nome": "Armadilha: o Deadpool perde o próprio sacrifício",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Deadpool, Trading Card",
+    "Phyrexian Tower"
+   ],
+   "texto": "Depois da troca, o sacrifício foi para a outra criatura. Para sacrificar o Deadpool, use a Phyrexian Tower ou o Deadly Dispute."
+  }
+ ]
+}
