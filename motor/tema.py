@@ -284,6 +284,15 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(900px 520px at 80%% -12%%, rgba(%d,%d,%d,.15), transparent 62%%),"
                 "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.08), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
+    if nome == "cordame":
+        # o cordame do navio da Zara: rede de cabos em losango, com nós de latão nos cruzamentos e o brilho do céu no alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E"
+               "%3Cpath d='M0 0L64 64M64 0L0 64' fill='none' stroke='" + quote(p["suave"]) + "' stroke-opacity='.07' stroke-width='1.6' stroke-dasharray='5 1.6'/%3E"
+               "%3Cg fill='" + quote(p["acento"]) + "' fill-opacity='.16'%3E%3Ccircle cx='32' cy='32' r='2.2'/%3E%3Ccircle cx='0' cy='0' r='2.2'/%3E"
+               "%3Ccircle cx='64' cy='0' r='2.2'/%3E%3Ccircle cx='0' cy='64' r='2.2'/%3E%3Ccircle cx='64' cy='64' r='2.2'/%3E%3C/g%3E%3C/svg%3E")
+        return ('url("%s"),'
+                "radial-gradient(900px 520px at 78%% -12%%, rgba(%d,%d,%d,.14), transparent 62%%),"
+                "radial-gradient(900px 480px at 8%% 110%%, rgba(%d,%d,%d,.08), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
