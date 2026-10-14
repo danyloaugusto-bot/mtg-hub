@@ -1,0 +1,1592 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Mana",
+   "ab": "Mana",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Pedras, ramp e terrenos. Terreno de qualquer cor desvirado vale 2; de duas cores, 1; virado, −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Compra",
+   "ab": "Compra",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra, seleção e tutor."
+  },
+  {
+   "k": "removal",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Contramágica, remoção e devolução."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Protege a Storm e o turno do storm."
+  },
+  {
+   "k": "ritual",
+   "nome": "Rituais e redutores",
+   "curto": "Rituais",
+   "ab": "Rit.",
+   "desc": "Mana de uma vez e custo reduzido: o combustível do turno grande."
+  },
+  {
+   "k": "storm",
+   "nome": "Storm e cópia",
+   "curto": "Storm",
+   "ab": "Storm",
+   "desc": "Mágicas com storm, copiadores e quem paga por cada cópia."
+  },
+  {
+   "k": "conexao",
+   "nome": "A Storm conecta",
+   "curto": "Conexão",
+   "ab": "Con.",
+   "desc": "Ímpeto, evasão, golpe duplo e combate extra: o dano que dispara o gatilho."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Grapeshot, Brain Freeze, combos e o que tira jogadores do jogo."
+  }
+ ],
+ "marcadores": {
+  "barata": {
+   "nome": "Mágica de 0 ou 1 mana"
+  },
+  "conecta": {
+   "nome": "Faz a Storm conectar"
+  },
+  "protege": {
+   "nome": "Proteção"
+  },
+  "pet": {
+   "nome": "Carta pet (Storm, X-Men, Marvel)"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 32,
+   "alerta": "32 terrenos, compensados por oito pedras e mana grátis. Os três duais da Reserved List são o maior custo da lista; o radar tem as trocas de orçamento."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de mana dedicada",
+    "cartas de mana dedicadas"
+   ],
+   "passagem": "que ajudam de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 12,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "de seleção"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 1,
+   "massa_ref": [
+    0,
+    1
+   ]
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "barata",
+   "min": 20,
+   "listar": false,
+   "rotulo": [
+    "mágica de 0 ou 1 mana",
+    "mágicas de 0 ou 1 mana"
+   ],
+   "texto": "Cada uma soma uma cópia ao storm sem custar o turno.",
+   "ok": "O storm cresce barato."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "conecta",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "carta que faz a Storm conectar",
+    "cartas que fazem a Storm conectar"
+   ],
+   "alerta": "Pouco para garantir o gatilho.",
+   "ok": "A Storm conecta com regularidade."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "protege",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "proteção",
+    "proteções"
+   ],
+   "ok": "A Storm e o turno grande têm cobertura."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Mana grátis e pedras (Sol Ring, Mox Diamond, Chrome Mox, Ancient Tomb), um redutor (Goblin Electromancer, Stormcatch Mentor) e compra barata (Mystic Remora, Rhystic Study). A Storm sai no turno 2 ou 3.",
+   "fortes": [
+    "Oito pedras e quatro peças de mana grátis.",
+    "Vinte mágicas de uma mana ou menos."
+   ],
+   "fracos": [
+    "32 terrenos: depende das pedras.",
+    "Muita carta de uma mana sem efeito sozinha."
+   ]
+  },
+  "meio": {
+   "turnos": "3 a 5",
+   "plano": "A Storm conecta (voando, com Enter the Enigma, Psychotic Fury ou ímpeto) e, na segunda fase principal, rituais e cantrips enchem a contagem antes da Grapeshot ou do Brain Freeze. Storm-Kiln Artist e Archmage Emeritus pagam o turno.",
+   "fortes": [
+    "O storm conta as mágicas de todos no turno.",
+    "Seis contramágicas grátis ou de uma mana protegem o turno."
+   ],
+   "fracos": [
+    "A Storm é a única fonte do gatilho: remoção nela antes do combate atrasa tudo.",
+    "Precisa sobreviver ao bloqueio de voadores."
+   ]
+  },
+  "fim": {
+   "turnos": "5 em diante",
+   "plano": "Grapeshot ou Brain Freeze com dez ou mais cópias, Underworld Breach com Lotus Petal e Brain Freeze, Thousand-Year Storm, ou combates e turnos extras para repetir o gatilho.",
+   "fortes": [
+    "Vitória sem depender de dano de combate grande.",
+    "Underworld Breach transforma o cemitério em um segundo turno."
+   ],
+   "fracos": [
+    "Treze Game Changers: joga no bracket 4 ou 5.",
+    "Hate de cemitério e contramágica de split second desmontam o combo."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Ganha a corrida se o turno grande vier até o 5, mas tem poucos bloqueadores."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "equilibrado",
+    "porque": "Snap e Cyclonic Rift atrasam, mas não há remoção definitiva de criatura."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "forte",
+    "porque": "Muita contramágica grátis e o próprio combo é rápido."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "Guerra de contramágicas: Veil of Summer, Hexing Squelcher e Samut ajudam."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Taxa por mágica e limite de mágicas por turno desligam o deck."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "forte",
+    "porque": "Grapeshot e Brain Freeze não ligam para a mesa deles."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "forte",
+    "porque": "As mágicas deles também contam para o storm."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "Fecha antes da criatura grande deles importar."
+   }
+  ]
+ },
+ "cartas": {
+  "Storm, Force of Nature": {
+   "notas": {
+    "draw": 1,
+    "storm": 3,
+    "conexao": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Mutante 3/4 de 4, voar e vigilância. Sempre que causa dano de combate a um jogador, a próxima instantânea ou feitiço que você conjurar no turno tem storm.",
+   "porque": "É o deck: voa e conecta sozinha; o storm conta as mágicas de todos no turno, e a mágica pode sair na segunda fase principal. Golpe duplo dá dois gatilhos.",
+   "marcas": {
+    "conecta": 1
+   }
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: mana das três cores.",
+   "porque": "Pedra de duas manas."
+  },
+  "Chrome Mox": {
+   "notas": {
+    "ramp": 2,
+    "ritual": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Artefato de 0: exile uma carta não-terreno da mão; gera as cores dela.",
+   "porque": "Mana grátis que conta para o storm. Game Changer.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 3,
+    "conexao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "A Storm ataca no turno em que entra, protegida.",
+   "marcas": {
+    "conecta": 1
+   }
+  },
+  "Lotus Petal": {
+   "notas": {
+    "ramp": 1,
+    "ritual": 2,
+    "storm": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 0. Sacrifique: uma mana de qualquer cor.",
+   "porque": "Mana grátis para o turno do storm; peça do combo com Underworld Breach e Brain Freeze.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Mox Amber": {
+   "notas": {
+    "ramp": 2,
+    "ritual": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato lendário de 0: uma mana de uma cor entre suas criaturas e planeswalkers lendários.",
+   "porque": "Com a Storm, Birgi, Vivi ou Samut em campo, mana grátis.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Mox Diamond": {
+   "notas": {
+    "ramp": 2,
+    "ritual": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Artefato de 0: descarte um terreno ao conjurar; mana de qualquer cor.",
+   "porque": "Mana grátis no turno 1. Game Changer.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Storm no turno 2."
+  },
+  "Talisman of Creativity": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}, ou {U} ou {R} com 1 de dano.",
+   "porque": "Pedra de duas nas cores das mágicas."
+  },
+  "The One Ring": {
+   "notas": {
+    "draw": 3,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato lendário de 4. Conjurado, dá proteção contra tudo até o seu turno. Vira: compre uma por marcador.",
+   "porque": "Compra crescente e um turno a salvo. Game Changer."
+  },
+  "Archmage Emeritus": {
+   "notas": {
+    "draw": 3,
+    "storm": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Mago de 4. Sempre que você conjura ou copia instantânea ou feitiço, compre.",
+   "porque": "Cada cópia do storm compra uma carta: o turno grande não acaba."
+  },
+  "Birds of Paradise": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Ave 0/1 voadora de 1: mana de qualquer cor.",
+   "porque": "Storm no turno 3."
+  },
+  "Birgi, God of Storytelling": {
+   "notas": {
+    "ritual": 3,
+    "storm": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Deusa de 3. Sempre que você conjura uma mágica, ganhe {R}, que fica até o fim do turno.",
+   "porque": "Cada mágica paga parte da próxima."
+  },
+  "Delighted Halfling": {
+   "notas": {
+    "ramp": 2,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Halfling de 1: {C}, ou mana de qualquer cor para lendária, que não pode ser anulada.",
+   "porque": "A Storm sai sem contramágica."
+  },
+  "Eternal Witness": {
+   "notas": {
+    "draw": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Xamã de 3. Ao entrar, uma carta do cemitério volta à mão.",
+   "porque": "Recupera a Grapeshot ou o ritual."
+  },
+  "Goblin Electromancer": {
+   "notas": {
+    "ritual": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Goblin de 2. Instantâneas e feitiços custam {1} a menos.",
+   "porque": "Redutor de duas manas."
+  },
+  "Hexing Squelcher": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin de 2 com ward. Suas mágicas não podem ser anuladas.",
+   "porque": "Protege o turno do storm.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Samut, Tyrant of Naktamun": {
+   "notas": {
+    "protecao": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Mago lendário de 2. Suas instantâneas e feitiços têm split second.",
+   "porque": "Ninguém responde à Grapeshot nem ao ritual.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Simian Spirit Guide": {
+   "notas": {
+    "ritual": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Macaco de 3. Exile da mão: {R}.",
+   "porque": "Mana grátis, mas gasta uma carta.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Spellseeker": {
+   "notas": {
+    "draw": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Mago de 3. Ao entrar, busque uma instantânea ou feitiço de valor até 2.",
+   "porque": "Acha a Grapeshot, o Brain Freeze ou o Underworld Breach."
+  },
+  "Storm-Kiln Artist": {
+   "notas": {
+    "ritual": 3,
+    "storm": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Anão de 4. Sempre que você conjura ou copia instantânea ou feitiço, crie um Treasure.",
+   "porque": "Cada cópia do storm vira mana: o turno se paga."
+  },
+  "Stormcatch Mentor": {
+   "notas": {
+    "ritual": 3,
+    "conexao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Lontra de 2 com ímpeto e prowess. Instantâneas e feitiços custam {1} a menos.",
+   "porque": "O segundo redutor de duas manas."
+  },
+  "Vivi Ornitier": {
+   "notas": {
+    "ritual": 3,
+    "storm": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Mago lendário de 3. {0}: X manas azuis ou vermelhas (X a força dele), uma vez no seu turno. Cresce e causa dano a cada mágica não-criatura.",
+   "porque": "Mana grátis que cresce com o turno grande."
+  },
+  "Mystic Remora": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Encantamento de 1, manutenção cumulativa {1}. Quando um oponente conjura não-criatura, você compra, a menos que ele pague {4}.",
+   "porque": "Compra forte no início."
+  },
+  "Rhystic Study": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Encantamento de 3. Quando um oponente conjura, você compra, a menos que ele pague {1}.",
+   "porque": "Compra no turno dos outros. Game Changer."
+  },
+  "Thousand-Year Storm": {
+   "notas": {
+    "storm": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 6. Cada instantânea ou feitiço seu é copiado uma vez por instantânea e feitiço que você conjurou antes no turno.",
+   "porque": "Um segundo storm, que não depende da Storm conectar."
+  },
+  "Underworld Breach": {
+   "notas": {
+    "ritual": 1,
+    "storm": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 2. Cartas não-terreno do seu cemitério têm escape: o custo mais exilar três outras.",
+   "porque": "Com Lotus Petal e Brain Freeze, o combo de mill. Game Changer."
+  },
+  "An Offer You Can't Refuse": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: anula não-criatura; o dono ganha dois Treasures.",
+   "porque": "Contramágica de uma mana que conta para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Big Score": {
+   "notas": {
+    "draw": 2,
+    "ritual": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 4: descarte uma, compre duas e crie dois Treasures.",
+   "porque": "Compra e mana no turno do storm."
+  },
+  "Brain Freeze": {
+   "notas": {
+    "storm": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: um jogador mói três. Storm.",
+   "porque": "Mói um oponente inteiro no turno grande; com Underworld Breach, a mesa.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Brainstorm": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Instantânea de 1: compre três, devolva duas ao topo.",
+   "porque": "Seleção de uma mana que conta para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Consider": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 1: vigiar 1 e compre.",
+   "porque": "Mágica de uma mana para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Crop Rotation": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea de 1: sacrifique um terreno e busque outro para o campo.",
+   "porque": "Sem Gaea's Cradle na lista, busca pouco; ocupa um Game Changer.",
+   "marcas": {
+    "barata": 1
+   },
+   "prioridade": 2
+  },
+  "Cyclonic Rift": {
+   "notas": {
+    "removal": 3,
+    "protecao": 1,
+    "conexao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: devolve uma permanente alheia; com sobrecarga, todas.",
+   "porque": "Limpa os bloqueadores voadores antes da Storm atacar. Game Changer.",
+   "massa": true,
+   "pontual": true
+  },
+  "Deflecting Swat": {
+   "notas": {
+    "removal": 1,
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3, de graça com o comandante em campo: muda o alvo de uma mágica ou habilidade.",
+   "porque": "Protege a Storm de graça.",
+   "marcas": {
+    "protege": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Fierce Guardianship": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3, de graça com o comandante: anula não-criatura.",
+   "porque": "Protege o turno do storm de graça. Game Changer.",
+   "marcas": {
+    "protege": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Flusterstorm": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2,
+    "storm": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: anula instantânea ou feitiço a menos que paguem {1}. Storm.",
+   "porque": "Vence a guerra de contramágicas no turno grande.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Force of Will": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 5, ou exilando uma carta azul e 1 de vida: anula uma mágica.",
+   "porque": "Contramágica grátis. Game Changer.",
+   "marcas": {
+    "protege": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Frantic Search": {
+   "notas": {
+    "draw": 2,
+    "ritual": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: compre duas, descarte duas, desvire três terrenos.",
+   "porque": "De graça na prática, e conta para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Growth Spiral": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: compre uma e ponha um terreno da mão no campo.",
+   "porque": "Ramp que conta para o storm."
+  },
+  "Lightning Bolt": {
+   "notas": {
+    "removal": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Instantânea de 1: 3 de dano em qualquer alvo.",
+   "porque": "Carta pet: o drop Secret Lair da Storm traz o Lightning Bolt (SLD 1743).",
+   "marcas": {
+    "barata": 1,
+    "pet": 1
+   },
+   "fora_do_corte": true
+  },
+  "Mana Drain": {
+   "notas": {
+    "ramp": 1,
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: anula; na sua próxima fase principal, ganhe {C} igual ao custo.",
+   "porque": "Contramágica que paga o turno seguinte."
+  },
+  "Manamorphose": {
+   "notas": {
+    "draw": 1,
+    "ritual": 2,
+    "storm": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Instantânea de 2: duas manas em qualquer combinação e compre.",
+   "porque": "De graça e conta para o storm. Carta pet: no drop da Storm, impressa como \"Ororo Borealis\" (SLD 1746).",
+   "marcas": {
+    "barata": 1,
+    "pet": 1
+   },
+   "fora_do_corte": true
+  },
+  "Mystical Tutor": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Instantânea de 1: uma instantânea ou feitiço para o topo.",
+   "porque": "Acha a Grapeshot ou o Brain Freeze. Game Changer.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Noxious Revival": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1 (ou 2 de vida): uma carta de um cemitério para o topo do grimório.",
+   "porque": "Reaproveita a Grapeshot; de graça, conta para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Opt": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 1: vidência 1 e compre.",
+   "porque": "Mágica de uma mana para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Psychotic Fury": {
+   "notas": {
+    "draw": 1,
+    "conexao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: uma criatura multicolorida ganha golpe duplo; compre.",
+   "porque": "A Storm é multicolorida: golpe duplo é dois gatilhos de storm.",
+   "marcas": {
+    "conecta": 1
+   }
+  },
+  "Seething Song": {
+   "notas": {
+    "ritual": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: {R}{R}{R}{R}{R}.",
+   "porque": "Ritual de duas manas a mais."
+  },
+  "Snap": {
+   "notas": {
+    "removal": 1,
+    "ritual": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: devolve uma criatura à mão e desvira dois terrenos.",
+   "porque": "Remoção de graça que conta para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Swan Song": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: anula encantamento, instantânea ou feitiço; o dono ganha uma Ave 2/2.",
+   "porque": "Contramágica de uma mana.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Veil of Summer": {
+   "notas": {
+    "draw": 1,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: suas mágicas não podem ser anuladas neste turno; resistência a azul e preto.",
+   "porque": "Protege o turno grande por uma mana.",
+   "marcas": {
+    "barata": 1,
+    "protege": 1
+   }
+  },
+  "Boltwave": {
+   "notas": {
+    "storm": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 1: 3 de dano em cada oponente.",
+   "porque": "Com storm, nove de dano por cópia na mesa.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Enter the Enigma": {
+   "notas": {
+    "draw": 1,
+    "conexao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 1: uma criatura não pode ser bloqueada; compre.",
+   "porque": "A Storm conecta por uma mana.",
+   "marcas": {
+    "barata": 1,
+    "conecta": 1
+   }
+  },
+  "Farseek": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: um Plains, Island, Swamp ou Mountain para o campo virado.",
+   "porque": "Acha os duais com Island ou Mountain."
+  },
+  "Gamble": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 1: busque uma carta e descarte uma ao acaso.",
+   "porque": "Tutor de uma mana. Game Changer.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Gitaxian Probe": {
+   "notas": {
+    "draw": 1,
+    "storm": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 1 (ou 2 de vida): veja a mão de um jogador e compre.",
+   "porque": "De graça, conta para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Grapeshot": {
+   "notas": {
+    "removal": 1,
+    "storm": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Feitiço de 2: 1 de dano. Storm.",
+   "porque": "A vitória: com doze mágicas antes, treze de dano divididos.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Jeska's Will": {
+   "notas": {
+    "draw": 2,
+    "ritual": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3. Com comandante em campo, os dois modos: {R} por carta na mão de um oponente, e exile três do topo para jogar.",
+   "porque": "Ritual e compra num feitiço. Carta pet: no drop da Storm, impressa como \"Storm's Will\" (SLD 1744). Game Changer.",
+   "marcas": {
+    "pet": 1
+   },
+   "fora_do_corte": true
+  },
+  "Mana Geyser": {
+   "notas": {
+    "ritual": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 5: {R} por terreno virado dos oponentes.",
+   "porque": "Ritual grande no fim da volta."
+  },
+  "Nature's Lore": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: um Forest para o campo desvirado.",
+   "porque": "Acha os duais com Forest."
+  },
+  "Overpowering Attack": {
+   "notas": {
+    "conexao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 5, ou {2}{R} com freerunning depois do dano do comandante: desvira quem atacou e dá um combate extra.",
+   "porque": "Depois da Storm conectar, outro combate e outro gatilho.",
+   "marcas": {
+    "conecta": 1
+   }
+  },
+  "Ponder": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 1: veja três, reordene ou embaralhe; compre.",
+   "porque": "Seleção que conta para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Preordain": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 1: vidência 2 e compre.",
+   "porque": "Seleção que conta para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Seize the Day": {
+   "notas": {
+    "conexao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 4: desvira uma criatura e dá um combate extra e outra fase principal. Flashback.",
+   "porque": "Dois combates extras com a Storm, e cada um é um gatilho.",
+   "marcas": {
+    "conecta": 1
+   }
+  },
+  "Strike It Rich": {
+   "notas": {
+    "ritual": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 1: um Treasure. Flashback {2}{R}.",
+   "porque": "Mana e duas mágicas para o storm.",
+   "marcas": {
+    "barata": 1
+   }
+  },
+  "Three Visits": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: um Forest para o campo desvirado.",
+   "porque": "Acha os duais com Forest."
+  },
+  "Time Warp": {
+   "notas": {
+    "conexao": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 5: um jogador joga um turno extra.",
+   "porque": "Mais um turno é mais um ataque da Storm."
+  },
+  "Wheel of Fortune": {
+   "notas": {
+    "draw": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: cada jogador descarta a mão e compra sete.",
+   "porque": "Mão nova no turno grande; com Underworld Breach, combo."
+  },
+  "Ancient Tomb": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{C}{C}, com 2 de dano.",
+   "porque": "Storm no turno 2. Game Changer."
+  },
+  "Arid Mesa": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pague 1 de vida e sacrifique: busque um terreno de um dos dois tipos.",
+   "porque": "Acha os duais e os shocks."
+  },
+  "Flooded Strand": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pague 1 de vida e sacrifique: busque um terreno de um dos dois tipos.",
+   "porque": "Acha os duais e os shocks."
+  },
+  "Misty Rainforest": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pague 1 de vida e sacrifique: busque um terreno de um dos dois tipos.",
+   "porque": "Acha os duais e os shocks."
+  },
+  "Polluted Delta": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pague 1 de vida e sacrifique: busque um terreno de um dos dois tipos.",
+   "porque": "Acha os duais e os shocks."
+  },
+  "Scalding Tarn": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pague 1 de vida e sacrifique: busque um terreno de um dos dois tipos.",
+   "porque": "Acha os duais e os shocks."
+  },
+  "Wooded Foothills": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pague 1 de vida e sacrifique: busque um terreno de um dos dois tipos.",
+   "porque": "Acha os duais e os shocks."
+  },
+  "Breeding Pool": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{G} ou {U}; pague 2 de vida ou entra virado.",
+   "porque": "Duas cores desvirado, e as fetches o buscam."
+  },
+  "Steam Vents": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{U} ou {R}; pague 2 de vida ou entra virado.",
+   "porque": "Duas cores desvirado, e as fetches o buscam."
+  },
+  "Stomping Ground": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{R} ou {G}; pague 2 de vida ou entra virado.",
+   "porque": "Duas cores desvirado, e as fetches o buscam."
+  },
+  "Taiga": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{R} ou {G}, sempre desvirado.",
+   "porque": "O melhor dual, e caríssimo: Reserved List, sem preço no Scryfall pela impressão padrão."
+  },
+  "Tropical Island": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{G} ou {U}, sempre desvirado.",
+   "porque": "O melhor dual, e caríssimo: Reserved List, sem preço no Scryfall pela impressão padrão."
+  },
+  "Volcanic Island": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "{U} ou {R}, sempre desvirado.",
+   "porque": "O melhor dual, e caríssimo: Reserved List, sem preço no Scryfall pela impressão padrão."
+  },
+  "City of Brass": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Qualquer cor, com 1 de dano ao virar.",
+   "porque": "Três cores desvirado."
+  },
+  "Mana Confluence": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vira e pague 1 de vida: qualquer cor.",
+   "porque": "Três cores desvirado."
+  },
+  "Command Tower": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Qualquer cor da identidade.",
+   "porque": "Três cores desvirado."
+  },
+  "Exotic Orchard": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Uma cor que terreno de oponente geraria.",
+   "porque": "Depende da mesa."
+  },
+  "Ketria Triome": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Forest Island Mountain; sempre virado. Ciclo {3}.",
+   "porque": "As três cores, um turno depois; as fetches o buscam.",
+   "virado": true
+  },
+  "Rejuvenating Springs": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{G} ou {U}; desvirado com dois ou mais oponentes.",
+   "porque": "Duas cores desvirado na mesa de quatro."
+  },
+  "Spire Garden": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{R} ou {G}; desvirado com dois ou mais oponentes.",
+   "porque": "Duas cores desvirado na mesa de quatro."
+  },
+  "Training Center": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{U} ou {R}; desvirado com dois ou mais oponentes.",
+   "porque": "Duas cores desvirado na mesa de quatro."
+  },
+  "Mistrise Village": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{U}; virado sem Mountain ou Forest. {U}, vira: a próxima mágica não pode ser anulada.",
+   "porque": "Protege a Grapeshot."
+  },
+  "Boseiju, Who Endures": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{G}. Canalizar {1}{G}: destrói artefato, encantamento ou terreno não-básico de oponente.",
+   "porque": "Remoção num terreno."
+  },
+  "Otawara, Soaring City": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{U}. Canalizar {3}{U}: devolve uma permanente à mão.",
+   "porque": "Remoção num terreno."
+  },
+  "Reliquary Tower": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}. Sem limite de mão.",
+   "porque": "O turno grande enche a mão."
+  },
+  "Forest": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo das fetches e do Farseek."
+  },
+  "Island": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo das fetches e do Farseek."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo das fetches e do Farseek."
+  }
+ },
+ "radar": {
+  "Expedite": {
+   "notas": {
+    "draw": 1,
+    "conexao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 1: uma criatura ganha ímpeto; compre.",
+   "porque": "A Storm ataca no turno em que entra, por uma mana, e ainda conta para o storm.",
+   "sai": "Consider",
+   "marcas": {
+    "barata": 1,
+    "conecta": 1
+   }
+  },
+  "Twinferno": {
+   "notas": {
+    "storm": 2,
+    "conexao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 4. Um modo: golpe duplo numa criatura; ou copia a próxima instantânea ou feitiço.",
+   "porque": "Dois gatilhos da Storm, ou uma cópia a mais, no lugar de um Game Changer que busca pouco.",
+   "sai": "Crop Rotation",
+   "marcas": {
+    "conecta": 1
+   }
+  },
+  "Archmage of Runes": {
+   "notas": {
+    "draw": 2,
+    "ritual": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Gigante de 5. Instantâneas e feitiços custam {1} a menos; compre a cada uma.",
+   "porque": "Redutor e compra na mesma carta.",
+   "sai": "Simian Spirit Guide"
+  },
+  "Regrowth": {
+   "notas": {
+    "draw": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Feitiço de 2: uma carta do cemitério volta à mão.",
+   "porque": "Recupera a Grapeshot ou o Wheel; 42% dos decks da Storm.",
+   "sai": "Opt"
+  },
+  "Ice Storm": {
+   "notas": {
+    "removal": 2,
+    "storm": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 3: destrói um terreno. Storm.",
+   "porque": "Carta pet: faz parte do drop Secret Lair da Storm (SLD 1745). Com storm, é destruição de terreno em massa: sai do bracket 3.",
+   "marcas": {
+    "pet": 1
+   }
+  },
+  "Electro, Assaulting Battery": {
+   "notas": {
+    "ritual": 3,
+    "storm": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Mutante voador de 3. A mana vermelha não some entre etapas; {R} a cada instantânea ou feitiço.",
+   "porque": "Ritual em criatura, e pet Marvel.",
+   "marcas": {
+    "pet": 1
+   }
+  },
+  "Ashling, Flame Dancer": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "ritual": 2,
+    "storm": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elemental de 4 com magecraft: descarta e compra, dano, e mana a partir da terceira mágica.",
+   "porque": "Mais um payoff de cópia."
+  },
+  "Solve the Equation": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 3: busque uma instantânea ou feitiço.",
+   "porque": "Tutor que não é Game Changer."
+  },
+  "Prismari, the Inspiration": {
+   "notas": {
+    "storm": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elder Dragon de 7. Instantâneas e feitiços têm storm.",
+   "porque": "Storm em todo turno, mesmo sem a Storm conectar."
+  },
+  "Bear Umbra": {
+   "notas": {
+    "ramp": 1,
+    "protecao": 2,
+    "conexao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Aura de 4: +2/+2, armadura; ao atacar, desvira seus terrenos.",
+   "porque": "Protege a Storm e paga o turno do storm depois do ataque.",
+   "marcas": {
+    "conecta": 1
+   }
+  },
+  "Quicksilver, Speedster": {
+   "notas": {
+    "conexao": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Mutante de 4 com lampejo, golpe duplo e ímpeto; enquanto virado, você conjura como se tivesse lampejo.",
+   "porque": "Carta pet dos X-Men.",
+   "marcas": {
+    "pet": 1
+   }
+  },
+  "Scarlet Witch, Chaotic Avenger": {
+   "notas": {
+    "storm": 1,
+    "conexao": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Mutante voadora. Ao causar dano de combate, conjure de graça uma mágica não-criatura.",
+   "porque": "Carta pet Marvel, e mais um gatilho por conexão.",
+   "marcas": {
+    "pet": 1
+   }
+  },
+  "Stormcarved Coast": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {U} ou {R}; virado sem dois outros terrenos.",
+   "porque": "O Volcanic Island de orçamento.",
+   "sai": "Volcanic Island"
+  },
+  "Dreamroot Cascade": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {G} ou {U}; virado sem dois outros terrenos.",
+   "porque": "O Tropical Island de orçamento.",
+   "sai": "Tropical Island"
+  },
+  "Rockfall Vale": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {R} ou {G}; virado sem dois outros terrenos.",
+   "porque": "O Taiga de orçamento.",
+   "sai": "Taiga"
+  },
+  "Lion's Eye Diamond": {
+   "notas": {
+    "ritual": 2,
+    "storm": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Artefato de 0. Descarte a mão e sacrifique: três manas de uma cor.",
+   "porque": "Combo com Underworld Breach; mais um Game Changer numa lista que já tem treze."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Mill da mesa",
+   "tipo": "Combo",
+   "pecas": [
+    "Underworld Breach",
+    "Lotus Petal",
+    "Brain Freeze"
+   ],
+   "texto": "Com o Breach, o Lotus Petal e o Brain Freeze voltam do cemitério em loop: o storm cresce e mói os oponentes inteiros."
+  },
+  {
+   "nome": "Mão nova sem fim",
+   "tipo": "Combo",
+   "pecas": [
+    "Underworld Breach",
+    "Wheel of Fortune",
+    "Jeska's Will"
+   ],
+   "texto": "O Jeska's Will paga o Wheel pelo escape, o Wheel enche o cemitério e a mão: compra e storm quase infinitos."
+  },
+  {
+   "nome": "Golpe duplo, dois storms",
+   "tipo": "Motor",
+   "pecas": [
+    "Storm, Force of Nature",
+    "Psychotic Fury"
+   ],
+   "texto": "A Storm é multicolorida: golpe duplo causa dano duas vezes, e cada vez dispara o gatilho."
+  },
+  {
+   "nome": "Imbloqueável e storm",
+   "tipo": "Motor",
+   "pecas": [
+    "Storm, Force of Nature",
+    "Enter the Enigma"
+   ],
+   "texto": "Uma mana para a Storm conectar, e a mágica ainda conta para o storm."
+  },
+  {
+   "nome": "O turno que se paga",
+   "tipo": "Motor",
+   "pecas": [
+    "Storm-Kiln Artist",
+    "Grapeshot"
+   ],
+   "texto": "Cada cópia da Grapeshot é uma mágica copiada: um Treasure por cópia."
+  },
+  {
+   "nome": "Cada cópia compra",
+   "tipo": "Motor",
+   "pecas": [
+    "Archmage Emeritus",
+    "Brain Freeze"
+   ],
+   "texto": "O magecraft dispara com as cópias: uma carta por cópia do storm."
+  },
+  {
+   "nome": "Dois storms",
+   "tipo": "Motor",
+   "pecas": [
+    "Thousand-Year Storm",
+    "Storm, Force of Nature"
+   ],
+   "texto": "A mágica que ganha storm da comandante também é copiada pela Thousand-Year Storm."
+  },
+  {
+   "nome": "Outro combate, outro gatilho",
+   "tipo": "Motor",
+   "pecas": [
+    "Storm, Force of Nature",
+    "Seize the Day"
+   ],
+   "texto": "O combate extra desvira a Storm, e cada vez que ela conecta, a próxima mágica tem storm."
+  },
+  {
+   "nome": "Mais um turno da Storm",
+   "tipo": "Motor",
+   "pecas": [
+    "Time Warp",
+    "Storm, Force of Nature"
+   ],
+   "texto": "Com storm, o Time Warp vira vários turnos extras para o mesmo jogador: sai do bracket 3."
+  },
+  {
+   "nome": "O turno blindado",
+   "tipo": "Motor",
+   "pecas": [
+    "Samut, Tyrant of Naktamun",
+    "Grapeshot"
+   ],
+   "texto": "Split second: ninguém responde à Grapeshot nem às cópias."
+  },
+  {
+   "nome": "Armadilha: o storm conta as mágicas de todos",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Storm, Force of Nature",
+    "Brain Freeze"
+   ],
+   "texto": "O storm conta as mágicas conjuradas no turno por qualquer jogador, mas a cópia não conta: só o que foi conjurado."
+  }
+ ]
+}
