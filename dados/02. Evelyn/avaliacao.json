@@ -1,0 +1,1455 @@
+{
+ "feito": "13/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Mana e cor",
+   "curto": "Mana",
+   "ab": "Mana",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Pedras, terrenos de cor e Treasure. Terreno de qualquer cor desvirado vale 2; terreno que sempre entra virado, −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Compra",
+   "ab": "Compra",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra e seleção."
+  },
+  {
+   "k": "removal",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção, contramágica e limpeza."
+  },
+  {
+   "k": "entrada",
+   "nome": "Vampiro que entra",
+   "curto": "Entrada",
+   "ab": "Entr.",
+   "desc": "Cada Vampiro que entra aciona a Evelyn. Vale mais o barato, o de lampejo e o que cria Vampiro em qualquer turno."
+  },
+  {
+   "k": "roubo",
+   "nome": "Roubo",
+   "ab": "Roubo",
+   "desc": "Joga carta dos outros, ou paga quem joga do exílio (Don Andres, Nalfeshnee, Archaeologist, Warped Space)."
+  },
+  {
+   "k": "aristocratas",
+   "nome": "Aristocratas",
+   "ab": "Arist.",
+   "desc": "Sacrifício e dreno: saídas de sacrifício e quem paga cada morte."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Shared Animosity, os bônus da tribo, evasão e o que tira jogador do jogo."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção e volta",
+   "curto": "Proteção",
+   "ab": "Prot.",
+   "desc": "Indestrutível, ward, equipamento e o que traz Vampiro de volta."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Vampiro",
+   "plural": "Vampiros",
+   "subtipo": "Vampire"
+  },
+  "exilio": {
+   "nome": "Joga do exílio ou paga quem joga"
+  },
+  "dreno": {
+   "nome": "Dreno por morte ou ataque"
+  },
+  "saida": {
+   "nome": "Saída de sacrifício"
+  },
+  "protege": {
+   "nome": "Proteção"
+  },
+  "contra": {
+   "nome": "Limpeza que leva a sua mesa"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "35 terrenos e o verso da Jwari Disruption, mas quatro dão só incolor e dois sempre entram virados."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "carta de mana dedicada",
+    "cartas de mana dedicadas"
+   ],
+   "passagem": "que ajudam de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais",
+   "alerta": "A Evelyn é a maior fonte de carta: sem ela em campo, o deck compra pouco."
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 4,
+   "massa_ref": [
+    2,
+    4
+   ],
+   "alerta": "As limpezas boas aqui são as que poupam a tribo: Crippling Fear e Delayed Blast Fireball."
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 70,
+   "texto": "Cada Vampiro que entra aciona a Evelyn."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "exilio",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "carta que joga do exílio ou paga quem joga",
+    "cartas que jogam do exílio ou pagam quem joga"
+   ],
+   "texto": "O roubo da Evelyn rende mais com quem conjura do exílio e com quem paga por isso.",
+   "ok": "O roubo tem apoio."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "saida",
+   "min": 3,
+   "listar": true,
+   "rotulo": [
+    "saída de sacrifício",
+    "saídas de sacrifício"
+   ],
+   "alerta": "Pouca saída de sacrifício para o dreno.",
+   "ok": "O dreno tem onde sacrificar."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "dreno",
+   "min": 2,
+   "listar": true,
+   "rotulo": [
+    "carta de dreno",
+    "cartas de dreno"
+   ],
+   "ok": "As mortes viram dano."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Pedra de duas manas e Vampiro de uma ou duas (Voldaren Epicure, Viscera Seer, Indulgent Aristocrat, Cordial Vampire, Blood Artist). Discreto: o deck ainda não rouba nada.",
+   "fortes": [
+    "Oito pedras de mana, sete delas de duas manas ou menos.",
+    "Dez Vampiros custam uma ou duas manas."
+   ],
+   "fracos": [
+    "Só quatro não-básicos dão cor, e a Voldaren Estate só para Vampiro.",
+    "Os Vampiros baratos são pequenos e morrem para qualquer limpeza."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "A Evelyn entra com lampejo no fim do turno de um oponente, e cada Vampiro seguinte enche o banco do exílio. Uma carta roubada por turno, em qualquer turno; Don Andres, Nalfeshnee e a Warped Space pagam o roubo.",
+   "fortes": [
+    "O banco do exílio não expira: você escolhe a melhor carta de todas as que foram exiladas.",
+    "Crippling Fear e Delayed Blast Fireball limpam só a mesa deles."
+   ],
+   "fracos": [
+    "Sem a Evelyn em campo, o roubo para e a compra cai.",
+    "Pouca proteção para os Vampiros de bônus."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "Shared Animosity com a mesa larga, Drana e Crossway Troublemakers no ataque; ou o dreno das mortes com Blood Artist, Falkenrath Noble e as saídas de sacrifício.",
+   "fortes": [
+    "Dois fechamentos que não dependem um do outro: combate largo e dreno.",
+    "O que foi roubado também ataca, com +2/+2 do Don Andres."
+   ],
+   "fracos": [
+    "Poucos bônus fixos para a tribo: Cordial Vampire e Drana pedem mortes ou dano.",
+    "In Garruk's Wake e Etali custam caro demais para o fim."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Vampire Nighthawk e Nighthawk Scavenger seguram o ataque, mas os Vampiros baratos são pequenos."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "equilibrado",
+    "porque": "Terminate, Victim of Night e o toque mortífero respondem, mas não há como impedir o ataque grande."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Só a Jwari Disruption anula alguma coisa."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "A Evelyn tem lampejo e o banco do exílio reabastece a mão, mas uma limpeza leva a tribo."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "equilibrado",
+    "porque": "Muita pedra de mana para quebrar, mas pouca resposta a encantamento e artefato."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Blood Artist e Cordial Vampire ganham com as mortes deles também."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "forte",
+    "porque": "A Evelyn rouba as mágicas deles, o Memory Plunder conjura do cemitério e o Taurean Mauler cresce a cada mágica."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "A Evelyn exila as cartas grandes deles, e você conjura com mana de qualquer cor."
+   }
+  ]
+ },
+ "cartas": {
+  "Evelyn, the Covetous": {
+   "notas": {
+    "draw": 2,
+    "entrada": 3,
+    "roubo": 3,
+    "protecao": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "2/5 com lampejo, de 5 (custo híbrido: sai só com preto). Quando ela ou outro Vampiro seu entra, exila o topo do grimório de cada jogador com um marcador de coleção. Uma vez por turno, você pode jogar uma dessas cartas, gastando mana como se fosse de qualquer cor.",
+   "porque": "É o deck: cada Vampiro que entra põe quatro cartas num banco que não expira, e você joga a melhor delas uma vez por turno, em qualquer turno. Com lampejo, entra no fim do turno de um oponente."
+  },
+  "Asylum Visitor": {
+   "notas": {
+    "draw": 1,
+    "entrada": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Vampiro de 2. Na manutenção de cada jogador sem cartas na mão, você compra e perde 1.",
+   "porque": "Vampiro barato que aciona a Evelyn; a compra depende de mão vazia, que é rara."
+  },
+  "Blood Artist": {
+   "notas": {
+    "entrada": 2,
+    "aristocratas": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro de 2. Sempre que ele ou outra criatura morre, um jogador perde 1 e você ganha 1.",
+   "porque": "O dreno das mortes, dos dois lados da mesa, por duas manas.",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Bloodcrazed Paladin": {
+   "notas": {
+    "entrada": 2,
+    "aristocratas": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Vampiro de 2 com lampejo. Entra com um marcador por criatura que morreu no turno.",
+   "porque": "Lampejo aciona a Evelyn em qualquer turno, mas o corpo é pequeno fora de uma limpeza.",
+   "prioridade": 6
+  },
+  "Bloodtracker": {
+   "notas": {
+    "draw": 2,
+    "entrada": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro voador de 4. {B} e 2 de vida: um marcador nele. Quando sai, você compra uma por marcador.",
+   "porque": "Transforma mana sobrando em cartas, e devolve tudo quando morre."
+  },
+  "Bloodvial Purveyor": {
+   "notas": {
+    "entrada": 1,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Vampiro 5/6 voador e atropelar, de 4. Quando um oponente conjura, ele cria um Blood. Ao atacar, +1/+0 por Blood do defensor.",
+   "porque": "Corpo forte por quatro, mas dá aos oponentes um filtro de carta a cada mágica."
+  },
+  "Cordial Vampire": {
+   "notas": {
+    "entrada": 2,
+    "aristocratas": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro de 2. Sempre que ele ou outra criatura morre, um marcador em cada Vampiro seu.",
+   "porque": "Cada morte, de qualquer lado, cresce a tribo inteira."
+  },
+  "Cormela, Glamour Thief": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "entrada": 1,
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Vampiro de 4 com ímpeto. {1}, vira: {U}{B}{R} só para instantânea e feitiço. Quando morre, devolve uma instantânea ou feitiço do cemitério à mão.",
+   "porque": "Pouca instantânea e feitiço para pagar a mana dela."
+  },
+  "Crimson Honor Guard": {
+   "notas": {
+    "entrada": 1,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Vampiro 4/4 atropelar, de 5. No fim do turno de cada jogador, causa 4 de dano a ele, a menos que ele controle um comandante.",
+   "porque": "Pune quem está sem o comandante em campo, inclusive você sem a Evelyn."
+  },
+  "Crossway Troublemakers": {
+   "notas": {
+    "draw": 2,
+    "entrada": 1,
+    "aristocratas": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Vampiro de 6. Seus Vampiros atacantes têm toque mortífero e vínculo. Sempre que um Vampiro seu morre, você pode pagar 2 de vida e comprar.",
+   "porque": "Torna cada ataque da tribo perigoso e paga as mortes em carta."
+  },
+  "Dominating Vampire": {
+   "notas": {
+    "entrada": 2,
+    "roubo": 2,
+    "aristocratas": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro de 3. Ao entrar, você ganha o controle de uma criatura de valor até o número de Vampiros seus até o fim do turno; ela desvira e ganha ímpeto.",
+   "porque": "Roubo de criatura que termina no Viscera Seer ou no Yahenni."
+  },
+  "Don Andres, the Renegade": {
+   "notas": {
+    "ramp": 1,
+    "entrada": 1,
+    "roubo": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro Pirata de 4. Criaturas que você controla mas não possui ganham +2/+2, ameaça e toque mortífero. Quando você conjura uma mágica não-criatura que não é sua, cria dois Treasures virados.",
+   "porque": "Paga o roubo da Evelyn em mana e torna as criaturas roubadas ameaças.",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Drana, Liberator of Malakir": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro voador de 3, com iniciativa. Dano de combate num jogador: um marcador em cada criatura sua atacando.",
+   "porque": "O time cresce no meio do ataque, antes do dano dos outros."
+  },
+  "Etali, Primal Storm": {
+   "notas": {
+    "draw": 1,
+    "roubo": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dinossauro de 6. Ao atacar, exila o topo de cada grimório e você pode conjurar de graça qualquer número delas.",
+   "porque": "Roubo em massa, do exílio, que paga o Nalfeshnee e a Archaeologist. Não é Vampiro e morre no Crippling Fear.",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Falkenrath Aristocrat": {
+   "notas": {
+    "entrada": 1,
+    "aristocratas": 2,
+    "fechamento": 2,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro 4/1 voador com ímpeto, de 4. Sacrifique uma criatura: fica indestrutível até o fim do turno.",
+   "porque": "Ataca no turno em que entra e é saída de sacrifício para o dreno.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Falkenrath Gorger": {
+   "notas": {
+    "entrada": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Vampiro de 1. Os Vampiros que você possui fora do campo ganham loucura.",
+   "porque": "Quase nada descarta no deck: vale só como Vampiro barato.",
+   "prioridade": 5
+  },
+  "Falkenrath Noble": {
+   "notas": {
+    "entrada": 1,
+    "aristocratas": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro voador de 4. Sempre que ele ou outra criatura morre, um jogador perde 1 e você ganha 1.",
+   "porque": "O segundo Blood Artist, com asas.",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Florian, Voldaren Scion": {
+   "notas": {
+    "draw": 2,
+    "entrada": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro de 3 com iniciativa. Na sua fase principal pós-combate, olha X cartas do topo (X a vida que os oponentes perderam no turno), exila uma e pode jogá-la neste turno.",
+   "porque": "Compra depois de cada ataque; a carta sai do exílio e paga o Nalfeshnee e a Archaeologist.",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Immersturm Predator": {
+   "notas": {
+    "removal": 1,
+    "entrada": 1,
+    "aristocratas": 2,
+    "fechamento": 2,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro Dragão voador de 4. Quando vira, exila uma carta de um cemitério e ganha um marcador. Sacrifique outra criatura: fica indestrutível e vira.",
+   "porque": "Ameaça que se protege e é saída de sacrifício.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Indulgent Aristocrat": {
+   "notas": {
+    "entrada": 2,
+    "aristocratas": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro de 1 com vínculo. {2}, sacrifique uma criatura: um marcador em cada Vampiro seu.",
+   "porque": "Saída de sacrifício que ainda cresce a tribo.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Midnight Arsonist": {
+   "notas": {
+    "removal": 2,
+    "entrada": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Vampiro de 4. Ao entrar, destrói até X artefatos sem habilidade de mana, X o número de Vampiros seus.",
+   "porque": "Resposta a artefatos que depende da mesa."
+  },
+  "Mirri the Cursed": {
+   "notas": {
+    "entrada": 1,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Vampiro voador de 4, com iniciativa e ímpeto. Cresce quando causa dano de combate a uma criatura.",
+   "porque": "Ataca no turno em que entra; o resto é pouco."
+  },
+  "Nalfeshnee": {
+   "notas": {
+    "roubo": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Demônio voador de 6. Sempre que você conjura uma mágica do exílio, copia; se for permanente, a cópia ganha ímpeto e é sacrificada no fim do turno.",
+   "porque": "Dobra a carta da Evelyn de cada turno, e as do Stolen Strategy, do Etali e do Florian. Não é Vampiro.",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Nighthawk Scavenger": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro voador de 3, com toque mortífero e vínculo; força 1 mais os tipos de carta nos cemitérios dos oponentes.",
+   "porque": "Vampiro eficiente que bate forte e segura a mesa.",
+   "pacote": "fechamento"
+  },
+  "Quag Vampires": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Vampiro de 1, multichute {1}{B}: um marcador por chute. Passa-pântano.",
+   "porque": "Escala com mana, mas vale pouco em qualquer ponto da curva.",
+   "prioridade": 4
+  },
+  "Rakish Heir": {
+   "notas": {
+    "entrada": 1,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Vampiro de 3. Sempre que um Vampiro seu causa dano de combate a um jogador, ganha um marcador.",
+   "porque": "Recompensa o ataque, mas só depois de conectar."
+  },
+  "Strefan, Maurer Progenitor": {
+   "notas": {
+    "draw": 1,
+    "entrada": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro voador de 4. No seu fim de turno, um Blood por jogador que perdeu vida. Ao atacar, sacrifique dois Blood: um Vampiro da mão entra atacando e indestrutível.",
+   "porque": "Põe Vampiro grande em campo de graça, e cada um aciona a Evelyn."
+  },
+  "Taurean Mauler": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Troca-forma de 3: é de todos os tipos, inclusive Vampiro. Ganha um marcador sempre que um oponente conjura.",
+   "porque": "Aciona a Evelyn, recebe os bônus da tribo e cresce sozinho.",
+   "marcas": {
+    "tribo": 1
+   }
+  },
+  "Timothar, Baron of Bats": {
+   "notas": {
+    "entrada": 2,
+    "aristocratas": 1,
+    "protecao": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Vampiro de 6, ward (descarte uma carta). Quando outro Vampiro seu não-ficha morre, pague {1}: exile-o e crie um Morcego 1/1 voador; quando o Morcego causa dano a um jogador, o Vampiro volta virado.",
+   "porque": "Cada Vampiro que morre volta e aciona a Evelyn de novo."
+  },
+  "Vampire Nighthawk": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro voador de 3, com toque mortífero e vínculo.",
+   "porque": "Segura qualquer atacante e ganha a corrida.",
+   "pacote": "fechamento"
+  },
+  "Viscera Seer": {
+   "notas": {
+    "draw": 1,
+    "entrada": 2,
+    "aristocratas": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro de 1. Sacrifique uma criatura: vidência 1.",
+   "porque": "Saída de sacrifício grátis: alimenta o dreno e acerta o topo antes do próximo Vampiro.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Voldaren Bloodcaster": {
+   "notas": {
+    "draw": 1,
+    "entrada": 2,
+    "aristocratas": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro voador de 2. Quando ele ou outra criatura sua não-ficha morre, cria um Blood; com cinco Bloods, transforma e vira os Bloods em Morcegos.",
+   "porque": "Mortes viram cartas e, no fim, corpos voadores."
+  },
+  "Voldaren Epicure": {
+   "notas": {
+    "draw": 1,
+    "entrada": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro de 1. Ao entrar, 1 de dano em cada oponente e um Blood.",
+   "porque": "O Vampiro mais barato: aciona a Evelyn, liga o espetáculo do Light Up the Stage e o Strefan."
+  },
+  "Yahenni, Undying Partisan": {
+   "notas": {
+    "entrada": 1,
+    "aristocratas": 3,
+    "fechamento": 1,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro de 3 com ímpeto. Cresce quando criatura de oponente morre. Sacrifique outra criatura: fica indestrutível.",
+   "porque": "Saída de sacrifício grátis que também se protege.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Artefato de 2: uma mana de qualquer das três cores.",
+   "porque": "Pedra de duas manas que acerta a cor."
+  },
+  "Blade of the Bloodchief": {
+   "notas": {
+    "aristocratas": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Equipamento de 1, equipar {1}. Sempre que uma criatura morre, um marcador na equipada, dois se for Vampiro.",
+   "porque": "Cresce com as mortes, mas pede tempo de equipar."
+  },
+  "Chaos Wand": {
+   "notas": {
+    "roubo": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3. {4}, vira: um oponente exila do topo até achar instantânea ou feitiço; você pode conjurá-la de graça.",
+   "porque": "Roubo do exílio que paga Don Andres, Nalfeshnee e Archaeologist, mas custa quatro por ativação.",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Commander's Sphere": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3: uma mana de qualquer cor da identidade; sacrifique: compre.",
+   "porque": "Acerta a cor e vira carta no fim."
+  },
+  "Everflowing Chalice": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 0, multichute {2}: um marcador de carga por chute; vira: {C} por marcador.",
+   "porque": "Pedra de duas manas que não dá cor."
+  },
+  "Fellwar Stone": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: uma cor que um terreno de oponente geraria.",
+   "porque": "Pedra de duas manas; em quatro jogadores, quase sempre dá a cor certa."
+  },
+  "Mind Stone": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}; {1}, vira e sacrifique: compre.",
+   "porque": "Acelera e vira carta depois."
+  },
+  "Nevinyrral's Disk": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 4, entra virado. {1}, vira: destrói todos os artefatos, criaturas e encantamentos.",
+   "porque": "Limpa tudo, inclusive a sua mesa. Crippling Fear e Delayed Blast Fireball limpam só a deles.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 9
+  },
+  "Sensei's Divining Top": {
+   "notas": {
+    "draw": 2,
+    "roubo": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 1. {1}: olhe as três do topo e reordene. Vira: compre e ponha o Top no topo.",
+   "porque": "Você escolhe a carta do seu topo antes de um Vampiro entrar: a Evelyn exila a que você quiser."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Evelyn no turno 3."
+  },
+  "Talisman of Dominance": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}, ou {U} ou {B} com 1 de dano.",
+   "porque": "Pedra de duas manas que acerta azul e preto."
+  },
+  "Thought Vessel": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}; sem limite de mão.",
+   "porque": "Pedra de duas manas."
+  },
+  "Charred Foyer // Warped Space": {
+   "notas": {
+    "draw": 2,
+    "roubo": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sala. Charred Foyer, de 4: na sua manutenção, exile o topo e você pode jogá-lo neste turno. Warped Space, de 6: uma vez por turno, você pode pagar {0} em vez do custo de uma mágica conjurada do exílio.",
+   "porque": "A Warped Space deixa a carta da Evelyn de cada turno sair de graça; o Charred Foyer compra do exílio todo turno.",
+   "marcas": {
+    "exilio": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Military Intelligence": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento de 2. Sempre que você ataca com duas ou mais criaturas, compre.",
+   "porque": "Compra uma por ataque largo, que é o plano."
+  },
+  "Passionate Archaeologist": {
+   "notas": {
+    "roubo": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Background de 2. Suas criaturas comandante ganham: sempre que você conjura uma mágica do exílio, causa dano igual ao valor dela a um oponente.",
+   "porque": "Funciona no grimório: a Evelyn ganha a habilidade, e cada carta do exílio vira dano.",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Phyrexian Arena": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3. Na sua manutenção, compre e perca 1.",
+   "porque": "Compra que não depende da Evelyn."
+  },
+  "Shared Animosity": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 3. Sempre que uma criatura sua ataca, ganha +1/+0 por outra atacante que divide um tipo com ela.",
+   "porque": "O fechamento: com seis Vampiros atacando, cada um ganha +5."
+  },
+  "Stolen Strategy": {
+   "notas": {
+    "draw": 2,
+    "roubo": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 5. Na sua manutenção, exile o topo de cada oponente; neste turno, você pode conjurar essas cartas, gastando mana como de qualquer cor.",
+   "porque": "Um segundo motor de roubo, que não depende de Vampiro entrar e paga os bônus do exílio.",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Crippling Fear": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 4: criaturas que não são do tipo escolhido recebem −3/−3 até o fim do turno.",
+   "porque": "Nomeando Vampiro, limpa a mesa deles e poupa a sua. Mata Etali e Nalfeshnee.",
+   "massa": true
+  },
+  "Delayed Blast Fireball": {
+   "notas": {
+    "removal": 3,
+    "roubo": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: 2 de dano em cada oponente e em cada criatura deles; conjurada do exílio, 5. Prenunciar {4}{R}{R}.",
+   "porque": "Limpeza unilateral. Exilada pela Evelyn do seu próprio topo, ou prenunciada, vira a de 5.",
+   "massa": true
+  },
+  "Demon Bolt": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: 4 de dano numa criatura ou planeswalker. Prenunciar {R}.",
+   "porque": "Remoção instantânea; prenunciada, custa uma."
+  },
+  "Feed the Swarm": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: destrói uma criatura ou encantamento de oponente; você perde o valor dela.",
+   "porque": "Uma das poucas respostas a encantamento."
+  },
+  "In Garruk's Wake": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 9: destrói todas as criaturas e planeswalkers que você não controla.",
+   "porque": "Unilateral, mas nove manas.",
+   "massa": true,
+   "prioridade": 8
+  },
+  "Jwari Disruption": {
+   "notas": {
+    "ramp": 1,
+    "removal": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: anula uma mágica a menos que o dono pague {1}. O verso é um terreno virado que gera {U}.",
+   "porque": "Terreno quando falta, resposta barata no início."
+  },
+  "Light Up the Stage": {
+   "notas": {
+    "draw": 2,
+    "roubo": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3, espetáculo {R}: exile as duas do topo; você pode jogá-las até o fim do seu próximo turno.",
+   "porque": "Duas cartas por uma mana depois do Voldaren Epicure; saem do exílio e pagam o Nalfeshnee.",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Memory Plunder": {
+   "notas": {
+    "roubo": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de {U/B}x4: conjure de graça uma instantânea ou feitiço do cemitério de um oponente.",
+   "porque": "Roubo do cemitério; sai com quatro pretos."
+  },
+  "Read the Bones": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: vidência 2, compre duas, perca 2.",
+   "porque": "Compra simples."
+  },
+  "Sinister Waltz": {
+   "notas": {
+    "entrada": 2,
+    "protecao": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 5: escolha três criaturas do seu cemitério; duas ao acaso voltam ao campo.",
+   "porque": "Devolve Vampiros, e cada um aciona a Evelyn, mas ao acaso.",
+   "pacote": "protecao"
+  },
+  "Terminate": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Instantânea de 2: destrói uma criatura; ela não regenera.",
+   "porque": "Remoção de duas manas."
+  },
+  "Victim of Night": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: destrói uma criatura que não é Vampiro, Werewolf nem Zombie.",
+   "porque": "Barata; a restrição pesa pouco contra a maioria das mesas."
+  },
+  "Wheel of Fate": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço suspenso por 4 voltas, por {1}{R}: cada jogador descarta a mão e compra sete.",
+   "porque": "Lento, e dá sete cartas a cada oponente.",
+   "prioridade": 3
+  },
+  "Command Tower": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Qualquer cor da identidade.",
+   "porque": "Três cores desvirado."
+  },
+  "Path of Ancestry": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado. Qualquer cor da identidade; vidência 1 ao conjurar Vampiro.",
+   "porque": "Três cores e vidência em quase todo Vampiro, mas virado.",
+   "virado": true
+  },
+  "Rakdos Carnarium": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado; ao entrar, devolve um terreno seu à mão. {T}: {B}{R}.",
+   "porque": "Duas manas num terreno, um turno depois.",
+   "virado": true
+  },
+  "Rogue's Passage": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Incolor. {4}, vira: uma criatura fica imbloqueável.",
+   "porque": "Fecha com a criatura grande, mas é incolor."
+  },
+  "Seething Landscape": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Incolor. Sacrifique: um Island, Swamp ou Mountain básico virado. Ciclo {U}{B}{R}.",
+   "porque": "Acerta a cor que falta, um turno depois."
+  },
+  "Temple of the False God": {
+   "notas": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "{C}{C}, só com cinco terrenos.",
+   "porque": "Não gera nada nos turnos em que mana importa.",
+   "prioridade": 1
+  },
+  "Volatile Fault": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Incolor. {1}, vira e sacrifique: destrói um terreno não-básico de oponente, que busca um básico; você cria um Treasure.",
+   "porque": "Resposta a terreno forte, e vira Treasure."
+  },
+  "Voldaren Estate": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor, ou qualquer cor com 1 de vida só para Vampiro. {5}, vira: um Blood, um a menos por Vampiro seu.",
+   "porque": "Cor para os Vampiros e carta no fim."
+  },
+  "Island": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo do Seething Landscape."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo do Seething Landscape."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo do Seething Landscape."
+  }
+ },
+ "radar": {
+  "Champion of Dusk": {
+   "notas": {
+    "draw": 3,
+    "entrada": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Vampiro 4/4 de 5. Ao entrar, compre X e perca X, X o número de Vampiros seus.",
+   "porque": "Recarrega a mão no meio do jogo e aciona a Evelyn. Está também no Strefan.",
+   "sai": "In Garruk's Wake"
+  },
+  "Bloodline Keeper": {
+   "notas": {
+    "entrada": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Vampiro voador de 4. Vira: cria um Vampiro 2/2 voador. Com cinco Vampiros, transforma e dá +2/+2 aos outros.",
+   "porque": "Um Vampiro novo por turno, em velocidade instantânea: a Evelyn exila quatro cartas no turno de qualquer um. Está também no Vito e no Clavileño.",
+   "sai": "Quag Vampires"
+  },
+  "Captivating Vampire": {
+   "notas": {
+    "entrada": 2,
+    "roubo": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Vampiro de 3. Outros Vampiros seus ganham +1/+1. Vire cinco Vampiros: ganhe o controle de uma criatura; ela vira Vampiro.",
+   "porque": "Bônus para a tribo e roubo permanente dentro do tema. Está também no Vito e no Strefan.",
+   "sai": "Chaos Wand"
+  },
+  "Stromkirk Captain": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Vampiro de 3 com iniciativa. Outros Vampiros seus ganham +1/+1 e iniciativa.",
+   "porque": "Vale para todos os Vampiros, não só os vermelhos: o time ataca primeiro. Está também no Strefan.",
+   "sai": "Falkenrath Gorger"
+  },
+  "Dusk Legion Zealot": {
+   "notas": {
+    "draw": 1,
+    "entrada": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Vampiro de 2. Ao entrar, compre uma e perca 1.",
+   "porque": "Vampiro de duas manas que se paga em carta.",
+   "sai": "Bloodcrazed Paladin"
+  },
+  "Bloodline Necromancer": {
+   "notas": {
+    "entrada": 2,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Vampiro de 5 com vínculo. Ao entrar, devolve do cemitério ao campo um Vampiro ou Wizard.",
+   "porque": "Dois Vampiros entrando numa carta, escolhidos, no lugar do Sinister Waltz ao acaso.",
+   "sai": "Sinister Waltz"
+  },
+  "Markov Baron": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Vampiro de 3, convocar e vínculo. Outros Vampiros seus ganham +1/+1. Loucura {2}{B}.",
+   "porque": "Bônus fixo para a tribo, e sai mais barato com convocar. Está também no Vito, no Clavileño e no Strefan.",
+   "sai": "Rakish Heir"
+  },
+  "Malakir Bloodwitch": {
+   "notas": {
+    "entrada": 2,
+    "aristocratas": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Vampiro 4/4 voador, de 5, com proteção contra branco. Ao entrar, cada oponente perde vida igual ao número de Vampiros seus, e você ganha o mesmo.",
+   "porque": "Dreno de seis ou mais a cada oponente no meio do jogo, sem dar Blood a ninguém. Está também no Vito e no Strefan.",
+   "sai": "Bloodvial Purveyor",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Call the Bloodline": {
+   "notas": {
+    "entrada": 3,
+    "aristocratas": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Encantamento de 2. {1}, descarte uma carta: um Vampiro 1/1 com vínculo. Só uma vez por turno.",
+   "porque": "Um Vampiro por turno, em qualquer turno: a Evelyn exila quatro e o sacrifício ganha munição.",
+   "sai": "Wheel of Fate"
+  },
+  "Exotic Orchard": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno: uma cor que um terreno de oponente geraria.",
+   "porque": "Terreno por terreno: dá cor desde o turno 1. Está em vários decks seus.",
+   "sai": "Temple of the False God"
+  },
+  "Kindred Discovery": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 5. Escolha um tipo; sempre que uma criatura sua desse tipo entra ou ataca, compre.",
+   "porque": "Cada Vampiro compra ao entrar e ao atacar. Cinco manas e azul duplo.",
+   "sai": "Military Intelligence"
+  },
+  "Laughing Jasper Flint": {
+   "notas": {
+    "draw": 2,
+    "roubo": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Lagarto Ladino de 3. Criaturas que você controla mas não possui são Mercenários. Na sua manutenção, exile X do topo de um oponente (X os seus fora-da-lei); você pode conjurá-las neste turno.",
+   "porque": "Não é Vampiro e não age no ataque, como dizia a fonte A. Os fora-da-lei da lista são cinco Ladinos e Piratas, mais ele.",
+   "sai": "Midnight Arsonist",
+   "marcas": {
+    "exilio": 1
+   }
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "Protege o Vampiro de bônus que segura a mesa. A Evelyn já tem lampejo.",
+   "sai": "Everflowing Chalice",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Sanctum Seeker": {
+   "notas": {
+    "entrada": 2,
+    "aristocratas": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Vampiro de 4. Sempre que um Vampiro seu ataca, cada oponente perde 1 e você ganha 1.",
+   "porque": "Cada ataque largo drena a mesa inteira.",
+   "sai": "Mirri the Cursed",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Reflections of Littjara": {
+   "notas": {
+    "entrada": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 5. Escolha um tipo; sempre que você conjura uma mágica desse tipo, copie-a.",
+   "porque": "Cada Vampiro conjurado vira dois, e cada um aciona a Evelyn. Cinco manas sem efeito na hora."
+  },
+  "Vampire Socialite": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Vampiro de 2 com ameaça. Ao entrar, se um oponente perdeu vida no turno, um marcador em cada outro Vampiro seu; e Vampiros seus entram com um a mais.",
+   "porque": "Bom depois do Voldaren Epicure ou de um ataque. Está também no Strefan."
+  },
+  "Luxury Suite": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {B} ou {R}, desvirado com dois ou mais oponentes.",
+   "porque": "Duas cores no lugar de um básico. Base de mana: avaliar.",
+   "sai": "Mountain"
+  },
+  "Morphic Pool": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {U} ou {B}, desvirado com dois ou mais oponentes.",
+   "porque": "Duas cores no lugar de um básico. Base de mana: avaliar.",
+   "sai": "Island"
+  },
+  "Haunted Ridge": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {B} ou {R}; entra virado se você não controla outros dois terrenos.",
+   "porque": "Duas cores no lugar de um básico. Base de mana: avaliar.",
+   "sai": "Swamp"
+  },
+  "Panharmonicon": {
+   "notas": {
+    "entrada": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Artefato de 4. Gatilhos de entrada de artefato ou criatura nas suas permanentes disparam uma vez a mais.",
+   "porque": "Dobra o gatilho da Evelyn, mas o banco do exílio já cresce mais rápido do que a jogada de uma por turno consegue gastar."
+  },
+  "Olivia's Bloodsworn": {
+   "notas": {
+    "entrada": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Vampiro 2/1 voador de 2, não bloqueia. {R}: um Vampiro ganha ímpeto.",
+   "porque": "Vampiro barato, mas não bloqueia e não faz mais nada."
+  }
+ },
+ "combos": [
+  {
+   "nome": "A carta de graça de cada turno",
+   "tipo": "Motor",
+   "pecas": [
+    "Evelyn, the Covetous",
+    "Charred Foyer // Warped Space"
+   ],
+   "texto": "Com a Warped Space destrancada, a carta que a Evelyn joga do exílio, uma por turno, sai por {0}."
+  },
+  {
+   "nome": "O roubo em dobro",
+   "tipo": "Motor",
+   "pecas": [
+    "Evelyn, the Covetous",
+    "Nalfeshnee"
+   ],
+   "texto": "Cada mágica conjurada do exílio é copiada: a remoção deles vira duas, a criatura deles vem com uma cópia de ímpeto."
+  },
+  {
+   "nome": "Roubo que paga Treasure",
+   "tipo": "Motor",
+   "pecas": [
+    "Evelyn, the Covetous",
+    "Don Andres, the Renegade"
+   ],
+   "texto": "Mágica não-criatura deles conjurada pela Evelyn dá dois Treasures; criatura deles que você conjura ganha +2/+2, ameaça e toque mortífero."
+  },
+  {
+   "nome": "Cada carta roubada é dano",
+   "tipo": "Motor",
+   "pecas": [
+    "Evelyn, the Covetous",
+    "Passionate Archaeologist"
+   ],
+   "texto": "A Evelyn causa dano igual ao valor de cada mágica conjurada do exílio, inclusive as do Florian, do Light Up the Stage e do Stolen Strategy."
+  },
+  {
+   "nome": "Bola de fogo de 5",
+   "tipo": "Motor",
+   "pecas": [
+    "Evelyn, the Covetous",
+    "Delayed Blast Fireball"
+   ],
+   "texto": "Exilada pela Evelyn do seu próprio topo, a Fireball é conjurada do exílio: 5 de dano em cada oponente e em cada criatura deles."
+  },
+  {
+   "nome": "Você escolhe o próprio topo",
+   "tipo": "Motor",
+   "pecas": [
+    "Sensei's Divining Top",
+    "Evelyn, the Covetous"
+   ],
+   "texto": "Antes de um Vampiro entrar, o Top põe no seu topo a carta que você quer que a Evelyn exile."
+  },
+  {
+   "nome": "Roubar e sacrificar",
+   "tipo": "Combo",
+   "pecas": [
+    "Dominating Vampire",
+    "Viscera Seer",
+    "Blood Artist"
+   ],
+   "texto": "A criatura roubada até o fim do turno vai para o Viscera Seer antes de voltar ao dono, e o Blood Artist drena."
+  },
+  {
+   "nome": "Cada morte cresce e drena",
+   "tipo": "Motor",
+   "pecas": [
+    "Cordial Vampire",
+    "Blood Artist",
+    "Viscera Seer"
+   ],
+   "texto": "Cada criatura sacrificada ou morta põe um marcador em cada Vampiro e tira 1 de um oponente."
+  },
+  {
+   "nome": "Vampiro que volta",
+   "tipo": "Motor",
+   "pecas": [
+    "Timothar, Baron of Bats",
+    "Viscera Seer",
+    "Evelyn, the Covetous"
+   ],
+   "texto": "Sacrifique um Vampiro, pague {1} e ele vira um Morcego; quando o Morcego conecta, o Vampiro volta e aciona a Evelyn de novo."
+  },
+  {
+   "nome": "Vampiro da mão direto no ataque",
+   "tipo": "Motor",
+   "pecas": [
+    "Strefan, Maurer Progenitor",
+    "Evelyn, the Covetous"
+   ],
+   "texto": "Dois Bloods põem um Vampiro da mão em campo atacando, e a entrada dele aciona a Evelyn."
+  },
+  {
+   "nome": "Limpeza que poupa a tribo",
+   "tipo": "Motor",
+   "pecas": [
+    "Crippling Fear",
+    "Cordial Vampire"
+   ],
+   "texto": "Nomeando Vampiro, as criaturas deles morrem e cada morte põe marcadores nos seus Vampiros. Etali e Nalfeshnee morrem junto."
+  },
+  {
+   "nome": "O ataque largo",
+   "tipo": "Motor",
+   "pecas": [
+    "Shared Animosity",
+    "Drana, Liberator of Malakir"
+   ],
+   "texto": "Cada Vampiro atacando ganha +1/+0 por outro Vampiro atacando, e a Drana põe um marcador em cada um quando conecta."
+  },
+  {
+   "nome": "Armadilha: o Disk leva a sua mesa",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Nevinyrral's Disk",
+    "Evelyn, the Covetous"
+   ],
+   "texto": "O Disk destrói todos os artefatos, criaturas e encantamentos, os seus também. Crippling Fear e Delayed Blast Fireball limpam só os deles."
+  }
+ ]
+}
