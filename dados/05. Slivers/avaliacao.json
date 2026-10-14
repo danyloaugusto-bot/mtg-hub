@@ -1,0 +1,1543 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    14
+   ],
+   "desc": "Pedras, Slivers de mana e busca de terreno."
+  },
+  {
+   "k": "draw",
+   "nome": "Compra",
+   "ab": "Compra",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra e seleção. Tutor vale 1."
+  },
+  {
+   "k": "removal",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção, contramágica e limpeza."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Mantém a colmeia viva contra remoção e limpeza."
+  },
+  {
+   "k": "cascata",
+   "nome": "Cascata",
+   "ab": "Casc.",
+   "desc": "O que multiplica a conjuração: cópias, mágicas de graça e redutores."
+  },
+  {
+   "k": "colmeia",
+   "nome": "Colmeia",
+   "ab": "Colm.",
+   "desc": "Lordes e palavras-chave que a colmeia inteira divide."
+  },
+  {
+   "k": "evasao",
+   "nome": "Evasão",
+   "ab": "Evas.",
+   "desc": "Voar, ímpeto e bloqueio difícil."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "O que tira jogadores do jogo: veneno, Sliver Legion, dano e os combos da Sliver Queen."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Sliver",
+   "plural": "Slivers",
+   "subtipo": "Sliver"
+  },
+  "combo": {
+   "nome": "Peça de combo"
+  },
+  "todos": {
+   "nome": "Vale para os Slivers dos oponentes"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "35 terrenos, todos desvirados: os dez duais, os sete de choque e os dez fetches."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 2,
+   "massa_ref": [
+    1,
+    2
+   ],
+   "alerta": "Nenhuma limpeza: a Kindred Dominance do radar escolhe Sliver e só a colmeia fica."
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 85,
+   "texto": "Cada Sliver conjurado cascateia, e cada um empresta a habilidade aos outros."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "combo",
+   "min": 3,
+   "listar": true,
+   "rotulo": [
+    "peça de combo",
+    "peças de combo"
+   ],
+   "texto": "A Sliver Queen fecha com uma carta do radar: Intruder Alarm, Mana Echoes, Basal Sliver ou Training Grounds.",
+   "ok": "As peças da Queen e do Overlord estão na lista."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "todos",
+   "max": 12,
+   "listar": true,
+   "rotulo": [
+    "carta com texto antigo",
+    "cartas com texto antigo"
+   ],
+   "texto": "\"Todos os Slivers\" vale para os Slivers dos oponentes também: o Harmonic é obrigatório, e o Crystalline tira os seus alvos.",
+   "alerta": "Muito texto simétrico: um oponente com Slivers ganha tudo junto."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Sol Ring, Arcane Signet ou um feitiço de terreno (Farseek, Nature's Lore, Three Visits); Gemhide ou Manaweft no turno 2; Urza's Incubator ou Herald's Horn para baratear os Slivers.",
+   "fortes": [
+    "Base de mana de cEDH: 35 terrenos desvirados, com os dez duais.",
+    "Dez Slivers de uma ou duas manas."
+   ],
+   "fracos": [
+    "O The First Sliver pede {W}{U}{B}{R}{G}: cinco cores no turno 5.",
+    "Slivers de uma mana não cascateiam em nada."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "O The First Sliver e cada Sliver que vem depois cascateiam em mais Slivers. Voar (Galerider, Cloudshredder), lordes e golpe duplo (Bonescythe, Thrumming Hivepool); proteção com Hivelord e Crystalline.",
+   "fortes": [
+    "Cada Sliver traz outra mágica de graça.",
+    "Sliver Hivelord e Crystalline seguram remoção e limpeza que destrói."
+   ],
+   "fracos": [
+    "Limpeza que exila ou dá −X/−X apaga a colmeia.",
+    "O Harmonic come os seus artefatos se a mesa não tiver alvo."
+   ]
+  },
+  "fim": {
+   "turnos": "6 em diante",
+   "plano": "Sliver Legion, Bonescythe com Virulent (dois venenos por golpe), Cyclonic Rift sobrecarregado antes do ataque, ou os combos da Sliver Queen com uma carta do radar.",
+   "fortes": [
+    "Várias vitórias: combate, veneno e combo.",
+    "Três tutores e o Overlord acham a peça que falta."
+   ],
+   "fracos": [
+    "O combo depende de uma carta que ainda está no radar.",
+    "Contra Slivers de oponente, o texto antigo ajuda os dois lados."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Muitos corpos e vínculo com a vida, mas os Slivers começam pequenos."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Toque mortífero do Venom e manto do Crystalline seguram a criatura única."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "O deck é rápido e tem combo próprio, mas só uma contramágica."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "fraco",
+    "porque": "Limpeza que exila ou que dá −X/−X passa pelo Hivelord."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Cinco cores e criaturas baratas sofrem com taxa e com terreno que não desvira."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Eles trocam fichas, mas a colmeia voa por cima."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "forte",
+    "porque": "Rhystic Study e um relógio rápido de combate."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "A colmeia ataca voando antes da criatura grande deles."
+   }
+  ]
+ },
+ "cartas": {
+  "The First Sliver": {
+   "notas": {
+    "draw": 2,
+    "cascata": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Sliver lendário de cinco cores, valor 5, com cascata. Os feitiços de Sliver que você conjura têm cascata.",
+   "porque": "É o deck: cada Sliver conjurado traz outra mágica de graça, de valor menor. Só a mágica conjurada cascateia; cópia e ficha, não."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: mana da identidade.",
+   "porque": "Ramp que dá as cinco cores."
+  },
+  "Chromatic Lantern": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3: seus terrenos dão qualquer cor; vira: qualquer cor.",
+   "porque": "Conserta as cinco cores para os lendários de {W}{U}{B}{R}{G}."
+  },
+  "Herald's Horn": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2,
+    "cascata": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 3. O tipo escolhido custa {1} a menos; na manutenção, se o topo é desse tipo, vai para a mão.",
+   "porque": "Desconto e carta por turno num deck quase todo de Slivers."
+  },
+  "Patchwork Banner": {
+   "notas": {
+    "ramp": 2,
+    "colmeia": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3. O tipo escolhido +1/+1; vira: qualquer cor.",
+   "porque": "Mana e lorde na mesma peça."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "MED",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Aceleração de turno 1."
+  },
+  "Thrumming Hivepool": {
+   "notas": {
+    "colmeia": 3,
+    "evasao": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 6, {1} a menos por Sliver. Slivers com golpe duplo e ímpeto; duas fichas de Sliver por manutenção.",
+   "porque": "Golpe duplo e ímpeto para a colmeia toda, e duas fichas por turno. Sai por duas ou três manas com a mesa montada.",
+   "caro_por_desenho": true
+  },
+  "Urza's Incubator": {
+   "notas": {
+    "ramp": 2,
+    "cascata": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 3. O tipo escolhido custa {2} a menos.",
+   "porque": "Os Slivers de duas manas saem de graça; os lendários de cinco, por três."
+  },
+  "Vanquisher's Banner": {
+   "notas": {
+    "draw": 3,
+    "colmeia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 5. O tipo escolhido +1/+1; conjurar dele compra uma carta.",
+   "porque": "Compra por Sliver conjurado, e a cascata conta como conjurar."
+  },
+  "Arid Mesa": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Mountain ou Plains.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Bloodstained Mire": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Swamp ou Mountain.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Flooded Strand": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Plains ou Island.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Marsh Flats": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Plains ou Swamp.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Misty Rainforest": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Forest ou Island.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Polluted Delta": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Island ou Swamp.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Scalding Tarn": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Island ou Mountain.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Verdant Catacombs": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Swamp ou Forest.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Windswept Heath": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Forest ou Plains.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Wooded Foothills": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Mountain ou Forest.",
+   "porque": "Acha um dos duais com tipo."
+  },
+  "Badlands": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {B} ou {R}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Bayou": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {B} ou {G}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Plateau": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {R} ou {W}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Savannah": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {G} ou {W}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Scrubland": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {W} ou {B}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Taiga": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {R} ou {G}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Tropical Island": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {G} ou {U}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Tundra": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {W} ou {U}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Underground Sea": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {U} ou {B}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Volcanic Island": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dual original: {U} ou {R}, sempre desvirado.",
+   "porque": "Duas cores sem custo."
+  },
+  "Breeding Pool": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno de choque: {G} ou {U}; pague 2 ou entra virado.",
+   "porque": "Duas cores desvirado, e os fetches o buscam."
+  },
+  "Hallowed Fountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno de choque: {W} ou {U}; pague 2 ou entra virado.",
+   "porque": "Duas cores desvirado, e os fetches o buscam."
+  },
+  "Overgrown Tomb": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno de choque: {B} ou {G}; pague 2 ou entra virado.",
+   "porque": "Duas cores desvirado, e os fetches o buscam."
+  },
+  "Steam Vents": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno de choque: {U} ou {R}; pague 2 ou entra virado.",
+   "porque": "Duas cores desvirado, e os fetches o buscam."
+  },
+  "Stomping Ground": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno de choque: {R} ou {G}; pague 2 ou entra virado.",
+   "porque": "Duas cores desvirado, e os fetches o buscam."
+  },
+  "Temple Garden": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno de choque: {G} ou {W}; pague 2 ou entra virado.",
+   "porque": "Duas cores desvirado, e os fetches o buscam."
+  },
+  "Watery Grave": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno de choque: {U} ou {B}; pague 2 ou entra virado.",
+   "porque": "Duas cores desvirado, e os fetches o buscam."
+  },
+  "Cavern of Souls": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Terreno: escolhe um tipo; {C}, ou qualquer cor para criatura desse tipo, que não pode ser anulada.",
+   "porque": "Slivers de qualquer cor e a salvo de contramágica."
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: mana da identidade.",
+   "porque": "Cinco cores."
+  },
+  "Exotic Orchard": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Terreno: uma cor que os terrenos dos oponentes gerem.",
+   "porque": "Depende da mesa."
+  },
+  "Forest": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Alvo do Nature's Lore e do Three Visits, mas os duais com tipo já fazem isso."
+  },
+  "Plains": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Uma cor só."
+  },
+  "Mana Confluence": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Terreno: pague 1 de vida, qualquer cor.",
+   "porque": "Cinco cores desvirado."
+  },
+  "Sliver Hive": {
+   "notas": {
+    "colmeia": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Terreno: {C}, ou qualquer cor para Sliver; {5}, vira: uma ficha de Sliver 1/1.",
+   "porque": "Mana de qualquer cor para a colmeia e fichas no fim."
+  },
+  "Three Tree City": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Terreno lendário: escolhe um tipo; {2}, vira: uma cor, tanto quanto as suas criaturas desse tipo.",
+   "porque": "Mana enorme com a colmeia em campo."
+  },
+  "Bonescythe Sliver": {
+   "notas": {
+    "colmeia": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver de 4. Slivers que você controla têm golpe duplo.",
+   "porque": "Dobra o dano e o veneno do Virulent Sliver."
+  },
+  "Brood Sliver": {
+   "notas": {
+    "colmeia": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 5. Sliver que causa dano de combate a um jogador: o controlador cria uma ficha de Sliver.",
+   "porque": "A colmeia cresce a cada ataque."
+  },
+  "Cloudshredder Sliver": {
+   "notas": {
+    "colmeia": 1,
+    "evasao": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver de 2. Slivers que você controla têm voar e ímpeto.",
+   "porque": "Voar e ímpeto por duas manas; com o Training Grounds do radar, a ficha da Sliver Queen vira mana na hora.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Crypt Sliver": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sliver de 2. Todos os Slivers têm \"vira: regenera um Sliver\".",
+   "porque": "O Crystalline Sliver tira o alvo, e o Sliver Hivelord já dá indestrutível.",
+   "marcas": {
+    "todos": 1
+   },
+   "prioridade": 3
+  },
+  "Crystalline Sliver": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver de 2. Todos os Slivers têm manto.",
+   "porque": "Remoção com alvo não pega a colmeia. Pega também os seus alvos: o Crypt Sliver não regenera, e os Slivers dos oponentes ficam com manto.",
+   "marcas": {
+    "todos": 1
+   }
+  },
+  "Diffusion Sliver": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 2. Mágica ou habilidade de oponente que mira um Sliver seu é anulada se ele não pagar {2}.",
+   "porque": "Taxa a remoção com alvo."
+  },
+  "Galerider Sliver": {
+   "notas": {
+    "evasao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 1. Slivers que você controla têm voar.",
+   "porque": "Evasão por uma mana; a cascata não acha nada abaixo dela, mas ela é o alvo de cascata dos Slivers de duas."
+  },
+  "Gemhide Sliver": {
+   "notas": {
+    "ramp": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Sliver de 2. Todos os Slivers têm \"vira: qualquer cor\".",
+   "porque": "Cada Sliver vira um terreno de cinco cores, e é peça dos combos da Sliver Queen e do Sliver Overlord.",
+   "marcas": {
+    "combo": 1,
+    "todos": 1
+   }
+  },
+  "Harmonic Sliver": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 3. Todos os Slivers têm \"ao entrar, destrua um artefato ou encantamento\".",
+   "porque": "Remoção a cada Sliver, mas obrigatória: sem alvo nos oponentes, você destrói o seu Sol Ring, um Banner, a Rhystic ou a Tithe.",
+   "marcas": {
+    "todos": 1
+   }
+  },
+  "Hatchery Sliver": {
+   "notas": {
+    "cascata": 3,
+    "colmeia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver de 2 com replicar. Os seus feitiços de Sliver têm replicar, pelo próprio custo.",
+   "porque": "Cada mana a mais vira outra cópia do Sliver; a cópia não cascateia. Com a Sliver Gravemother, copia até os lendários."
+  },
+  "Heart Sliver": {
+   "notas": {
+    "colmeia": 1,
+    "evasao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sliver de 2. Todas as criaturas Sliver têm ímpeto.",
+   "porque": "Repete o Cloudshredder e o Hivepool; é peça do combo do Sliver Overlord.",
+   "marcas": {
+    "combo": 1,
+    "todos": 1
+   }
+  },
+  "Hibernation Sliver": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 2. Todos os Slivers têm \"pague 2 de vida: volte à mão\".",
+   "porque": "Foge da remoção e da limpeza devolvendo à mão.",
+   "marcas": {
+    "todos": 1
+   }
+  },
+  "Homing Sliver": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 3. Cartas de Sliver na mão têm slivercycling {3}.",
+   "porque": "Troca o Sliver errado pelo certo do grimório."
+  },
+  "Horned Sliver": {
+   "notas": {
+    "evasao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sliver de 3. Todas as criaturas Sliver têm atropelar.",
+   "porque": "Com voar e golpe duplo, atropelar quase não muda o dano.",
+   "prioridade": 1
+  },
+  "Lavabelly Sliver": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 3. Sliver que entra causa 1 de dano a um jogador e você ganha 1.",
+   "porque": "Dano a cada Sliver, e o fechamento do combo da Sliver Queen com o Basal Sliver do radar.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Lazotep Sliver": {
+   "notas": {
+    "protecao": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sliver de 4. Slivers com aflição 2; Sliver não-ficha que morre: amassar 2.",
+   "porque": "Pequeno para quatro manas.",
+   "prioridade": 4,
+   "pacote": "fechamento"
+  },
+  "Manaweft Sliver": {
+   "notas": {
+    "ramp": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Sliver de 2. Slivers que você controla têm \"vira: qualquer cor\".",
+   "porque": "O Gemhide de novo: ramp e peça de combo.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Morophon, the Boundless": {
+   "notas": {
+    "cascata": 3,
+    "colmeia": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Metamorfo de 7 com Changeling. Escolhe um tipo: feitiços dele custam {W}{U}{B}{R}{G} a menos; as outras criaturas desse tipo +1/+1.",
+   "porque": "É Sliver e ganha cascata. Com Sliver escolhido, os cinco lendários de cinco cores saem de graça."
+  },
+  "Muscle Sliver": {
+   "notas": {
+    "colmeia": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 2. Todas as criaturas Sliver +1/+1.",
+   "porque": "Lorde barato.",
+   "marcas": {
+    "todos": 1
+   }
+  },
+  "Necrotic Sliver": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver de 3. Todos os Slivers têm \"{3}, sacrifique: destrua uma permanente\".",
+   "porque": "Remoção de qualquer tipo em cada Sliver; os oponentes com Sliver também podem usar.",
+   "marcas": {
+    "todos": 1
+   }
+  },
+  "Predatory Sliver": {
+   "notas": {
+    "colmeia": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 2. Slivers que você controla +1/+1.",
+   "porque": "Lorde barato."
+  },
+  "Quick Sliver": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sliver de 2 com lampejo. Qualquer jogador pode conjurar Sliver como se tivesse lampejo.",
+   "porque": "Joga no fim do turno deles, mas dá o mesmo a quem tiver Sliver.",
+   "marcas": {
+    "todos": 1
+   },
+   "prioridade": 6
+  },
+  "Root Sliver": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sliver de 4. Não pode ser anulado; feitiços de Sliver não podem ser anulados.",
+   "porque": "A Cavern of Souls já protege da contramágica.",
+   "prioridade": 5
+  },
+  "Sentinel Sliver": {
+   "notas": {
+    "colmeia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 2. Slivers que você controla têm vigilância.",
+   "porque": "Ataca e continua desvirado para virar mana com o Gemhide."
+  },
+  "Shifting Sliver": {
+   "notas": {
+    "evasao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver de 4. Slivers só podem ser bloqueados por Slivers.",
+   "porque": "A colmeia passa por qualquer mesa sem Sliver."
+  },
+  "Sinew Sliver": {
+   "notas": {
+    "colmeia": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 2. Todas as criaturas Sliver +1/+1.",
+   "porque": "Lorde barato.",
+   "marcas": {
+    "todos": 1
+   }
+  },
+  "Sliver Gravemother": {
+   "notas": {
+    "cascata": 2,
+    "colmeia": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver lendário de cinco cores. A regra de lendárias não vale para os seus Slivers; Sliver no cemitério tem encore {X}.",
+   "porque": "Recursão: cada Sliver morto volta como uma ficha por oponente, que ataca e é sacrificada no fim do turno; e libera as cópias de lendários do Hatchery."
+  },
+  "Sliver Hivelord": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Sliver lendário de cinco cores. Slivers que você controla têm indestrutível.",
+   "porque": "A colmeia sobrevive a destruição e a limpeza que destrói."
+  },
+  "Sliver Legion": {
+   "notas": {
+    "colmeia": 3,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Sliver lendário de cinco cores. Todas as criaturas Sliver +1/+1 por outro Sliver em campo.",
+   "porque": "Com dez Slivers, cada um ganha +9/+9: fecha o jogo num ataque."
+  },
+  "Sliver Overlord": {
+   "notas": {
+    "draw": 2,
+    "removal": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver lendário de cinco cores. {3}: busca um Sliver; {3}: ganha o controle de um Sliver.",
+   "porque": "Tutor de Sliver a cada três manas, e peça do combo com o Intruder Alarm do radar.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Sliver Queen": {
+   "notas": {
+    "colmeia": 1,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Sliver lendário de cinco cores. {2}: uma ficha de Sliver 1/1.",
+   "porque": "Fichas sem limite com mana; fecha o jogo com o Intruder Alarm, o Mana Echoes ou o Basal Sliver do radar.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Spiteful Sliver": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 3. Sliver que sofre dano causa esse dano a um jogador.",
+   "porque": "Bloqueio e limpeza de dano viram dano neles."
+  },
+  "Striking Sliver": {
+   "notas": {
+    "colmeia": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Sliver de 1. Slivers que você controla têm iniciativa.",
+   "porque": "O Bonescythe já dá golpe duplo.",
+   "prioridade": 2
+  },
+  "Synapse Sliver": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Sliver de 5. Sliver que causa dano de combate a um jogador: o controlador compra.",
+   "porque": "Compra por Sliver que conecta, e a colmeia voa."
+  },
+  "Syphon Sliver": {
+   "notas": {
+    "protecao": 1,
+    "colmeia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 3. Slivers que você controla têm vínculo com a vida.",
+   "porque": "Vida contra aggro e contra a Mana Confluence."
+  },
+  "Venom Sliver": {
+   "notas": {
+    "protecao": 1,
+    "colmeia": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 2. Slivers que você controla têm toque mortífero.",
+   "porque": "Bloqueia qualquer coisa e mata no ataque.",
+   "pacote": "colmeia"
+  },
+  "Virulent Sliver": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sliver de 1. Todas as criaturas Sliver têm venenoso 1.",
+   "porque": "Vitória por veneno; com golpe duplo, dois por Sliver que conecta.",
+   "marcas": {
+    "todos": 1
+   }
+  },
+  "Descendants' Path": {
+   "notas": {
+    "draw": 1,
+    "cascata": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3. Na manutenção, revela o topo; criatura que divide tipo com uma sua sai de graça.",
+   "porque": "Um Sliver de graça por turno, e conjurado: ganha cascata."
+  },
+  "Kindred Discovery": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 5. Criatura do tipo escolhido entra ou ataca: compre.",
+   "porque": "Compra por Sliver que entra e que ataca."
+  },
+  "Reflections of Littjara": {
+   "notas": {
+    "cascata": 3,
+    "colmeia": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 5. Feitiço do tipo escolhido que você conjura é copiado.",
+   "porque": "Cada Sliver vem com uma cópia em ficha; a cópia não cascateia."
+  },
+  "Rhystic Study": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3. Oponente conjura: você compra se ele não pagar {1}.",
+   "porque": "Compra constante. Game Changer."
+  },
+  "Smothering Tithe": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 4. Oponente compra: Treasure se ele não pagar {2}.",
+   "porque": "Mana que cresce com a mesa. Game Changer."
+  },
+  "Cyclonic Rift": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: devolve uma permanente; sobrecarga {6}{U}: todas as dos oponentes.",
+   "porque": "Abre a mesa para o ataque final. Game Changer."
+  },
+  "Fierce Guardianship": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3, de graça com comandante: anula mágica que não é criatura.",
+   "porque": "Protege a colmeia da limpeza. Game Changer."
+  },
+  "Heroic Intervention": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: suas permanentes ganham resistência a magia e indestrutível.",
+   "porque": "A resposta à limpeza, sem mirar: o Crystalline não atrapalha."
+  },
+  "Path to Exile": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: exila uma criatura; o dono busca um básico.",
+   "porque": "Remoção barata."
+  },
+  "Swords to Plowshares": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "MED",
+   "faz": "Instantânea de 1: exila uma criatura; o dono ganha vida.",
+   "porque": "Remoção barata."
+  },
+  "Teferi's Protection": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: até o seu turno, sua vida não muda, proteção contra tudo e suas permanentes saem de fase.",
+   "porque": "Salva a colmeia de qualquer limpeza. Game Changer."
+  },
+  "Vampiric Tutor": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 1: uma carta para o topo; perca 2.",
+   "porque": "Acha a peça de combo. Game Changer."
+  },
+  "Worldly Tutor": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 1: uma criatura para o topo.",
+   "porque": "Acha a Sliver Queen ou o Overlord. Game Changer."
+  },
+  "Demonic Tutor": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: qualquer carta para a mão.",
+   "porque": "O melhor tutor. Game Changer."
+  },
+  "Distant Melody": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 4: compre uma por permanente do tipo escolhido.",
+   "porque": "Recarga de cinco ou mais cartas."
+  },
+  "Farseek": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: um Plains, Island, Swamp ou Mountain, virado.",
+   "porque": "Acha os duais com tipo."
+  },
+  "Nature's Lore": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: um Forest para o campo, desvirado.",
+   "porque": "Acha Bayou, Tropical, Savannah, Taiga ou um choque, desvirado."
+  },
+  "Three Visits": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: um Forest para o campo, desvirado.",
+   "porque": "O Nature's Lore de novo."
+  },
+  "Patriarch's Bidding": {
+   "notas": {
+    "cascata": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 5: cada jogador escolhe um tipo; todas as criaturas desses tipos voltam do cemitério.",
+   "porque": "Traz a colmeia inteira depois da limpeza; os oponentes também escolhem."
+  }
+ },
+ "radar": {
+  "Intruder Alarm": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Encantamento de 3. Criaturas não desviram na etapa de desvirar; criatura que entra desvira todas.",
+   "porque": "Com a Sliver Queen e o Gemhide ou o Manaweft, fichas e mana infinitas; com o Sliver Overlord, todos os Slivers do grimório. Commander Spellbook.",
+   "sai": "Horned Sliver",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Mana Echoes": {
+   "notas": {
+    "ramp": 2,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Encantamento de 4. Criatura que entra: {C} igual às suas criaturas que dividem tipo com ela.",
+   "porque": "Com a Sliver Queen, fichas e mana infinitas; sem combo, cada Sliver paga o próximo. Commander Spellbook.",
+   "sai": "Striking Sliver",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Basal Sliver": {
+   "notas": {
+    "ramp": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Sliver de 3. Todos os Slivers têm \"sacrifique: {B}{B}\".",
+   "porque": "Com a Sliver Queen e o Lavabelly, dano infinito: cada ficha custa 2, devolve 2 e tira 1 de vida ao entrar. Commander Spellbook.",
+   "sai": "Crypt Sliver",
+   "marcas": {
+    "combo": 1,
+    "todos": 1
+   }
+  },
+  "Training Grounds": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 1. Habilidades ativadas das suas criaturas custam {2} a menos, nunca abaixo de uma mana.",
+   "porque": "A ficha da Sliver Queen passa a custar 1: com o Cloudshredder e o Gemhide, cada ficha nova vira a mana da próxima. Commander Spellbook.",
+   "sai": "Root Sliver",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Kindred Dominance": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 7: escolhe um tipo e destrói as criaturas que não são dele.",
+   "porque": "A limpeza que a lista não tem: escolhendo Sliver, só sobra a colmeia (e o Morophon, que é Changeling).",
+   "sai": "Lazotep Sliver",
+   "massa": true
+  },
+  "Constricting Sliver": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Sliver de 6. Slivers que você controla têm \"ao entrar, exile uma criatura de oponente até ele sair\".",
+   "porque": "Cada Sliver que entra, e cada cascata, leva uma criatura deles.",
+   "sai": "Quick Sliver"
+  },
+  "Unclaimed Territory": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno: escolhe um tipo; {C}, ou qualquer cor para criatura desse tipo.",
+   "porque": "Cinco cores para os Slivers, no lugar de um básico. 60% dos decks no EDHREC.",
+   "sai": "Forest"
+  },
+  "Secluded Courtyard": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno: escolhe um tipo; {C}, ou qualquer cor para criatura ou habilidade de criatura desse tipo.",
+   "porque": "Cinco cores para os Slivers e para a Sliver Queen, no lugar de um básico.",
+   "sai": "Plains"
+  },
+  "Path of Ancestry": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno sempre virado: mana da identidade; vidência ao conjurar Sliver.",
+   "porque": "Cinco cores garantidas, mas virado.",
+   "sai": "Exotic Orchard"
+  },
+  "Megantic Sliver": {
+   "notas": {
+    "colmeia": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Sliver de 6. Slivers que você controla +3/+3.",
+   "porque": "O maior lorde, e alvo bom de cascata do Morophon."
+  },
+  "Two-Headed Sliver": {
+   "notas": {
+    "evasao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Sliver de 2. Todas as criaturas Sliver têm ameaça.",
+   "porque": "Mais evasão barata."
+  },
+  "Blur Sliver": {
+   "notas": {
+    "colmeia": 1,
+    "evasao": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Sliver de 3. Slivers que você controla têm ímpeto.",
+   "porque": "Segunda peça de ímpeto para o combo do Training Grounds."
+  },
+  "Pillar of Origins": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 2. Escolhe um tipo; vira: qualquer cor para criatura desse tipo.",
+   "porque": "Ramp de duas que dá as cinco cores."
+  },
+  "For the Ancestors": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 3: das seis do topo, os do tipo escolhido para a mão; recapitular {3}{G}.",
+   "porque": "Recarga em velocidade instantânea, duas vezes."
+  },
+  "Eladamri's Call": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 2: uma criatura do grimório para a mão.",
+   "porque": "Tutor de criatura para a Sliver Queen."
+  },
+  "Realmwalker": {
+   "notas": {
+    "draw": 2,
+    "cascata": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Metamorfo de 3 com Changeling. Escolhe um tipo; conjura criaturas desse tipo do topo.",
+   "porque": "Card advantage; é Sliver e ganha cascata."
+  },
+  "Coat of Arms": {
+   "notas": {
+    "colmeia": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 5. Cada criatura +1/+1 por outra que divide tipo com ela.",
+   "porque": "Mais uma Sliver Legion, mas vale para os oponentes tribais também."
+  },
+  "Heartstone": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3. Habilidades ativadas de criaturas custam {1} a menos, nunca abaixo de uma mana.",
+   "porque": "O Training Grounds em artefato: mesma linha da Sliver Queen. Vale para os oponentes também.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Profane Tutor": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço suspenso por {1}{B}: em dois turnos, qualquer carta para a mão.",
+   "porque": "Tutor barato e lento."
+  },
+  "Yomiji, Who Bars the Way": {
+   "notas": {
+    "cascata": 1,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Espírito lendário de 7. Lendária que vai ao cemitério volta à mão.",
+   "porque": "Com o Morophon (Sliver), o The First Sliver e um sacrificador, cascata infinita. Pede duas cartas de fora. Commander Spellbook.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Ashnod's Altar": {
+   "notas": {
+    "ramp": 1,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3. Sacrifique uma criatura: {C}{C}.",
+   "porque": "Faz o papel do Basal Sliver com a Sliver Queen e o Lavabelly, e é o sacrificador da linha do Yomiji.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Winged Sliver": {
+   "notas": {
+    "evasao": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Sliver de 2. Todas as criaturas Sliver têm voar.",
+   "porque": "O Galerider faz o mesmo por uma mana, e o Cloudshredder ainda dá ímpeto."
+  },
+  "Food Chain": {
+   "notas": {
+    "ramp": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 3. Exile uma criatura sua: mana igual ao valor dela mais 1, só para criaturas.",
+   "porque": "O edh.wiki cita o Food Chain nas listas afiadas; nesta lista nenhuma criatura volta do exílio para repetir, e sozinho ele só acelera."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Fichas e mana infinitas",
+   "tipo": "Combo",
+   "pecas": [
+    "Sliver Queen",
+    "Intruder Alarm"
+   ],
+   "texto": "Com o Gemhide ou o Manaweft, cada ficha da Queen desvira todos os Slivers, que viram de novo para pagar a próxima. Do radar."
+  },
+  {
+   "nome": "Todos os Slivers do grimório",
+   "tipo": "Combo",
+   "pecas": [
+    "Sliver Overlord",
+    "Intruder Alarm"
+   ],
+   "texto": "Com o Gemhide ou o Manaweft e um Sliver de ímpeto (Cloudshredder ou Heart), cada Sliver que entra desvira a mesa e paga o próximo {3} do Overlord. Do radar."
+  },
+  {
+   "nome": "Mana que paga a próxima ficha",
+   "tipo": "Combo",
+   "pecas": [
+    "Sliver Queen",
+    "Mana Echoes"
+   ],
+   "texto": "Com dois Slivers ou mais, cada ficha nova gera pelo menos {C}{C}: fichas e mana infinitas. Do radar."
+  },
+  {
+   "nome": "Dano infinito",
+   "tipo": "Combo",
+   "pecas": [
+    "Sliver Queen",
+    "Basal Sliver",
+    "Lavabelly Sliver"
+   ],
+   "texto": "A ficha custa 2 e devolve {B}{B} ao ser sacrificada; cada uma que entra tira 1 de um oponente com o Lavabelly. Do radar."
+  },
+  {
+   "nome": "Ficha que paga a si mesma",
+   "tipo": "Combo",
+   "pecas": [
+    "Sliver Queen",
+    "Training Grounds",
+    "Cloudshredder Sliver"
+   ],
+   "texto": "A ficha passa a custar 1; com ímpeto do Cloudshredder e o Gemhide ou o Manaweft, a ficha nova vira e paga a próxima. Do radar."
+  },
+  {
+   "nome": "Cinco lendários de graça",
+   "tipo": "Motor",
+   "pecas": [
+    "Morophon, the Boundless",
+    "Sliver Queen"
+   ],
+   "texto": "Escolhendo Sliver, os feitiços de Sliver custam {W}{U}{B}{R}{G} a menos: Queen, Legion, Hivelord, Overlord e Gravemother saem de graça, e o The First Sliver só paga o imposto."
+  },
+  {
+   "nome": "Cascata em cadeia",
+   "tipo": "Motor",
+   "pecas": [
+    "The First Sliver",
+    "Hatchery Sliver"
+   ],
+   "texto": "Cada Sliver conjurado cascateia; o Sliver achado pela cascata também é conjurado e cascateia de novo, sempre em valor menor. As cópias do replicar não cascateiam."
+  },
+  {
+   "nome": "Lendários copiados",
+   "tipo": "Motor",
+   "pecas": [
+    "Sliver Gravemother",
+    "Hatchery Sliver"
+   ],
+   "texto": "Sem regra de lendárias para os seus Slivers, o replicar copia a Sliver Legion ou a Sliver Queen e as cópias ficam."
+  },
+  {
+   "nome": "Dois venenos por golpe",
+   "tipo": "Motor",
+   "pecas": [
+    "Bonescythe Sliver",
+    "Virulent Sliver"
+   ],
+   "texto": "Golpe duplo causa dano duas vezes: cada Sliver que conecta dá dois marcadores de veneno."
+  },
+  {
+   "nome": "Ataca e ainda paga",
+   "tipo": "Motor",
+   "pecas": [
+    "Sentinel Sliver",
+    "Gemhide Sliver"
+   ],
+   "texto": "Com vigilância, a colmeia ataca e continua desvirada para gerar mana depois do combate."
+  },
+  {
+   "nome": "Armadilha: o Harmonic come os seus artefatos",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Harmonic Sliver",
+    "Sol Ring"
+   ],
+   "texto": "O gatilho é obrigatório: sem artefato ou encantamento nos oponentes, cada Sliver que entra destrói um seu."
+  },
+  {
+   "nome": "Armadilha: o Crystalline tira os seus alvos",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Crystalline Sliver",
+    "Crypt Sliver"
+   ],
+   "texto": "Com manto em todos os Slivers, o Crypt não regenera e o Sliver Overlord não toma Sliver de volta."
+  }
+ ]
+}
