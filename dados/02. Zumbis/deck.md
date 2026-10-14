@@ -37,6 +37,7 @@ Nenhuma informada.
 
 - Lista: `decklist.txt`, do dono, com edição, número e acabamento. Conferida no Scryfall em 14/10/2026: 100 cartas em 92 linhas, identidade azul e preto, nenhuma banida, 3 Game Changers (Cyclonic Rift, Necropotence e Rhystic Study; este é o do Secret Lair, impresso como Unstable Harmonics), 33 terrenos (10 básicos) e o Malakir Rebirth, que é terreno no verso. 26 Zumbis fora a Wilhelt; as criaturas que não são Zumbi são Geralf, Ghoulcaller Gisa e Mirkwood Bats.
 - Análises de fora em `entrada/`: a revisão V2 com a planilha, a análise do Claude com o handover e a lista nova, e uma análise do Grok. Confrontadas em `CONFRONTO.md`.
+- Comunidade: https://edh.wiki/commanders/wilhelt-the-rotcleaver/zombies/ (citada pela V2).
 - `entrada/carta.png`: a carta da Wilhelt, enviada pelo dono.
 
 ## Visual
