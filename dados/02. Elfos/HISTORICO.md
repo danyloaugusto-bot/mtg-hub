@@ -13,3 +13,4 @@
 ## Comunidade, 14/10/2026
 
 - Lida a página da Lathril no edh.wiki (temas: Elfos 43%, Fichas 18%, Agressivo 6%). Dezessete potenciais gravados em `comunidade.json`; Immaculate Magistrate, Abomination of Llanowar e Realmwalker são os de maior sinergia, e cinco cartas novas entraram: Elven Passage, Woodland Weavemaster, Cantankerous Keepers, Simulacrum Shaper e o equipamento Orcrist, Goblin-cleaver. As dez mais usadas da página já estão no deck (oito) ou no radar (Elvish Warmaster e Llanowar Elves).
+- Levados do edh.wiki ao radar, para avaliar, a pedido do dono: Realmwalker, Wood Elves, Galadhrim Brigade e Eladamri, Korvecdal (56 cartas no radar).

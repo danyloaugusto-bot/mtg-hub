@@ -13,3 +13,4 @@
 ## Comunidade, 14/10/2026
 
 - Lida a página de Lobisomens do Tovolar no edh.wiki (temas: Lobisomens 36%, Agressivo 17%, Lobos 11%, Dia e noite 6%). Doze potenciais gravados em `comunidade.json`; The Celestus, Howling Moon e Village Watch são os de maior sinergia. Das 20 cartas das listas de destaque, 10 estão no deck e 9 no radar; só a Howling Moon ficava de fora, e virou potencial.
+- Levados do edh.wiki ao radar, para avaliar, a pedido do dono: The Celestus, Howling Moon, Village Watch e Instigator Gang (39 cartas no radar).

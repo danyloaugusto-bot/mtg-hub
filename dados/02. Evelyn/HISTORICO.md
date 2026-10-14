@@ -17,3 +17,4 @@
 ## Comunidade, 14/10/2026
 
 - Lida a página de Vampiros da Evelyn no edh.wiki (temas: Vampiros 29%, Roubo 19%). Dezesseis potenciais gravados em `comunidade.json`; Scion of Opulence, Glass-Cast Heart e Olivia's Wrath são os de maior sinergia. Das 20 cartas das listas de destaque, 5 estão no deck e 10 no radar. O Emeritus of Woe, carta nova da página, ficou fora dos potenciais: o verso é o Demonic Tutor, e o deck não quer Game Changer.
+- Levados do edh.wiki ao radar, para avaliar, a pedido do dono: Glass-Cast Heart, Preacher of the Schism, Olivia's Wrath e Scion of Opulence (25 cartas no radar).

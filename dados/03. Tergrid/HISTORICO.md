@@ -13,3 +13,4 @@
 ## Comunidade, 14/10/2026
 
 - Lida a página de Descarte da Tergrid no edh.wiki (temas: Descarte 35%, Sacrifício 16%, Roubo 8%). Treze potenciais gravados em `comunidade.json`; Elderfang Disciple, Burglar Rat e Plaguecrafter são os de maior sinergia. Das 20 cartas das listas de destaque da página, 13 já estão no deck, com Waste Not, Smallpox, Geth's Grimoire, Dark Deal e Syphon Mind no topo. A Pox Plague, carta nova que a página sugere, já estava no radar.
+- Levados do edh.wiki ao radar, para avaliar, a pedido do dono: Plaguecrafter, Painful Quandary e The Raven Man (35 cartas no radar). Os descartes de entrada (Elderfang Disciple, Burglar Rat, Virus Beetle) seguem como potenciais: o oponente escolhe o que descarta.
