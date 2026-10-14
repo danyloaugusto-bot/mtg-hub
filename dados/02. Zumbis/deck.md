@@ -27,7 +27,7 @@ Encher a mesa de Zumbis, de carta e de ficha, fazê-los morrer de propósito nos
 
 ## Agrupamentos deste deck
 
-Ramp, Compra, Remoção, Recursão, Sacrifício, Fichas, Senhores e Fechamento: os oito eixos do dono, aprovados. Sacrifício mede o que **consome** Zumbis e fichas (altares, saídas, exploit); Fichas, o que **gera** Zumbis que disparam a Wilhelt; Senhores, reforço e evasão da horda.
+Ramp, Compra, Remoção, Recursão, Sacrifício, Fichas, Buff e Fechamento: os oito eixos do dono, aprovados. Sacrifício mede o que **consome** Zumbis e fichas (altares, saídas, exploit); Fichas, o que **gera** Zumbis que disparam a Wilhelt; Buff, reforço e evasão da horda (lords, voar, ameaça, toque mortífero).
 
 ## Cartas de estimação
 

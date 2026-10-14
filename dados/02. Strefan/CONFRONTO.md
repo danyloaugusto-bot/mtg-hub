@@ -72,7 +72,7 @@ O que o texto oficial desmente em D: Terminate e Bedevil não estão na lista (T
 O guia não analisa a lista do dono, mas a lista de 100 cartas dele traz o que as duas análises não trouxeram. Conferido no Scryfall, vai para o radar:
 
 - **Urza's Incubator:** Vampiros custam 2 a menos, o dobro do Herald's Horn.
-- **Bloodline Keeper:** um Vampiro 2/2 voador por turno; com cinco Vampiros, senhor de +2/+2.
+- **Bloodline Keeper:** um Vampiro 2/2 voador por turno; com cinco Vampiros, lord de +2/+2.
 - **Terminate:** remoção instantânea de duas manas no lugar de uma limpeza de sete.
 - **Cavern of Souls:** cor para a tribo no lugar de um terreno incolor.
 - **Sanctum Seeker, Lightning Greaves, Deflecting Swat, Voldaren Epicure e Patron of the Vein,** que confirmam A e B.

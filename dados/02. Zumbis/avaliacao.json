@@ -50,10 +50,10 @@
    "desc": "Gera Zumbis que disparam a Wilhelt."
   },
   {
-   "k": "senhores",
-   "nome": "Senhores",
-   "ab": "Senh.",
-   "desc": "Reforço e evasão da horda."
+   "k": "buff",
+   "nome": "Buff",
+   "ab": "Buff",
+   "desc": "Reforço e evasão da horda: lords, voar, ameaça, toque mortífero."
   },
   {
    "k": "fechamento",
@@ -76,8 +76,8 @@
   "dreno": {
    "nome": "Dreno da horda"
   },
-  "senhor": {
-   "nome": "Senhor de Zumbi"
+  "lord": {
+   "nome": "Lord de Zumbi"
   },
   "combo": {
    "nome": "Peça de combo"
@@ -126,14 +126,14 @@
   },
   {
    "tipo": "contagem",
-   "marcador": "senhor",
+   "marcador": "lord",
    "min": 5,
    "listar": true,
    "rotulo": [
-    "senhor de Zumbi",
-    "senhores de Zumbi"
+    "lord de Zumbi",
+    "lords de Zumbi"
    ],
-   "alerta": "Poucos senhores: as fichas 2/2 não pressionam.",
+   "alerta": "Poucos lords: as fichas 2/2 não pressionam.",
    "ok": "A horda bate forte."
   },
   {
@@ -186,7 +186,7 @@
     "Cada morte rende ficha, carta e dreno ao mesmo tempo."
    ],
    "fracos": [
-    "Três senhores: as fichas 2/2 não pressionam.",
+    "Três lords: as fichas 2/2 não pressionam.",
     "Três limpezas simétricas, e a Living Death, levam a sua horda junto."
    ]
   },
@@ -277,15 +277,15 @@
   },
   "Diregraf Captain": {
    "notas": {
-    "senhores": 2,
+    "buff": 2,
     "fechamento": 3
    },
    "tier": "S",
    "rel": "INS",
    "faz": "Zumbi Soldado 2/2 de 3 com toque mortífero. Seus outros Zumbis +1/+1; outro Zumbi seu morre: um oponente perde 1.",
-   "porque": "Senhor e dreno ao mesmo tempo: fecha o laço do Gravecrawler.",
+   "porque": "Lord e dreno ao mesmo tempo: fecha o laço do Gravecrawler.",
    "marcas": {
-    "senhor": 1,
+    "lord": 1,
     "dreno": 1,
     "combo": 1
    }
@@ -410,14 +410,14 @@
   "Undead Warchief": {
    "notas": {
     "ramp": 1,
-    "senhores": 3
+    "buff": 3
    },
    "tier": "A",
    "rel": "ALT",
    "faz": "Zumbi 1/1 de 4. Suas mágicas de Zumbi custam {1} a menos; seus Zumbis +2/+1.",
-   "porque": "O senhor mais forte do deck, e ainda acelera.",
+   "porque": "O lord mais forte do deck, e ainda acelera.",
    "marcas": {
-    "senhor": 1
+    "lord": 1
    }
   },
   "Zul Ashur, Lich Lord": {
@@ -431,7 +431,7 @@
   },
   "Champion of the Perished": {
    "notas": {
-    "senhores": 1,
+    "buff": 1,
     "fechamento": 1
    },
    "tier": "B",
@@ -457,7 +457,7 @@
   "Eternal Skylord": {
    "notas": {
     "fichas": 1,
-    "senhores": 2
+    "buff": 2
    },
    "tier": "B",
    "rel": "MED",
@@ -481,7 +481,7 @@
    "notas": {
     "sacrificio": 2,
     "fichas": 2,
-    "senhores": 2
+    "buff": 2
    },
    "tier": "B",
    "rel": "MED",
@@ -508,7 +508,7 @@
   "Gleaming Overseer": {
    "notas": {
     "fichas": 1,
-    "senhores": 2
+    "buff": 2
    },
    "tier": "B",
    "rel": "MED",
@@ -528,7 +528,7 @@
   "Hordewing Skaab": {
    "notas": {
     "draw": 1,
-    "senhores": 2,
+    "buff": 2,
     "fechamento": 1
    },
    "tier": "B",
@@ -815,16 +815,16 @@
    "notas": {
     "recursao": 2,
     "fichas": 1,
-    "senhores": 2
+    "buff": 2
    },
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 4: seus Zumbis +1/+1. Vira: uma criatura do seu cemitério ganha embalsamar pelo custo de mana dela.",
-   "porque": "Senhor e recursão: a cópia embalsamada é um Zumbi sem decayed.",
+   "porque": "Lord e recursão: a cópia embalsamada é um Zumbi sem decayed.",
    "marcas": {
-    "senhor": 1
+    "lord": 1
    },
-   "pacote": "senhores"
+   "pacote": "buff"
   },
   "Dimir Signet": {
    "notas": {
@@ -847,7 +847,7 @@
   "Urza's Incubator": {
    "notas": {
     "ramp": 2,
-    "senhores": 1
+    "buff": 1
    },
    "tier": "B",
    "rel": "ALT",
@@ -857,7 +857,7 @@
   "Wand of Orcus": {
    "notas": {
     "fichas": 2,
-    "senhores": 1,
+    "buff": 1,
     "fechamento": 1
    },
    "tier": "B",
@@ -978,7 +978,7 @@
   "Dreadhorde Invasion": {
    "notas": {
     "fichas": 2,
-    "senhores": 1,
+    "buff": 1,
     "fechamento": 1
    },
    "tier": "B",
@@ -1258,17 +1258,17 @@
   },
   "Death Baron": {
    "notas": {
-    "senhores": 3,
+    "buff": 3,
     "fechamento": 1
    },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Zumbi Mago 2/2 de 3. Seus Esqueletos e seus outros Zumbis +1/+1 e toque mortífero.",
-   "porque": "Senhor que dá toque mortífero às fichas. Nas três fontes.",
+   "porque": "Lord que dá toque mortífero às fichas. Nas três fontes.",
    "sai": "Blood Scrivener",
    "marcas": {
-    "senhor": 1
+    "lord": 1
    }
   },
   "Cryptbreaker": {
@@ -1301,17 +1301,17 @@
   },
   "Lord of the Accursed": {
    "notas": {
-    "senhores": 3,
+    "buff": 3,
     "fechamento": 1
    },
    "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Zumbi 2/3 de 3. Seus outros Zumbis +1/+1; {1}{B}, vira: todos os Zumbis ganham ameaça.",
-   "porque": "Senhor que faz a horda passar. Fontes B e C.",
+   "porque": "Lord que faz a horda passar. Fontes B e C.",
    "sai": "Pyre of Heroes",
    "marcas": {
-    "senhor": 1
+    "lord": 1
    }
   },
   "Cemetery Reaper": {
@@ -1319,16 +1319,16 @@
     "removal": 1,
     "recursao": 1,
     "fichas": 2,
-    "senhores": 3
+    "buff": 3
    },
    "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Zumbi 2/2 de 3. Seus outros Zumbis +1/+1; {2}{B}, vira: exila uma criatura de um cemitério e cria uma ficha Zumbi 2/2.",
-   "porque": "Senhor que cria fichas sem decayed e esvazia o cemitério dos oponentes. Fontes B e C.",
+   "porque": "Lord que cria fichas sem decayed e esvazia o cemitério dos oponentes. Fontes B e C.",
    "sai": "Tainted Adversary",
    "marcas": {
-    "senhor": 1
+    "lord": 1
    }
   },
   "Accursed Marauder": {
@@ -1377,7 +1377,7 @@
    "notas": {
     "draw": 1,
     "fichas": 2,
-    "senhores": 1,
+    "buff": 1,
     "fechamento": 2
    },
    "tier": "A",
@@ -1491,15 +1491,15 @@
    "notas": {
     "recursao": 2,
     "sacrificio": 1,
-    "senhores": 2
+    "buff": 2
    },
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Zumbi Nobre 3/3 de 4. Seus outros Zumbis +1/+1; {2}{B}, vira, sacrifique uma criatura: um Zumbi aleatório do cemitério ao campo, no seu turno e com três Zumbis lá.",
-   "porque": "Senhor e recursão. Fonte C.",
+   "porque": "Lord e recursão. Fonte C.",
    "marcas": {
-    "senhor": 1
+    "lord": 1
    }
   },
   "Liliana, Dreadhorde General": {
@@ -1616,15 +1616,15 @@
   "Patchwork Banner": {
    "notas": {
     "ramp": 2,
-    "senhores": 2
+    "buff": 2
    },
    "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Artefato de 3: escolhido um tipo, criaturas suas desse tipo +1/+1; vira: uma mana de qualquer cor.",
-   "porque": "Ramp e senhor numa carta só, e os dois estão abaixo da referência. Potencial do edh.wiki (+12%).",
+   "porque": "Ramp e lord numa carta só, e os dois estão abaixo da referência. Potencial do edh.wiki (+12%).",
    "marcas": {
-    "senhor": 1
+    "lord": 1
    }
   },
   "Diabolic Intent": {
@@ -1657,7 +1657,7 @@
    "notas": {
     "recursao": 2,
     "fichas": 1,
-    "senhores": 2,
+    "buff": 2,
     "fechamento": 1
    },
    "tier": "A",
@@ -1666,13 +1666,13 @@
    "faz": "Zumbi Clérigo lendário 5/5 de 6 ({3}{B}{B}{B}) com intimidar. Suas outras criaturas não-Humanas +1/+1 e undying; Humano que causa dano a você é destruído.",
    "porque": "Cada Zumbi de carta volta uma vez ao morrer e ainda dispara a Wilhelt; as fichas não voltam, porque somem ao morrer. Potencial do edh.wiki (+40%).",
    "marcas": {
-    "senhor": 1
+    "lord": 1
    }
   },
   "Lord of the Undead": {
    "notas": {
     "recursao": 2,
-    "senhores": 2
+    "buff": 2
    },
    "tier": "B",
    "rel": "MED",

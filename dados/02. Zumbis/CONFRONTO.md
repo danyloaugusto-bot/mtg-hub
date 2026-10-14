@@ -28,7 +28,7 @@ Confere: 100 cartas em 92 linhas, só básicos repetidos (4 Island, 6 Swamp), to
 | Limpezas simétricas (Damnation, Living Death, Necrotic Hex) | ficam | saem as três; fica a Toxic Deluge | sai o Necrotic Hex | **B, em parte.** Saem o Necrotic Hex (sete manas, simétrico) e a Damnation. A Living Death vai a avaliar: devolve as criaturas dos oponentes, e a troca de B tem um problema de texto (abaixo). |
 | Dictate of Erebos | sai pelo Accursed Marauder | fica | não cita | **Fica.** É a fase do meio que o dono descreveu: controlar a mesa tirando criaturas dos oponentes, e cada ficha decayed vira um edito. |
 | Funeral Room // Awakening Hall | sai pelo Vengeful Dead | fica | sai | **A.** O dono prefere Zumbis a drenos genéricos por morte; o Vengeful Dead faz o mesmo dreno sendo Zumbi. |
-| Senhores | Death Baron | Death Baron, Cemetery Reaper e Lord of the Accursed | os três, na camada 1 | **B e C.** Com 3 senhores, as fichas 2/2 não pressionam. |
+| Lords | Death Baron | Death Baron, Cemetery Reaper e Lord of the Accursed | os três, na camada 1 | **B e C.** Com 3 lords, as fichas 2/2 não pressionam. |
 | Skullclamp | não cita | entra | camada 1 | **Entra.** Não é Zumbi, mas é o tema 2 do dono: ficha que vira carta. |
 | Grave Titan | entra | recusa: não é Zumbi | não cita | **Avaliar.** B aceita o Scarab God, que também não é Zumbi; o Titan cria Zumbis sem decayed, mas custa 6. |
 | Roaming Throne | entra pelo Endless Ranks | não cita | camada 2 | **Avaliar.** Escolhendo Zombie, dobra a Wilhelt, o Captain, o Belcher e o Headless Rider, mas também as compras obrigatórias do Undead Augur. Custa 4. |
