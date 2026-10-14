@@ -110,6 +110,10 @@ def ler_json(caminho, obrigatorio=True):
 LINHA = re.compile(r"^(\d+)\s+(.+?)(?:\s+\(([A-Za-z0-9]+)\)\s+(\S+))?((?:\s+(?:\*[A-Za-z]+\*|F|E|CMDR))*)\s*$")
 
 
+# o que autoriza dois comandantes: Partner (com as variantes "Partner with" e "Partner—Character select"),
+# Friends forever, Doctor's companion, ou um comandante que escolhe um Background
+PARCERIA = re.compile(r"\bPartner\b|Friends forever|Doctor's companion|Choose a Background|\bBackground\b")
+
 # cabeçalhos de seção das exportações de aplicativo ("COMMANDER", "Deck", "Sideboard:")
 CABECALHO = re.compile(r"^(commander|commanders|deck|main ?deck|sideboard|maybeboard|companion)\s*:?$", re.I)
 
@@ -118,17 +122,26 @@ def ler_decklist(caminho):
     if not os.path.exists(caminho):
         raise ErroDeck("falta decklist.txt")
     out = []
+    # sob o cabeçalho "COMMANDER", até a primeira linha em branco, todas as cartas são comandantes (parceiros)
+    secao_cmd = False
     with open(caminho, encoding="utf-8-sig") as f:
         for n, linha in enumerate(f, 1):
             linha = linha.strip()
-            if not linha or linha.startswith("#") or linha.startswith("//") or CABECALHO.match(linha):
+            cab = CABECALHO.match(linha)
+            if cab:
+                secao_cmd = cab.group(1).lower().startswith("commander")
+                continue
+            if not linha:
+                secao_cmd = False
+                continue
+            if linha.startswith("#") or linha.startswith("//"):
                 continue
             m = LINHA.match(linha)
             if not m:
                 raise ErroDeck("decklist.txt, linha %d não está no formato '1 Nome (SET) 123': %s" % (n, linha))
             flags = {f.strip("*").upper() for f in (m.group(5) or "").split()}
             out.append(dict(q=int(m.group(1)), name=m.group(2), set=m.group(3), num=m.group(4),
-                            foil="F" in flags or "E" in flags, etched="E" in flags, cmd="CMDR" in flags))
+                            foil="F" in flags or "E" in flags, etched="E" in flags, cmd="CMDR" in flags or secao_cmd))
     if not out:
         raise ErroDeck("decklist.txt está vazia")
     if not any(e["cmd"] for e in out):
@@ -154,6 +167,9 @@ SUB = {
     "Faerie": "Fada", "Fungus": "Fungo", "Insect": "Inseto", "Rat": "Rato", "Snake": "Serpente", "Spider": "Aranha",
     "Curse": "Maldição", "Shapeshifter": "Metamorfo", "Ogre": "Ogro", "Orc": "Orc", "Weird": "Esquisito", "Bat": "Morcego",
     "Scout": "Batedor", "Leech": "Sanguessuga", "Praetor": "Pretor", "Lamia": "Lâmia", "Nightmare": "Pesadelo",
+    "Mutant": "Mutante", "Lizard": "Lagarto", "Frog": "Sapo", "Scientist": "Cientista", "Ooze": "Lodo", "Fish": "Peixe",
+    "Detective": "Detetive", "Robot": "Robô", "Assembly-Worker": "Operário", "Illusion": "Ilusão", "Rebel": "Rebelde",
+    "Incarnation": "Encarnação",
 }
 PRINCIPAIS = ("Creature", "Artifact", "Enchantment", "Land", "Instant", "Sorcery", "Planeswalker", "Battle")
 
@@ -300,7 +316,9 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
     # marcadores
     mk = {}
     for k, m in marcadores.items():
-        if m.get("subtipo") and m["subtipo"] in subs:
+        # "subtipo" aceita um tipo ou uma lista (Lobos: Wolf ou Werewolf)
+        st = m.get("subtipo")
+        if st and any(x in subs for x in ([st] if isinstance(st, str) else st)):
             mk[k] = 1
     if av is not None:
         for k, v in (av.get("marcas") or {}).items():
@@ -469,8 +487,15 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     sf = scryfall.buscar(pedidos, atualizar=atualizar_scryfall, avisar=avisar)
 
     # identidade de cor: nenhuma carta do deck, do radar ou dos potenciais pode ficar fora da identidade do comandante
-    i_cmd = next((i for i, e in enumerate(lista) if e["cmd"]), None)
-    ident = ordem_cores("".join(sf[i_cmd].get("color_identity") or [])) if i_cmd is not None else ""
+    # com dois comandantes, a identidade é a união das duas, e os dois precisam ter parceria no texto
+    i_cmds = [i for i, e in enumerate(lista) if e["cmd"]]
+    if len(i_cmds) > 2:
+        raise ErroDeck("decklist.txt: %d comandantes; o formato aceita um, ou dois parceiros" % len(i_cmds))
+    if len(i_cmds) == 2:
+        sem = [lista[i]["name"] for i in i_cmds if not PARCERIA.search("%s %s" % (sf[i].get("oracle_text") or "", sf[i].get("type_line") or ""))]
+        if sem:
+            raise ErroDeck("decklist.txt: dois comandantes, mas sem parceria no texto: " + ", ".join(sem))
+    ident = ordem_cores("".join(c for i in i_cmds for c in (sf[i].get("color_identity") or [])))
     n0 = len(lista)
     faixas = [("decklist.txt", [(sf[i], e["name"]) for i, e in enumerate(lista)]),
               ("avaliacao.json, radar", [(sf[n0 + j], n) for j, n in enumerate(radar_av)]),

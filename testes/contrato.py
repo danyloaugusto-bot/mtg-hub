@@ -21,7 +21,7 @@ except dados.ErroDeck as e:
 
 lista = dados.ler_decklist(os.path.join(base, "decklist.txt"))
 R.ok("decklist com 100 cartas", sum(e["q"] for e in lista) == 100, sum(e["q"] for e in lista))
-R.ok("um comandante só", sum(1 for e in lista if e["cmd"]) == 1)
+R.ok("um comandante, ou dois parceiros", sum(1 for e in lista if e["cmd"]) in (1, 2))
 R.ok("de 6 a 10 agrupamentos", 6 <= len(d["grupos"]) <= 10, len(d["grupos"]))
 R.ok("toda carta com o porquê escrito", all(c["why"].strip() for c in d["cards"] + d["cands"]),
      [c["n"] for c in d["cards"] + d["cands"] if not c["why"].strip()][:3])

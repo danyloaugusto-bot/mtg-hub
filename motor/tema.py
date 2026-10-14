@@ -168,6 +168,22 @@ def textura(nome, p):
         return ("radial-gradient(900px 540px at 62%% -10%%, rgba(%d,%d,%d,.09), transparent 64%%),"
                 "radial-gradient(640px 400px at 6%% 4%%, rgba(%d,%d,%d,.10), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
+    if nome == "redemoinho":
+        # a espiral de água da capa das Tartarugas: ondas em arco e bolhas subindo, com um brilho azul no alto e um verde à esquerda
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.06' stroke-width='1.3'%3E%3Cpath d='M12 96a68 68 0 0 1 136 0M36 96a44 44 0 0 1 88 0'/%3E%3C/g%3E"
+               "%3Cg fill='none' stroke='" + quote(p["destaque_claro"]) + "' stroke-opacity='.09'%3E%3Ccircle cx='128' cy='26' r='6'/%3E"
+               "%3Ccircle cx='141' cy='45' r='3'/%3E%3Ccircle cx='24' cy='136' r='4.5'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(900px 520px at 70%% -10%%, rgba(%d,%d,%d,.16), transparent 64%%),"
+                "radial-gradient(640px 420px at 4%% 6%%, rgba(%d,%d,%d,.10), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["destaque"]) + _hex(p["acento"]) + (svg, grad))
+    if nome == "deco":
+        # leques art déco em filete, como os painéis de New Capenna, e o brilho do batom no alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.06' stroke-width='1'%3E%3Cpath d='M0 40a40 40 0 0 1 80 0M12 40a28 28 0 0 1 56 0M24 40a16 16 0 0 1 32 0M40 40V24'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(900px 520px at 72%% -10%%, rgba(%d,%d,%d,.14), transparent 64%%),"
+                "radial-gradient(640px 420px at 4%% 6%%, rgba(%d,%d,%d,.08), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["destaque"]) + _hex(p["acento"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

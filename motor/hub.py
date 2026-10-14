@@ -237,12 +237,12 @@ def montar(avisar=print):
             if m:
                 t = dados.ler_json(os.path.join(base, "tema.json"), obrigatorio=False) or {}
                 pt, avg = placar(m["cards"], m["grupos"])
-                cmd = next((c for c in m["cards"] if c.get("cmd")), None)
                 tipos = {}
                 for c in m["cards"]:
                     k = "cri" if c.get("cmd") else c["t"]
                     tipos[k] = tipos.get(k, 0) + c["q"]
-                d.update(painel=t.get("painel") or d["nome"], cmd=(cmd["n"] if cmd else d["cmd"]), cores=m["ident"] or d["cores"],
+                cmds = " + ".join(c["n"] for c in m["cards"] if c.get("cmd"))
+                d.update(painel=t.get("painel") or d["nome"], cmd=(cmds or d["cmd"]), cores=m["ident"] or d["cores"],
                          placar=pt, cmc=round(avg, 2), tipos=tipos, href=quote(pasta + ".html"),
                          capa=capa_reduzida(base, (t.get("capa") or {}).get("arquivo")),
                          foco=(t.get("capa") or {}).get("foco", "50% 30%"))
