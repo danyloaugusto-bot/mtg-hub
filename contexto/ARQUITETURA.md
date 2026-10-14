@@ -220,4 +220,4 @@ Acrescentado em 10/10/2026, a pedido do dono, para trocar de lugar em vez de com
 
 ## A Oficina de cada painel
 
-O painel não tem IA dentro dele quando é um arquivo local. A aba Oficina faz a ponte: lista o que dá para pedir ao Claude Code sobre aquele deck, com o comando já preenchido com o nome da pasta e um botão de copiar. Hoje: auditar, comparar duas cartas, avaliar coleção nova, atualizar a leitura da comunidade, trocar a capa, propor variações de tema, conferir a decklist, e levar ao projeto o que foi editado no painel, com o backup copiado junto. O caminho de volta é o `/importar-backup`.
+O painel não tem IA dentro dele quando é um arquivo local. A aba Oficina faz a ponte: lista o que dá para pedir ao Claude Code sobre aquele deck, com o comando já preenchido com o nome da pasta e um botão de copiar. Hoje: auditar, atualizar com uma análise nova, comparar duas cartas, avaliar coleção nova, atualizar a leitura da comunidade, trocar a capa, propor variações de tema, conferir a decklist, e levar ao projeto o que foi editado no painel, com o backup copiado junto. O caminho de volta é o `/importar-backup`.

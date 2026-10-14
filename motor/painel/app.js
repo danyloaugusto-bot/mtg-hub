@@ -1415,6 +1415,8 @@ function deckNames() { return deck().filter(function (c) { return !c.cmd; }).map
 var OF = [
   { k: 'aud', t: 'Auditar a avaliação', d: 'O Claude relê as notas, os tiers e as relevâncias deste deck com olhar de auditor e aponta o que não se sustenta. Não altera nada.',
     c: function () { return '/auditar ' + M.pasta; } },
+  { k: 'atu', t: 'Atualizar com uma análise nova', d: 'Salve a análise de outra IA na pasta entrada/ deste deck. O Claude confronta com o que já está aprovado, conta os votos nas divergências, mostra o que mudaria e só aplica o que você aprovar. A decklist não muda.',
+    c: function () { return '/atualizar-deck ' + M.pasta; } },
   { k: 'cmp', t: 'Comparar duas cartas', d: 'Uma carta de fora contra uma do deck: qual fica, e por quê, com o texto oficial das duas.',
     f: [['fora', 'Carta de fora', 'text'], ['deck', 'Carta do deck', 'deck']],
     c: function (v) { return '/comparar ' + M.pasta + ' | ' + (v.fora || '<carta de fora>') + ' | ' + (v.deck || '<carta do deck>'); } },

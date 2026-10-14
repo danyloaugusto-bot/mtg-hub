@@ -9,6 +9,8 @@ disable-model-invocation: true
 
 Deck: $ARGUMENTS
 
+Para um deck que já tem painel e recebeu uma análise nova, o comando é o `/atualizar-deck`: este aqui refaz a avaliação inteira.
+
 Leia tudo o que estiver em `dados/$ARGUMENTS/`, solto na pasta ou dentro de `entrada/`: lista, ficha, capa, handovers de outras IAs, planilhas, HTMLs, prints. O dono solta o material na pasta e espera que você se vire com o que houver.
 
 ## Antes de tudo: arrumar a pasta

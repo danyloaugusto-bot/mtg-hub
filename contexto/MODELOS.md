@@ -12,6 +12,7 @@ Cada comando em `.claude/skills/` já declara o modelo e o esforço no cabeçalh
 | `/imagens <pasta do deck, ou todos>` | sonnet | medium | Etapa 3. Baixa as imagens das cartas uma vez e as embute nos painéis. |
 | `/hub` | opus | high | Etapa 4. Cria ou remonta o hub, a porta de entrada de todos os painéis. |
 | `/novo-deck <pasta do deck, ex.: 01. Markov>` | opus | high | Etapa 5. Cria o painel de um deck a partir da lista, da ficha e das análises de outras IAs. |
+| `/atualizar-deck <pasta do deck>` | opus | high | Confronta uma análise nova de outra IA com o painel que já existe e aplica só o que o dono aprovar. |
 | `/novas-cartas` | sonnet | high | Etapa 6. Completa a seção Potenciais com os lançamentos do Scryfall, para todos os decks. |
 | `/colecao <código ou nome da coleção> [pasta do deck]` | opus | high | Etapa 7. Avalia uma coleção nova para um deck ou para todos, com veredito de entrada e de compra. |
 | `/potenciais <pasta do deck>` | sonnet | high | Relê a página da comunidade do comandante e atualiza a lista de potenciais do deck. |
