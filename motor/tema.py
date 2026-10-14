@@ -184,6 +184,14 @@ def textura(nome, p):
         return ("radial-gradient(900px 520px at 72%% -10%%, rgba(%d,%d,%d,.14), transparent 64%%),"
                 "radial-gradient(640px 420px at 4%% 6%%, rgba(%d,%d,%d,.08), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["destaque"]) + _hex(p["acento"]) + (svg, grad))
+    if nome == "trigal":
+        # o trigal de Kessig à meia-noite: espigas em filete, a lua clara no alto e a brasa da colheita embaixo à esquerda
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='64' viewBox='0 0 56 64'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.06' stroke-width='1.1' stroke-linecap='round'%3E"
+               "%3Cpath d='M28 62V16M28 22l-5-5M28 22l5-5M28 30l-5-5M28 30l5-5M28 38l-5-5M28 38l5-5M28 16l0-6'/%3E%3C/g%3E%3C/svg%3E")
+        return ("radial-gradient(760px 480px at 76%% -12%%, rgba(%d,%d,%d,.14), transparent 62%%),"
+                "radial-gradient(700px 420px at 0%% 100%%, rgba(%d,%d,%d,.10), transparent 70%%),"
+                'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
