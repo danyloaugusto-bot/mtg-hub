@@ -9,3 +9,7 @@
 - Radar com 21 cartas: 10 trocas recomendadas (Champion of Dusk, Bloodline Keeper, Captivating Vampire, Stromkirk Captain, Dusk Legion Zealot, Bloodline Necromancer, Markov Baron, Malakir Bloodwitch, Call the Bloodline e Exotic Orchard), 9 para avaliar e 2 de fora (Panharmonicon, porque o banco do exílio já cresce mais do que a Evelyn gasta). Com as trocas, placar 347 e CMC médio 3,09. Nenhum Game Changer. As trocas ficam como sugestão; a lista não muda.
 - 13 combos, motores e armadilhas, com a Warped Space (a carta da Evelyn de cada turno sai de graça) e o Nalfeshnee como os motores do roubo.
 - Tema "Coleção da Cobiça": salão art déco dos anos 1920 à meia-noite, champanhe, latão e batom, fonte Limelight. Motivos novos no motor: gráfico "leque" (raios art déco em degraus e o colar de pérolas da Evelyn em volta do placar) e textura "deco" (leques em filete de latão).
+
+## Correção do radar, 14/10/2026
+
+- As três trocas de terreno do radar (Luxury Suite, Morphic Pool e Haunted Ridge) apontavam para Mountain, Island e Swamp, que têm várias cópias: a troca tiraria todas. Passaram a sair no lugar do Rakdos Carnarium, do Path of Ancestry e do Volatile Fault. Seguem como "avaliar"; o placar não muda. O build agora recusa troca que aponte para carta com mais de uma cópia.
