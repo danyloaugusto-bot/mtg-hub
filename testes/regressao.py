@@ -180,8 +180,10 @@ with sync_playwright() as p:
     R.ok("backup guarda trocas, datas e imagens", len(j["swaps"]) == len(entram) and (not entram or j["swaps"][0].get("d")) and j.get("img") is True and j.get("ts"))
     linhas = pg.input_value("#bk-list").split("\n")
     R.ok("decklist exportada", len(linhas) == len(D["cards"]) and (not entram or entram[0]["n"] in pg.input_value("#bk-list")), len(linhas))
-    if escondidos:
-        R.ok("decklist exportada com o nome do Scryfall", all(n in pg.input_value("#bk-list") for n in escondidos), escondidos)
+    # só as que continuam no deck: uma carta de nome impresso pode ser a que sai numa troca sugerida
+    ficam = [c["on"] for c in D["cards"] if c.get("on") and c["id"] not in {x.get("sai") for x in entram}]
+    if ficam:
+        R.ok("decklist exportada com o nome do Scryfall", all(n in pg.input_value("#bk-list") for n in ficam), ficam)
     pg.click('[data-act="reset-all"]'); pg.click('[data-act="reset-all"]'); pg.wait_for_timeout(200)
     pg.click('[data-tab="radar"]'); pg.wait_for_timeout(150)
     R.ok("recomeçar", cnt() == "%d cartas" % ctl.get("cartas", 100) and pg.locator("#v-radar .hist").count() == 0)

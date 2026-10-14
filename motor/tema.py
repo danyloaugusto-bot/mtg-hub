@@ -214,6 +214,17 @@ def textura(nome, p):
         return ("radial-gradient(900px 520px at 78%% -10%%, rgba(%d,%d,%d,.14), transparent 62%%),"
                 "radial-gradient(620px 420px at 4%% 4%%, rgba(%d,%d,%d,.12), transparent 70%%),"
                 'url("%s"),%s') % (_hex(p["acento_claro"]) + _hex(p["destaque"]) + (svg, grad))
+    if nome == "copa":
+        # a copa da floresta em filete, ramos com folhas alternadas, e os fachos de sol que atravessam as árvores na capa da Lathril, sumindo para baixo
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='" +
+               quote(p["acento"]) + "' stroke-opacity='.06' stroke-width='1' stroke-linejoin='round'%3E%3Cpath d='M30 88Q36 56 30 18'/%3E"
+               "%3Cpath d='M33 66q10-10 20-5q-10 10-20 5ZM32 48q-10-9-19-3q9 9 19 3ZM32 32q9-10 18-6q-8 10-18 6Z'/%3E"
+               "%3Cpath d='M74 30q8-8 16-4q-8 8-16 4ZM70 40q-6-8-14-6q6 8 14 6Z'/%3E%3C/g%3E%3C/svg%3E")
+        sol = _hex(p["acento_claro"])
+        fachos = ("repeating-linear-gradient(112deg, transparent 0, transparent 70px, rgba(%d,%d,%d,.035) 92px, transparent 120px, transparent 210px)" % sol)
+        return ('url("%s"),'
+                "radial-gradient(820px 480px at 74%% -12%%, rgba(%d,%d,%d,.16), transparent 62%%),"
+                "linear-gradient(180deg, transparent 0, transparent 140px, var(--bg) 900px),%s,%s") % ((svg,) + sol + (fachos, grad))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))

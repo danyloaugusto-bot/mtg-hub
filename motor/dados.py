@@ -472,10 +472,16 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         avisar("aviso: avaliadas mas fora da decklist (ignoradas): " + ", ".join(sobra))
     for n, a in cartas_av.items():
         conferir_avaliacao(a, n, grupos, marcadores)
+    copias = {}
+    for e in lista:
+        copias[e["name"]] = copias.get(e["name"], 0) + e["q"]
     for n, a in radar_av.items():
         conferir_avaliacao(a, n + " (radar)", grupos, marcadores, radar=True)
         if a.get("sai") and a["sai"] not in cartas_av:
             raise ErroDeck("%s (radar): 'sai' aponta para %s, que não está no deck" % (n, a["sai"]))
+        # a troca tira a carta inteira do deck: com um básico de dez cópias, saem as dez
+        if a.get("sai") and copias.get(a["sai"], 0) > 1:
+            raise ErroDeck("%s (radar): 'sai' aponta para %s, que tem %d cópias; a troca tiraria todas" % (n, a["sai"], copias[a["sai"]]))
         if n in cartas_av:
             raise ErroDeck("%s está no deck e no radar ao mesmo tempo" % n)
 
