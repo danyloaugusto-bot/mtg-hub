@@ -1,0 +1,1786 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Pedras e terrenos. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra de cartas."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção em qualquer forma, inclusive a Aura."
+  },
+  {
+   "k": "encanto",
+   "nome": "Removal (encantamento)",
+   "ab": "R. ench.",
+   "desc": "A remoção em forma de encantamento, que o Zur busca."
+  },
+  {
+   "k": "tax",
+   "nome": "Tax",
+   "ab": "Tax",
+   "desc": "Atacar você, ou jogar contra você, custa caro."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Mantém o Zur e os encantamentos vivos, e recupera o que caiu."
+  },
+  {
+   "k": "politica",
+   "nome": "Política",
+   "ab": "Polít.",
+   "desc": "Goad, maldições, Archnemesis e ofertas à mesa."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "O Zur encantado batendo e os drenos lentos."
+  }
+ ],
+ "marcadores": {
+  "zur": {
+   "nome": "Alvo do Zur (encantamento de valor até 3)"
+  },
+  "contra": {
+   "nome": "Trabalha contra o Zur"
+  },
+  "voltron": {
+   "nome": "Faz o Zur bater"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "33 terrenos, mas só 7 geram preto, e 4 entram sempre virados."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 8,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de draw dedicada",
+    "fontes de draw dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 3,
+   "massa_ref": [
+    2,
+    3
+   ],
+   "alerta": "Cinco limpezas tiram o Zur do jogo."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "zur",
+   "min": 25,
+   "listar": false,
+   "rotulo": [
+    "alvo do Zur",
+    "alvos do Zur"
+   ],
+   "texto": "Encantamentos de valor até 3: cada ataque do Zur põe um em campo, sem mana nem carta da mão.",
+   "ok": "Cada ataque tem escolha real."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "voltron",
+   "min": 4,
+   "listar": true,
+   "rotulo": [
+    "peça que faz o Zur bater",
+    "peças que fazem o Zur bater"
+   ],
+   "alerta": "A taxa compra tempo, mas pouca carta converte em dano.",
+   "ok": "O Zur encantado fecha."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "contra",
+   "max": 0,
+   "listar": true,
+   "rotulo": [
+    "carta contra o Zur",
+    "cartas contra o Zur"
+   ],
+   "alerta": "Tiram o Zur do jogo ou travam você também.",
+   "ok": "Nada trabalha contra o comandante."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 4",
+   "plano": "Sol Ring, Signet e Talisman; uma taxa barata da mão (Propaganda, Blind Obedience) e um motor de compra (Phyrexian Arena, Dark Tutelage); o Zur no turno 4.",
+   "fortes": [
+    "Nove pedras de mana.",
+    "28 alvos para o Zur: a mão não precisa ter tudo."
+   ],
+   "fracos": [
+    "Só 7 terrenos geram preto: o Zur chega no turno 4 em 39% das partidas (simulação de B).",
+    "Quatro terrenos entram sempre virados."
+   ]
+  },
+  "meio": {
+   "turnos": "5 a 8",
+   "plano": "O Zur ataca toda rodada e busca o que a mesa pede: a taxa primeiro, depois a remoção em forma de Aura na maior ameaça. Os Impetus e a Bloodthirsty Blade fazem a mesa brigar entre si, e o Teferi deixa o ataque sem resposta no seu turno.",
+   "fortes": [
+    "A Aura posta pelo Zur não mira: ignora hexproof, manto e ward.",
+    "Reconnaissance tira o Zur do combate depois da busca."
+   ],
+   "fracos": [
+    "Cinco limpezas tiram o Zur do jogo, e o Out of Time o tira no próprio ataque.",
+    "Pouca resposta na pilha: só o Judge's Familiar e o Ojutai's Command anulam."
+   ]
+  },
+  "fim": {
+   "turnos": "9 em diante",
+   "plano": "O Zur com All That Glitters e Combat Research bate por dano de comandante, escolhendo a vítima; ou o Dictate com o Underworld Dreams drena a mesa; ou o Wedding Ring com o Consecrated Sphinx compra o grimório.",
+   "fortes": [
+    "A ameaça crível guardada: o Zur escolhe quem cai.",
+    "Combo de compra com o Wedding Ring e o Sphinx."
+   ],
+   "fracos": [
+    "Só duas peças fazem o Zur bater forte.",
+    "O dreno é lento de propósito."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "forte",
+    "porque": "Propaganda, Hissing Miasma, Silent Arbiter e Blind Obedience seguram o ataque."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "A remoção em forma de Aura neutraliza o comandante deles, mesmo com hexproof."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Quase nenhuma anulação; o Teferi ajuda só no seu turno."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "O Zur busca de graça, mas morre nas limpezas deles."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "equilibrado",
+    "porque": "O Zur põe sem conjurar, mas as pedras e as Auras pagam a taxa deles."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Taxa não para drenos, mas o Grasp of Fate e as Auras tiram os motores."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "O Teferi os põe na velocidade de feitiço; a taxa de ataque não os toca."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "equilibrado",
+    "porque": "A remoção-Aura cuida das criaturas grandes, mas o deck fecha devagar."
+   }
+  ]
+ },
+ "cartas": {
+  "Zur the Enchanter": {
+   "notas": {
+    "draw": 2,
+    "tax": 1,
+    "politica": 1,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Humano Mago lendário 1/4 de 4 com voar. Ao atacar, pode buscar um encantamento de valor até 3 e pô-lo em campo.",
+   "porque": "O motor: cada ataque é um tutor que paga a carta que busca; e é ele, encantado, quem fecha."
+  },
+  "Sun Titan": {
+   "notas": {
+    "protecao": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Gigante 6/6 de 6 com vigilância. Ao entrar ou atacar, devolve do cemitério ao campo uma permanente de valor até 3.",
+   "porque": "Quase todo o deck tem valor até 3: recursão a cada ataque."
+  },
+  "Consecrated Sphinx": {
+   "notas": {
+    "draw": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Esfinge 4/6 de 6 com voar. Um oponente compra: você pode comprar duas.",
+   "porque": "Com o Wedding Ring, compra infinita (Commander Spellbook 2022-3283). Game Changer."
+  },
+  "Teferi, Time Raveler": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "tax": 2,
+    "protecao": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Planeswalker de 3, lealdade 4. Os oponentes só conjuram como feitiço; +1: você conjura feitiços como instantâneas; −3: devolve artefato, criatura ou encantamento e compre.",
+   "porque": "No seu turno, ninguém responde ao ataque do Zur."
+  },
+  "Alseid of Life's Bounty": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento Criatura Ninfa 1/1 de 1 com vínculo. {1}, sacrifique: proteção de uma cor a uma criatura ou encantamento seu.",
+   "porque": "O Zur a busca, e ela salva o Zur ou a peça-chave de uma remoção.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Baleful Strix": {
+   "notas": {
+    "draw": 1,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Pássaro artefato 1/1 de 2 com voar e toque mortífero; compra ao entrar.",
+   "porque": "Bloqueador barato que repõe a carta."
+  },
+  "Sakashima the Impostor": {
+   "notas": {
+    "politica": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Humano Ladino lendário de 4 que entra como cópia de uma criatura, com o nome Sakashima; {2}{U}{U}: volta à mão no fim do turno.",
+   "porque": "Copiando o Zur, ganha o gatilho de busca: dois encantamentos por combate."
+  },
+  "Silent Arbiter": {
+   "notas": {
+    "tax": 2,
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Construto artefato 1/5 de 4. Só uma criatura ataca e só uma bloqueia por combate.",
+   "porque": "Segura mesa larga, mas limita você também."
+  },
+  "Nighthowler": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento Criatura Horror de 3: ele, e a criatura que encanta com concessão, ganham +X/+X, X as criaturas em todos os cemitérios.",
+   "porque": "O Zur o põe como criatura; a concessão só vale conjurando.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Judge's Familiar": {
+   "notas": {
+    "tax": 1,
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Pássaro 1/1 de 1 com voar. Sacrifique: anula instantânea ou feitiço, a menos que paguem {1}.",
+   "porque": "Anulação de uso único e fraca.",
+   "prioridade": 7
+  },
+  "All That Glitters": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Aura de 2: +1/+1 por artefato ou encantamento seu.",
+   "porque": "O fechamento: no Zur, com a mesa que ele monta, sete ou mais de dano voando.",
+   "marcas": {
+    "voltron": 1,
+    "zur": 1
+   }
+  },
+  "Propaganda": {
+   "notas": {
+    "tax": 3,
+    "protecao": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Encantamento de 3: atacar você custa {2} por criatura.",
+   "porque": "A taxa que o deck promete.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Darksteel Mutation": {
+   "notas": {
+    "removal": 2,
+    "encanto": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Aura de 2: a criatura vira um Inseto artefato 0/1 indestrutível, sem habilidades.",
+   "porque": "Neutraliza um comandante sem mandá-lo à zona de comando; posta pelo Zur, ignora hexproof.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Imprisoned in the Moon": {
+   "notas": {
+    "removal": 2,
+    "encanto": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Aura de 3: criatura, terreno ou planeswalker vira terreno incolor, sem outras habilidades.",
+   "porque": "Remoção cirúrgica; posta pelo Zur, ignora hexproof.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Greater Auramancy": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 2: seus outros encantamentos e suas criaturas encantadas têm manto.",
+   "porque": "Blinda a mesa e o Zur encantado; equipe antes da primeira Aura, porque o manto também barra você.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Reconnaissance": {
+   "notas": {
+    "protecao": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 1. {0}: tira uma criatura sua atacante do combate e a desvira.",
+   "porque": "O Zur ataca, busca e sai antes dos bloqueios.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Act of Authority": {
+   "notas": {
+    "removal": 2,
+    "encanto": 3,
+    "politica": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: ao entrar e em cada manutenção, pode exilar artefato ou encantamento; exilando na manutenção, o dono do exilado ganha o controle dele.",
+   "porque": "Remoção repetível, mas volta contra você: na mão de outro, pode exilar as suas peças.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Minimus Containment": {
+   "notas": {
+    "removal": 2,
+    "encanto": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Aura de 3: uma permanente não-terreno vira um Tesouro, sem outras habilidades.",
+   "porque": "Pega artefato e encantamento; o dono ganha um Tesouro.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Mystic Subdual": {
+   "notas": {
+    "removal": 2,
+    "encanto": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura de 2 com lampejo: −2/−0 e perde todas as habilidades.",
+   "porque": "Apaga um comandante de efeito; o corpo fica.",
+   "pacote": "encanto",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Blind Obedience": {
+   "notas": {
+    "tax": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 2 com extort. Artefatos e criaturas dos oponentes entram virados.",
+   "porque": "Taxa de tempo; o extort só dispara no que você conjura.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Combat Research": {
+   "notas": {
+    "draw": 1,
+    "protecao": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Aura de 1: dano de combate a um jogador compra uma carta; numa lendária, +1/+1 e ward {1}.",
+   "porque": "No Zur: 2/5, ward e uma carta por acerto.",
+   "marcas": {
+    "voltron": 1,
+    "zur": 1
+   }
+  },
+  "Copy Enchantment": {
+   "notas": {
+    "removal": 1,
+    "encanto": 1,
+    "tax": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 3 que entra como cópia de qualquer encantamento em campo.",
+   "porque": "Segunda Propaganda, segundo Grasp of Fate, ou a melhor peça de um oponente.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Dictate of Kruphix": {
+   "notas": {
+    "draw": 2,
+    "politica": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 3 com lampejo: cada jogador compra uma carta a mais no próprio passo de compra.",
+   "porque": "Político; com o Underworld Dreams, vira relógio.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Hissing Miasma": {
+   "notas": {
+    "tax": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 3: uma criatura ataca você, o controlador dela perde 1.",
+   "porque": "Taxa em vida, que não impede o ataque.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Karmic Justice": {
+   "notas": {
+    "removal": 1,
+    "tax": 1,
+    "protecao": 2,
+    "politica": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: um oponente destrói uma não-criatura sua, você destrói uma permanente dele.",
+   "porque": "Dissuasão; não cobre exílio.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Luminarch Ascension": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 2: no fim do turno de cada oponente, se você não perdeu vida, um marcador; com quatro, {1}{W}: um Anjo 4/4 voador.",
+   "porque": "A taxa protege a sua vida, e ela vira exército.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Parasitic Impetus": {
+   "notas": {
+    "politica": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Aura de 3: +2/+2 e goad; ao atacar, o controlador perde 2 e você ganha 2.",
+   "porque": "A criatura dele bate nos outros e paga você.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Phyrexian Arena": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: na manutenção, compre e perca 1.",
+   "porque": "Compra garantida que o Zur traz de graça.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Underworld Dreams": {
+   "notas": {
+    "tax": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento {B}{B}{B}: um oponente compra, sofre 1 de dano.",
+   "porque": "Converte a compra simétrica do Dictate e do Wedding Ring em dano.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Psychic Impetus": {
+   "notas": {
+    "draw": 1,
+    "politica": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura de 3: +2/+2 e goad; ao atacar, você vidência 2.",
+   "porque": "Goad que filtra o seu topo.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Shade's Form": {
+   "notas": {
+    "protecao": 2,
+    "politica": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura de 3: {B}: +1/+1; quando a criatura morre, volta ao campo sob seu controle.",
+   "porque": "Seguro do Zur, ou rouba a criatura do oponente que morrer.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Arguel's Blood Fast": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento lendário de 2. {1}{B}, pague 2: compre; com 5 de vida ou menos, vira terreno.",
+   "porque": "Compra cara, mas o Zur a busca.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Dark Tutelage": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento de 3: na manutenção, o topo vai para a mão e você perde vida igual ao valor.",
+   "porque": "Compra contínua; o valor baixo do deck segura o custo.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Ominous Seas": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento de 2: um marcador por carta comprada; oito marcadores: um Kraken 8/8; ciclagem {2}.",
+   "porque": "Fechamento lento; brilha com o Dictate e o Sphinx.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Oppression": {
+   "notas": {
+    "tax": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Encantamento de 3: quem conjura uma mágica descarta uma carta.",
+   "porque": "Trava todos, inclusive você.",
+   "marcas": {
+    "contra": 1,
+    "zur": 1
+   },
+   "prioridade": 5
+  },
+  "Out of Time": {
+   "notas": {
+    "removal": 1,
+    "encanto": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Encantamento de 3: ao entrar, desvira e tira de fase todas as criaturas, com um marcador de tempo por criatura (desvanecer).",
+   "porque": "Buscado no ataque, tira o próprio Zur de fase e do combate.",
+   "marcas": {
+    "contra": 1,
+    "zur": 1
+   },
+   "massa": true,
+   "prioridade": 1
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Zur no turno 3."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 2: mana da identidade.",
+   "porque": "Pedra de cor."
+  },
+  "Talisman of Hierarchy": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 2: {C}, ou {W} ou {B} com 1 de dano.",
+   "porque": "Pedra de cor, e dá preto."
+  },
+  "Mind Stone": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}; {1}, vira, sacrifique: compre.",
+   "porque": "Pedra barata."
+  },
+  "Chromatic Lantern": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3: qualquer cor; seus terrenos dão qualquer cor.",
+   "porque": "Conserta o preto que falta."
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "O Zur ataca no turno em que desce; o manto barra as suas Auras conjuradas nele."
+  },
+  "Bloodthirsty Blade": {
+   "notas": {
+    "politica": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento de 2: +2/+0 e goad; {1}: equipa uma criatura de oponente, como feitiço.",
+   "porque": "Escolhe quem bate em quem por {1}."
+  },
+  "Wedding Ring": {
+   "notas": {
+    "draw": 2,
+    "politica": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 4: conjurado, um oponente ganha uma cópia; ele compra ou ganha vida no turno dele, você também.",
+   "porque": "Presente político, e combo com o Consecrated Sphinx."
+  },
+  "Azorius Locket": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3: {W} ou {U}; quatro manas híbridas, vira, sacrifique: compre duas.",
+   "porque": "Pedra de 3."
+  },
+  "Orzhov Locket": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3: {W} ou {B}; quatro manas híbridas, vira, sacrifique: compre duas.",
+   "porque": "Pedra de 3 que dá preto."
+  },
+  "Commander's Sphere": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3: mana da identidade; sacrifique: compre.",
+   "porque": "Pedra de 3."
+  },
+  "Decanter of Endless Water": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3: sem limite de mão; qualquer cor.",
+   "porque": "Pedra de 3."
+  },
+  "Mind's Eye": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 5: um oponente compra, pague {1} e compre.",
+   "porque": "Caro, mas casa com o Dictate e o Wedding Ring."
+  },
+  "Crawlspace": {
+   "notas": {
+    "tax": 2,
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 3: no máximo duas criaturas atacam você por combate.",
+   "porque": "Taxa que o Zur não busca.",
+   "prioridade": 6
+  },
+  "Crystal Chimes": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 3. {3}, vira, sacrifique: os encantamentos do seu cemitério voltam à mão.",
+   "porque": "Recursão lenta; o Sun Titan e o Hall fazem melhor.",
+   "prioridade": 9
+  },
+  "Prophetic Prism": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 2: compre ao entrar; {1}, vira: uma mana de qualquer cor.",
+   "porque": "Filtro, não ramp.",
+   "prioridade": 11
+  },
+  "Mortify": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: destrói criatura ou encantamento.",
+   "porque": "Remoção instantânea flexível."
+  },
+  "Stroke of Midnight": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: destrói uma permanente não-terreno; o controlador ganha um Humano 1/1.",
+   "porque": "Remoção ampla."
+  },
+  "Fracture": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea {W}{B}: destrói artefato, encantamento ou planeswalker.",
+   "porque": "Remoção barata."
+  },
+  "Extinction Event": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço de 4: escolha par ou ímpar; exila as criaturas desse valor.",
+   "porque": "Escolhendo ímpar, o Zur (valor 4) fica.",
+   "massa": true
+  },
+  "Sculpted Sunburst": {
+   "notas": {
+    "removal": 3,
+    "politica": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 5: você escolhe uma criatura sua, e cada oponente uma dele de força igual ou menor; as outras são exiladas.",
+   "porque": "Escolhendo o Zur (força 1), cada oponente fica com uma criatura de força até 1.",
+   "massa": true
+  },
+  "Brainstorm": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: compre três, devolva duas ao topo.",
+   "porque": "Filtro barato."
+  },
+  "Sphinx's Revelation": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea X{W}{U}{U}: ganhe X e compre X.",
+   "porque": "Compra grande no fim do turno de alguém."
+  },
+  "Supreme Verdict": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 4 que não pode ser anulado: destrói todas as criaturas.",
+   "porque": "Botão de emergência; custa o Zur.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true
+  },
+  "Ojutai's Command": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 4, dois modos: devolve criatura de valor até 2 do cemitério ao campo, ganhe 4, anule mágica de criatura ou compre.",
+   "porque": "Flexível, mas cara."
+  },
+  "Secret Rendezvous": {
+   "notas": {
+    "draw": 2,
+    "politica": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 3: você e um oponente compram três.",
+   "porque": "Moeda de negociação."
+  },
+  "Doomskar": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 5: destrói todas as criaturas; prenunciar {1}{W}{W}.",
+   "porque": "Mata o Zur.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 4
+  },
+  "By Invitation Only": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 5: escolha um número de 0 a 13; cada jogador sacrifica esse tanto de criaturas.",
+   "porque": "Você sacrifica as suas também, e o deck tem poucas criaturas além do Zur.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 3
+  },
+  "Promise of Power": {
+   "notas": {
+    "draw": 2,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 5: compre cinco e perca 5, ou um Demônio voador X/X; entrelaçar {4}.",
+   "porque": "Compra cara, num deck que já paga vida por compra.",
+   "prioridade": 10
+  },
+  "Akroma's Blessing": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea de 3: suas criaturas ganham proteção de uma cor; ciclagem {W}.",
+   "porque": "Proteção cara.",
+   "prioridade": 8
+  },
+  "Cleansing Nova": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 5: destrói todas as criaturas, ou todos os artefatos e encantamentos.",
+   "porque": "Um modo mata o Zur, o outro, o seu deck.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 2
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Mana da identidade.",
+   "porque": "A melhor tri-terra."
+  },
+  "Hall of Heliod's Generosity": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{C}; {1}{W}, vira: um encantamento do cemitério para o topo do grimório.",
+   "porque": "Recursão de encantamento na vaga de terreno."
+  },
+  "Hallowed Fountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Plains Island: pague 2 ou entra virado.",
+   "porque": "Desvirada."
+  },
+  "Hengegate Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{W} ou {U}, uma face.",
+   "porque": "Desvirada."
+  },
+  "Island": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  },
+  "Plains": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "A fonte de preto que mais falta."
+  },
+  "Port Town": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{W} ou {U}; virado sem revelar Plains ou Island.",
+   "porque": "Quase sempre desvirada."
+  },
+  "Hall of Storm Giants": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{U}; virado com dois ou mais outros terrenos; {5}{U}: vira um Gigante 7/7 com ward {3}.",
+   "porque": "Terreno que vira ameaça tarde."
+  },
+  "Arcane Sanctum": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {W}, {U} ou {B}.",
+   "porque": "Uma das poucas fontes de preto.",
+   "virado": true
+  },
+  "Azorius Chancery": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado; devolve um terreno; {W}{U}.",
+   "porque": "Duas manas numa vaga, mas lenta.",
+   "virado": true
+  },
+  "Meticulous Archive": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Plains Island; sempre virado; ao entrar, surveil 1.",
+   "porque": "Dual lenta.",
+   "virado": true
+  },
+  "Myriad Landscape": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {C}; {2}, vira, sacrifique: dois básicos do mesmo tipo, virados.",
+   "porque": "Busca dois Swamps, mas é lenta.",
+   "virado": true
+  }
+ },
+ "radar": {
+  "Grasp of Fate": {
+   "notas": {
+    "removal": 2,
+    "encanto": 3,
+    "politica": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Encantamento de 3: ao entrar, exila uma permanente não-terreno de cada oponente até ele sair.",
+   "porque": "A remoção cirúrgica do Zur: cada oponente perde a peça que você escolher. Sai a carta que tira o Zur de fase no próprio ataque. Fontes A, B e C.",
+   "sai": "Out of Time",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Wizard's Staff": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Equipamento de 2; equipar Mago {1}: proeza, e cada gatilho da equipada dispara uma vez a mais.",
+   "porque": "O Zur é Mago: cada ataque busca dois encantamentos. Fonte B.",
+   "sai": "Crystal Chimes"
+  },
+  "Steel of the Godhead": {
+   "notas": {
+    "protecao": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Aura de 3 ({2}{W/U}): numa criatura branca, +1/+1 e vínculo; numa azul, +1/+1 e não pode ser bloqueada.",
+   "porque": "No Zur, que é branco e azul: +2/+2, vínculo e imbloqueável. Fontes B e C.",
+   "sai": "By Invitation Only",
+   "marcas": {
+    "zur": 1,
+    "voltron": 1
+   }
+  },
+  "Ethereal Armor": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Aura de 1: +1/+1 por encantamento seu e golpe primeiro.",
+   "porque": "Segundo multiplicador de dano do Zur. Fonte B.",
+   "sai": "Promise of Power",
+   "marcas": {
+    "zur": 1,
+    "voltron": 1
+   }
+  },
+  "Archnemesis": {
+   "notas": {
+    "draw": 1,
+    "politica": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Aura de 3 em oponente: atacá-lo tira 2 dele, e você compra e ganha 2; quem atacar você recebe a Aura.",
+   "porque": "A política em forma de carta: marca o líder e muda de dono sozinha. Posta pelo Zur, vai em qualquer oponente. Fonte B.",
+   "sai": "Oppression",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Ghostly Prison": {
+   "notas": {
+    "tax": 3,
+    "protecao": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Encantamento de 3: atacar você custa {2} por criatura.",
+   "porque": "A segunda Propaganda, e o Zur a busca. Nas três fontes.",
+   "sai": "Crawlspace",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Killian, Decisive Mentor": {
+   "notas": {
+    "draw": 2,
+    "politica": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Humano Bruxo lendário 2/3 de 3. Um encantamento seu entra: vira e dá goad numa criatura; criaturas com Aura sua atacando: compre.",
+   "porque": "Cada busca do Zur vira um goad, e o Zur encantado atacando compra. Fonte B.",
+   "sai": "Judge's Familiar"
+  },
+  "Winds of Rath": {
+   "notas": {
+    "removal": 3,
+    "politica": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Feitiço de 5: destrói todas as criaturas que não estão encantadas.",
+   "porque": "Limpeza que poupa o Zur encantado. Fonte B.",
+   "sai": "Cleansing Nova",
+   "massa": true
+  },
+  "Flawless Maneuver": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3, grátis com um comandante seu em campo: suas criaturas ficam indestrutíveis até o fim do turno.",
+   "porque": "Proteção de graça no lugar da de três manas. Fonte B.",
+   "sai": "Akroma's Blessing"
+  },
+  "Curator's Ward": {
+   "notas": {
+    "draw": 1,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Aura de 3: resistência a magia; se a permanente histórica sair do campo, compre duas.",
+   "porque": "O Zur é lendário: protegido, e se cair você compra duas. Sai a limpeza que mata o Zur. Fonte B.",
+   "sai": "Doomskar",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Rhystic Study": {
+   "notas": {
+    "draw": 3,
+    "tax": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 3: um oponente conjura, você compra, a menos que ele pague {1}.",
+   "porque": "A taxa mais forte que o Zur alcança, e compra. Game Changer. Fontes A e C; banco de B.",
+   "sai": "Dark Tutelage",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Mystic Remora": {
+   "notas": {
+    "draw": 2,
+    "tax": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 1 com manutenção cumulativa {1}: um oponente conjura mágica que não é criatura, você compra, a menos que ele pague {4}.",
+   "porque": "Compra cedo, e o Zur a busca. Fonte A; banco de B.",
+   "sai": "Mind's Eye",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Duelist's Heritage": {
+   "notas": {
+    "politica": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 3: criaturas atacam, uma atacante ganha golpe duplo.",
+   "porque": "Dá golpe duplo ao Zur encantado, ou a quem ataca o líder. Fonte A.",
+   "sai": "Silent Arbiter",
+   "marcas": {
+    "zur": 1,
+    "voltron": 1
+   }
+  },
+  "Talisman of Dominance": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 2: {C}, ou {U} ou {B} com 1 de dano.",
+   "porque": "Pedra que dá o preto que falta, no lugar de um filtro. Fontes A, B e C.",
+   "sai": "Prophetic Prism"
+  },
+  "Arcane Denial": {
+   "notas": {
+    "removal": 2,
+    "protecao": 1,
+    "politica": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Instantânea de 2: anula uma mágica; o dono dela compra até duas, e você compra uma, na próxima manutenção.",
+   "porque": "A anulação que o deck não tem, e com moeda de negociação. Fonte A.",
+   "sai": "Ojutai's Command"
+  },
+  "Godless Shrine": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Plains Swamp: pague 2 ou entra virado.",
+   "porque": "Preto desvirado no lugar de uma tri-terra virada. Fonte B.",
+   "sai": "Arcane Sanctum"
+  },
+  "Watery Grave": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Island Swamp: pague 2 ou entra virado.",
+   "porque": "Preto desvirado no lugar de um terreno lento. Fonte B.",
+   "sai": "Myriad Landscape"
+  },
+  "Drowned Catacomb": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno: {U} ou {B}; virado sem Island ou Swamp.",
+   "porque": "Preto, e quase sempre desvirado. Fonte A.",
+   "sai": "Azorius Chancery"
+  },
+  "Necropotence": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Encantamento {B}{B}{B}: pule a compra; pague 1 de vida: uma carta, que chega no seu passo final.",
+   "porque": "O Zur a busca de graça. Mas pula a sua compra, e o Dictate perde a carta extra no seu turno. Game Changer. Fonte A.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Enlightened Tutor": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: um artefato ou encantamento no topo do grimório.",
+   "porque": "Acha o que o Zur não alcança (valor 4 ou mais) ou o Staff. Game Changer. Fontes A e C."
+  },
+  "Smothering Tithe": {
+   "notas": {
+    "ramp": 2,
+    "tax": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 4: um oponente compra, você cria um Tesouro, a menos que ele pague {2}.",
+   "porque": "Taxa e ramp, mas o Zur não busca (valor 4). Game Changer. Fonte C."
+  },
+  "Teferi's Protection": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 3: até o seu turno, sua vida não muda, você tem proteção contra tudo e suas permanentes saem de fase.",
+   "porque": "Salva a mesa inteira de uma limpeza. Game Changer. Fonte C."
+  },
+  "Swords to Plowshares": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: exila uma criatura; o controlador ganha vida igual à força dela.",
+   "porque": "Remoção de 1 mana. Fontes A e C."
+  },
+  "Swan Song": {
+   "notas": {
+    "removal": 2,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: anula encantamento, instantânea ou feitiço; o dono ganha um Pássaro 2/2 voador.",
+   "porque": "Protege os encantamentos. Fontes A e C."
+  },
+  "Dovin's Veto": {
+   "notas": {
+    "removal": 2,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea {W}{U} que não pode ser anulada: anula mágica que não é criatura.",
+   "porque": "Anulação firme. Fontes A e C."
+  },
+  "Curse of Disturbance": {
+   "notas": {
+    "politica": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Aura de 3 em jogador: ele é atacado, você cria um Zumbi 2/2, e cada oponente que o ataca também.",
+   "porque": "A mesa ganha por atacar o encantado. Fonte A.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Curse of Verbosity": {
+   "notas": {
+    "draw": 1,
+    "politica": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Aura de 3 em jogador: ele é atacado, você compra, e cada oponente que o ataca também.",
+   "porque": "Política com compra. Fonte A.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Entity Tracker": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Humano Batedor 2/3 de 3 com lampejo: um encantamento seu entra, compre uma carta.",
+   "porque": "O Zur põe um encantamento por ataque: uma carta por ataque. Banco de B."
+  },
+  "Strionic Resonator": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 2. {2}, vira: copia um gatilho seu.",
+   "porque": "Segundo dobrador da busca do Zur. Fonte C; banco de B."
+  },
+  "Diplomatic Immunity": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Aura de 2 com manto: a criatura encantada tem manto.",
+   "porque": "Protege o Zur, mas barra as suas próprias Auras conjuradas nele. Fonte C.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
+   "porque": "Proteção que não barra você. Fonte C."
+  },
+  "Estrid's Invocation": {
+   "notas": {
+    "removal": 1,
+    "encanto": 1,
+    "tax": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 3 que entra como cópia de um encantamento seu, e pode se reinserir na sua manutenção.",
+   "porque": "Repete a remoção-Aura ou a taxa. Fonte A.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Aura of Silence": {
+   "notas": {
+    "removal": 2,
+    "tax": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 3: artefatos e encantamentos dos oponentes custam {2} a mais; sacrifique: destrói um deles.",
+   "porque": "Taxa e remoção. Fonte C.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Vanishing": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Aura de 1: {U}{U}: a criatura sai de fase.",
+   "porque": "Proteção do Zur contra remoção e limpeza. Fonte A.",
+   "marcas": {
+    "zur": 1
+   }
+  },
+  "Underground Sea": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Island Swamp, sempre desvirado.",
+   "porque": "Preto sem custo; entraria no lugar de um básico, com a troca feita à mão. Fonte B."
+  },
+  "Scrubland": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Plains Swamp, sempre desvirado.",
+   "porque": "Idem. Fonte B."
+  },
+  "Tundra": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Plains Island, sempre desvirado.",
+   "porque": "Idem. Fonte B."
+  },
+  "Polluted Delta": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Pague 1, sacrifique: um Island ou Swamp.",
+   "porque": "Acha as duais com tipo. Fontes A e B."
+  },
+  "Marsh Flats": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Pague 1, sacrifique: um Plains ou Swamp.",
+   "porque": "Idem. Fonte B."
+  },
+  "Flooded Strand": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Pague 1, sacrifique: um Plains ou Island.",
+   "porque": "Idem. Fonte B."
+  },
+  "Second Chance": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 3: na manutenção, com 5 de vida ou menos, sacrifique-o e tenha um turno extra.",
+   "porque": "Com o Hall of Heliod's ou o Sun Titan, turnos infinitos (Commander Spellbook 1530-3208, 1530-3175): trava a mesa, o oposto de dinâmico. B recusa."
+  },
+  "Stasis": {
+   "notas": {
+    "tax": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 2: os jogadores pulam o desvirar.",
+   "porque": "Trava a mesa e você junto. B recusa."
+  },
+  "Delney, Streetwise Lookout": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Humano Batedor 2/2 de 3. Gatilhos das suas criaturas de força até 2 disparam uma vez a mais.",
+   "porque": "Dobra o Zur (força 1), mas desliga quando as Auras de dano passam a força de 2. B recusa."
+  },
+  "Rest in Peace": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 2: exila os cemitérios, e tudo que iria para o cemitério é exilado.",
+   "porque": "Desliga o Sun Titan, o Hall of Heliod's e o Shade's Form. B recusa; C o sugere."
+  },
+  "Solemnity": {
+   "notas": {
+    "tax": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 3: ninguém recebe marcadores, nem artefatos, criaturas, encantamentos e terrenos.",
+   "porque": "Desliga a Luminarch Ascension e o Ominous Seas. B recusa; C o sugere."
+  },
+  "Mesa Enchantress": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Humana Druida 0/2 de 3: você conjura um encantamento, pode comprar.",
+   "porque": "Compra ao conjurar; o Zur põe, não conjura. B recusa."
+  },
+  "Nine Lives": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 3 com resistência a magia: previne o dano a você; ao sair do campo, você perde o jogo.",
+   "porque": "Se sair, você perde. B recusa."
+  },
+  "Rule of Law": {
+   "notas": {
+    "tax": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 3: cada jogador conjura uma mágica por turno.",
+   "porque": "Assimétrica a favor do Zur, que põe sem conjurar, mas trava a mesa. Banco de B."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Anel e Esfinge",
+   "tipo": "Combo",
+   "pecas": [
+    "Wedding Ring",
+    "Consecrated Sphinx"
+   ],
+   "texto": "No seu turno, cada compra sua faz o oponente comprar pelo anel dele, e a Esfinge devolve duas. Compra até onde quiser parar. Commander Spellbook 2022-3283."
+  },
+  {
+   "nome": "Anel, Esfinge e Pesadelo",
+   "tipo": "Motor",
+   "pecas": [
+    "Wedding Ring",
+    "Consecrated Sphinx",
+    "Underworld Dreams"
+   ],
+   "texto": "Cada compra do oponente vira 1 de dano nele; você compra duas por cada uma dele, então só mata se o seu grimório aguentar. Dedução do texto (fonte B), não catalogada."
+  },
+  {
+   "nome": "Busca em dobro",
+   "tipo": "Motor",
+   "pecas": [
+    "Zur the Enchanter",
+    "Wizard's Staff"
+   ],
+   "texto": "O gatilho de ataque dispara duas vezes: dois encantamentos por combate. O Staff é do radar."
+  },
+  {
+   "nome": "Segundo Zur",
+   "tipo": "Motor",
+   "pecas": [
+    "Zur the Enchanter",
+    "Sakashima the Impostor"
+   ],
+   "texto": "A cópia ganha o gatilho de busca: dois encantamentos por combate, quatro com o Staff."
+  },
+  {
+   "nome": "Busca e sai",
+   "tipo": "Motor",
+   "pecas": [
+    "Zur the Enchanter",
+    "Reconnaissance"
+   ],
+   "texto": "O gatilho dispara ao atacar e resolve mesmo com o Zur fora do combate: ele busca e não toma bloqueio."
+  },
+  {
+   "nome": "Relógio de compra",
+   "tipo": "Motor",
+   "pecas": [
+    "Dictate of Kruphix",
+    "Underworld Dreams"
+   ],
+   "texto": "Cada oponente compra duas no próprio turno e toma 2."
+  },
+  {
+   "nome": "Zur blindado",
+   "tipo": "Motor",
+   "pecas": [
+    "Zur the Enchanter",
+    "All That Glitters"
+   ],
+   "texto": "Com três pedras e três encantamentos, o Zur bate 7 voando, e cresce a cada busca."
+  },
+  {
+   "nome": "Golpe duplo imbloqueável",
+   "tipo": "Motor",
+   "pecas": [
+    "Zur the Enchanter",
+    "Duelist's Heritage",
+    "Steel of the Godhead"
+   ],
+   "texto": "O Steel o torna imbloqueável e com vínculo; o Heritage dobra o dano de comandante. Nenhuma análise juntou as duas. As duas são do radar."
+  },
+  {
+   "nome": "Goad a cada busca",
+   "tipo": "Motor",
+   "pecas": [
+    "Zur the Enchanter",
+    "Killian, Decisive Mentor"
+   ],
+   "texto": "Cada encantamento que entra dá goad numa criatura de alguém. O Killian é do radar."
+  },
+  {
+   "nome": "Armadilha: Out of Time no ataque",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Out of Time",
+    "Zur the Enchanter"
+   ],
+   "texto": "Buscado pelo Zur no ataque, tira de fase todas as criaturas, inclusive o próprio Zur, que sai do combate."
+  },
+  {
+   "nome": "Armadilha: manto que barra você",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Greater Auramancy",
+    "Lightning Greaves"
+   ],
+   "texto": "Os dois dão manto ao Zur: você não equipa nem encanta mais por conjuração. Equipe o que precisa antes."
+  },
+  {
+   "nome": "Armadilha: Act of Authority de volta",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Act of Authority",
+    "Karmic Justice"
+   ],
+   "texto": "O Act passa ao oponente e pode exilar as suas peças; o Karmic Justice só pune destruição, não exílio."
+  },
+  {
+   "nome": "Armadilha: limpeza que mata o Zur",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Supreme Verdict",
+    "Zur the Enchanter"
+   ],
+   "texto": "Supreme Verdict, Doomskar, Cleansing Nova e By Invitation Only levam o Zur. Prefira o Extinction Event escolhendo ímpar e o Sculpted Sunburst escolhendo o Zur."
+  }
+ ]
+}
