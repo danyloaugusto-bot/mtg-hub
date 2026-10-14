@@ -1,0 +1,1757 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana e cor a mais. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Combustível",
+   "ab": "Comb.",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra e tutor: põe Anjo, Demônio ou Dragão na mão."
+  },
+  {
+   "k": "removal",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção e resposta à mesa."
+  },
+  {
+   "k": "protecao",
+   "nome": "Blindagem",
+   "ab": "Blind.",
+   "desc": "Mantém a Kaalia viva, ou dá ímpeto a ela."
+  },
+  {
+   "k": "carga",
+   "nome": "Carga",
+   "ab": "Carga",
+   "desc": "O que a criatura faz no turno em que entra pela Kaalia. Só Anjo, Demônio e Dragão pontuam; gatilho de ataque vale 0."
+  },
+  {
+   "k": "multi",
+   "nome": "Multiplicador",
+   "curto": "Multipl.",
+   "ab": "Mult.",
+   "desc": "Mais gatilhos da Kaalia por turno, ou dano dobrado."
+  },
+  {
+   "k": "trava",
+   "nome": "Trava",
+   "ab": "Trava",
+   "desc": "Impede a mesa de jogar normalmente."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Encurta o jogo."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Anjo, Demônio ou Dragão",
+   "plural": "Anjos, Demônios e Dragões",
+   "subtipo": [
+    "Angel",
+    "Demon",
+    "Dragon"
+   ]
+  },
+  "blinda": {
+   "nome": "Blindagem barata da Kaalia"
+  },
+  "multi": {
+   "nome": "Multiplicador"
+  },
+  "ataque": {
+   "nome": "Valor no gatilho de ataque (não dispara pela Kaalia)"
+  },
+  "mata": {
+   "nome": "Limpeza que leva a Kaalia"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "34 terrenos, 25 deles básicos, e só o Savai Triome dá as três cores: a cor falta antes da mana."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de combustível dedicada",
+    "fontes de combustível dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 3,
+   "massa_ref": [
+    1,
+    3
+   ],
+   "alerta": "Duas das três limpezas (Damn sobrecarregado e Path of Peril com fender) matam a Kaalia."
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 85,
+   "texto": "Cada um deles é carga possível para a Kaalia."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "blinda",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "peça de blindagem barata",
+    "peças de blindagem barata"
+   ],
+   "texto": "A Kaalia é uma 2/2 que precisa atacar.",
+   "alerta": "Pouca blindagem: a Kaalia passa uma volta exposta e morre antes de atacar.",
+   "ok": "A Kaalia chega ao ataque."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "multi",
+   "min": 3,
+   "listar": true,
+   "rotulo": [
+    "multiplicador",
+    "multiplicadores"
+   ],
+   "alerta": "Pouco multiplicador: uma carga por turno, e a mesa tem uma volta para responder a cada uma.",
+   "ok": "Mais de uma carga ou dano dobrado por ataque."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "ataque",
+   "max": 0,
+   "listar": true,
+   "rotulo": [
+    "carga com valor no gatilho de ataque",
+    "cargas com valor no gatilho de ataque"
+   ],
+   "alerta": "Pela Kaalia, essas entram como corpo voador: o gatilho de ataque não dispara.",
+   "ok": "Toda carga vale pela Kaalia."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Sol Ring, Arcane Signet e os Signets para ter {R}, {W} e {B} no turno 3 ou 4; Boros Charm ou Your Temple Is Under Attack guardados para o primeiro ataque.",
+   "fortes": [
+    "Oito pedras de mana.",
+    "Vinte e nove cargas: a mão nunca fica sem combustível."
+   ],
+   "fracos": [
+    "25 básicos em três cores: a Kaalia é conjurável até o turno 4 em 48% das partidas (simulação de B).",
+    "Nenhuma bota: a Kaalia entra e espera uma volta exposta."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "A Kaalia ataca e põe a carga que decide ao entrar: Gisela, Balefire Dragon, Avacyn, Hoarding Broodlord, Lord of the Void ou Shadowgrange Archfiend.",
+   "fortes": [
+    "Núcleo de cargas fortes: Gisela, Avacyn, Balefire, Broodlord e Lord of the Void.",
+    "Avacyn e Sephara deixam a Kaalia indestrutível."
+   ],
+   "fracos": [
+    "Cinco cargas guardam o valor no gatilho de ataque, que não dispara pela Kaalia.",
+    "Uma carga por turno: a mesa tem tempo de responder."
+   ]
+  },
+  "fim": {
+   "turnos": "6 em diante",
+   "plano": "Gisela dobrando o dano, Balefire limpando a mesa de um jogador, Ruinous Ultimatum para abrir caminho; Sorin Markov e Strixhaven Stadium encurtam um oponente.",
+   "fortes": [
+    "Várias cargas fecham sozinhas: Gisela, Balefire, Lord of the Void.",
+    "Ruinous Ultimatum é limpeza só dos outros."
+   ],
+   "fracos": [
+    "Sem a Kaalia, o deck vira um Mardu de sete manas.",
+    "Nenhum multiplicador de gatilho na lista: só a Gisela dobra dano."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Ghostly Prison e os voadores grandes seguram, mas a Kaalia chega no turno 4 ou 5."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Muita remoção pontual e cargas maiores que a criatura deles."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Nenhuma contramágica, e a Kaalia é lenta para pressionar."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "fraco",
+    "porque": "A Kaalia sem proteção morre para a primeira remoção, e a limpeza leva as cargas."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Três cores com 25 básicos sofrem com taxa e terreno que não desvira."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Eles trocam fichas pelos ataques, mas Balefire e Shadowgrange limpam a mesa deles."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "A Drana and Linvala e a Linvala travam ativações, mas não mágicas."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "A Kaalia põe de graça o que eles demoram a pagar."
+   }
+  ]
+ },
+ "cartas": {
+  "Kaalia of the Vast": {
+   "notas": {
+    "carga": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Human Cleric 2/2 voadora de 4, sem vigilância. Sempre que ataca um oponente, pode pôr da mão um card de criatura Angel, Demon ou Dragon virado e atacando esse oponente.",
+   "porque": "É o deck: cada ataque converte uma carta da mão em cinco a nove manas de criatura. A criatura posta não foi declarada atacante, então gatilho de \"sempre que ataca\" não dispara (ruling de 2020); ETB e dano de combate, sim."
+  },
+  "Avacyn, Angel of Hope": {
+   "notas": {
+    "protecao": 3,
+    "carga": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Anjo lendário 8/8 de 8 com voar, vigilância e indestrutível. Suas outras permanentes são indestrutíveis.",
+   "porque": "Oito manas de graça, e a Kaalia fica indestrutível junto.",
+   "caro_por_desenho": true
+  },
+  "Balefire Dragon": {
+   "notas": {
+    "removal": 2,
+    "carga": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Dragão 6/6 de 7 com voar. Dano de combate a um jogador: o mesmo dano em cada criatura dele.",
+   "porque": "Limpeza unilateral que entra pela Kaalia e conecta voando.",
+   "caro_por_desenho": true
+  },
+  "Gisela, Blade of Goldnight": {
+   "notas": {
+    "protecao": 1,
+    "carga": 3,
+    "multi": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Anjo lendário 5/5 de 7 com voar e iniciativa. Dano aos oponentes e às permanentes deles dobra; o dano a você e às suas cai à metade.",
+   "porque": "Dobra o dano do próprio turno em que entra.",
+   "marcas": {
+    "multi": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Archangel Avacyn": {
+   "notas": {
+    "removal": 1,
+    "protecao": 2,
+    "carga": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Anjo lendário 4/4 de 5 com lampejo, voar e vigilância. Ao entrar, suas criaturas ficam indestrutíveis no turno.",
+   "porque": "Responde à limpeza; pela Kaalia, protege o ataque."
+  },
+  "Drana and Linvala": {
+   "notas": {
+    "removal": 1,
+    "carga": 2,
+    "trava": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro Anjo lendário de 4 com voar e vigilância. Criaturas dos oponentes não ativam habilidades; ela tem todas elas.",
+   "porque": "Trava barata que se conjura, e rouba as ativações deles."
+  },
+  "Hoarding Broodlord": {
+   "notas": {
+    "draw": 3,
+    "carga": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dragão 7/6 de 8 com convocar e voar. Ao entrar, busca qualquer carta e a exila; você pode jogá-la de lá, e mágicas do exílio têm convocar.",
+   "porque": "Tutor no ETB: busca a próxima carga.",
+   "caro_por_desenho": true
+  },
+  "Lord of the Void": {
+   "notas": {
+    "draw": 1,
+    "carga": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Demônio 7/7 de 7 com voar. Dano de combate a um jogador: exila as sete do topo dele e põe uma criatura delas em campo sob seu controle.",
+   "porque": "Gatilho de dano funciona pela Kaalia.",
+   "caro_por_desenho": true
+  },
+  "Rakdos, Patron of Chaos": {
+   "notas": {
+    "draw": 2,
+    "removal": 1,
+    "carga": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Demônio lendário 6/6 de 6 com voar e atropelar. No seu fim de turno, um oponente sacrifica duas permanentes não-terreno ou você compra duas.",
+   "porque": "Vale já no turno em que entra.",
+   "caro_por_desenho": true
+  },
+  "Reya Dawnbringer": {
+   "notas": {
+    "draw": 1,
+    "carga": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Anjo lendário 4/6 de 9 com voar. Na sua manutenção, reanima uma criatura do seu cemitério.",
+   "porque": "Nove manas de graça, e devolve um gordo por turno.",
+   "caro_por_desenho": true
+  },
+  "Sephara, Sky's Blade": {
+   "notas": {
+    "protecao": 2,
+    "carga": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Anjo lendário 7/7 de 7 com voar e vínculo; custo alternativo de {W} e virar quatro voadoras. Suas outras voadoras são indestrutíveis.",
+   "porque": "A Kaalia voa: fica indestrutível.",
+   "caro_por_desenho": true
+  },
+  "Valgavoth, Terror Eater": {
+   "notas": {
+    "draw": 1,
+    "protecao": 1,
+    "carga": 2,
+    "trava": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Demônio lendário 9/9 de 9 com voar, vínculo e ward de sacrificar três permanentes. Carta que iria ao cemitério de oponente é exilada; no seu turno, você a joga pagando vida.",
+   "porque": "Nove manas de graça e difícil de remover.",
+   "caro_por_desenho": true
+  },
+  "Ancient Brass Dragon": {
+   "notas": {
+    "draw": 1,
+    "carga": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão 7/6 de 7 com voar. Dano de combate a um jogador: d20, e criaturas de cemitérios com valor total até o resultado vêm para o seu campo.",
+   "porque": "Valor quando conecta.",
+   "caro_por_desenho": true
+  },
+  "Ancient Gold Dragon": {
+   "notas": {
+    "carga": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão 7/10 de 7 com voar. Dano de combate a um jogador: d20 fichas de Dragão Fada 1/1 voadoras.",
+   "porque": "Um exército quando conecta.",
+   "caro_por_desenho": true
+  },
+  "Hellkite Tyrant": {
+   "notas": {
+    "removal": 1,
+    "carga": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Dragão 6/5 de 6 com voar e atropelar. Dano de combate a um jogador: você ganha os artefatos dele.",
+   "porque": "Forte em mesa de pedras de mana.",
+   "caro_por_desenho": true
+  },
+  "Linvala, Keeper of Silence": {
+   "notas": {
+    "carga": 2,
+    "trava": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Anjo lendário 3/4 de 4 com voar. Criaturas dos oponentes não ativam habilidades.",
+   "porque": "Repete a trava da Drana and Linvala."
+  },
+  "Shadowgrange Archfiend": {
+   "notas": {
+    "removal": 2,
+    "carga": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Demônio 8/4 de 7. Ao entrar, cada oponente sacrifica a criatura de maior poder dele; você ganha a vida.",
+   "porque": "Edito triplo ao entrar.",
+   "caro_por_desenho": true
+  },
+  "Shadrix Silverquill": {
+   "notas": {
+    "draw": 1,
+    "carga": 1,
+    "multi": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão lendário 2/5 de 5 com voar e golpe duplo. No início do seu combate, escolhe dois modos, cada um para um jogador.",
+   "porque": "Pela Kaalia o início do combate já passou: o gatilho só vale no turno seguinte.",
+   "marcas": {
+    "ataque": 1
+   },
+   "pacote": "carga"
+  },
+  "Ao, the Dawn Sky": {
+   "notas": {
+    "draw": 1,
+    "carga": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dragão Espírito lendário 5/4 de 5 com voar e vigilância. Ao morrer, põe permanentes do topo ou marcadores no seu time.",
+   "porque": "O valor está na morte, não na entrada.",
+   "pacote": "carga"
+  },
+  "Archangel of Strife": {
+   "notas": {
+    "carga": 1,
+    "multi": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Anjo 6/6 de 7. Ao entrar, cada jogador escolhe guerra (+3/+0) ou paz (+0/+3) para as criaturas dele.",
+   "porque": "Simétrico: a mesa escolhe paz contra você.",
+   "prioridade": 9,
+   "caro_por_desenho": true
+  },
+  "Archangel of Thune": {
+   "notas": {
+    "carga": 1,
+    "multi": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Anjo 3/4 de 5 com voar e vínculo. Sempre que você ganha vida, marcador +1/+1 em cada criatura sua.",
+   "porque": "Pouco ganho de vida na lista."
+  },
+  "Balor": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Demônio 6/6 de 5 com voar. Ao atacar ou morrer, modos punitivos contra oponentes.",
+   "porque": "Pela Kaalia, só o gatilho de morte vale.",
+   "marcas": {
+    "ataque": 1
+   },
+   "prioridade": 8,
+   "pacote": "carga"
+  },
+  "Baneslayer Angel": {
+   "notas": {
+    "carga": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Anjo 5/5 de 5 com voar, iniciativa, vínculo e proteção contra Demônios e Dragões.",
+   "porque": "Corpo bom, sem efeito ao entrar."
+  },
+  "Decadent Dragon": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "carga": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dragão 4/4 de 4 com voar e atropelar; Treasure ao atacar. Aventura: exila as duas do topo de um oponente, que você pode jogar.",
+   "porque": "Pela Kaalia não gera Treasure; a aventura é o melhor dela.",
+   "marcas": {
+    "ataque": 1
+   },
+   "pacote": "carga"
+  },
+  "Indulgent Tormentor": {
+   "notas": {
+    "draw": 2,
+    "carga": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Demônio 5/3 de 5 com voar. Na sua manutenção, você compra, a menos que um oponente sacrifique uma criatura ou pague 3 de vida.",
+   "porque": "O oponente escolhe, e é lento.",
+   "pacote": "carga"
+  },
+  "Resolute Archangel": {
+   "notas": {
+    "carga": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Anjo 4/4 de 7 com voar. Ao entrar, sua vida volta à inicial se estiver abaixo.",
+   "porque": "Efeito de pânico, sem impacto na mesa.",
+   "prioridade": 10,
+   "caro_por_desenho": true
+  },
+  "Sower of Discord": {
+   "notas": {
+    "carga": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Demônio 6/6 de 6 com voar. Ao entrar, escolhe dois jogadores: dano a um faz o outro perder o mesmo.",
+   "porque": "Efeito que depende de quem leva o dano, por seis manas.",
+   "prioridade": 11,
+   "caro_por_desenho": true
+  },
+  "Varragoth, Bloodsky Sire": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Demônio lendário 2/3 de 3 com toque mortífero. Gabar-se {1}{B}: um jogador busca uma carta para o topo.",
+   "porque": "Posto atacando, nunca \"atacou\": não ativa o gabar-se (ruling de 2021).",
+   "marcas": {
+    "ataque": 1
+   },
+   "prioridade": 6
+  },
+  "Velomachus Lorehold": {
+   "notas": {
+    "draw": 1,
+    "carga": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Dragão lendário 5/5 de 7 com voar, vigilância e ímpeto. Ao atacar, conjura de graça instantânea ou feitiço de até 5 das sete do topo.",
+   "porque": "Posto pela Kaalia, o gatilho de ataque não dispara; conjurado, tem ímpeto e funciona.",
+   "marcas": {
+    "ataque": 1
+   },
+   "prioridade": 7,
+   "caro_por_desenho": true,
+   "pacote": "carga"
+  },
+  "Piru, the Volatile": {
+   "notas": {
+    "removal": 1,
+    "carga": 1,
+    "fechamento": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Dragão lendário 6/6 de 8 com voar e vínculo. Pague {R}{W}{B} na manutenção ou sacrifique; ao morrer, 7 de dano em cada criatura não lendária.",
+   "porque": "Cobra a mesma mana da Kaalia todo turno e, ao morrer, mata o seu lado.",
+   "prioridade": 1,
+   "caro_por_desenho": true
+  },
+  "Boros Charm": {
+   "notas": {
+    "protecao": 2,
+    "multi": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: 4 de dano num jogador, suas permanentes indestrutíveis, ou golpe duplo numa criatura.",
+   "porque": "A proteção mais barata da lista.",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Demonic Counsel": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: busca um Demônio; com delírio, qualquer carta.",
+   "porque": "Tutor tribal barato."
+  },
+  "Path to Exile": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Instantânea de 1: exila uma criatura; o dono busca um básico.",
+   "porque": "Remoção de uma mana."
+  },
+  "Ruinous Ultimatum": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 7 ({R}{R}{W}{W}{W}{B}{B}): destrói todas as permanentes não-terreno dos oponentes.",
+   "porque": "Limpeza unilateral.",
+   "massa": true
+  },
+  "Terminate": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: destrói uma criatura, sem regenerar.",
+   "porque": "Remoção limpa."
+  },
+  "Vindicate": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: destrói uma permanente.",
+   "porque": "Responde a qualquer coisa."
+  },
+  "Abstruse Appropriation": {
+   "notas": {
+    "draw": 1,
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 4, incolor: exila uma permanente não-terreno; você pode conjurá-la.",
+   "porque": "Remoção que vira carta."
+  },
+  "Damn": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: destrói uma criatura; sobrecarga {2}{W}{W}: destrói todas.",
+   "porque": "Flexível, mas a sobrecarga mata a Kaalia.",
+   "marcas": {
+    "mata": 1
+   },
+   "pontual": true
+  },
+  "Power Word Kill": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: destrói uma criatura que não seja Angel, Demon, Devil nem Dragon.",
+   "porque": "Não mata os gordos do espelho."
+  },
+  "Raise the Draugr": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: uma criatura do cemitério para a mão, ou duas do mesmo tipo.",
+   "porque": "Recarrega a mão com dois Anjos ou dois Dragões."
+  },
+  "Read the Bones": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: vidência 2, compre 2, perca 2.",
+   "porque": "Combustível honesto."
+  },
+  "Sign in Blood": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: compre 2, perca 2.",
+   "porque": "Combustível honesto."
+  },
+  "Your Temple Is Under Attack": {
+   "notas": {
+    "draw": 1,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: suas criaturas indestrutíveis no turno, ou você e um oponente compram 2.",
+   "porque": "Proteção contra destruição.",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Entreat the Dead": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de X X+3: X criaturas do seu cemitério para o campo; milagre {X}{B}{B}.",
+   "porque": "Caro; o deck não enche o cemitério."
+  },
+  "Fatal Push": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 1: destrói criatura de valor até 2, ou até 4 com revolta.",
+   "porque": "Teto baixo no Commander."
+  },
+  "Path of Peril": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 3: destrói as criaturas de valor até 2; com fender ({4}{W}{B}), todas.",
+   "porque": "Com fender, mata o seu lado e a Kaalia.",
+   "marcas": {
+    "mata": 1
+   },
+   "massa": true,
+   "prioridade": 14
+  },
+  "Thrilling Encore": {
+   "notas": {
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Instantânea de 5: põe sob seu controle as criaturas que morreram no turno.",
+   "porque": "Depende de limpeza na mesma volta.",
+   "prioridade": 15
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Kaalia no turno 3."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Artefato de 2: mana da identidade.",
+   "porque": "Conserta as três cores."
+  },
+  "Boros Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2. {1}, vira: {R}{W}.",
+   "porque": "Filtra para o vermelho, que falta."
+  },
+  "Orzhov Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2. {1}, vira: {W}{B}.",
+   "porque": "Pedra de cor."
+  },
+  "Rakdos Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2. {1}, vira: {B}{R}.",
+   "porque": "Pedra de cor."
+  },
+  "Embercleave": {
+   "notas": {
+    "multi": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento lendário de 6 com lampejo, {1} a menos por atacante seu. Ao entrar, equipa; +1/+1, golpe duplo e atropelar.",
+   "porque": "Na criatura que entrou atacando, dobra o golpe; na Kaalia, golpe duplo não dá segundo gatilho.",
+   "caro_por_desenho": true
+  },
+  "Mind Stone": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}; {1}, vira, sacrifique: compre.",
+   "porque": "Incolor não paga a Kaalia."
+  },
+  "Savai Crystal": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 3: {R}, {W} ou {B}; reciclar {2}.",
+   "porque": "Pedra de três chega tarde para a Kaalia.",
+   "prioridade": 12
+  },
+  "Strixhaven Stadium": {
+   "notas": {
+    "ramp": 1,
+    "fechamento": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3: {C} e um marcador; dez marcadores de dano de combate derrotam o jogador.",
+   "porque": "Fechamento lento que zera quando você toma dano."
+  },
+  "Wedding Ring": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 4. Ao entrar, um oponente ganha uma cópia; você compra quando ele compra.",
+   "porque": "Simétrico: dá cartas a um oponente.",
+   "prioridade": 13
+  },
+  "Ghirapur Orrery": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Artefato de 4: um terreno a mais por turno para todos; mão vazia compra três.",
+   "porque": "Acelera a mesa inteira.",
+   "prioridade": 5
+  },
+  "Infiltration Lens": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Equipamento de 1: a equipada bloqueada compra duas.",
+   "porque": "A Kaalia voa e quase nunca é bloqueada.",
+   "prioridade": 2
+  },
+  "Two-Handed Axe": {
+   "notas": {
+    "multi": 1,
+    "fechamento": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Equipamento de 3: dobra o poder ao atacar; aventura dá golpe duplo.",
+   "porque": "Lento e pequeno.",
+   "prioridade": 3
+  },
+  "Smothering Tithe": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 4. Oponente compra: Treasure, a menos que pague {2}.",
+   "porque": "Mana para conjurar os gordos se a Kaalia cair. Game Changer."
+  },
+  "Call of the Ring": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 2. O Anel tenta você a cada manutenção; 2 de vida para comprar.",
+   "porque": "Compra por turno; a Kaalia portadora fica difícil de bloquear."
+  },
+  "Sorin Markov": {
+   "notas": {
+    "removal": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Planeswalker de 6. +2: 2 de dano; −3: a vida de um oponente vira 10.",
+   "porque": "Encurta o jogo de um oponente; não é tribal."
+  },
+  "Unholy Annex // Ritual Chamber": {
+   "notas": {
+    "draw": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sala de 3 // 5. Compre no fim do turno; com Demônio, cada oponente perde 2, sem Demônio você perde 2. A outra porta cria um Demônio 6/6.",
+   "porque": "Combustível com dreno."
+  },
+  "Darksteel Mutation": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Aura de 2: a criatura vira um inseto 0/1 indestrutível sem habilidades.",
+   "porque": "Aura frágil."
+  },
+  "Ghostly Prison": {
+   "notas": {
+    "trava": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento de 3: atacar você custa {2} por criatura.",
+   "porque": "Protege a sua vida, não a Kaalia."
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Mana da identidade.",
+   "porque": "O melhor terreno do deck."
+  },
+  "Exotic Orchard": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Uma cor que os terrenos dos oponentes gerem.",
+   "porque": "Depende da mesa."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Só seis fontes básicas de vermelho."
+  },
+  "Plains": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base de mana sem dual."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base de mana sem dual."
+  },
+  "Savai Triome": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Sempre virado: {R}, {W} ou {B}; reciclar {3}.",
+   "porque": "O único terreno que dá as três cores.",
+   "virado": true
+  },
+  "Bojuka Bog": {
+   "notas": {
+    "ramp": -1,
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {B}; ao entrar, exila um cemitério.",
+   "porque": "Ódio de cemitério de bolso; custa tempo.",
+   "virado": true
+  },
+  "Monumental Henge": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{W}; virado sem Plains. {2}{W}{W}, vira: das cinco do topo, uma histórica para a mão.",
+   "porque": "Quase só a mana importa."
+  },
+  "Shattered Landscape": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; sacrifique: um básico virado; reciclar {R}{W}{B}.",
+   "porque": "Conserta a cor devagar."
+  },
+  "Temple of Silence": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {W} ou {B}; vidência 1.",
+   "porque": "Dual lenta, sem vermelho.",
+   "virado": true
+  },
+  "Cathedral of War": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Sempre virado: {C}; exaltar.",
+   "porque": "Incolor e virado num deck de três cores.",
+   "virado": true,
+   "prioridade": 1
+  },
+  "Rogue's Passage": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "{C}; {4}, vira: uma criatura não pode ser bloqueada.",
+   "porque": "A Kaalia já voa, e incolor custa cor.",
+   "prioridade": 2
+  }
+ },
+ "radar": {
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "A Kaalia ataca no turno em que entra e não pode ser alvo. Nas três fontes.",
+   "sai": "Infiltration Lens",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
+   "porque": "A segunda bota. Nas três fontes.",
+   "sai": "Two-Handed Axe",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Grand Abolisher": {
+   "notas": {
+    "protecao": 3,
+    "trava": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Humano Clérigo de 2. No seu turno, oponentes não conjuram nem ativam artefatos, criaturas e encantamentos.",
+   "porque": "O turno de ataque fica sem resposta. Nas três fontes.",
+   "sai": "Ghirapur Orrery",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Isshin, Two Heavens as One": {
+   "notas": {
+    "multi": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Humano lendário de 3. Gatilho disparado por criatura atacando dispara uma vez a mais.",
+   "porque": "Duas criaturas por ataque da Kaalia (ruling do Isshin). Fontes B e C.",
+   "sai": "Piru, the Volatile",
+   "marcas": {
+    "multi": 1
+   }
+  },
+  "Master of Cruelties": {
+   "notas": {
+    "carga": 3,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Demônio 1/4 de 5 com iniciativa e toque mortífero; só ataca sozinho. Ataca um jogador e não é bloqueado: a vida dele vira 1.",
+   "porque": "Dispara posto pela Kaalia (ruling de 15/04/2013), e a Kaalia voando causa o resto. Fontes B e C; A erra a regra.",
+   "sai": "Varragoth, Bloodsky Sire"
+  },
+  "Terror of Mount Velus": {
+   "notas": {
+    "carga": 3,
+    "multi": 3,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Dragão 5/5 de 7 com voar e golpe duplo. Ao entrar, suas criaturas ganham golpe duplo no turno.",
+   "porque": "Entra antes do dano: o ataque inteiro bate duas vezes. Fonte B.",
+   "sai": "Velomachus Lorehold",
+   "marcas": {
+    "multi": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Subjugator Angel": {
+   "notas": {
+    "removal": 1,
+    "carga": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Anjo 4/3 de 6 com voar. Ao entrar, vira todas as criaturas dos oponentes.",
+   "porque": "Entra antes dos bloqueios: ninguém bloqueia. Fonte B.",
+   "sai": "Archangel of Strife",
+   "caro_por_desenho": true
+  },
+  "Neriv, Heart of the Storm": {
+   "notas": {
+    "carga": 2,
+    "multi": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Dragão Espírito lendário de 4 com voar. Criatura sua que entrou no turno causa o dobro de dano.",
+   "porque": "Tudo o que a Kaalia põe entrou no turno: bate em dobro. Fonte B.",
+   "sai": "Resolute Archangel",
+   "marcas": {
+    "multi": 1
+   }
+  },
+  "Rune-Scarred Demon": {
+   "notas": {
+    "draw": 3,
+    "carga": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Demônio 6/6 de 7 com voar. Ao entrar, busca qualquer carta para a mão.",
+   "porque": "Repõe a carga que acabou de gastar. Nas três fontes.",
+   "sai": "Balor",
+   "caro_por_desenho": true
+  },
+  "Aurelia, the Warleader": {
+   "notas": {
+    "carga": 1,
+    "multi": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Anjo lendário 3/4 de 6 com voar, vigilância e ímpeto. Na primeira vez que ataca no turno, desvira suas criaturas e dá um combate a mais.",
+   "porque": "Conjurada, ataca com a Kaalia e dá o segundo gatilho. Posta pela Kaalia, não dispara no turno (ruling). Nas três fontes.",
+   "sai": "Sower of Discord",
+   "marcas": {
+    "multi": 1
+   }
+  },
+  "Talisman of Conviction": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 2: {C}, ou {R} ou {W} com 1 de dano.",
+   "porque": "Pedra de cor que não pede mana de entrada. Fontes A, B e C.",
+   "sai": "Mind Stone"
+  },
+  "Talisman of Indulgence": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 2: {C}, ou {B} ou {R} com 1 de dano.",
+   "porque": "Pedra de cor de duas no lugar da de três.",
+   "sai": "Savai Crystal"
+  },
+  "Talisman of Hierarchy": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 2: {C}, ou {W} ou {B} com 1 de dano.",
+   "porque": "Pedra de cor de duas.",
+   "sai": "Strixhaven Stadium"
+  },
+  "Plateau": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Dual original Mountain Plains: {R} ou {W}, sempre desvirado.",
+   "porque": "Cor no lugar de um terreno incolor e virado.",
+   "sai": "Cathedral of War"
+  },
+  "Badlands": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Dual original Swamp Mountain: {B} ou {R}, sempre desvirado.",
+   "porque": "Cor no lugar de um incolor.",
+   "sai": "Rogue's Passage"
+  },
+  "Scrubland": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Dual original Plains Swamp: {W} ou {B}, sempre desvirado.",
+   "porque": "A dual desvirada no lugar da virada.",
+   "sai": "Temple of Silence"
+  },
+  "Sacred Foundry": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno de choque Mountain Plains: pague 2 ou entra virado.",
+   "porque": "Vermelho, que falta, no lugar de um terreno de branco só.",
+   "sai": "Monumental Henge"
+  },
+  "Blood Crypt": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno de choque Swamp Mountain: pague 2 ou entra virado.",
+   "porque": "Duas cores na hora, e os fetches o buscam.",
+   "sai": "Shattered Landscape"
+  },
+  "Godless Shrine": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno de choque Plains Swamp: pague 2 ou entra virado.",
+   "porque": "Duas cores no lugar de um terreno virado.",
+   "sai": "Bojuka Bog"
+  },
+  "Flawless Maneuver": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3, de graça com comandante: suas criaturas indestrutíveis no turno.",
+   "porque": "A mesma proteção, de graça. Fontes A, B e C.",
+   "sai": "Your Temple Is Under Attack",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Deflecting Swat": {
+   "notas": {
+    "removal": 1,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3, de graça com comandante: muda o alvo de uma mágica ou habilidade.",
+   "porque": "Resposta grátis à remoção pontual. Fontes A, B e C.",
+   "sai": "Darksteel Mutation",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Mother of Runes": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Humana Clériga de 1. Vira: uma criatura sua ganha proteção contra a cor escolhida.",
+   "porque": "Protege a Kaalia todo turno por uma mana. Nas três fontes.",
+   "sai": "Ghostly Prison",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Arid Mesa": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Mountain ou Plains.",
+   "porque": "Acha uma das duais com tipo. Da lista enxuta, no lugar de um Plains básico: troca feita à mão."
+  },
+  "Bloodstained Mire": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Swamp ou Mountain.",
+   "porque": "Acha uma das duais com tipo. Da lista enxuta, no lugar de um Swamp básico: troca feita à mão."
+  },
+  "Marsh Flats": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: pague 1 de vida e sacrifique; busca Plains ou Swamp.",
+   "porque": "Acha uma das duais com tipo. Da lista enxuta, no lugar de um Plains básico: troca feita à mão."
+  },
+  "Arena of Glory": {
+   "notas": {
+    "ramp": 1,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno: {R}; virado sem Mountain. {R}, vira, exaurir: {R}{R}, e a criatura conjurada com ela ganha ímpeto.",
+   "porque": "Ímpeto para a Kaalia num terreno. Da lista enxuta, no lugar de um Swamp básico: troca feita à mão.",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Serra's Emissary": {
+   "notas": {
+    "removal": 1,
+    "protecao": 2,
+    "carga": 3,
+    "trava": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "avaliar",
+   "faz": "Anjo 7/7 de 7 com voar. Escolhe um tipo de card: você e suas criaturas têm proteção contra ele.",
+   "porque": "Nomeando criatura, ninguém bloqueia nem mira a sua mesa com criatura. Fontes A, B e C.",
+   "caro_por_desenho": true
+  },
+  "Angel of Serenity": {
+   "notas": {
+    "removal": 3,
+    "carga": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Anjo 5/6 de 7 com voar. Ao entrar, exila até três criaturas ou cards de criatura de cemitérios; voltam à mão quando ela sai.",
+   "porque": "Tira três bloqueadores antes do bloqueio. Fontes A e B.",
+   "caro_por_desenho": true
+  },
+  "Angel of Despair": {
+   "notas": {
+    "removal": 2,
+    "carga": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Anjo 5/5 de 7 com voar. Ao entrar, destrói uma permanente.",
+   "porque": "Remoção que vem de graça. Fontes A, B e C.",
+   "caro_por_desenho": true
+  },
+  "Archfiend of Depravity": {
+   "notas": {
+    "removal": 3,
+    "carga": 3,
+    "trava": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Demônio 5/4 de 5 com voar. No fim do turno de cada oponente, ele fica com duas criaturas e sacrifica o resto.",
+   "porque": "Limpeza unilateral recorrente. Fontes A, B e C."
+  },
+  "Terror of the Peaks": {
+   "notas": {
+    "removal": 2,
+    "carga": 2,
+    "multi": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Dragão 5/4 de 5 com voar. Mágica de oponente que o mira custa 3 de vida a mais; outra criatura sua entra: dano igual ao poder dela.",
+   "porque": "Não dispara com ele mesmo; depois, cada carga da Kaalia vira dano. Fontes A, B e C."
+  },
+  "Twinflame Tyrant": {
+   "notas": {
+    "carga": 3,
+    "multi": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Dragão 3/5 de 5 com voar. Dano seu aos oponentes e às permanentes deles dobra.",
+   "porque": "Uma segunda Gisela por cinco. Fonte B.",
+   "marcas": {
+    "multi": 1
+   }
+  },
+  "Combat Celebrant": {
+   "notas": {
+    "multi": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Humano de 3. Pode exaurir ao atacar: desvira suas outras criaturas e dá um combate a mais.",
+   "porque": "A Kaalia desvira e ataca de novo: segundo gatilho. Fonte B.",
+   "marcas": {
+    "multi": 1
+   }
+  },
+  "Kaalia, Zenith Seeker": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Humana lendária de 3 com voar e vigilância. Ao entrar, das seis do topo, um Anjo, um Demônio e um Dragão para a mão.",
+   "porque": "Até três cargas por três manas. Fontes B e C."
+  },
+  "Swords to Plowshares": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: exila uma criatura; o dono ganha vida.",
+   "porque": "Remoção de uma mana. Nas três fontes."
+  },
+  "Deadly Rollick": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 4, de graça com comandante: exila uma criatura.",
+   "porque": "Remoção grátis no turno de ataque. Fontes A e B."
+  },
+  "Toxic Deluge": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 3: pague X de vida; todas as criaturas −X/−X.",
+   "porque": "Limpeza barata que deixa os gordos de pé. Fonte A.",
+   "massa": true
+  },
+  "Teferi's Protection": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 3: até o seu turno, vida fixa, proteção contra tudo e suas permanentes saem de fase.",
+   "porque": "Salva a mesa inteira. Game Changer: com ele, são dois.",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Akroma's Will": {
+   "notas": {
+    "protecao": 2,
+    "multi": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 4: voar, vigilância e golpe duplo, ou vínculo, indestrutível e proteção contra cores; os dois com comandante.",
+   "porque": "Proteção e fechamento na mesma carta. Fonte B.",
+   "marcas": {
+    "blinda": 1
+   }
+  },
+  "Liesa, Forgotten Archangel": {
+   "notas": {
+    "draw": 1,
+    "protecao": 2,
+    "carga": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Anjo lendário 4/5 de 5 com voar e vínculo. Criatura sua não-ficha que morre volta à mão no fim do turno; as dos oponentes são exiladas.",
+   "porque": "Os gordos voltam como combustível. Fontes A, B e C."
+  },
+  "Drakuseth, Maw of Flames": {
+   "notas": {
+    "removal": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Dragão lendário 7/7 de 7 com voar. Ao atacar, 4 de dano num alvo e 3 em até dois outros.",
+   "porque": "Gatilho de ataque: pela Kaalia não faz nada no turno em que entra. Está em 29% dos decks do EDHREC (fonte B)."
+  },
+  "Scourge of the Throne": {
+   "notas": {
+    "multi": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Dragão 5/5 de 6 com voar e destronar. Na primeira vez que ataca no turno o jogador com mais vida, desvira os atacantes e dá um combate a mais.",
+   "porque": "Gatilho de ataque: posto pela Kaalia, não dispara."
+  },
+  "Sunblast Angel": {
+   "notas": {
+    "removal": 2,
+    "carga": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Anjo 4/5 de 6 com voar. Ao entrar, destrói todas as criaturas viradas.",
+   "porque": "Posta pela Kaalia, entra virada e destrói a si mesma e a Kaalia, que atacou."
+  },
+  "Shefet Archfiend": {
+   "notas": {
+    "removal": 2,
+    "carga": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Demônio 5/5 de 7 com voar. Ao entrar, todas as outras criaturas −2/−2.",
+   "porque": "Mata a Kaalia, que é 2/2."
+  },
+  "Mana Vault": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "fora",
+   "faz": "Artefato de 1: {C}{C}{C}; não desvira sozinho.",
+   "porque": "Game Changer. A enxuta testou: rende o mesmo que os Talismans, porque o gargalo é a cor."
+  },
+  "Chrome Mox": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "fora",
+   "faz": "Artefato de 0: exila uma carta da mão; mana das cores dela.",
+   "porque": "Game Changer. A enxuta testou: rende o mesmo que os Talismans."
+  }
+ },
+ "combos": [
+  {
+   "nome": "A vida vira 1",
+   "tipo": "Combo",
+   "pecas": [
+    "Kaalia of the Vast",
+    "Master of Cruelties"
+   ],
+   "texto": "O Master entra atacando, e se não for bloqueado a vida do oponente vira 1 (ruling de 2013: dispara posto atacando). A Kaalia, voando, causa o dano que falta. Commander Spellbook. Do radar."
+  },
+  {
+   "nome": "Duas cargas por ataque",
+   "tipo": "Motor",
+   "pecas": [
+    "Isshin, Two Heavens as One",
+    "Kaalia of the Vast"
+   ],
+   "texto": "O gatilho da Kaalia dispara duas vezes: duas criaturas da mão a cada ataque. Do radar."
+  },
+  {
+   "nome": "Ninguém bloqueia",
+   "tipo": "Motor",
+   "pecas": [
+    "Subjugator Angel",
+    "Master of Cruelties"
+   ],
+   "texto": "Com o Isshin, os dois entram no mesmo ataque: o Subjugator vira as criaturas do oponente antes dos bloqueios e o Master conecta. Do radar."
+  },
+  {
+   "nome": "O ataque bate quatro vezes",
+   "tipo": "Motor",
+   "pecas": [
+    "Terror of Mount Velus",
+    "Gisela, Blade of Goldnight"
+   ],
+   "texto": "O Velus dá golpe duplo ao time antes do dano, e a Gisela dobra cada golpe. O Velus é do radar."
+  },
+  {
+   "nome": "Tudo o que entra bate em dobro",
+   "tipo": "Motor",
+   "pecas": [
+    "Neriv, Heart of the Storm",
+    "Balefire Dragon"
+   ],
+   "texto": "A criatura que a Kaalia pôs entrou no turno: a Balefire causa o dobro no jogador e, com isso, o dobro em cada criatura dele. A Neriv é do radar."
+  },
+  {
+   "nome": "Segundo combate",
+   "tipo": "Motor",
+   "pecas": [
+    "Aurelia, the Warleader",
+    "Kaalia of the Vast"
+   ],
+   "texto": "Conjurada, com ímpeto, a Aurelia ataca com a Kaalia, desvira tudo e dá outro combate: a Kaalia ataca de novo e põe outra carga. Posta pela Kaalia, não dispara naquele turno. Do radar."
+  },
+  {
+   "nome": "Limpeza que só pega eles",
+   "tipo": "Motor",
+   "pecas": [
+    "Balefire Dragon",
+    "Gisela, Blade of Goldnight"
+   ],
+   "texto": "A Balefire repete o dano em cada criatura do jogador, e a Gisela dobra os dois."
+  },
+  {
+   "nome": "A Kaalia indestrutível",
+   "tipo": "Motor",
+   "pecas": [
+    "Avacyn, Angel of Hope",
+    "Kaalia of the Vast"
+   ],
+   "texto": "Oito manas de graça, e as suas permanentes, a Kaalia junto, ficam indestrutíveis. A Sephara faz o mesmo com as voadoras."
+  },
+  {
+   "nome": "A próxima carga",
+   "tipo": "Motor",
+   "pecas": [
+    "Hoarding Broodlord",
+    "Kaalia of the Vast"
+   ],
+   "texto": "O ETB do Broodlord (e do Rune-Scarred Demon do radar) busca a criatura do próximo ataque."
+  },
+  {
+   "nome": "Armadilha: gatilho de ataque",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Velomachus Lorehold",
+    "Kaalia of the Vast"
+   ],
+   "texto": "Posta pela Kaalia, a criatura não foi declarada atacante: Velomachus, Balor, Varragoth e o Treasure da Decadent Dragon não disparam, e o início de combate do Shadrix já passou."
+  },
+  {
+   "nome": "Armadilha: a limpeza que leva a Kaalia",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Damn",
+    "Path of Peril"
+   ],
+   "texto": "O Damn sobrecarregado e o Path of Peril com fender destroem todas as criaturas, a Kaalia junto."
+  },
+  {
+   "nome": "Armadilha: Piru",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Piru, the Volatile",
+    "Kaalia of the Vast"
+   ],
+   "texto": "Cobra {R}{W}{B} toda manutenção, a mesma mana da Kaalia, e ao morrer causa 7 em cada criatura não lendária: o seu lado morre, a Kaalia fica."
+  }
+ ]
+}
