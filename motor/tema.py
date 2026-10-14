@@ -274,6 +274,16 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(900px 520px at 80%% -12%%, rgba(%d,%d,%d,.14), transparent 62%%),"
                 "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.10), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
+    if nome == "nuvens":
+        # o céu da capa do Zur: nuvens em espiral em filete, faíscas do azul arcano e o brilho frio no alto
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='140' viewBox='0 0 180 140'%3E%3Cg fill='none' stroke='" +
+               quote(p["suave"]) + "' stroke-opacity='.07' stroke-width='1.3' stroke-linecap='round'%3E"
+               "%3Cpath d='M10 60q10-18 26-8q8-14 22-4q14-6 18 8q-8 10-20 4q-10 12-24 2q-14 8-22-2z'/%3E"
+               "%3Cpath d='M100 118q8-14 20-6q8-12 20-2q10-4 14 6'/%3E%3Cpath d='M120 30q6 -8 14 -2'/%3E%3C/g%3E"
+               "%3Cg fill='" + quote(p["acento"]) + "' fill-opacity='.18'%3E%3Ccircle cx='150' cy='70' r='1.3'/%3E%3Ccircle cx='60' cy='112' r='1'/%3E%3Ccircle cx='86' cy='24' r='1.2'/%3E%3C/g%3E%3C/svg%3E")
+        return ('url("%s"),'
+                "radial-gradient(900px 520px at 80%% -12%%, rgba(%d,%d,%d,.15), transparent 62%%),"
+                "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.08), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
