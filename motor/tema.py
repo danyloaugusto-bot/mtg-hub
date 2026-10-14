@@ -293,6 +293,15 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(900px 520px at 78%% -12%%, rgba(%d,%d,%d,.14), transparent 62%%),"
                 "radial-gradient(900px 480px at 8%% 110%%, rgba(%d,%d,%d,.08), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
+    if nome == "tijolos":
+        # os tijolos em espinha de peixe da cúpula de Florença, em filete, com a luz do céu no alto e o calor da terracota embaixo
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E"
+               "%3Cg fill='none' stroke='" + quote(p["suave"]) + "' stroke-opacity='.07' stroke-width='1.3'%3E"
+               "%3Cpath d='M0 12l12 -12M12 24l12 -12M24 36l12 -12M36 48l12 -12M0 36l12 12M12 24l12 12M24 12l12 12M36 0l12 12'/%3E"
+               "%3C/g%3E%3C/svg%3E")
+        return ('url("%s"),'
+                "radial-gradient(1000px 520px at 70%% -12%%, rgba(%d,%d,%d,.12), transparent 62%%),"
+                "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.14), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["vinho"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
