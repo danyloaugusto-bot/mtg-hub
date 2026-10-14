@@ -9,3 +9,7 @@
 - Radar com 32 cartas: 22 trocas recomendadas (Sheoldred, the Apocalypse, Archfiend of Depravity, Pox Plague, Toxic Deluge, três tutores, Necrogen Mists, Liliana, Waker of the Dead, Hymn to Tourach, Mind Twist, Thoughtseize, Mindslicer, Flare of Malice, Accursed Marauder, Animate Dead, Reanimate, Deadly Rollick, Orcish Bowmasters, Opposition Agent, Emeritus of Woe, Bolas's Citadel) e 10 para avaliar. Com as trocas, placar 344 e CMC médio de 3,16 para 3,04. As trocas ficam como sugestão; a lista não muda.
 - 14 combos, motores e armadilhas, com Marit Lage (Dark Depths e Thespian's Stage) como o fechamento em duas cartas.
 - Tema "Lanterna do Medo": caverna nórdica no inverno, à luz de uma lanterna azul-gelo, fonte Metamorphous. Motivos novos no motor: gráfico "runas" (pedras rúnicas que acendem com a soma das notas, a lanterna atrás do placar) e textura "entalhe" (nós nórdicos em pedra).
+
+## Comunidade, 14/10/2026
+
+- Lida a página de Descarte da Tergrid no edh.wiki (temas: Descarte 35%, Sacrifício 16%, Roubo 8%). Treze potenciais gravados em `comunidade.json`; Elderfang Disciple, Burglar Rat e Plaguecrafter são os de maior sinergia. Das 20 cartas das listas de destaque da página, 13 já estão no deck, com Waste Not, Smallpox, Geth's Grimoire, Dark Deal e Syphon Mind no topo. A Pox Plague, carta nova que a página sugere, já estava no radar.

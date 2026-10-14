@@ -13,3 +13,7 @@
 ## Correção do radar, 14/10/2026
 
 - As três trocas de terreno do radar (Luxury Suite, Morphic Pool e Haunted Ridge) apontavam para Mountain, Island e Swamp, que têm várias cópias: a troca tiraria todas. Passaram a sair no lugar do Rakdos Carnarium, do Path of Ancestry e do Volatile Fault. Seguem como "avaliar"; o placar não muda. O build agora recusa troca que aponte para carta com mais de uma cópia.
+
+## Comunidade, 14/10/2026
+
+- Lida a página de Vampiros da Evelyn no edh.wiki (temas: Vampiros 29%, Roubo 19%). Dezesseis potenciais gravados em `comunidade.json`; Scion of Opulence, Glass-Cast Heart e Olivia's Wrath são os de maior sinergia. Das 20 cartas das listas de destaque, 5 estão no deck e 10 no radar. O Emeritus of Woe, carta nova da página, ficou fora dos potenciais: o verso é o Demonic Tutor, e o deck não quer Game Changer.

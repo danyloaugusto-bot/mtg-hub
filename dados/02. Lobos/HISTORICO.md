@@ -9,3 +9,7 @@
 - Radar com 35 cartas: 18 trocas recomendadas (Huntmaster of the Fells, Kruin Outlaw, Pyreheart Wolf, Howlpack Resurgence, Heroic Intervention, Torgal, Duskwatch Recruiter, Nightpack Ambusher, Avabruck Caretaker, Toski, Ohran Frostfang, Craterhoof Behemoth, Overwhelming Stampede, Arlinn Kord, Moonmist, Moonlight Hunt, Beast Within e The Great Henge), 15 para avaliar (ramp, lobos de tier B, sugestões das outras fontes e seis terrenos trocando virado por desvirado) e 2 de fora. Com as trocas, placar 420 e CMC médio 3,35. Nenhum Game Changer. As trocas ficam como sugestão; a lista não muda.
 - 13 combos, motores e armadilhas, com Berserkers' Onslaught (golpe duplo, compra dupla) e a Child of the Pack (o terceiro lobo no fim do turno deles) como as linhas que nenhuma análise juntou.
 - Tema "Lua da Matilha": colheita de Kessig à meia-noite, lua cheia, olhos âmbar e brasa, fonte Almendra SC. Motivos novos no motor: gráfico "luas" (cada agrupamento uma lua que vai de nova a cheia, e a lua do placar com três entalhes de garra) e textura "trigal" (espigas sob a lua). O marcador da tribo passou a aceitar uma lista de subtipos (Wolf e Werewolf).
+
+## Comunidade, 14/10/2026
+
+- Lida a página de Lobisomens do Tovolar no edh.wiki (temas: Lobisomens 36%, Agressivo 17%, Lobos 11%, Dia e noite 6%). Doze potenciais gravados em `comunidade.json`; The Celestus, Howling Moon e Village Watch são os de maior sinergia. Das 20 cartas das listas de destaque, 10 estão no deck e 9 no radar; só a Howling Moon ficava de fora, e virou potencial.

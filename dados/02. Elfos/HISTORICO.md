@@ -9,3 +9,7 @@
 - O Gaea's Cradle (US$ 1.635 no Scryfall) está como "entra" por decisão do "tudo no radar"; sai no lugar do Twilight Mire.
 - Tema "Selva Élfica": verde-floresta, bronze e verde-azulado da capa; fonte Fondamento. Motivos novos no motor: gráfico "folhas" (um galho de sete folhas por agrupamento, a coroa de dez folhas no placar) e textura "copa".
 - Falta o `/potenciais` (edh.wiki, link em `deck.md`).
+
+## Comunidade, 14/10/2026
+
+- Lida a página da Lathril no edh.wiki (temas: Elfos 43%, Fichas 18%, Agressivo 6%). Dezessete potenciais gravados em `comunidade.json`; Immaculate Magistrate, Abomination of Llanowar e Realmwalker são os de maior sinergia, e cinco cartas novas entraram: Elven Passage, Woodland Weavemaster, Cantankerous Keepers, Simulacrum Shaper e o equipamento Orcrist, Goblin-cleaver. As dez mais usadas da página já estão no deck (oito) ou no radar (Elvish Warmaster e Llanowar Elves).
