@@ -53,7 +53,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 
 ## Próxima ação
 
-Republicar pelo mesmo link os painéis que mudaram em 14/10/2026 (Elfos, Tergrid, Turtle Power!, Evelyn, Lobos, Humanos, Lynde, Valgavoth, Ken, Storm, Deadpool, Braids) e o hub, e publicar o Slivers. O dono corrige a lista de `caro_por_desenho` e revisa o `pacote` das cartas mal colocadas no 8×8. Material novo esperando o `/novo-deck`: `02. Kaalia` (lista, carta e análises). Nove pastas só têm capa e carta, sem lista: Markov, Dragões, Goblins, Zumbis, Heads I win, K'rrik, Assassin Creed, Zara e Zur. Heads I win também tem dois comandantes: o motor já lê. Vinte decks com painel, quatro deles de desejo.
+Os painéis que mudaram em 14/10/2026 foram republicados pelo mesmo link, e o Slivers foi publicado (link no inventário). `/novo-deck 02. Kaalia` em andamento: painel "Céu, Fogo e Inferno" montado (passo 4), à espera da revisão do dono (passo 5); o hub será republicado depois dele. Heads I win ganhou uma `decklist.txt` e espera o `/novo-deck`. O dono corrige a lista de `caro_por_desenho` e revisa o `pacote` das cartas mal colocadas no 8×8. Nove pastas só têm capa e carta: Markov, Dragões, Goblins, Zumbis, K'rrik, Assassin Creed, Zara e Zur, além do Heads I win, que já tem lista. Vinte decks com painel, quatro deles de desejo.
 
 ## Feito
 
