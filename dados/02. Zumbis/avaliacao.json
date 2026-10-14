@@ -1,0 +1,1776 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana: pedras, altares e redução de custo. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Compra",
+   "ab": "Compra",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra e tutor."
+  },
+  {
+   "k": "removal",
+   "nome": "Remoção",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Tira criaturas e permanentes dos oponentes, inclusive os editos."
+  },
+  {
+   "k": "recursao",
+   "nome": "Recursão",
+   "ab": "Rec.",
+   "desc": "Devolve Zumbis do cemitério."
+  },
+  {
+   "k": "sacrificio",
+   "nome": "Sacrifício",
+   "ab": "Sacr.",
+   "desc": "Consome Zumbis e fichas: altares, saídas, exploit."
+  },
+  {
+   "k": "fichas",
+   "nome": "Fichas",
+   "ab": "Fichas",
+   "desc": "Gera Zumbis que disparam a Wilhelt."
+  },
+  {
+   "k": "senhores",
+   "nome": "Senhores",
+   "ab": "Senh.",
+   "desc": "Reforço e evasão da horda."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Dreno e laços que vencem."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Zumbi",
+   "plural": "Zumbis",
+   "subtipo": [
+    "Zombie"
+   ]
+  },
+  "saida": {
+   "nome": "Saída de sacrifício"
+  },
+  "dreno": {
+   "nome": "Dreno da horda"
+  },
+  "senhor": {
+   "nome": "Senhor de Zumbi"
+  },
+  "combo": {
+   "nome": "Peça de combo"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "33 terrenos e o Malakir Rebirth; sete entram sempre virados."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 8,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 2,
+   "massa_ref": [
+    1,
+    2
+   ],
+   "alerta": "As limpezas levam a sua horda junto."
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 85,
+   "texto": "cada Zumbi sem decayed que morre vira ficha da Wilhelt."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "senhor",
+   "min": 5,
+   "listar": true,
+   "rotulo": [
+    "senhor de Zumbi",
+    "senhores de Zumbi"
+   ],
+   "alerta": "Poucos senhores: as fichas 2/2 não pressionam.",
+   "ok": "A horda bate forte."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "dreno",
+   "min": 5,
+   "listar": true,
+   "rotulo": [
+    "dreno da horda",
+    "drenos da horda"
+   ],
+   "texto": "Cobram as mortes ou os Zumbis em dano.",
+   "alerta": "Poucas cartas cobram as mortes.",
+   "ok": "As mortes viram dano."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "saida",
+   "min": 8,
+   "listar": false,
+   "rotulo": [
+    "saída de sacrifício",
+    "saídas de sacrifício"
+   ],
+   "texto": "Cada Zumbi sacrificado dispara a Wilhelt.",
+   "ok": "O deck mata os seus Zumbis quando quer."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Sol Ring, Signet ou Talisman; Zumbis de uma e duas manas (Gravecrawler, Carrion Feeder, Champion of the Perished, Undead Augur, Zul Ashur); a Wilhelt no turno 3 ou 4.",
+   "fortes": [
+    "Nove Zumbis custam 2 ou menos.",
+    "Urza's Incubator e Undead Warchief barateiam a horda."
+   ],
+   "fracos": [
+    "Sete terrenos entram sempre virados.",
+    "Ramp dedicado abaixo da referência: o deck conta com os altares."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "A Wilhelt em campo; os altares e as saídas matam Zumbis de propósito: cada um vira ficha decayed, o Augur compra, e o Captain e o Belcher drenam. O Dictate of Erebos faz de cada morte um edito; a Cyclonic Rift e a remoção pontual cuidam das ameaças.",
+   "fortes": [
+    "Quinze saídas de sacrifício.",
+    "Cada morte rende ficha, carta e dreno ao mesmo tempo."
+   ],
+   "fracos": [
+    "Três senhores: as fichas 2/2 não pressionam.",
+    "Três limpezas simétricas, e a Living Death, levam a sua horda junto."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "O laço do Gravecrawler com um altar e um dreno; o Acererak com a Rooftop Storm; ou o Army of the Damned e a Endless Ranks, com o voar do Hordewing Skaab, do Eternal Skylord ou do Geralf, para a horda passar.",
+   "fortes": [
+    "Seis combos de duas ou três cartas, já na lista.",
+    "Grim Servant e Sidisi, Undead Vizier buscam a peça que falta."
+   ],
+   "fracos": [
+    "O Undead Augur e a Kindred Discovery compram de forma obrigatória nos laços.",
+    "Ódio de cemitério desmonta o Gravecrawler e a recursão."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Zumbis com toque mortífero seguram o ataque, mas as fichas decayed não bloqueiam."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "O Dictate of Erebos e os editos tiram a ameaça única, e o toque mortífero segura o grandão."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Nenhuma anulação na lista: só remoção."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "A recursão refaz a mesa depois da limpeza, mas tudo passa pela Wilhelt."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "equilibrado",
+    "porque": "Os altares e a Rooftop Storm contornam taxa de mana; ódio de cemitério dói."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Corrida de drenos; o Dictate of Erebos pune quem também sacrifica."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "O Unstable Harmonics taxa cada mágica deles, mas o deck não anula o combo."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "A horda e os drenos fecham antes das criaturas grandes."
+   }
+  ]
+ },
+ "cartas": {
+  "Wilhelt, the Rotcleaver": {
+   "notas": {
+    "draw": 2,
+    "sacrificio": 2,
+    "fichas": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Zumbi Guerreira lendária 3/3 de 4. Outro Zumbi seu morre sem decayed: uma ficha Zumbi 2/2 com decayed. No seu passo final, pode sacrificar um Zumbi e comprar.",
+   "porque": "O motor do deck: cada Zumbi sem decayed vale dois corpos, e o fim do turno troca a ficha decayed por carta.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Gravecrawler": {
+   "notas": {
+    "recursao": 3,
+    "sacrificio": 1,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Zumbi 2/1 de 1 que não bloqueia; conjurável do cemitério enquanto você controla um Zumbi.",
+   "porque": "Peça do laço: com o Phyrexian Altar e outro Zumbi, mortes infinitas (Commander Spellbook 2577-4050).",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Diregraf Captain": {
+   "notas": {
+    "senhores": 2,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Zumbi Soldado 2/2 de 3 com toque mortífero. Seus outros Zumbis +1/+1; outro Zumbi seu morre: um oponente perde 1.",
+   "porque": "Senhor e dreno ao mesmo tempo: fecha o laço do Gravecrawler.",
+   "marcas": {
+    "senhor": 1,
+    "dreno": 1,
+    "combo": 1
+   }
+  },
+  "Diregraf Colossus": {
+   "notas": {
+    "fichas": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Zumbi Gigante 2/2 de 3, com um marcador +1/+1 por Zumbi no seu cemitério. Você conjura um Zumbi: uma ficha Zumbi 2/2 virada.",
+   "porque": "Cada Zumbi conjurado vale dois, e a ficha não tem decayed. Com o Acererak e a Rooftop Storm, fichas sem fim."
+  },
+  "Undead Augur": {
+   "notas": {
+    "draw": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Zumbi Mago 2/2 de 2. Ele ou outro Zumbi seu morre: você compra uma carta e perde 1.",
+   "porque": "A compra do deck, e as fichas decayed contam. A compra é obrigatória: sacrifique-o antes de um laço infinito."
+  },
+  "Acererak the Archlich": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "fichas": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi Mago lendário 5/5 de 3. Ao entrar, se você não completou a Tomb of Annihilation, volta à mão e você explora a masmorra. Ao atacar, cada oponente sacrifica uma criatura ou você ganha um Zumbi 2/2.",
+   "porque": "Com a Rooftop Storm, entra de graça sem fim e vence pela masmorra (Commander Spellbook 1824-2452).",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Carrion Feeder": {
+   "notas": {
+    "sacrificio": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi 1/1 de 1 que não bloqueia. Sacrifique uma criatura: um marcador +1/+1 nele.",
+   "porque": "Saída de sacrifício de graça e instantânea, e é Zumbi.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Gray Merchant of Asphodel": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi 2/4 de 5. Ao entrar, cada oponente perde vida igual à sua devoção ao preto, e você ganha o total.",
+   "porque": "Dreno grande numa mesa preta; com a Necroduality, drena duas vezes."
+  },
+  "Headless Rider": {
+   "notas": {
+    "fichas": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi 3/1 de 3. Ele ou outro Zumbi seu não-ficha morre: uma ficha Zumbi 2/2.",
+   "porque": "Com a Wilhelt, cada Zumbi de carta que morre vira duas fichas."
+  },
+  "Murderous Rider": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi Cavaleiro 2/3 de 3 com vínculo. A aventura Swift End destrói criatura ou planeswalker, e você perde 2.",
+   "porque": "Remoção que depois ainda é Zumbi."
+  },
+  "Plague Belcher": {
+   "notas": {
+    "sacrificio": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi Fera 5/4 de 3 com ameaça. Ao entrar, dois marcadores −1/−1 numa criatura sua. Outro Zumbi seu morre: cada oponente perde 1.",
+   "porque": "Dreno em toda a mesa. Os marcadores matam uma ficha decayed, que já drena ao morrer.",
+   "marcas": {
+    "dreno": 1,
+    "combo": 1
+   }
+  },
+  "Relentless Dead": {
+   "notas": {
+    "recursao": 3,
+    "sacrificio": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi 2/2 de 2 com ameaça. Ao morrer, pague {B} para ela voltar à mão; pague X para devolver ao campo outro Zumbi de valor X do cemitério.",
+   "porque": "Com a Necroduality e um altar, mortes infinitas (Commander Spellbook 945-1303-4050).",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Sidisi, Undead Vizier": {
+   "notas": {
+    "draw": 3,
+    "sacrificio": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi Cobra lendária 4/6 de 5 com toque mortífero e exploit; explorando, busca qualquer carta.",
+   "porque": "Come uma ficha decayed e busca a peça do combo que falta.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Undead Warchief": {
+   "notas": {
+    "ramp": 1,
+    "senhores": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi 1/1 de 4. Suas mágicas de Zumbi custam {1} a menos; seus Zumbis +2/+1.",
+   "porque": "O senhor mais forte do deck, e ainda acelera.",
+   "marcas": {
+    "senhor": 1
+   }
+  },
+  "Zul Ashur, Lich Lord": {
+   "notas": {
+    "recursao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi Bruxo lendário 2/2 de 2 com ward (pague 2 de vida). Vira: você pode conjurar uma criatura Zumbi do seu cemitério neste turno.",
+   "porque": "Recursão a cada turno."
+  },
+  "Champion of the Perished": {
+   "notas": {
+    "senhores": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Zumbi 1/1 de 1. Outro Zumbi seu entra: um marcador +1/+1 nele.",
+   "porque": "As fichas contam; com o Army of the Damned, ganha treze marcadores."
+  },
+  "Cleaver Skaab": {
+   "notas": {
+    "recursao": 1,
+    "sacrificio": 2,
+    "fichas": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Zumbi Horror 2/4 de 4. {3}, vira, sacrifique outro Zumbi: duas fichas cópia dele.",
+   "porque": "As cópias de um Zumbi de carta não têm decayed: disparam a Wilhelt quando morrem.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Eternal Skylord": {
+   "notas": {
+    "fichas": 1,
+    "senhores": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Zumbi Mago 3/3 de 5. Ao entrar, amass Zombies 2. Suas fichas de Zumbi têm voar.",
+   "porque": "Evasão para a horda."
+  },
+  "Fell Stinger": {
+   "notas": {
+    "draw": 2,
+    "sacrificio": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Zumbi Escorpião 3/2 de 3 com toque mortífero e exploit; explorando, um jogador compra duas e perde 2.",
+   "porque": "Come uma ficha decayed e compra duas.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Geralf, Visionary Stitcher": {
+   "notas": {
+    "sacrificio": 2,
+    "fichas": 2,
+    "senhores": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Humano Mago lendário 1/4 de 3. Seus Zumbis têm voar. {U}, vira, sacrifique outra criatura não-ficha: uma ficha Zumbi X/X, X a resistência dela.",
+   "porque": "Não é Zumbi, mas dá voar à horda e transforma criatura de carta em Zumbi sem decayed.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Ghoulcaller Gisa": {
+   "notas": {
+    "sacrificio": 2,
+    "fichas": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Humana Maga lendária 3/4 de 5. {B}, vira, sacrifique outra criatura: X fichas Zumbi 2/2, X a força dela.",
+   "porque": "O Plague Belcher vira cinco fichas sem decayed. Não é Zumbi.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Gleaming Overseer": {
+   "notas": {
+    "fichas": 1,
+    "senhores": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Zumbi Mago 1/4 de 3. Ao entrar, amass Zombies 1. Suas fichas de Zumbi têm resistência a magia e ameaça.",
+   "porque": "Protege e espalha a horda."
+  },
+  "Grim Servant": {
+   "notas": {
+    "draw": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Zumbi Bruxo 3/2 de 4 com ameaça. Ao entrar, busca uma carta de valor até a sua devoção ao preto, e você perde 3.",
+   "porque": "Acha a peça do laço que falta."
+  },
+  "Hordewing Skaab": {
+   "notas": {
+    "draw": 1,
+    "senhores": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Zumbi Horror 3/3 de 5 com voar; seus outros Zumbis voam. Zumbis seus causam dano de combate: pode comprar e descartar uma por oponente atingido.",
+   "porque": "A horda passa por cima."
+  },
+  "Mirkwood Bats": {
+   "notas": {
+    "sacrificio": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Morcego 2/3 de 4 com voar. Você cria ou sacrifica uma ficha: cada oponente perde 1.",
+   "porque": "Cada ficha decayed drena ao nascer e de novo se for sacrificada. Não é Zumbi.",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Sidisi, Regent of the Mire": {
+   "notas": {
+    "recursao": 2,
+    "sacrificio": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Zumbi Cobra Bruxa lendária 1/3 de 2. Vira, sacrifique outra criatura de valor X: devolve do cemitério ao campo uma criatura de valor X+1, como feitiço.",
+   "porque": "A ficha decayed tem valor 0 e traz um Zumbi de valor 1, como o Gravecrawler (fonte A).",
+   "marcas": {
+    "saida": 1
+   },
+   "pacote": "sacrificio"
+  },
+  "Unstoppable Slasher": {
+   "notas": {
+    "recursao": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Zumbi Assassino 2/3 de 3 com toque mortífero. Dano de combate a um jogador: ele perde metade da vida. Morrendo sem marcadores, volta virado com dois marcadores de atordoamento.",
+   "porque": "Tira meia vida de um oponente se conectar."
+  },
+  "Tainted Adversary": {
+   "notas": {
+    "fichas": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Zumbi 2/3 de 2 com toque mortífero. Ao entrar, pague {2}{B} quantas vezes quiser: um marcador +1/+1 nele e duas fichas Zumbi decayed por vez.",
+   "porque": "As fichas decayed não disparam a Wilhelt, mas alimentam o Augur, o Captain e o Belcher."
+  },
+  "Liliana's Reaver": {
+   "notas": {
+    "fichas": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Zumbi 4/3 de 4 com toque mortífero. Dano de combate a um jogador: ele descarta, e você ganha um Zumbi 2/2 virado.",
+   "porque": "Quatro manas por um Zumbi que precisa conectar.",
+   "prioridade": 5
+  },
+  "Blood Scrivener": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Zumbi Mago 2/1 de 2. Se você compraria sem cartas na mão, compra duas e perde 1.",
+   "porque": "O deck quase nunca fica de mão vazia.",
+   "prioridade": 2
+  },
+  "Cyclonic Rift": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Instantânea de 2: devolve uma permanente que não é sua; sobrecarga {6}{U}: todas.",
+   "porque": "Abre a mesa no turno do fechamento. Game Changer."
+  },
+  "Army of the Damned": {
+   "notas": {
+    "fichas": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 8: treze fichas Zumbi 2/2 viradas; flashback {7}{B}{B}{B}.",
+   "porque": "Treze Zumbis sem decayed: treze gatilhos futuros da Wilhelt."
+  },
+  "Baleful Mastery": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 4, ou de 2 dando uma carta a um oponente: exila criatura ou planeswalker.",
+   "porque": "Remoção que exila, por duas manas.",
+   "caro_por_desenho": true
+  },
+  "Go for the Throat": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: destrói criatura que não é artefato.",
+   "porque": "Remoção barata."
+  },
+  "Lich-Knights' Conquest": {
+   "notas": {
+    "recursao": 3,
+    "sacrificio": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 5: sacrifique artefatos, encantamentos ou fichas; devolva do cemitério ao campo o mesmo número de criaturas.",
+   "porque": "As fichas viram criaturas de carta.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Reanimate": {
+   "notas": {
+    "recursao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 1: uma criatura de qualquer cemitério para o seu campo; você perde vida igual ao valor dela.",
+   "porque": "Recursão por uma mana."
+  },
+  "Toxic Deluge": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: pague X de vida; todas as criaturas −X/−X.",
+   "porque": "Escolhe o tamanho: X pequeno mata as fichas deles e poupa quem tem resistência maior.",
+   "massa": true
+  },
+  "Victimize": {
+   "notas": {
+    "recursao": 3,
+    "sacrificio": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: sacrifique uma criatura e devolva duas do cemitério ao campo, viradas.",
+   "porque": "A ficha decayed paga duas criaturas.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Empty the Laboratory": {
+   "notas": {
+    "sacrificio": 2,
+    "fichas": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de X+2: sacrifique X Zumbis e revele cartas até achar X criaturas Zumbi, que entram no campo.",
+   "porque": "Fichas viram Zumbis de carta, e cada sacrifício dispara a Wilhelt.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Malakir Rebirth": {
+   "notas": {
+    "recursao": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 1: perca 2; a criatura volta ao campo virada se morrer neste turno. Verso: terreno virado de {B}.",
+   "porque": "Salva uma peça, ou vira terreno."
+  },
+  "Rise of the Dread Marn": {
+   "notas": {
+    "fichas": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3, prenunciar {B}: uma ficha Zumbi 2/2 por criatura não-ficha que morreu no turno.",
+   "porque": "Resposta à limpeza: a horda volta na mesma hora."
+  },
+  "Withering Torment": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: destrói criatura ou encantamento; você perde 2.",
+   "porque": "Remoção flexível."
+  },
+  "Living Death": {
+   "notas": {
+    "removal": 1,
+    "recursao": 3,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 5: cada jogador exila as criaturas do cemitério, sacrifica as do campo e põe as exiladas no campo.",
+   "porque": "Simétrica: devolve também as criaturas dos oponentes."
+  },
+  "Damnation": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 4: destrói todas as criaturas.",
+   "porque": "Segunda limpeza simétrica num deck de mesa larga.",
+   "massa": true,
+   "prioridade": 4
+  },
+  "Necrotic Hex": {
+   "notas": {
+    "removal": 2,
+    "fichas": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 7: cada jogador sacrifica seis criaturas; você cria seis fichas Zumbi 2/2 viradas.",
+   "porque": "Sete manas para um efeito simétrico.",
+   "massa": true,
+   "prioridade": 1
+  },
+  "Phyrexian Altar": {
+   "notas": {
+    "ramp": 2,
+    "sacrificio": 3,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato de 3. Sacrifique uma criatura: uma mana de qualquer cor.",
+   "porque": "Peça dos laços do Gravecrawler e da Relentless Dead.",
+   "marcas": {
+    "saida": 1,
+    "combo": 1
+   }
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Wilhelt no turno 3."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Artefato de 2: mana da identidade.",
+   "porque": "Pedra de cor."
+  },
+  "Ashnod's Altar": {
+   "notas": {
+    "ramp": 2,
+    "sacrificio": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 3. Sacrifique uma criatura: {C}{C}.",
+   "porque": "Com o Gravecrawler e a Rooftop Storm, mana incolor e mortes infinitas (Commander Spellbook 2034-2452-2577).",
+   "marcas": {
+    "saida": 1,
+    "combo": 1
+   }
+  },
+  "Cursecloth Wrappings": {
+   "notas": {
+    "recursao": 2,
+    "fichas": 1,
+    "senhores": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 4: seus Zumbis +1/+1. Vira: uma criatura do seu cemitério ganha embalsamar pelo custo de mana dela.",
+   "porque": "Senhor e recursão: a cópia embalsamada é um Zumbi sem decayed.",
+   "marcas": {
+    "senhor": 1
+   },
+   "pacote": "senhores"
+  },
+  "Dimir Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 2. {1}, vira: {U}{B}.",
+   "porque": "Pedra de cor."
+  },
+  "Talisman of Dominance": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 2: {C}, ou {U} ou {B} com 1 de dano.",
+   "porque": "Pedra de cor."
+  },
+  "Urza's Incubator": {
+   "notas": {
+    "ramp": 2,
+    "senhores": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 3: escolhido um tipo, criaturas desse tipo custam {2} a menos.",
+   "porque": "Ramp tribal: cada Zumbi sai duas manas mais barato."
+  },
+  "Wand of Orcus": {
+   "notas": {
+    "fichas": 2,
+    "senhores": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento lendário de 3, equipar {3}: ao atacar ou bloquear, a equipada e seus Zumbis ganham toque mortífero; dano de combate a um jogador: um Zumbi 2/2 por ponto.",
+   "porque": "Num Zumbi voador, cada ataque vira horda."
+  },
+  "Crowded Crypt": {
+   "notas": {
+    "ramp": 1,
+    "fichas": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3: {B}; um marcador por criatura sua que morre; {4}{B}{B}, vira, sacrifique: uma ficha Zumbi decayed por marcador.",
+   "porque": "Pedra que vira horda tarde; as fichas são decayed."
+  },
+  "Pyre of Heroes": {
+   "notas": {
+    "draw": 1,
+    "sacrificio": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 2. {2}, vira, sacrifique uma criatura: busca para o campo uma criatura do mesmo tipo de valor um a mais, como feitiço.",
+   "porque": "Escada de Zumbis, mas lenta: duas manas, virar e só como feitiço.",
+   "marcas": {
+    "saida": 1
+   },
+   "prioridade": 6
+  },
+  "Midnight Clock": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Artefato de 3: {U}; no 12º marcador, embaralha mão e cemitério e compra sete.",
+   "porque": "Pedra lenta, sem tema.",
+   "prioridade": 3
+  },
+  "Rooftop Storm": {
+   "notas": {
+    "ramp": 2,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 6: suas mágicas de criatura Zumbi podem custar {0}.",
+   "porque": "Com o Acererak, vence; com o Gravecrawler e o Ashnod's Altar, mana infinita.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Dictate of Erebos": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 5 com lampejo: criatura sua morre, cada oponente sacrifica uma criatura.",
+   "porque": "Cada ficha decayed vira um edito: é o controle de mesa que a fase do meio pede."
+  },
+  "Kindred Discovery": {
+   "notas": {
+    "draw": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 5: escolhido um tipo, compre sempre que uma criatura sua desse tipo entra ou ataca.",
+   "porque": "As fichas contam. A compra é obrigatória: num laço infinito, compra o grimório."
+  },
+  "Liliana, Death's Majesty": {
+   "notas": {
+    "recursao": 2,
+    "fichas": 2,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Planeswalker de 5. +1: uma ficha Zumbi 2/2 e moa duas; −3: uma criatura do seu cemitério volta como Zumbi; −7: destrói as criaturas que não são Zumbi.",
+   "porque": "Zumbi todo turno, e recursão."
+  },
+  "Necroduality": {
+   "notas": {
+    "fichas": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 4: Zumbi seu não-ficha entra, uma ficha cópia dele.",
+   "porque": "A cópia não tem decayed: dispara a Wilhelt. Com a Relentless Dead e um altar, combo.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Necropotence": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3 ({B}{B}{B}): pule a compra; pague 1 de vida: uma carta, que vai para a mão no seu passo final.",
+   "porque": "Compra em massa. Game Changer."
+  },
+  "Rhystic Study": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: oponente conjura, você compra, a menos que ele pague {1}.",
+   "porque": "Compra constante. Game Changer."
+  },
+  "Dreadhorde Invasion": {
+   "notas": {
+    "fichas": 2,
+    "senhores": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 2: na manutenção, perca 1 e amass Zombies 1; ficha Zumbi de força 6 ou mais atacando ganha vínculo.",
+   "porque": "O Exército é um Zumbi sem decayed: cresce sozinho e, ao morrer, dispara a Wilhelt."
+  },
+  "Endless Ranks of the Dead": {
+   "notas": {
+    "fichas": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 4: na manutenção, fichas Zumbi 2/2 em número igual à metade dos seus Zumbis.",
+   "porque": "Fichas sem decayed todo turno; precisa de mesa."
+  },
+  "Funeral Room // Awakening Hall": {
+   "notas": {
+    "recursao": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sala de 3: criatura sua morre, cada oponente perde 1 e você ganha 1. A outra porta, de 8, devolve ao campo todas as criaturas do seu cemitério.",
+   "porque": "Dreno genérico; a vida que devolve paga o Augur nos laços.",
+   "marcas": {
+    "dreno": 1
+   },
+   "pacote": "fechamento"
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Mana da identidade.",
+   "porque": "A melhor dual do deck."
+  },
+  "Barad-dûr": {
+   "notas": {
+    "fichas": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{B}; virado sem criatura lendária; {X}{X}{B}, vira: amass Orcs X, se uma criatura morreu no turno.",
+   "porque": "Com a Wilhelt em campo, entra desvirado. As fichas são Orc, não Zumbi."
+  },
+  "Choked Estuary": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U} ou {B}; virado sem revelar Island ou Swamp.",
+   "porque": "Quase sempre desvirado."
+  },
+  "Clearwater Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U} ou {B}, uma face.",
+   "porque": "Desvirado."
+  },
+  "Darkslick Shores": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U} ou {B}; virado com mais de dois outros terrenos.",
+   "porque": "Bom no começo."
+  },
+  "Darkwater Catacombs": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{1}, vira: {U}{B}.",
+   "porque": "Filtra as duas cores."
+  },
+  "Dimir Aqueduct": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sempre virado; devolve um terreno; {U}{B}.",
+   "porque": "Duas manas numa vaga.",
+   "virado": true
+  },
+  "Exotic Orchard": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Uma cor que os terrenos dos oponentes gerem.",
+   "porque": "Depende da mesa."
+  },
+  "Gloomlake Verge": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U}; {B} com Island ou Swamp.",
+   "porque": "Desvirado."
+  },
+  "Island": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  },
+  "River of Tears": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{U}; {B} se você jogou terreno no turno.",
+   "porque": "Desvirado, mas o preto vem só no turno do terreno."
+  },
+  "Shipwreck Marsh": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U} ou {B}; virado com menos de dois outros terrenos.",
+   "porque": "Bom do turno 3 em diante."
+  },
+  "Sunken Hollow": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Island Swamp; virado com menos de dois básicos.",
+   "porque": "Só 10 básicos: entra virado no começo."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  },
+  "Tainted Isle": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}; {U} ou {B} com Swamp.",
+   "porque": "Seis Swamps: quase sempre de cor."
+  },
+  "Unclaimed Territory": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}; qualquer cor para criaturas do tipo escolhido.",
+   "porque": "Escolhendo Zombie, colore quase todo o deck."
+  },
+  "Accursed Duneyard": {
+   "notas": {
+    "recursao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; {2}, vira: regenera um Zumbi, ou outro morto-vivo.",
+   "porque": "Protege a peça-chave."
+  },
+  "Bojuka Bog": {
+   "notas": {
+    "ramp": -1,
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {B}; ao entrar, exila o cemitério de um jogador.",
+   "porque": "Ódio de cemitério.",
+   "virado": true
+  },
+  "Hostile Hostel": {
+   "notas": {
+    "sacrificio": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; {1}, vira, sacrifique uma criatura: marcador; com três, vira a Creeping Inn, 3/7 que drena ao atacar.",
+   "porque": "Saída de sacrifício cara, só como feitiço.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Mortuary Mire": {
+   "notas": {
+    "ramp": -1,
+    "recursao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {B}; ao entrar, uma criatura do cemitério para o topo do grimório.",
+   "porque": "Recursão lenta.",
+   "virado": true
+  },
+  "Path of Ancestry": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: mana da identidade; vidência 1 ao conjurar um Zumbi com ela.",
+   "porque": "Lento.",
+   "virado": true
+  },
+  "Temple of Deceit": {
+   "notas": {
+    "ramp": -1,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {U} ou {B}; vidência 1.",
+   "porque": "Dual lenta.",
+   "virado": true
+  },
+  "Esper Panorama": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "{C}; {1}, vira, sacrifique: um básico virado.",
+   "porque": "Só 10 básicos, e é lento e incolor.",
+   "prioridade": 1
+  },
+  "Lonely Sandbar": {
+   "notas": {
+    "ramp": -1,
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Sempre virado: {U}; ciclagem {U}.",
+   "porque": "Terreno virado de uma cor só.",
+   "virado": true,
+   "prioridade": 2
+  },
+  "Myriad Landscape": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Sempre virado: {C}; {2}, vira, sacrifique: dois básicos do mesmo tipo, virados.",
+   "porque": "Três manas para virar dois terrenos.",
+   "virado": true,
+   "prioridade": 3
+  }
+ },
+ "radar": {
+  "The Scarab God": {
+   "notas": {
+    "recursao": 3,
+    "fichas": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Deus lendário 5/5 de 5. Na sua manutenção, cada oponente perde X e você vidência X, X o número dos seus Zumbis. {2}{U}{B}: exila uma criatura de qualquer cemitério e cria uma ficha cópia, Zumbi 4/4 preta. Morrendo, volta à mão no fim do turno.",
+   "porque": "Sugestão do dono, nas três fontes: dreno que cresce com a horda, e fichas 4/4 sem decayed, que disparam a Wilhelt. Saem sete manas simétricas.",
+   "sai": "Necrotic Hex",
+   "marcas": {
+    "dreno": 1
+   }
+  },
+  "Lazotep Quarry": {
+   "notas": {
+    "recursao": 2,
+    "sacrificio": 1,
+    "fichas": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Deserto: {C}; vira, sacrifique uma criatura: uma mana de qualquer cor; {X}{2}, vira, sacrifique um Deserto: exila uma criatura de valor X do seu cemitério e cria uma cópia, Zumbi 4/4, como feitiço.",
+   "porque": "Sugestão do dono, nas três fontes: saída de sacrifício e recursão na vaga de um terreno lento.",
+   "sai": "Esper Panorama",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Death Baron": {
+   "notas": {
+    "senhores": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Zumbi Mago 2/2 de 3. Seus Esqueletos e seus outros Zumbis +1/+1 e toque mortífero.",
+   "porque": "Senhor que dá toque mortífero às fichas. Nas três fontes.",
+   "sai": "Blood Scrivener",
+   "marcas": {
+    "senhor": 1
+   }
+  },
+  "Cryptbreaker": {
+   "notas": {
+    "draw": 2,
+    "sacrificio": 1,
+    "fichas": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Zumbi 1/1 de 1. {1}{B}, vira, descarte uma carta: uma ficha Zumbi 2/2; vire três Zumbis seus: compre e perca 1.",
+   "porque": "Zumbi de uma mana que cria fichas e compra, no lugar de um de quatro que precisa conectar. Nas três fontes.",
+   "sai": "Liliana's Reaver"
+  },
+  "Vengeful Dead": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Zumbi 3/2 de 4. Ele ou outro Zumbi morre: cada oponente perde 1.",
+   "porque": "O mesmo dreno do Funeral Room, mas Zumbi, como o dono prefere; as fichas decayed contam. Fonte A; B e C também o citam.",
+   "sai": "Funeral Room // Awakening Hall",
+   "marcas": {
+    "dreno": 1,
+    "combo": 1
+   }
+  },
+  "Lord of the Accursed": {
+   "notas": {
+    "senhores": 3,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Zumbi 2/3 de 3. Seus outros Zumbis +1/+1; {1}{B}, vira: todos os Zumbis ganham ameaça.",
+   "porque": "Senhor que faz a horda passar. Fontes B e C.",
+   "sai": "Pyre of Heroes",
+   "marcas": {
+    "senhor": 1
+   }
+  },
+  "Cemetery Reaper": {
+   "notas": {
+    "removal": 1,
+    "recursao": 1,
+    "fichas": 2,
+    "senhores": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Zumbi 2/2 de 3. Seus outros Zumbis +1/+1; {2}{B}, vira: exila uma criatura de um cemitério e cria uma ficha Zumbi 2/2.",
+   "porque": "Senhor que cria fichas sem decayed e esvazia o cemitério dos oponentes. Fontes B e C.",
+   "sai": "Tainted Adversary",
+   "marcas": {
+    "senhor": 1
+   }
+  },
+  "Accursed Marauder": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Zumbi Guerreiro 2/1 de 2. Ao entrar, cada jogador sacrifica uma criatura não-ficha.",
+   "porque": "Edito que é Zumbi, no lugar de uma limpeza que leva a sua mesa: você sacrifica o Gravecrawler, que volta. Fonte A.",
+   "sai": "Damnation"
+  },
+  "Skullclamp": {
+   "notas": {
+    "draw": 3,
+    "sacrificio": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Equipamento de 1, equipar {1}: +1/−1; a equipada morre, compre duas.",
+   "porque": "Numa ficha decayed que ataca e é sacrificada, ou num Zumbi 1/1, que morre na hora, vira duas cartas. Não é Zumbi, mas é o tema 2 do dono. Fontes B e C.",
+   "sai": "Midnight Clock"
+  },
+  "Watery Grave": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno de choque Island Swamp: pague 2 ou entra virado.",
+   "porque": "Dual desvirada no lugar de um terreno virado de uma cor. Fonte B.",
+   "sai": "Lonely Sandbar"
+  },
+  "Underground Sea": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Dual original Island Swamp, sempre desvirada.",
+   "porque": "Idem; qualquer dual U/B desvirada cumpre quase o mesmo papel. Fonte B.",
+   "sai": "Myriad Landscape"
+  },
+  "Roaming Throne": {
+   "notas": {
+    "draw": 1,
+    "fichas": 2,
+    "senhores": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Golem 4/4 de 4 com ward {2}. Escolhe um tipo e passa a ser dele; gatilho de outra criatura sua desse tipo dispara uma vez a mais.",
+   "porque": "Escolhendo Zombie, dobra a Wilhelt, o Captain, o Belcher e o Headless Rider; dobra também as compras obrigatórias do Augur. Fontes A e C."
+  },
+  "Grave Titan": {
+   "notas": {
+    "fichas": 3,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Gigante 6/6 de 6 com toque mortífero. Ao entrar ou atacar, duas fichas Zumbi 2/2.",
+   "porque": "Não é Zumbi, mas cria Zumbis sem decayed. Fonte A; B recusa por não ser Zumbi."
+  },
+  "Noxious Ghoul": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi 3/3 de 5. Ele ou outro Zumbi entra: as criaturas que não são Zumbi ganham −1/−1 até o fim do turno.",
+   "porque": "Limpeza que poupa os Zumbis, mas também mata o Geralf, a Gisa e o Mirkwood Bats. Fontes B e C.",
+   "massa": true
+  },
+  "Zombie Apocalypse": {
+   "notas": {
+    "recursao": 3,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 6: as criaturas Zumbi do seu cemitério voltam ao campo viradas; depois, destrói todos os Humanos.",
+   "porque": "Recursão em massa só sua, mas mata o Geralf e a Gisa, que são Humanos. Fontes B e C."
+  },
+  "Postmortem Professor": {
+   "notas": {
+    "recursao": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi Bruxo 2/2 de 2 que não bloqueia. Ao atacar, cada oponente perde 1 e você ganha 1; {1}{B}, exile instantânea ou feitiço do cemitério: volta ao campo.",
+   "porque": "Zumbi de duas manas que drena e volta sozinho. Fonte A."
+  },
+  "Undead Hand Ninja": {
+   "notas": {
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi Ninja 2/1 de 2 com toque mortífero. Criaturas saem do seu cemitério: cada oponente perde 1 e você ganha 1.",
+   "porque": "No laço do Gravecrawler, cada volta drena a mesa e paga a vida do Augur. Banco de B.",
+   "marcas": {
+    "dreno": 1,
+    "combo": 1
+   }
+  },
+  "Grim Reaper's Scythe": {
+   "notas": {
+    "recursao": 1,
+    "sacrificio": 1,
+    "fichas": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato lendário de 3. Criaturas saem do seu cemitério: uma ficha Zumbi 2/2; {3}{B}, vira, sacrifique duas criaturas: devolve uma criatura com marcador de finalidade, como feitiço.",
+   "porque": "Cada volta do Gravecrawler vira uma ficha sem decayed. Banco de B."
+  },
+  "Prized Amalgam": {
+   "notas": {
+    "recursao": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi 3/3 de 3. Uma criatura entra vinda do seu cemitério, ou conjurada dele: ele volta do cemitério virado no fim do turno.",
+   "porque": "Volta sozinho com o Gravecrawler, o Zul Ashur e o Reanimate. Banco de B."
+  },
+  "Midnight Reaper": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi Cavaleiro 3/2 de 3. Criatura sua não-ficha morre: 1 de dano em você e compre.",
+   "porque": "Repete o Undead Augur, mas não conta fichas. Fonte C; banco de B."
+  },
+  "Gisa and Geralf": {
+   "notas": {
+    "recursao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Humanos Magos lendários 4/4 de 4. Ao entrar, moa quatro; uma vez em cada turno seu, conjure uma criatura Zumbi do cemitério.",
+   "porque": "Recursão como a do Zul Ashur. Fonte C; A deixa para depois."
+  },
+  "Tomb Tyrant": {
+   "notas": {
+    "recursao": 2,
+    "sacrificio": 1,
+    "senhores": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi Nobre 3/3 de 4. Seus outros Zumbis +1/+1; {2}{B}, vira, sacrifique uma criatura: um Zumbi aleatório do cemitério ao campo, no seu turno e com três Zumbis lá.",
+   "porque": "Senhor e recursão. Fonte C.",
+   "marcas": {
+    "senhor": 1
+   }
+  },
+  "Liliana, Dreadhorde General": {
+   "notas": {
+    "draw": 3,
+    "fichas": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Planeswalker de 6. Criatura sua morre: compre. +1: uma ficha Zumbi 2/2; −4: cada jogador sacrifica duas criaturas.",
+   "porque": "Compra por qualquer morte, decayed inclusive. Não é Zumbi e custa 6. Banco de B."
+  },
+  "Drivnod, Carnage Dominus": {
+   "notas": {
+    "draw": 1,
+    "fichas": 1,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Horror Phyrexiano lendário 8/3 de 5. Gatilhos de morte de criatura das suas permanentes disparam uma vez a mais.",
+   "porque": "Dobra a Wilhelt, o Augur e os drenos. Não é Zumbi. Banco de B."
+  },
+  "Fleshbag Marauder": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi Guerreiro 3/1 de 3. Ao entrar, cada jogador sacrifica uma criatura.",
+   "porque": "Edito em que você paga com uma ficha. Fonte C."
+  },
+  "Ravenous Rotbelly": {
+   "notas": {
+    "removal": 2,
+    "sacrificio": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi Horror 4/5 de 5. Ao entrar, sacrifique até três Zumbis: cada oponente sacrifica o mesmo número de criaturas.",
+   "porque": "Três fichas viram três editos em cada oponente. Fonte A, para uma próxima rodada.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Warren Soultrader": {
+   "notas": {
+    "ramp": 1,
+    "sacrificio": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi Goblin Mago 3/3 de 3. Pague 1 de vida, sacrifique outra criatura: um Tesouro.",
+   "porque": "Saída de sacrifício que dá mana, e é Zumbi. Com o Gravecrawler, cada volta custa vida: não é infinito sem ganho de vida, ao contrário do que diz C.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Scourge of Nel Toth": {
+   "notas": {
+    "recursao": 2,
+    "sacrificio": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Zumbi Dragão 6/6 de 7 com voar; conjurável do cemitério por {B}{B} e dois sacrifícios.",
+   "porque": "Volta comendo duas fichas decayed. Banco de B.",
+   "caro_por_desenho": true
+  },
+  "Feed the Swarm": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 2: destrói criatura ou encantamento de um oponente; você perde vida igual ao valor dele.",
+   "porque": "Remoção barata, mas não é Zumbi. B a deixa de fora."
+  },
+  "Lord of the Undead": {
+   "notas": {
+    "recursao": 2,
+    "senhores": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Zumbi 2/2 de 3. Os outros Zumbis, de todos os jogadores, +1/+1; {1}{B}, vira: um Zumbi do cemitério para a mão.",
+   "porque": "Fortalece também os Zumbis dos oponentes. B recusa; C o sugere."
+  },
+  "Poppet Stitcher": {
+   "notas": {
+    "fichas": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Humano Mago de 3. Você conjura instantânea ou feitiço: uma ficha Zumbi decayed.",
+   "porque": "Só faz fichas decayed, e pede mágicas que o deck não tem. B recusa."
+  },
+  "Ghoulish Procession": {
+   "notas": {
+    "fichas": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 2: criaturas não-ficha morrem, uma ficha Zumbi decayed, uma vez por turno.",
+   "porque": "Só fichas decayed, uma por turno. B recusa."
+  },
+  "Undead Alchemist": {
+   "notas": {
+    "fichas": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Zumbi 4/2 de 4. Dano de combate dos seus Zumbis a um jogador vira moagem; criatura moída de oponente vira ficha Zumbi.",
+   "porque": "Troca o dano de combate da horda por moagem. B recusa."
+  },
+  "Blood Artist": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Vampiro 0/1 de 2. Ele ou outra criatura morre: um jogador perde 1 e você ganha 1.",
+   "porque": "Funciona, mas não é Zumbi; o Vengeful Dead faz o mesmo papel, como o dono prefere."
+  },
+  "Zulaport Cutthroat": {
+   "notas": {
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Humano 1/1 de 2. Ele ou outra criatura sua morre: cada oponente perde 1 e você ganha 1.",
+   "porque": "Idem: não é Zumbi."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Masmorra sem fim",
+   "tipo": "Combo",
+   "pecas": [
+    "Acererak the Archlich",
+    "Rooftop Storm"
+   ],
+   "texto": "Com a Rooftop Storm, o Acererak custa {0}: entra, volta à mão e explora a masmorra, sem fim. Cada travessia da Lost Mine of Phandelver (quatro conjurações) passa pelo Dark Pool, que tira 1 de cada oponente, e termina comprando uma carta. Commander Spellbook 1824-2452. Nunca entre na Tomb of Annihilation."
+  },
+  {
+   "nome": "O laço do Gravecrawler",
+   "tipo": "Combo",
+   "pecas": [
+    "Gravecrawler",
+    "Phyrexian Altar"
+   ],
+   "texto": "Com outro Zumbi em campo: sacrifique o Gravecrawler por {B} e conjure-o de novo do cemitério. Mortes infinitas (Commander Spellbook 2577-4050); com a Wilhelt, mana infinita; com o Diregraf Captain ou o Plague Belcher, vence. Sacrifique o Undead Augur antes: a compra dele é obrigatória."
+  },
+  {
+   "nome": "Mana incolor infinita",
+   "tipo": "Combo",
+   "pecas": [
+    "Gravecrawler",
+    "Rooftop Storm",
+    "Ashnod's Altar"
+   ],
+   "texto": "O Gravecrawler sai de graça do cemitério, e o altar dá {C}{C} por morte. Commander Spellbook 2034-2452-2577."
+  },
+  {
+   "nome": "Relentless em laço",
+   "tipo": "Combo",
+   "pecas": [
+    "Relentless Dead",
+    "Necroduality",
+    "Phyrexian Altar"
+   ],
+   "texto": "A cópia da Relentless Dead, ao morrer, paga {2} para devolver a original ao campo, e a Necroduality faz outra cópia. Mortes infinitas. Commander Spellbook 945-1303-4050."
+  },
+  {
+   "nome": "Relentless com Ashnod",
+   "tipo": "Combo",
+   "pecas": [
+    "Relentless Dead",
+    "Necroduality",
+    "Ashnod's Altar"
+   ],
+   "texto": "O mesmo laço com o Ashnod's Altar sobra mana incolor a cada volta. Commander Spellbook 945-1303-2034."
+  },
+  {
+   "nome": "Relentless de graça",
+   "tipo": "Combo",
+   "pecas": [
+    "Relentless Dead",
+    "Rooftop Storm",
+    "Phyrexian Altar"
+   ],
+   "texto": "Ao morrer, a Relentless Dead volta à mão por {B} e sai de graça pela Rooftop Storm. Commander Spellbook 945-2452-4050."
+  },
+  {
+   "nome": "Cada morte vale três",
+   "tipo": "Motor",
+   "pecas": [
+    "Wilhelt, the Rotcleaver",
+    "Undead Augur"
+   ],
+   "texto": "Zumbi sem decayed morre: uma ficha decayed e uma carta; quando a ficha morre, outra carta."
+  },
+  {
+   "nome": "Fichas que drenam",
+   "tipo": "Motor",
+   "pecas": [
+    "Diregraf Colossus",
+    "Mirkwood Bats"
+   ],
+   "texto": "Cada Zumbi conjurado cria uma ficha, e cada ficha criada tira 1 de cada oponente. No laço do Acererak com a Rooftop Storm, fecha a mesa sem combate (fonte A)."
+  },
+  {
+   "nome": "Dreno em dobro",
+   "tipo": "Motor",
+   "pecas": [
+    "Necroduality",
+    "Gray Merchant of Asphodel"
+   ],
+   "texto": "A cópia do Gray Merchant também drena, e o custo de mana dela também conta na devoção."
+  },
+  {
+   "nome": "Ficha vira carta",
+   "tipo": "Motor",
+   "pecas": [
+    "Skullclamp",
+    "Wilhelt, the Rotcleaver"
+   ],
+   "texto": "Numa ficha decayed que ataca e é sacrificada, ou num Zumbi 1/1, o Skullclamp compra duas. O Skullclamp é do radar."
+  },
+  {
+   "nome": "Horda que drena",
+   "tipo": "Motor",
+   "pecas": [
+    "The Scarab God",
+    "Army of the Damned"
+   ],
+   "texto": "Na manutenção, cada oponente perde 1 por Zumbi seu: com as treze fichas, 13 de cada. O Scarab God é do radar."
+  },
+  {
+   "nome": "Armadilha: compra obrigatória nos laços",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Undead Augur",
+    "Kindred Discovery"
+   ],
+   "texto": "Nenhum dos dois tem \"pode\": num laço infinito, compram o grimório, e o Augur ainda tira 1 de vida por morte. Sacrifique o Augur antes e feche por um dreno em todos (Plague Belcher, Vengeful Dead)."
+  },
+  {
+   "nome": "Armadilha: Living Death",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Living Death",
+    "Wilhelt, the Rotcleaver"
+   ],
+   "texto": "Devolve também as criaturas dos oponentes e sacrifica a sua mesa: só vale com o seu cemitério bem maior que o deles."
+  }
+ ]
+}
