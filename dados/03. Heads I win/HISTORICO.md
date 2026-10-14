@@ -9,3 +9,7 @@
 - 12 combos, motores e armadilhas. O Frenetic Efreet fecha combo com o Okaun, a Tavern Scoundrel e a Chance Encounter (Commander Spellbook), e o Niv-Mizzet com a Curiosity. Armadilhas: o Cursed Mirror num comandante e o Blasphemous Act, que leva os comandantes.
 - No 8×8, o Shadowspear e o Temur Battle Rage contam em Evasão, pelo atropelar, e a Chance Encounter em Fechamento, porque vence o jogo.
 - Tema "Moeda Viciada": o gibi gosmento do Krark's Thumb, verde-ácido sobre ciano, fonte Creepster. Motivos novos no motor: gráfico "moedas" (pilhas de moedas que crescem com a soma das notas; na mais alta, a moeda do topo salta; o Thumb cunhado no medalhão do placar) e textura "gosma". O motor também passou a ler a parceria nas faces das cartas reversíveis, como os comandantes deste Secret Lair.
+
+## Comunidade, 14/10/2026
+
+- Lida a página de moedas do Okaun e do Zndrsplt no edh.wiki (temas: Caos 62%, Moedas 14%, Voltron 4%, Combo 3%, Compra de cartas 2%). Vinte e quatro potenciais; seis foram ao radar, para avaliar, com o ok do dono (Soul's Fire, Kazuul's Fury, Chaotic Strike, Relentless Assault, Tezzeret the Seeker e Brotherhood Regalia), e dezoito ficam em `comunidade.json`, com Creepy Doll, Goblin Bomb e Chaotic Goo no topo; as cartas novas da página têm sinergia negativa e ficaram de fora. Karplusan Minotaur (+71%), Goblin Kaboomist (+45%), Game of Chaos (+56%), Boompile (+54%) e Mana Clash (+38%) têm sinergia alta, mas seguem como estavam, na fila de corte ou fora do radar: o número mede presença, não força, e carta de pré-construído aparece inflada.
