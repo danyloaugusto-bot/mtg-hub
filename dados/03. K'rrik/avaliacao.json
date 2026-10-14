@@ -1,0 +1,1650 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana, rituais e redutores. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra de cartas."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal Pontual",
+   "ab": "R. pont.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção de alvo único."
+  },
+  {
+   "k": "global",
+   "nome": "Removal Global",
+   "ab": "R. glob.",
+   "desc": "Limpezas; as que matam o K'rrik valem menos."
+  },
+  {
+   "k": "drain",
+   "nome": "Drain",
+   "ab": "Drain",
+   "desc": "Ganho de vida que vira perda dos oponentes, e o contrário."
+  },
+  {
+   "k": "tutor",
+   "nome": "Tutor + Reanimator",
+   "ab": "Tutor",
+   "desc": "Busca e reanimação."
+  },
+  {
+   "k": "wincon",
+   "nome": "WinCon",
+   "ab": "WinCon",
+   "desc": "Laços e fechamentos."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Protege o K'rrik e os motores; ódio de cemitério."
+  }
+ ],
+ "marcadores": {
+  "combo": {
+   "nome": "Peça de laço"
+  },
+  "resposta": {
+   "nome": "Remoção instantânea"
+  },
+  "contra": {
+   "nome": "Trabalha contra o K'rrik"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 32,
+   "alerta": "32 terrenos e o Boggart Trawler: abaixo da referência de propósito, porque o K'rrik paga os {B} com vida."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 8,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de draw dedicada",
+    "fontes de draw dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "separada": true,
+   "massa_max": 4,
+   "massa_ref": [
+    2,
+    4
+   ],
+   "alerta": "As limpezas competem com a remoção pontual, e duas matam o K'rrik."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "resposta",
+   "min": 10,
+   "listar": false,
+   "rotulo": [
+    "remoção instantânea",
+    "remoções instantâneas"
+   ],
+   "texto": "Para um deck responsivo.",
+   "alerta": "Pouca resposta no turno dos outros.",
+   "ok": "O deck responde no turno dos outros."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "combo",
+   "min": 5,
+   "listar": true,
+   "rotulo": [
+    "peça de laço",
+    "peças de laço"
+   ],
+   "texto": "Só o Exquisite Blood converte perda em ganho.",
+   "ok": "Os tutores acham a peça que falta."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "contra",
+   "max": 0,
+   "listar": true,
+   "rotulo": [
+    "carta contra o K'rrik",
+    "cartas contra o K'rrik"
+   ],
+   "alerta": "Matam o comandante, travam o pagamento com vida ou pedem mana que a vida não paga.",
+   "ok": "Nada trabalha contra o comandante."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 4",
+   "plano": "Sol Ring, Jet Medallion, Dark Ritual e Arcane Signet; um motor barato (Phyrexian Arena, Preacher of the Schism); o K'rrik no turno 3 ou 4, pagando {4} e 6 de vida.",
+   "fortes": [
+    "Rituais e redutores levam o K'rrik ao turno 3.",
+    "Quatro tutores baratos: Demonic Tutor, Vampiric Tutor, Imperial Seal e Insatiable Avarice."
+   ],
+   "fracos": [
+    "32 terrenos: mão com um terreno trava o genérico.",
+    "Nenhuma proteção para o K'rrik na lista."
+   ]
+  },
+  "meio": {
+   "turnos": "5 a 7",
+   "plano": "O K'rrik em campo: cada {B} sai por 2 de vida, e o vínculo dele, o Gray Merchant, a Consuming Corruption e a Tendrils devolvem a vida. Os tutores buscam o Exquisite Blood ou a peça que falta, e a remoção instantânea segura a mesa.",
+   "fortes": [
+    "Com o K'rrik, o custo efetivo cai à metade.",
+    "Cada mágica preta põe um marcador nele: o vínculo cresce."
+   ],
+   "fracos": [
+    "Seis limpezas competem com a remoção pontual, e duas matam o K'rrik.",
+    "Vida paga demais deixa você exposto: abaixo de 15, pague em mana."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "O Exquisite Blood com o Sanguine Bond, o Vito, a Enduring Tenacity ou o Aetherflux; ou o Exsanguinate com a Cabal Stronghold e o Crypt Ghast.",
+   "fortes": [
+    "Quatro laços de duas cartas, e os tutores para montá-los.",
+    "O Aetherflux fecha também com cadeias de mágicas."
+   ],
+   "fracos": [
+    "Uma peça só converte perda em ganho: o Exquisite Blood.",
+    "Remoção de encantamento desmonta o laço."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "O vínculo e os drenos recuperam a vida, mas o deck paga vida e começa atrás."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Muita remoção pontual, e o Font of Agonies transforma a vida paga em remoção."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "Tutores e velocidade para correr, mas nenhuma anulação."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "Os tutores refazem o laço, mas ele depende de encantamentos."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Taxa de mana genérica trava o K'rrik, que só paga os {B}."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Corrida de drenos; o Exquisite Blood vence a corrida."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "O deck conjura muito também, mas não anula."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "Fecha antes das criaturas grandes."
+   }
+  ]
+ },
+ "cartas": {
+  "K'rrik, Son of Yawgmoth": {
+   "notas": {
+    "ramp": 3,
+    "drain": 2,
+    "wincon": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Horror Phyrexiano lendário 2/2 de 7 com vínculo; o custo tem três {B/P}. Cada {B} de qualquer custo pode ser pago com 2 de vida; cada mágica preta põe um marcador +1/+1 nele.",
+   "porque": "Transforma vida em mana preta: o custo efetivo do deck cai à metade, e cada mágica o deixa maior, com mais vínculo."
+  },
+  "Vito, Thorn of the Dusk Rose": {
+   "notas": {
+    "drain": 3,
+    "wincon": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Vampiro Clérigo lendário 1/3 de 3. Você ganha vida: um oponente perde o mesmo tanto. {3}{B}{B}: suas criaturas ganham vínculo até o fim do turno.",
+   "porque": "Com o Exquisite Blood, laço infinito (Commander Spellbook 314-3966).",
+   "marcas": {
+    "combo": 1
+   },
+   "pacote": "wincon"
+  },
+  "Enduring Tenacity": {
+   "notas": {
+    "drain": 3,
+    "wincon": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento Criatura Cobra 4/3 de 4. Você ganha vida: um oponente perde o mesmo tanto. Morrendo como criatura, volta como encantamento.",
+   "porque": "A peça do laço que resiste à remoção (Commander Spellbook 3966-5755).",
+   "marcas": {
+    "combo": 1
+   },
+   "pacote": "wincon"
+  },
+  "Ancient Cellarspawn": {
+   "notas": {
+    "drain": 2,
+    "wincon": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento Criatura Horror 3/3 de 3. Mágicas de Demon, Horror ou Nightmare custam {1} a menos. Você conjura uma mágica gastando menos mana que o valor dela: um oponente perde a diferença.",
+   "porque": "Cada {B} pago com vida vira dreno: um Sign in Blood pago com 4 de vida tira 2 de um oponente. O K'rrik é Horror."
+  },
+  "Crypt Ghast": {
+   "notas": {
+    "ramp": 3,
+    "drain": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Espírito 2/2 de 4 com extort. Você vira um Swamp para mana: mais {B}.",
+   "porque": "Dobra os 25 Swamps; o extort ({W/B}) sai por 2 de vida com o K'rrik."
+  },
+  "Dread Presence": {
+   "notas": {
+    "draw": 2,
+    "removal": 1,
+    "drain": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Pesadelo 3/3 de 4. Um Swamp seu entra: compre e perca 1, ou 2 de dano em qualquer alvo e ganhe 2.",
+   "porque": "25 Swamps são 25 gatilhos; o Myriad Landscape traz dois de uma vez."
+  },
+  "Gray Merchant of Asphodel": {
+   "notas": {
+    "drain": 3,
+    "wincon": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Zumbi 2/4 de 5. Ao entrar, cada oponente perde vida igual à sua devoção ao preto, e você ganha o total.",
+   "porque": "O K'rrik soma 3 de devoção, mesmo pago com vida."
+  },
+  "Preacher of the Schism": {
+   "notas": {
+    "draw": 2,
+    "drain": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro Clérigo 2/4 de 3 com toque mortífero. Atacando o jogador com mais vida: um Vampiro 1/1 com vínculo; atacando com você na frente em vida: compre e perca 1.",
+   "porque": "Motor barato. Carta de estimação.",
+   "fora_do_corte": true
+  },
+  "Aclazotz, Deepest Betrayal": {
+   "notas": {
+    "draw": 2,
+    "drain": 1,
+    "wincon": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Deus Morcego lendário 4/4 de 5 com voar e vínculo. Ao atacar, cada oponente descarta; por quem não pode, você compra. Morrendo, volta como terreno.",
+   "porque": "Valor e vínculo, mas precisa atacar."
+  },
+  "Boggart Trawler": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Goblin 3/1 de 3 que exila o cemitério de um jogador ao entrar. Verso: terreno de {B}, que entra virado se você não pagar 3 de vida.",
+   "porque": "Ódio de cemitério na vaga de um terreno."
+  },
+  "Nirkana Revenant": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Vampiro Sombra 4/4 de 6. Você vira um Swamp para mana: mais {B}. {B}: +1/+1.",
+   "porque": "Redundância do Crypt Ghast; com os dois, cada Swamp dá {B}{B}{B}."
+  },
+  "Valgavoth, Terror Eater": {
+   "notas": {
+    "drain": 2,
+    "wincon": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Demônio Ancião lendário 9/9 de 9 com voar, vínculo e ward (sacrifique três permanentes não-terreno). Exila o que os oponentes perderiam para o cemitério e, no seu turno, joga essas cartas pagando vida.",
+   "porque": "Nove manas, com só três {B} pagáveis com vida; melhor como alvo de reanimação."
+  },
+  "Liliana, Heretical Healer": {
+   "notas": {
+    "drain": 1,
+    "tutor": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Humana Clériga lendária 2/3 de 3 com vínculo. Outra criatura sua não-ficha morre: vira planeswalker e cria um Zumbi 2/2.",
+   "porque": "Lenta num deck com pouca morte."
+  },
+  "Blood Artist": {
+   "notas": {
+    "drain": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Vampiro 0/1 de 2. Ele ou outra criatura morre: um jogador perde 1 e você ganha 1.",
+   "porque": "Poucas mortes no deck.",
+   "prioridade": 15
+  },
+  "Barbed Servitor": {
+   "notas": {
+    "draw": 1,
+    "drain": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Construto artefato indestrutível 1/1 de 4, suspeito (ameaça, não bloqueia). Dano de combate a jogador: compre e perca 1; sofre dano: um oponente perde o mesmo.",
+   "porque": "Depende de combate.",
+   "prioridade": 12
+  },
+  "Unstoppable Slasher": {
+   "notas": {
+    "wincon": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Zumbi Assassino 2/3 de 3 com toque mortífero. Dano de combate a um jogador: ele perde metade da vida. Volta uma vez ao morrer.",
+   "porque": "Depende de combate.",
+   "prioridade": 13
+  },
+  "Ghoulcaller Gisa": {
+   "notas": {
+    "wincon": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Humana Maga lendária 3/4 de 5. {B}, vira, sacrifique outra criatura: X Zumbis 2/2, X a força dela.",
+   "porque": "Fora do plano: o deck tem pouca criatura para sacrificar.",
+   "prioridade": 3
+  },
+  "Ophiomancer": {
+   "notas": {
+    "protecao": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Humano Xamã 2/2 de 3. Em cada manutenção, sem Cobra, uma Cobra 1/1 com toque mortífero.",
+   "porque": "Bloqueadora, sem saída de sacrifício que a aproveite.",
+   "prioridade": 4
+  },
+  "Platinum Angel": {
+   "notas": {
+    "wincon": 1,
+    "protecao": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Anjo artefato 4/4 de 7 com voar. Você não perde o jogo, e os oponentes não vencem.",
+   "porque": "Sete manas genéricas; e com menos de 2 de vida o K'rrik não paga mais nenhum {B}.",
+   "marcas": {
+    "contra": 1
+   },
+   "prioridade": 1
+  },
+  "Dark Ritual": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Instantânea de 1: {B}{B}{B}.",
+   "porque": "Com o K'rrik, 2 de vida viram três manas pretas."
+  },
+  "Demonic Tutor": {
+   "notas": {
+    "tutor": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Feitiço de 2: qualquer carta para a mão.",
+   "porque": "Acha a peça do laço. Game Changer; carta de estimação.",
+   "fora_do_corte": true
+  },
+  "Vampiric Tutor": {
+   "notas": {
+    "tutor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 1: qualquer carta no topo do grimório; perca 2.",
+   "porque": "Tutor instantâneo. Game Changer."
+  },
+  "Imperial Seal": {
+   "notas": {
+    "tutor": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 1: qualquer carta no topo do grimório; perca 2.",
+   "porque": "Tutor por uma mana. Game Changer; carta de estimação.",
+   "fora_do_corte": true
+  },
+  "Toxic Deluge": {
+   "notas": {
+    "global": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: pague X de vida; todas as criaturas −X/−X.",
+   "porque": "Escolhe o tamanho, e o K'rrik grande sobrevive.",
+   "massa": true
+  },
+  "Baleful Mastery": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 4, ou de 2 dando uma carta a um oponente: exila criatura ou planeswalker.",
+   "porque": "Remoção que exila, por {1} e 2 de vida.",
+   "marcas": {
+    "resposta": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Consuming Corruption": {
+   "notas": {
+    "removal": 3,
+    "drain": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea {B}{B}: X de dano numa criatura ou planeswalker e você ganha X, X os seus Swamps.",
+   "porque": "De graça com o K'rrik (4 de vida), e devolve a vida com sobra.",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Deadly Rollick": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 4, grátis com um comandante seu em campo: exila uma criatura.",
+   "porque": "Remoção de graça.",
+   "marcas": {
+    "resposta": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Exsanguinate": {
+   "notas": {
+    "drain": 3,
+    "wincon": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço X{B}{B}: cada oponente perde X e você ganha o total.",
+   "porque": "Fecha a mesa; o X é genérico, o {B}{B} sai com vida."
+  },
+  "Shadows' Verdict": {
+   "notas": {
+    "global": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 5: exila criaturas e planeswalkers de valor até 3, no campo e nos cemitérios.",
+   "porque": "O K'rrik tem valor 7 e fica. Carta de estimação.",
+   "massa": true,
+   "fora_do_corte": true
+  },
+  "Erebos's Intervention": {
+   "notas": {
+    "removal": 2,
+    "drain": 1,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea X{B}: −X/−X numa criatura e ganhe X; ou exile até 2X cartas de cemitérios.",
+   "porque": "Remoção ou ódio de cemitério; o X é genérico. Carta de estimação.",
+   "marcas": {
+    "resposta": 1
+   },
+   "fora_do_corte": true
+  },
+  "Feed the Swarm": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: destrói criatura ou encantamento de um oponente; perca vida igual ao valor.",
+   "porque": "Pega encantamento."
+  },
+  "Insatiable Avarice": {
+   "notas": {
+    "draw": 2,
+    "tutor": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço de 1 com spree: +{2}, uma carta no topo do grimório; +{B}{B}, um jogador compra três e perde 3.",
+   "porque": "Tutor ou compra, ou os dois."
+  },
+  "Profane Tutor": {
+   "notas": {
+    "tutor": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Sem custo; suspender 2 por {1}{B}: qualquer carta para a mão.",
+   "porque": "Tutor lento, mas barato."
+  },
+  "Promise of Power": {
+   "notas": {
+    "draw": 3,
+    "wincon": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 5: compre cinco e perca 5, ou um Demônio voador X/X, X as cartas na mão; entrelaçar {4}.",
+   "porque": "Com o K'rrik, sai por {2} e 6 de vida; o Demônio liga o Unholy Annex."
+  },
+  "Reanimate": {
+   "notas": {
+    "tutor": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço de 1: uma criatura de qualquer cemitério para o seu campo; perca vida igual ao valor.",
+   "porque": "Reanimação por uma mana."
+  },
+  "Ritual of Soot": {
+   "notas": {
+    "global": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço de 4: destrói as criaturas de valor até 3.",
+   "porque": "Poupa o K'rrik, o Gray Merchant e o Valgavoth, mas leva o Vito e a Cellarspawn.",
+   "massa": true
+  },
+  "Sign in Blood": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço {B}{B}: um jogador compra duas e perde 2.",
+   "porque": "Grátis com o K'rrik: 4 de vida."
+  },
+  "Slaughter Pact": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 0: destrói criatura não preta; pague {2}{B} na próxima manutenção ou perca o jogo.",
+   "porque": "Grátis agora; o {B} da manutenção sai com vida.",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Sorin's Vengeance": {
+   "notas": {
+    "drain": 2,
+    "wincon": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 7: 10 de dano num jogador ou planeswalker e ganhe 10.",
+   "porque": "Com o K'rrik, {4} e 6 de vida; com o Vito ou o Bond, o ganho vira outro dreno."
+  },
+  "Suspended Sentence": {
+   "notas": {
+    "removal": 2,
+    "drain": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 4: destrói criatura de um oponente, que perde 3; suspender 3 por {1}{B}.",
+   "porque": "Remoção que drena.",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Tendrils of Corruption": {
+   "notas": {
+    "removal": 3,
+    "drain": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 4: X de dano numa criatura e ganhe X, X os seus Swamps.",
+   "porque": "Remoção que devolve vida; o {3} é genérico.",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Withering Torment": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: destrói criatura ou encantamento; perca 2.",
+   "porque": "Remoção instantânea flexível.",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Crippling Fear": {
+   "notas": {
+    "global": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 4: escolhido um tipo, as outras criaturas ganham −3/−3.",
+   "porque": "Escolhendo Horror, poupa o K'rrik e a Cellarspawn.",
+   "massa": true
+  },
+  "Deadly Dispute": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: sacrifique artefato ou criatura; compre duas e um Tesouro.",
+   "porque": "Pede sacrifício num deck com pouco a sacrificar."
+  },
+  "Call to the Void": {
+   "notas": {
+    "removal": 1,
+    "global": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 5: cada jogador escolhe em segredo uma criatura sua e uma alheia; as escolhidas morrem.",
+   "porque": "Fraca, mas é carta de estimação.",
+   "fora_do_corte": true
+  },
+  "Command the Dreadhorde": {
+   "notas": {
+    "tutor": 2,
+    "wincon": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 6: criaturas e planeswalkers de quaisquer cemitérios para o seu campo; você toma dano igual ao valor total.",
+   "porque": "Dano alto num deck que já paga com vida.",
+   "prioridade": 14
+  },
+  "Army of the Damned": {
+   "notas": {
+    "wincon": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 8: treze Zumbis 2/2 virados; flashback.",
+   "porque": "Oito manas, cinco genéricas, e nada que aproveite as fichas.",
+   "marcas": {
+    "contra": 1
+   },
+   "prioridade": 7
+  },
+  "Damnation": {
+   "notas": {
+    "global": 3
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 4: destrói todas as criaturas.",
+   "porque": "Mata o K'rrik.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 9
+  },
+  "Hex": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 6: destrói seis criaturas-alvo.",
+   "porque": "Precisa de seis alvos.",
+   "prioridade": 5
+  },
+  "Mutilate": {
+   "notas": {
+    "global": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 4: todas as criaturas −1/−1 por Swamp seu.",
+   "porque": "Com 25 Swamps, mata o K'rrik também.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 8
+  },
+  "Rise of the Dark Realms": {
+   "notas": {
+    "tutor": 2,
+    "wincon": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 9: todas as criaturas de todos os cemitérios para o seu campo.",
+   "porque": "Nove manas, sete genéricas.",
+   "marcas": {
+    "contra": 1
+   },
+   "prioridade": 6
+  },
+  "Infernal Offering": {
+   "notas": {
+    "draw": 1,
+    "tutor": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 5: você e um oponente sacrificam uma criatura e compram duas; depois cada um reanima uma.",
+   "porque": "Simétrica.",
+   "prioridade": 2
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "O genérico é o que a vida não paga."
+  },
+  "Aetherflux Reservoir": {
+   "notas": {
+    "drain": 3,
+    "wincon": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 4. Você conjura uma mágica: ganhe 1 por mágica conjurada no turno. Pague 50 de vida: 50 de dano em qualquer alvo.",
+   "porque": "Com o Exquisite Blood e 51 de vida, laço (Commander Spellbook 3966-4740).",
+   "marcas": {
+    "combo": 1
+   },
+   "pacote": "wincon"
+  },
+  "Jet Medallion": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 2: mágicas pretas custam {1} a menos.",
+   "porque": "Reduz o genérico, a parte que a vida não paga."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 2: {B}.",
+   "porque": "Pedra."
+  },
+  "Tarrian's Journal": {
+   "notas": {
+    "draw": 2,
+    "tutor": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato lendário de 2. Vira, sacrifique outro artefato ou criatura: compre, como feitiço. {2}, vira, descarte a mão: vira um terreno que conjura criaturas do cemitério.",
+   "porque": "Dupla função."
+  },
+  "Charcoal Diamond": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 2 que entra virado: {B}.",
+   "porque": "Pedra lenta."
+  },
+  "Alhammarret's Archive": {
+   "notas": {
+    "draw": 2,
+    "drain": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato lendário de 5: dobra o ganho de vida e as compras além da primeira do turno.",
+   "porque": "Cinco manas genéricas, nenhuma pagável com vida.",
+   "marcas": {
+    "contra": 1
+   },
+   "prioridade": 10
+  },
+  "Heraldic Banner": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 3: escolhida uma cor, criaturas dela +1/+0; vira: uma mana dessa cor.",
+   "porque": "Pedra de 3 num deck de poucas criaturas.",
+   "prioridade": 11
+  },
+  "Exquisite Blood": {
+   "notas": {
+    "drain": 3,
+    "wincon": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 5: um oponente perde vida, você ganha o mesmo tanto.",
+   "porque": "A metade do laço: com o Sanguine Bond, o Vito, a Enduring Tenacity ou o Aetherflux, vence.",
+   "marcas": {
+    "combo": 1
+   },
+   "pacote": "wincon"
+  },
+  "Sanguine Bond": {
+   "notas": {
+    "drain": 3,
+    "wincon": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 5: você ganha vida, um oponente perde o mesmo tanto.",
+   "porque": "Com o Exquisite Blood, laço infinito (Commander Spellbook 690-3966).",
+   "marcas": {
+    "combo": 1
+   },
+   "pacote": "wincon"
+  },
+  "Font of Agonies": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 1: você paga vida, marcadores de sangue no mesmo número. {1}{B}, remova quatro: destrói uma criatura.",
+   "porque": "Cada {B} pago com vida põe dois marcadores: duas mágicas pagas viram uma remoção. Carta de estimação.",
+   "fora_do_corte": true
+  },
+  "Phyrexian Arena": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: na manutenção, compre e perca 1.",
+   "porque": "Compra constante por {1} e 4 de vida."
+  },
+  "Grievous Wound": {
+   "notas": {
+    "drain": 2,
+    "wincon": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura de jogador de 5: ele não ganha vida; sempre que sofre dano, perde metade da vida.",
+   "porque": "Fecha um oponente. Carta de estimação.",
+   "fora_do_corte": true
+  },
+  "Liliana of the Dark Realms": {
+   "notas": {
+    "ramp": 2,
+    "removal": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Planeswalker de 4, lealdade 3. +1: um Swamp para a mão; −3: ±X/±X, X os seus Swamps; −6: emblema, Swamps dão {B}{B}{B}{B}.",
+   "porque": "Garante terreno e remove uma criatura."
+  },
+  "Ob Nixilis of the Black Oath": {
+   "notas": {
+    "drain": 2,
+    "wincon": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Planeswalker de 5, lealdade 3. +2: cada oponente perde 1 e você ganha o total; −2: um Demônio 5/5 voador, e você perde 2.",
+   "porque": "Ganho de vida recorrente que liga o Vito e o Bond; o Demônio liga o Unholy Annex."
+  },
+  "Unholy Annex // Ritual Chamber": {
+   "notas": {
+    "draw": 2,
+    "drain": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sala de 3: no seu passo final, compre; com um Demônio, cada oponente perde 2 e você ganha 2, senão você perde 2. A outra porta, de 5, cria um Demônio 6/6 voador.",
+   "porque": "Compra todo turno; o Demônio vem da própria sala, do Ob Nixilis, do Promise of Power ou do Valgavoth."
+  },
+  "Cabal Stronghold": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{C}; {3}, vira: {B} por Swamp básico seu.",
+   "porque": "Mana grande tardia, para o X do Exsanguinate."
+  },
+  "Swamp": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base, e cada um conta para a Consuming Corruption, a Tendrils e o Dread Presence. Carta de estimação.",
+   "fora_do_corte": true
+  },
+  "Urborg, Tomb of Yawgmoth": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Todo terreno é Swamp também.",
+   "porque": "Conta para a Consuming Corruption, a Tendrils e o Crypt Ghast."
+  },
+  "Bojuka Bog": {
+   "notas": {
+    "ramp": -1,
+    "protecao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {B}; ao entrar, exila o cemitério de um jogador.",
+   "porque": "Ódio de cemitério.",
+   "virado": true
+  },
+  "Mutavault": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; {1}: vira uma criatura 2/2 de todos os tipos.",
+   "porque": "Pouco valor aqui."
+  },
+  "Myriad Landscape": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {C}; {2}, vira, sacrifique: dois básicos do mesmo tipo, virados.",
+   "porque": "Dois Swamps de uma vez: dois gatilhos do Dread Presence e mais básicos para a Cabal Stronghold.",
+   "virado": true
+  },
+  "Temple of the False God": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}{C}, só com cinco terrenos.",
+   "porque": "Morto no começo."
+  },
+  "Demolition Field": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "{C}; {2}, vira, sacrifique: destrói um terreno não básico de um oponente; os dois buscam um básico.",
+   "porque": "Simétrico e lento.",
+   "prioridade": 1
+  }
+ },
+ "radar": {
+  "Bloodthirsty Conqueror": {
+   "notas": {
+    "drain": 3,
+    "wincon": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Vampiro Cavaleiro 5/5 de 5 com voar e toque mortífero. Um oponente perde vida: você ganha o mesmo tanto.",
+   "porque": "O segundo Exquisite Blood: mesmo texto, os mesmos quatro laços. Fonte B.",
+   "sai": "Platinum Angel",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Vilis, Broker of Blood": {
+   "notas": {
+    "draw": 3,
+    "removal": 1,
+    "drain": 1,
+    "wincon": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Demônio lendário 8/8 de 8 com voar. {B}, pague 2: −1/−1 numa criatura. Você perde vida: compre o mesmo tanto.",
+   "porque": "Cada {B} pago com vida compra duas; com o K'rrik, sai por {5} e 6 de vida, e é Demônio para o Unholy Annex. Nas três fontes.",
+   "sai": "Alhammarret's Archive"
+  },
+  "Bolas's Citadel": {
+   "notas": {
+    "draw": 3,
+    "wincon": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato lendário de 6. Jogue do topo do grimório, pagando vida igual ao valor da mágica; vira, sacrifique dez permanentes não-terreno: cada oponente perde 10.",
+   "porque": "Vida vira cartas; com o Sensei's Divining Top e o Aetherflux, combo (Commander Spellbook 2173-4740-5078). Game Changer, liberado pelo bracket 4. Nas três fontes.",
+   "sai": "Army of the Damned",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Sheoldred, the Apocalypse": {
+   "notas": {
+    "draw": 1,
+    "drain": 3,
+    "wincon": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Praetor Phyrexiano lendário 4/5 de 4 com toque mortífero. Você compra: ganhe 2; oponente compra: perde 2.",
+   "porque": "Cada compra devolve vida, e com o Vito ou o Bond vira dreno. Nas três fontes.",
+   "sai": "Hex"
+  },
+  "Necropotence": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento {B}{B}{B}: pule a compra; pague 1 de vida: uma carta, que chega no seu passo final.",
+   "porque": "Com o K'rrik, sai por 6 de vida, e a vida vira cartas. Game Changer, liberado pelo bracket 4. Fontes A e C.",
+   "sai": "Infernal Offering"
+  },
+  "Snuff Out": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 4, ou 4 de vida com um Swamp: destrói criatura não preta.",
+   "porque": "Remoção de graça no lugar da limpeza que mata o K'rrik. Nas três fontes.",
+   "sai": "Damnation",
+   "marcas": {
+    "resposta": 1
+   },
+   "caro_por_desenho": true
+  },
+  "Infernal Grasp": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 2: destrói uma criatura; perca 2.",
+   "porque": "Remoção instantânea por {1} e 4 de vida, no lugar da limpeza que mata o K'rrik. Fonte B.",
+   "sai": "Mutilate",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Pontiff of Blight": {
+   "notas": {
+    "drain": 3,
+    "wincon": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Zumbi Clérigo 2/7 de 6 com extort; suas outras criaturas também têm extort.",
+   "porque": "Cada mágica vira extort pago com 2 de vida; com o K'rrik e a Leshrac's Sigil, combo (Commander Spellbook 1698-2903-3260). Fontes B e C.",
+   "sai": "Barbed Servitor",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Bloodletter of Aclazotz": {
+   "notas": {
+    "drain": 3,
+    "wincon": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Vampiro Demônio 2/4 de 4 com voar. No seu turno, oponente que perderia vida perde o dobro.",
+   "porque": "Dobra o Exsanguinate, o Gray Merchant e a Sorin's Vengeance; é Demônio para o Unholy Annex. Nas três fontes.",
+   "sai": "Unstoppable Slasher"
+  },
+  "Cabal Ritual": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 2: {B}{B}{B}, ou cinco com sete cartas no seu cemitério.",
+   "porque": "Ritual por {1} e 2 de vida, no lugar de uma pedra de 3. Nas três fontes.",
+   "sai": "Heraldic Banner"
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
+   "porque": "A proteção que o K'rrik não tinha. Fontes B e C.",
+   "sai": "Ophiomancer"
+  },
+  "Sensei's Divining Top": {
+   "notas": {
+    "draw": 2,
+    "wincon": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 1. {1}: arruma as três do topo; vira: compre e ponha o Top no topo do grimório.",
+   "porque": "Com a Bolas's Citadel e o Aetherflux, ou a Sheoldred, combo: a compra só pede virar o Top (Commander Spellbook 2173-4740-5078). Fonte A, que errou a conta.",
+   "sai": "Ghoulcaller Gisa",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Cabal Coffers": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno: {2}, vira: {B} por Swamp seu.",
+   "porque": "Mana grande para o X do Exsanguinate, no lugar de um terreno simétrico. Fonte B.",
+   "sai": "Demolition Field"
+  },
+  "Malakir Rebirth": {
+   "notas": {
+    "tutor": 1,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 1: perca 2; a criatura volta ao campo virada se morrer neste turno. Verso: terreno virado de {B}.",
+   "porque": "Seguro do K'rrik que também é terreno, no lugar de nove manas. Fontes B e C.",
+   "sai": "Rise of the Dark Realms"
+  },
+  "Ancient Tomb": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno: {C}{C}, com 2 de dano.",
+   "porque": "Genérico desde o turno 1, a parte que a vida não paga. Game Changer, liberado pelo bracket 4. Fonte A.",
+   "sai": "Temple of the False God"
+  },
+  "Leshrac's Sigil": {
+   "notas": {
+    "drain": 1,
+    "wincon": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento {B}{B}; {B}{B}: volta à mão.",
+   "porque": "Com o K'rrik, conjurar e devolver custa 8 de vida e é mágica preta toda vez: com o Aetherflux ou o Pontiff, combo (Commander Spellbook 2903-3260-4740 e 1698-2903-3260). Fonte A.",
+   "sai": "Command the Dreadhorde",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Nykthos, Shrine to Nyx": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno lendário: {C}; {2}, vira: mana de uma cor igual à sua devoção a ela.",
+   "porque": "Mana grande num deck de 91 símbolos pretos. Fonte B."
+  },
+  "Night's Whisper": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 2: compre duas e perca 2.",
+   "porque": "Compra barata. Fonte B."
+  },
+  "Bitter Triumph": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 2: descarte uma carta ou pague 3 de vida; destrói criatura ou planeswalker.",
+   "porque": "Remoção instantânea. Fonte B.",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Cut Down": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: destrói criatura com força e resistência somadas até 5.",
+   "porque": "Remoção de graça com o K'rrik. Fonte B.",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Dismember": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Instantânea {1}{B/P}{B/P}: −5/−5.",
+   "porque": "Remoção de 1 mana e 4 de vida; o K'rrik não acrescenta nada, mas ela é boa sozinha. B recusa.",
+   "marcas": {
+    "resposta": 1
+   }
+  },
+  "Animate Dead": {
+   "notas": {
+    "tutor": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Aura de 2: devolve uma criatura de um cemitério ao seu campo, com −1/−0.",
+   "porque": "Reanimação barata. Fonte A."
+  },
+  "Entomb": {
+   "notas": {
+    "tutor": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: qualquer carta do grimório para o cemitério.",
+   "porque": "Põe o Vilis ou o Valgavoth no alcance do Reanimate. Fonte A."
+  },
+  "Opposition Agent": {
+   "notas": {
+    "removal": 1,
+    "tutor": 1,
+    "protecao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Humano 3/2 de 3 com lampejo. Você controla os oponentes enquanto eles buscam; o que acharem fica exilado para você jogar.",
+   "porque": "Pune os tutores alheios. Game Changer. Fonte C."
+  },
+  "Ad Nauseam": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 5: revele o topo, ponha na mão e perca vida igual ao valor; repita quantas vezes quiser.",
+   "porque": "Compra em massa, mas disputa a mesma vida que o K'rrik. Game Changer. B recusa."
+  },
+  "Blood Celebrant": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Humano Clérigo 1/1 de 1. {B}, pague 1 de vida: uma mana de qualquer cor.",
+   "porque": "Com o K'rrik, 3 de vida viram uma mana que paga genérico. Fonte C."
+  },
+  "Torment of Hailfire": {
+   "notas": {
+    "drain": 2,
+    "wincon": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço X{B}{B}: repita X vezes; cada oponente perde 3, a menos que sacrifique uma permanente não-terreno ou descarte.",
+   "porque": "Fechamento; o X é genérico, ao contrário do que diz C."
+  },
+  "Ayara, First of Locthwain": {
+   "notas": {
+    "draw": 1,
+    "drain": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elfa Nobre lendária 2/3 de 3 ({B}{B}{B}). Ela ou outra criatura preta sua entra: dreno 1; vira, sacrifique outra preta: compre.",
+   "porque": "{B}{B}{B} sai com 6 de vida. Fonte C."
+  },
+  "Imp's Mischief": {
+   "notas": {
+    "removal": 1,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 2: muda o alvo de uma mágica de alvo único; você perde vida igual ao valor dela.",
+   "porque": "Proteção do K'rrik e do laço em resposta. Fonte C."
+  },
+  "Emeritus of Woe": {
+   "notas": {
+    "tutor": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Vampiro Bruxo 5/4 de 4 que entra preparado: conjura uma cópia do Demonic Tutor; prepara de novo se duas criaturas morreram no turno.",
+   "porque": "Um Demonic Tutor a mais. Fonte B."
+  },
+  "Razaketh, the Foulblooded": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Demônio lendário 8/8 de 8 com voar e atropelar. Pague 2 de vida, sacrifique outra criatura: qualquer carta para a mão.",
+   "porque": "Tutor repetível, mas pede criaturas para sacrificar. Fonte C."
+  },
+  "Bubbling Muck": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 1: até o fim do turno, Swamp virado para mana dá {B} a mais.",
+   "porque": "Explosão de mana num turno; morta fora dele. Fonte A."
+  },
+  "Culling the Weak": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: sacrifique uma criatura; {B}{B}{B}{B}.",
+   "porque": "Ritual de sacrifício; o deck tem pouca criatura descartável. Banco de B."
+  },
+  "Magus of the Mirror": {
+   "notas": {
+    "drain": 2,
+    "wincon": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Humano Mago 4/2 de 6. Vira, sacrifique-o, na sua manutenção: troque de vida com um oponente.",
+   "porque": "Com a vida baixa de pagar o K'rrik, vira um dreno enorme. Fonte C."
+  },
+  "Repay in Kind": {
+   "notas": {
+    "drain": 2,
+    "wincon": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 7: a vida de cada jogador vira a menor da mesa.",
+   "porque": "Com a vida baixa, puxa a mesa para baixo; o Exquisite fecha depois. Fonte C."
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "O manto impede os seus próprios alvos, como o Malakir Rebirth; as Boots fazem melhor. B recusa."
+  },
+  "Lich's Mastery": {
+   "notas": {
+    "draw": 2,
+    "drain": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento lendário de 6: você não perde o jogo; ganha vida, compra; perde vida, exila uma permanente ou carta sua por ponto.",
+   "porque": "Cada vida paga exila uma permanente sua. B recusa."
+  },
+  "Necrodominance": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento lendário {B}{B}{B}: pule a compra; no passo final, pague vida e compre o mesmo tanto; o que iria ao cemitério é exilado.",
+   "porque": "Exila o seu cemitério: corta o Reanimate e a Tomb of Aclazotz. B recusa."
+  },
+  "Demon's Horn": {
+   "notas": {
+    "drain": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Artefato de 2: alguém conjura mágica preta, você pode ganhar 1.",
+   "porque": "Fraca demais. B recusa."
+  },
+  "Peer into the Abyss": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Feitiço de 7: um jogador compra metade do grimório e perde metade da vida.",
+   "porque": "Em você, corta a vida que paga as mágicas; num oponente, dá cartas a ele. B recusa; C a sugere."
+  },
+  "Skirge Familiar": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Diabrete Phyrexiano 3/2 de 5 com voar. Descarte uma carta: {B}.",
+   "porque": "Troca carta por mana; não usa vida, ao contrário do que diz C."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Laço do Bond",
+   "tipo": "Combo",
+   "pecas": [
+    "Exquisite Blood",
+    "Sanguine Bond"
+   ],
+   "texto": "Qualquer ganho de vida faz um oponente perder, o Exquisite devolve como ganho, e assim por diante. Commander Spellbook 690-3966."
+  },
+  {
+   "nome": "Laço do Vito",
+   "tipo": "Combo",
+   "pecas": [
+    "Exquisite Blood",
+    "Vito, Thorn of the Dusk Rose"
+   ],
+   "texto": "O mesmo laço, com uma criatura de 3. Commander Spellbook 314-3966."
+  },
+  {
+   "nome": "Laço da Tenacity",
+   "tipo": "Combo",
+   "pecas": [
+    "Exquisite Blood",
+    "Enduring Tenacity"
+   ],
+   "texto": "O mesmo laço; a Tenacity volta como encantamento se morrer. Commander Spellbook 3966-5755."
+  },
+  {
+   "nome": "Reservatório",
+   "tipo": "Combo",
+   "pecas": [
+    "Exquisite Blood",
+    "Aetherflux Reservoir"
+   ],
+   "texto": "Com 51 de vida, pague 50: 50 de dano num oponente, que o Exquisite devolve como vida. Commander Spellbook 3966-4740."
+  },
+  {
+   "nome": "Top, Citadel e Reservatório",
+   "tipo": "Combo",
+   "pecas": [
+    "Sensei's Divining Top",
+    "Bolas's Citadel",
+    "Aetherflux Reservoir"
+   ],
+   "texto": "Vire o Top para comprar, ele volta ao topo e sai de novo pela Citadel por 1 de vida; cada conjuração faz o Aetherflux dar mais vida. Commander Spellbook 2173-4740-5078. Top e Citadel são do radar."
+  },
+  {
+   "nome": "Sigil e Reservatório",
+   "tipo": "Combo",
+   "pecas": [
+    "K'rrik, Son of Yawgmoth",
+    "Leshrac's Sigil",
+    "Aetherflux Reservoir"
+   ],
+   "texto": "Conjure e devolva a Sigil pagando com vida; depois de algumas voltas, o Aetherflux devolve mais do que custa. Commander Spellbook 2903-3260-4740. A Sigil é do radar."
+  },
+  {
+   "nome": "Sigil e Pontiff",
+   "tipo": "Combo",
+   "pecas": [
+    "K'rrik, Son of Yawgmoth",
+    "Leshrac's Sigil",
+    "Pontiff of Blight"
+   ],
+   "texto": "Cada volta da Sigil dispara o extort, pago com vida, que drena cada oponente. Commander Spellbook 1698-2903-3260. Sigil e Pontiff são do radar."
+  },
+  {
+   "nome": "Vida vira dreno",
+   "tipo": "Motor",
+   "pecas": [
+    "K'rrik, Son of Yawgmoth",
+    "Ancient Cellarspawn"
+   ],
+   "texto": "Cada mágica paga com vida gasta menos mana que o valor dela, e um oponente perde a diferença."
+  },
+  {
+   "nome": "Vida vira remoção",
+   "tipo": "Motor",
+   "pecas": [
+    "K'rrik, Son of Yawgmoth",
+    "Font of Agonies"
+   ],
+   "texto": "Cada {B} pago com vida põe dois marcadores; quatro marcadores e {1}{B} destroem uma criatura."
+  },
+  {
+   "nome": "Swamps triplos",
+   "tipo": "Motor",
+   "pecas": [
+    "Crypt Ghast",
+    "Nirkana Revenant"
+   ],
+   "texto": "Com os dois, cada Swamp virado dá {B}{B}{B}: o Exsanguinate fica enorme."
+  },
+  {
+   "nome": "Vida vira cartas",
+   "tipo": "Motor",
+   "pecas": [
+    "K'rrik, Son of Yawgmoth",
+    "Vilis, Broker of Blood"
+   ],
+   "texto": "Cada {B} pago com 2 de vida compra duas cartas. O Vilis é do radar."
+  },
+  {
+   "nome": "Armadilha: limpeza que mata o K'rrik",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Damnation",
+    "K'rrik, Son of Yawgmoth"
+   ],
+   "texto": "A Damnation e a Mutilate levam o comandante. Prefira a Toxic Deluge, a Shadows' Verdict, o Ritual of Soot ou a Crippling Fear escolhendo Horror."
+  },
+  {
+   "nome": "Armadilha: vida abaixo de 2",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Platinum Angel",
+    "K'rrik, Son of Yawgmoth"
+   ],
+   "texto": "Com menos de 2 de vida, você não paga mais custo de vida (regra 119.4): o Angel segura o jogo, mas o K'rrik para de pagar."
+  }
+ ]
+}
