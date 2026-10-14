@@ -44,6 +44,8 @@ Concordância entre IAs não prova nada: elas erram juntas. Quem decide é o tex
 
 Devolva para eu aprovar: o plano do deck em uma frase; os agrupamentos que fazem sentido para este deck, com uma linha cada; a proposta de tema (três opções de nome para o painel, no espírito de Ritos de Sangue, Coro da Alvorada e Dízimo das Almas; clima; paleta de cinco cores; a moldura, que é retrato por padrão; um motivo gráfico ligado ao comandante e à capa, que se inspira nos painéis existentes sem copiar nenhum). Diga se o motivo já existe no motor ou se é acréscimo ao motor. Pare aqui e espere minha resposta.
 
+Ao escrever o `tema.json`, preencha `"tema_jogo"` com `{"nome": tema em poucas palavras, "familia": uma de Tribais, Ataque e dano, Controle, Motores e combos, Caos e mesa}`, e mostre ao dono para ele corrigir.
+
 ## Passo 4: avaliação carta a carta
 
 Siga `contexto/AVALIACAO.md`. Para cada carta: notas de 0 a 3 nos agrupamentos, tier, relevância, uma frase do que faz e uma do porquê neste deck. Depois: combos e linhas de jogo, diagnóstico, fila de corte, e um radar com 8 a 15 cartas de fora (entra, avaliar, fica de fora), cada uma com motivo e com quem sairia.

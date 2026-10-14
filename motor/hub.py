@@ -91,10 +91,8 @@ def preco(c):
 FLAGS = (("land", "L"), ("mdfc", "md"), ("tapped", "tp"), ("wipe", "w"), ("cmd", "cm"), ("nocut", "nc"), ("foil", "f"), ("cpd", "cp"))
 
 
-# Sinais do bracket lidos no texto oficial (cache do Scryfall). São heurísticas de leitura, não regra: o Dashboard escreve
-# o motivo de cada estimativa, e quem decide o bracket é o dono.
-MLD = re.compile(r"(?:destroy|exile) all (?:other )?(?:nonbasic )?lands|return all lands|each player sacrifices (?:all|half|four|five|six|seven)\b[^.]*lands", re.I)
-TURNO_EXTRA = re.compile(r"\btakes? an extra turn|extra turns? after this one", re.I)
+# Game Changer: pelo nome oficial, contra a lista do Scryfall (is:gamechanger). O bracket estimado saiu do hub a pedido
+# do dono (14/10/2026); fica só o fato da carta.
 
 
 def registro(c, cache):
@@ -116,17 +114,11 @@ def frente(nome):
 
 
 def sinais(c, cache, gc):
-    """Game Changer, destruição de terrenos em massa e turno extra, a partir do nome oficial e do texto oficial."""
+    """Game Changer, pelo nome oficial da carta e pelo campo do Scryfall."""
     r = registro(c, cache) or {}
-    txt = " ".join([r.get("oracle_text") or ""] + [f.get("oracle_text") or "" for f in r.get("faces") or []])
-    out = {}
     if gc is not None and (r.get("game_changer") or frente(c.get("on") or c["n"]) in gc or frente(r.get("name")) in gc):
-        out["gc"] = 1
-    if MLD.search(txt):
-        out["ml"] = 1
-    if TURNO_EXTRA.search(txt):
-        out["xt"] = 1
-    return out
+        return {"gc": 1}
+    return {}
 
 
 def compacta(c, sf_lancamento=None, sn=None):
@@ -220,19 +212,6 @@ def lancamentos_futuros(cartas, cache):
     return out
 
 
-ALVO = re.compile(r"^\s*-\s.*?\bbracket\s*(\d)\b", re.I | re.M)
-
-
-def ler_alvo(base):
-    """O bracket que o dono declarou na ficha do deck (deck.md), quando ele deu um número."""
-    cam = os.path.join(base, "deck.md")
-    if not os.path.exists(cam):
-        return None
-    with open(cam, encoding="utf-8") as f:
-        m = ALVO.search(f.read())
-    return int(m.group(1)) if m else None
-
-
 LINHA_REF = re.compile(r"^\s*(\d+)x?\s+(.+?)\s*(?:\([A-Za-z0-9]+\)\s*[\w-]*\s*)?(?:\*[A-Z]\*)?\s*$")
 
 
@@ -293,7 +272,7 @@ def resumo_dashboard(pasta, base, m, t, cache, gc=None):
     cands = [compacta(c, futuro.get(c.get("on", c["n"])) if preco(c) is None else None, sinais(c, cache, gc)) for c in m["cands"]]
     return dict(
         painel=t.get("painel") or nome_do_deck(pasta), rev=t.get("rev", 1), feito=m.get("feito", ""), scryfall=m.get("scryfall_data", ""),
-        hist=ler_historico(base), conf=ler_confronto(base), ident=m["ident"], alvo=ler_alvo(base),
+        hist=ler_historico(base), conf=ler_confronto(base), ident=m["ident"],
         cmd=dict(n=cmd["n"], c=cmd["cmc"], co=cmd.get("cost", "")) if cmd else None,
         grupos=[dict(k=g["k"], n=g.get("curto") or g["nome"], ab=g["ab"], ref=g.get("ref")) for g in m["grupos"]],
         marcadores={k: {kk: v[kk] for kk in ("nome", "plural") if v.get(kk)} for k, v in m["marcadores"].items()},
@@ -332,7 +311,8 @@ def montar(avisar=print):
         prio = (r.get("prioridade") or "").strip()
         d = dict(pasta=pasta, grupo=grupo, nome=nome_do_deck(pasta), cmd=(r.get("comandante") or "").replace(" (confirmar)", ""),
                  cores=dados.ordem_cores(r.get("cores", "")), painel=None,
-                 lista=os.path.exists(os.path.join(base, "decklist.txt")), prio=int(prio) if prio.isdigit() else None)
+                 lista=os.path.exists(os.path.join(base, "decklist.txt")), prio=int(prio) if prio.isdigit() else None,
+                 pub=(r.get("link_publicado") or "").strip() or None)
         if os.path.exists(os.path.join(base, "avaliacao.json")):
             try:
                 m = dados.montar(pasta, avisar=lambda *x: None)
@@ -350,7 +330,7 @@ def montar(avisar=print):
                 d.update(painel=t.get("painel") or d["nome"], cmd=(cmds or d["cmd"]), cores=m["ident"] or d["cores"],
                          placar=pt, cmc=round(avg, 2), tipos=tipos, href=quote(pasta + ".html"),
                          capa=capa_reduzida(base, (t.get("capa") or {}).get("arquivo")),
-                         foco=(t.get("capa") or {}).get("foco", "50% 30%"))
+                         foco=(t.get("capa") or {}).get("foco", "50% 30%"), tj=t.get("tema_jogo"))
                 d["a"] = resumo_dashboard(pasta, base, m, t, cache, gc)
         if d["painel"] is None:
             d["capa"] = capa_reduzida(base) if os.path.isdir(base) else None

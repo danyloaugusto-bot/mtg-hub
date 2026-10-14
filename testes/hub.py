@@ -39,6 +39,8 @@ ABAS = ["resumo", "fichas", "mov", "mesa", "trocas", "mana", "potencial", "basti
 def aba(pg, t):
     """Abre uma aba interna do Dashboard (uma seção por vez desde o v2)."""
     pg.click('.dnav a[data-dtab="%s"]' % t); pg.wait_for_timeout(150)
+    # as caixas abrem no clique; para testar o conteúdo, abre todas desta aba
+    pg.evaluate("t => document.querySelectorAll('#v-dash .dtab[data-dtab=\"' + t + '\"] details:not([open])').forEach(d => { d.open = true; })", t); pg.wait_for_timeout(50)
 
 
 def movimentos_py():
@@ -97,6 +99,40 @@ with sync_playwright() as p:
             pg.fill("#q", "giada"); pg.wait_for_timeout(100)
             R.ok("busca filtra os cartões", pg.locator(".deck:not([hidden])").count() == 1)
             pg.fill("#q", "")
+            # aba Decks: grupos fechados até o clique, com as miniaturas das capas no cabeçalho
+            R.ok("Decks: grupos fechados ao abrir o hub", pg.locator("#v-decks details.g-sf[open]").count() == 0 and pg.locator("#v-decks details.g-sf").count() == 5)
+            R.ok("Decks: miniaturas de todos os decks nos cabeçalhos", pg.locator("#v-decks .minis i").count() == len(H["decks"]))
+            pg.click('#v-decks details[data-sf="g-02"] > summary'); pg.wait_for_timeout(150)
+            R.ok("Decks: um clique abre só aquele grupo", pg.locator("#v-decks details.g-sf[open]").count() == 1 and pg.is_visible('#v-decks details[data-sf="g-02"] .deck >> nth=0'))
+            pg.click('[data-dk="abrir"]'); pg.wait_for_timeout(150)
+            R.ok("Decks: abrir todos", pg.locator("#v-decks details.g-sf[open]").count() == 5)
+            # aba Decks: estante, lista e por cor, com filtros de cor e situação
+            R.ok("Decks: alertas em cada cartão com painel, sem bracket", pg.locator(".deck:not(.vazio) .al").count() == len(prontos) and pg.locator(".brk").count() == 0)
+            R.ok("Decks: passos de quem está em construção", pg.locator(".deck.vazio .passos").count() == len(H["decks"]) - len(prontos))
+            pg.click('[data-dk="sit"][data-k="obra"]'); pg.wait_for_timeout(150)
+            R.ok("Decks: filtro Em construção", pg.locator(".deck").count() == len(H["decks"]) - len(prontos) and pg.locator(".deck:not(.vazio)").count() == 0)
+            pg.click('[data-dk="limpar"]'); pg.wait_for_timeout(150)
+            pg.click('[data-dk="cor"][data-k="B"]'); pg.wait_for_timeout(150)
+            com_b = [d for d in H["decks"] if "B" in ((d.get("a") or {}).get("ident") or d["cores"] or "")]
+            R.ok("Decks: filtro de cor (preto)", pg.locator(".deck").count() == len(com_b), (pg.locator(".deck").count(), len(com_b)))
+            pg.click('[data-dk="limpar"]'); pg.wait_for_timeout(150)
+            pg.click('[data-dk="v"][data-k="lista"]'); pg.wait_for_timeout(150)
+            R.ok("Decks: lista com uma linha por deck", pg.locator(".lrow").count() == len(H["decks"]), pg.locator(".lrow").count())
+            pg.fill("#q", "giada"); pg.wait_for_timeout(100)
+            R.ok("Decks: a busca filtra a lista", pg.locator(".lrow:not([hidden])").count() == 1)
+            pg.fill("#q", "")
+            pg.click('[data-dk="v"][data-k="cor"]'); pg.wait_for_timeout(150)
+            R.ok("Decks: por cor mostra todos os decks", pg.locator(".deck").count() == len(H["decks"]) and pg.locator(".cor-g").count() >= 1)
+            R.ok("Decks: por cor sem Ravnica, Alara nem Tarkir, e por número de cores",
+                 not re.search(r"Ravnica|Alara|Tarkir|[Gg]uilda", pg.inner_text("#v-decks")) and pg.locator('#v-decks details[data-sf="fam-duas-cores"]').count() == 1)
+            pg.click('[data-dk="v"][data-k="tema"]'); pg.wait_for_timeout(150)
+            R.ok("Decks: por tema mostra todos os decks", pg.locator(".deck").count() == len(H["decks"]) and pg.locator('#v-decks details[data-sf="tema-tribais"]').count() == 1)
+            sem_tema = [d["pasta"] for d in prontos if not d.get("tj")]
+            R.ok("Decks: todo deck com painel tem tema_jogo", not sem_tema, sem_tema)
+            pg.click('[data-dk="v"][data-k="lista"]'); pg.wait_for_timeout(150)
+            R.ok("Decks: lista em grupos que abrem no clique", pg.locator('#v-decks details.g-sf').count() == 5)
+            pg.click('[data-dk="v"][data-k="estante"]'); pg.wait_for_timeout(150)
+            R.ok("Decks: volta para a estante com os grupos", pg.eval_on_selector_all(".grupo h2", "e=>e.map(x=>x.textContent.trim())") == ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "05. Desejo"])
             pg.click("#t-pastas"); R.ok("aba Pastas com as oito pastas", pg.is_visible("#v-pastas") and pg.locator(".pasta").count() == 8)
 
             # ---------------- Dashboard
@@ -110,6 +146,9 @@ with sync_playwright() as p:
                 R.ok("aba %s: só ela aparece e o endereço acompanha" % t, pg.eval_on_selector_all("#v-dash .dtab:not([hidden])", "e=>e.map(x=>x.dataset.dtab)") == [t] and
                      pg.evaluate("location.hash").startswith("#d-"), pg.evaluate("location.hash"))
             aba(pg, "mov")
+            R.ok("Movimentações: abre por deck, um bloco por deck com movimento", pg.locator("#d-movimentacoes details.mv-dk").count() >= 1 and pg.locator("#d-movimentacoes details.mv-dk").count() <= len(prontos))
+            pg.click('#d-movimentacoes [data-act="mov-modo"][data-k="lista"]'); pg.wait_for_timeout(150)
+            aba(pg, "mov")
             R.ok("Movimentações: mova, já tem e potenciais",
                  pg.locator("#d-movimentacoes .cx h3:text('Mova em vez de comprar')").count() == 1 and
                  pg.locator("#d-movimentacoes .cx h3:text('Antes de comprar: você já tem')").count() == 1 and
@@ -120,7 +159,7 @@ with sync_playwright() as p:
             mv_js, mv_py = pg.evaluate("window.HUB_DASH.mov"), movimentos_py()
             R.ok("Movimentações: cartas do radar que você já tem, iguais à conta em Python", mv_js["cartas"] == mv_py["cartas"], (mv_js["cartas"], mv_py["cartas"]))
             R.ok("Movimentações: pares para mover iguais à conta em Python", mv_js["mova"] == mv_py["mova"], (mv_js["mova"], mv_py["mova"]))
-            # bracket: Game Changers contados em Python pela lista do cache do Scryfall; a estimativa nunca fica abaixo da regra
+            # Game Changers: contados em Python pela lista do cache do Scryfall
             import scryfall
             G = scryfall._ler().get("gc")
             if G:
@@ -128,10 +167,8 @@ with sync_playwright() as p:
                 for d in prontos:
                     m = dados.montar(d["pasta"], avisar=lambda *x: None)
                     n = sorted(c["n"] for c in m["cards"] if motor_hub.frente(c.get("on") or c["n"]) in gcs)
-                    x = dash[d["pasta"]]
-                    piso = 4 if len(n) >= 4 else 3 if n else 2
-                    R.ok("%s: Game Changers e bracket" % d["pasta"], x.get("game_changers") == n and x.get("bracket", 0) >= piso and x.get("bracket") in (2, 3, 4),
-                         (x.get("bracket"), x.get("game_changers"), n))
+                    R.ok("%s: Game Changers" % d["pasta"], dash[d["pasta"]].get("game_changers") == n, (dash[d["pasta"]].get("game_changers"), n))
+                R.ok("bracket fora do hub, a pedido do dono", pg.locator(".brk").count() == 0 and "racket" not in pg.inner_text("#v-dash") + pg.inner_text("#v-decks"))
             else:
                 R.ok("lista de Game Changers no cache (rode o build com internet)", False)
             aba(pg, "fichas")
@@ -241,7 +278,7 @@ with sync_playwright() as p:
             R.ok("voltar do navegador volta para Decks", pg.is_visible("#v-decks"), pg.evaluate("location.hash"))
             pg.go_back(); pg.wait_for_timeout(300)
             R.ok("voltar de novo volta para a seção do Dashboard", pg.is_visible("#v-dash") and pg.evaluate("location.hash") == "#d-auditoria", pg.evaluate("location.hash"))
-            pg.click("#t-decks")
+            pg.click("#t-decks"); pg.wait_for_timeout(100); pg.click('[data-dk="abrir"]'); pg.wait_for_timeout(100)
             if prontos:
                 pg.click(".deck:not(.vazio) .ir >> nth=0"); pg.wait_for_timeout(1200)
                 R.ok("o cartão abre o painel, sem internet", pg.evaluate("!!(window.PAINEL && window.PAINEL.D)"), pg.url[-30:])
