@@ -1,0 +1,1766 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Combustível",
+   "ab": "Comb.",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra e tutor."
+  },
+  {
+   "k": "removal",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção e anulação."
+  },
+  {
+   "k": "protecao",
+   "nome": "Proteção",
+   "ab": "Prot.",
+   "desc": "Mantém comandantes, Thumb e Efreet vivos."
+  },
+  {
+   "k": "moeda",
+   "nome": "Moeda",
+   "ab": "Moeda",
+   "desc": "Gera moedas."
+  },
+  {
+   "k": "converter",
+   "nome": "Converter",
+   "ab": "Conv.",
+   "desc": "Transforma moeda vencida em dano, cartas ou vitória."
+  },
+  {
+   "k": "evasao",
+   "nome": "Evasão",
+   "ab": "Evas.",
+   "desc": "Faz o Okaun conectar."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "Encurta o jogo."
+  }
+ ],
+ "marcadores": {
+  "joga": {
+   "nome": "Joga moeda ou paga pela vitória"
+  },
+  "thumb": {
+   "nome": "Acha ou recompra o Krark's Thumb"
+  },
+  "efreet": {
+   "nome": "Acha o Frenetic Efreet"
+  },
+  "combo": {
+   "nome": "Peça de combo"
+  },
+  "protege": {
+   "nome": "Proteção"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "34 terrenos e o Valakut Awakening; oito só dão incolor e seis entram virados."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 8,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de combustível dedicada",
+    "fontes de combustível dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 3,
+   "massa_ref": [
+    1,
+    3
+   ],
+   "alerta": "O Blasphemous Act mata os seus comandantes também."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "joga",
+   "min": 15,
+   "listar": false,
+   "rotulo": [
+    "carta de moeda",
+    "cartas de moeda"
+   ],
+   "texto": "Cada moeda vencida, de qualquer jogador, dobra o Okaun e faz o Zndrsplt comprar.",
+   "ok": "O tema de moedas está inteiro."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "thumb",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "caminho até o Krark's Thumb",
+    "caminhos até o Krark's Thumb"
+   ],
+   "ok": "O Thumb aparece em 84% das partidas até o turno 6 (simulação de B)."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "efreet",
+   "min": 4,
+   "listar": true,
+   "rotulo": [
+    "caminho até o Frenetic Efreet",
+    "caminhos até o Frenetic Efreet"
+   ],
+   "texto": "O Efreet transforma qualquer moeda em combo.",
+   "alerta": "Poucos caminhos até a peça que vence: o Efreet aparece em 33% das partidas até o turno 6 (simulação de B).",
+   "ok": "O deck acha o Efreet."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "protege",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "proteção",
+    "proteções"
+   ],
+   "alerta": "Pouca proteção no turno do combo.",
+   "ok": "O turno do combo tem seguro."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 4",
+   "plano": "Sol Ring, Signet ou Talisman; o Krark's Thumb pelos tutores de artefato (Tribute Mage, Fabricate, Whir of Invention); a Tavern Scoundrel; o primeiro comandante no turno 3 ou 4 com bota.",
+   "fortes": [
+    "Treze caminhos até o Thumb: ele aparece em 84% das partidas até o turno 6 (simulação de B).",
+    "CMC médio baixo para um deck de cinco manas nos comandantes."
+   ],
+   "fracos": [
+    "Seis terrenos entram virados e oito só dão incolor.",
+    "Os comandantes custam cinco cada."
+   ]
+  },
+  "meio": {
+   "turnos": "5 a 7",
+   "plano": "Os dois comandantes em campo com bota; o início do combate joga duas sequências de moedas, o Okaun dobra e o Zndrsplt compra. Com o Thumb, o Okaun chega a 24 num combate em 74% das vezes.",
+   "fortes": [
+    "Moeda vencida por qualquer jogador conta: a Planar Chaos também dispara os comandantes.",
+    "O Zndrsplt enche a mão a cada combate."
+   ],
+   "fracos": [
+    "O Okaun grande e bloqueado não mata ninguém: só a Whispersilk Cloak e o Rogue's Passage garantem a conexão.",
+    "Pouca proteção na pilha no turno decisivo."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "O Okaun conecta com 24 ou mais; ou o Frenetic Efreet transforma qualquer moeda em combo com o Okaun, a Scoundrel ou a Chance Encounter; a Chandra's Ignition mata a mesa.",
+   "fortes": [
+    "Cinco combos e motores com o Efreet, e o Niv-Mizzet com a Curiosity como rota separada.",
+    "Stitch in Time e Seize the Day dão mais turnos e combates."
+   ],
+   "fracos": [
+    "O Efreet aparece em 33% das partidas até o turno 6.",
+    "Variância: com o Thumb, cada moeda ainda perde uma vez em quatro."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "O Okaun bloqueia bem quando dobra, mas os comandantes chegam no turno 5."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "equilibrado",
+    "porque": "Remoção universal (Chaos Warp, Rift), mas pouca remoção barata."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "O deck também tem combo, e pouca anulação."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "fraco",
+    "porque": "Remoção no Okaun ou no Efreet com a habilidade na pilha desfaz o turno."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Comandantes de cinco manas e muitos artefatos."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "forte",
+    "porque": "O Okaun voa por cima das fichas com a Cloak, e a Ignition limpa a mesa."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "A Planar Chaos e o Rhystic Study taxam, mas eles têm anulação para o combo."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "O Okaun de 24 chega antes da criatura grande deles."
+   }
+  ]
+ },
+ "cartas": {
+  "Okaun, Eye of Chaos": {
+   "notas": {
+    "moeda": 2,
+    "converter": 3,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Ciclope lendário 3/3 de 5, parceiro do Zndrsplt. No início do combate no seu turno, joga moedas até perder uma; sempre que um jogador vence uma moeda, dobra P/R até o fim do turno.",
+   "porque": "É o relógio: três vitórias põem um 3/3 em 24. Com o Frenetic Efreet, poder infinito (Commander Spellbook).",
+   "marcas": {
+    "joga": 1,
+    "combo": 1
+   }
+  },
+  "Zndrsplt, Eye of Wisdom": {
+   "notas": {
+    "draw": 3,
+    "moeda": 2,
+    "converter": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Homúnculo lendário 1/4 de 5, parceiro do Okaun. Mesmo gatilho de moedas; sempre que um jogador vence uma moeda, você compra uma carta.",
+   "porque": "O motor de cartas. Moeda vencida por oponente também compra (ruling de 2018).",
+   "marcas": {
+    "joga": 1,
+    "combo": 1
+   }
+  },
+  "Frenetic Efreet": {
+   "notas": {
+    "protecao": 2,
+    "moeda": 3,
+    "converter": 3,
+    "fechamento": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Efreet 2/1 de 3 com voar. {0}: moeda; vitória o faz sair de fase, derrota o sacrifica.",
+   "porque": "Ativado muitas vezes de uma vez, são moedas de graça: com Okaun, Scoundrel, Chance Encounter ou Zndrsplt, é combo. As ativações já na pilha resolvem mesmo se ele sair.",
+   "marcas": {
+    "joga": 1,
+    "combo": 1,
+    "efreet": 1
+   }
+  },
+  "Tavern Scoundrel": {
+   "notas": {
+    "ramp": 2,
+    "moeda": 2,
+    "converter": 3,
+    "fechamento": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Humano 1/3 de 2. Cada moeda vencida: dois Tesouros; {1}, vira, sacrifique outra permanente: moeda.",
+   "porque": "Com o Efreet, mana infinita (Commander Spellbook).",
+   "marcas": {
+    "joga": 1,
+    "combo": 1
+   }
+  },
+  "Krark, the Thumbless": {
+   "notas": {
+    "draw": 1,
+    "moeda": 2,
+    "converter": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Goblin lendário 2/2 de 2. Conjura instantânea ou feitiço: moeda; vitória copia a mágica, derrota a devolve à mão.",
+   "porque": "Copia Stitch in Time, Seize the Day e Fiery Gambit.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Niv-Mizzet, Parun": {
+   "notas": {
+    "draw": 2,
+    "removal": 1,
+    "converter": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dragão lendário 5/5 de 6 ({U}{U}{U}{R}{R}{R}), não pode ser anulado. Você compra: 1 de dano; alguém conjura instantânea ou feitiço: você compra.",
+   "porque": "Com o Zndrsplt, cada vitória vira dano; com a Curiosity, combo.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Spark Double": {
+   "notas": {
+    "moeda": 2,
+    "converter": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Ilusão de 4 que entra como cópia não lendária de uma criatura sua, com um marcador +1/+1.",
+   "porque": "Um terceiro comandante: mais uma sequência de moedas."
+  },
+  "Yusri, Fortune's Flame": {
+   "notas": {
+    "draw": 2,
+    "moeda": 3,
+    "converter": 1,
+    "evasao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Efreet lendário 2/3 de 3 com voar. Ao atacar, joga de 1 a 5 moedas: compra por vitória, 2 de dano em você por derrota.",
+   "porque": "Atacando com o Okaun, cada vitória também o dobra.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Goblin Traprunner": {
+   "notas": {
+    "moeda": 2,
+    "converter": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin 4/2 de 4. Ao atacar, três moedas: uma ficha 1/1 virada e atacando por vitória.",
+   "porque": "Atacando com o Okaun, mais três chances de dobra.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Sakashima the Impostor": {
+   "notas": {
+    "moeda": 2,
+    "converter": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Humano lendário de 4 que entra como cópia de uma criatura, mas com o nome Sakashima.",
+   "porque": "Copia o Okaun ou o Zndrsplt sem morrer pela regra de lenda."
+  },
+  "Tribute Mage": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Humano 2/2 de 3. Ao entrar, busca um artefato de valor 2.",
+   "porque": "Acha o Thumb.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Goblin Archaeologist": {
+   "notas": {
+    "removal": 1,
+    "moeda": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin 1/2 de 2. {R}, vira: moeda; vitória destrói um artefato e o desvira, derrota o sacrifica.",
+   "porque": "Utilidade.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Goblin Engineer": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin 1/2 de 2. Ao entrar, põe um artefato do grimório no cemitério; {R}, vira, sacrifique um artefato: volta um artefato de valor até 3.",
+   "porque": "O Thumb pelo cemitério.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Mogg Assassin": {
+   "notas": {
+    "removal": 2,
+    "moeda": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin 2/1 de 3. Vira: você e um oponente escolhem uma criatura cada; moeda, e a vencedora é destruída.",
+   "porque": "Remoção repetível a 75% com o Thumb.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Goblin Kaboomist": {
+   "notas": {
+    "moeda": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Goblin 1/2 de 2. Na manutenção, uma ficha Land Mine e uma moeda; na derrota, 2 de dano a si mesmo.",
+   "porque": "Fichas que quase nunca importam.",
+   "marcas": {
+    "joga": 1
+   },
+   "prioridade": 3
+  },
+  "Karplusan Minotaur": {
+   "notas": {
+    "removal": 1,
+    "moeda": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Minotauro 3/3 de 4 com manutenção cumulativa de moedas. Cada moeda vencida: 1 de dano; cada perdida: 1 de dano onde o oponente quiser.",
+   "porque": "Quatro manas por pings de 1.",
+   "marcas": {
+    "joga": 1
+   },
+   "prioridade": 4
+  },
+  "Cyclonic Rift": {
+   "notas": {
+    "removal": 3,
+    "evasao": 1,
+    "fechamento": 2
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Instantânea de 2: devolve uma permanente; sobrecarga {6}{U}: todas as dos oponentes.",
+   "porque": "Limpa o caminho do Okaun. Game Changer."
+  },
+  "Chandra's Ignition": {
+   "notas": {
+    "removal": 2,
+    "converter": 2,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 5: sua criatura causa dano igual ao poder a cada outra criatura e a cada oponente.",
+   "porque": "Com o Okaun gigante, mata a mesa.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Chaos Warp": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: o dono embaralha a permanente e revela o topo.",
+   "porque": "Remoção universal."
+  },
+  "Fiery Gambit": {
+   "notas": {
+    "draw": 2,
+    "removal": 1,
+    "moeda": 2,
+    "converter": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: moedas até perder ou parar; 1 vitória, 3 de dano numa criatura; 2, 6 em cada oponente; 3, compra 9 e desvira os terrenos.",
+   "porque": "Cada vitória também dobra o Okaun.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Gamble": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 1: qualquer carta para a mão; descarta uma aleatória.",
+   "porque": "Acha o Efreet ou o Thumb. Game Changer.",
+   "marcas": {
+    "thumb": 1,
+    "efreet": 1
+   }
+  },
+  "Seize the Day": {
+   "notas": {
+    "converter": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 4: desvira uma criatura e dá um combate a mais; recapitular {2}{R}.",
+   "porque": "Duas sequências de moedas a mais."
+  },
+  "Stitch in Time": {
+   "notas": {
+    "moeda": 1,
+    "converter": 2,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: moeda; na vitória, um turno a mais.",
+   "porque": "Turno extra a 75% com o Thumb.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Temur Battle Rage": {
+   "notas": {
+    "converter": 2,
+    "evasao": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: golpe duplo; com força 4 ou mais, atropelar também.",
+   "porque": "Okaun grande vira letal.",
+   "pacote": "evasao"
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 9, {1} a menos por criatura em campo: 13 de dano em cada criatura.",
+   "porque": "Mata os comandantes também: use antes de baixá-los.",
+   "massa": true,
+   "caro_por_desenho": true
+  },
+  "Expressive Iteration": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: das três do topo, uma para a mão, uma para o fundo e uma para jogar no turno.",
+   "porque": "Seleção."
+  },
+  "Fabricate": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: qualquer artefato para a mão.",
+   "porque": "Acha o Thumb.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Invert Polarity": {
+   "notas": {
+    "removal": 2,
+    "protecao": 1,
+    "moeda": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: moeda sobre uma mágica; vitória a toma para você, derrota a anula.",
+   "porque": "Anulação que não falha.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Irenicus's Vile Duplication": {
+   "notas": {
+    "moeda": 2,
+    "converter": 2,
+    "evasao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 4: ficha cópia de uma criatura sua, com voar e sem ser lendária.",
+   "porque": "Okaun voador ou outro Zndrsplt."
+  },
+  "Long-Term Plans": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: qualquer carta para a terceira do topo.",
+   "porque": "Lento, mas acha o Efreet.",
+   "marcas": {
+    "thumb": 1,
+    "efreet": 1
+   }
+  },
+  "Mizzium Mortars": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: 4 de dano numa criatura sua não; sobrecarga {3}{R}{R}{R}: em todas as dos oponentes.",
+   "porque": "Limpeza unilateral.",
+   "pontual": true
+  },
+  "Muddle the Mixture": {
+   "notas": {
+    "draw": 2,
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: anula instantânea ou feitiço; transmutar {1}{U}{U} por uma carta de valor 2.",
+   "porque": "Acha o Thumb, a Scoundrel ou o Krark.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Ponder": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 1: arruma as três do topo e compra.",
+   "porque": "Seleção."
+  },
+  "Reckless Handling": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: um artefato para a mão; descarta uma aleatória.",
+   "porque": "Acha o Thumb.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Squee's Revenge": {
+   "notas": {
+    "draw": 2,
+    "moeda": 2,
+    "converter": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3: escolhe um número e joga até perder; vencendo todas, compra duas por moeda.",
+   "porque": "Compra e dobra o Okaun.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Valakut Awakening": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: põe cartas da mão no fundo e compra uma a mais. O verso é terreno virado de {R}.",
+   "porque": "Troca a mão ou vira terreno."
+  },
+  "Whir of Invention": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de X+3 com improvisar: um artefato de valor até X para o campo.",
+   "porque": "O Thumb em campo no turno do oponente.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Crash Through": {
+   "notas": {
+    "draw": 1,
+    "evasao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 1: suas criaturas ganham atropelar; compre.",
+   "porque": "Barato."
+  },
+  "Reshape": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de X+2: sacrifique um artefato; um artefato de valor até X para o campo.",
+   "porque": "Sexto tutor de artefato, e pede outro artefato.",
+   "marcas": {
+    "thumb": 1
+   },
+   "prioridade": 6
+  },
+  "Fighting Chance": {
+   "notas": {
+    "protecao": 1,
+    "moeda": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Instantânea de 1: uma moeda por bloqueador; vitória previne o dano dele.",
+   "porque": "Neblina parcial de bloqueadores.",
+   "marcas": {
+    "joga": 1
+   },
+   "prioridade": 2
+  },
+  "Krark's Thumb": {
+   "notas": {
+    "moeda": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato lendário de 2: se você jogaria uma moeda, joga duas e ignora uma.",
+   "porque": "Cada moeda vence 75% das vezes: com os dois comandantes, mata um oponente por combate em 74% das vezes (simulação de B).",
+   "marcas": {
+    "joga": 1,
+    "thumb": 1
+   }
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "Comandante no turno 3."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Artefato de 2: mana da identidade.",
+   "porque": "Pedra de cor."
+  },
+  "Embercleave": {
+   "notas": {
+    "converter": 2,
+    "evasao": 1,
+    "fechamento": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Equipamento lendário de 6 com lampejo, {1} a menos por atacante. Ao entrar, equipa: +1/+1, golpe duplo e atropelar.",
+   "porque": "Okaun com golpe duplo.",
+   "caro_por_desenho": true
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "protecao": 3,
+    "evasao": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "O comandante ataca no turno em que entra.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "protecao": 3,
+    "evasao": 1
+   },
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
+   "porque": "Idem.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Whispersilk Cloak": {
+   "notas": {
+    "protecao": 2,
+    "evasao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Equipamento de 3, equipar {2}: não pode ser bloqueada e manto.",
+   "porque": "O Okaun conecta.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Champion's Helm": {
+   "notas": {
+    "protecao": 2,
+    "converter": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento de 3, equipar {1}: +2/+2; lendária equipada tem resistência a magia.",
+   "porque": "Okaun 5/5 antes de dobrar.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Commander's Plate": {
+   "notas": {
+    "protecao": 2,
+    "converter": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento de 1, equipar comandante {3}: +3/+3 e proteção contra as cores fora da identidade.",
+   "porque": "Okaun 6/6 antes de dobrar.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Izzet Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 2. {1}, vira: {U}{R}.",
+   "porque": "Pedra de cor."
+  },
+  "Mind Stone": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: {C}; {1}, vira, sacrifique: compre.",
+   "porque": "Pedra incolor."
+  },
+  "Shadowspear": {
+   "notas": {
+    "converter": 1,
+    "evasao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Equipamento lendário de 1, equipar {2}: +1/+1, atropelar e vínculo.",
+   "porque": "Atropelar barato.",
+   "pacote": "evasao"
+  },
+  "Talisman of Creativity": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 2: {C}, ou {U} ou {R} com 1 de dano.",
+   "porque": "Pedra de cor."
+  },
+  "Thought Vessel": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 2: {C}; sem limite de mão.",
+   "porque": "O Zndrsplt enche a mão."
+  },
+  "Cursed Mirror": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 3: {R}; pode entrar como cópia de uma criatura até o fim do turno, com ímpeto.",
+   "porque": "Copiando um comandante, a cópia é lendária e morre: fica como pedra."
+  },
+  "Midnight Clock": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Artefato de 3: {U}; no 12º marcador, embaralha mão e cemitério e compra sete.",
+   "porque": "Pedra lenta num deck que já compra muito.",
+   "prioridade": 5
+  },
+  "Two-Handed Axe": {
+   "notas": {
+    "converter": 1,
+    "fechamento": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Equipamento de 3: dobra o poder ao atacar; aventura dá golpe duplo.",
+   "porque": "Uma dobra a mais por cinco manas no total.",
+   "prioridade": 7
+  },
+  "Chance Encounter": {
+   "notas": {
+    "converter": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 4. Marcador a cada moeda que você vence; com dez, vence o jogo na manutenção.",
+   "porque": "Com o Efreet, vence na manutenção seguinte (Commander Spellbook).",
+   "marcas": {
+    "joga": 1,
+    "combo": 1
+   },
+   "pacote": "fechamento"
+  },
+  "Curiosity": {
+   "notas": {
+    "draw": 1,
+    "converter": 1,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Aura de 1: dano da criatura a um oponente compra uma carta.",
+   "porque": "No Niv-Mizzet, combo de dano.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Rhystic Study": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: oponente conjura e você compra, a menos que ele pague {1}.",
+   "porque": "Compra constante. Game Changer."
+  },
+  "Impulsive Maneuvers": {
+   "notas": {
+    "moeda": 2,
+    "converter": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 4. Criatura ataca: moeda; vitória dobra o próximo dano de combate dela, derrota o previne.",
+   "porque": "Uma moeda a mais por atacante, e cada vitória dobra o Okaun.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Planar Chaos": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "moeda": 2,
+    "converter": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 3. Quem conjura joga moeda; derrota anula a mágica. Na sua manutenção, moeda ou o sacrifica.",
+   "porque": "Simétrico, mas a vitória do oponente também dispara os seus comandantes.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Ral Zarek": {
+   "notas": {
+    "removal": 1,
+    "moeda": 1,
+    "converter": 1,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Planeswalker de 4. +1: vira e desvira; −2: 3 de dano; −7: cinco moedas, um turno a mais por cara.",
+   "porque": "O −7 conta caras e não fala em vencer: não dispara os comandantes.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Footfall Crater": {
+   "notas": {
+    "evasao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Aura de terreno de 1: o terreno ganha \"vira: atropelar e ímpeto numa criatura\"; reciclar {1}.",
+   "porque": "Atropelar e ímpeto num terreno."
+  },
+  "Mirror March": {
+   "notas": {
+    "moeda": 2,
+    "converter": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento de 6. Criatura não-ficha entra: moedas até perder, uma cópia com ímpeto por vitória.",
+   "porque": "Caro; cada vitória também dobra o Okaun.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Possibility Storm": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Encantamento de 5. Quem conjura da mão exila a mágica e conjura de graça a próxima do mesmo tipo do topo.",
+   "porque": "Troca o Efreet, a Chance Encounter e os tutores do combo por cartas aleatórias. As três análises cortam.",
+   "prioridade": 1
+  },
+  "Command Tower": {
+   "notas": {},
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Mana da identidade.",
+   "porque": "A melhor dual do deck."
+  },
+  "Academy Ruins": {
+   "notas": {
+    "draw": 1,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{C}; {1}{U}, vira: artefato do cemitério para o topo.",
+   "porque": "Recompra o Thumb.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Buried Ruin": {
+   "notas": {
+    "draw": 1,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{C}; {2}, vira, sacrifique: artefato do cemitério para a mão.",
+   "porque": "Recompra o Thumb.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Cascade Bluffs": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "{C}; {U/R}, vira: {U}{U}, {U}{R} ou {R}{R}.",
+   "porque": "Filtra, mas pede outra fonte."
+  },
+  "Exotic Orchard": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Uma cor que os terrenos dos oponentes gerem.",
+   "porque": "Depende da mesa."
+  },
+  "Island": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  },
+  "Izzet Boilerworks": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Sempre virado; devolve um terreno; {U}{R}.",
+   "porque": "Duas manas numa vaga.",
+   "virado": true
+  },
+  "Riverglide Pathway": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U} ou {R}, uma face.",
+   "porque": "Desvirado."
+  },
+  "Rogue's Passage": {
+   "notas": {
+    "evasao": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{C}; {4}, vira: uma criatura não pode ser bloqueada.",
+   "porque": "O Okaun precisa conectar."
+  },
+  "Shivan Reef": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{C}, ou {U} ou {R} com 1 de dano.",
+   "porque": "Desvirado."
+  },
+  "Stormcarved Coast": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U} ou {R}; virado com menos de dois outros terrenos.",
+   "porque": "Bom do turno 3 em diante."
+  },
+  "Sulfur Falls": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U} ou {R}; virado sem Island ou Mountain.",
+   "porque": "Quase sempre desvirado."
+  },
+  "The Gold Saucer": {
+   "notas": {
+    "moeda": 1,
+    "converter": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{C}; {2}, vira: moeda, Tesouro na vitória; {3}, vira, sacrifique dois artefatos: compre.",
+   "porque": "Moeda em velocidade de ativação, na vaga de terreno.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Training Center": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{U} ou {R}; desvirado com dois ou mais oponentes.",
+   "porque": "Sempre desvirado na mesa de quatro."
+  },
+  "Desolate Lighthouse": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; {1}{U}{R}, vira: compre e descarte.",
+   "porque": "Filtro tardio."
+  },
+  "Great Furnace": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Terreno artefato de {R}.",
+   "porque": "Conta para o improvisar do Whir."
+  },
+  "Inventors' Fair": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; com três artefatos, {4}, vira, sacrifique: um artefato para a mão.",
+   "porque": "Acha o Thumb tarde.",
+   "marcas": {
+    "thumb": 1
+   }
+  },
+  "Spinerock Knoll": {
+   "notas": {
+    "ramp": -1,
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {R}; esconde uma carta e a joga de graça se um oponente levou 7 no turno.",
+   "porque": "O Okaun dá 7 com folga.",
+   "virado": true
+  },
+  "Temple of Epiphany": {
+   "notas": {
+    "ramp": -1,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {U} ou {R}; vidência 1.",
+   "porque": "Dual lenta.",
+   "virado": true
+  },
+  "Tolaria West": {
+   "notas": {
+    "ramp": -1,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {U}; transmutar {1}{U}{U} por carta de valor 0.",
+   "porque": "Busca terreno ou carta de valor 0.",
+   "virado": true
+  },
+  "Flamekin Village": {
+   "notas": {
+    "ramp": -1,
+    "evasao": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "{R}; virado sem revelar um Elemental; {R}, vira: ímpeto numa criatura.",
+   "porque": "A lista não tem Elemental: entra sempre virada.",
+   "virado": true,
+   "prioridade": 1
+  },
+  "Myriad Landscape": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Sempre virado: {C}; {2}, vira, sacrifique: dois básicos do mesmo tipo, virados.",
+   "porque": "Só 12 básicos, e três manas para virar dois terrenos.",
+   "virado": true,
+   "prioridade": 2
+  },
+  "Reliquary Tower": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "{C}; sem limite de mão.",
+   "porque": "Repete o Thought Vessel e não dá cor.",
+   "prioridade": 3
+  }
+ },
+ "radar": {
+  "Imperial Recruiter": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Humano 1/1 de 3. Ao entrar, busca uma criatura de força até 2.",
+   "porque": "Acha o Efreet (2/1), a Scoundrel ou o Krark: troca um tutor de artefato por um que acha a peça que vence. Fonte B.",
+   "sai": "Reshape",
+   "marcas": {
+    "efreet": 1
+   }
+  },
+  "Drift of Phantasms": {
+   "notas": {
+    "draw": 2,
+    "protecao": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Espírito 0/5 de 3 com defensor e voar; transmutar {1}{U}{U} por uma carta de valor 3.",
+   "porque": "Busca o Efreet (valor 3) ou o Imperial Recruiter. A Storm sai, como pediram as três análises. Fonte B.",
+   "sai": "Possibility Storm",
+   "marcas": {
+    "efreet": 1
+   }
+  },
+  "Strionic Resonator": {
+   "notas": {
+    "moeda": 2,
+    "converter": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 2. {2}, vira: copia um gatilho seu.",
+   "porque": "Uma terceira sequência de moedas por combate: mais 16 pontos na chance de matar um oponente (simulação de B). Fontes B e C.",
+   "sai": "Goblin Kaboomist"
+  },
+  "Psychosis Crawler": {
+   "notas": {
+    "converter": 3,
+    "fechamento": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Horror artefato de 5, P/R igual às cartas na mão. Você compra: cada oponente perde 1.",
+   "porque": "Cada compra do Zndrsplt tira 1 de cada oponente; com o Efreet, a mesa inteira. Fontes B e C.",
+   "sai": "Karplusan Minotaur",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Edgar, King of Figaro": {
+   "notas": {
+    "draw": 2,
+    "moeda": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Humano lendário 4/5 de 6. Ao entrar, compra uma por artefato seu; a primeira moeda que você joga em cada turno dá cara e você vence.",
+   "porque": "Uma vitória garantida por turno, no lugar de uma pedra lenta. Fontes B e C.",
+   "sai": "Midnight Clock",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Deflecting Swat": {
+   "notas": {
+    "removal": 1,
+    "protecao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3, de graça com comandante: muda o alvo de uma mágica ou habilidade.",
+   "porque": "Proteção de verdade, e de graça. Nas três fontes.",
+   "sai": "Fighting Chance",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Counterspell": {
+   "notas": {
+    "removal": 3,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 2: anula uma mágica.",
+   "porque": "O turno do combo precisa de seguro; a dobra do Axe o Okaun já tem. Fonte B.",
+   "sai": "Two-Handed Axe",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Steam Vents": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno de choque Island Mountain: pague 2 ou entra virado.",
+   "porque": "Dual desvirada no lugar de um terreno sempre virado. Fonte B.",
+   "sai": "Flamekin Village"
+  },
+  "Volcanic Island": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Dual original Island Mountain, sempre desvirada.",
+   "porque": "Idem. Qualquer dual U/R desvirada cumpre quase o mesmo papel. Fonte B.",
+   "sai": "Myriad Landscape"
+  },
+  "Spirebluff Canal": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Terreno: {U} ou {R}; desvirado com dois ou menos outros terrenos.",
+   "porque": "Troca um incolor que repete o Thought Vessel por uma dual. Fonte B.",
+   "sai": "Reliquary Tower"
+  },
+  "Roaming Throne": {
+   "notas": {
+    "moeda": 2,
+    "converter": 3,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Golem 4/4 de 4 com ward {2}. Escolhe um tipo; gatilho de outra criatura sua desse tipo dispara uma vez a mais.",
+   "porque": "Escolhendo Cyclops, o gatilho de vitória do Okaun dispara duas vezes: cada moeda vencida o quadruplica, e o início de combate também repete. Nenhuma análise fez essa conta."
+  },
+  "Wizard's Staff": {
+   "notas": {
+    "moeda": 2,
+    "converter": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Equipamento de 2, equipar {3}: proeza; gatilho da equipada dispara uma vez a mais.",
+   "porque": "No Okaun, faz o que o Roaming Throne faz. Banco de B."
+  },
+  "Echo, Perceptive Prodigy": {
+   "notas": {
+    "moeda": 2,
+    "converter": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Humana lendária 1/4 de 3 com vigilância. {1}, vira: copia uma habilidade ativada ou disparada de criatura sua.",
+   "porque": "Uma terceira sequência por uma mana. Banco de B."
+  },
+  "Desperate Gambit": {
+   "notas": {
+    "moeda": 1,
+    "converter": 2,
+    "fechamento": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: escolhe uma fonte e joga moeda; vitória dobra o próximo dano dela, derrota o previne.",
+   "porque": "Mais uma moeda e mais uma dobra no combate. Banco de B; fonte C.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Mithril Coat": {
+   "notas": {
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Equipamento lendário de 3 com lampejo e indestrutível; ao entrar, equipa uma lendária sua: indestrutível.",
+   "porque": "Proteção em velocidade instantânea. Banco de B.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Kediss, Emberclaw Familiar": {
+   "notas": {
+    "converter": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Elemental lendário 1/1 de 2. Comandante seu causa dano de combate a um oponente: o mesmo dano em cada outro oponente.",
+   "porque": "O Okaun de 24 bate em todos; o dano espalhado não é dano de comandante. Fontes A e C."
+  },
+  "Fling": {
+   "notas": {
+    "removal": 1,
+    "converter": 2,
+    "fechamento": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 2: sacrifique uma criatura; dano igual à força dela num alvo.",
+   "porque": "Converte o Okaun em dano em resposta a uma remoção; não é dano de comandante. Fontes A e C."
+  },
+  "Laboratory Maniac": {
+   "notas": {
+    "converter": 2,
+    "fechamento": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Humano 2/2 de 3. Se você compraria com o grimório vazio, vence o jogo.",
+   "porque": "Com o Efreet e o Zndrsplt, compra o grimório inteiro e vence na compra seguinte. Nenhuma análise juntou as três.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Swan Song": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 1: anula encantamento, instantânea ou feitiço; o dono ganha um Pássaro 2/2.",
+   "porque": "Seguro barato do turno do combo. Fonte A.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Fierce Guardianship": {
+   "notas": {
+    "removal": 2,
+    "protecao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 3, de graça com comandante: anula mágica que não é criatura.",
+   "porque": "Proteção grátis. Game Changer: com ela, são quatro. Fontes A e C.",
+   "marcas": {
+    "protege": 1
+   }
+  },
+  "Jeska's Will": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1,
+    "fechamento": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 3: {R} por carta na mão de um oponente, ou exile as três do topo para jogar; com comandante, os dois.",
+   "porque": "Turno explosivo. Game Changer. Fontes A e C."
+  },
+  "Mana Vault": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Artefato de 1: {C}{C}{C}; não desvira sozinho.",
+   "porque": "Aceleração. Game Changer. Fonte A."
+  },
+  "Ancient Tomb": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Terreno: {C}{C}, com 2 de dano.",
+   "porque": "Aceleração na vaga de terreno. Game Changer. Fonte A."
+  },
+  "Slip Through Space": {
+   "notas": {
+    "draw": 1,
+    "evasao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço incolor de 1: uma criatura não pode ser bloqueada; compre.",
+   "porque": "O Okaun conecta por uma mana. Fonte C."
+  },
+  "Mutalith Vortex Beast": {
+   "notas": {
+    "draw": 1,
+    "moeda": 2,
+    "converter": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Fera 6/6 de 6 com atropelar. Ao entrar, uma moeda por oponente: compra por vitória, 3 de dano no jogador por derrota.",
+   "porque": "Três moedas que também dobram o Okaun. Fonte C.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Boompile": {
+   "notas": {
+    "removal": 2,
+    "moeda": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Artefato de 4. Vira: moeda; vencendo, destrói todas as permanentes não-terreno.",
+   "porque": "Destrói também o seu Thumb e os seus comandantes. C a recomenda; o texto desmente."
+  },
+  "Mana Clash": {
+   "notas": {
+    "fechamento": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Feitiço de 1: você e um oponente jogam moedas; 1 de dano em quem tirar coroa, até os dois tirarem cara.",
+   "porque": "É cara ou coroa, não vitória: não dispara os comandantes nem o Thumb. C a recomenda."
+  },
+  "Game of Chaos": {
+   "notas": {
+    "moeda": 2,
+    "converter": 1,
+    "fechamento": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Feitiço de 3: moedas que dobram a vida em jogo a cada rodada, entre você e um oponente.",
+   "porque": "Só mata um oponente, e pode matar você. B recusa.",
+   "marcas": {
+    "joga": 1
+   }
+  },
+  "Twinflame": {
+   "notas": {
+    "moeda": 1,
+    "converter": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Feitiço de 2 com esforço: fichas cópia das suas criaturas, com ímpeto, exiladas no fim do turno.",
+   "porque": "A cópia do Okaun é lendária e morre. B recusa."
+  },
+  "Sword of Fire and Ice": {
+   "notas": {
+    "draw": 1,
+    "removal": 1,
+    "protecao": 1,
+    "converter": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Equipamento de 3: +2/+2 e proteção contra azul e vermelho; dano de combate: 2 de dano e compra.",
+   "porque": "A proteção contra azul e vermelho impede mirar o Okaun com Temur Battle Rage e Seize the Day. B recusa."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Okaun infinito",
+   "tipo": "Combo",
+   "pecas": [
+    "Frenetic Efreet",
+    "Okaun, Eye of Chaos"
+   ],
+   "texto": "Ative o Efreet muitas vezes antes de qualquer uma resolver: cada moeda vencida dobra o Okaun, e as ativações continuam mesmo depois que ele sai de fase ou é sacrificado. Commander Spellbook 2199-2779. Para matar só no combate, ative depois dos bloqueios."
+  },
+  {
+   "nome": "Mana infinita",
+   "tipo": "Combo",
+   "pecas": [
+    "Frenetic Efreet",
+    "Tavern Scoundrel"
+   ],
+   "texto": "Cada moeda vencida dá dois Tesouros. Commander Spellbook 211-2199."
+  },
+  {
+   "nome": "Vence na manutenção",
+   "tipo": "Combo",
+   "pecas": [
+    "Frenetic Efreet",
+    "Chance Encounter"
+   ],
+   "texto": "Dez vitórias põem dez marcadores; na sua manutenção seguinte, você vence. Commander Spellbook 2199-4800."
+  },
+  {
+   "nome": "Dano e compra em laço",
+   "tipo": "Combo",
+   "pecas": [
+    "Niv-Mizzet, Parun",
+    "Curiosity"
+   ],
+   "texto": "Cada compra causa 1 de dano, e cada dano a oponente compra de novo, até o grimório acabar. Commander Spellbook 1089-2353."
+  },
+  {
+   "nome": "Compra o grimório",
+   "tipo": "Motor",
+   "pecas": [
+    "Frenetic Efreet",
+    "Zndrsplt, Eye of Wisdom"
+   ],
+   "texto": "Cada vitória compra uma carta; escolha o número de ativações pelo tamanho do grimório. É dedução do mesmo mecanismo, não cadastrada (fonte B)."
+  },
+  {
+   "nome": "A mesa inteira",
+   "tipo": "Motor",
+   "pecas": [
+    "Chandra's Ignition",
+    "Okaun, Eye of Chaos"
+   ],
+   "texto": "Com o Okaun infinito na primeira fase principal, a Ignition causa esse dano a cada oponente e a cada outra criatura."
+  },
+  {
+   "nome": "Três em quatro",
+   "tipo": "Motor",
+   "pecas": [
+    "Krark's Thumb",
+    "Okaun, Eye of Chaos"
+   ],
+   "texto": "Cada moeda vence 75% das vezes: com os dois comandantes, o Okaun chega a 24 num combate em 74% das vezes (simulação de B)."
+  },
+  {
+   "nome": "Compra vira dano",
+   "tipo": "Motor",
+   "pecas": [
+    "Psychosis Crawler",
+    "Zndrsplt, Eye of Wisdom"
+   ],
+   "texto": "Cada compra tira 1 de cada oponente; com o Efreet, a mesa cai. O Crawler é do radar."
+  },
+  {
+   "nome": "Uma sequência a mais",
+   "tipo": "Motor",
+   "pecas": [
+    "Strionic Resonator",
+    "Okaun, Eye of Chaos"
+   ],
+   "texto": "Copia o início de combate: três sequências de moedas por turno. O Resonator é do radar."
+  },
+  {
+   "nome": "Cópia sem lenda",
+   "tipo": "Motor",
+   "pecas": [
+    "Sakashima the Impostor",
+    "Okaun, Eye of Chaos"
+   ],
+   "texto": "A cópia se chama Sakashima: escapa da regra de lenda e repete as habilidades do Okaun ou do Zndrsplt."
+  },
+  {
+   "nome": "Armadilha: Cursed Mirror",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Cursed Mirror",
+    "Okaun, Eye of Chaos"
+   ],
+   "texto": "Copiando um comandante, a cópia é lendária e tem o mesmo nome: uma das duas morre."
+  },
+  {
+   "nome": "Armadilha: a limpeza leva os comandantes",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Blasphemous Act",
+    "Zndrsplt, Eye of Wisdom"
+   ],
+   "texto": "13 de dano em cada criatura: use antes de baixar os comandantes, ou com o Okaun dobrado acima de 13."
+  }
+ ]
+}
