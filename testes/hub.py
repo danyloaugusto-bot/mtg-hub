@@ -119,7 +119,10 @@ with sync_playwright() as p:
         reqs = []
         pg.on("pageerror", lambda e: R.erros.append("PAGEERROR " + str(e)))
         pg.route("**/*", lambda r: (reqs.append(r.request.url), r.abort()) if r.request.url.startswith("http") else r.continue_())
-        pg.goto(comum.url(atalho)); pg.wait_for_timeout(1000)
+        pg.goto(comum.url(atalho))
+        # o atalho redireciona para o hub: espera a página dele carregar de fato, não um tempo fixo
+        pg.wait_for_url("**/00.%20Hub.html", timeout=30000); pg.wait_for_load_state("load")
+        pg.wait_for_function("!!window.HUB", timeout=30000); pg.wait_for_timeout(500)
         if w > 1000:
             H = pg.evaluate("window.HUB")
             R.ok("atalho da raiz abre o hub", pg.url.endswith("00.%20Hub.html"), pg.url[-30:])
