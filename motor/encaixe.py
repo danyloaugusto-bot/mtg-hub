@@ -140,10 +140,23 @@ def decks_v3():
                     continue
             m = dados.montar(pasta, avisar=lambda *x: None)
             t = dados.ler_json(os.path.join(base, pasta, "tema.json"), obrigatorio=False) or {}
-            m.update(pasta=pasta, painel=t.get("painel") or pasta)
+            m.update(pasta=pasta, painel=t.get("painel") or pasta, curto=_curto(m, t))
             out.append(m)
         _DECKS[base] = out
     return _DECKS[base]
+
+
+def _curto(m, t):
+    """O nome curto do comandante, como no topo do painel (tema.json, ou o nome antes da vírgula)."""
+    cmd = next((c for c in m["cards"] if c.get("cmd")), None)
+    return t.get("comandante_curto") or (cmd["n"].split(",")[0] if cmd else "")
+
+
+def decks_info(d, pasta, painel):
+    """Painel, comandante curto e identidade de cor de cada deck v3, para a caixa Encaixe mostrar de quem é cada deck."""
+    t = dados.ler_json(os.path.join(dados.DADOS, pasta, "tema.json"), obrigatorio=False) or {}
+    ds = [m for m in decks_v3() if m["pasta"] != pasta] + [dict(d, pasta=pasta, painel=painel, curto=_curto(d, t))]
+    return {m["pasta"]: dict(n=m["painel"], c=m.get("curto", ""), i=m.get("ident") or "") for m in ds}
 
 
 def para_painel(d, pasta, painel):

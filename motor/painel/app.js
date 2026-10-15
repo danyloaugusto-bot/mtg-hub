@@ -230,6 +230,9 @@ function encaixeHtml(c) {
   var resumo = melhor ? 'rende mais em ' + esc(melhor.n) + ', ' + (melhor.g > 0 ? '+' : melhor.g < 0 ? '−' : '±') + fmtP(Math.abs(melhor.g)) : 'já está ' + (L.length > 1 ? 'nos decks onde rende' : 'no deck');
   var linhas = top.map(function (x) {
     var este = x.p === M.pasta, nome = PUB || este ? esc(x.n) : '<a href="' + encodeURIComponent(x.p) + '.html">' + esc(x.n) + '</a>';
+    // embaixo do nome do painel: o comandante e a identidade de cor, para reconhecer o deck de relance
+    var inf = (D.encaixe_decks || {})[x.p] || {}, cores = String(inf.i || '').split('').filter(function (ch) { return WUBRG.indexOf(ch) >= 0; });
+    var quem = (inf.c ? esc(inf.c) : '') + (cores.length ? ' <span class="mana" role="img" aria-label="Cores ' + cores.join('') + '">' + cores.map(msym).join('') + '</span>' : inf.c ? ' <span class="mana">' + msym('C') + '</span>' : '');
     var corpo = x.j ? '<span class="enc-ja">já está no deck</span> <small>' + fmtP(x.v) + ' pts com a faixa</small>' :
       '<b class="enc-g ' + (x.g > 0 ? 'pos' : x.g < 0 ? 'neg' : '') + '">' + (x.g > 0 ? '+' : x.g < 0 ? '−' : '±') + fmtP(Math.abs(x.g)) + '</b> ' +
       '<small>' + fmtP(x.v) + ' pts com a faixa; sai ' + esc(x.s || '—') + ' (' + fmtP(x.vs) + ')' +
@@ -237,7 +240,7 @@ function encaixeHtml(c) {
       (x.da ? '; aceleração ' + (x.da > 0 ? '+' : '−') + Math.abs(x.da) : '') + '</small>' +
       (x.c && x.c.length ? '<small class="enc-c">cobre o que falta: ' + esc(lista(x.c.map(function (k) { return nomeC[k] || k; }))) + '</small>' : '') +
       (x.a ? '' : '<small class="enc-av">sinergia a avaliar: o número é um piso</small>');
-    return '<li' + (este ? ' class="este"' : '') + '><span class="enc-d">' + nome + (este ? ' <small>(este deck)</small>' : '') + '</span><span class="enc-v">' + corpo + '</span></li>';
+    return '<li' + (este ? ' class="este"' : '') + '><span class="enc-d">' + nome + (quem || este ? '<small class="enc-cm">' + quem + (este ? (quem ? ' · ' : '') + 'este deck' : '') + '</small>' : '') + '</span><span class="enc-v">' + corpo + '</span></li>';
   }).join('');
   return '<details class="dw-8 dw-enc"' + (ui.dwenc ? ' open' : '') + '><summary><span class="dw-h3">Encaixe<span class="dw-tot">' + resumo + '</span></span></summary>' +
     '<p class="dw-nota">Em quais decks esta carta rende mais. Ganho é o valor dela no deck, com o peso de cada critério e a faixa da régua (critério abaixo da faixa conta mais, acima conta menos), menos o valor da carta de menor valor do deck, que sairia. Terreno troca com terreno; a carta com terreno no verso joga dos dois lados e troca com terreno ou com mágica. Só entram os decks já nos critérios e nas cores da carta.</p>' +
@@ -2605,6 +2608,7 @@ function renderDrawer() {
   var cadW = !V3 ? '' : (w3.cad ? '<p class="step-w"><b>Cadastro da carta:</b> ' + esc(w3.cad) + '</p>' : '') + (w3.aj ? '<p class="step-w"><b>Ajuste neste deck:</b> ' + esc(w3.aj) + '</p>' : '');
   var enc = encodeURIComponent;
   var link = c.set ? 'https://scryfall.com/card/' + enc(c.set.toLowerCase()) + '/' + enc(c.num) : 'https://scryfall.com/search?q=' + enc('!"' + (c.on || c.n) + '"');
+  var liga = 'https://www.ligamagic.com.br/?view=cards/card&card=' + enc(c.on || c.n);   // só o link: o painel não mostra preço
   var back = !!(ui.face && c.dfc && c.back);
   var where = c.cand ? (c.inDeck ? 'No deck, vinda do radar' : 'No radar, fora do deck') : (c.inDeck ? '' : 'Fora do deck');
   var h = '<button class="x" data-act="close" aria-label="Fechar">×</button>' +
@@ -2651,6 +2655,7 @@ function renderDrawer() {
     (c.cand ? '<button class="linkish" data-act="go" data-v="radar">' + (c.inDeck ? 'Ver a troca no radar' : 'Planejar a entrada no radar') + '</button>' :
       (c.cmd ? '' : (c.inDeck ? '<button class="linkish" data-act="cut" data-id="' + esc(c.id) + '" data-fid="ct">Tirar do deck</button>' : '<button class="linkish" data-act="restore" data-id="' + esc(c.id) + '" data-fid="ct">Devolver ao deck</button>'))) +
     '<a href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">Abrir no Scryfall</a>' +
+    '<a href="' + esc(liga) + '" target="_blank" rel="noopener noreferrer">Abrir na LigaMagic</a>' +
     (canImg() ? '<button class="linkish" data-act="img" data-fid="img2">' + (imgOn() ? 'Desligar as imagens' : (hasPack() ? 'Ligar as imagens' : 'Ligar as imagens (usa internet)')) + '</button>' : '') + '</div>';
   el.innerHTML = h;
   el.hidden = false; $('#scrim').hidden = false;

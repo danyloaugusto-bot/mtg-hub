@@ -810,6 +810,7 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .enc li{display:grid;grid-template-columns:minmax(0,40%) minmax(0,1fr);gap:10px;padding:7px 9px;border:1px solid var(--line);border-radius:3px;background:rgba(var(--bg2-rgb),.5)}
 .enc li.este{border-color:var(--gold)}
 .enc-d{font-weight:700;color:var(--bone)}.enc-d a{color:inherit}.enc-d small{font-weight:500;color:var(--dim)}
+.enc-cm{display:flex;align-items:center;flex-wrap:wrap;gap:2px 5px;margin-top:3px;font-size:13px}.enc-cm .mana{display:inline-flex;gap:2px}.enc-cm .ms{width:15px;height:15px;font-size:9px}
 .enc-v small{display:block;color:var(--mute);font-size:13px;line-height:1.35}.enc-v small:first-of-type{display:inline}
 .enc-g{font-size:17px}.enc-g.pos{color:var(--ok)}.enc-g.neg{color:var(--bad)}
 .enc-ja{font-weight:700;color:var(--gold2)}

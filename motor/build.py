@@ -180,7 +180,8 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
              combos=d["combos"], edh=d["edh"], estrategia=d.get("estrategia"), img=(img or None),
              outros=d["outros"], em_pastas=d["em_pastas"], pastas_com_lista=d["pastas_com_lista"],
              # v3: onde cada carta do deck e do radar rende mais, em todos os decks v3 (gaveta da carta, caixa "Encaixe")
-             encaixe=encaixe.para_painel(d, pasta, painel) if d.get("v3") else None)
+             encaixe=encaixe.para_painel(d, pasta, painel) if d.get("v3") else None,
+             encaixe_decks=encaixe.decks_info(d, pasta, painel) if d.get("v3") else None)
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
     # motivo votado (motor/painel/motivos/<grafico>.js): entra só no painel que o usa, antes do app.js
