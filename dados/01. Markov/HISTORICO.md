@@ -1,0 +1,12 @@
+# Histórico: Linhagem Vampírica (Edgar Markov)
+
+## Versão 1.0, 15/10/2026
+
+- O deck onde tudo começou, feito por último e já na pontuação v3, com o 8×8 ao lado. Fontes de fora: a análise final do Claude no app (com auditoria e handover), a V2 Research Deep Review com a planilha e a v1.5 Tribal Purista; listas de comparação Beijo do Vampiro, JoeyDH e WinterDragon. Confrontadas em `CONFRONTO.md` contra o texto oficial no Scryfall. Dezoito arquivos soltos foram para `entrada/`.
+- 100 cartas em 99 linhas, na impressão exata da lista (16 foils), todas na identidade Mardu. Placar v3 955,5 (método antigo, 401); CMC médio 3,35; 32 terrenos, 8 virados; 36 Vampiros e 7 lordes.
+- Decisões do dono: sem pedras de mana; sem cartas de estimação; tutor só em criatura; Toxic Deluge fica, como botão de reset; tier S só para Vampiro (regra que passou a valer para todos os decks tribais). Nome do painel: Linhagem Vampírica.
+- Agrupamentos do 8×8, aprovados: Mana, Compra e busca, Remoção, Proteção, Eminência, Coroação, Investida e Banquete. Sinergias da v3, aprovadas: Eminência (só Vampiro chega a 3, e só se rende a cada Vampiro ou ficha que entra) e Coroação (lordes e marcadores; 3 para quem dobra o ataque ou marca todos os Vampiros a cada evento). Cadastro único: 108 cartas novas, com o porquê de cada nota; o Path of Ancestry deixou de falar em Anjos no cadastro.
+- Correções às análises de fora: o Emeritus of Woe só se prepara de novo no seu fim de turno (a do Claude dizia qualquer turno) e é 5/4 (a auditoria tinha tirado o número); o Bloodlord não dá bloodthirst a fichas (V2); Cover of Darkness é evasão, não proteção, e Mirror Entity e Invasion of New Capenna não são corte (v1.5).
+- Tiers: 2 S (Edgar e Welcoming Vampire), 12 BAX. Radar com 15 cartas: 10 trocas recomendadas (Sanctum Seeker, Indulgent Aristocrat, Emeritus of Woe, Bloodletter of Aclazotz, Isshin, Stensian Sanguinist, Blood Crypt, Godless Shrine, Marsh Flats e Bloodstained Mire) e 5 para avaliar (Crippling Fear, Three Tree City, Scheming Silvertongue, Champion of Dusk, Iroas). Com as trocas, 34 terrenos e placar 969,5; as fetches custam pontos porque o placar não mede terreno. A lista não muda.
+- Quatro combos e motores: o laço Vito + Bloodthirsty Conqueror, a eminência dobrada pela Anointed Procession, Skullclamp com Yahenni e a Bolas's Citadel com a horda.
+- Tema: cripta da família Markov à luz de vela, ébano, latão velho e veludo cor de sangue, fonte Cinzel. Gráfico "caixoes" (Caixões: vigília), escolhido pelo dono na votação.
