@@ -302,6 +302,17 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(1000px 520px at 70%% -12%%, rgba(%d,%d,%d,.12), transparent 62%%),"
                 "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.14), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["vinho"]) + (grad,))
+    if nome == "revoada":
+        # a ninhada da Lathliss voando ao longe num céu de nuvens: silhuetas de dragão em filete, o brilho turquesa no alto e a brasa magenta embaixo
+        dr = "q5 -6 11 -2q3 -5 7 -6q-1 4 2 6q4 -3 9 -1q-6 1 -9 5q-4 0 -8 2q-6 -3 -12 -4z"
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='160' viewBox='0 0 220 160'%3E"
+               "%3Cg fill='" + quote(p["suave"]) + "' fill-opacity='.07'%3E"
+               "%3Cpath d='M20 40" + dr + "'/%3E%3Cpath d='M140 22" + dr + "'/%3E%3Cpath d='M96 108" + dr + "'/%3E"
+               "%3C/g%3E%3Cg fill='none' stroke='" + quote(p["suave"]) + "' stroke-opacity='.05' stroke-width='1.2' stroke-linecap='round'%3E"
+               "%3Cpath d='M150 120q12 -8 24 0q10 -6 20 2'/%3E%3Cpath d='M30 140q10 -6 22 0'/%3E%3C/g%3E%3C/svg%3E")
+        return ('url("%s"),'
+                "radial-gradient(1000px 520px at 75%% -12%%, rgba(%d,%d,%d,.13), transparent 62%%),"
+                "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.12), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
