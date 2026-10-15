@@ -47,6 +47,11 @@ try:
             pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(200)
         if pack:
             R.ok("imagens embutidas aparecem, sem chamada ao Scryfall", pg.locator("img.ci.ci-ok").count() > 0 and not reqs, (pg.locator("img.ci").count(), reqs[:2]))
+            # carta sem arquivo no cache cai na ficha de texto sem aviso; aqui a falta aparece
+            sem = pg.evaluate("""() => { const D = window.PAINEL.D, P = D.img || {}, f = [];
+              D.cards.concat(D.cands || []).forEach(c => { if (!P[c.id]) f.push(c.n); if (c.dfc && !P[c.id + '|b']) f.push(c.n + ' (verso)'); });
+              return f; }""")
+            R.ok("toda carta do deck e do radar tem imagem embutida (rode motor/imagens.py --deck)", not sem, (len(sem), sem[:5]))
         else:
             R.ok("nenhuma imagem externa nem chamada ao Scryfall", pg.locator("img.ci").count() == 0 and not reqs, (pg.locator("img.ci").count(), reqs[:2]))
         R.ok("liga e desliga das imagens fora da barra", pg.locator(".top [data-act=img]").count() == 0)
