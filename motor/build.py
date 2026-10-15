@@ -90,7 +90,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
     cores_g = t.get("agrupamentos") or {}
     grupos = []
     for i, g in enumerate(d["grupos"]):
-        rgb = cores_g.get(g["k"]) or tema.CORES_G[i % len(tema.CORES_G)]
+        rgb = cores_g.get(g["k"]) or g.get("cor") or tema.CORES_G[i % len(tema.CORES_G)]   # v3: a cor padrão de cada critério vem da régua
         g = dict(g)
         if tema.luz(rgb) > .65:
             g["claro"] = True
@@ -137,9 +137,14 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         grafico=t.get("grafico", "padrao"), curva=t.get("curva", "ogiva"), chave_antiga=t.get("chave_antiga", ""), modo=t.get("modo", "escuro"),
         gfonts=gfonts, ident=d["ident"], scryfall=d["scryfall_data"], img_padrao=(modo_img != "nenhuma"),
         regua=dados.regua_compacta(), v3=bool(d.get("v3")),
+        sinergias=(t.get("sinergias") or None) if d.get("v3") else None,
     )
+    # v3: os dez critérios (aba Critérios e gráfico da página inicial), com a cor da régua; o 8×8 segue com os agrupamentos
+    criterios = None
+    if d.get("v3"):
+        criterios = [dict(c, claro=True) if tema.luz(c["cor"]) > .65 else dict(c) for c in d["criterios"]]
     img = mapa_imagens(d["cards"] + d["cands"]) if modo_img == "embutidas" else None
-    D = dict(meta=meta, grupos=[g for g, _ in grupos], marcadores=d["marcadores"], leituras=d["leituras"], cores=cores,
+    D = dict(meta=meta, grupos=[g for g, _ in grupos], criterios=criterios, marcadores=d["marcadores"], leituras=d["leituras"], cores=cores,
              tipos=dict(tema.TIPOS, **(t.get("tipos") or {})), cards=d["cards"], cands=d["cands"], pool=d["pool"],
              combos=d["combos"], edh=d["edh"], estrategia=d.get("estrategia"), img=(img or None),
              outros=d["outros"], em_pastas=d["em_pastas"], pastas_com_lista=d["pastas_com_lista"])

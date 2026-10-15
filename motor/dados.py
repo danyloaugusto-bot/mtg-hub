@@ -73,6 +73,72 @@ def pontos_aceleracao(y):
     return min(a["teto"], a["piso"] + a["pontos_por_passo"] * math.floor(y / a["passo"]))
 
 
+CADASTRO_ARQ = os.path.join(DADOS, "cartas.json")
+# o que conta em cada critério (RUBRICA.md, "Os dez critérios"); o nome e o peso vêm da régua
+DESC_V3 = {
+    "sin1": "Relação direta com a mecânica do comandante.",
+    "sin2": "A segunda mecânica do comandante, ou o que se espera do deck.",
+    "resiliencia": "Ganho de vida, resistência a mágica, anulações, vigilância.",
+    "recurso": "Criação de fichas, filtrar o deck, recursão do cemitério; tutor de não-terreno.",
+    "draw": "Aumento do número de cartas na mão.",
+    "amplificador": "Marcadores +X/+X, copiar mágicas, proliferar, golpe duplo.",
+    "remocao": "Destrói, exila, devolve para a mão.",
+    "evasao": "Voar, atropelar, iniciativa, toque mortífero: o quanto é mais difícil bloquear.",
+    "dano": "Tirar vida do oponente sem ser por combate.",
+    "aceleradores": "Pedras de mana, tutores de terreno, redutores de custo.",
+}
+
+
+def grupos_v3():
+    """Os dez critérios da régua como agrupamentos do painel, com a faixa da régua como referência e a cor padrão."""
+    return [dict(k=c["k"], nome=c["nome"], ab=c["curto"], curto=c["curto"], desc=DESC_V3.get(c["k"], ""), ref=list(c["faixa"]), cor=c.get("cor"), peso=c["peso"])
+            for c in regua()["criterios"]]
+
+
+def ler_cadastro():
+    """dados/cartas.json: os oito critérios da carta, uma entrada por carta, pelo nome do Scryfall da face da frente."""
+    if not os.path.exists(CADASTRO_ARQ):
+        return {}
+    with open(CADASTRO_ARQ, encoding="utf-8") as f:
+        cad = json.load(f)
+    if cad.get("versao") != 3:
+        raise ErroDeck("dados/cartas.json: precisa da versão 3")
+    return cad.get("cartas") or {}
+
+
+def notas_v3(nome, av, cad, quem):
+    """Notas de uma carta num deck v3: cadastro + sinergias do deck (sin1, sin2) + ajustes deste deck, com motivo.
+    Devolve None se a carta não tem cadastro (quem chama junta a lista das que faltam)."""
+    e = cad.get(nome.split(" // ")[0])
+    if e is None:
+        return None
+    da_carta = {c["k"] for c in regua()["criterios"] if not c.get("do_deck")}
+    n = {}
+    for k, v in (e.get("n") or {}).items():
+        if k not in da_carta:
+            raise ErroDeck("dados/cartas.json, %s: '%s' não é critério da carta" % (nome, k))
+        n[k] = v
+    pq = av.get("sin_por_que") or {}
+    for k, v in (av.get("sin") or {}).items():
+        if k not in ("sin1", "sin2"):
+            raise ErroDeck("%s: 'sin' só aceita sin1 e sin2, não '%s'" % (quem, k))
+        if v:
+            n[k] = v
+            # toda nota de sinergia diz por quê, para o dono conferir na gaveta da carta (pedido de 15/10/2026)
+            if not str(pq.get(k, "")).strip():
+                raise ErroDeck("%s: nota %d em %s sem 'sin_por_que'" % (quem, v, k))
+    aj = av.get("ajustes")
+    if aj:
+        if not str(aj.get("motivo", "")).strip():
+            raise ErroDeck("%s: 'ajustes' sem 'motivo'" % quem)
+        for k, v in aj.items():
+            if k != "motivo":
+                if k not in da_carta:
+                    raise ErroDeck("%s: ajuste em '%s', que não é critério da carta" % (quem, k))
+                n[k] = v
+    return n
+
+
 def pontos_cmc(avg):
     """Os pontos do CMC médio do método antigo (1 a 5). Na v3 só valem se a régua pedir (pontos_de_cmc_antigos)."""
     return 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
@@ -497,10 +563,30 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     # pontuação v3: as notas vêm do cadastro único (dados/cartas.json) mais as sinergias do deck; até esse cadastro
     # existir, um deck marcado como v3 para aqui, em vez de montar com as notas do método antigo
     v3 = av.get("versao_pontuacao") == 3
-    if v3:
-        raise ErroDeck("avaliacao.json: a pontuação v3 deste deck depende do cadastro único de cartas (dados/cartas.json), que o motor ainda não monta")
     if av.get("versao_pontuacao") not in (None, 3):
         raise ErroDeck("avaliacao.json: 'versao_pontuacao' só aceita 3 (sem o campo, o deck segue o método antigo)")
+    notas3, porque3 = {}, {}
+    if v3:
+        # pontuação v3, em paralelo ao método do deck: os agrupamentos e as notas seguem para a 8×8, o tabelão e as
+        # leituras; os dez critérios da régua (cadastro único + sinergias do deck) vão para o gráfico do topo, o placar
+        # e a aba Critérios. São duas análises separadas, a pedido do dono (15/10/2026).
+        cad = ler_cadastro()
+        faltam_cad = []
+        for sec in ("cartas", "radar"):
+            for n, a in (av.get(sec) or {}).items():
+                if n.startswith("_"):
+                    continue
+                nv = notas_v3(n, a, cad, n + (" (radar)" if sec == "radar" else ""))
+                if nv is None:
+                    faltam_cad.append(n)
+                else:
+                    notas3[n] = vetor(nv, grupos_v3(), n + " (critérios v3)")
+                    # o porquê das notas, para a gaveta: o do cadastro (vale em todo deck), o das sinergias e o do ajuste
+                    e = cad.get(n.split(" // ")[0]) or {}
+                    w = dict(cad=e.get("por_que", ""), sin=a.get("sin_por_que") or {}, aj=(a.get("ajustes") or {}).get("motivo", ""))
+                    porque3[n] = {k: v for k, v in w.items() if v}
+        if faltam_cad:
+            raise ErroDeck("cartas sem cadastro em dados/cartas.json: " + ", ".join(faltam_cad))
 
     grupos = av.get("agrupamentos") or []
     if not 6 <= len(grupos) <= 10:
@@ -642,6 +728,13 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         for k, q in cs.items():
             if k in minhas:
                 em_pastas.setdefault(k, []).append(dict(p=p, q=q))
+    if v3:
+        for c in cards + cands:
+            k3 = c.get("on", c["n"]) if c.get("on", c["n"]) in notas3 else c["n"]
+            c["s3"] = notas3[k3]
+            if porque3.get(k3):
+                c["s3w"] = porque3[k3]
     return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, v3=v3,
+                criterios=grupos_v3() if v3 else None,
                 marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))

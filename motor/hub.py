@@ -34,25 +34,30 @@ BASICOS = {"Plains", "Island", "Swamp", "Mountain", "Forest", "Wastes",
 
 def placar(cards, grupos, v3=False):
     """A mesma conta do painel (app.js, stats), com a régua de motor/pontuacao.json. Sem PetCard: ele é do dono.
-    Método antigo: pontos do CMC médio + aceleração + soma das notas. v3: soma de peso × pontos da nota em cada critério
-    + aceleração (as notas de Aceleradores, não os pontos, sobre o CMC médio); os pontos do CMC médio só se a régua pedir."""
+    Método antigo: pontos do CMC médio + aceleração + soma das notas dos agrupamentos do deck. v3: os dez critérios
+    (vetor "s3" de cada carta), soma de peso × pontos da nota + aceleração (as notas de Aceleradores, não os pontos,
+    sobre o CMC médio); os pontos do CMC médio só se a régua pedir."""
     R = dados.regua()
-    peso = {c["k"]: c["peso"] for c in R["criterios"]}
+    if v3:
+        ks, chave = [c["k"] for c in R["criterios"]], "s3"
+        peso = [c["peso"] for c in R["criterios"]]
+    else:
+        ks, chave, peso = [g["k"] for g in grupos], "s", None
     pnota = R["pontos_por_nota"]
     nonland = cmc = 0
-    pts = [0] * len(grupos)
-    notas = [0] * len(grupos)
+    pts = [0] * len(ks)
+    notas = [0] * len(ks)
     for c in cards:
         q = c["q"]
-        for i, v in enumerate(c["s"]):
+        for i, v in enumerate(c[chave]):
             notas[i] += v * q
-            pts[i] += (peso[grupos[i]["k"]] * pnota[v] if v > 0 else 0) * q if v3 else v * q
+            pts[i] += (peso[i] * pnota[v] if v > 0 else 0) * q if v3 else v * q
         if not c.get("land"):
             nonland += q
             cmc += c["cmc"] * q
     avg = cmc / nonland if nonland else 0
     cmc_pts = dados.pontos_cmc(avg) if (not v3 or R.get("pontos_de_cmc_antigos")) else 0
-    ir = next((i for i, g in enumerate(grupos) if g["k"] == ("aceleradores" if v3 else "ramp")), 0)
+    ir = next((i for i, k in enumerate(ks) if k == ("aceleradores" if v3 else "ramp")), 0)
     acc = notas[ir] / avg if avg else 0
     return cmc_pts + dados.pontos_aceleracao(acc) + sum(pts), avg
 
@@ -130,6 +135,8 @@ def sinais(c, cache, gc):
 def compacta(c, sf_lancamento=None, sn=None):
     """Uma carta em chaves curtas: o que o Dashboard precisa para refazer as contas do painel."""
     x = {"i": c["id"], "n": c["n"], "q": c.get("q", 1), "c": c["cmc"], "t": c["t"], "s": c.get("s") or [], "T": c.get("tier"), "r": c.get("rel")}
+    if c.get("s3"):
+        x["s3"] = c["s3"]   # deck v3: as notas dos dez critérios, na ordem da régua
     if sn:
         x.update(sn)
     if c.get("on"):

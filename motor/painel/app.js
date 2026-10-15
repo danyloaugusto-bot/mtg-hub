@@ -10,13 +10,27 @@ var G = D.grupos.map(function (g) {
 });
 var NG = G.length;
 function gi(id) { for (var i = 0; i < NG; i++) if (G[i].id === id) return i; return -1; }
-/* régua da pontuação (motor/pontuacao.json, via build). Deck v3: os dez critérios, peso × pontos da nota e aceleração
-   pelas notas de Aceleradores. Deck antigo: soma das notas, pontos do CMC médio e a aceleração, que é a mesma conta. */
-var RG = M.regua, V3 = !!M.v3;
-var PESO = G.map(function (g) { var c = V3 && RG.criterios.filter(function (x) { return x.k === g.id; })[0]; return c ? c.peso : 1; });
-function ptsNota(v, i) { return V3 ? (v > 0 ? PESO[i] * RG.pontos_por_nota[Math.min(3, v)] : 0) : v; }
+var IR = Math.max(0, gi('ramp'));
+var TABC = false;   /* tabelão na visão Critérios (v3): gv e pts leem os critérios enquanto ele é desenhado */
+/* régua da pontuação (motor/pontuacao.json, via build). Deck v3: duas análises lado a lado. Os agrupamentos (aba 8×8,
+   tabelão, leituras) seguem com a soma das notas; os dez critérios (vetor s3 de cada carta) dão o placar, o gráfico da
+   página inicial e a aba Critérios: peso × pontos da nota, mais a aceleração pelas notas de Aceleradores. */
+var RG = M.regua, V3 = !!(M.v3 && D.criterios);
+var CR = V3 ? D.criterios.map(function (g) {
+  return { id: g.k, k: g.nome, ab: g.ab, d: g.desc, sh: g.curto || '', ref: g.ref || null, lt: !!g.claro, peso: g.peso, cor: g.cor };
+}) : [];
+var NC = CR.length;
+var ICA = (function () { for (var i = 0; i < NC; i++) if (CR[i].id === 'aceleradores') return i; return 0; })();
+function ptsCrit(v, i) { return v > 0 ? CR[i].peso * RG.pontos_por_nota[Math.min(3, v)] : 0; }
 function pontosAcel(y) { var a = RG.aceleracao; return y < 0 ? 0 : Math.min(a.teto, a.piso + a.pontos_por_passo * Math.floor(y / a.passo)); }
-var IR = Math.max(0, gi(V3 ? 'aceleradores' : 'ramp'));
+/* placar com vírgula: a v3 tem meio ponto (peso 2,5 e 1,5) */
+function fmtP(n) { return fmt(n, n % 1 ? 1 : 0); }
+/* regra C do gráfico v3 (pedido de 15/10/2026): o desenho de cada critério mostra as cartas com nota 2 ou 3 contra a
+   faixa da régua, com o máximo da faixa a 2/3 do comprimento (cheio em 1,5 vez o máximo); o número escrito é o ponto real.
+   Durante o desenho, LAB guarda os pontos reais e MAXFIX fixa a escala, para a peça mais cheia não virar 100% sozinha. */
+var LAB = null, MAXFIX = null, FOLGA = 1.5, FAIXA_VIS = false;
+function LB(i, v) { return LAB ? LAB[i] : v; }
+function ctrLongo(st) { return fmtP(st.total).length > 5 ? ' longo' : ''; }
 var IPET = (function () { for (var i = 0; i < NG; i++) if (G[i].pet) return i; return -1; })();
 var NUM = ['zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
 var MK = D.marcadores || {};
@@ -68,10 +82,14 @@ function normalize(s) {
   var f = fresh();
   if (!s || typeof s !== 'object') return f;
   ['ov', 'inn', 'out', 'pk'].forEach(function (k) { if (s[k] && typeof s[k] === 'object' && !Array.isArray(s[k])) f[k] = s[k]; });
-  Object.keys(f.ov).forEach(function (id) { var o = f.ov[id]; if (o && Array.isArray(o.s) && o.s.length !== NG) o.s = fitS(o.s); });
+  Object.keys(f.ov).forEach(function (id) {
+    var o = f.ov[id]; if (o && Array.isArray(o.s) && o.s.length !== NG) o.s = fitS(o.s);
+    if (o && o.s3 && (!V3 || !Array.isArray(o.s3) || o.s3.length !== NC)) delete o.s3;   /* notas dos critérios só valem com os dez */
+  });
   Object.keys(f.pk).forEach(function (id) { if (typeof f.pk[id] !== 'string') delete f.pk[id]; });
   if (Array.isArray(s.custom)) f.custom = s.custom.filter(function (c) { return c && c.id && c.n && Array.isArray(c.s); }).map(function (c) {
     if (c.s.length !== NG) c.s = fitS(c.s);
+    if (c.s3 && (!V3 || !Array.isArray(c.s3) || c.s3.length !== NC)) delete c.s3;
     /* backups antigos: o Ritos marcava "vamp", o Coro marcava "angel" */
     if ((c.vamp || c.angel) && TRIBO && !(c.mk && c.mk.tribo)) { c.mk = c.mk || {}; c.mk.tribo = 1; }
     return c;
@@ -134,7 +152,7 @@ function storeTxt() {
 }
 function updStoreNote() { var n = $('#storeNote'); if (n) n.textContent = storeTxt(); }
 var S = loadState();
-var ui = { tab: 'geral', curve: 'tipo', q: '', fg: -1, ft: '', fr: '', sort: { k: 'n', d: 1 }, grouped: true,
+var ui = { tab: 'geral', curve: 'tipo', q: '', fg: -1, fc: -1, ft: '', fr: '', sort: { k: 'n', d: 1 }, grouped: true,
            tierType: '', tierLands: false, tierView: '', ctrlLands: false, drawer: null, modal: null, first: true, confirmReset: false,
            galBy: 'tipo', galLands: false, face: 0, narrow: false, poolAll: false, of: {} };
 
@@ -177,23 +195,40 @@ function E(c) {
   var o = S.ov[c.id] || {};
   var e = {}; for (var k in c) e[k] = c[k];
   e.s = (o.s || c.s).slice(); e.tier = o.tier || c.tier; e.rel = o.rel || c.rel;
+  if (V3) e.s3 = (o.s3 || c.s3 || []).slice();
   e.pet = !!o.pet; e.val = (o.val == null ? null : o.val); e.q = c.q || 1;
-  e.edited = !!(o.s || o.tier || o.rel);
+  e.edited = !!(o.s || o.s3 || o.tier || o.rel);
   if (c.cand) e.verdict = o.verdict || c.verdict || 'avaliar';
   e.nota = o.nota || ''; e.tem = !!o.tem;
   e.inDeck = c.cand ? !!S.inn[c.id] : !S.out[c.id];
   e.mk = c.mk || {};
   return e;
 }
+/* gaveta v3: como a nota vira ponto, e a régua de cada critério (o que conta em cada nota, com o peso) */
+function resumoDw() {
+  var pn = RG.pontos_por_nota;
+  return 'Cada nota de 0 a 3 vale ' + pn.slice(1).join(', ').replace(/, (\d+)$/, ' ou $1') + ' pontos, vezes o peso do critério (o ×, ao lado do nome). ' +
+    'As duas sinergias seguem a régua deste deck; os outros oito critérios vêm do cadastro da carta e valem igual em todos os decks.';
+}
+function reguaDw() {
+  var sr = M.sinergias || {};
+  return '<details class="dw-rg"><summary>O que conta em cada critério</summary><ul>' + CR.map(function (g) {
+    var x = sr[g.id], txt = x && x.regra ? esc(x.nome) + '. ' + esc(x.regra) : esc(g.d);
+    return '<li><b>' + esc(g.k) + ' ×' + fmt(g.peso, g.peso % 1 ? 1 : 0) + ':</b> ' + txt + '</li>';
+  }).join('') + '</ul></details>';
+}
+/* a carta como veio do motor, sem o que o dono mudou no painel */
+function byIdRaw(id) { var all = D.cards.concat(cands()); for (var i = 0; i < all.length; i++) if (all[i].id === id) return all[i]; return null; }
 function byId(id) {
   var all = D.cards.concat(cands());
   for (var i = 0; i < all.length; i++) if (all[i].id === id) return E(all[i]);
   return null;
 }
 function deck() { return D.cards.concat(cands()).map(E).filter(function (c) { return c.inDeck; }); }
-function gv(c, i) { return (c.s[i] || 0) + (i === IPET && c.pet ? 1 : 0); }
+function gv(c, i) { if (TABC) return (c.s3 || [])[i] || 0; return (c.s[i] || 0) + (i === IPET && c.pet ? 1 : 0); }
 function usdOf(c) { var u = c.foil && c.usdf ? +c.usdf : (c.usd ? +c.usd : null); return isNaN(u) ? null : u; }
-function pts(c) { var t = 0; for (var i = 0; i < NG; i++) t += ptsNota(gv(c, i), i); return t; }
+function pts(c) { if (TABC) return pts3(c); var t = 0; for (var i = 0; i < NG; i++) t += gv(c, i); return t; }
+function pts3(c) { var t = 0; for (var i = 0; i < NC; i++) t += ptsCrit((c.s3 || [])[i] || 0, i); return t; }
 function ov(id) { if (!S.ov[id]) S.ov[id] = {}; return S.ov[id]; }
 function pips(cost) {
   var n = {}; WUBRG.forEach(function (ch) { n[ch] = 0; });
@@ -210,7 +245,8 @@ function stats(cs) {
              foils: 0, sets: {}, low: 0, top: 0 };
   var i;
   for (i = 0; i < 8; i++) st.curve.push({ n: 0, t: {}, c: {} });
-  for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0, notas: 0 });
+  for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0 });
+  st.c3 = []; for (i = 0; i < NC; i++) st.c3.push({ hard: 0, soft: 0, pts: 0, notas: 0, n3: 0 });
   Object.keys(MK).forEach(function (k) { st.mk[k] = { n: 0, v: {}, names: [] }; });
   WUBRG.forEach(function (ch) { st.pip[ch] = 0; st.src[ch] = 0; st.pw[ch] = [0, 0, 0, 0]; });
   cs.forEach(function (c) {
@@ -225,8 +261,13 @@ function stats(cs) {
     if (u != null) { st.usd += u * q; st.usdN += q; st.relUsd[c.rel] = (st.relUsd[c.rel] || 0) + u * q; } else st.usdSem += q;
     if (c.set) st.sets[c.set] = (st.sets[c.set] || 0) + q;
     for (var j = 0; j < NG; j++) {
-      var v = gv(c, j); st.grp[j].pts += ptsNota(v, j) * q; st.grp[j].notas += v * q;
+      var v = gv(c, j); st.grp[j].pts += v * q;
       if (v >= 2) st.grp[j].hard += q; else if (v === 1) st.grp[j].soft += q;
+    }
+    for (j = 0; j < NC; j++) {
+      var x3 = st.c3[j]; v = (c.s3 || [])[j] || 0; x3.pts += ptsCrit(v, j) * q; x3.notas += v * q;
+      if (v >= 2) x3.hard += q; else if (v === 1) x3.soft += q;
+      if (v === 3) x3.n3 += q;
     }
     if (c.land) {
       st.lands += q; if (c.tapped) st.tapped += q;
@@ -256,9 +297,9 @@ function stats(cs) {
   st.avg = st.nonland ? st.cmcSum / st.nonland : 0;
   var a = st.avg;
   st.cmcPts = (V3 && !RG.pontos_de_cmc_antigos) || a === 0 ? 0 : a < 2 ? 5 : a < 3 ? 4 : a < 4 ? 3 : a < 5 ? 2 : 1;
-  st.accX = a ? st.grp[IR].notas / a : 0;
+  st.accX = a ? (V3 ? st.c3[ICA].notas : st.grp[IR].pts) / a : 0;
   st.accPts = pontosAcel(st.accX);
-  st.crit = st.grp.reduce(function (t, g) { return t + g.pts; }, 0);
+  st.crit = (V3 ? st.c3 : st.grp).reduce(function (t, g) { return t + g.pts; }, 0);
   st.total = st.cmcPts + st.accPts + st.crit;
   return st;
 }
@@ -835,7 +876,7 @@ function gLabel(i, am, R, v) {
   var x = 230 + lr * cs, y = 230 + lr * sn + (sn < 0 ? -6 : 4);
   var anc = cs > 0.3 ? 'start' : cs < -0.3 ? 'end' : 'middle';
   return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + anc + '">' + esc(G[i].sh || G[i].k) +
-    '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.08em">' + v + '</tspan></text>';
+    '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.08em">' + fmtP(LB(i, v)) + '</tspan></text>';
 }
 /* asas do Coro da Alvorada: duas asas abertas, largas, atrás da auréola com o placar. Cada asa tem o braço (do ombro ao
    punho, no alto), três fileiras de coberteiras por cima e as penas de voo embaixo. As oito penas de voo coloridas são os
@@ -888,8 +929,8 @@ function wingsSvg(st) {
     /* as penas de voo de verdade, uma por agrupamento */
     for (k = 0; k < 4; k++) {
       var gi = idx[k], p = wArm(side, WT[k]), a = dir(WD[k]), L = Ls[gi], v = st.grp[gi].pts;
-      voo += '<g class="pena" style="--i:' + k + ';transform-origin:' + p.x.toFixed(1) + 'px ' + p.y.toFixed(1) + 'px;--r:' + (side * -20) + 'deg" tabindex="0" role="button" data-act="filter-group" data-g="' + gi + '" aria-label="' + esc(G[gi].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[gi].k) + ': ' + v + ' pontos, ' + pl(st.grp[gi].hard + st.grp[gi].soft, 'carta', 'cartas') + '</title>' +
+      voo += '<g class="pena" style="--i:' + k + ';transform-origin:' + p.x.toFixed(1) + 'px ' + p.y.toFixed(1) + 'px;--r:' + (side * -20) + 'deg" tabindex="0" role="button" data-act="filter-group" data-g="' + gi + '" aria-label="' + esc(G[gi].k) + ': ' + fmtP(v) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[gi].k) + ': ' + fmtP(v) + ' pontos, ' + pl(st.grp[gi].hard + st.grp[gi].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wFeather(p, a, WLMAX, side, 0.17) + '" style="fill:rgba(var(--g' + gi + '),.06);stroke:rgba(var(--gold2-rgb),.5)" stroke-width="1" stroke-dasharray="4 4"/>' +
         '<path class="fill" d="' + wFeather(p, a, L, side, 0.17) + '" fill="url(#pg' + gi + ')" style="stroke:rgba(var(--gold2-rgb),.95)" stroke-width="1.4" stroke-linejoin="round"/>' +
         '<path d="' + wRachis(p, a, L, side) + '" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.2" stroke-linecap="round" pointer-events="none"/></g>';
@@ -897,7 +938,7 @@ function wingsSvg(st) {
       /* rótulo na ponta da pena inteira, puxado para fora da asa: as pontas descem em escada até a auréola */
       var x = p.x + lr * cs - lv * sn + side * 4, y = p.y + lr * sn + lv * cs + 6, anc = side > 0 ? 'start' : 'end';
       labels += '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + anc + '">' + esc(G[gi].sh || G[gi].k) +
-        '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.12em">' + v + '</tspan></text>';
+        '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.12em">' + fmtP(v) + '</tspan></text>';
     }
     /* coberteiras: três fileiras de penas curtas ao longo do braço, as de cima menores, por cima das raízes */
     [[0.92, 0.5, 0.22], [0.96, 0.32, 0.26], [1.0, 0.18, 0.30]].forEach(function (fil, r) {
@@ -915,7 +956,7 @@ function wingsSvg(st) {
     '<circle cx="' + WCX + '" cy="' + WCY + '" r="58" style="fill:var(--deep);stroke:var(--gold)" stroke-width="2"/>' +
     '<circle cx="' + WCX + '" cy="' + WCY + '" r="66" fill="none" style="stroke:var(--gold)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="0.1 9.17" opacity=".8"/>' +
     '<circle cx="' + WCX + '" cy="' + WCY + '" r="51" fill="none" style="stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' +
-    '<text class="ctr-n" x="' + WCX + '" y="' + (WCY + 12) + '" text-anchor="middle">' + st.total + '</text>' +
+    '<text class="ctr-n' + ctrLongo(st) + '" x="' + WCX + '" y="' + (WCY + 12) + '" text-anchor="middle">' + fmtP(st.total) + '</text>' +
     '<text class="ctr-l" x="' + WCX + '" y="' + (WCY + 32) + '" text-anchor="middle">pontos</text></svg>';
   return o;
 }
@@ -936,6 +977,7 @@ function tbChao(y, amp, fase, aberto) {
 function tumbasSvg(st) {
   var n = NG, back = Math.floor(n / 2), max = 1, best = 0, i, H0 = 118, SW = 62, yB = 214, yF = 382;
   for (i = 0; i < n; i++) { max = Math.max(max, st.grp[i].pts); if (st.grp[i].pts > st.grp[best].pts) best = i; }
+  if (MAXFIX) max = MAXFIX;
   var esq = Math.ceil(back / 2), dir = back - esq, pos = [];
   for (i = 0; i < esq; i++) pos.push({ x: esq === 1 ? 140 : 62 + i * (190 - 62) / (esq - 1), y: yB });
   for (i = 0; i < dir; i++) pos.push({ x: dir === 1 ? 540 : 490 + i * (618 - 490) / (dir - 1), y: yB });
@@ -951,7 +993,7 @@ function tumbasSvg(st) {
   /* a lua com o placar e a cripta embaixo */
   o += '<circle cx="340" cy="72" r="46" style="fill:rgba(var(--gold2-rgb),.10);stroke:rgba(var(--gold2-rgb),.85)" stroke-width="2"/>' +
     '<circle cx="340" cy="72" r="54" fill="none" style="stroke:rgba(var(--gold2-rgb),.35)" stroke-width="1" stroke-dasharray="1 7" stroke-linecap="round"/>' +
-    '<text class="ctr-n" x="340" y="83" text-anchor="middle">' + st.total + '</text><text class="ctr-l" x="340" y="101" text-anchor="middle">pontos</text>' +
+    '<text class="ctr-n' + ctrLongo(st) + '" x="340" y="83" text-anchor="middle">' + fmtP(st.total) + '</text><text class="ctr-l" x="340" y="101" text-anchor="middle">pontos</text>' +
     '<g class="cripta" pointer-events="none" style="fill:rgba(var(--deep-rgb),.92);stroke:rgba(var(--gold-rgb),.55)" stroke-width="1.4" stroke-linejoin="round">' +
     '<path d="M282 214V146H398V214Z"/><path d="M272 148L340 122L408 148Z"/><path d="M322 214V184A18 18 0 0 1 358 184V214Z" style="fill:rgba(0,0,0,.6)"/>' +
     '<path d="M340 122V108M333 114H347" fill="none"/><path d="M292 160V206M388 160V206" fill="none" style="stroke:rgba(var(--gold-rgb),.3)"/></g>';
@@ -960,8 +1002,8 @@ function tumbasSvg(st) {
     for (var i = de; i < ate; i++) {
       var p = pos[i], v = st.grp[i].pts, fr = Math.max(0, v) / max, h = H0 * Math.max(fr, 0.06), t = TB_TILT[i % 8], topo = i === best;
       var rot = 'rotate(' + t + ' ' + p.x + ' ' + p.y + ')';
-      s += '<g class="lapide' + (topo ? ' topo' : '') + '" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      s += '<g class="lapide' + (topo ? ' topo' : '') + '" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + tbPedra(p.x, p.y, H0, SW) + '" transform="' + rot + '" style="fill:rgba(var(--g' + i + '),.05);stroke:rgba(var(--gold-rgb),.38)" stroke-width="1.2" stroke-dasharray="5 5"/>' +
         (topo ? '<path d="' + tbPedra(p.x, p.y, h, SW) + '" transform="' + rot + '" style="fill:rgba(var(--gold2-rgb),.55)" filter="url(#chama)" pointer-events="none"/>' : '') +
         '<g clip-path="url(#cova' + i + ')"><g class="sobe" transform="translate(0 ' + (H0 - h).toFixed(1) + ')"><g transform="' + rot + '">' +
@@ -971,7 +1013,7 @@ function tumbasSvg(st) {
         '<path d="M' + p.x + ' ' + (p.y - H0 + 22) + 'V' + (p.y - H0 + 56) + 'M' + (p.x - 11) + ' ' + (p.y - H0 + 33) + 'H' + (p.x + 11) + '" fill="none" stroke="rgba(0,0,0,.42)" stroke-width="4" stroke-linecap="round" pointer-events="none"/>' +
         '<path d="M' + (p.x - 18) + ' ' + (p.y - H0 + 72) + 'l9 6 6 -4 8 9" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.2" pointer-events="none"/>' +
         '</g></g></g></g>';
-      lb += '<text x="' + p.x + '" y="' + (p.y + 24) + '" text-anchor="middle">' + esc(G[i].sh || G[i].k) + '<tspan class="v" x="' + p.x + '" dy="1.12em">' + v + '</tspan></text>';
+      lb += '<text x="' + p.x + '" y="' + (p.y + 24) + '" text-anchor="middle">' + esc(G[i].sh || G[i].k) + '<tspan class="v" x="' + p.x + '" dy="1.12em">' + fmtP(LB(i, v)) + '</tspan></text>';
     }
     return { s: s, lb: lb };
   };
@@ -989,10 +1031,11 @@ function tumbasSvg(st) {
 function motivoSvg(st, m) {
   var R = 184, r0 = 60, step = 360 / NG, gap = 2.4, max = 1, i, uidN = 0;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
+  if (MAXFIX) max = MAXFIX;
   var groups = [];
   for (i = 0; i < NG; i++) {
     var v = st.grp[i].pts;
-    groups.push({ i: i, n: G[i].sh || G[i].k, v: v, frac: Math.max(0, v) / max, a0: -90 + i * step + gap, a1: -90 + (i + 1) * step - gap, am: -90 + (i + 0.5) * step,
+    groups.push({ i: i, n: G[i].sh || G[i].k, v: LB(i, v), frac: Math.min(1, Math.max(0, v) / max), a0: -90 + i * step + gap, a1: -90 + (i + 1) * step - gap, am: -90 + (i + 0.5) * step,
       top: v === max, near: v >= 0.85 * max, cor: 'rgb(var(--g' + i + '))', rgba: (function (k) { return function (a) { return 'rgba(var(--g' + k + '),' + a + ')'; }; })(i) });
   }
   function polA(r, a) { var t = a * Math.PI / 180; return [230 + r * Math.cos(t), 230 + r * Math.sin(t)]; }
@@ -1000,15 +1043,52 @@ function motivoSvg(st, m) {
     P: function (r, a) { var p = polA(r, a); return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }, f1: function (n) { return (+n).toFixed(1); },
     uid: function (p) { return (p || 'u') + 'm' + (++uidN); } };
   var o = '<svg class="motivo" viewBox="-58 -2 576 464" role="group" aria-label="Gráfico dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>' + (m.defs ? m.defs(ctx) : '') + '</defs>';
+  var faixa = '';
+  FAIXA_VIS = false;
+  if (MAXFIX && m.raio) {
+    // regra C: em cada critério, a faixa da régua (do mínimo ao máximo) como área clara e o máximo como traço
+    groups.forEach(function (g) {
+      var f = G[g.i].ref; if (!f) return;
+      var ra = m.raio(f[0] / (FOLGA * f[1])), rb = m.raio(1 / FOLGA), p = ctx.P;
+      faixa += '<path d="M' + p(ra, g.a0) + 'A' + ra.toFixed(1) + ' ' + ra.toFixed(1) + ' 0 0 1 ' + p(ra, g.a1) + 'L' + p(rb, g.a1) + 'A' + rb.toFixed(1) + ' ' + rb.toFixed(1) + ' 0 0 0 ' + p(rb, g.a0) + 'Z" class="fx-band"/>' +
+        '<path d="M' + p(rb, g.a0) + 'A' + rb.toFixed(1) + ' ' + rb.toFixed(1) + ' 0 0 1 ' + p(rb, g.a1) + '" class="fx-max"/>';
+    });
+    FAIXA_VIS = !!faixa;
+  }
   o += m.stage ? m.stage(ctx) : '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.55);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1.2"/>';
+  o += faixa;
   groups.forEach(function (g) {
-    o += '<g class="wedge" style="--i:' + g.i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + g.i + '" aria-label="' + esc(G[g.i].k) + ': ' + g.v + ' pontos. Abrir no tabelão.">' +
-      '<title>' + esc(G[g.i].k) + ': ' + g.v + ' pontos, ' + pl(st.grp[g.i].hard + st.grp[g.i].soft, 'carta', 'cartas') + '</title>' + m.group(g, ctx) + '</g>';
+    o += '<g class="wedge" style="--i:' + g.i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + g.i + '" aria-label="' + esc(G[g.i].k) + ': ' + fmtP(g.v) + ' pontos. Abrir no tabelão.">' +
+      '<title>' + esc(G[g.i].k) + ': ' + fmtP(g.v) + ' pontos, ' + (MAXFIX && G[g.i].ref ? st.grp[g.i].hard + ' com nota 2 ou 3, faixa ' + G[g.i].ref[0] + ' a ' + G[g.i].ref[1] : pl(st.grp[g.i].hard + st.grp[g.i].soft, 'carta', 'cartas')) + '</title>' + m.group(g, ctx) + '</g>';
   });
   o += m.center ? m.center(ctx) : '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>';
   groups.forEach(function (g) { o += gLabel(g.i, g.am, R, g.v); });
-  return o + '<text class="ctr-n" x="230" y="243" text-anchor="middle">' + st.total + '</text>' +
+  return o + '<text class="ctr-n' + ctrLongo(st) + '" x="230" y="243" text-anchor="middle">' + fmtP(st.total) + '</text>' +
     '<text class="ctr-l" x="230" y="260" text-anchor="middle">pontos</text></svg>';
+}
+/* v3: o gráfico da página inicial desenha os dez critérios. As funções de gráfico leem G, NG e st.grp; durante o desenho
+   eles passam a ser os critérios, e o clique de cada peça abre a aba Critérios em vez do tabelão. */
+function chartHero(st) {
+  if (!V3) return chartSvg(st);
+  var g0 = G, n0 = NG, s0 = st.grp, o;
+  G = CR; NG = NC;
+  st.grp = st.c3.map(function (x, i) {
+    var f = CR[i].ref ? Math.min(1, x.hard / (FOLGA * CR[i].ref[1])) : 0;
+    return { hard: x.hard, soft: x.soft, pts: Math.round(f * 1000) / 10 };
+  });
+  LAB = st.c3.map(function (x) { return x.pts; }); MAXFIX = 100;
+  try { o = chartSvg(st); } finally { G = g0; NG = n0; st.grp = s0; LAB = null; MAXFIX = null; }
+  return o.replace(/data-act="filter-group"/g, 'data-act="ver-crit"').replace(/Abrir no tabelão\./g, 'Abrir na aba Critérios.')
+    .replace(/agrupamentos, com a pontuação/g, 'critérios da pontuação v3, com o total');
+}
+/* cores dos critérios no gráfico da página inicial (as variáveis --gN da página são as dos agrupamentos) */
+function crVars() { return V3 ? ' style="' + CR.map(function (g, i) { return '--g' + i + ':' + g.cor; }).join(';') + '"' : ''; }
+/* a legenda do gráfico fala de critério e pontos na v3 */
+function legV3(t, peca, masc) {
+  if (!V3) return t;
+  return 'Cada ' + peca + ' é um critério. O tamanho mostra as cartas com nota 2 ou 3 contra a faixa da régua' +
+    (FAIXA_VIS ? ': a área clara é a faixa, o traço marca o máximo dela, e ' + (masc ? 'cheio' : 'cheia') + ' quer dizer 1,5 vez o máximo.' : ', e ' + (masc ? 'cheio' : 'cheia') + ' quer dizer 1,5 vez o máximo.') +
+    ' O número ao lado é o ponto real do critério. Toque ' + (masc ? 'num ' : 'numa ') + peca + ' para abrir na aba Critérios.';
 }
 function chartSvg(st) {
   if (typeof MOTIVO_PAINEL === 'object' && MOTIVO_PAINEL) return motivoSvg(st, MOTIVO_PAINEL);
@@ -1018,6 +1098,7 @@ function chartSvg(st) {
   // o ovo tem o mesmo tamanho em todos os agrupamentos: a, meio comprimento; b, a largura de desenho
   var eA = Math.min((R - r0) * 0.44, 58), eRc = r0 + (R - r0) * 0.52, eB = Math.min(eRc * Math.sin((step / 2 - gap) * Math.PI / 180) * 0.92 / 0.75, eA * 0.95), eCut = eA * 0.28;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
+  if (MAXFIX) max = MAXFIX;
   var o = '<svg viewBox="-58 -2 576 464" role="group" aria-label="' + (rosa && !chamas ? 'Rosácea' : 'Gráfico') + ' dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>';
   for (i = 0; i < NG; i++) {
     o += '<radialGradient id="rg' + i + '" gradientUnits="userSpaceOnUse" cx="230" cy="230" r="' + R + '">' +
@@ -1156,15 +1237,15 @@ function chartSvg(st) {
         var rr = r0 + (R - r0) * f, pp = pol(rr, am).split(' '), on = rr <= r1 + 6;
         rv += '<circle cx="' + pp[0] + '" cy="' + pp[1] + '" r="3.6" style="fill:' + (on ? 'rgb(var(--gold2-rgb))' : 'rgba(var(--gold-rgb),.2)') + ';stroke:rgba(0,0,0,.4)" stroke-width=".8"/>';
       });
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' +
         '<path class="fill" d="' + wedgePath(r0, r1, a0, a1) + '" fill="url(#rg' + i + ')" style="stroke:rgba(var(--gold2-rgb),.7)" stroke-width="1.1" stroke-linejoin="round"/>' + rv + '</g>';
       o += gLabel(i, am, R, v);
       continue;
     }
     if (raio || balao || tranca) {
-      var gTit = '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>', gAbre = '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' + gTit;
+      var gTit = '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>', gAbre = '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' + gTit;
       if (raio) {
         // raio: o contorno inteiro fica desenhado, e o raio aceso vai até a soma das notas, com um brilho branco
         o += gAbre + '<path class="ghost" d="' + boltPath(r0, R, a0, a1) + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1" stroke-linejoin="round"/>' +
@@ -1194,8 +1275,8 @@ function chartSvg(st) {
       // e perto do mais cheio a moeda do topo salta girando
       var mv = Math.max(0, v) / max, mn = v > 0 ? Math.max(1, Math.round(8 * mv)) : 0, mh = (R - r0 - 34) / 8 - 2.2,
         mW = Math.min(34, 2 * (r0 + 8) * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.9), mp = pol(r0, am).split(' ');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + mp[0] + ' ' + mp[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' + coinStack(i, 8, mh, mW, false) +
         '<g class="fill">' + coinStack(i, mn, mh, mW, true) + (mv >= 0.94 ? flipCoinSvg(8 + 8 * (mh + 2.2) + 14, mW) : '') + '</g></g></g>';
@@ -1206,8 +1287,8 @@ function chartSvg(st) {
       // canhão: a carga de goblins enche da culatra até a boca em proporção direta à soma das notas (cheio em 100%, pela
       // metade em 50%); o mais cheio dispara um goblin em chamas
       var cnV = Math.max(0, v) / max, cnL = R - r0 - 38, cnP = pol(r0, am).split(' ');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + cnP[0] + ' ' + cnP[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' +
         '<clipPath id="ccn' + i + '"><rect x="-20" y="-30" width="' + (14 + (cnL + 8) * cnV).toFixed(1) + '" height="60"/></clipPath>' +
@@ -1220,8 +1301,8 @@ function chartSvg(st) {
       // meteoro: a cauda se estende em proporção direta à soma das notas; o comprimento inteiro fica tracejado,
       // e o maior ganha as faíscas
       var mtV = Math.max(0, v) / max, mtM = R - r0 - 40, mtL = v > 0 ? mtM * Math.max(0.06, mtV) : 0, mtR = 7 + 6 * mtV, mtP = pol(r0 + 20, am).split(' ');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + mtP[0] + ' ' + mtP[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' +
         '<linearGradient id="mt' + i + '" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="' + (mtL + mtR).toFixed(1) + '" y2="0"><stop offset="0" style="stop-color:rgb(var(--g' + i + '))"/><stop offset="1" style="stop-color:rgba(var(--g' + i + '),0)"/></linearGradient>' +
@@ -1234,8 +1315,8 @@ function chartSvg(st) {
       // o comprimento inteiro fica tracejado, e a mais alta ganha a águia
       var tv = Math.max(0, v) / max, tL = R - r0 - 36, tl0 = tL * Math.max(0.12, tv),
         tw = Math.min(22, 2 * (r0 + 8) * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.8), tp = pol(r0, am).split(' ');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + tp[0] + ' ' + tp[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' + towerSvg(i, tL, tw, false, false) +
         '<g class="fill">' + towerSvg(i, tl0, tw, true, tv >= 0.94) + '</g></g></g>';
@@ -1247,8 +1328,8 @@ function chartSvg(st) {
       // e a mais cheia ganha o brilho na lente
       var lv = Math.max(0, v) / max, lL = R - r0 - 36, ll0 = lL * Math.max(0.12, lv),
         lw = Math.min(24, 2 * (r0 + 8) * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.85), lp = pol(r0, am).split(' ');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + lp[0] + ' ' + lp[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' + spyglassSvg(i, lL, lw, false, false) +
         '<g class="fill">' + spyglassSvg(i, ll0, lw, true, lv >= 0.94) + '</g></g></g>';
@@ -1260,8 +1341,8 @@ function chartSvg(st) {
       // e o mais cheio ganha o lacre vermelho
       var pv = Math.max(0, v) / max, pL = R - r0 - 34, pl0 = pL * Math.max(0.1, pv),
         pw = Math.min(26, 2 * (r0 + 8) * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.85), pp = pol(r0, am).split(' ');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + pp[0] + ' ' + pp[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' + scrollSvg(i, pL, pw, false, false) +
         '<g class="fill">' + scrollSvg(i, pl0, pw, true, pv >= 0.94) + '</g></g></g>';
@@ -1273,8 +1354,8 @@ function chartSvg(st) {
       // as vizinhas giram em sentidos alternados, como se engrenassem
       var gfr = Math.max(0, v) / max, gl = v > 0 ? Math.max(1, Math.round(10 * gfr)) : 0, grc = r0 + (R - r0) * 0.55,
         gR = Math.min((R - r0) * 0.42, grc * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.95), gp = pol(grc, am).split(' ');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g class="fill" pointer-events="none">' + gearSvg(i, +gp[0], +gp[1], gR, gl, am + (i % 2 ? 18 : 0), gfr >= 0.94) + '</g></g>';
       o += gLabel(i, am, R, v);
@@ -1285,8 +1366,8 @@ function chartSvg(st) {
       // e só a mão do agrupamento perto do mais cheio abre os dedos
       var hv = Math.max(0, v) / max, hL = R - r0 - 36, ht = 10 + hL * Math.max(0.08, hv), hw = 8,
         hM = Math.min(30, 2 * (r0 + 8) * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.9), hp = pol(r0, am).split(' ');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + hp[0] + ' ' + hp[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' + handSvg(i, 10 + hL, hw, true, false) +
         '<g class="fill">' + handSvg(i, ht, hw, hv >= 0.94, true) + '</g>' +
@@ -1301,8 +1382,8 @@ function chartSvg(st) {
       // e o agrupamento perto do mais cheio solta uma asa pela ponta de fora
       var fv = Math.max(0, v) / max, fL = R - r0 - 16, fW = Math.min(18, (r0 + 40) * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.5), fo = Math.max(0.12, fv), fp0 = pol(r0 + 6, am).split(' ');
       var rp = riftPath(fL, fW, fo);
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + fp0[0] + ' ' + fp0[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' +
         '<path d="' + riftPath(fL, fW, 1) + '" style="fill:rgba(var(--g' + i + '),.05);stroke:rgba(var(--gold-rgb),.28)" stroke-width="1" stroke-dasharray="3 3"/>' +
@@ -1328,8 +1409,8 @@ function chartSvg(st) {
         '<path d="' + eg + '"' + shell + '/>' +
         '<ellipse cx="' + (-eA * 0.25).toFixed(1) + '" cy="' + (-eB * 0.3).toFixed(1) + '" rx="' + (eA * 0.35).toFixed(1) + '" ry="' + (eB * 0.16).toFixed(1) + '" style="fill:rgba(255,255,255,.14)"/>' +
         (nk ? '<path d="' + eggCracks(eA, eB, nk) + '" style="fill:none;stroke:rgba(var(--deep-rgb),.85)" stroke-width="1.6" stroke-linejoin="round"/>' : '');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<g transform="translate(' + ep[0] + ' ' + ep[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' +
         '<path d="' + eg + '" style="fill:rgba(var(--g' + i + '),.06);stroke:rgba(var(--gold-rgb),.45)" stroke-width="1.2"/>' +
@@ -1349,8 +1430,8 @@ function chartSvg(st) {
       }
       var ftp = pol(fEnd - 2, am).split(' '), fton = fn >= 7, ft =leafShape(+ftp[0], +ftp[1], am, 24 * fS, 14 * fS);
       fg += '<path d="' + ft.d + '"' + (fton ? ' fill="url(#rg' + i + ')" style="stroke:rgba(var(--gold2-rgb),.9)" stroke-width="1.2"' : ' style="fill:rgba(var(--g' + i + '),.06);stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"') + '/>';
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
         '<path d="M' + pol(r0 + 2, am) + 'L' + pol(fEnd, am) + '" style="stroke:rgba(var(--gold-rgb),.35)" stroke-width="1.4" stroke-linecap="round"/>' +
         '<path d="M' + pol(r0 + 2, am) + 'L' + pol(fn >= 7 ? fEnd : fLit, am) + '" style="stroke:rgb(var(--gold2-rgb))" stroke-width="2" stroke-linecap="round"/>' +
@@ -1361,8 +1442,8 @@ function chartSvg(st) {
     if (lua) {
       // lua: o disco fica desenhado, e a parte acesa vai de nova a cheia com a soma das notas; perto da cheia, um halo
       var mrc = r0 + (R - r0) * 0.55, mr = Math.min((R - r0) * 0.42, mrc * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.88), mp = pol(mrc, am).split(' '), mx = +mp[0], my = +mp[1];
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         (fr > 0.85 ? '<circle cx="' + mx + '" cy="' + my + '" r="' + (mr + 7).toFixed(1) + '" style="fill:rgba(var(--g' + i + '),.14)"/>' : '') +
         '<circle class="ghost" cx="' + mx + '" cy="' + my + '" r="' + mr.toFixed(1) + '" style="fill:rgba(var(--g' + i + '),.08);stroke:rgba(var(--gold-rgb),.45)" stroke-width="1.1"/>' +
         '<path class="fill" d="' + moonPhase(mx, my, mr, fr) + '" fill="url(#rg' + i + ')" style="stroke:rgba(var(--gold2-rgb),.6)" stroke-width=".8"/>' +
@@ -1376,8 +1457,8 @@ function chartSvg(st) {
       var fk = fanPts(r0, R, a0, a1), fp = fanPath(fk), lf = Math.max(r0 + 6, r1), fpt = fk.pt;
       var deg = [fk.ra, fk.rb].map(function (rr, j) { var hw = j ? fk.h3 : fk.h2, on = lf >= rr;
         return '<path d="M' + fpt(rr, -hw) + 'L' + fpt(rr, hw) + '" style="stroke:' + (on ? 'rgb(var(--gold2-rgb))' : 'rgba(var(--gold-rgb),.4)') + '" stroke-width="' + (on ? 1.8 : 1.1) + '" pointer-events="none"/>'; }).join('');
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + fp + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),.5)" stroke-width="1.1" stroke-linejoin="miter"/>' +
         '<circle class="fill" cx="230" cy="230" r="' + lf.toFixed(1) + '" fill="url(#rg' + i + ')" clip-path="url(#cl' + i + ')"/>' +
         '<path d="M' + fpt(fk.ri + 4, 0) + 'L' + fpt(R + 4, 0) + 'M' + fpt(fk.ra + 6, -fk.h2 * 0.55) + 'L' + fpt(R - 2, -fk.h3 * 0.55) + 'M' + fpt(fk.ra + 6, fk.h2 * 0.55) + 'L' + fpt(R - 2, fk.h3 * 0.55) + '" style="fill:none;stroke:rgba(var(--gold2-rgb),.38)" stroke-width=".8" pointer-events="none"/>' +
@@ -1388,8 +1469,8 @@ function chartSvg(st) {
     if (casco) {
       // casco: o oval fica desenhado, a cor sobe do centro com a soma das notas e cada placa do eixo acende quando a cor passa dela
       var sk = shellPts(r0, R, a0, a1), so = shellPath(sk, 1), pl8 = shellPlates(sk), lk = Math.max(r0 + 6, r1);
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + so + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),.5)" stroke-width="1.2"/>' +
         '<circle class="fill" cx="230" cy="230" r="' + lk.toFixed(1) + '" fill="url(#rg' + i + ')" clip-path="url(#ck' + i + ')"/>' +
         pl8.hex.map(function (x) { var on = lk >= x.r; return '<path d="' + x.d + '" style="fill:' + (on ? 'rgba(var(--gold2-rgb),.3)' : 'none') + ';stroke:' + (on ? 'rgb(var(--gold2-rgb))' : 'rgba(var(--gold-rgb),.42)') + '" stroke-width="1.2" stroke-linejoin="round" pointer-events="none"/>'; }).join('') +
@@ -1402,8 +1483,8 @@ function chartSvg(st) {
       // pedra rúnica: a pedra fica desenhada, a luz fria sobe com a soma das notas e a runa acende quando a luz chega nela
       var sp = stonePath(r0, R, a0, a1), lr = Math.max(r0 + 6, r1), rg = R - 30, on = lr >= rg;
       var q0 = pol(rg - 11, am), q1 = pol(rg + 11, am), q2 = pol(rg + 3, am), dw = 7 / (rg + 10) * 180 / Math.PI, q3 = pol(rg + 11, am - dw), q4 = pol(rg + 11, am + dw);
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + sp + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),.5)" stroke-width="1.2" stroke-linejoin="round"/>' +
         '<circle class="fill" cx="230" cy="230" r="' + lr.toFixed(1) + '" fill="url(#rg' + i + ')" clip-path="url(#cr' + i + ')"/>' +
         '<path d="M' + q0 + 'L' + q1 + 'M' + q2 + 'L' + q3 + 'M' + q2 + 'L' + q4 + '" fill="none" style="stroke:' + (on ? 'rgb(var(--gold2-rgb))' : 'rgba(var(--gold-rgb),.35)') + '" stroke-width="2" stroke-linecap="round" pointer-events="none"/></g>';
@@ -1415,8 +1496,8 @@ function chartSvg(st) {
       var vp = vialPath(r0, R, a0, a1), dd = (a1 - a0) / 2 * Math.PI / 180, vw = Math.min(24, (r0 + 10) * Math.sin(dd) * 0.92) * 0.68;
       var c0 = pol(R, am - vw / R * 180 / Math.PI), c1 = pol(R, am + vw / R * 180 / Math.PI), c2 = pol(R + 9, am + vw * 0.85 / (R + 9) * 180 / Math.PI), c3 = pol(R + 9, am - vw * 0.85 / (R + 9) * 180 / Math.PI);
       var lv = Math.max(r0 + 6, r1);
-      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + vp + '" style="fill:rgba(var(--g' + i + '),.08);stroke:rgba(var(--gold2-rgb),.55)" stroke-width="1.2" stroke-linejoin="round"/>' +
         '<circle class="fill" cx="230" cy="230" r="' + lv.toFixed(1) + '" fill="url(#rg' + i + ')" clip-path="url(#cv' + i + ')"/>' +
         '<circle cx="230" cy="230" r="' + lv.toFixed(1) + '" fill="none" style="stroke:rgba(255,255,255,.55)" stroke-width="1.4" clip-path="url(#cv' + i + ')" pointer-events="none"/>' +
@@ -1427,8 +1508,8 @@ function chartSvg(st) {
     }
     if (pin) {
       // alfinete: a fatia fica translúcida, a agulha sai da almofada e a cabeça colorida marca os pontos
-      o += '<g class="petal" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-        '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+      o += '<g class="petal" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+        '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:rgba(var(--g' + i + '),.05);stroke:rgba(var(--gold-rgb),.18)" stroke-width="1"/>' +
         '<path class="fill" d="' + wedgePath(r0, r1, a0, a1) + '" fill="url(#rg' + i + ')" style="opacity:.42"/>' +
         '<line x1="' + pol(r0 - 10, am).replace(' ', '" y1="') + '" x2="' + pol(r1, am).replace(' ', '" y2="') + '" style="stroke:var(--gold2)" stroke-width="2.2" stroke-linecap="round"/>' +
@@ -1438,8 +1519,8 @@ function chartSvg(st) {
       continue;
     }
     if (fios) o += '<line x1="' + pol(r0 - 7, am).replace(' ', '" y1="') + '" x2="' + pol(R + 14, am).replace(' ', '" y2="') + '" style="stroke:rgba(var(--blood2-rgb),.3)" stroke-width=".7" stroke-dasharray="1 4"/>';
-    o += '<g class="' + (rosa ? 'petal' : 'wedge') + '" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
-      '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
+    o += '<g class="' + (rosa ? 'petal' : 'wedge') + '" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
+      '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
       '<path class="ghost" d="' + shape(r0, R, a0, a1) + '" style="fill:rgba(var(--g' + i + '),.07);stroke:rgba(var(--gold-rgb),' + (rosa ? '.45' : '.25') + ')" stroke-width="1"/>' +
       '<path class="fill" d="' + shape(r0, r1, a0, a1) + '" fill="url(#rg' + i + ')" style="stroke:rgba(var(--gold2-rgb),' + (rosa ? '.85' : '.55') + ')" stroke-width="' + (rosa ? '1.3' : '1') + '" stroke-linejoin="round"/></g>';
     if (crown && v > 0) {
@@ -1542,7 +1623,7 @@ function chartSvg(st) {
   else if (!pin) o += '<circle cx="230" cy="230" r="' + (r0 - 7) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>';
   o += (rosa && !chamas ? '<circle cx="230" cy="230" r="' + (r0 - 12) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.35)" stroke-width="1"/>' : '') +
     (fios ? xMark(0, r0 - 16, 2.4, .28) : '') +
-    '<text class="ctr-n" x="230" y="243" text-anchor="middle">' + st.total + '</text>' +
+    '<text class="ctr-n' + ctrLongo(st) + '" x="230" y="243" text-anchor="middle">' + fmtP(st.total) + '</text>' +
     '<text class="ctr-l" x="230" y="260" text-anchor="middle">pontos</text></svg>';
   return o;
 }
@@ -1654,6 +1735,17 @@ function readings(st) {
 function peak(st) { var m = 0, k = 0; st.curve.forEach(function (c, i) { if (c.n > m) { m = c.n; k = i; } }); return (k === 7 ? '7 ou mais' : k) + ' manas'; }
 
 /* ============ visão geral ============ */
+/* a conta da pontuação v3, escrita a partir da régua (motor/pontuacao.json) */
+function comoV3() {
+  var pn = RG.pontos_por_nota, a = RG.aceleracao, pesos = {};
+  CR.forEach(function (g) { (pesos[g.peso] = pesos[g.peso] || []).push(g.k); });
+  var ps = Object.keys(pesos).map(Number).sort(function (x, y) { return y - x; }).map(function (w) { return lista(pesos[w]) + ', ' + fmt(w, w % 1 ? 1 : 0); });
+  return '<p>Pontuação v3. Cada carta tem nota de 0 a 3 em ' + NUM[NC] + ' critérios: a Sinergia Primária e a Secundária vêm deste deck, os outros oito vêm do cadastro único das cartas. ' +
+    'A nota vale ' + pn.slice(1).join(', ').replace(/, (\d+)$/, ' ou $1') + ' pontos (0 não pontua), vezes o peso do critério: ' + ps.join('; ') + '. ' +
+    'O potencial de aceleração é a soma das notas de ' + esc(CR[ICA].k) + ' dividida pelo CMC médio: vale ' + a.piso + ' pontos, mais ' + a.pontos_por_passo + ' a cada ' + fmt(a.passo, 1) + ', até ' + a.teto + '. ' +
+    (RG.pontos_de_cmc_antigos ? 'O CMC médio ainda vale de 1 a 5 pontos.' : 'O CMC médio não soma pontos: ele entra só como divisor da aceleração.') + '</p>' +
+    '<p>Os agrupamentos da aba 8×8, o tabelão e as leituras seguem com a análise anterior, separada desta. Os critérios, com a faixa e as cartas de cada um, ficam na aba Critérios.</p>';
+}
 function eixoN(st) {
   var e = M.eixo; if (!e) return st.cri;
   if (e.marcador === 'tribo') return st.tribo;
@@ -1667,13 +1759,13 @@ function heroHtml(st, cmds) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'maos' ? 'mão' : M.grafico === 'engrenagens' ? 'engrenagem' : M.grafico === 'pergaminhos' ? 'pergaminho' : M.grafico === 'lunetas' ? 'luneta' : M.grafico === 'torres' ? 'torre' : M.grafico === 'meteoros' ? 'meteoro' : M.grafico === 'canhoes' ? 'canhão' : M.grafico === 'tumbas' ? 'lápide' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'maos' ? 'mão' : M.grafico === 'engrenagens' ? 'engrenagem' : M.grafico === 'pergaminhos' ? 'pergaminho' : M.grafico === 'lunetas' ? 'luneta' : M.grafico === 'torres' ? 'torre' : M.grafico === 'meteoros' ? 'meteoro' : M.grafico === 'canhoes' ? 'canhão' : M.grafico === 'tumbas' ? 'lápide' : M.grafico === 'asas' && (V3 ? NC : NG) === 8 ? 'pena' : 'fatia';
   // motivo votado: a legenda vem do arquivo do motivo (peça, gênero e o que a pontuação muda)
   var mvl = typeof MOTIVO_PAINEL === 'object' && MOTIVO_PAINEL && MOTIVO_PAINEL.legenda;
   if (mvl) peca = mvl.peca;
-  var chart = mvl ? '<figure class="rosa">' + chartSvg(st) + '<figcaption>Cada ' + esc(mvl.peca) + esc(mvl.texto) + ' Toque ' + (mvl.masc ? 'num ' : 'numa ') + esc(mvl.peca) + ' para abrir no tabelão.</figcaption></figure>' :
-    '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
-    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : peca === 'relâmpago' ? ' é um agrupamento, e o relâmpago vai até a soma das notas.' : peca === 'balão' ? ' é um agrupamento, e cresce com a soma das notas.' : peca === 'trança' ? ' é um agrupamento: os gomos acendem até a soma das notas.' : peca === 'pilha' ? ' de moedas é um agrupamento: cresce em proporção à soma das notas, e na mais alta a moeda do topo salta.' : peca === 'mão' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta abre os dedos.' : peca === 'lápide' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta ganha a chama fria.' : peca === 'engrenagem' ? ' é um agrupamento: os dez dentes acendem em proporção à soma das notas, e a mais cheia ganha o brilho verde do óleo phyrexiano.' : peca === 'pergaminho' ? ' é um agrupamento: se desenrola em proporção à soma das notas, e o mais cheio ganha o lacre.' : peca === 'luneta' ? ' é um agrupamento: estica em proporção à soma das notas, e a mais cheia ganha o brilho na lente.' : peca === 'torre' ? ' é um agrupamento: sobe em proporção à soma das notas, as janelas acendem com a altura, e a mais alta ganha a águia.' : peca === 'canhão' ? ' é um agrupamento: a carga de goblins o enche em proporção à soma das notas (cheio até a boca em 100%, pela metade em 50%), e o mais cheio dispara.' : peca === 'meteoro' ? ' é um agrupamento: a cauda de fogo cresce em proporção à soma das notas, e o maior solta faíscas.' : peca === 'fenda' ? ' é um agrupamento: abre e acende em proporção à soma das notas, e a mais cheia solta uma asa.' : peca === 'ovo' ? ' é um agrupamento: a cor acende e as rachaduras se abrem em proporção à soma das notas, e o mais cheio eclode.' : peca === 'galho' ? ' é um agrupamento com sete folhas, que acendem em proporção à soma das notas: o mais cheio tem as sete.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago|galho|ovo|pergaminho|meteoro|canhão)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
+  var chart = mvl ? '<figure class="rosa"' + crVars() + '>' + chartHero(st) + '<figcaption>' + legV3('Cada ' + esc(mvl.peca) + esc(mvl.texto) + ' Toque ' + (mvl.masc ? 'num ' : 'numa ') + esc(mvl.peca) + ' para abrir no tabelão.', esc(mvl.peca), mvl.masc) + '</figcaption></figure>' :
+    '<figure class="rosa' + (M.grafico === 'asas' && (V3 ? NC : NG) === 8 ? ' asas' : '') + '"' + crVars() + '>' + chartHero(st) + '<figcaption>' + legV3('Cada ' + peca +
+    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : peca === 'relâmpago' ? ' é um agrupamento, e o relâmpago vai até a soma das notas.' : peca === 'balão' ? ' é um agrupamento, e cresce com a soma das notas.' : peca === 'trança' ? ' é um agrupamento: os gomos acendem até a soma das notas.' : peca === 'pilha' ? ' de moedas é um agrupamento: cresce em proporção à soma das notas, e na mais alta a moeda do topo salta.' : peca === 'mão' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta abre os dedos.' : peca === 'lápide' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta ganha a chama fria.' : peca === 'engrenagem' ? ' é um agrupamento: os dez dentes acendem em proporção à soma das notas, e a mais cheia ganha o brilho verde do óleo phyrexiano.' : peca === 'pergaminho' ? ' é um agrupamento: se desenrola em proporção à soma das notas, e o mais cheio ganha o lacre.' : peca === 'luneta' ? ' é um agrupamento: estica em proporção à soma das notas, e a mais cheia ganha o brilho na lente.' : peca === 'torre' ? ' é um agrupamento: sobe em proporção à soma das notas, as janelas acendem com a altura, e a mais alta ganha a águia.' : peca === 'canhão' ? ' é um agrupamento: a carga de goblins o enche em proporção à soma das notas (cheio até a boca em 100%, pela metade em 50%), e o mais cheio dispara.' : peca === 'meteoro' ? ' é um agrupamento: a cauda de fogo cresce em proporção à soma das notas, e o maior solta faíscas.' : peca === 'fenda' ? ' é um agrupamento: abre e acende em proporção à soma das notas, e a mais cheia solta uma asa.' : peca === 'ovo' ? ' é um agrupamento: a cor acende e as rachaduras se abrem em proporção à soma das notas, e o mais cheio eclode.' : peca === 'galho' ? ' é um agrupamento com sete folhas, que acendem em proporção à soma das notas: o mais cheio tem as sete.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago|galho|ovo|pergaminho|meteoro|canhão)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.', peca, /^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago|galho|ovo|pergaminho|meteoro|canhão|engrenagem|pergaminho|casco)$/.test(peca)) + '</figcaption></figure>';
   // dois comandantes (parceiros): nome, custo, tipo e texto de cada um
   var sub = '<p class="hero-sub' + (par ? ' par' : '') + '">' + (par ? cmds.map(function (c) { return esc(c.n) + mana(c.cost); }).join(' <span class="hero-mais">+</span> ') : esc(nome) + (cmd ? mana(cmd.cost) : '')) + '</p>';
   // parceiros do mesmo tipo (as Tartarugas) mostram a linha uma vez só, com as duas forças
@@ -1780,15 +1872,16 @@ function renderGeral() {
     '<div class="legend">' + (ui.curve === 'cor' ? COLS.filter(function (c) { return st.cols[c.k]; }) : TYPES.filter(function (t) { return t.k !== 'ter' && st.types[t.k]; })).map(function (k) {
       return '<span><i style="background:' + k.c + '"></i>' + esc(k.n) + ' ' + (ui.curve === 'cor' ? st.cols[k.k] : st.types[k.k]) + '</span>';
     }).join('') + '</div></fieldset>' +
-    '<fieldset class="pn"><legend>Placar do deck</legend><div class="score-big"><b>' + st.total + '</b><span>pontos</span></div>' +
-    '<table class="kv"><tr><th scope="row">CMC médio</th><td class="num">' + fmt(st.avg) + '</td><td class="num"><b>' + st.cmcPts + '</b> pts</td></tr>' +
+    '<fieldset class="pn"><legend>Placar do deck</legend><div class="score-big"><b>' + fmtP(st.total) + '</b><span>pontos' + (V3 ? ', pontuação v3' : '') + '</span></div>' +
+    '<table class="kv"><tr><th scope="row">CMC médio</th><td class="num">' + fmt(st.avg) + '</td><td class="num">' + (V3 && !RG.pontos_de_cmc_antigos ? 'não pontua' : '<b>' + st.cmcPts + '</b> pts') + '</td></tr>' +
     '<tr><th scope="row">Potencial de aceleração</th><td class="num">' + fmt(st.accX) + '</td><td class="num"><b>' + st.accPts + '</b> pts</td></tr>' +
-    '<tr><th scope="row">Soma das notas</th><td></td><td class="num"><b>' + st.crit + '</b> pts</td></tr></table>' +
+    '<tr><th scope="row">' + (V3 ? 'Pontos dos dez critérios' : 'Soma das notas') + '</th><td></td><td class="num"><b>' + fmtP(st.crit) + '</b> pts</td></tr></table>' +
+    (V3 ? '<p class="pn-note"><button class="linkish" data-act="go" data-v="crit">Abrir os critérios</button>: pontos, faixa e cartas de cada um.</p>' : '') +
     '<h3 class="sub">Tiers das ' + st.n + ' cartas</h3><div class="stack">' + TIERS.filter(function (t) { return st.tier[t.k]; }).map(function (t) {
       return '<i class="t' + t.k + '" style="flex:' + st.tier[t.k] + '" title="Tier ' + t.k + ': ' + st.tier[t.k] + '"></i>'; }).join('') + '</div>' +
     '<div class="legend">' + TIERS.map(function (t) { return '<span>' + tierB(t.k, true) + ' ' + (st.tier[t.k] || 0) + '</span>'; }).join('') +
     '<button class="linkish" data-act="go" data-v="tier">Abrir a tier list</button></div>' +
-    '<details class="how"><summary>Como a conta é feita</summary><p>É a mesma lógica da sua planilha do Vito. O CMC médio vale de 1 a 5 pontos, e quanto mais baixo, melhor. O potencial de aceleração é a soma da coluna ' + esc(G[IR].k) + ' dividida pelo CMC médio, e cada 0,5 vale 5 pontos, até 90. O restante é a soma das notas de 0 a 3 que cada carta recebe nos ' + NUM[NG] + ' agrupamentos. Como os agrupamentos mudam de um deck para outro, o total serve para acompanhar este deck ao longo das trocas, não para compará-lo com outro.</p></details>' +
+    '<details class="how"><summary>Como a conta é feita</summary>' + (V3 ? comoV3() : '<p>É a mesma lógica da sua planilha do Vito. O CMC médio vale de 1 a 5 pontos, e quanto mais baixo, melhor. O potencial de aceleração é a soma da coluna ' + esc(G[IR].k) + ' dividida pelo CMC médio, e cada 0,5 vale 5 pontos, até 90. O restante é a soma das notas de 0 a 3 que cada carta recebe nos ' + NUM[NG] + ' agrupamentos. Como os agrupamentos mudam de um deck para outro, o total serve para acompanhar este deck ao longo das trocas, não para compará-lo com outro.</p>') + '</details>' +
     '</fieldset></div>';
 
   h += custoPanel(cs, st);
@@ -2155,20 +2248,20 @@ function tabRows() {
       (imgOn() ? '<span class="thb">' + imgTag(c, 'small', false) + '</span>' : '') + '<span class="t">' + esc(c.n) + '</span>' +
       (c.foil ? '<span class="foil" title="Foil">✦</span>' : '') + (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') + (c.edited ? '<span class="edt" title="Avaliação alterada por você"></span>' : '') +
       '</div></td><td class="dimc num hm">' + c.q + '</td><td class="hm">' + (c.cost ? mana(c.cost) : '<span class="dimc">—</span>') + '</td><td class="num">' + (c.land ? '<span class="dimc">—</span>' : c.cmc) + '</td>' + cells +
-      '<td class="pts num">' + pts(c) + '</td><td class="num dimc usd">' + (usdOf(c) == null ? '—' : fmt(usdOf(c))) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + '</td></tr>';
+      '<td class="pts num">' + fmtP(pts(c)) + '</td><td class="num dimc usd">' + (usdOf(c) == null ? '—' : fmt(usdOf(c))) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + '</td></tr>';
   }
   var tot = [], tp = 0, tn = 0, tu = 0, i;
   for (i = 0; i < NG; i++) tot.push(0);
   cs.forEach(function (c) { for (var i = 0; i < NG; i++) tot[i] += gv(c, i) * c.q; tp += pts(c) * c.q; tn += c.q; tu += (usdOf(c) || 0) * c.q; });
   var h = '<tr class="tot"><td class="c-name">' + (cs.length === deck().length ? 'Total do deck' : 'Total do filtro') + '</td><td class="num hm">' + tn + '</td><td class="hm"></td><td></td>' +
-    tot.map(function (v) { return '<td class="num">' + v + '</td>'; }).join('') + '<td class="num">' + tp + '</td><td class="num">' + fmt(tu) + '</td>' + (EDH ? '<td></td>' : '') + '<td></td><td></td></tr>';
+    tot.map(function (v) { return '<td class="num">' + v + '</td>'; }).join('') + '<td class="num">' + fmtP(tp) + '</td><td class="num">' + fmt(tu) + '</td>' + (EDH ? '<td></td>' : '') + '<td></td><td></td></tr>';
   if (!cs.length) return h + '<tr><td class="c-name" colspan="' + NCOL + '" style="position:static;padding:22px 14px;color:var(--mute);max-width:none">Nenhuma carta com esses filtros. Limpe a busca ou escolha outro agrupamento.</td></tr>';
   if (ui.grouped) {
     TG.forEach(function (g) {
       var list = cs.filter(function (c) { return c.g === g.k; }).sort(sorter);
       if (!list.length) return;
       var n = 0, p = 0; list.forEach(function (c) { n += c.q; p += pts(c) * c.q; });
-      h += '<tr class="grp"><td colspan="' + NCOL + '"><div class="grp-in">' + g.n + ' (' + n + ')<span>' + p + ' pts</span></div></td></tr>' + list.map(row).join('');
+      h += '<tr class="grp"><td colspan="' + NCOL + '"><div class="grp-in">' + g.n + ' (' + n + ')<span>' + fmtP(p) + ' pts</span></div></td></tr>' + list.map(row).join('');
     });
   } else {
     h += cs.sort(sorter).map(row).join('');
@@ -2180,20 +2273,33 @@ function th(k, label, cls, title, style) {
   return '<th' + (cls ? ' class="' + cls + '"' : '') + (style ? ' style="' + style + '"' : '') + (act ? ' aria-sort="' + (ui.sort.d > 0 ? 'ascending' : 'descending') + '"' : '') + ' scope="col">' +
     '<button data-act="sort" data-k="' + k + '" data-fid="th' + k + '"' + (title ? ' title="' + esc(title) + '"' : '') + '>' + label + (act ? (ui.sort.d > 0 ? ' ▲' : ' ▼') : '') + '</button></th>';
 }
-function renderTab() {
-  var h = '<div class="tools"><label class="fld"><span>Buscar</span><input class="inp" id="q" type="search" placeholder="nome ou tipo" value="' + esc(ui.q) + '" autocomplete="off"></label>' +
+/* desenha o tabelão na visão escolhida: na de Critérios, as colunas viram os dez critérios e Pts o valor v3 da carta */
+function comTabC(fn) {
+  if (!(V3 && ui.tabv === 'crit')) return fn();
+  var g0 = G, n0 = NG, k0 = NCOL;
+  TABC = true; G = CR; NG = NC; NCOL = 8 + NC + (EDH ? 1 : 0);
+  try { return fn(); } finally { TABC = false; G = g0; NG = n0; NCOL = k0; }
+}
+function renderTab() { comTabC(renderTab0); }
+function renderTab0() {
+  var tc = V3 && ui.tabv === 'crit';
+  var h = (V3 ? '<div class="pn-tools tab-v"><div class="seg" role="group" aria-label="O que as colunas mostram">' +
+    '<button data-act="tab-v" data-v="grp" data-fid="tvg" aria-pressed="' + !tc + '">Agrupamentos (8×8)</button>' +
+    '<button data-act="tab-v" data-v="crit" data-fid="tvc" aria-pressed="' + tc + '">Critérios (v3)</button></div></div>' : '') +
+    '<div class="tools"><label class="fld"><span>Buscar</span><input class="inp" id="q" type="search" placeholder="nome ou tipo" value="' + esc(ui.q) + '" autocomplete="off"></label>' +
     '<label class="fld"><span>Tipo</span><select class="inp" data-act="ft" data-fid="ft"><option value="">Todos</option>' + TG.map(function (t) { return '<option value="' + t.k + '"' + (ui.ft === t.k ? ' selected' : '') + '>' + t.n + '</option>'; }).join('') + '</select></label>' +
     '<label class="fld"><span>Relevância</span><select class="inp" data-act="fr" data-fid="fr"><option value="">Todas</option>' + RELS.map(function (r) { return '<option value="' + r.k + '"' + (ui.fr === r.k ? ' selected' : '') + '>' + r.l + ' ' + r.n + '</option>'; }).join('') + '</select></label>' +
     '<span class="sp"></span><label class="tog"><input type="checkbox" data-act="grouped" data-fid="gp"' + (ui.grouped ? ' checked' : '') + '> Agrupar por tipo</label></div>';
-  h += '<div class="pills" role="group" aria-label="Filtrar por agrupamento">' + G.map(function (g, i) {
+  h += '<div class="pills" role="group" aria-label="Filtrar por ' + (tc ? 'critério' : 'agrupamento') + '"' + (tc ? crVars() : '') + '>' + G.map(function (g, i) {
     return '<button class="pill" style="--c:var(--g' + i + ')" data-act="fg" data-g="' + i + '" data-fid="fg' + i + '" aria-pressed="' + (ui.fg === i) + '" title="' + esc(g.d) + '"><i class="dot" style="--c:var(--g' + i + ')"></i>' + esc(g.k) + '</button>';
   }).join('') + '</div>';
-  h += '<div class="tw" id="tw"><table class="tbl" style="min-width:' + (654 + 52 * NG) + 'px"><thead><tr>' +
+  h += '<div class="tw" id="tw"' + (tc ? crVars() : '') + '><table class="tbl" style="min-width:' + (654 + 52 * NG) + 'px"><thead><tr>' +
     th('n', 'Carta', 'c-name') + th('q', 'Qtd', 'hm') + '<th scope="col" class="hm">Custo</th>' + th('cmc', 'CMC') +
     G.map(function (g, i) { return th('g' + i, esc(g.ab), 'gh', g.k + ': ' + g.d, '--c:var(--g' + i + ')'); }).join('') +
     th('pts', 'Pts') + th('usd', 'US$', '', 'Preço no Scryfall, na impressão da lista') + (EDH ? th('syn', 'Wiki', '', 'Sinergia no ' + EDH.fonte + (EDH.pagina ? ' para ' + EDH.pagina : '') + ': presença na comunidade, não força') : '') +
     th('tier', 'Tier') + th('rel', 'Relev.') + '</tr></thead><tbody id="tbody">' + tabRows() + '</tbody></table></div>';
-  h += '<p class="hint">Notas de 0 a 3 em cada agrupamento: 1 é efeito de passagem, 2 é função da carta, 3 é referência do deck. Uma carta pode pontuar em vários.' + (EDH ? ' A coluna Wiki é a sinergia no ' + esc(EDH.fonte) + '.' : '') + ' Toque na linha para ver a carta, o motivo e editar.</p>';
+  h += '<p class="hint">' + (tc ? 'Notas de 0 a 3 nos ' + NUM[NC] + ' critérios da pontuação v3. Pts é o valor da carta: peso do critério × pontos da nota, somado.' :
+    'Notas de 0 a 3 em cada agrupamento: 1 é efeito de passagem, 2 é função da carta, 3 é referência do deck. Uma carta pode pontuar em vários.') + (EDH ? ' A coluna Wiki é a sinergia no ' + esc(EDH.fonte) + '.' : '') + ' Toque na linha para ver a carta, o motivo e editar.</p>';
   $('#v-tab').innerHTML = h;
 }
 
@@ -2250,6 +2356,25 @@ function gtags(c) {
   for (var i = 0; i < NG; i++) if (gv(c, i) > 0) tags += '<span class="gt" style="--c:var(--g' + i + ')">' + esc(G[i].sh || G[i].k) + ' ' + gv(c, i) + '</span>';
   return tags;
 }
+/* v3: posição de uma carta no ranking do deck pelo valor nos critérios (1 = a que mais pontua). Carta de fora entra
+   na conta como se estivesse no deck, para dizer onde ficaria. */
+function ranking() { return deck().filter(function (c) { return !c.cmd; }).sort(function (a, b) { return (pts3(b) - pts3(a)) || (TR[a.tier] - TR[b.tier]) || a.n.localeCompare(b.n); }); }
+function posicao(c, rk) {
+  rk = rk || ranking(); var v = pts3(c), n = 1;
+  rk.forEach(function (x) { if (x.id !== c.id && pts3(x) > v) n++; });
+  return { n: n, de: rk.length + (rk.some(function (x) { return x.id === c.id; }) || c.cmd ? 0 : 1) };
+}
+function gtags3(c) {
+  var tags = '';
+  for (var i = 0; i < NC; i++) { var v = (c.s3 || [])[i] || 0; if (v > 0) tags += '<span class="gt" style="--c:' + CR[i].cor + '">' + esc(CR[i].sh || CR[i].k) + ' · ' + v + '</span>'; }
+  return tags;
+}
+/* v3: quanto o placar muda com a troca (entra c, sai alvo); com a carta já no deck, o que ela acrescentou */
+function deltaTroca(c, alvo) {
+  if (!V3 || !alvo) return null;
+  var cs = deck(), sem = c.inDeck ? cs.filter(function (x) { return x.id !== c.id; }).concat([alvo]) : cs, com = c.inDeck ? cs : cs.filter(function (x) { return x.id !== alvo.id; }).concat([c]);
+  return stats(com).total - stats(sem).total;
+}
 function candCard(c) {
   var id = esc(c.id), sw = null;
   S.swaps.forEach(function (s) { if (s.i === c.id) sw = s; });
@@ -2261,9 +2386,11 @@ function candCard(c) {
     '<div class="cand-txt"><div class="cand-h">' + tierB(c.tier) + '<div><h3><button class="linkish" data-card="' + id + '">' + esc(c.n) + '</button></h3><p class="cand-m">' + (c.cost ? mana(c.cost) + ' ' : '') + esc(c.line) + (c.pt ? ', ' + esc(c.pt) : '') + '</p></div>' +
     '<span class="vd vd-' + esc(c.verdict) + '">' + VERD[c.verdict] + '</span></div>' +
     (c.fx ? '<p class="cand-fx' + (c.orig ? ' orig' : '') + '">' + rich(c.fx) + '</p>' : '') + (c.why ? '<p class="cand-why">' + rich(c.why) + '</p>' : '') + '</div></div>' +
-    '<div class="gtags">' + gtags(c) + '<span class="gt" style="--c:var(--gold-rgb)">' + pts(c) + ' pts</span>' +
+    (V3 ? '<div class="gtags">' + gtags3(c) + '<span class="gt" style="--c:var(--gold-rgb)">' + fmtP(pts3(c)) + ' pts · ' + (function (p) { return p.n + 'ª de ' + p.de; })(posicao(c)) + '</span>' :
+    '<div class="gtags">' + gtags(c) + '<span class="gt" style="--c:var(--gold-rgb)">' + pts(c) + ' pts</span>') +
     (c.syn != null && EDH ? '<span class="gt" style="--c:160,170,182" title="Sinergia no ' + esc(EDH.fonte) + '">' + esc(EDH.fonte) + ' ' + synTxt(c.syn) + '</span>' : '') + (c.tem ? '<span class="gt" style="--c:95,191,167">tenho a carta</span>' : '') + '</div>' +
     (cv ? '<p class="cand-cv">' + cv + '.</p>' : '') +
+    (function () { var d = deltaTroca(c, alvo); return d == null ? '' : '<p class="cand-pl">Placar ' + (d > 0 ? '+' : d < 0 ? '−' : '±') + fmtP(Math.abs(d)) + (c.inDeck ? ' com a troca por ' : ' trocando por ') + esc(alvo.n) + '.</p>'; })() +
     '<div class="cand-a">' + (c.inDeck ?
       '<span class="st">No deck' + (outC ? ', no lugar de ' + esc(outC.n) : '') + '</span><button class="btn ghost sm" data-act="unswap" data-id="' + id + '" data-fid="us' + id + '">Desfazer</button>' :
       '<select class="inp" id="sel-' + id + '" aria-label="Quem sai do deck para ' + esc(c.n) + ' entrar">' + cutOptions(c) + '</select>' +
@@ -2299,7 +2426,7 @@ function poolSection() {
 }
 function renderRadar() {
   var vo = { entra: 0, avaliar: 1, fora: 2 };
-  var all = cands().map(E).sort(function (a, b) { return (vo[a.verdict] - vo[b.verdict]) || (TR[a.tier] - TR[b.tier]) || (pts(b) - pts(a)) || a.n.localeCompare(b.n); });
+  var all = cands().map(E).sort(function (a, b) { return (vo[a.verdict] - vo[b.verdict]) || (V3 ? (pts3(b) - pts3(a)) || (TR[a.tier] - TR[b.tier]) : (TR[a.tier] - TR[b.tier]) || (pts(b) - pts(a))) || a.n.localeCompare(b.n); });
   var main = all.filter(function (c) { return c.verdict !== 'fora' || c.inDeck; }), no = all.filter(function (c) { return c.verdict === 'fora' && !c.inDeck; });
   var h = '<p class="hint">Cartas fora do deck que valem acompanhar. Ao colocar uma no deck você escolhe quem sai, e todos os gráficos passam a refletir a troca. Quem você deixa de fora desce para a lista abaixo, com a nota e o motivo guardados. A pergunta de sempre: a carta é boa, ou é boa ' + (artigo() === 'a' ? 'na' : 'no') + ' ' + esc(M.curto || 'comandante') + '?</p>';
   h += '<div class="cands">' + main.map(candCard).join('') + '</div>';
@@ -2331,7 +2458,10 @@ function renderRadar() {
     '<label>Custo de mana<input class="inp" id="nc-c" type="text" placeholder="2B ou {2}{B}" autocomplete="off"></label>' +
     '<label>Tipo<select class="inp" id="nc-t">' + TYPES.map(function (t) { return '<option value="' + t.k + '">' + t.o + '</option>'; }).join('') + '</select></label>' +
     '<label>Tier<select class="inp" id="nc-tier">' + TIERS.map(function (t) { return '<option value="' + t.k + '"' + (t.k === 'B' ? ' selected' : '') + '>' + t.k + ', ' + t.d.toLowerCase() + '</option>'; }).join('') + '</select></label>' +
-    '<div class="wide"><div class="g8">' + G.map(function (g, i) {
+    (V3 ? '<div class="wide"><p class="nc-h">Notas por critério (v3): Sinergias deste deck e os oito critérios da carta. Contam no placar.</p><div class="g8">' + CR.map(function (g, i) {
+      return '<label title="' + esc(g.d) + '">' + esc(g.sh || g.k) + '<select class="inp" id="nc-c' + i + '"><option selected>0</option><option>1</option><option>2</option><option>3</option></select></label>';
+    }).join('') + '</div></div>' : '') +
+    '<div class="wide">' + (V3 ? '<p class="nc-h">Notas por agrupamento (8×8)</p>' : '') + '<div class="g8">' + G.map(function (g, i) {
       return '<label>' + esc(g.sh || g.k) + '<select class="inp" id="nc-g' + i + '">' + (g.neg ? '<option>-1</option>' : '') + '<option selected>0</option><option>1</option><option>2</option><option>3</option></select></label>';
     }).join('') + '</div></div>' +
     '<label class="wide">Por que entraria<input class="inp" id="nc-w" type="text" autocomplete="off"></label>' +
@@ -2424,6 +2554,24 @@ function renderDrawer() {
       '<output>' + (v < 0 ? '−' + (-v) : v) + '</output>' +
       '<button data-act="step" data-g="' + i + '" data-d="1" data-fid="sp' + i + '" aria-label="Aumentar ' + esc(g.k) + '"' + (v >= 3 ? ' disabled' : '') + '>+</button></span></div>';
   }).join('');
+  /* v3: os dez critérios, com o que cada nota vale (peso × pontos), editáveis para simular */
+  var w3 = c.s3w || {}, sinW = w3.sin || {}, sinR = M.sinergias || {};
+  var steps3 = !V3 ? '' : CR.map(function (g, i) {
+    var v = (c.s3 || [])[i] || 0, p = ptsCrit(v, i), ehSin = g.id === 'sin1' || g.id === 'sin2';
+    // nas sinergias, a régua do deck no título e o porquê da nota logo abaixo (some quando a nota foi mudada aqui)
+    var tit = ehSin && sinR[g.id] && sinR[g.id].regra ? sinR[g.id].nome + '. ' + sinR[g.id].regra : g.d;
+    var orig = (byIdRaw(c.id) || {}).s3, mudou = orig && (orig[i] || 0) !== v;
+    var o0 = orig ? (orig[i] || 0) : v;
+    var pq = mudou ? '<p class="step-w g-sim">Simulada por você neste navegador; a nota original é ' + o0 + (ehSin && o0 && sinW[g.id] ? ': ' + esc(sinW[g.id]) : '.') + '</p>' :
+      ehSin && v && sinW[g.id] ? '<p class="step-w">' + esc(sinW[g.id]) + '</p>' : '';
+    return '<div class="step"><span class="gn" title="' + esc(tit) + '"><i class="dot" style="--c:' + g.cor + '"></i>' + esc(g.k) +
+      '<small class="gw">×' + fmt(g.peso, g.peso % 1 ? 1 : 0) + '</small><small class="gp">' + (p ? fmtP(p) + ' pts' : '') + '</small></span>' +
+      '<span class="stp"><button data-act="step3" data-g="' + i + '" data-d="-1" data-fid="tm' + i + '" aria-label="Diminuir ' + esc(g.k) + '"' + (v <= 0 ? ' disabled' : '') + '>−</button>' +
+      '<output>' + v + '</output>' +
+      '<button data-act="step3" data-g="' + i + '" data-d="1" data-fid="tp' + i + '" aria-label="Aumentar ' + esc(g.k) + '"' + (v >= 3 ? ' disabled' : '') + '>+</button></span></div>' + pq;
+  }).join('');
+  // o porquê das oito notas da carta (cadastro único, vale em todo deck) e do ajuste deste deck, se houver
+  var cadW = !V3 ? '' : (w3.cad ? '<p class="step-w"><b>Cadastro da carta:</b> ' + esc(w3.cad) + '</p>' : '') + (w3.aj ? '<p class="step-w"><b>Ajuste neste deck:</b> ' + esc(w3.aj) + '</p>' : '');
   var enc = encodeURIComponent;
   var link = c.set ? 'https://scryfall.com/card/' + enc(c.set.toLowerCase()) + '/' + enc(c.num) : 'https://scryfall.com/search?q=' + enc('!"' + (c.on || c.n) + '"');
   var liga = 'https://www.ligamagic.com.br/?view=cards/card&card=' + enc(c.n);
@@ -2455,13 +2603,20 @@ function renderDrawer() {
   h += '<h3>Relevância</h3><div class="segw" role="group" aria-label="Relevância">' + RELS.map(function (r) {
     return '<button data-act="set-rel" data-v="' + r.k + '" data-fid="sr' + r.k + '" aria-pressed="' + (c.rel === r.k) + '">' + r.l + '<small>' + r.n + '</small></button>';
   }).join('') + '</div>';
-  h += '<h3>Notas por agrupamento</h3><div class="steps">' + steps + '</div>';
-  h += '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="pet" data-fid="pet"' + (c.pet ? ' checked' : '') + '> <span class="pet">♥</span> PetCard: ' + (IPET >= 0 ? 'soma 1 ponto em ' + esc(G[IPET].sh || G[IPET].k) + ' e fica' : 'fica') + ' fora da fila de corte</label></div>' +
+  if (V3) {
+    var pk = c.land ? 'mana' : pkOf(c), pkN = pk === 'mana' ? 'Mana' : pk === 'sem' ? 'sem pacote' : (G[gi(pk)] || {}).k || pk;
+    h += '<p class="dw-pk">No 8×8: <b>' + esc(pkN) + '</b>' + (S.pk[c.id] ? ' (movida por você)' : '') + ' <button class="linkish" data-act="go" data-v="pk">Ver no 8×8</button></p>';
+    var ps = c.cmd ? null : posicao(c);
+    h += '<details class="dw-8 dw-c3"' + (ui.dwc3 ? ' open' : '') + '><summary><span class="dw-h3">Notas por critério<span class="dw-tot"><b>' + fmtP(pts3(c)) + '</b> pts' + (ps ? ' · ' + ps.n + 'ª de ' + ps.de + (c.inDeck ? '' : ' se entrar') : '') + '</span></span></summary><p class="dw-nota">' + resumoDw() + ' Mudar uma nota aqui é simulação: o placar, o gráfico e a aba Critérios refazem a conta.</p>' + reguaDw() + '<div class="steps">' + steps3 + '</div>' + cadW + '</details>';
+    h += '<details class="dw-8"' + (ui.dw8 ? ' open' : '') + '><summary>Notas por agrupamento (8×8)</summary><div class="steps">' + steps + '</div></details>';
+  } else h += '<h3>Notas por agrupamento</h3><div class="steps">' + steps + '</div>';
+  h += '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="pet" data-fid="pet"' + (c.pet ? ' checked' : '') + '> <span class="pet">♥</span> PetCard: ' + (IPET >= 0 ? 'soma 1 ponto em ' + esc(G[IPET].sh || G[IPET].k) + (V3 ? ' no 8×8' : '') + ' e fica' : 'fica') + ' fora da fila de corte</label></div>' +
     (c.cand ? '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="tem" data-fid="tem"' + (c.tem ? ' checked' : '') + '> Tenho esta carta</label></div>' : '') +
     '<div class="dw-row"><label class="fld">Valor em R$ <input class="inp num" type="number" min="0" step="0.01" inputmode="decimal" data-act="val" data-fid="val" value="' + (c.val == null ? '' : c.val) + '" placeholder="0,00"></label>' +
     '<a href="' + esc(liga) + '" target="_blank" rel="noopener noreferrer">Ver preço na LigaMagic</a></div>';
   h += '<h3>Anotações de mesa</h3><textarea class="inp" data-act="nota" data-fid="nota" rows="3" placeholder="Como a carta se saiu, com quem combinou, o que faltou" aria-label="Anotações de mesa">' + esc(c.nota) + '</textarea>';
-  h += '<div class="dw-sum"><span>Pontuação da carta</span><b>' + pts(c) + '</b></div>';
+  h += V3 ? '<div class="dw-sum"><span>Pontuação da carta nos critérios<small>soma no 8×8: ' + pts(c) + '</small></span><b>' + fmtP(pts3(c)) + '</b></div>' :
+    '<div class="dw-sum"><span>Pontuação da carta</span><b>' + pts(c) + '</b></div>';
   h += '<div class="dw-links">' +
     (c.edited ? '<button class="linkish" data-act="reset-card" data-fid="rc">Voltar à avaliação original</button>' : '') +
     (c.cand ? '<button class="linkish" data-act="go" data-v="radar">' + (c.inDeck ? 'Ver a troca no radar' : 'Planejar a entrada no radar') + '</button>' :
@@ -2535,8 +2690,79 @@ function renderModal() {
   el.hidden = false; $('#scrim').hidden = false;
 }
 
+/* ============ critérios (pontuação v3) ============ */
+/* Análise separada do 8×8: os dez critérios da régua, com os pontos, a faixa e as cartas de cada um. A faixa conta as
+   cartas com nota 2 ou 3; a situação diz quanto vale, numa troca, a carta que entra nesse critério (saturação da régua). */
+function situacao(i, x) {
+  var f = CR[i].ref, sat = RG.saturacao || {};
+  if (!f) return { k: 'ok', t: '' };
+  if (x.hard < f[0]) return { k: 'falta', t: 'abaixo da faixa', m: sat.abaixo };
+  if (x.hard > f[1]) return { k: 'cheio', t: 'acima da faixa', m: sat.acima };
+  return { k: 'ok', t: 'na faixa', m: sat.dentro };
+}
+function renderCrit() {
+  var el = $('#v-crit'); if (!el) return;
+  var cs = deck(), st = stats(cs), sn = M.sinergias || {};
+  var sins = ['sin1', 'sin2'].map(function (k) {
+    var x = sn[k] || {}, i = -1; CR.forEach(function (g, j) { if (g.id === k) i = j; });
+    return '<div class="crit-sin" style="--kc:rgb(' + (i >= 0 ? CR[i].cor : 'var(--gold-rgb)') + ')"><h3>' + esc(i >= 0 ? CR[i].k : k) + ': ' + esc(x.nome || 'sem nome') + '</h3>' +
+      (x.regra ? '<p>' + esc(x.regra) + '</p>' : '') + '</div>';
+  }).join('');
+  var apr = sn.aprovado ? 'Aprovadas pelo dono em ' + esc(sn.aprovado) + '.' : 'Ainda sem sua aprovação: as duas sinergias e as notas de Sinergia são propostas.';
+  var rows = CR.map(function (g, i) {
+    var x = st.c3[i], si = situacao(i, x);
+    return '<tr><th scope="row"><button class="linkish" data-act="ver-crit" data-g="' + i + '" data-fid="crl' + i + '"><i class="dot" style="background:rgb(' + g.cor + ')"></i>' + esc(g.k) + '</button></th>' +
+      '<td class="num">' + fmt(g.peso, g.peso % 1 ? 1 : 0) + '</td><td class="num"><b>' + x.hard + '</b> +' + x.soft + '</td>' +
+      '<td class="num">' + (g.ref ? g.ref[0] + ' a ' + g.ref[1] : '—') + '</td><td><span class="crit-st crit-' + si.k + '">' + si.t + '</span>' + (si.m != null ? ' <small class="num">troca ×' + fmt(si.m, si.m % 1 ? 1 : 0) + '</small>' : '') + '</td>' +
+      '<td class="num"><b>' + fmtP(x.pts) + '</b></td><td class="num">' + fmt(st.total ? x.pts / st.total * 100 : 0, 1) + '%</td></tr>';
+  }).join('');
+  var h = '<fieldset class="pn"><legend>Os ' + NUM[NC] + ' critérios</legend>' +
+    '<div class="crit-w"><table class="tbl crit-t"><thead><tr><th>Critério</th><th>Peso</th><th>Cartas</th><th>Faixa</th><th>Situação</th><th>Pontos</th><th>Do placar</th></tr></thead><tbody>' + rows +
+    '<tr class="tot-r"><th scope="row">Potencial de aceleração</th><td></td><td></td><td></td><td class="num">' + fmt(st.accX) + '</td><td class="num"><b>' + st.accPts + '</b></td><td class="num">' + fmt(st.total ? st.accPts / st.total * 100 : 0, 1) + '%</td></tr>' +
+    '<tr class="tot-r"><th scope="row">Placar do deck</th><td></td><td></td><td></td><td></td><td class="num"><b>' + fmtP(st.total) + '</b></td><td class="num">100%</td></tr></tbody></table></div>' +
+    '<p class="pn-note">Cartas: o número em destaque conta as de nota 2 ou 3, que são as que a faixa mede; depois do sinal de mais, as de nota 1. A troca diz quanto vale a carta que entra nesse critério: abaixo da faixa conta mais, acima conta menos.</p></fieldset>' +
+    '<fieldset class="pn"><legend>Sinergias deste deck</legend><div class="crit-sins">' + sins + '</div><p class="pn-note">' + apr + '</p>' +
+    '<details class="how"><summary>Como a conta é feita</summary>' + comoV3() + '</details></fieldset>';
+  // ranking: as cartas pelo valor nos critérios, com a parte de cada uma nos pontos dos critérios
+  // filtro do ranking: todas as cartas, sem terrenos ou só terrenos (a posição é contada dentro do filtro)
+  var rkf = ui.rkf || 'todas';
+  var rk = ranking().filter(function (c) { return rkf === 'todas' || (rkf === 'ter') === !!c.land; }), top10 = 0, pos = 0, ant = null, somaF = 0;
+  rk.forEach(function (c, k) { somaF += pts3(c) * c.q; if (k < 10) top10 += pts3(c) * c.q; });
+  var nomeF = rkf === 'ter' ? 'os terrenos' : rkf === 'sem' ? 'as cartas que não são terreno' : 'as cartas';
+  h += '<fieldset class="pn"><legend>Ranking das cartas</legend><div class="pn-tools"><div class="seg" role="group" aria-label="Quais cartas entram no ranking">' +
+    [['todas', 'Todas as cartas'], ['sem', 'Sem terrenos'], ['ter', 'Só terrenos']].map(function (o) {
+      return '<button data-act="rk-f" data-v="' + o[0] + '" data-fid="rkf' + o[0] + '" aria-pressed="' + (rkf === o[0]) + '">' + o[1] + '</button>';
+    }).join('') + '</div></div>' +
+    '<p class="pn-note">Da que mais pontua para a que menos, entre ' + nomeF + ', sem ' + (cs.filter(function (c) { return c.cmd; }).length > 1 ? 'os comandantes' : 'o comandante') + '. ' +
+    (rk.length ? (rkf === 'todas' ? 'As dez primeiras somam ' + fmt(st.crit ? top10 / st.crit * 100 : 0, 0) + '% dos pontos dos critérios.' :
+      'Juntas, somam ' + fmtP(somaF) + ' pontos, ' + fmt(st.crit ? somaF / st.crit * 100 : 0, 1) + '% dos pontos dos critérios.') : '') +
+    (rkf === 'ter' ? ' O placar não mede a base de mana: cor que o terreno gera e entrar virado ficam fora da conta, então terreno básico aparece com zero sem ser carta ruim. A marca "entra virado" ajuda a achar o que atrasa o deck.' : '') +
+    ' Toque numa carta para ver e simular as notas.</p>' +
+    '<div class="crit-w rk-w"><table class="tbl rk-t"><thead><tr><th>#</th><th>Carta</th><th>Tier</th><th>Relevância</th><th>Pontos</th><th>Dos critérios</th><th>Onde pontua</th></tr></thead><tbody>' +
+    rk.map(function (c, k) {
+      var v = pts3(c); if (v !== ant) { pos = k + 1; ant = v; }
+      var vir = c.land && c.tapped ? '<span class="gt rk-vir" style="--c:160,170,182">entra virado</span>' : '';
+      return '<tr><td class="num">' + pos + 'ª</td><th scope="row"><button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + (c.q > 1 ? ' ×' + c.q : '') + '</button></th>' +
+        '<td>' + tierB(c.tier) + '</td><td>' + relB(c.rel) + '</td><td class="num"><b>' + fmtP(v) + '</b></td><td class="num">' + fmt(st.crit ? v * c.q / st.crit * 100 : 0, 1) + '%</td><td class="rk-g">' + gtags3(c) + vir + '</td></tr>';
+    }).join('') + (rk.length ? '' : '<tr><td colspan="7" class="empty">Nenhuma carta neste filtro.</td></tr>') + '</tbody></table></div></fieldset>';
+  h += '<div class="pkg crit-g">' + CR.map(function (g, i) {
+    var x = st.c3[i], si = situacao(i, x), por = [[], [], [], []];
+    cs.forEach(function (c) { var v = (c.s3 || [])[i] || 0; if (v) por[v].push(c); });
+    var lst = [3, 2, 1].map(function (v) {
+      if (!por[v].length) return '';
+      var l = por[v].sort(function (a, b) { return (TR[a.tier] - TR[b.tier]) || a.n.localeCompare(b.n); });
+      var n = 0; l.forEach(function (c) { n += c.q; });
+      return '<h4 class="crit-n">Nota ' + v + ' <small>' + pl(n, 'carta', 'cartas') + ', ' + fmtP(ptsCrit(v, i) * n) + ' pts</small></h4><div class="crit-l">' + l.map(function (c) { return chip(c, { tier: true }); }).join('') + '</div>';
+    }).join('');
+    return '<section class="kcol pk pk-' + si.k + (ui.fc === i ? ' crit-on' : '') + '" id="crit-' + i + '" style="--kc:rgb(' + g.cor + ')"><header><h3>' + esc(g.k) + ' <small>' + fmtP(x.pts) + ' pts</small></h3>' +
+      '<p>' + esc(g.d) + (sn[g.id] && sn[g.id].nome ? ' Neste deck: ' + esc(sn[g.id].nome) + '.' : '') + '</p><div class="kn">' + x.hard + ' com nota 2 ou 3' + (g.ref ? ' · faixa ' + g.ref[0] + ' a ' + g.ref[1] + ' · ' + si.t : '') + ' · peso ' + fmt(g.peso, g.peso % 1 ? 1 : 0) + '</div></header>' +
+      '<div class="crit-c">' + (lst || '<span class="empty">Nenhuma carta pontua aqui.</span>') + '</div></section>';
+  }).join('') + '</div>';
+  el.innerHTML = h;
+}
+
 /* ============ orquestração ============ */
-var RENDER = { geral: renderGeral, gal: renderGal, tier: renderTier, pk: renderPk, tab: renderTab, ctrl: renderCtrl, radar: renderRadar, ofi: renderOfi };
+var RENDER = { geral: renderGeral, gal: renderGal, tier: renderTier, pk: renderPk, tab: renderTab, ctrl: renderCtrl, radar: renderRadar, ofi: renderOfi, crit: renderCrit };
 function renderCount() {
   var n = 0; deck().forEach(function (c) { n += c.q; });
   var el = $('#deckCount');
@@ -2617,7 +2843,11 @@ function act(a, t, ev) {
     case 'go': ui.drawer = null; ui.modal = null; go(t.dataset.v); break;
     case 'edh': ui.drawer = null; go('radar'); o = $('#pool'); if (o) o.scrollIntoView({ block: 'start' }); break;
     case 'curve': ui.curve = t.dataset.v; render(); break;
-    case 'filter-group': ui.fg = +t.dataset.g; ui.q = ''; ui.ft = ''; ui.fr = ''; go('tab'); break;
+    case 'rk-f': ui.rkf = t.dataset.v; render(); break;
+    case 'tab-v': if (ui.tabv !== t.dataset.v) { ui.tabv = t.dataset.v; ui.fg = -1; if (/^g\d/.test(ui.sort.k)) ui.sort = { k: 'n', d: 1 }; } render(); break;
+    case 'filter-group': ui.fg = +t.dataset.g; ui.tabv = 'grp'; ui.q = ''; ui.ft = ''; ui.fr = ''; go('tab'); break;
+    case 'ver-crit': ui.fc = +t.dataset.g; if (ui.tab === 'crit') render(); else go('crit');
+      var ce = $('#crit-' + ui.fc); if (ce) ce.scrollIntoView({ block: 'start', behavior: 'smooth' }); break;
     case 'fg': ui.fg = (ui.fg === +t.dataset.g ? -1 : +t.dataset.g); render(); break;
     case 'sort':
       if (ui.sort.k === t.dataset.k) ui.sort.d = -ui.sort.d;
@@ -2643,8 +2873,13 @@ function act(a, t, ev) {
       i = +t.dataset.g;
       o.s[i] = Math.max(G[i].neg ? -1 : 0, Math.min(3, (o.s[i] || 0) + (+t.dataset.d)));
       commit(); break;
+    case 'step3':
+      c = byId(ui.drawer); o = ov(ui.drawer); o.s3 = (c.s3 || []).slice();
+      i = +t.dataset.g;
+      o.s3[i] = Math.max(0, Math.min(3, (o.s3[i] || 0) + (+t.dataset.d)));
+      commit(); break;
     case 'reset-card':
-      o = S.ov[ui.drawer]; if (o) { delete o.s; delete o.tier; delete o.rel; if (!Object.keys(o).length) delete S.ov[ui.drawer]; }
+      o = S.ov[ui.drawer]; if (o) { delete o.s; delete o.s3; delete o.tier; delete o.rel; if (!Object.keys(o).length) delete S.ov[ui.drawer]; }
       delete S.pk[ui.drawer];
       commit('Avaliação original restaurada'); break;
     case 'cut':
@@ -2675,10 +2910,11 @@ function act(a, t, ev) {
       if (!name) { toast('Informe o nome da carta'); $('#nc-n').focus(); break; }
       var pc = parseCost($('#nc-c').value), tk = $('#nc-t').value, ty = TYPES.filter(function (x) { return x.k === tk; })[0], sc = [];
       for (i = 0; i < NG; i++) sc.push(+$('#nc-g' + i).value || 0);
+      var s3n = []; if (V3) for (i = 0; i < NC; i++) s3n.push(+$('#nc-c' + i).value || 0);
       var tb = TRIBO && $('#nc-v') ? $('#nc-v').checked : false;
       S.custom.push({ id: 'x-' + slug(name) + '-' + Date.now().toString(36), n: name, q: 1, cost: tk === 'ter' ? '' : pc.cost, cmc: tk === 'ter' ? 0 : pc.cmc, t: tk, g: GROUP_OF[tk],
         line: ty.o + (tb ? ' — ' + TRIBO.nome : ''), col: tk === 'ter' ? 'L' : pc.col, s: sc, tier: $('#nc-tier').value, rel: 'MED', fx: '', why: $('#nc-w').value.trim(),
-        cand: 1, custom: 1, verdict: 'avaliar', mk: tb ? { tribo: 1 } : {}, land: tk === 'ter' ? 1 : 0 });
+        cand: 1, custom: 1, verdict: 'avaliar', mk: tb ? { tribo: 1 } : {}, land: tk === 'ter' ? 1 : 0, s3: V3 ? s3n : undefined });
       commit(name + ' entrou no radar'); break;
     case 'del-custom':
       S.swaps.forEach(function (s) { if (s.i === id && s.o) { var oc = byId(s.o); if (oc && oc.cand) S.inn[s.o] = 1; else delete S.out[s.o]; } });
@@ -2744,7 +2980,7 @@ function ofField(t) {
   OF.forEach(function (o) { if (o.k === k) updOf(o); });
 }
 document.addEventListener('input', function (ev) {
-  if (ev.target.id === 'q') { ui.q = ev.target.value; var tb = $('#tbody'); if (tb) tb.innerHTML = tabRows(); }
+  if (ev.target.id === 'q') { ui.q = ev.target.value; var tb = $('#tbody'); if (tb) tb.innerHTML = comTabC(tabRows); }
   else if (ev.target.dataset && ev.target.dataset.of) ofField(ev.target);
 });
 document.addEventListener('keydown', function (ev) {
@@ -2833,6 +3069,12 @@ function footHtml() {
 }
 $('#footTxt').innerHTML = footHtml();
 if (PUB) { var vh = $('#voltar'); if (vh) vh.hidden = true; }   /* a página publicada não tem o hub ao lado */
+/* a gaveta é redesenhada a cada nota: o bloco do 8×8 lembra se estava aberto */
+document.addEventListener('toggle', function (e) {
+  var l = e.target.classList; if (!l || !l.contains('dw-8')) return;
+  if (l.contains('dw-c3')) ui.dwc3 = e.target.open; else ui.dw8 = e.target.open;
+}, true);
+if (!V3) ['#t-crit', '#v-crit'].forEach(function (q) { var x = $(q); if (x) x.parentNode.removeChild(x); });   /* aba Critérios só no deck v3 */
 updStoreNote();
 go('geral');
 initRemote();

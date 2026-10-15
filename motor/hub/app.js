@@ -220,12 +220,21 @@ function pct(x, d) { return num(x * 100, d || 0) + '%'; }
 function sinal(n, d) { return (n > 0 ? '+' : n < 0 ? '−' : '±') + num(Math.abs(n), d || 0); }
 function lista(a) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' e ' + a[a.length - 1]; }
 function soma(a, f) { var t = 0; a.forEach(function (x) { t += f ? f(x) : x; }); return t; }
-/* régua da pontuação (motor/pontuacao.json). Deck v3: os dez critérios na ordem da régua, peso × pontos da nota;
-   deck antigo: a nota vale o que é. A aceleração é a mesma conta nos dois. */
-var RG = H.regua;
-function ptsNota(v, i, v3) { return v3 ? (v > 0 ? RG.criterios[i].peso * RG.pontos_por_nota[Math.min(3, v)] : 0) : v; }
+/* régua da pontuação (motor/pontuacao.json). Deck v3: o placar vem dos dez critérios (vetor s3, na ordem da régua),
+   peso × pontos da nota, e a aceleração pelas notas de Aceleradores; os agrupamentos (s) seguem como análise à parte.
+   Deck antigo: soma das notas dos agrupamentos. A aceleração é a mesma conta nos dois. */
+var RG = H.regua, NC = RG.criterios.length;
+var ICA = Math.max(0, RG.criterios.map(function (c) { return c.k; }).indexOf('aceleradores'));
+function ptsCrit(v, i) { return v > 0 ? RG.criterios[i].peso * RG.pontos_por_nota[Math.min(3, v)] : 0; }
 function pontosAcel(y) { var a = RG.aceleracao; return y < 0 ? 0 : Math.min(a.teto, a.piso + a.pontos_por_passo * Math.floor(y / a.passo)); }
-function pts(c, v3) { var t = 0; (c.s || []).forEach(function (v, i) { t += ptsNota(v, i, v3); }); return t; }
+function pts(c) { var t = 0; (c.s || []).forEach(function (v) { t += v; }); return t; }
+function pts3(c) { var t = 0; (c.s3 || []).forEach(function (v, i) { t += ptsCrit(v, i); }); return t; }
+/* valor da carta no placar do deck: pontos dos critérios na v3, soma das notas no antigo */
+function valor(c, A) { return A && A.v3 ? pts3(c) : pts(c); }
+/* placar com vírgula: a v3 tem meio ponto (peso 2,5 e 1,5) */
+function numP(n) { return num(n, n % 1 ? 1 : 0); }
+function sinalP(n) { return sinal(n, n % 1 ? 1 : 0); }
+function rampNome(A) { return A.v3 ? RG.criterios[ICA].nome : 'Ramp'; }
 function chave(c) { return c.o || c.n; }
 function dataDe(s) {
   var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(s || '');
@@ -257,7 +266,8 @@ function contas(cs, A) {
   var st = { n: 0, nonland: 0, cmcSum: 0, lands: 0, mdfc: 0, tapped: 0, cri: 0, tribo: 0, wipes: 0, low: 0, top: 0, foils: 0,
              grp: [], mk: {}, pip: { W: 0, U: 0, B: 0, R: 0, G: 0 }, src: { W: 0, U: 0, B: 0, R: 0, G: 0 }, srcC: 0,
              usd: 0, usdN: 0, usdSem: 0, relUsd: {}, rel: {}, tier: {}, tipos: {}, tipoPts: {}, curva: [0, 0, 0, 0, 0, 0, 0, 0] };
-  for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0, notas: 0 });
+  for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0 });
+  st.c3 = []; if (A.v3) for (i = 0; i < NC; i++) st.c3.push({ pts: 0, notas: 0 });
   Object.keys(A.marcadores || {}).forEach(function (k) { st.mk[k] = { n: 0, v: {}, nomes: [] }; });
   cs.forEach(function (c) {
     var q = c.q || 1, mk = c.mk || {}, j, v;
@@ -268,10 +278,11 @@ function contas(cs, A) {
     if (c.f) st.foils += q;
     if (c.u != null) { st.usd += c.u * q; st.usdN += q; st.relUsd[c.r] = (st.relUsd[c.r] || 0) + c.u * q; } else st.usdSem += q;
     for (j = 0; j < NG; j++) {
-      v = c.s[j] || 0; st.grp[j].pts += ptsNota(v, j, A.v3) * q; st.grp[j].notas += v * q;
+      v = c.s[j] || 0; st.grp[j].pts += v * q;
       if (v >= 2) st.grp[j].hard += q; else if (v === 1) st.grp[j].soft += q;
     }
-    st.tipoPts[c.t] = (st.tipoPts[c.t] || 0) + pts(c, A.v3) * q;
+    for (j = 0; j < st.c3.length; j++) { v = (c.s3 || [])[j] || 0; st.c3[j].pts += ptsCrit(v, j) * q; st.c3[j].notas += v * q; }
+    st.tipoPts[c.t] = (st.tipoPts[c.t] || 0) + valor(c, A) * q;
     if (c.L) { st.lands += q; if (c.tp) st.tapped += q; }
     else {
       st.nonland += q; st.cmcSum += c.c * q; st.curva[Math.min(c.c, 7)] += q;
@@ -295,10 +306,10 @@ function contas(cs, A) {
   });
   var a = st.avg = st.nonland ? st.cmcSum / st.nonland : 0;
   st.cmcPts = (A.v3 && !RG.pontos_de_cmc_antigos) || a === 0 ? 0 : a < 2 ? 5 : a < 3 ? 4 : a < 4 ? 3 : a < 5 ? 2 : 1;
-  st.ramp = st.grp[Math.max(0, gix(A, A.v3 ? 'aceleradores' : 'ramp'))].notas;
+  st.ramp = A.v3 ? st.c3[ICA].notas : st.grp[Math.max(0, gix(A, 'ramp'))].pts;
   st.accX = a ? st.ramp / a : 0;
   st.accPts = pontosAcel(st.accX);
-  st.crit = soma(st.grp, function (g) { return g.pts; });
+  st.crit = soma(A.v3 ? st.c3 : st.grp, function (g) { return g.pts; });
   st.total = st.cmcPts + st.accPts + st.crit;
   return st;
 }
@@ -353,11 +364,12 @@ function combosEm(A, cs) {
   return A.combos.map(function (k) { return { k: k, falta: k.p.filter(function (id) { return !tem[id]; }) }; });
 }
 function motivoTroca(A, c, out, st) {
-  var ir = gix(A, 'ramp'), r1 = ir >= 0 ? (c.s[ir] || 0) : 0, r0 = out && ir >= 0 ? (out.s[ir] || 0) : 0;
+  var ir = A.v3 ? ICA : gix(A, 'ramp'), vk = A.v3 ? 's3' : 's';
+  var r1 = ir >= 0 ? ((c[vk] || [])[ir] || 0) : 0, r0 = out && ir >= 0 ? ((out[vk] || [])[ir] || 0) : 0;
   if (c.L && out && !out.L) return 'Terreno no lugar de mágica: o placar não mede base de mana.';
   if (c.L && out && out.L) return 'Terreno por terreno: o placar só enxerga o que entra virado.';
-  if (r1 < r0) return 'Tira ' + pl(r0 - r1, 'ponto', 'pontos') + ' de Ramp' + (st.accPts < A.st.accPts ? ' e derruba um degrau de aceleração.' : '.');
-  if (out && pts(c) < pts(out)) return 'Soma menos notas que a carta que sai (' + pts(c) + ' contra ' + pts(out) + '): é troca por qualidade, tier ' + c.T + ' no lugar de ' + out.T + '.';
+  if (r1 < r0) return 'Tira ' + pl(r0 - r1, 'ponto', 'pontos') + ' de ' + rampNome(A) + (st.accPts < A.st.accPts ? ' e derruba um degrau de aceleração.' : '.');
+  if (out && valor(c, A) < valor(out, A)) return (A.v3 ? 'Vale menos pontos nos critérios' : 'Soma menos notas') + ' que a carta que sai (' + numP(valor(c, A)) + ' contra ' + numP(valor(out, A)) + '): é troca por qualidade, tier ' + c.T + ' no lugar de ' + out.T + '.';
   if (st.cmcPts < A.st.cmcPts || st.accPts < A.st.accPts) return 'Sobe o CMC médio, e o placar sente.';
   return 'O ganho está no tier (' + c.T + ' no lugar de ' + (out ? out.T : '—') + '), não nas notas.';
 }

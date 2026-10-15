@@ -355,6 +355,8 @@ var MOTIVO_PAINEL = (function () {
     var VMAX4 = 118, RING4 = 178;
     MOTIVOS.giada4 = {
       deck: '01. Giada', nome: 'Sol de penas de ouro',
+      // raio da ponta da pena para uma fração do comprimento (o motivoSvg desenha a faixa da régua com ele, na v3)
+      raio: function (f) { return VIS0 + VMAX4 * f; },
       desc: 'Sob as mesmas asas e auréola, oito penas de ouro saem do medalhão como raios de um sol, dentro de um anel de auréola. O comprimento de cada pena e a força do feixe de luz atrás dela crescem com a pontuação; a maior toca o anel e faísca.',
 
       defs: frameDefs,
