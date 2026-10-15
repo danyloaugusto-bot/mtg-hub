@@ -314,6 +314,17 @@ def textura(nome, p):
                 "radial-gradient(1300px 620px at 50%% 115%%, rgba(%d,%d,%d,.34), transparent 70%%),"
                 "radial-gradient(900px 480px at 85%% -10%%, rgba(%d,%d,%d,.20), transparent 64%%),"
                 "radial-gradient(700px 420px at 5%% 30%%, rgba(%d,%d,%d,.14), transparent 66%%),%s") % ((svg,) + _hex(p["destaque"]) + _hex(p["acento"]) + _hex(p["vinho"]) + (grad,))
+    if nome == "estouro":
+        # o estouro da horda do Krenko: raios de explosão de gibi saindo do alto, em amarelo e laranja, como o Goblin Bombardment e o
+        # Fiery Emancipation, com o clarão amarelo no alto e a brasa laranja embaixo
+        raios = "".join("%%3Cpath d='M800 800L%d %dL%d %dZ' fill='%s' fill-opacity='%s'/%%3E" % (
+            800 + 1100 * __import__("math").cos(__import__("math").radians(a - 3.2)), 800 + 1100 * __import__("math").sin(__import__("math").radians(a - 3.2)),
+            800 + 1100 * __import__("math").cos(__import__("math").radians(a + 3.2)), 800 + 1100 * __import__("math").sin(__import__("math").radians(a + 3.2)),
+            quote(p["acento"] if k % 2 else p["destaque"]), ".07" if k % 2 else ".06") for k, a in enumerate(range(0, 360, 15)))
+        svg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1600' viewBox='0 0 1600 1600'%3E" + raios + "%3C/svg%3E"
+        return ('url("%s") 50%% -520px/1600px 1600px no-repeat,'
+                "radial-gradient(1100px 560px at 50%% -6%%, rgba(%d,%d,%d,.30), transparent 66%%),"
+                "radial-gradient(1200px 600px at 50%% 112%%, rgba(%d,%d,%d,.26), transparent 70%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
