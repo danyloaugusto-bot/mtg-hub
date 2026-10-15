@@ -87,15 +87,29 @@ FAKE_DB = """(function () {
   window.claude = { use: function (n) { return Promise.resolve(n === 'db' ? db : n === 'user' ? { canEdit: function () { return Promise.resolve(true); } } : null); } };
 })();"""
 
+def funcoes_py(m):
+    """As funções da reserva: no deck v3, os dez critérios da régua (vetor s3); no antigo, os agrupamentos (vetor s)."""
+    if m.get("v3"):
+        return [(c["k"], "s3") for c in dados.regua()["criterios"]]
+    return [(g["k"], "s") for g in m["grupos"]]
+
+
+def faixas_py(m):
+    """Faixa só em ramp, compra e remoção: no deck v3, a da régua para aceleradores, draw e remoção."""
+    if m.get("v3"):
+        return {c["k"]: c["faixa"] for c in dados.regua()["criterios"] if c["k"] in ("aceleradores", "draw", "remocao")}
+    return {g["k"]: g.get("ref") for g in m["grupos"] if g["k"] in ("ramp", "draw", "removal")}
+
+
 def reserva_py(m):
     """Funções sem reserva, contadas em Python: até duas cartas dedicadas (nota 2 ou 3) fora o comandante, e o comandante não cumpre a função."""
     out = []
-    for j, g in enumerate(m["grupos"]):
-        nota = lambda c: (c.get("s") or [0] * (j + 1))[j] if j < len(c.get("s") or []) else 0
+    for j, (k, vk) in enumerate(funcoes_py(m)):
+        nota = lambda c: (c.get(vk) or [])[j] if j < len(c.get(vk) or []) else 0
         nb = sum(c.get("q", 1) for c in m["cards"] if not c.get("cmd") and nota(c) >= 2)
         cmd = any(c.get("cmd") and nota(c) >= 2 for c in m["cards"])
         if nb <= 2 and not cmd:
-            out.append(g["k"])
+            out.append(k)
     return out
 
 with sync_playwright() as p:
@@ -205,6 +219,8 @@ with sync_playwright() as p:
             cp.click('#d-radar [data-act="comp"] >> nth=0'); cp.wait_for_timeout(300)
             R.ok("Compras: + Compras grava no banco e aparece na lista", len(cp.evaluate("Object.keys(window.__store)")) == 1 and nome in cp.inner_text("#d-compras"), nome)
             R.ok("Compras: o botão vira Na lista", cp.locator('#d-radar [data-act="comp"][aria-pressed="true"]').count() >= 1)
+            enc = cp.inner_text('#d-radar tbody tr >> nth=0 >> td[data-l="Rende mais em"]').strip()
+            R.ok("Compras: o item da lista traz o encaixe do radar", ("rende mais em" in cp.inner_text("#d-compras")) == (enc != "—"), enc)
             cp.click('#d-compras [data-act="comp-tirar"]'); cp.wait_for_timeout(300)
             R.ok("Compras: Tirar apaga do banco", cp.evaluate("Object.keys(window.__store)") == [] and "Lista vazia" in cp.inner_text("#d-compras"))
             cp.click('#d-radar [data-act="rad"][data-k="tem"][data-v="sim"]'); cp.wait_for_timeout(200)
@@ -252,10 +268,12 @@ with sync_playwright() as p:
                 ruins = [n for ns in (x.get("cortes") or {}).values() for n in ns
                          if n not in por_n or (por_n[n].get("tier") not in ("C", "D") and por_n[n].get("rel") != "BAX") or por_n[n].get("rel") == "INS" or por_n[n].get("nocut") or por_n[n].get("cmd")]
                 R.ok("%s: cortes seguros só de tier C ou D, ou na berlinda, fora de intocáveis e comandante" % d["pasta"], not ruins, ruins)
-                faixa = {g["k"]: g.get("ref") for g in m["grupos"] if g["k"] in ("ramp", "draw", "removal")}
+                faixa = faixas_py(m)
+                fks = funcoes_py(m)
                 for k, ns in (x.get("cortes") or {}).items():
-                    j = [g["k"] for g in m["grupos"]].index(k)
-                    n = sum(c.get("q", 1) for c in m["cards"] if j < len(c.get("s") or []) and c["s"][j] >= 2)
+                    j = [f[0] for f in fks].index(k)
+                    vk = fks[j][1]
+                    n = sum(c.get("q", 1) for c in m["cards"] if j < len(c.get(vk) or []) and c[vk][j] >= 2)
                     R.ok("%s: cortes de %s não passam do que sobra" % (d["pasta"], k), faixa.get(k) and len(ns) <= n - faixa[k][1], (len(ns), n, faixa.get(k)))
             R.ok("Reserva: funções sem reserva, trocas dentro do deck e a tabela deck a deck",
                  pg.locator("#d-reserva .cx h3:text('Funções sem reserva')").count() == 1 and

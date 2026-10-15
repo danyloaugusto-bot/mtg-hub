@@ -84,7 +84,7 @@ with sync_playwright() as p:
     # no deck v3 a soma do 8×8 fica na linha menor da gaveta, e o número grande é o valor nos critérios
     soma8 = (lambda: int(pg.inner_text(".dw-sum small").split(":")[1])) if V3 else (lambda: int(pg.inner_text(".dw-sum b")))
     if V3:
-        pg.click(".dw-8:not(.dw-c3) summary"); pg.click(".dw-c3 > summary"); pg.wait_for_timeout(80)   # notas do 8×8 e dos critérios ficam em blocos que abrem
+        pg.click(".dw-8:not(.dw-c3):not(.dw-enc) summary"); pg.click(".dw-c3 > summary"); pg.wait_for_timeout(80)   # notas do 8×8 e dos critérios ficam em blocos que abrem
     p0, v0 = soma8(), comum.num_br(pg.inner_text(".dw-sum b"))
     pg.click('[data-act="step"][data-g="1"][data-d="1"]'); pg.check('[data-act="pet"]'); pg.wait_for_timeout(120)
     R.ok("gaveta mostra onde a carta aparece em outros decks e pastas", "Em outros decks e pastas" in pg.inner_text("#drawer"))
