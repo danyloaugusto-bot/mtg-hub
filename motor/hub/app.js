@@ -49,7 +49,7 @@ function buscaDe(d) { return esc(semAcento(d.nome + ' ' + (d.painel || '') + ' '
 function cartao(d) {
   var busca = buscaDe(d);
   if (d.painel && d.a) {
-    var A = d.a, i = idxDK(d), dt = atualizado(d);
+    var A = d.a, i = idxDK(d);
     return '<article class="deck" data-busca="' + busca + '">' +
       (d.capa ? '<img class="capa" src="' + d.capa + '" alt="" loading="lazy" style="object-position:' + esc(d.foco || '50% 30%') + '">' : '') +
       '<a class="ir" href="' + esc(d.href) + '" aria-label="Abrir o painel ' + esc(d.painel) + ', deck ' + esc(d.nome) + '"></a>' +
@@ -57,8 +57,7 @@ function cartao(d) {
       '<div class="faixa"><div class="nome"><h3>' + esc(d.nome) + '</h3><p class="sub">' + esc(d.painel) + '</p></div>' +
       '<span class="pts num" title="Placar do deck: compara o deck com ele mesmo">' + d.placar + '<small>pts</small></span></div>' +
       '<div class="verso" aria-hidden="true"><dl>' +
-        '<div><dt>CMC médio</dt><dd>' + num(A.st.avg, 2) + '</dd></div><div><dt>Sem reserva</dt><dd>' + (A.res.frageis.length ? pl(A.res.frageis.length, 'função', 'funções') : 'nenhuma') + '</dd></div>' +
-        '<div><dt>Trocas</dt><dd>' + (A.tr.length || 'nenhuma') + '</dd></div><div><dt>Atualizado</dt><dd>' + (dt ? brData(dt) : '—') + '</dd></div>' +
+        '<div><dt>CMC médio</dt><dd>' + num(A.st.avg, 2) + '</dd></div>' +
       '</dl></div>' +
       '<div class="base"><span class="b-st"></span>' +
         cores(d.cores) + '</div>' +

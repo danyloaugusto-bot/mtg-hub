@@ -112,7 +112,7 @@ try:
                     if sw > w + 1:
                         largos.append("%s=%d" % (t, sw))
                 pg.click('[data-tab="geral"]'); pg.wait_for_timeout(200)
-                fatias = pg.locator(".rosa .petal, .rosa .wedge").count()
+                fatias = pg.locator(".rosa .petal, .rosa .wedge, .rosa .lapide").count()
                 pg.click('[data-tab="tab"]'); pg.wait_for_timeout(120)
                 cols = pg.locator("#v-tab thead th.gh").count()
                 pg.click("#v-tab tr.row >> nth=0"); pg.wait_for_timeout(150)
