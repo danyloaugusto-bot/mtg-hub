@@ -6,8 +6,8 @@ Para uma carta c e um deck D:
 2. saturação de cada critério em D: cartas do deck com nota 2 ou mais contra a faixa da régua (abaixo 1,5×, dentro 1×, acima 0,5×);
 3. valor com saturação de c = soma de peso × pontos da nota × saturação;
 4. quem sai: a carta de menor valor (sem saturação) do deck, fora comandante, fora_do_corte e terrenos; se c é terreno, o terreno
-   de menor valor. Carta de duas faces com terreno no verso (MDFC) conta como terreno aqui: ela é fonte de mana do deck, e
-   trocá-la por mágica baixaria as fontes;
+   de menor valor. Carta de duas faces com terreno no verso (MDFC) joga dos dois lados (decisão do dono, 15/10/2026): no deck,
+   pode sair no lugar de terreno ou de mágica; entrando, tira a de menor valor entre terrenos e mágicas;
 5. ganho = valor com saturação de c − valor de quem sai; à parte, a variação do CMC médio e dos pontos de aceleração.
 Carta fora da identidade de cor do deck não encaixa nele.
 
@@ -46,9 +46,15 @@ def _nome(c):
     return c.get("on", c["n"]).split(" // ")[0]
 
 
-def _terra(c):
-    """Terreno ou carta com terreno no verso (MDFC): só troca com outra do mesmo tipo."""
-    return bool(c and (c.get("land") or c.get("mdfc")))
+def _lados(c):
+    """Os lados em que a carta joga: terreno, mágica, ou os dois (carta com terreno no verso, MDFC)."""
+    if c and c.get("mdfc"):
+        return {"terra", "magia"}
+    return {"terra"} if c and c.get("land") else {"magia"}
+
+
+def _chave(lados):
+    return "ambos" if len(lados) == 2 else next(iter(lados))
 
 
 def contexto(m):
@@ -60,12 +66,12 @@ def contexto(m):
     minimo = sat.get("conta_com_nota_minima", 2)
     ncrit = [sum(c["q"] for c in m["cards"] if c["s3"][i] >= minimo) for i in range(len(ks))]
     mult = [sat["abaixo"] if ncrit[i] < faixa[i][0] else sat["acima"] if ncrit[i] > faixa[i][1] else sat["dentro"] for i in range(len(ks))]
-    def menor(terra):
-        cs = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and _terra(c) == terra and c["q"] == 1]
+    def menor(lados):
+        cs = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and _lados(c) & lados and c["q"] == 1]
         return min(cs, key=lambda c: (valor(c["s3"]), c["n"])) if cs else None
     ia = ks.index("aceleradores")
     nl = [c for c in m["cards"] if not c.get("land")]
-    ctx = dict(mult=mult, ncrit=ncrit, sai={False: menor(False), True: menor(True)}, ia=ia,
+    ctx = dict(mult=mult, ncrit=ncrit, sai={_chave(ls): menor(ls) for ls in ({"terra"}, {"magia"}, {"terra", "magia"})}, ia=ia,
                nl=sum(c["q"] for c in nl), cmc=sum(c["cmc"] * c["q"] for c in nl), ace=sum(c["s3"][ia] * c["q"] for c in m["cards"]),
                nomes={_nome(c): c for c in m["cards"] + m["cands"]}, no_deck={_nome(c) for c in m["cards"]})
     m["_enc"] = ctx
@@ -95,8 +101,7 @@ def ganho(nome, m, cad, carta=None):
         if e is None:
             return None
         s3, avaliada = [e["n"].get(k, 0) for k in ks], False
-    terra = _terra(carta)
-    sai = ctx["sai"][terra]
+    sai = ctx["sai"][_chave(_lados(carta))]
     vc, vs = valor(s3, ctx["mult"]), (valor(sai["s3"]) if sai else 0)
     out = dict(deck=m.get("pasta"), painel=m.get("painel"), avaliada=avaliada, ja_no_deck=base in ctx["no_deck"], valor=round(vc, 2),
                sai=sai["n"] if sai else None, valor_sai=round(vs, 2), ganho=round(vc - vs, 2),

@@ -240,7 +240,7 @@ function encaixeHtml(c) {
     return '<li' + (este ? ' class="este"' : '') + '><span class="enc-d">' + nome + (este ? ' <small>(este deck)</small>' : '') + '</span><span class="enc-v">' + corpo + '</span></li>';
   }).join('');
   return '<details class="dw-8 dw-enc"' + (ui.dwenc ? ' open' : '') + '><summary><span class="dw-h3">Encaixe<span class="dw-tot">' + resumo + '</span></span></summary>' +
-    '<p class="dw-nota">Em quais decks esta carta rende mais. Ganho é o valor dela no deck, com o peso de cada critério e a faixa da régua (critério abaixo da faixa conta mais, acima conta menos), menos o valor da carta de menor valor do deck, que sairia. Terreno troca com terreno, e carta com terreno no verso conta como terreno. Só entram os decks já nos critérios e nas cores da carta.</p>' +
+    '<p class="dw-nota">Em quais decks esta carta rende mais. Ganho é o valor dela no deck, com o peso de cada critério e a faixa da régua (critério abaixo da faixa conta mais, acima conta menos), menos o valor da carta de menor valor do deck, que sairia. Terreno troca com terreno; a carta com terreno no verso joga dos dois lados e troca com terreno ou com mágica. Só entram os decks já nos critérios e nas cores da carta.</p>' +
     '<ul class="enc">' + linhas + '</ul></details>';
 }
 /* a carta como veio do motor, sem o que o dono mudou no painel */
