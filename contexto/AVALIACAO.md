@@ -28,6 +28,8 @@ Terreno que sempre entra virado leva −1 em Ramp. PetCard, que só o dono marca
 
 Uma staple genérica pode ser S e MÉD ao mesmo tempo. Uma carta de estimação pode ser C e INS.
 
+**Tier S em deck tribal (regra do dono, 15/10/2026):** num deck da família Tribais, só carta da tribo pode ser S; a carta de fora da tribo, por mais forte que seja (Sol Ring, Skullclamp, Teferi's Protection), vai no máximo a A. O comandante é exceção. A relevância não muda com isso: uma staple pode seguir INS.
+
 ## Placar do deck
 
 Pontos do CMC médio (5 se abaixo de 2; 4 abaixo de 3; 3 abaixo de 4; 2 abaixo de 5; senão 1), mais pontos de aceleração (soma de Ramp dividida pelo CMC médio; cada 0,5 vale 5 pontos; teto de 90), mais a soma de todas as notas. Serve para comparar o deck com ele mesmo ao longo do tempo, não um deck com outro.

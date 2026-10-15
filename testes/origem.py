@@ -45,6 +45,34 @@ with sync_playwright() as p:
     b.close()
 
 o, n = lido["origem"], lido["novo"]
+# os dois D, o do painel de origem e o do motor (a regra do tier S, abaixo, usa os dois)
+with open(a.origem, encoding="utf-8") as f:
+    O = json.loads(re.search(r"var D = (\{.*?\});\n", f.read(), re.S).group(1))
+with open(novo, encoding="utf-8") as f:
+    h = f.read()
+N = json.loads(re.search(r"var D = (\{.*?\});\nvar M = ", h, re.S).group(1))
+# regra do dono (15/10/2026): em deck tribal, tier S só para carta da tribo. A carta de fora da tribo que era S na origem
+# e agora é A é diferença esperada, na contagem de tiers e carta a carta. Qualquer outra diferença de tier continua falhando.
+_orig = {c["id"]: c for c in O["cards"] + O["cands"]}
+REGRA_S = {c["id"] for c in N["cards"] + N["cands"]
+           if c.get("tier") == "A" and _orig.get(c["id"], {}).get("tier") == "S" and not (c.get("mk") or {}).get("tribo") and not c.get("cmd")}
+_nS = sum(c.get("q", 1) for c in N["cards"] if c["id"] in REGRA_S)
+
+
+def _tiers_regra(leg):
+    out = []
+    for x in leg:
+        m_ = re.match(r"([SABCD])\D*(\d+)", x)
+        if not m_:
+            out.append(x)
+            continue
+        q_ = int(m_.group(2)) + (-_nS if m_.group(1) == "S" else _nS if m_.group(1) == "A" else 0)
+        out.append(x[:m_.start(2)] + str(q_) + x[m_.end(2):])
+    return out
+
+
+o["tiers"] = _tiers_regra(o["tiers"])
+R.nota("regra do tier S: %d carta(s) de fora da tribo passaram de S para A" % _nS)
 R.nota("%-22s %-48s %s" % ("medida", "origem", "motor"))
 for k in ("placar", "conta", "agrupamentos", "tiers", "relevancia", "fatos", "curva", "leituras", "combos"):
     ov, nv = o[k], n[k]
@@ -62,12 +90,7 @@ tip_o = [x for x in o["tipos"] if not x.startswith(("Geram", "Só incolor"))]
 tip_n = [x for x in n["tipos"] if not x.startswith(("Geram", "Só incolor"))]
 R.ok("tipos de carta e edições", tip_o[:len(tip_n)] == tip_n[:len(tip_o)], tip_n[:3])
 
-# carta a carta, contra o D embutido no painel de origem
-with open(a.origem, encoding="utf-8") as f:
-    O = json.loads(re.search(r"var D = (\{.*?\});\n", f.read(), re.S).group(1))
-with open(novo, encoding="utf-8") as f:
-    h = f.read()
-N = json.loads(re.search(r"var D = (\{.*?\});\nvar M = ", h, re.S).group(1))
+# carta a carta, contra o D embutido no painel de origem (O e N, lidos acima)
 # nome impresso: o motor mostra o nome da carta física e guarda o do Scryfall em "on"; o painel de origem é anterior a isso,
 # então a comparação devolve os nomes impressos aos do Scryfall, nos campos e nos textos. Qualquer outra diferença continua falhando.
 IMPRESSO = {c["n"]: c["on"] for c in N["cards"] + N["cands"] if c.get("on")}
@@ -92,6 +115,8 @@ for chave in ("cards", "cands"):
         if not x:
             dif.append("%s: %s só no motor" % (chave, c["n"])); continue
         for k in sorted((set(x) | set(c)) - IGNORA):
+            if k == "tier" and c["id"] in REGRA_S:
+                continue
             if x.get(k) != c.get(k):
                 dif.append("%s: %s: %s antes %r, agora %r" % (chave, c["n"], k, x.get(k), c.get(k)))
         mk = c.get("mk") or {}
