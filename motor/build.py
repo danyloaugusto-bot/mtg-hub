@@ -16,7 +16,7 @@ sys.dont_write_bytecode = True
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, MOTOR)
 
-import dados, hub, imagens, scryfall, tema  # noqa: E402
+import dados, encaixe, hub, imagens, scryfall, tema  # noqa: E402
 
 RAIZ = os.path.dirname(MOTOR)
 SAIDAS = os.path.join(RAIZ, "saidas")
@@ -178,7 +178,9 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
     D = dict(meta=meta, grupos=[g for g, _ in grupos], criterios=criterios, marcadores=d["marcadores"], leituras=d["leituras"], cores=cores,
              tipos=dict(tema.TIPOS, **(t.get("tipos") or {})), cards=d["cards"], cands=d["cands"], pool=d["pool"],
              combos=d["combos"], edh=d["edh"], estrategia=d.get("estrategia"), img=(img or None),
-             outros=d["outros"], em_pastas=d["em_pastas"], pastas_com_lista=d["pastas_com_lista"])
+             outros=d["outros"], em_pastas=d["em_pastas"], pastas_com_lista=d["pastas_com_lista"],
+             # v3: onde cada carta do deck e do radar rende mais, em todos os decks v3 (gaveta da carta, caixa "Encaixe")
+             encaixe=encaixe.para_painel(d, pasta, painel) if d.get("v3") else None)
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
     # motivo votado (motor/painel/motivos/<grafico>.js): entra só no painel que o usa, antes do app.js

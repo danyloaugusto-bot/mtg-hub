@@ -28,8 +28,10 @@ function fmtP(n) { return fmt(n, n % 1 ? 1 : 0); }
 /* regra C do gráfico v3 (pedido de 15/10/2026): o desenho de cada critério mostra as cartas com nota 2 ou 3 contra a
    faixa da régua, com o máximo da faixa a 2/3 do comprimento (cheio em 1,5 vez o máximo); o número escrito é o ponto real.
    Durante o desenho, LAB guarda os pontos reais e MAXFIX fixa a escala, para a peça mais cheia não virar 100% sozinha. */
-var LAB = null, MAXFIX = null, FOLGA = 1.5, FAIXA_VIS = false;
+var LAB = null, MAXFIX = null, FOLGA = 1.5, FAIXA_VIS = false, FXS = null;
 function LB(i, v) { return LAB ? LAB[i] : v; }
+/* ao lado do número de cada critério: ▲ acima da faixa da régua, ▼ abaixo (vale para todo desenho, com ou sem a faixa desenhada) */
+function FX(i) { var x = FXS && FXS[i]; return x ? '<tspan class="fx-s fx-' + x + '">' + (x === 'a' ? ' ▲' : ' ▼') + '</tspan>' : ''; }
 function ctrLongo(st) { return fmtP(st.total).length > 4 ? ' longo' : ''; }
 var IPET = (function () { for (var i = 0; i < NG; i++) if (G[i].pet) return i; return -1; })();
 var NUM = ['zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
@@ -217,6 +219,30 @@ function reguaDw() {
     return '<li><b>' + esc(g.k) + ' ×' + fmt(g.peso, g.peso % 1 ? 1 : 0) + ':</b> ' + txt + '</li>';
   }).join('') + '</ul></details>';
 }
+/* gaveta v3: em qual deck a carta rende mais (motor/encaixe.py, calculado no build). Ganho = valor da carta no deck, com a
+   saturação da faixa de cada critério, menos o valor da carta de menor valor dele, que sairia. */
+function encaixeHtml(c) {
+  var L = (D.encaixe || {})[c.id];
+  if (!L || !L.length) return '';
+  var nomeC = {}; CR.forEach(function (g) { nomeC[g.id] = g.k; });
+  var top = L.slice(0, 5); if (!top.some(function (x) { return x.p === M.pasta; })) { var eu = L.filter(function (x) { return x.p === M.pasta; })[0]; if (eu) top.push(eu); }
+  var melhor = L.filter(function (x) { return !x.j; })[0];
+  var resumo = melhor ? 'rende mais em ' + esc(melhor.n) + ', ' + (melhor.g > 0 ? '+' : melhor.g < 0 ? '−' : '±') + fmtP(Math.abs(melhor.g)) : 'já está ' + (L.length > 1 ? 'nos decks onde rende' : 'no deck');
+  var linhas = top.map(function (x) {
+    var este = x.p === M.pasta, nome = PUB || este ? esc(x.n) : '<a href="' + encodeURIComponent(x.p) + '.html">' + esc(x.n) + '</a>';
+    var corpo = x.j ? '<span class="enc-ja">já está no deck</span> <small>' + fmtP(x.v) + ' pts com a faixa</small>' :
+      '<b class="enc-g ' + (x.g > 0 ? 'pos' : x.g < 0 ? 'neg' : '') + '">' + (x.g > 0 ? '+' : x.g < 0 ? '−' : '±') + fmtP(Math.abs(x.g)) + '</b> ' +
+      '<small>' + fmtP(x.v) + ' pts com a faixa; sai ' + esc(x.s || '—') + ' (' + fmtP(x.vs) + ')' +
+      (x.dc != null && Math.abs(x.dc) >= 0.005 ? '; CMC médio ' + (x.dc > 0 ? '+' : '−') + fmt(Math.abs(x.dc)) : '') +
+      (x.da ? '; aceleração ' + (x.da > 0 ? '+' : '−') + Math.abs(x.da) : '') + '</small>' +
+      (x.c && x.c.length ? '<small class="enc-c">cobre o que falta: ' + esc(lista(x.c.map(function (k) { return nomeC[k] || k; }))) + '</small>' : '') +
+      (x.a ? '' : '<small class="enc-av">sinergia a avaliar: o número é um piso</small>');
+    return '<li' + (este ? ' class="este"' : '') + '><span class="enc-d">' + nome + (este ? ' <small>(este deck)</small>' : '') + '</span><span class="enc-v">' + corpo + '</span></li>';
+  }).join('');
+  return '<details class="dw-8 dw-enc"' + (ui.dwenc ? ' open' : '') + '><summary><span class="dw-h3">Encaixe<span class="dw-tot">' + resumo + '</span></span></summary>' +
+    '<p class="dw-nota">Em quais decks esta carta rende mais. Ganho é o valor dela no deck, com o peso de cada critério e a faixa da régua (critério abaixo da faixa conta mais, acima conta menos), menos o valor da carta de menor valor do deck, que sairia. Terreno troca com terreno, e carta com terreno no verso conta como terreno. Só entram os decks já nos critérios e nas cores da carta.</p>' +
+    '<ul class="enc">' + linhas + '</ul></details>';
+}
 /* a carta como veio do motor, sem o que o dono mudou no painel */
 function byIdRaw(id) { var all = D.cards.concat(cands()); for (var i = 0; i < all.length; i++) if (all[i].id === id) return all[i]; return null; }
 function byId(id) {
@@ -305,6 +331,8 @@ function cutQueue(cs, lands) {
   });
 }
 function cutCmp(a, b) {
+  // deck v3: depois da relevância e da prioridade, sai primeiro a de menor valor nos critérios (o tier desempata)
+  if (V3) return (RR[b.rel] - RR[a.rel]) || ((a.pri || 99) - (b.pri || 99)) || (pts3(a) - pts3(b)) || (TR[b.tier] - TR[a.tier]) || a.n.localeCompare(b.n);
   return (RR[b.rel] - RR[a.rel]) || ((a.pri || 99) - (b.pri || 99)) || (TR[b.tier] - TR[a.tier]) || (pts(a) - pts(b)) || a.n.localeCompare(b.n);
 }
 
@@ -368,7 +396,7 @@ function chip(c, o) {
     (o.mana && c.cost ? mana(c.cost) : '') +
     (o.moved ? '<span class="edt" title="Movida por você nesta aba"></span>' : '') +
     (o.tier ? '<span class="tb sm t' + c.tier + '">' + c.tier + '</span>' : '') +
-    (o.pts ? '<span class="p">' + pts(c) + '</span>' : '') +
+    (o.pts ? '<span class="p">' + (V3 ? fmtP(pts3(c)) : pts(c)) + '</span>' : '') +
     '</div>';
 }
 function tile(c) {
@@ -872,7 +900,7 @@ function gLabel(i, am, R, v) {
   var x = 230 + lr * cs, y = 230 + lr * sn + (sn < 0 ? -6 : 4);
   var anc = cs > 0.3 ? 'start' : cs < -0.3 ? 'end' : 'middle';
   return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + anc + '">' + esc(G[i].sh || G[i].k) +
-    '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.08em">' + fmtP(LB(i, v)) + '</tspan></text>';
+    '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.08em">' + fmtP(LB(i, v)) + FX(i) + '</tspan></text>';
 }
 /* asas do Coro da Alvorada: duas asas abertas, largas, atrás da auréola com o placar. Cada asa tem o braço (do ombro ao
    punho, no alto), três fileiras de coberteiras por cima e as penas de voo embaixo. As oito penas de voo coloridas são os
@@ -971,7 +999,7 @@ function tbChao(y, amp, fase, aberto) {
   return aberto ? d : d + 'L680 ' + (y + 70) + 'L0 ' + (y + 70) + 'Z';
 }
 function tumbasSvg(st) {
-  var n = NG, back = Math.floor(n / 2), max = 1, best = 0, i, H0 = 118, SW = 62, yB = 214, yF = 382;
+  var n = NG, back = n > 8 ? 4 : Math.floor(n / 2), max = 1, best = 0, i, H0 = 118, SW = 62, yB = 214, yF = 382;
   for (i = 0; i < n; i++) { max = Math.max(max, st.grp[i].pts); if (st.grp[i].pts > st.grp[best].pts) best = i; }
   if (MAXFIX) max = MAXFIX;
   var esq = Math.ceil(back / 2), dir = back - esq, pos = [];
@@ -1009,7 +1037,7 @@ function tumbasSvg(st) {
         '<path d="M' + p.x + ' ' + (p.y - H0 + 22) + 'V' + (p.y - H0 + 56) + 'M' + (p.x - 11) + ' ' + (p.y - H0 + 33) + 'H' + (p.x + 11) + '" fill="none" stroke="rgba(0,0,0,.42)" stroke-width="4" stroke-linecap="round" pointer-events="none"/>' +
         '<path d="M' + (p.x - 18) + ' ' + (p.y - H0 + 72) + 'l9 6 6 -4 8 9" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.2" pointer-events="none"/>' +
         '</g></g></g></g>';
-      lb += '<text x="' + p.x + '" y="' + (p.y + 24) + '" text-anchor="middle">' + esc(G[i].sh || G[i].k) + '<tspan class="v" x="' + p.x + '" dy="1.12em">' + fmtP(LB(i, v)) + '</tspan></text>';
+      lb += '<text x="' + p.x + '" y="' + (p.y + 24) + '" text-anchor="middle">' + esc(G[i].sh || G[i].k) + '<tspan class="v" x="' + p.x + '" dy="1.12em">' + fmtP(LB(i, v)) + FX(i) + '</tspan></text>';
     }
     return { s: s, lb: lb };
   };
@@ -1073,7 +1101,8 @@ function chartHero(st) {
     return { hard: x.hard, soft: x.soft, pts: Math.round(f * 1000) / 10 };
   });
   LAB = st.c3.map(function (x) { return x.pts; }); MAXFIX = 100;
-  try { o = chartSvg(st); } finally { G = g0; NG = n0; st.grp = s0; LAB = null; MAXFIX = null; }
+  FXS = st.c3.map(function (x, i) { var f = CR[i].ref; return !f ? '' : x.hard > f[1] ? 'a' : x.hard < f[0] ? 'b' : ''; });
+  try { o = chartSvg(st); } finally { G = g0; NG = n0; st.grp = s0; LAB = null; MAXFIX = null; FXS = null; }
   return o.replace(/data-act="filter-group"/g, 'data-act="ver-crit"').replace(/Abrir no tabelão\./g, 'Abrir na aba Critérios.')
     .replace(/agrupamentos, com a pontuação/g, 'critérios, com o placar');
 }
@@ -1084,12 +1113,12 @@ function legV3(t, peca, masc) {
   if (!V3) return t;
   return 'Cada ' + peca + ' é um critério. O tamanho mostra as cartas com nota 2 ou 3 contra a faixa da régua' +
     (FAIXA_VIS ? ': a área clara é a faixa, o traço marca o máximo dela, e ' + (masc ? 'cheio' : 'cheia') + ' quer dizer 1,5 vez o máximo.' : ', e ' + (masc ? 'cheio' : 'cheia') + ' quer dizer 1,5 vez o máximo.') +
-    ' O número ao lado é o ponto real do critério. Toque ' + (masc ? 'num ' : 'numa ') + peca + ' para abrir na aba Critérios.';
+    ' O número ao lado é o ponto real do critério; ▲ quer dizer acima da faixa, ▼ abaixo. Toque ' + (masc ? 'num ' : 'numa ') + peca + ' para abrir na aba Critérios.';
 }
 function chartSvg(st) {
   if (typeof MOTIVO_PAINEL === 'object' && MOTIVO_PAINEL) return motivoSvg(st, MOTIVO_PAINEL);
   if (M.grafico === 'asas' && NG === 8) return wingsSvg(st);
-  if (M.grafico === 'tumbas' && NG >= 4 && NG <= 8) return tumbasSvg(st);
+  if (M.grafico === 'tumbas' && NG >= 4 && NG <= 10) return tumbasSvg(st);
   var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', casco = M.grafico === 'cascos', leque = M.grafico === 'leque', lua = M.grafico === 'luas', raio = M.grafico === 'raios', balao = M.grafico === 'baloes', tranca = M.grafico === 'trancas', folha = M.grafico === 'folhas', ovo = M.grafico === 'ovos', fenda = M.grafico === 'fendas', moeda = M.grafico === 'moedas', mao = M.grafico === 'maos', gear = M.grafico === 'engrenagens', perg = M.grafico === 'pergaminhos', lun = M.grafico === 'lunetas', torre = M.grafico === 'torres', meteor = M.grafico === 'meteoros', horde = M.grafico === 'canhoes', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa || casco || leque || lua || raio || balao || tranca || folha || ovo || fenda || moeda || mao || gear || perg || lun || torre || meteor || horde ? 2.4 : 1.2;
   // o ovo tem o mesmo tamanho em todos os agrupamentos: a, meio comprimento; b, a largura de desenho
   var eA = Math.min((R - r0) * 0.44, 58), eRc = r0 + (R - r0) * 0.52, eB = Math.min(eRc * Math.sin((step / 2 - gap) * Math.PI / 180) * 0.92 / 0.75, eA * 0.95), eCut = eA * 0.28;
@@ -2312,7 +2341,7 @@ function renderCtrl() {
     '<label class="tog"><input type="checkbox" data-act="ctrl-lands" data-fid="cl"' + (ui.ctrlLands ? ' checked' : '') + '> Incluir terrenos</label></div>';
   h += '<div class="kan">' + RELS.map(function (r) {
     var list = cs.filter(function (c) { return c.rel === r.k; }).sort(function (a, b) {
-      return r.k === 'BAX' ? cutCmp(a, b) : ((TR[a.tier] - TR[b.tier]) || (pts(b) - pts(a)) || a.n.localeCompare(b.n));
+      return r.k === 'BAX' ? cutCmp(a, b) : ((TR[a.tier] - TR[b.tier]) || (V3 ? pts3(b) - pts3(a) : pts(b) - pts(a)) || a.n.localeCompare(b.n));
     });
     var n = 0; list.forEach(function (c) { n += c.q; });
     return '<section class="kcol k-' + r.k + '"><header><h3>' + r.n + ' <small>' + r.l + '</small></h3><p>' + r.d + '</p><div class="kn">' + pl(n, 'carta', 'cartas') + '</div></header>' +
@@ -2338,7 +2367,7 @@ function renderCtrl() {
   });
   if (!pend.length) pend.push('<li><i class="mk okk"></i><span>Nada pendente. Deck com 100 cartas e avaliações coerentes.</span></li>');
   h += '<div class="grid g-11"><fieldset class="pn"><legend>Fila de corte</legend><ol class="queue">' + queue + '</ol>' +
-    '<p class="pn-note">Ordem: relevância mais baixa, depois a prioridade sugerida, o tier e a pontuação. PetCards, o comandante e as cartas marcadas como fora do corte nunca entram na fila; terrenos são avaliados à parte.</p></fieldset>' +
+    '<p class="pn-note">Ordem: relevância mais baixa, depois a prioridade sugerida, ' + (V3 ? 'o valor da carta nos critérios e o tier' : 'o tier e a pontuação') + '. PetCards, o comandante e as cartas marcadas como fora do corte nunca entram na fila; terrenos são avaliados à parte.</p></fieldset>' +
     '<fieldset class="pn"><legend>Pendências</legend><ul class="pend">' + pend.join('') + '</ul></fieldset></div>';
   $('#v-ctrl').innerHTML = h;
 }
@@ -2349,7 +2378,7 @@ function cutOptions(cand, sel) {
   top.forEach(function (c) { ids[c.id] = 1; });
   var rest = d.filter(function (c) { return !ids[c.id] && !c.cmd && c.id !== cand.id; }).sort(function (a, b) { return a.n.localeCompare(b.n); });
   var def = sel != null ? sel : ((cand.sai && d.some(function (c) { return c.id === cand.sai; })) ? cand.sai : (top[0] ? top[0].id : ''));
-  function opt(c) { return '<option value="' + esc(c.id) + '"' + (c.id === def ? ' selected' : '') + '>' + esc(c.n) + ' (' + RELS[RR[c.rel]].l + ', ' + pts(c) + ' pts)</option>'; }
+  function opt(c) { return '<option value="' + esc(c.id) + '"' + (c.id === def ? ' selected' : '') + '>' + esc(c.n) + ' (' + RELS[RR[c.rel]].l + ', ' + (V3 ? fmtP(pts3(c)) : pts(c)) + ' pts)</option>'; }
   return '<optgroup label="Fila de corte">' + top.map(opt).join('') + '</optgroup><optgroup label="Demais cartas">' + rest.map(opt).join('') + '</optgroup><option value=""' + (def === '' ? ' selected' : '') + '>Ninguém sai (o deck passa de 100)</option>';
 }
 function fdate(d) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : '—'; }
@@ -2609,6 +2638,7 @@ function renderDrawer() {
     h += '<p class="dw-pk">No 8×8: <b>' + esc(pkN) + '</b>' + (S.pk[c.id] ? ' (movida por você)' : '') + ' <button class="linkish" data-act="go" data-v="pk">Ver no 8×8</button></p>';
     var ps = c.cmd ? null : posicao(c);
     h += '<details class="dw-8 dw-c3"' + (ui.dwc3 ? ' open' : '') + '><summary><span class="dw-h3">Notas por critério<span class="dw-tot"><b>' + fmtP(pts3(c)) + '</b> pts' + (ps ? ' · ' + ps.n + 'ª de ' + ps.de + (c.inDeck ? '' : ' se entrar') : '') + '</span></span></summary><p class="dw-nota">' + resumoDw() + ' Mudar uma nota aqui é simulação: o placar, o gráfico e a aba Critérios refazem a conta.</p>' + reguaDw() + '<div class="steps">' + steps3 + '</div>' + cadW + '</details>';
+    h += encaixeHtml(c);
     h += '<details class="dw-8"' + (ui.dw8 ? ' open' : '') + '><summary>Notas por agrupamento (8×8)</summary><div class="steps">' + steps + '</div></details>';
   } else h += '<h3>Notas por agrupamento</h3><div class="steps">' + steps + '</div>';
   h += '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="pet" data-fid="pet"' + (c.pet ? ' checked' : '') + '> <span class="pet">♥</span> PetCard: ' + (IPET >= 0 ? 'soma 1 ponto em ' + esc(G[IPET].sh || G[IPET].k) + (V3 ? ' no 8×8' : '') + ' e fica' : 'fica') + ' fora da fila de corte</label></div>' +
@@ -3101,7 +3131,7 @@ if (PUB) { var vh = $('#voltar'); if (vh) vh.hidden = true; }   /* a página pub
 /* a gaveta é redesenhada a cada nota: o bloco do 8×8 lembra se estava aberto */
 document.addEventListener('toggle', function (e) {
   var l = e.target.classList; if (!l || !l.contains('dw-8')) return;
-  if (l.contains('dw-c3')) ui.dwc3 = e.target.open; else ui.dw8 = e.target.open;
+  if (l.contains('dw-c3')) ui.dwc3 = e.target.open; else if (l.contains('dw-enc')) ui.dwenc = e.target.open; else ui.dw8 = e.target.open;
 }, true);
 if (!V3) ['#t-crit', '#v-crit'].forEach(function (q) { var x = $(q); if (x) x.parentNode.removeChild(x); });   /* aba Critérios só no deck v3 */
 updStoreNote();

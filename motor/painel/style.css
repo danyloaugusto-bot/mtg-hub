@@ -804,3 +804,14 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 /* passo 8: Tabelão com sombra na coluna fixa quando a tabela rola para o lado */
 .tw.rolou .tbl .c-name{box-shadow:8px 0 10px -6px rgba(0,0,0,.55)}
 .tbl .tot-pl{display:block;font:600 12.5px var(--fb);color:var(--dim);white-space:nowrap;margin-top:2px}
+/* gaveta: caixa Encaixe (em qual deck a carta rende mais) */
+.dw-enc>summary,.dw-c3>summary{font:600 20.5px/1.1 var(--fd);color:var(--gold2);margin-top:22px}
+.enc{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}
+.enc li{display:grid;grid-template-columns:minmax(0,40%) minmax(0,1fr);gap:10px;padding:7px 9px;border:1px solid var(--line);border-radius:3px;background:rgba(var(--bg2-rgb),.5)}
+.enc li.este{border-color:var(--gold)}
+.enc-d{font-weight:700;color:var(--bone)}.enc-d a{color:inherit}.enc-d small{font-weight:500;color:var(--dim)}
+.enc-v small{display:block;color:var(--mute);font-size:13px;line-height:1.35}.enc-v small:first-of-type{display:inline}
+.enc-g{font-size:17px}.enc-g.pos{color:var(--ok)}.enc-g.neg{color:var(--bad)}
+.enc-ja{font-weight:700;color:var(--gold2)}
+.enc-c{color:var(--ok)!important}.enc-av{color:var(--warn)!important}
+.rosa .fx-s{font-size:.78em;font-weight:800}.rosa .fx-a{fill:var(--gold2)}.rosa .fx-b{fill:var(--warn)}
