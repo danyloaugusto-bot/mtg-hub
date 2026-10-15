@@ -718,44 +718,20 @@ function creedSvg(y) {
   return '<path d="M230 ' + (y - 11) + 'L242 ' + (y + 9) + 'L236.5 ' + (y + 9) + 'L230 ' + (y - 1) + 'L223.5 ' + (y + 9) + 'L218 ' + (y + 9) + 'Z" style="fill:var(--gold);stroke:rgba(var(--deep-rgb),.8)" stroke-width="1"/>' +
     '<path d="M226 ' + (y + 5) + 'H234" style="stroke:var(--gold)" stroke-width="1.6" stroke-linecap="round"/>';
 }
-function hoardPath(h, w) {
-  // o monte com o eixo x apontando para o centro: a base larga em x = 0 (no aro) e o cume arredondado em x = h
-  var hw = w / 2, f = function (n) { return n.toFixed(1); };
-  return 'M0 ' + f(-hw) + 'C' + f(h * 0.3) + ' ' + f(-hw * 0.9) + ' ' + f(h) + ' ' + f(-hw * 0.4) + ' ' + f(h) + ' 0' +
-    'C' + f(h) + ' ' + f(hw * 0.4) + ' ' + f(h * 0.3) + ' ' + f(hw * 0.9) + ' 0 ' + f(hw) + 'Z';
-}
-function hoardSvg(i, H, W, h, w, crown) {
-  // o monte inteiro tracejado; o de verdade cresce até h por w: um fundo escuro da cor do agrupamento, moedas espalhadas
-  // por dentro e moedas maiores no contorno, que dão o recorte de pilha; umas joias; o maior ganha a coroa no cume
-  var o = '<path d="' + hoardPath(H, W) + '" style="fill:rgba(var(--g' + i + '),.05);stroke:rgba(var(--gold-rgb),.32)" stroke-width="1" stroke-dasharray="3 3"/>';
-  if (h <= 0) return o;
-  var hw = w / 2, k, n, t, x, y, r, rr = Math.max(2.6, Math.min(4.2, w / 14)),
-    coin = function (cx, cy, q) {
-      return '<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="' + q.toFixed(1) + '" style="fill:rgb(var(--g' + i + '));stroke:var(--gold2)" stroke-width="1.1"/>' +
-        '<circle cx="' + (cx + q * 0.3).toFixed(1) + '" cy="' + (cy - q * 0.3).toFixed(1) + '" r="' + (q * 0.32).toFixed(1) + '" style="fill:rgba(255,255,255,.35)"/>';
-    },
-    bez = function (t, a, b, c, d) { var u = 1 - t; return u * u * u * a + 3 * u * u * t * b + 3 * u * t * t * c + t * t * t * d; };
-  o += '<path d="' + hoardPath(h, w) + '" style="fill:rgba(var(--g' + i + '),.5);stroke:rgba(var(--deep-rgb),.8)" stroke-width="1"/><g clip-path="url(#chd' + i + ')">';
-  n = Math.max(4, Math.round(h * w / 38));
-  for (k = 0; k < n; k++) {
-    // posições espalhadas, mas sempre as mesmas (sem sorteio): a sequência R2, que cobre o plano sem fazer listras
-    x = ((0.5 + k * 0.7548776662) % 1) * h; y = (((0.5 + k * 0.5698402910) % 1) - 0.5) * w; r = rr * (0.8 + (k % 3) * 0.15);
-    o += k % 9 === 4 ? '<path d="M' + x.toFixed(1) + ' ' + (y - r).toFixed(1) + 'l' + r.toFixed(1) + ' ' + r.toFixed(1) + ' ' + (-r).toFixed(1) + ' ' + r.toFixed(1) + ' ' + (-r).toFixed(1) + ' ' + (-r).toFixed(1) + 'z" style="fill:var(--blood2);stroke:var(--gold2)" stroke-width=".8"/>' : coin(x, y, r);
-  }
-  o += '</g>';
-  // o contorno de moedas maiores, seguindo as duas curvas do monte
-  n = Math.max(3, Math.round((h + hw) / (rr * 2.2)));
-  for (k = 1; k < n; k++) {
-    t = k / n; x = bez(t, 0, h * 0.3, h, h);
-    o += coin(x, bez(t, -hw, -hw * 0.9, -hw * 0.4, 0) * 0.94, rr * 1.15) + coin(x, bez(t, hw, hw * 0.9, hw * 0.4, 0) * 0.94, rr * 1.15);
-  }
-  o += coin(h - rr * 0.6, 0, rr * 1.25);
-  if (crown) {
-    // a coroa no cume, com as pontas para o centro
-    var b = h + rr * 0.6, c = function (n) { return n.toFixed(1); };
-    o += '<path d="M' + c(b) + ' -9V9H' + c(b + 5) + 'L' + c(b + 14) + ' 7L' + c(b + 8) + ' 3.5L' + c(b + 16) + ' 0L' + c(b + 8) + ' -3.5L' + c(b + 14) + ' -7L' + c(b + 5) + ' -9Z" style="fill:var(--gold2);stroke:rgba(var(--deep-rgb),.85)" stroke-width="1" stroke-linejoin="round"/>' +
-      '<circle cx="' + c(b + 2.5) + '" cy="0" r="1.9" style="fill:var(--blood2)"/>';
-  }
+function meteorSvg(i, Lmax, L, rr, big) {
+  // o meteoro com o eixo x apontando para fora: a bola de fogo perto do centro e a cauda que se estende até L;
+  // o comprimento inteiro fica tracejado, e o maior ganha as faíscas
+  var f = function (n) { return n.toFixed(1); };
+  var o = '<path d="M0 -13L' + f(Lmax) + ' 0L0 13Z" style="fill:rgba(var(--g' + i + '),.04);stroke:rgba(var(--gold-rgb),.28)" stroke-width="1" stroke-dasharray="3 3"/>';
+  if (L <= 0) return o;
+  o += '<path d="M0 ' + f(-rr) + 'Q' + f(L * 0.35) + ' ' + f(-rr * 0.8) + ' ' + f(L + rr) + ' 0Q' + f(L * 0.35) + ' ' + f(rr * 0.8) + ' 0 ' + f(rr) + 'Z" style="fill:url(#mt' + i + ')"/>' +
+    '<path d="M0 ' + f(-rr * 0.5) + 'Q' + f(L * 0.3) + ' ' + f(-rr * 0.35) + ' ' + f(L * 0.72 + rr) + ' 0Q' + f(L * 0.3) + ' ' + f(rr * 0.35) + ' 0 ' + f(rr * 0.5) + 'Z" style="fill:rgba(255,244,214,.55)"/>' +
+    '<circle cx="' + f(L * 0.45 + rr) + '" cy="' + f(-rr * 0.55) + '" r="1.4" style="fill:var(--gold2)"/><circle cx="' + f(L * 0.62 + rr) + '" cy="' + f(rr * 0.4) + '" r="1.1" style="fill:var(--gold2)"/>' +
+    '<circle r="' + f(rr) + '" style="fill:rgb(var(--g' + i + '));stroke:rgba(var(--deep-rgb),.85)" stroke-width="1.2"/>' +
+    '<circle cx="' + f(-rr * 0.18) + '" cy="' + f(-rr * 0.18) + '" r="' + f(rr * 0.5) + '" style="fill:rgba(255,248,224,.9)"/>';
+  if (big) o += '<circle r="' + f(rr * 1.9) + '" style="fill:rgba(var(--gold2-rgb),.16)"/>' +
+    '<path d="M' + f(-rr - 9) + ' -12l2.2 6 6 2.2 -6 2.2 -2.2 6 -2.2 -6 -6 -2.2 6 -2.2z" style="fill:var(--gold2)"/>' +
+    '<path d="M' + f(-rr - 4) + ' 10l1.4 3.6 3.6 1.4 -3.6 1.4 -1.4 3.6 -1.4 -3.6 -3.6 -1.4 3.6 -1.4z" style="fill:#fff;opacity:.8"/>';
   return o;
 }
 function dragonEyeSvg(y) {
@@ -872,7 +848,7 @@ function wingsSvg(st) {
 }
 function chartSvg(st) {
   if (M.grafico === 'asas' && NG === 8) return wingsSvg(st);
-  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', casco = M.grafico === 'cascos', leque = M.grafico === 'leque', lua = M.grafico === 'luas', raio = M.grafico === 'raios', balao = M.grafico === 'baloes', tranca = M.grafico === 'trancas', folha = M.grafico === 'folhas', ovo = M.grafico === 'ovos', fenda = M.grafico === 'fendas', moeda = M.grafico === 'moedas', mao = M.grafico === 'maos', gear = M.grafico === 'engrenagens', perg = M.grafico === 'pergaminhos', lun = M.grafico === 'lunetas', torre = M.grafico === 'torres', hoard = M.grafico === 'tesouro', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa || casco || leque || lua || raio || balao || tranca || folha || ovo || fenda || moeda || mao || gear || perg || lun || torre || hoard ? 2.4 : 1.2;
+  var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', casco = M.grafico === 'cascos', leque = M.grafico === 'leque', lua = M.grafico === 'luas', raio = M.grafico === 'raios', balao = M.grafico === 'baloes', tranca = M.grafico === 'trancas', folha = M.grafico === 'folhas', ovo = M.grafico === 'ovos', fenda = M.grafico === 'fendas', moeda = M.grafico === 'moedas', mao = M.grafico === 'maos', gear = M.grafico === 'engrenagens', perg = M.grafico === 'pergaminhos', lun = M.grafico === 'lunetas', torre = M.grafico === 'torres', meteor = M.grafico === 'meteoros', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa || casco || leque || lua || raio || balao || tranca || folha || ovo || fenda || moeda || mao || gear || perg || lun || torre || meteor ? 2.4 : 1.2;
   // o ovo tem o mesmo tamanho em todos os agrupamentos: a, meio comprimento; b, a largura de desenho
   var eA = Math.min((R - r0) * 0.44, 58), eRc = r0 + (R - r0) * 0.52, eB = Math.min(eRc * Math.sin((step / 2 - gap) * Math.PI / 180) * 0.92 / 0.75, eA * 0.95), eCut = eA * 0.28;
   for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
@@ -899,11 +875,10 @@ function chartSvg(st) {
     // a mesa de jogo: disco escuro e o aro serrilhado de uma moeda grande
     o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.6);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1.2"/>' +
       '<circle cx="230" cy="230" r="' + (R + 16) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.32)" stroke-width="5" stroke-dasharray="1.6 2.6"/>';
-  } else if (hoard) {
-    // o tesouro: disco escuro com brasa no fundo, um aro fino e um aro de moedas de ouro
-    o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.62);stroke:rgba(var(--gold-rgb),.45)" stroke-width="1.4"/>' +
-      '<circle cx="230" cy="230" r="' + (R + 17) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.55)" stroke-width="7" stroke-dasharray="0.1 10.5" stroke-linecap="round"/>' +
-      '<circle cx="230" cy="230" r="' + (R + 17) + '" style="fill:none;stroke:rgba(var(--deep-rgb),.6)" stroke-width="2.2" stroke-dasharray="0.1 10.5" stroke-linecap="round"/>';
+  } else if (meteor) {
+    // o céu em chamas: disco escuro, um aro fino e um aro de brasas
+    o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.62);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1.3"/>' +
+      '<circle cx="230" cy="230" r="' + (R + 16) + '" style="fill:none;stroke:rgba(var(--blood2-rgb),.6)" stroke-width="3" stroke-dasharray="0.1 9 0.1 5 0.1 13" stroke-linecap="round"/>';
   } else if (torre) {
     // a praça à noite: disco escuro, um aro fino e um aro de pedras de calçada
     o += '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.58);stroke:rgba(var(--gold-rgb),.36)" stroke-width="1.2"/>' +
@@ -1057,17 +1032,16 @@ function chartSvg(st) {
       o += gLabel(i, am, R, v);
       continue;
     }
-    if (hoard) {
-      // monte de ouro: apoiado no aro, cresce para o centro; altura e largura acompanham a raiz da soma das notas
-      // (a área do monte segue a soma); o tamanho inteiro fica tracejado, e o maior ganha a coroa
-      var hdV = Math.max(0, v) / max, hdS = v > 0 ? Math.sqrt(Math.max(0.03, hdV)) : 0, hdR = R - 14,
-        hdH = R - r0 - 34, hdW = Math.min(104, 2 * hdR * Math.sin((a1 - a0) / 2 * Math.PI / 180) * 0.86), hdP = pol(hdR, am).split(' ');
+    if (meteor) {
+      // meteoro: a cauda se estende em proporção direta à soma das notas; o comprimento inteiro fica tracejado,
+      // e o maior ganha as faíscas
+      var mtV = Math.max(0, v) / max, mtM = R - r0 - 40, mtL = v > 0 ? mtM * Math.max(0.06, mtV) : 0, mtR = 7 + 6 * mtV, mtP = pol(r0 + 20, am).split(' ');
       o += '<g class="wedge" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + v + ' pontos. Abrir no tabelão.">' +
         '<title>' + esc(G[i].k) + ': ' + v + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
         '<path class="ghost" d="' + wedgePath(r0, R, a0, a1) + '" style="fill:transparent;stroke:none"/>' +
-        '<g transform="translate(' + hdP[0] + ' ' + hdP[1] + ') rotate(' + (am + 180).toFixed(1) + ')" pointer-events="none">' +
-        (hdS > 0 ? '<clipPath id="chd' + i + '"><path d="' + hoardPath(hdH * hdS, hdW * hdS) + '"/></clipPath>' : '') +
-        '<g class="fill">' + hoardSvg(i, hdH, hdW, hdH * hdS, hdW * hdS, hdV >= 0.94) + '</g></g></g>';
+        '<g transform="translate(' + mtP[0] + ' ' + mtP[1] + ') rotate(' + am.toFixed(1) + ')" pointer-events="none">' +
+        '<linearGradient id="mt' + i + '" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="' + (mtL + mtR).toFixed(1) + '" y2="0"><stop offset="0" style="stop-color:rgb(var(--g' + i + '))"/><stop offset="1" style="stop-color:rgba(var(--g' + i + '),0)"/></linearGradient>' +
+        '<g class="fill">' + meteorSvg(i, mtM, mtL, mtR, mtV >= 0.94) + '</g></g></g>';
       o += gLabel(i, am, R, v);
       continue;
     }
@@ -1312,7 +1286,7 @@ function chartSvg(st) {
     // medalhão como uma moeda: o aro de dentro e o polegar cunhado no alto
     o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>' +
       '<circle cx="230" cy="230" r="' + (r0 - 10) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.4)" stroke-width="1" stroke-dasharray="2 2"/>' + thumbSvg(188);
-  } else if (hoard) {
+  } else if (meteor) {
     // medalhão com o olho da rainha dragão no alto
     o += '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>' + dragonEyeSvg(191);
   } else if (torre) {
@@ -1507,9 +1481,9 @@ function heroHtml(st, cmds) {
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
-  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'maos' ? 'mão' : M.grafico === 'engrenagens' ? 'engrenagem' : M.grafico === 'pergaminhos' ? 'pergaminho' : M.grafico === 'lunetas' ? 'luneta' : M.grafico === 'torres' ? 'torre' : M.grafico === 'tesouro' ? 'monte' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
+  var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'maos' ? 'mão' : M.grafico === 'engrenagens' ? 'engrenagem' : M.grafico === 'pergaminhos' ? 'pergaminho' : M.grafico === 'lunetas' ? 'luneta' : M.grafico === 'torres' ? 'torre' : M.grafico === 'meteoros' ? 'meteoro' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
   var chart = '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
-    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : peca === 'relâmpago' ? ' é um agrupamento, e o relâmpago vai até a soma das notas.' : peca === 'balão' ? ' é um agrupamento, e cresce com a soma das notas.' : peca === 'trança' ? ' é um agrupamento: os gomos acendem até a soma das notas.' : peca === 'pilha' ? ' de moedas é um agrupamento: cresce em proporção à soma das notas, e na mais alta a moeda do topo salta.' : peca === 'mão' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta abre os dedos.' : peca === 'engrenagem' ? ' é um agrupamento: os dez dentes acendem em proporção à soma das notas, e a mais cheia ganha o brilho verde do óleo phyrexiano.' : peca === 'pergaminho' ? ' é um agrupamento: se desenrola em proporção à soma das notas, e o mais cheio ganha o lacre.' : peca === 'luneta' ? ' é um agrupamento: estica em proporção à soma das notas, e a mais cheia ganha o brilho na lente.' : peca === 'torre' ? ' é um agrupamento: sobe em proporção à soma das notas, as janelas acendem com a altura, e a mais alta ganha a águia.' : peca === 'monte' ? ' de ouro é um agrupamento: cresce do aro para o centro em proporção à soma das notas, e o maior ganha a coroa.' : peca === 'fenda' ? ' é um agrupamento: abre e acende em proporção à soma das notas, e a mais cheia solta uma asa.' : peca === 'ovo' ? ' é um agrupamento: a cor acende e as rachaduras se abrem em proporção à soma das notas, e o mais cheio eclode.' : peca === 'galho' ? ' é um agrupamento com sete folhas, que acendem em proporção à soma das notas: o mais cheio tem as sete.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago|galho|ovo|pergaminho|monte)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
+    (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : peca === 'relâmpago' ? ' é um agrupamento, e o relâmpago vai até a soma das notas.' : peca === 'balão' ? ' é um agrupamento, e cresce com a soma das notas.' : peca === 'trança' ? ' é um agrupamento: os gomos acendem até a soma das notas.' : peca === 'pilha' ? ' de moedas é um agrupamento: cresce em proporção à soma das notas, e na mais alta a moeda do topo salta.' : peca === 'mão' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta abre os dedos.' : peca === 'engrenagem' ? ' é um agrupamento: os dez dentes acendem em proporção à soma das notas, e a mais cheia ganha o brilho verde do óleo phyrexiano.' : peca === 'pergaminho' ? ' é um agrupamento: se desenrola em proporção à soma das notas, e o mais cheio ganha o lacre.' : peca === 'luneta' ? ' é um agrupamento: estica em proporção à soma das notas, e a mais cheia ganha o brilho na lente.' : peca === 'torre' ? ' é um agrupamento: sobe em proporção à soma das notas, as janelas acendem com a altura, e a mais alta ganha a águia.' : peca === 'meteoro' ? ' é um agrupamento: a cauda de fogo cresce em proporção à soma das notas, e o maior solta faíscas.' : peca === 'fenda' ? ' é um agrupamento: abre e acende em proporção à soma das notas, e a mais cheia solta uma asa.' : peca === 'ovo' ? ' é um agrupamento: a cor acende e as rachaduras se abrem em proporção à soma das notas, e o mais cheio eclode.' : peca === 'galho' ? ' é um agrupamento com sete folhas, que acendem em proporção à soma das notas: o mais cheio tem as sete.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago|galho|ovo|pergaminho|meteoro)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
   // dois comandantes (parceiros): nome, custo, tipo e texto de cada um
   var sub = '<p class="hero-sub' + (par ? ' par' : '') + '">' + (par ? cmds.map(function (c) { return esc(c.n) + mana(c.cost); }).join(' <span class="hero-mais">+</span> ') : esc(nome) + (cmd ? mana(cmd.cost) : '')) + '</p>';
   // parceiros do mesmo tipo (as Tartarugas) mostram a linha uma vez só, com as duas forças
