@@ -302,17 +302,18 @@ def textura(nome, p):
         return ('url("%s"),'
                 "radial-gradient(1000px 520px at 70%% -12%%, rgba(%d,%d,%d,.12), transparent 62%%),"
                 "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.14), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["vinho"]) + (grad,))
-    if nome == "revoada":
-        # a ninhada da Lathliss voando ao longe num céu de nuvens: silhuetas de dragão em filete, o brilho turquesa no alto e a brasa magenta embaixo
-        dr = "q5 -6 11 -2q3 -5 7 -6q-1 4 2 6q4 -3 9 -1q-6 1 -9 5q-4 0 -8 2q-6 -3 -12 -4z"
-        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='160' viewBox='0 0 220 160'%3E"
-               "%3Cg fill='" + quote(p["suave"]) + "' fill-opacity='.07'%3E"
-               "%3Cpath d='M20 40" + dr + "'/%3E%3Cpath d='M140 22" + dr + "'/%3E%3Cpath d='M96 108" + dr + "'/%3E"
-               "%3C/g%3E%3Cg fill='none' stroke='" + quote(p["suave"]) + "' stroke-opacity='.05' stroke-width='1.2' stroke-linecap='round'%3E"
-               "%3Cpath d='M150 120q12 -8 24 0q10 -6 20 2'/%3E%3Cpath d='M30 140q10 -6 22 0'/%3E%3C/g%3E%3C/svg%3E")
+    if nome == "labaredas":
+        # o incêndio da ninhada da Lathliss: línguas de fogo, brasas soltas subindo, o clarão vermelho de baixo e o laranja no alto
+        fl = "c-6 -10 -4 -18 3 -26c1 6 4 8 6 9c0 -7 3 -13 8 -17c-2 8 2 12 5 17c3 5 2 12 -4 17z"
+        svg = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='150' viewBox='0 0 160 150'%3E"
+               "%3Cg fill='" + quote(p["destaque"]) + "' fill-opacity='.10'%3E"
+               "%3Cpath d='M22 62" + fl + "'/%3E%3Cpath d='M104 30" + fl + "'/%3E%3Cpath d='M70 138" + fl + "'/%3E%3Cpath d='M140 112" + fl + "'/%3E%3C/g%3E"
+               "%3Cg fill='" + quote(p["acento_claro"]) + "' fill-opacity='.32'%3E%3Ccircle cx='52' cy='20' r='1.3'/%3E%3Ccircle cx='128' cy='70' r='1.1'/%3E"
+               "%3Ccircle cx='16' cy='118' r='1.2'/%3E%3Ccircle cx='92' cy='96' r='.9'/%3E%3Ccircle cx='150' cy='12' r='1'/%3E%3C/g%3E%3C/svg%3E")
         return ('url("%s"),'
-                "radial-gradient(1000px 520px at 75%% -12%%, rgba(%d,%d,%d,.13), transparent 62%%),"
-                "radial-gradient(900px 480px at 10%% 110%%, rgba(%d,%d,%d,.12), transparent 66%%),%s") % ((svg,) + _hex(p["acento"]) + _hex(p["destaque"]) + (grad,))
+                "radial-gradient(1300px 620px at 50%% 115%%, rgba(%d,%d,%d,.34), transparent 70%%),"
+                "radial-gradient(900px 480px at 85%% -10%%, rgba(%d,%d,%d,.20), transparent 64%%),"
+                "radial-gradient(700px 420px at 5%% 30%%, rgba(%d,%d,%d,.14), transparent 66%%),%s") % ((svg,) + _hex(p["destaque"]) + _hex(p["acento"]) + _hex(p["vinho"]) + (grad,))
     if nome == "nenhuma":
         return grad
     return "radial-gradient(1100px 520px at 78%% -8%%, rgba(%d,%d,%d,.22), transparent 62%%),%s" % (a + (grad,))
