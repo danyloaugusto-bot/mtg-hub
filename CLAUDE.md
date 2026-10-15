@@ -24,7 +24,7 @@ Painéis dos decks de Commander (Magic: The Gathering) do Danylo, um por deck, e
 
 ## Nomes dos painéis
 
-Cada painel tem nome próprio, em português, evocativo e ligado ao comandante: Ritos de Sangue (Clavileño), Coro da Alvorada (Giada). Deck novo recebe três opções de nome para o dono escolher. Nome já dado não muda.
+Cada painel tem nome próprio, em português, evocativo e ligado ao comandante: Ritos de Sangue (Clavileño), Asas da Esperança (Giada). Deck novo recebe três opções de nome para o dono escolher. Nome já dado não muda.
 
 ## Como as pastas de deck se chamam
 

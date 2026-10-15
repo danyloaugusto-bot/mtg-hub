@@ -7,7 +7,7 @@
 - **cores:** branco
 - **grupo:** 01. Top
 - **situação:** (confirmar com o dono: "OK" no aplicativo?)
-- **nome do painel:** Coro da Alvorada
+- **nome do painel:** Asas da Esperança (até 15/10/2026, Coro da Alvorada)
 
 ## O plano em uma frase
 
