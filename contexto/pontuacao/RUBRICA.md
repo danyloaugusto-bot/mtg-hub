@@ -56,6 +56,16 @@ Os critérios 3 a 10 são **da carta**: a nota da Swords to Plowshares em Remoç
 - **Comandante:** pontua como as outras cartas e entra na soma do deck.
 - **Cópias:** a pontuação vale por cópia (básicos, Relentless Rats, Persistent Petitioners).
 
+### Regras do dono de 15/10/2026, depois do lote 1
+
+- **Evasão é toda habilidade estática que dificulta ou impede o bloqueio**, aumentando a chance de a criatura causar dano ao oponente ou a um planeswalker. Ordem de força do ranking do [Draftsim](https://draftsim.com/mtg-evasion/): não pode ser bloqueada, voar, atropelar, horsemanship, toque mortífero, passagem por terreno, sombra, ameaça, intimidar, medo, "não pode ser bloqueada por..." e skulk. **Iniciativa é golpe primeiro (first strike)** e conta. **Veneno** (infectar, tóxico, venenoso) também conta em Evasão: mata a criatura que bloqueia ou, com dez marcadores, o oponente. Proteção fica em Resiliência e golpe duplo em Amplificador (um efeito, um critério).
+  - Na própria criatura: uma evasão comum = 1; não pode ser bloqueada, sombra ou horsemanship = 2; duas evasões sobem um nível (faz duas vezes).
+  - Dada ao time ou à tribo: uma evasão comum = 2; voar ou não pode ser bloqueada = 3; duas evasões = 3. Dada a uma criatura (Equipamento, Aura): como se fosse dela.
+  - Evasão ativada, condicional ou só por um turno cai um nível.
+- **Ódio a cemitério é Remoção.** Contínuo (Rest in Peace) = 3; um cemitério inteiro de uma vez (Bojuka Bog), ou uma carta por vez em série, = 2; uma carta de um cemitério = 1.
+- **Pôr permanente da mão em campo sem conjurar é Aceleradores**: é jogar mais de uma coisa no turno, uma de graça e outra pagando. A cada ataque ou turno = 3 (Kaalia of the Vast, Braids, Conjurer Adept); uma vez, simétrico ou com custo à parte = 2 (Show and Tell, Strefan).
+- **Tribo nas sinergias:** Changeling (Metamorfo) e Shapeshifter contam como da tribo, e podem chegar a 3.
+
 ## Exemplos de calibração
 
 São âncoras para todo avaliador, humano ou IA, dar a mesma nota à mesma carta.
