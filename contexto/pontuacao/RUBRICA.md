@@ -66,6 +66,22 @@ Os critérios 3 a 10 são **da carta**: a nota da Swords to Plowshares em Remoç
 - **Pôr permanente da mão em campo sem conjurar é Aceleradores**: é jogar mais de uma coisa no turno, uma de graça e outra pagando. A cada ataque ou turno = 3 (Kaalia of the Vast, Braids, Conjurer Adept); uma vez, simétrico ou com custo à parte = 2 (Show and Tell, Strefan).
 - **Tribo nas sinergias:** Changeling (Metamorfo) e Shapeshifter contam como da tribo, e podem chegar a 3.
 
+### Regras do dono de 15/10/2026, depois do lote 2
+
+- **Dano em qualquer alvo conta nos dois critérios**, Dano Direto e Remoção. A nota de Dano segue a tabela de calibração. A de Remoção vai por intensidade:
+  - 3: grande e repetível em vários alvos (Drakuseth);
+  - 2: repetível (Orcish Bowmasters, Mayhem Devil, Terror of the Peaks);
+  - 1: uma vez (Fling, Lightning Bolt) ou sob condição (Sword of Fire and Ice).
+- **Descarte de oponente é Remoção:**
+  - 3: X cartas, a mão inteira ou metade (Mind Twist);
+  - 2: escolher a melhor carta (Thoughtseize), duas ao acaso (Hymn to Tourach), uma carta repetível (Liliana Vess) ou em massa e simétrico (Bottomless Pit, Necrogen Mists);
+  - 1: sob condição de combate (Hypnotic Specter) ou à escolha do oponente (Painful Quandary).
+  - Descarte seu (filtrar, custo) não conta aqui, e a roda (Wheel of Fortune) é Draw.
+- **Tutor só ganha Draw quando traz 2 cartas ou mais para a mão** (Land Tax, Cultivate): trocar uma carta por outra é um por um. A busca de uma carta, mesmo direto para o campo, fica só em Recurso, e não conta em Aceleradores.
+- **Turno a mais é Draw 1 e Aceleradores 2**: compra, desvira e joga terreno de novo (Time Warp). Com condição ou sorteio, Aceleradores cai para 1 (Stitch in Time, Second Chance).
+- **Goad é Resiliência**, porque tira os ataques de você, como Ghostly Prison e Propaganda: numa criatura vale 1, em massa ou repetível vale 2.
+- **Ficha de artefato conta pelo que faz**: Tesouro em Aceleradores, Pista em Draw, Comida em Resiliência. Ficha de criatura e ficha genérica ficam em Recurso, e a ficha a cada turno vale 3.
+
 ## Exemplos de calibração
 
 São âncoras para todo avaliador, humano ou IA, dar a mesma nota à mesma carta.
