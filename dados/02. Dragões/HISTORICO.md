@@ -1,0 +1,13 @@
+# Histórico: Fogo e Sangue (Lathliss, Dragon Queen)
+
+## Versão 1.0, 14/10/2026
+
+- Deck do grupo 02. Tribais. A lista é a `decklist.txt` do dono, 100 cartas em 77 linhas; ela não muda, e o radar é só sugestão. Os arquivos soltos na pasta foram para `entrada/`, em duas levas: a revisão do GPT (V2 e depois V3, com planilhas), a análise profunda do Claude (versão 2) com o handover e as listas forte e atalho, a do Grok e a carta. Não havia `deck.md`: escrito a partir do material. Três fontes confrontadas em `CONFRONTO.md` (do GPT, a V3) com o texto oficial do Scryfall, a ruling da Lathliss e o Commander Spellbook.
+- O dono quer os dois decks dele bem fortes, meta 10, sem se importar com bracket, e sem cartas de estimação.
+- Placar 289, CMC médio 3,87, 32 terrenos e 3 cartas com verso de terreno. 3 S, 5 BAX. Nenhum Game Changer. 20 Dragões, contando a Lathliss e o Roaming Throne; só 1 carta protege a comandante.
+- Agrupamentos: os eixos do dono, com as três sinergias nomeadas (Dragões, Entrada e Dano dobrado).
+- Radar com 41 cartas: 15 trocas (Terror of the Peaks, Scourge of Valkas, Ganax, Dragonlord's Servant, Flame Sweep, Breath Weapon, The One Ring, Bonehoard Dracosaur, Herald's Horn, Swiftfoot Boots, Deflecting Swat, Ancient Tomb, Mana Vault, Ruby Medallion e Universal Automaton), 22 para avaliar e 4 de fora. Com as trocas, placar 327, cartas que protegem a Lathliss de 1 para 3, limpezas que poupam o seu lado de 6 para 8, cartas contra a Lathliss de 2 para 0, Game Changers de 0 para 3.
+- Erros das análises, desmentidos pelo texto oficial: o GPT diz que o Mob Verdict não é limpeza de um lado só (nunca acerta você) e põe o dano da Mana Vault na manutenção (é no passo de compra); o Grok sugere o Dockside Extortionist, que é banido, chama o Blasphemous Act de unilateral e sugere duas cartas que já estão na lista.
+- 13 combos, motores e armadilhas: Lathliss + Universal Automaton + Ganax + Cloudstone Curio (Commander Spellbook 930-1789-2232-2972, que nenhuma análise viu), Reaver Cleaver + Hellkite Charger (3398-5039) com a vitória do Hellkite Tyrant, o Roaming Throne dobrando a Lathliss e o Utvara, o Cursed Mirror e o Belbe's Portal disparando a Lathliss, e as armadilhas das limpezas do próprio lado e do Dictate.
+- No 8×8, Balefire Dragon, Ryusei e Incinerator contam em Dragões; Crawlspace e War's Toll em Removal.
+- Tema "Fogo e Sangue", nome escolhido pelo dono (o lema dos Targaryen): a rainha dragão de asas magenta pousada no pico, fonte Almendra Display. Motivos novos no motor: gráfico "escamas" (fileiras de escamas que acendem com a soma das notas; a mais cheia solta a labareda; o olho de pupila em fenda no placar) e textura "revoada".

@@ -1,0 +1,1623 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Mana, aceleração e redutores. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra de cartas."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção pontual e limpezas; marca nas que poupam o seu lado."
+  },
+  {
+   "k": "dragoes",
+   "nome": "Dragões",
+   "ab": "Drag.",
+   "desc": "Sinergia 1: Dragões não ficha, que disparam a Lathliss."
+  },
+  {
+   "k": "entrada",
+   "nome": "Entrada",
+   "ab": "Entr.",
+   "desc": "Sinergia 2: o que lucra quando um Dragão entra."
+  },
+  {
+   "k": "dobro",
+   "nome": "Dano dobrado",
+   "ab": "Dobro",
+   "desc": "Sinergia 3: dobradores e somadores de dano."
+  },
+  {
+   "k": "tesouro",
+   "nome": "Tesouro",
+   "ab": "Tes.",
+   "desc": "Geração de Tesouros."
+  },
+  {
+   "k": "combate",
+   "nome": "Combate extra",
+   "ab": "Comb.",
+   "desc": "Fases de combate adicionais e o ataque final."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Dragão",
+   "plural": "Dragões",
+   "subtipo": "Dragon"
+  },
+  "poupa": {
+   "nome": "Limpeza que poupa o seu lado"
+  },
+  "prot": {
+   "nome": "Protege a Lathliss"
+  },
+  "contra": {
+   "nome": "Trabalha contra a Lathliss"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "32 terrenos e 3 cartas com verso de terreno, para um CMC médio de 3,8."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de draw dedicada",
+    "fontes de draw dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 5,
+   "massa_ref": [
+    2,
+    4
+   ],
+   "alerta": "Muitas limpezas, e duas matam o seu lado."
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 75,
+   "texto": "cada Dragão não ficha que entra traz uma ficha 5/5 da Lathliss."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "poupa",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "limpeza que poupa o seu lado",
+    "limpezas que poupam o seu lado"
+   ],
+   "alerta": "Poucas limpezas poupam os seus Dragões: a lacuna que o dono viu.",
+   "ok": "A mesa limpa só do lado deles."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "prot",
+   "min": 3,
+   "listar": true,
+   "rotulo": [
+    "carta que protege a Lathliss",
+    "cartas que protegem a Lathliss"
+   ],
+   "alerta": "A comandante de 6 manas está quase sem proteção.",
+   "ok": "A Lathliss tem como sobreviver."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "contra",
+   "max": 0,
+   "listar": true,
+   "rotulo": [
+    "carta contra a Lathliss",
+    "cartas contra a Lathliss"
+   ],
+   "alerta": "Limpezas que matam o seu lado.",
+   "ok": "Nada trabalha contra a comandante."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 4",
+   "plano": "Sol Ring, Arcane Signet, Carnelian Orb e Cursed Mirror; o Dragonspeaker Shaman deixa a Lathliss por 4. O Dragon Tempest sai cedo, por 2.",
+   "fortes": [
+    "Dragonspeaker Shaman e as pedras levam a Lathliss ao turno 4.",
+    "Dragões baratos (Reckless Barbarian, Chaos Dragon, Gadrak) disparam a Lathliss logo depois."
+   ],
+   "fracos": [
+    "CMC médio 3,8, e sete cartas custam 7 ou mais.",
+    "B estima a Lathliss em campo até o turno 6 em 44% das partidas com a lista de hoje (simulação de B)."
+   ]
+  },
+  "meio": {
+   "turnos": "5 a 8",
+   "plano": "A Lathliss em campo, e um Dragão por turno: cada um traz a ficha 5/5. Dragon Tempest, Molten Echoes e Roaming Throne multiplicam as entradas; Goldspan e Rapacious pagam o próximo Dragão. Mizzium Mortars, Vandalblast e Mob Verdict limpam só o lado deles.",
+   "fortes": [
+    "Cada Dragão vale dois corpos voadores.",
+    "O Tempest dá ímpeto: as fichas atacam na hora."
+   ],
+   "fracos": [
+    "Só o Untimely Malfunction protege a Lathliss.",
+    "Chain Reaction e Reckless Endeavor matam o seu lado."
+   ]
+  },
+  "fim": {
+   "turnos": "9 em diante",
+   "plano": "Torbran, Gratuitous Violence e Fiendish Duo dobram o dano; Scourge of the Throne, Hellkite Charger, Great Train Heist, Overpowering Attack e Fury of the Horde dão combates extras; o Utvara enche a mesa de 6/6; o Insurrection toma tudo. A Reaver Cleaver no Charger é combate infinito.",
+   "fortes": [
+    "Muitas linhas de fechamento, e o combo Cleaver com Charger.",
+    "O pump de {1}{R} da Lathliss transforma mana em dano."
+   ],
+   "fracos": [
+    "As limpezas dos oponentes levam a mesa toda.",
+    "Pouca compra recorrente: a mão acaba antes do fim."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "A mesa voadora corre mais do que as criaturas grandes deles, e o Mortars e o Balefire limpam o chão."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "As fichas 5/5 seguram o dreno lento, mas os sacrifícios deles não são alcançados pelo combate."
+   },
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Os 5/5 bloqueiam bem, mas o começo é lento."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "equilibrado",
+    "porque": "As fichas fazem bloqueio e a Chaos Warp responde, mas a remoção pontual é pouca."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "Pressão aérea rápida depois da Lathliss, mas nenhuma anulação."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "fraco",
+    "porque": "As limpezas deles levam a Lathliss e as fichas, e o deck é lento para refazer."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Lento e sem anulação."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Curva alta: taxa e travas de mana seguram os Dragões na mão."
+   }
+  ]
+ },
+ "cartas": {
+  "Lathliss, Dragon Queen": {
+   "notas": {
+    "dragoes": 3,
+    "entrada": 3,
+    "combate": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Dragão lendário 6/6 de 6, com voar. Outro Dragão não ficha seu entra: uma ficha Dragão 5/5 voadora. {1}{R}: seus Dragões ganham +1/+0.",
+   "porque": "Cada Dragão de verdade vale dois corpos, e o pump transforma mana sobrando em dano."
+  },
+  "Dragonspeaker Shaman": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano Bárbaro Xamã de 3: mágicas de Dragão custam {2} a menos.",
+   "porque": "A Lathliss por 4, e cada Dragão dois mais barato."
+  },
+  "Goldspan Dragon": {
+   "notas": {
+    "ramp": 1,
+    "dragoes": 2,
+    "tesouro": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dragão 4/4 de 5 com voar e ímpeto. Ao atacar ou virar alvo de mágica: um Tesouro; seus Tesouros dão duas manas.",
+   "porque": "Ataca no turno em que chega e dobra a mana dos Tesouros."
+  },
+  "Roaming Throne": {
+   "notas": {
+    "dragoes": 2,
+    "entrada": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Golem artefato 4/4 de 4 com ward {2}, do tipo que escolher; gatilhos das suas outras criaturas desse tipo disparam uma vez a mais.",
+   "porque": "Nomeando Dragão: já entra Dragão (dispara a Lathliss), e cada Dragão passa a trazer duas fichas.",
+   "marcas": {
+    "tribo": 1
+   }
+  },
+  "Utvara Hellkite": {
+   "notas": {
+    "dragoes": 2,
+    "entrada": 2,
+    "combate": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dragão 6/6 de 8 com voar. Um Dragão seu ataca: uma ficha Dragão 6/6 voadora.",
+   "porque": "Cada ataque dobra a mesa; com o Roaming Throne, duas fichas por Dragão."
+  },
+  "Scourge of the Throne": {
+   "notas": {
+    "dragoes": 2,
+    "combate": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dragão 5/5 de 6 com voar e destronar. Na primeira vez que ataca o jogador com mais vida no turno: desvira os atacantes e há outro combate.",
+   "porque": "Combate extra num Dragão."
+  },
+  "Torbran, Thane of Red Fell": {
+   "notas": {
+    "dobro": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Anão Nobre lendário de 4: fonte vermelha sua que causaria dano a um oponente ou ao que é dele causa 2 a mais.",
+   "porque": "Cada ficha 5/5 bate 7, e cada disparo do Tempest leva +2."
+  },
+  "Rapacious Dragon": {
+   "notas": {
+    "ramp": 1,
+    "dragoes": 2,
+    "tesouro": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Dragão 3/3 de 5 com voar. Ao entrar, dois Tesouros.",
+   "porque": "Paga o próximo Dragão; com o Molten Echoes, quatro Tesouros."
+  },
+  "Skyline Despot": {
+   "notas": {
+    "draw": 2,
+    "dragoes": 2,
+    "combate": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Dragão 5/5 de 7 com voar. Ao entrar, você vira o monarca; na sua manutenção, sendo monarca, uma ficha Dragão 5/5 voadora.",
+   "porque": "Compra e um Dragão por turno."
+  },
+  "Hellkite Charger": {
+   "notas": {
+    "dragoes": 2,
+    "combate": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Dragão 5/5 de 6 com voar e ímpeto. Ao atacar, pague {5}{R}{R}: desvira os atacantes e há outro combate.",
+   "porque": "Com a Reaver Cleaver, combates infinitos (Commander Spellbook 3398-5039)."
+  },
+  "Enduring Courage": {
+   "notas": {
+    "entrada": 2,
+    "combate": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento Criatura Cão 3/3 de 4. Outra criatura sua entra: +2/+0 e ímpeto no turno. Morrendo, volta como encantamento.",
+   "porque": "As fichas 5/5 atacam no turno em que nascem, como 7/5."
+  },
+  "Fiendish Duo": {
+   "notas": {
+    "dobro": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Demônio 5/5 de 6 com golpe primeiro: dano a um oponente é dobrado.",
+   "porque": "Dobra só contra os oponentes."
+  },
+  "Balefire Dragon": {
+   "notas": {
+    "removal": 2,
+    "dragoes": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão 6/6 de 7 com voar. Ao causar dano de combate a um jogador, causa esse tanto a cada criatura dele.",
+   "porque": "Limpeza de um lado só, a cada acerto.",
+   "marcas": {
+    "poupa": 1
+   },
+   "pacote": "dragoes"
+  },
+  "Ryusei, the Falling Star": {
+   "notas": {
+    "removal": 2,
+    "dragoes": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão Espírito lendário 5/5 de 6 com voar. Morrendo, 5 de dano em cada criatura sem voar.",
+   "porque": "A limpeza que poupa os seus voadores.",
+   "marcas": {
+    "poupa": 1
+   },
+   "pacote": "dragoes"
+  },
+  "Incinerator of the Guilty": {
+   "notas": {
+    "removal": 2,
+    "dragoes": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão 6/6 de 6 com voar e atropelar. Ao acertar, coleta evidência X e causa X a cada criatura e planeswalker do jogador.",
+   "porque": "Limpeza de um lado só, com o cemitério.",
+   "marcas": {
+    "poupa": 1
+   },
+   "pacote": "dragoes"
+  },
+  "Inferno of the Star Mounts": {
+   "notas": {
+    "removal": 1,
+    "dragoes": 2,
+    "combate": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão lendário 6/6 de 6 que não pode ser anulado, com voar e ímpeto. {R}: +1/+0; ao chegar a 20 de força assim, 20 de dano em qualquer alvo.",
+   "porque": "Fecha sozinho com mana sobrando."
+  },
+  "Hellkite Tyrant": {
+   "notas": {
+    "removal": 1,
+    "dragoes": 2,
+    "tesouro": 1,
+    "combate": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Dragão 6/5 de 6 com voar e atropelar. Ao acertar, toma todos os artefatos do jogador; na sua manutenção, com 20 artefatos, você vence.",
+   "porque": "Rouba os Tesouros e as pedras; com o combo da Cleaver, vence."
+  },
+  "Chaos Dragon": {
+   "notas": {
+    "dragoes": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dragão 4/4 de 3 com voar e ímpeto; ataca todo combate, e um dado decide quem ele pode atacar.",
+   "porque": "Dragão barato: dispara a Lathliss por 3."
+  },
+  "Reckless Barbarian": {
+   "notas": {
+    "ramp": 1,
+    "dragoes": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dragão Bárbaro 2/2 de 2. Sacrifique: {R}{R}.",
+   "porque": "Dragão de 2: dispara a Lathliss e devolve a mana."
+  },
+  "Gadrak, the Crown-Scourge": {
+   "notas": {
+    "dragoes": 2,
+    "tesouro": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dragão lendário 5/4 de 3 com voar; só ataca com quatro artefatos seus. Na sua etapa final, um Tesouro por criatura não ficha que morreu.",
+   "porque": "Dragão de 3, e Tesouros nas limpezas."
+  },
+  "Territorial Hellkite": {
+   "notas": {
+    "dragoes": 2,
+    "combate": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dragão 6/5 de 4 com voar e ímpeto; ataca um oponente aleatório que não atacou no combate anterior.",
+   "porque": "Dragão de 4 que bate forte; o ataque é sorteado.",
+   "prioridade": 9
+  },
+  "Vengeful Ancestor": {
+   "notas": {
+    "removal": 1,
+    "dragoes": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Espírito Dragão 3/4 de 4 com voar. Ao entrar ou atacar, dá goad numa criatura; criatura com goad que ataca causa 1 ao controlador.",
+   "porque": "Dragão de 4 que manda a mesa brigar."
+  },
+  "Manaform Hellkite": {
+   "notas": {
+    "dragoes": 2,
+    "entrada": 1,
+    "combate": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dragão 4/4 de 4 com voar. Você conjura mágica que não é criatura: ficha Dragão Ilusão X/X voadora com ímpeto, exilada no fim do turno.",
+   "porque": "As fichas disparam o Tempest; o deck tem 40 mágicas que não são criatura."
+  },
+  "Dragon Mage": {
+   "notas": {
+    "draw": 2,
+    "dragoes": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Dragão Mago 5/5 de 7 com voar. Ao acertar, cada jogador descarta a mão e compra sete.",
+   "porque": "A única wheel; recarrega todos."
+  },
+  "Pinnacle Monk": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Djinn Monge 2/2 de 5 com proeza; ao entrar, uma instantânea ou feitiço do cemitério volta à mão. O verso é terreno: pague 3 de vida ou entra virado.",
+   "porque": "Terreno quando falta, recursão quando sobra."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "A Lathliss no turno 4."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: mana da identidade.",
+   "porque": "Pedra."
+  },
+  "Dragon's Hoard": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1,
+    "entrada": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 3: qualquer cor; um marcador de ouro por Dragão seu que entra; vira e remova: compre.",
+   "porque": "Pedra que compra a cada Dragão, fichas inclusive."
+  },
+  "Carnelian Orb of Dragonkind": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3: {R}; gasto num Dragão, ele ganha ímpeto.",
+   "porque": "Pedra que dá ímpeto aos Dragões."
+  },
+  "Cursed Mirror": {
+   "notas": {
+    "ramp": 2,
+    "dragoes": 1,
+    "entrada": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3: {R}; ao entrar, pode virar cópia de uma criatura até o fim do turno, com ímpeto.",
+   "porque": "Copiando um Dragão, entra como Dragão não ficha: dispara a Lathliss."
+  },
+  "The Reaver Cleaver": {
+   "notas": {
+    "tesouro": 3,
+    "combate": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Equipamento lendário de 3, equipar {3}: +1/+1, atropelar, e ao acertar, um Tesouro por dano.",
+   "porque": "Com o Hellkite Charger, combates infinitos (3398-5039)."
+  },
+  "Horn of the Mark": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato lendário de 2. Duas ou mais criaturas suas atacam um jogador: olha cinco e pega uma criatura.",
+   "porque": "Com as fichas, compra quase todo ataque."
+  },
+  "Belbe's Portal": {
+   "notas": {
+    "ramp": 2,
+    "dragoes": 1,
+    "entrada": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 5 do tipo que escolher. {3}, vira: põe uma criatura desse tipo da mão em campo.",
+   "porque": "Dragão de 7 por 3, a qualquer momento; dispara a Lathliss."
+  },
+  "Nyx Lotus": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato lendário de 4, entra virado. Vira: mana de uma cor igual à sua devoção a ela.",
+   "porque": "Lento, mas os Dragões têm {R}{R} no custo."
+  },
+  "Hedron Archive": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 4: {C}{C}; {2}, vira, sacrifique: compre duas.",
+   "porque": "Pedra cara.",
+   "prioridade": 10
+  },
+  "Crawlspace": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Artefato de 3: no máximo duas criaturas atacam você por combate.",
+   "porque": "Defesa que não faz nada pelo plano.",
+   "prioridade": 2,
+   "pacote": "removal"
+  },
+  "Dragon Tempest": {
+   "notas": {
+    "removal": 1,
+    "entrada": 3,
+    "combate": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 2. Criatura voadora sua entra: ímpeto. Dragão seu entra: X de dano em qualquer alvo, X os seus Dragões.",
+   "porque": "Cada Dragão dispara duas vezes (ele e a ficha da Lathliss), e todos atacam na hora."
+  },
+  "Molten Echoes": {
+   "notas": {
+    "dragoes": 1,
+    "entrada": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 4 do tipo que escolher: criatura não ficha desse tipo entra, ficha cópia com ímpeto, exilada no fim do turno.",
+   "porque": "A cópia dispara o Tempest e repete o efeito de entrar (Tesouros, monarca)."
+  },
+  "Gratuitous Violence": {
+   "notas": {
+    "dobro": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 5: suas criaturas causam o dobro de dano.",
+   "porque": "Dobra só o seu lado."
+  },
+  "Dictate of the Twin Gods": {
+   "notas": {
+    "dobro": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 5 com lampejo: todo dano é dobrado.",
+   "porque": "Dobra o dano que você recebe também."
+  },
+  "Wild Wasteland": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 3: pule a compra; na manutenção, exila as duas do topo e você as joga no turno.",
+   "porque": "Uma carta a mais por turno."
+  },
+  "The Legend of Roku": {
+   "notas": {
+    "ramp": 1,
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Saga de 4: I, exila três e você as joga até o fim do próximo turno; II, uma mana de qualquer cor; III, vira uma criatura lendária Avatar.",
+   "porque": "Compra e mana em três turnos."
+  },
+  "Rising of the Day": {
+   "notas": {
+    "entrada": 1,
+    "combate": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento de 3: suas criaturas têm ímpeto; lendárias ganham +1/+0.",
+   "porque": "As fichas atacam na hora.",
+   "prioridade": 11
+  },
+  "Spiteful Banditry": {
+   "notas": {
+    "removal": 2,
+    "tesouro": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento X{R}{R}: X de dano a cada criatura; uma vez por turno, criaturas dos oponentes morrem, um Tesouro.",
+   "porque": "Escolhendo X até 4, as fichas 5/5 ficam.",
+   "massa": true
+  },
+  "Curse of Opulence": {
+   "notas": {
+    "ramp": 1,
+    "tesouro": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Maldição de 1: o jogador encantado é atacado, você e quem o ataca criam um Ouro.",
+   "porque": "Tesouro barato, mas dá aos outros também.",
+   "prioridade": 12
+  },
+  "Powerbalance": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Encantamento de 2: um oponente conjura, você revela o topo e conjura grátis se o valor for igual.",
+   "porque": "Raramente acerta.",
+   "prioridade": 3
+  },
+  "War's Toll": {
+   "notas": {},
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Encantamento de 4: oponente vira um terreno para mana, vira todos; se uma criatura dele ataca, todas atacam.",
+   "porque": "Fora do plano.",
+   "prioridade": 4,
+   "pacote": "removal"
+  },
+  "Chaos Warp": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: o dono embaralha uma permanente no grimório e revela o topo; se for permanente, entra.",
+   "porque": "A resposta vermelha a qualquer coisa."
+  },
+  "Untimely Malfunction": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 2: destrói um artefato, muda o alvo de uma mágica ou habilidade, ou duas criaturas não bloqueiam.",
+   "porque": "A única que protege a Lathliss de uma remoção.",
+   "marcas": {
+    "prot": 1
+   }
+  },
+  "Sarkhan's Triumph": {
+   "notas": {
+    "draw": 2,
+    "dragoes": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: busca um Dragão.",
+   "porque": "Acha o Dragão certo no fim do turno de alguém."
+  },
+  "Great Train Heist": {
+   "notas": {
+    "tesouro": 1,
+    "combate": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea {R} com escolhas pagas: desvira e há outro combate; +1/+0 e golpe primeiro; Tesouros por acerto.",
+   "porque": "Combate extra de instantânea."
+  },
+  "Electrodominance": {
+   "notas": {
+    "ramp": 1,
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea X{R}{R}: X de dano em qualquer alvo; conjure grátis uma mágica de valor até X da mão.",
+   "porque": "Remoção, e um Dragão em velocidade de instantânea."
+  },
+  "Demand Answers": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 2; custo adicional: sacrifique um artefato ou descarte. Compre duas.",
+   "porque": "Compra; o Tesouro paga o custo."
+  },
+  "Spikefield Hazard": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea {R}: 1 de dano. O verso é terreno virado.",
+   "porque": "Terreno quando falta."
+  },
+  "Mizzium Mortars": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: 4 de dano numa criatura que não é sua; sobrecarga {3}{R}{R}{R}: em cada uma.",
+   "porque": "Remoção barata, e limpeza só do lado deles.",
+   "marcas": {
+    "poupa": 1
+   },
+   "massa": true,
+   "pontual": true
+  },
+  "Vandalblast": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço {R}: destrói um artefato que não é seu; sobrecarga {4}{R}: todos.",
+   "porque": "Responde a artefatos, de um lado só.",
+   "marcas": {
+    "poupa": 1
+   }
+  },
+  "Mob Verdict": {
+   "notas": {
+    "draw": 1,
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 4 com conselho secreto: cada voto num oponente causa 2 a ele e a cada criatura dele; cada voto em você compra uma carta.",
+   "porque": "Nunca acerta o seu lado.",
+   "marcas": {
+    "poupa": 1
+   },
+   "massa": true
+  },
+  "Collective Defiance": {
+   "notas": {
+    "draw": 1,
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 3 com escalada: troca de mão, 4 numa criatura, 3 num oponente.",
+   "porque": "Flexível."
+  },
+  "Insurrection": {
+   "notas": {
+    "removal": 1,
+    "combate": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 8: toma todas as criaturas até o fim do turno, desviradas e com ímpeto.",
+   "porque": "O ataque final com a mesa inteira."
+  },
+  "Fury of the Horde": {
+   "notas": {
+    "combate": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 7, ou exile duas cartas vermelhas da mão: desvira quem atacou, outro combate e outra fase principal.",
+   "porque": "Combate extra de graça.",
+   "caro_por_desenho": true
+  },
+  "Overpowering Attack": {
+   "notas": {
+    "combate": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 5: desvira quem atacou; na fase principal, outro combate e outra fase principal.",
+   "porque": "Combate extra."
+  },
+  "Storm's Wrath": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 4: 4 de dano a cada criatura e planeswalker.",
+   "porque": "A Lathliss e as fichas ficam; os Dragões pequenos, não.",
+   "massa": true
+  },
+  "Pyroclasm": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 2: 2 de dano a cada criatura.",
+   "porque": "Limpa o chão; os seus de apoio morrem junto.",
+   "massa": true,
+   "prioridade": 8
+  },
+  "Faithless Looting": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço {R}: compre duas e descarte duas; recapitular {2}{R}.",
+   "porque": "Filtro, não compra.",
+   "prioridade": 6
+  },
+  "Sundering Eruption": {
+   "notas": {
+    "removal": 1,
+    "combate": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 3: destrói um terreno, e criaturas sem voar não bloqueiam. O verso é terreno: pague 3 de vida ou entra virado.",
+   "porque": "Terreno quando falta."
+  },
+  "Chain Reaction": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 4: X de dano a cada criatura, X as criaturas em campo.",
+   "porque": "Mata o seu lado; só vale com o Wrathful Red Dragon do radar.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 5
+  },
+  "Reckless Endeavor": {
+   "notas": {
+    "removal": 2,
+    "tesouro": 2
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 7: rola dois d12; um vira dano a cada criatura, o outro, Tesouros.",
+   "porque": "Caro e sorteado, e pode matar o seu lado.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 1
+  },
+  "Browbeat": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Feitiço de 3: alguém toma 5, ou um jogador compra três.",
+   "porque": "O oponente escolhe.",
+   "prioridade": 7
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base."
+  },
+  "Arena of Glory": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{R}; exaure: {R}{R}, e a criatura conjurada com ela ganha ímpeto.",
+   "porque": "Ímpeto e mana extra num terreno."
+  },
+  "Mines of Moria": {
+   "notas": {
+    "tesouro": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Lendário: {R}; virado sem criatura lendária; {3}{R}, vira, exile três do cemitério: dois Tesouros.",
+   "porque": "Tesouros tarde."
+  },
+  "Abstergo Entertainment": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Lendário: {C}; {1}, vira: qualquer cor; {3}, vira, exile: uma histórica do cemitério à mão e exila os cemitérios.",
+   "porque": "Recupera a Lathliss morta... se for para a mão; e o cemitério sai."
+  },
+  "Barbarian Ring": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{R} com 1 de dano; limiar: {R}, vira, sacrifique: 2 de dano.",
+   "porque": "Pouco faz."
+  },
+  "Path of Ancestry": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: mana da identidade; Dragão conjurado com ela, vidência 1.",
+   "porque": "Lento.",
+   "virado": true
+  },
+  "Spinerock Knoll": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: {R}; esconde uma carta e a joga grátis se um oponente levou 7 no turno.",
+   "porque": "Lento, mas as fichas causam 7 fácil.",
+   "virado": true
+  },
+  "Temple of the False God": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}{C} com cinco terrenos.",
+   "porque": "Morto no começo."
+  },
+  "Terrain Generator": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; {2}, vira: um básico da mão em campo, virado.",
+   "porque": "Lento."
+  }
+ },
+ "radar": {
+  "Terror of the Peaks": {
+   "notas": {
+    "removal": 1,
+    "dragoes": 2,
+    "entrada": 3,
+    "combate": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Dragão 5/4 de 5 com voar; mirá-lo custa 3 de vida a mais. Outra criatura sua entra: dano igual à força dela em qualquer alvo.",
+   "porque": "Cada ficha 5/5 da Lathliss vira 5 de dano. Nas três fontes.",
+   "sai": "War's Toll"
+  },
+  "Scourge of Valkas": {
+   "notas": {
+    "removal": 1,
+    "dragoes": 2,
+    "entrada": 3,
+    "combate": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Dragão 4/4 de 5 com voar. Ele ou outro Dragão seu entra: X de dano, X os seus Dragões.",
+   "porque": "Segundo Dragon Tempest em corpo de Dragão. Nas três fontes.",
+   "sai": "Crawlspace"
+  },
+  "Ganax, Astral Hunter": {
+   "notas": {
+    "ramp": 1,
+    "dragoes": 2,
+    "entrada": 2,
+    "tesouro": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Dragão lendário 3/4 de 5 com voar. Ele ou outro Dragão seu entra: um Tesouro.",
+   "porque": "Dois Tesouros por Dragão (ele e a ficha). Nas três fontes.",
+   "sai": "Powerbalance"
+  },
+  "Dragonlord's Servant": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Goblin Xamã 1/3 de 2: mágicas de Dragão custam {1} a menos.",
+   "porque": "Redutor de 2 manas. Nas três fontes.",
+   "sai": "Browbeat"
+  },
+  "Flame Sweep": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3: 2 de dano a cada criatura, menos as suas com voar.",
+   "porque": "A limpeza que poupa o seu lado, como o dono pediu. Fonte B.",
+   "sai": "Reckless Endeavor",
+   "massa": true,
+   "marcas": {
+    "poupa": 1
+   }
+  },
+  "Breath Weapon": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3: 2 de dano a cada criatura que não é Dragão.",
+   "porque": "O Pyroclasm que poupa todo Dragão, em instantânea. Fonte B.",
+   "sai": "Pyroclasm",
+   "massa": true,
+   "marcas": {
+    "poupa": 1
+   }
+  },
+  "The One Ring": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Artefato lendário indestrutível de 4: conjurado, proteção contra tudo até o seu turno; vira: um marcador e compre um por marcador; perde 1 de vida por marcador na manutenção.",
+   "porque": "Compra que cresce todo turno. Game Changer. Fontes A e B.",
+   "sai": "Hedron Archive"
+  },
+  "Bonehoard Dracosaur": {
+   "notas": {
+    "draw": 2,
+    "dragoes": 2,
+    "tesouro": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Dinossauro Dragão 5/5 de 5 com voar e golpe primeiro. Na manutenção, exila as duas do topo e você as joga; terreno dá uma ficha 3/1, não-terreno dá um Tesouro.",
+   "porque": "Dragão que compra: dispara a Lathliss e repõe a mão. Fontes A e B.",
+   "sai": "Faithless Looting"
+  },
+  "Herald's Horn": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 3 do tipo que escolher: mágicas de criatura dele custam {1} a menos; na manutenção, se o topo for desse tipo, vai para a mão.",
+   "porque": "Redutor e compra de Dragão. Nas três fontes.",
+   "sai": "Curse of Opulence"
+  },
+  "Swiftfoot Boots": {
+   "notas": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
+   "porque": "Protege a Lathliss sem barrar a Reaver Cleaver. Fontes B e C.",
+   "sai": "Demand Answers",
+   "marcas": {
+    "prot": 1
+   }
+  },
+  "Deflecting Swat": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3, grátis com um comandante seu em campo: muda os alvos de uma mágica ou habilidade.",
+   "porque": "A remoção na Lathliss vai para outro alvo, de graça. Fonte B; A como ideia.",
+   "sai": "Chain Reaction",
+   "marcas": {
+    "prot": 1
+   }
+  },
+  "Ancient Tomb": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno: {C}{C}, com 2 de dano.",
+   "porque": "Duas manas num terreno. Game Changer. Fontes A e B.",
+   "sai": "Barbarian Ring"
+  },
+  "Mana Vault": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 1: {C}{C}{C}; não desvira sozinho (pague {4} na manutenção); virado no passo de compra, 1 de dano.",
+   "porque": "A Lathliss no turno 3. Game Changer. Fontes A e B.",
+   "sai": "Temple of the False God"
+  },
+  "Ruby Medallion": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 2: suas mágicas vermelhas custam {1} a menos.",
+   "porque": "Redutor de todo o deck. Fontes A e B.",
+   "sai": "Spiteful Banditry"
+  },
+  "Universal Automaton": {
+   "notas": {
+    "dragoes": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Metamorfo artefato 1/1 de 1 com changeling.",
+   "porque": "Dragão de 1 mana: uma ficha 5/5 por 1. Peça do combo com o Curio. Fonte B.",
+   "sai": "Territorial Hellkite",
+   "marcas": {
+    "tribo": 1
+   }
+  },
+  "Wrathful Red Dragon": {
+   "notas": {
+    "removal": 2,
+    "dragoes": 2,
+    "entrada": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Dragão 5/5 de 5 com voar. Um Dragão seu recebe dano: causa esse tanto a qualquer alvo que não seja Dragão.",
+   "porque": "Transforma Chain Reaction e Blasphemous Act em dano nos oponentes. Fonte A."
+  },
+  "Cloudstone Curio": {
+   "notas": {
+    "entrada": 2,
+    "combate": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3. Uma permanente sua que não é artefato entra: pode devolver à mão outra que compartilhe um tipo de permanente.",
+   "porque": "Com Lathliss, Automaton e Ganax, combo infinito (Commander Spellbook 930-1789-2232-2972). Nenhuma fonte o cita."
+  },
+  "Jeska's Will": {
+   "notas": {
+    "ramp": 2,
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 3: {R} por carta na mão de um oponente; com comandante, também exila três e você as joga.",
+   "porque": "Mana e compra num turno. Game Changer. Fontes A e B."
+  },
+  "Chrome Mox": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 0: imprime uma carta da mão; vira: mana da cor dela.",
+   "porque": "Aceleração grátis ao custo de uma carta. Game Changer. Fonte A."
+  },
+  "Grim Monolith": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 2: {C}{C}{C}; não desvira sozinho; {4}: desvira.",
+   "porque": "Aceleração. Game Changer. Fonte B."
+  },
+  "Urza's Incubator": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3 do tipo que escolher: mágicas de criatura dele custam {2} a menos (de todos).",
+   "porque": "Barateia os Dragões, os dos oponentes também. Fonte A."
+  },
+  "Sarkhan, Fireblood": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Planeswalker de 3. +1: descarte e compre; +1: duas manas só para Dragões; −7: quatro fichas Dragão 5/5.",
+   "porque": "Ramp para Dragões. Fonte B."
+  },
+  "Fire-Belly Changeling": {
+   "notas": {
+    "dragoes": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Metamorfo 1/1 de 2 com changeling; {R}: +1/+0, duas vezes por turno.",
+   "porque": "Dragão de 2. Fonte B."
+  },
+  "Taurean Mauler": {
+   "notas": {
+    "dragoes": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Metamorfo 2/2 de 3 com changeling; um oponente conjura, pode ganhar um marcador +1/+1.",
+   "porque": "Dragão de 3 que cresce. Fonte B."
+  },
+  "Cavern of Souls": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno do tipo que escolher: {C}; ou qualquer cor só para criatura desse tipo, que não pode ser anulada.",
+   "porque": "Dragões que não são anulados. Fonte A.",
+   "sai": "Terrain Generator"
+  },
+  "Knollspine Dragon": {
+   "notas": {
+    "draw": 2,
+    "dragoes": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Dragão 7/5 de 7 com voar. Ao entrar, pode descartar a mão e comprar uma por dano causado a um oponente no turno.",
+   "porque": "Recarga grande depois do combate. Fonte A."
+  },
+  "Dragonhawk, Fate's Tempest": {
+   "notas": {
+    "draw": 2,
+    "dragoes": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Ave Dragão lendária 5/5 de 5 com voar. Ao entrar ou atacar, exila X do topo (X criaturas com força 4+) e você as joga; as que sobram viram 2 de dano em cada oponente.",
+   "porque": "Compra em massa com a mesa de 5/5. Fonte A."
+  },
+  "Dracogenesis": {
+   "notas": {
+    "dragoes": 1,
+    "entrada": 1,
+    "combate": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Encantamento de 8: você conjura mágicas de Dragão sem pagar o custo.",
+   "porque": "Teto altíssimo, mas custa 8. Fonte A."
+  },
+  "Ancient Copper Dragon": {
+   "notas": {
+    "ramp": 1,
+    "dragoes": 2,
+    "tesouro": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Dragão Ancião 6/5 de 6 com voar. Ao acertar, rola um d20 e cria esse tanto de Tesouros.",
+   "porque": "Tesouros em massa. Fontes A e C."
+  },
+  "Vanquisher's Banner": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 5 do tipo que escolher: +1/+1 e compre a cada mágica de criatura desse tipo.",
+   "porque": "Compra por Dragão conjurado. Fonte B."
+  },
+  "Brotherhood's End": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 3: 3 de dano a cada criatura e planeswalker, ou destrói artefatos de valor até 3.",
+   "porque": "A Lathliss e as fichas sobrevivem. Fonte B.",
+   "massa": true
+  },
+  "Fury": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Elemental 3/3 de 5 com golpe duplo; ao entrar, 4 de dano dividido; evocar exilando uma carta vermelha.",
+   "porque": "Remoção de graça. Fonte B."
+  },
+  "Abrade": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 2: 3 de dano numa criatura ou destrói um artefato.",
+   "porque": "Resposta barata. Fonte B."
+  },
+  "Pyroblast": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea {R}: anula uma mágica azul ou destrói uma permanente azul.",
+   "porque": "A única anulação ao alcance do vermelho. Fonte B."
+  },
+  "Wheel of Fortune": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 3: cada jogador descarta a mão e compra sete.",
+   "porque": "Recarga para todos. Fonte C."
+  },
+  "Valakut Awakening // Valakut Stoneforge": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 3: troca cartas da mão por outras e mais uma. O verso é terreno virado.",
+   "porque": "Filtro e terreno. Fonte A."
+  },
+  "Drakuseth, Maw of Flames": {
+   "notas": {
+    "removal": 2,
+    "dragoes": 2,
+    "combate": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Dragão lendário 7/7 de 7 com voar. Ao atacar, 4 de dano num alvo e 3 em até dois outros.",
+   "porque": "Dano a cada ataque. Fonte C."
+  },
+  "Lightning Greaves": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "O manto impede equipar a Reaver Cleaver na Lathliss. Fontes A e C."
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Feitiço de 9, uma a menos por criatura: 13 de dano a cada criatura.",
+   "porque": "Mata todo o seu lado; só com o Wrathful Red Dragon. Fontes A e C.",
+   "massa": true
+  },
+  "Earthquake": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Feitiço X{R}: X de dano a cada criatura sem voar e a cada jogador.",
+   "porque": "Acerta você também; o Flame Sweep faz melhor. Fonte A.",
+   "massa": true
+  },
+  "Chandra's Ignition": {
+   "notas": {
+    "removal": 2,
+    "combate": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Feitiço de 5: uma criatura sua causa dano igual à força a cada outra criatura e a cada oponente.",
+   "porque": "Mata as suas outras criaturas também. Fonte A.",
+   "massa": true
+  }
+ },
+ "combos": [
+  {
+   "nome": "Ninhada sem fim",
+   "tipo": "Combo",
+   "pecas": [
+    "Lathliss, Dragon Queen",
+    "Universal Automaton",
+    "Ganax, Astral Hunter",
+    "Cloudstone Curio"
+   ],
+   "texto": "O Automaton entra: ficha 5/5; o Curio devolve o Automaton; o Ganax dá dois Tesouros por volta, e o Automaton custa 1. Fichas, Tesouros e entradas infinitas; cada uma dispara o Dragon Tempest. Commander Spellbook 930-1789-2232-2972. Três peças são do radar."
+  },
+  {
+   "nome": "Cutelo e Charger",
+   "tipo": "Combo",
+   "pecas": [
+    "The Reaver Cleaver",
+    "Hellkite Charger"
+   ],
+   "texto": "A Cleaver no Charger: cada acerto paga em Tesouros os {5}{R}{R} do próximo combate. Combates infinitos. Commander Spellbook 3398-5039."
+  },
+  {
+   "nome": "Vitória do Tyrant",
+   "tipo": "Motor",
+   "pecas": [
+    "The Reaver Cleaver",
+    "Hellkite Charger",
+    "Hellkite Tyrant"
+   ],
+   "texto": "Os combates infinitos enchem a mesa de Tesouros: na manutenção, com 20 artefatos, o Tyrant vence."
+  },
+  {
+   "nome": "Duas fichas por Dragão",
+   "tipo": "Motor",
+   "pecas": [
+    "Lathliss, Dragon Queen",
+    "Roaming Throne"
+   ],
+   "texto": "Nomeando Dragão, o gatilho da Lathliss dispara duas vezes. O Throne já entra Dragão e dispara a Lathliss."
+  },
+  {
+   "nome": "Duas fichas por ataque",
+   "tipo": "Motor",
+   "pecas": [
+    "Utvara Hellkite",
+    "Roaming Throne"
+   ],
+   "texto": "Cada Dragão que ataca cria duas fichas 6/6."
+  },
+  {
+   "nome": "Tempestade em dobro",
+   "tipo": "Motor",
+   "pecas": [
+    "Lathliss, Dragon Queen",
+    "Dragon Tempest"
+   ],
+   "texto": "Cada Dragão entra com a ficha 5/5 atrás: dois disparos do Tempest, e os dois atacam na hora."
+  },
+  {
+   "nome": "Eco da ninhada",
+   "tipo": "Motor",
+   "pecas": [
+    "Lathliss, Dragon Queen",
+    "Molten Echoes"
+   ],
+   "texto": "Cada Dragão traz a ficha da Lathliss e uma cópia com ímpeto: três corpos e três disparos de Tempest e Scourge."
+  },
+  {
+   "nome": "Espelho de Dragão",
+   "tipo": "Motor",
+   "pecas": [
+    "Lathliss, Dragon Queen",
+    "Cursed Mirror"
+   ],
+   "texto": "O Cursed Mirror entra como cópia de um Dragão: é um Dragão não ficha entrando, e a Lathliss cria a ficha 5/5."
+  },
+  {
+   "nome": "Portal de Dragões",
+   "tipo": "Motor",
+   "pecas": [
+    "Lathliss, Dragon Queen",
+    "Belbe's Portal"
+   ],
+   "texto": "Nomeando Dragão, põe um Dragão de 7 em campo por {3}, a qualquer momento: a Lathliss dispara."
+  },
+  {
+   "nome": "Fichas de 7",
+   "tipo": "Motor",
+   "pecas": [
+    "Lathliss, Dragon Queen",
+    "Torbran, Thane of Red Fell"
+   ],
+   "texto": "Cada ficha 5/5 bate 7, e cada disparo do Tempest leva +2."
+  },
+  {
+   "nome": "Limpeza que vira dano",
+   "tipo": "Motor",
+   "pecas": [
+    "Wrathful Red Dragon",
+    "Chain Reaction"
+   ],
+   "texto": "Cada Dragão seu atingido devolve o dano a um alvo que não é Dragão, inclusive jogadores. O Wrathful é do radar."
+  },
+  {
+   "nome": "Armadilha: limpeza do próprio lado",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Chain Reaction",
+    "Reckless Endeavor"
+   ],
+   "texto": "As duas acertam os seus Dragões e a Lathliss. O Flame Sweep e o Breath Weapon do radar poupam o seu lado."
+  },
+  {
+   "nome": "Armadilha: dano dobrado contra você",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Dictate of the Twin Gods",
+    "Lathliss, Dragon Queen"
+   ],
+   "texto": "O Dictate dobra todo dano, inclusive o que você recebe. O Gratuitous Violence e o Fiendish Duo dobram só o seu."
+  }
+ ]
+}
