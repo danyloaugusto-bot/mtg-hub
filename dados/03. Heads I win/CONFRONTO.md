@@ -50,7 +50,7 @@ Confere: 100 cartas em 90 linhas, dois comandantes parceiros ("Partner with" um 
 - Nada que o texto desminta.
 
 **C**
-- **Mana Clash** "gera wins". É cara ou coroa: ninguém "vence" a moeda, então não dispara os comandantes nem o Thumb.
+- **Mana Clash** "gera wins". É cara ou coroa: ninguém "vence" a moeda, então não dispara os comandantes. O Thumb vale nas suas moedas, mas não cria vitória.
 - **Boompile** é "o melhor artefato de flip". Vencendo, destrói todas as permanentes não-terreno, inclusive o seu Thumb e os seus comandantes.
 - **Possibility Storm** "você quer resolver seus próprios spells": certo no efeito, mas o problema maior, que B viu, é que ela troca o Efreet e os tutores do combo por cartas aleatórias.
 

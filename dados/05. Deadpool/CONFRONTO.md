@@ -23,7 +23,7 @@ A `decklist.txt` do dono é de **clones e combo**, não de caos: Saw in Half, Bl
 - "Você" no texto é quem controla a criatura (109.5): trocando com a criatura de um oponente, **ele perde as 3 vidas** na manutenção dele, e só ele pode pagar {3} e sacrificá-la (e aí você compra).
 - Trocando com uma criatura sua, você continua perdendo as 3 vidas. E o Deadpool perde o próprio sacrifício.
 - Cópia do Deadpool, mesmo depois da troca, é um Deadpool zerado (707.2): Saw in Half, Helm of the Host, Blade of Selves e The Master, Multiplied fazem trocas novas.
-- Kiki-Jiki não copia o Deadpool, que é lendário.
+- Kiki-Jiki não copia o Deadpool, que é lendário, mas copia as cópias não lendárias do Helm of the Host e da Delina, e cada uma troca de novo.
 
 ## O que a lista-base não tem e o tema caos usa
 

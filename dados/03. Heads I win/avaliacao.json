@@ -1319,7 +1319,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 4. Criatura ataca: moeda; vitória dobra o próximo dano de combate dela, derrota o previne.",
-   "porque": "Uma moeda a mais por atacante, e cada vitória dobra o Okaun.",
+   "porque": "Uma moeda a mais por criatura que ataca, de qualquer jogador, e cada vitória dobra o Okaun; mas dobra também o dano de quem ataca você (com o Thumb, dá para escolher a moeda perdida).",
    "marcas": {
     "joga": 1
    }
@@ -1772,7 +1772,7 @@
    "veredito": "entra",
    "faz": "Artefato de 2. {2}, vira: copia um gatilho seu.",
    "porque": "Uma terceira sequência de moedas por combate: mais 16 pontos na chance de matar um oponente (simulação de B). Fontes B e C.",
-   "sai": "Goblin Kaboomist"
+   "sai": "Fighting Chance"
   },
   "Psychosis Crawler": {
    "notas": {
@@ -1789,8 +1789,8 @@
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Horror artefato de 5, P/R igual às cartas na mão. Você compra: cada oponente perde 1.",
-   "porque": "Cada compra do Zndrsplt tira 1 de cada oponente; com o Efreet, a mesa inteira. Fontes B e C.",
-   "sai": "Karplusan Minotaur",
+   "porque": "Cada compra do Zndrsplt tira 1 de cada oponente; com o Efreet, a mesa inteira. Fontes B e C. Sai o Valakut Awakening, entre as cartas de menor valor na pontuação v3 (é também uma fonte de terreno a menos).",
+   "sai": "Valakut Awakening",
    "marcas": {
     "combo": 1
    }
@@ -1810,8 +1810,8 @@
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Humano lendário 4/5 de 6. Ao entrar, compra uma por artefato seu; a primeira moeda que você joga em cada turno dá cara e você vence.",
-   "porque": "Uma vitória garantida por turno, no lugar de uma pedra lenta. Fontes B e C.",
-   "sai": "Midnight Clock",
+   "porque": "Uma vitória garantida por turno, no lugar do Champion's Helm, que só cresce o Okaun antes de dobrar. Fontes B e C.",
+   "sai": "Champion's Helm",
    "marcas": {
     "joga": 1
    }
@@ -1827,8 +1827,8 @@
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Instantânea de 3, de graça com comandante: muda o alvo de uma mágica ou habilidade.",
-   "porque": "Proteção de verdade, e de graça. Nas três fontes.",
-   "sai": "Fighting Chance",
+   "porque": "Proteção de verdade, e de graça. Nas três fontes. Sai o Ponder: na pontuação v3 as duas empatam, e a proteção pesa mais no turno do combo.",
+   "sai": "Ponder",
    "marcas": {
     "protege": 1
    }
@@ -1842,9 +1842,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "avaliar",
    "faz": "Instantânea de 2: anula uma mágica.",
-   "porque": "O turno do combo precisa de seguro; a dobra do Axe o Okaun já tem. Fonte B.",
+   "porque": "O turno do combo precisa de seguro; a dobra do Axe o Okaun já tem. Fonte B. Na pontuação v3, a troca pelo Two-Handed Axe baixa o placar (a anulação vale 3, o Axe 7,5): fica em avaliar até sair carta de menor valor.",
    "sai": "Two-Handed Axe",
    "marcas": {
     "protege": 1
@@ -1869,8 +1869,8 @@
    "rel": "MED",
    "veredito": "entra",
    "faz": "Dual original Island Mountain, sempre desvirada.",
-   "porque": "Idem. Qualquer dual U/R desvirada cumpre quase o mesmo papel. Fonte B.",
-   "sai": "Myriad Landscape"
+   "porque": "Idem. Qualquer dual U/R desvirada cumpre quase o mesmo papel. Fonte B. Sai o Shivan Reef: dual por dual, sem o dano.",
+   "sai": "Shivan Reef"
   },
   "Spirebluff Canal": {
    "notas": {},
@@ -2288,7 +2288,7 @@
    "rel": "BAX",
    "veredito": "fora",
    "faz": "Feitiço de 1: você e um oponente jogam moedas; 1 de dano em quem tirar coroa, até os dois tirarem cara.",
-   "porque": "É cara ou coroa, não vitória: não dispara os comandantes nem o Thumb. C a recomenda."
+   "porque": "É cara ou coroa, não vitória: não dispara os comandantes; o Thumb vale nas suas moedas, mas não cria vitória. C a recomenda."
   },
   "Game of Chaos": {
    "notas": {

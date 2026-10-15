@@ -165,7 +165,7 @@
   },
   "meio": {
    "turnos": "5 a 8",
-   "plano": "O Zur ataca toda rodada e busca o que a mesa pede: a taxa primeiro, depois a remoção em forma de Aura na maior ameaça. Os Impetus e a Bloodthirsty Blade fazem a mesa brigar entre si, e o Teferi deixa o ataque sem resposta no seu turno.",
+   "plano": "O Zur ataca toda rodada e busca o que a mesa pede: a taxa primeiro, depois a remoção em forma de Aura na maior ameaça. Os Impetus e a Bloodthirsty Blade fazem a mesa brigar entre si, e o Teferi deixa o ataque sem mágica de resposta no seu turno.",
    "fortes": [
     "A Aura posta pelo Zur não mira: ignora hexproof, manto e ward.",
     "Reconnaissance tira o Zur do combate depois da busca."
@@ -297,7 +297,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Planeswalker de 3, lealdade 4. Os oponentes só conjuram como feitiço; +1: você conjura feitiços como instantâneas; −3: devolve artefato, criatura ou encantamento e compre.",
-   "porque": "No seu turno, ninguém responde ao ataque do Zur."
+   "porque": "No seu turno, ninguém responde com mágica ao ataque do Zur; habilidades ativadas ainda respondem."
   },
   "Alseid of Life's Bounty": {
    "notas": {
@@ -523,7 +523,7 @@
    },
    "tier": "B",
    "rel": "ALT",
-   "faz": "Encantamento de 3: ao entrar e em cada manutenção, pode exilar artefato ou encantamento; exilando na manutenção, o dono do exilado ganha o controle dele.",
+   "faz": "Encantamento de 3: ao entrar e em cada manutenção, pode exilar artefato ou encantamento; exilando na manutenção, o controlador do exilado ganha o controle do Act.",
    "porque": "Remoção repetível, mas volta contra você: na mão de outro, pode exilar as suas peças.",
    "marcas": {
     "zur": 1
@@ -1184,7 +1184,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 5: você escolhe uma criatura sua, e cada oponente uma dele de força igual ou menor; as outras são exiladas.",
-   "porque": "Escolhendo o Zur (força 1), cada oponente fica com uma criatura de força até 1.",
+   "porque": "Escolhendo o Zur sem Aura (força 1), cada oponente fica com uma criatura de força até 1; com All That Glitters ou Combat Research, a força dele sobe e os oponentes guardam criaturas maiores.",
    "massa": true
   },
   "Brainstorm": {
@@ -1728,7 +1728,7 @@
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Encantamento de 3: criaturas atacam, uma atacante ganha golpe duplo.",
-   "porque": "Dá golpe duplo ao Zur encantado, ou a quem ataca o líder. Fonte A.",
+   "porque": "Dá golpe duplo ao Zur encantado, ou a quem ataca o líder; buscado pelo Zur no ataque, só vale do combate seguinte em diante. Fonte A.",
    "sai": "Silent Arbiter",
    "marcas": {
     "zur": 1,
@@ -2249,7 +2249,7 @@
    "tier": "C",
    "rel": "MED",
    "veredito": "fora",
-   "faz": "Encantamento de 3 com resistência a magia: previne o dano a você; ao sair do campo, você perde o jogo.",
+   "faz": "Encantamento de 3 com resistência a magia: previne o dano a você e ganha um marcador; com nove, se exila, e ao sair do campo você perde o jogo.",
    "porque": "Se sair, você perde. B recusa."
   },
   "Rule of Law": {

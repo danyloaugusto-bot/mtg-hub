@@ -347,7 +347,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Anjo lendário 4/4 de 5 com lampejo, voar e vigilância. Ao entrar, suas criaturas ficam indestrutíveis no turno.",
-   "porque": "Responde à limpeza; pela Kaalia, protege o ataque."
+   "porque": "Responde à limpeza; pela Kaalia, protege o ataque. Se morrer criatura sua que não é Anjo, ela vira e os 3 de dano matam a Kaalia."
   },
   "Drana and Linvala": {
    "notas": {
@@ -380,7 +380,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Dragão 7/6 de 8 com convocar e voar. Ao entrar, busca qualquer carta e a exila; você pode jogá-la de lá, e mágicas do exílio têm convocar.",
-   "porque": "Tutor no ETB: busca a próxima carga.",
+   "porque": "Tutor no ETB, mas a carta buscada fica no exílio: precisa ser conjurada (com convocar), a Kaalia não a põe.",
    "caro_por_desenho": true
   },
   "Lord of the Void": {
@@ -694,7 +694,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Dragão 4/4 de 4 com voar e atropelar; Treasure ao atacar. Aventura: exila as duas do topo de um oponente, que você pode jogar.",
-   "porque": "Pela Kaalia não gera Treasure; a aventura é o melhor dela.",
+   "porque": "Pela Kaalia não gera Treasure; usada a aventura, o Dragão fica no exílio e a Kaalia não o põe mais.",
    "marcas": {
     "ataque": 1
    },
@@ -2260,10 +2260,10 @@
    "nome": "A próxima carga",
    "tipo": "Motor",
    "pecas": [
-    "Hoarding Broodlord",
+    "Rune-Scarred Demon",
     "Kaalia of the Vast"
    ],
-   "texto": "O ETB do Broodlord (e do Rune-Scarred Demon do radar) busca a criatura do próximo ataque."
+   "texto": "O ETB do Rune-Scarred Demon, do radar, põe na mão a criatura do próximo ataque. O do Broodlord não: a carta buscada fica no exílio."
   },
   {
    "nome": "Armadilha: gatilho de ataque",

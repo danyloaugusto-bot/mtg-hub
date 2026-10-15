@@ -18,7 +18,7 @@ Confere: 100 cartas em 85 linhas, só básicos repetidos (4 de cada), todas reco
   - Ash Barrens e Ominous Cemetery;
   - Abstergo Entertainment e Crystal Grotto, que filtram por {1};
   - o Secluded Courtyard, cuja mana colorida só vale para mágica de criatura do tipo escolhido.
-- **Mana fora dos terrenos.** Haunted Screen é a única pedra. Three Tree Mascot filtra uma cor por turno.
+- **Mana fora dos terrenos.** Haunted Screen e Crystal Skull são as únicas pedras. Three Tree Mascot filtra uma cor por turno.
 - **22 criaturas fora o Ezio.** 14 são Assassinos, contando o Three Tree Mascot, que é changeling. CMC médio 2,91 sem terrenos.
 - **Seis cartas com freerunning próprio:** Chain Assassination, Distract the Guards, Escape Detection, Monastery Raid, Petty Larceny e Restart Sequence.
 
@@ -43,8 +43,8 @@ Confere: 100 cartas em 85 linhas, só básicos repetidos (4 de cada), todas reco
 | Primal Command | fica | sai, por Brotherhood Headquarters | corta | **B.** Feitiço de {G}{G} sem papel claro no plano. |
 | Smoke Bomb | fica | sai: "desliga seus equipamentos" | não trata | **Fica para avaliar.** O efeito dura até a sua manutenção. Com lampejo, é a melhor resposta da lista a uma remoção no Ezio, e depois o deixa imbloqueável. |
 | The Animus | fica | sai: "peça de um Altaïr que não está no deck" | não trata | **Fica para avaliar.** Ela funciona sozinha (ver os erros). |
-| Crystal Skull | fica | fica | corta | **Fica.** 39 cartas históricas: conjura do topo boa parte do deck. |
-| Mjölnir, Apple of Eden, Metallic Mimic, Three Tree Mascot, Haunted Screen | ficam | ficam | cortam | **A e B.** O Mascot é Assassino e filtra cor; a Haunted Screen é a única pedra; o Mjölnir leva a mesa aos 10. |
+| Crystal Skull | fica | fica | corta | **Fica.** 39 mágicas históricas: uns quatro topos em dez viram carta a mais; terreno, só histórico. |
+| Mjölnir, Apple of Eden, Metallic Mimic, Three Tree Mascot, Haunted Screen | ficam | ficam | cortam | **A e B.** O Mascot é Assassino e filtra cor; a Haunted Screen é a única pedra de cinco cores; o Mjölnir leva a mesa aos 10. |
 | Murder, Dead Weight | saem, por Basim e Sol Ring | ficam | Dead Weight sai | **Avaliar.** O deck tem 16 remoções no painel, contando Royal Assassin, Hunter's Bow e as Sagas; a referência é de 8 a 12. |
 | Shanid, Tax Collector, Shay Cormac | ficam | saem, por Ezio Blade, Desmond e Achilles | Tax Collector sai | **B.** Não são Assassinos e perdem o freerunning. |
 | Proteção | não trata | Swiftfoot Boots no banco | Greaves e Boots, Heroic Intervention, Teferi's Protection | **Boots, não Greaves.** O Greaves dá manto, que impede você de equipar a Brotherhood Regalia no Ezio. |
