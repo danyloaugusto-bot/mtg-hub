@@ -77,7 +77,7 @@ function linha(d) {
   var al = nAlertas(A.le), dt = atualizado(d), dp = A.st2.total - A.st.total;
   return '<tr class="lrow" data-busca="' + busca + '"><td class="th"><a href="' + esc(d.href) + '" tabindex="-1" aria-hidden="true">' + thumb + '</a></td>' +
     '<td><a href="' + esc(d.href) + '"><b>' + esc(d.nome) + '</b></a><small>' + esc(d.painel) + '</small></td><td class="cm">' + esc(d.cmd) + '</td><td>' + cores(d.cores) + '</td>' +
-    '<td class="n num">' + d.placar + (dp ? '<small class="' + (dp > 0 ? 'pos' : 'neg') + '">' + sinal(dp) + '</small>' : '') + '</td><td class="n num">' + num(A.st.avg, 2) + '</td>' +
+    '<td class="n num">' + numP(d.placar) + (dp ? '<small class="' + (dp > 0 ? 'pos' : 'neg') + '">' + sinalP(dp) + '</small>' : '') + '</td><td class="n num">' + num(A.st.avg, 2) + '</td>' +
     '<td class="n num' + (A.res.frageis.length ? ' aviso' : '') + '">' + A.res.frageis.length + '</td><td class="n num' + (al ? ' aviso' : '') + '">' + al + '</td><td class="n num">' + A.tr.length + '</td>' +
     '<td class="n num">' + (dt ? brData(dt) : '—') + '</td><td class="lks"><a href="#f-' + idxDK(d) + '">Ficha</a>' + (d.pub ? ' <a href="' + esc(d.pub) + '" target="_blank" rel="noopener noreferrer">Online ↗</a>' : '') + '</td></tr>';
 }
@@ -613,7 +613,7 @@ function atencao() {
   });
   DK.forEach(function (d) {
     var A = d.a, dp = A.st2.total - A.st.total, cura = nAlertas(A.le) - nAlertas(A.le2);
-    if (cura >= 2 && Math.abs(dp) / (A.st.total || 1) < 0.03) add(1, 'trocas', '<b>' + esc(d.nome) + ': as trocas tiram ' + cura + ' alertas e mexem pouco no placar (' + sinal(dp) + ').</b> O placar não mede tudo o que a troca conserta.');
+    if (cura >= 2 && Math.abs(dp) / (A.st.total || 1) < 0.03) add(1, 'trocas', '<b>' + esc(d.nome) + ': as trocas tiram ' + cura + ' alertas e mexem pouco no placar (' + sinalP(dp) + ').</b> O placar não mede tudo o que a troca conserta.');
     var cal = calibra(A);
     if (cal.diag >= 0.9) add(cal.diag > 0.995 ? 2 : 1, 'auditoria', '<b>' + esc(d.nome) + ': tier e relevância coincidem em ' + pct(cal.diag) + ' das cartas.</b> Os dois eixos deviam dizer coisas diferentes (força e permanência); aqui a relevância ' + (cal.diag > 0.995 ? 'só repete' : 'quase só repete') + ' o tier. Vale um /auditar só dela.');
   });
@@ -812,7 +812,7 @@ function boxSim() {
     return '<button data-act="sim-deck" data-k="' + esc(x.pasta) + '" aria-pressed="' + (x.pasta === d.pasta) + '">' + esc(x.nome) + '</button>';
   }).join('') + '</div><div class="seg" role="group" aria-label="Cenário">' +
     '<button data-act="sim-cen" data-k="hoje">Deck de hoje</button><button data-act="sim-cen" data-k="rec">Trocas recomendadas</button><button data-act="sim-cen" data-k="tudo">E as em avaliação</button></div></div>';
-  h += '<div class="sks">' + k('Placar', st.total, dif(st.total, A.st.total)) + k('Cartas', st.n, dif(st.n, A.st.n)) + k('CMC médio', num(st.avg, 2), dif(st.avg, A.st.avg, 2)) +
+  h += '<div class="sks">' + k('Placar', numP(st.total), dif(st.total, A.st.total, (st.total - A.st.total) % 1 ? 1 : 0)) + k('Cartas', st.n, dif(st.n, A.st.n)) + k('CMC médio', num(st.avg, 2), dif(st.avg, A.st.avg, 2)) +
     k('Fontes de terreno', st.lands + st.mdfc, dif(st.lands + st.mdfc, A.st.lands + A.st.mdfc)) +
     (ir0 != null ? k('Ramp', st.grp[ir0].hard, dif(st.grp[ir0].hard, A.st.grp[ir0].hard)) : '') + (id0 != null ? k('Compra', st.grp[id0].hard, dif(st.grp[id0].hard, A.st.grp[id0].hard)) : '') +
     (irm != null ? k('Remoção', st.grp[irm].hard, dif(st.grp[irm].hard, A.st.grp[irm].hard)) : '') + k('Alertas', nAlertas(le) + ' de ' + le.length, dif(nAlertas(le), nAlertas(A.le))) + '</div>';
@@ -826,7 +826,7 @@ function boxSim() {
     var o = c.sa ? A.idx[c.sa] : null;
     return '<li class="v-' + c.v + (sim.sel[c.i] ? ' on' : '') + '"><label><input type="checkbox" data-sim="' + esc(c.i) + '"' + (sim.sel[c.i] ? ' checked' : '') + '>' +
       '<span class="nm">' + tierB(c.T) + ' ' + esc(c.n) + '</span><span class="vd vd-' + c.v + '">' + ({ entra: 'entra', avaliar: 'avaliar', fora: 'de fora' }[c.v]) + '</span>' +
-      '<span class="sai">' + (o ? 'sai ' + esc(o.n) : 'ninguém sai') + '</span><span class="num dd ' + (dd > 0 ? 'pos' : dd < 0 ? 'neg' : '') + '" title="Efeito no placar se fosse a única troca">' + sinal(dd) + '</span>' + '</label></li>';
+      '<span class="sai">' + (o ? 'sai ' + esc(o.n) : 'ninguém sai') + '</span><span class="num dd ' + (dd > 0 ? 'pos' : dd < 0 ? 'neg' : '') + '" title="Efeito no placar se fosse a única troca">' + sinalP(dd) + '</span>' + '</label></li>';
   }).join('') + '</ul>' + nota('O número ao lado de cada carta é o efeito dela sozinha no placar. As trocas ficam só aqui: a decklist não muda.');
   return h;
 }
@@ -835,25 +835,25 @@ function secTrocas() {
   var rows = DK.map(function (d) {
     var A = d.a, aval = A.cands.filter(function (c) { return c.v === 'avaliar'; }).length, dp = A.st2.total - A.st.total;
     var marg = soma(A.tr, function (t) { return t.d; }), dc = A.st2.avg - A.st.avg;
-    return '<tr><th scope="row">' + deckLink(A) + '</th><td class="n num">' + A.tr.length + '</td><td class="n num">' + aval + '</td>' +
-      '<td class="n num">' + A.st.total + ' <span class="seta">→</span> ' + A.st2.total + '<small class="' + (dp >= 0 ? 'pos' : 'neg') + '">' + sinal(dp) + ' (' + sinal(dp / A.st.total * 100, 1) + '%)</small></td>' +
-      '<td class="n num">' + num(A.st.avg, 2) + ' <span class="seta">→</span> ' + num(A.st2.avg, 2) +
+    return '<tr><th scope="row">' + deckLink(A) + '</th><td class="n num" data-l="Entram">' + A.tr.length + '</td><td class="n num" data-l="Em avaliação">' + aval + '</td>' +
+      '<td class="n num pl" data-l="Placar">' + numP(A.st.total) + ' <span class="seta">→</span> ' + numP(A.st2.total) + '<small class="' + (dp >= 0 ? 'pos' : 'neg') + '">' + sinalP(dp) + ' (' + sinal(dp / A.st.total * 100, 1) + '%)</small></td>' +
+      '<td class="n num" data-l="CMC médio">' + num(A.st.avg, 2) + ' <span class="seta">→</span> ' + num(A.st2.avg, 2) +
         (Math.abs(dc) >= 0.005 ? '<small class="' + (dc < 0 ? 'pos' : 'neg') + '">' + sinal(dc, 2) + '</small>' : '') + '</td>' +
-      '<td class="n num" data-tip="' + esc('Somando as trocas uma a uma: ' + sinal(marg) + '. Juntas: ' + sinal(dp) + '.') + '">' + sinal(marg) + '</td>' +
-      '<td class="n num">' + nAlertas(A.le) + ' <span class="seta">→</span> ' + nAlertas(A.le2) + '</td></tr>';
+      '<td class="n num" data-l="Soma das partes" data-tip="' + esc('Somando as trocas uma a uma: ' + sinalP(marg) + '. Juntas: ' + sinalP(dp) + '.') + '">' + sinalP(marg) + '</td>' +
+      '<td class="n num" data-l="Alertas">' + nAlertas(A.le) + ' <span class="seta">→</span> ' + nAlertas(A.le2) + '</td></tr>';
   }).join('');
   var pos = todas.filter(function (t) { return t.d > 0; }).sort(function (a, b) { return b.d - a.d || TR[a.c.T] - TR[b.c.T] || a.c.n.localeCompare(b.c.n); });
   var neg = todas.filter(function (t) { return t.d <= 0; }).sort(function (a, b) { return a.d - b.d; });
   var maior = DK.map(function (d) { return { d: d, x: d.a.st2.total - d.a.st.total - soma(d.a.tr, function (t) { return t.d; }) }; }).sort(function (a, b) { return Math.abs(b.x) - Math.abs(a.x); })[0];
-  var h = caixa('', '<div class="tw"><table class="tbl"><thead><tr><th scope="col">Deck</th><th scope="col" class="n">Entram</th><th scope="col" class="n">Em avaliação</th>' +
+  var h = caixa('', '<div class="tw"><table class="tbl troc"><thead><tr><th scope="col">Deck</th><th scope="col" class="n">Entram</th><th scope="col" class="n">Em avaliação</th>' +
     '<th scope="col" class="n">Placar</th><th scope="col" class="n">CMC médio</th><th scope="col" class="n">Soma das partes</th><th scope="col" class="n">Alertas</th></tr></thead><tbody>' + rows +
     '</tbody></table></div>' + nota('Entram: trocas com veredito "entra" no radar; em avaliação, as que ainda pedem teste. ' +
-      (maior && Math.abs(maior.x) >= 5 ? 'O placar anda em degraus: ' + esc(maior.d.nome) + ' soma ' + sinal(soma(maior.d.a.tr, function (t) { return t.d; })) + ' com as trocas uma a uma e ' + sinal(maior.d.a.st2.total - maior.d.a.st.total) + ' com todas juntas. Julgue o pacote, não a carta.' : '')), 'larga');
+      (maior && Math.abs(maior.x) >= 5 ? 'O placar anda em degraus: ' + esc(maior.d.nome) + ' soma ' + sinalP(soma(maior.d.a.tr, function (t) { return t.d; })) + ' com as trocas uma a uma e ' + sinalP(maior.d.a.st2.total - maior.d.a.st.total) + ' com todas juntas. Julgue o pacote, não a carta.' : '')), 'larga');
   h += '<div class="g2">' + caixa('As trocas que mais sobem o placar', '<ul class="naopaga">' + mais('sobem', pos, 8, function (t) {
-      return '<li><span class="num pos">' + sinal(t.d) + '</span><div><b>' + esc(t.c.n) + '</b> ' + tierB(t.c.T) + ' <span class="dim">no ' + esc(t.deck.nome) + (t.out ? ', no lugar de ' + esc(t.out.n) + ' ' : '') + '</span>' + (t.out ? tierB(t.out.T) : '') + '</div></li>';
-    }) + '</ul>' + nota('Cada troca medida sozinha, no deck de hoje. Placar sobe com nota nos agrupamentos, CMC médio menor e Ramp; o que ele não vê está em "Trocas que o placar não paga".'), '', pos.length ? 'a maior: ' + esc(pos[0].c.n) + ', ' + sinal(pos[0].d) : '') +
+      return '<li><span class="num pos">' + sinalP(t.d) + '</span><div><b>' + esc(t.c.n) + '</b> ' + tierB(t.c.T) + ' <span class="dim">no ' + esc(t.deck.nome) + (t.out ? ', no lugar de ' + esc(t.out.n) + ' ' : '') + '</span>' + (t.out ? tierB(t.out.T) : '') + '</div></li>';
+    }) + '</ul>' + nota('Cada troca medida sozinha, no deck de hoje. Placar sobe com nota nos agrupamentos, CMC médio menor e Ramp; o que ele não vê está em "Trocas que o placar não paga".'), '', pos.length ? 'a maior: ' + esc(pos[0].c.n) + ', ' + sinalP(pos[0].d) : '') +
     caixa('Trocas que o placar não paga', '<ul class="naopaga">' + mais('naopaga', neg, 6, function (t) {
-      return '<li><span class="num neg">' + sinal(t.d) + '</span><div><b>' + esc(t.c.n) + '</b> <span class="dim">no ' + esc(t.deck.nome) + (t.out ? ', no lugar de ' + esc(t.out.n) : '') + '</span><p>' + esc(t.porque) + '</p></div></li>';
+      return '<li><span class="num neg">' + sinalP(t.d) + '</span><div><b>' + esc(t.c.n) + '</b> <span class="dim">no ' + esc(t.deck.nome) + (t.out ? ', no lugar de ' + esc(t.out.n) : '') + '</span><p>' + esc(t.porque) + '</p></div></li>';
     }) + '</ul>' + nota('Placar não é tudo: terreno, qualidade e proteção nem sempre viram nota. Essas trocas se justificam pelo motivo escrito no radar de cada painel.'), '', pl(neg.length, 'troca', 'trocas')) + '</div>';
   var boas = [], semAlt = [];
   DK.forEach(function (d) { boas = boas.concat(d.a.cv.boas); semAlt = semAlt.concat(d.a.cv.caras.filter(function (x) { return !x.alt && x.c.c >= 6; })); });
@@ -883,10 +883,10 @@ function secPlacar() {
     var cai = g.teto ? '—' : g.folga === 0 ? '<b class="aviso">−1 ponto de Ramp: −5</b>' : 'aguenta perder ' + g.folga + ' de Ramp';
     var cmcCai = g.folgaCmc == null ? '—' : g.folgaCmc === 0 ? '<b class="aviso">+1 de CMC somado: −5</b>' : 'aguenta +' + g.folgaCmc + ' de CMC somado';
     var cmcSobe = g.lim ? 'cortar ' + g.corte + ' de CMC somado: +1' : 'no máximo';
-    return '<tr><th scope="row">' + deckLink(A) + '</th><td class="n num"><b>' + st.total + '</b></td>' +
+    return '<tr><th scope="row">' + deckLink(A) + '</th><td class="n num"><b>' + numP(st.total) + '</b></td>' +
       '<td>' + sobe + '</td><td>' + cai + '</td><td>' + cmcCai + '</td><td>' + cmcSobe + '</td>' +
       '<td class="n num">' + num(st.accX, 2) + '<small>próximo: ' + num(g.prox, 1) + '</small></td><td class="compc">' + comp +
-      '<small class="num">' + st.cmcPts + ' + ' + st.accPts + ' + ' + st.crit + '</small></td></tr>';
+      '<small class="num">' + st.cmcPts + ' + ' + st.accPts + ' + ' + numP(st.crit) + '</small></td></tr>';
   }).join('');
   var expo = DK.map(function (d) {
     var A = d.a, tp = A.st.tipoPts, tot = soma(Object.keys(tp), function (k) { return Math.max(0, tp[k]); }) || 1;
@@ -1337,7 +1337,7 @@ function fichaDe(d, i) {
   var al = nAlertas(A.le), dp = A.st2.total - st.total;
   var odd = function (rot, p, tip) { return p == null ? '' : '<div class="odd" data-tip="' + esc(tip) + '"><b class="num">' + pct(p) + '</b><span>' + rot + '</span></div>'; };
   var linhaF = '<span class="fl-n"><b>' + esc(d.nome) + '</b><small>' + esc(A.painel) + '</small></span>' + cores(A.ident) +
-    '<span class="fl-k"><small>pts</small><b class="num">' + st.total + '</b>' + (dp ? '<small class="num ' + (dp > 0 ? 'pos' : 'neg') + '">' + sinal(dp) + '</small>' : '') + '</span>' +
+    '<span class="fl-k"><small>pts</small><b class="num">' + numP(st.total) + '</b>' + (dp ? '<small class="num ' + (dp > 0 ? 'pos' : 'neg') + '">' + sinalP(dp) + '</small>' : '') + '</span>' +
     '<span class="fl-k"><small>CMC</small><b class="num">' + num(st.avg, 2) + '</b></span>' +
     '<span class="fl-k"><small>trocas</small><b class="num">' + A.tr.length + '</b></span>' +
     '<span class="fl-k"><small>sem reserva</small><b class="num' + (A.res.frageis.length ? ' aviso' : '') + '">' + A.res.frageis.length + '</b></span>' +
@@ -1346,7 +1346,7 @@ function fichaDe(d, i) {
     '<header class="fi-h"><div><h3>' + deckLink(A) + '</h3><p class="dim">' + esc(A.painel) + (A.cmd ? ' · ' + esc(A.cmd.n) : '') + '</p></div>' +
     '<div class="fi-b">' + cores(A.ident) + '</div></header>' +
     '<div class="fi-n">' +
-      '<div><span>Placar</span><b class="num">' + st.total + '</b><small class="num ' + (dp > 0 ? 'pos' : dp < 0 ? 'neg' : '') + '">' + (dp ? sinal(dp) + ' com as trocas' : 'sem trocas') + '</small></div>' +
+      '<div><span>Placar</span><b class="num">' + numP(st.total) + '</b><small class="num ' + (dp > 0 ? 'pos' : dp < 0 ? 'neg' : '') + '">' + (dp ? sinalP(dp) + ' com as trocas' : 'sem trocas') + '</small></div>' +
       '<div><span>CMC médio</span><b class="num">' + num(st.avg, 2) + '</b><small class="num">' + pct(st.low / (st.nonland || 1)) + ' custam 2 ou menos</small></div>' +
       '<div><span>Reserva</span><b class="num' + (A.res.frageis.length ? ' aviso' : '') + '">' + (A.res.frageis.length ? pl(A.res.frageis.length, 'função', 'funções') : 'ok') + '</b><small class="num">' + (A.res.frageis.length ? 'sem reserva' : 'toda função tem reserva') + (A.res.nCortes ? ', ' + pl(A.res.nCortes, 'corte seguro', 'cortes seguros') : '') + '</small></div>' +
       '<div><span>Alertas</span><b class="num' + (al ? ' aviso' : '') + '">' + al + '</b><small class="num">de ' + A.le.length + ' leituras</small></div>' +
@@ -1737,7 +1737,7 @@ function acoes(att) {
   if (fund && fund.ds.length) L.push({ tipo: 'Padrão', sec: 'fundamentos', h: '<b>' + pl(fund.ds.length, 'deck tem', 'decks têm') + ' ' + fund.g[1] + ' abaixo do mínimo</b> (' + esc(lista(fund.ds.slice(0, 6).map(function (d) { return d.nome; }))) + (fund.ds.length > 6 ? ' e mais ' + (fund.ds.length - 6) : '') + '). É o buraco mais comum da carteira.' });
   var best = []; DK.forEach(function (d) { best = best.concat(d.a.tr.filter(function (t) { return t.d > 0; })); });
   best.sort(function (a, b) { return b.d - a.d || TR[a.c.T] - TR[b.c.T]; });
-  if (best[0]) L.push({ tipo: 'Trocar', sec: 'trocas', h: '<b>' + esc(best[0].c.n) + ' no ' + esc(best[0].deck.nome) + '</b>' + (best[0].out ? ', no lugar de ' + esc(best[0].out.n) : '') + ': ' + sinal(best[0].d) + ' pontos de placar. A troca recomendada que mais melhora o deck dela.' });
+  if (best[0]) L.push({ tipo: 'Trocar', sec: 'trocas', h: '<b>' + esc(best[0].c.n) + ' no ' + esc(best[0].deck.nome) + '</b>' + (best[0].out ? ', no lugar de ' + esc(best[0].out.n) : '') + ': ' + sinalP(best[0].d) + ' pontos de placar. A troca recomendada que mais melhora o deck dela.' });
   return L.slice(0, 5);
 }
 function saude() {
