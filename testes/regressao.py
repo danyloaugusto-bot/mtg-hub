@@ -40,7 +40,7 @@ with sync_playwright() as p:
     if k_pl in ctl:
         R.ok("placar de origem" + (" (v3)" if V3 else ""), placar == ctl[k_pl], placar)
     if "cmc" in ctl:
-        R.ok("fatos do topo", ("cartas %d " % ctl["cartas"]) in facts and ("CMC médio " + ctl["cmc"]) in facts and ("fontes de terreno %d " % ctl["fontes"]) in facts and facts.endswith("foils %d" % ctl["foils"]), facts)
+        R.ok("fatos do topo", ("cartas %d " % ctl["cartas"]) in facts and ("CMC médio " + ctl["cmc"]) in facts and (facts + " ").count("fontes de terreno %d " % ctl["fontes"]) == 1 and (facts.endswith("foils %d" % ctl["foils"]) if ctl["foils"] else "foils" not in facts), facts)
     if "relevancia" in ctl:
         rel = pg.evaluate("Array.from(document.querySelectorAll('#v-geral .rel-t tbody tr:not(.tot-r)')).map(r=>+r.querySelector('td b').textContent)")
         R.ok("relevância", rel == [ctl["relevancia"][k] for k in ("INS", "ALT", "MED", "BAX")], rel)
@@ -67,13 +67,15 @@ with sync_playwright() as p:
         pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(150)
         visto.append(pg.evaluate("document.querySelector('main').innerText"))
     R.ok("%d abas sem exceção" % len(abas), not R.erros, R.erros)
+    pg.click('[data-tab="tab"]'); pg.wait_for_timeout(150)
+    R.ok("Tabelão sem coluna de preço", "US$" not in pg.inner_text("#v-tab thead"))
     # nome impresso: a página mostra o nome da carta física; o do Scryfall fica só nos dados
     escondidos = [c["on"] for c in D["cards"] if c.get("on")]
     if escondidos:
         R.ok("nome impresso no lugar do nome do Scryfall", not [n for n in escondidos if any(n in v for v in visto)],
              ", ".join(c["n"] for c in D["cards"] if c.get("on")))
 
-    # gaveta: stepper, PetCard, valor e tier (com uma carta que não sai nas trocas sugeridas)
+    # gaveta: stepper, PetCard e tier (com uma carta que não sai nas trocas sugeridas)
     saem = {c.get("sai") for c in D["cands"] if c["verdict"] == "entra"}
     alvo = next(c for c in D["cards"] if not c.get("cmd") and not c.get("land") and c["s"][1] < 3 and c["tier"] != "D" and c["id"] not in saem)
     pg.click('[data-tab="tier"]'); pg.wait_for_timeout(250)
@@ -95,10 +97,12 @@ with sync_playwright() as p:
         d3 = CR[j]["peso"] * (RG["pontos_por_nota"][alvo["s3"][j] + 1] - RG["pontos_por_nota"][alvo["s3"][j]])
         pg.click('[data-act="step3"][data-g="%d"][data-d="1"]' % j); pg.wait_for_timeout(120)
         R.ok("gaveta v3: +1 em %s soma peso × pontos da nota" % CR[j]["nome"], comum.num_br(pg.inner_text(".dw-sum b")) == v0 + d3, (v0, d3))
-    pg.fill('[data-act="val"]', "12.5"); pg.click('[data-act="set-tier"][data-v="D"]'); pg.wait_for_timeout(150)
-    R.ok("valor não engole o clique seguinte", pg.locator('#v-tier .tier[data-t="D"] .chip').count() == n_d + 1)
+    R.ok("ficha sem preço (sem valor em R$ e sem link de preço)", pg.locator('#drawer [data-act="val"]').count() == 0 and "LigaMagic" not in pg.inner_text("#drawer"))
+    pg.click('[data-act="set-tier"][data-v="D"]'); pg.wait_for_timeout(150)
+    R.ok("tier pela gaveta muda a tier list", pg.locator('#v-tier .tier[data-t="D"] .chip').count() == n_d + 1)
     pg.keyboard.press("Escape"); pg.click('[data-tab="geral"]'); pg.wait_for_timeout(200)
-    R.ok("valor na tabela de relevância", "12,50" in pg.inner_text("#v-geral .rel-t"))
+    # sem preço no painel (decisão do dono): o quadro de relevância, o Tabelão e a ficha não mostram dólar nem real
+    R.ok("quadro de relevância sem preço", not any(x in pg.inner_text("#v-geral .rel-t") for x in ("US$", "R$")))
 
     # tier list: duas visões e arrastar
     pg.click('[data-tab="tier"]'); pg.wait_for_timeout(250)

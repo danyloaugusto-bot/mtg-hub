@@ -84,6 +84,15 @@ def larga(te):
     return te
 
 
+ABAS = """() => {
+  const t = document.querySelector('.tabs'), r = t.getBoundingClientRect(), a = document.querySelector('.top-act').getBoundingClientRect();
+  const cortadas = Array.from(t.querySelectorAll('[role=tab]')).filter(b => b.offsetParent).filter(b => { const x = b.getBoundingClientRect();
+    return x.left < r.left - 1 || x.right > r.right + 1 || (x.right > a.left + 1 && x.top < a.bottom - 1 && x.bottom > a.top + 1); }).map(b => b.textContent);
+  return {cortadas: cortadas, scroll: t.scrollWidth - t.clientWidth, abas_topo: Math.round(r.top), botoes_base: Math.round(a.bottom)};
+}"""
+ROTULOS_FORA = """() => Array.from(document.querySelectorAll('figure.rosa svg text')).filter(t => t.textContent.trim()).map(t => { const r = t.getBoundingClientRect(); return [t.textContent.trim().slice(0, 24), Math.round(r.left), Math.round(r.right)]; }).filter(x => x[1] < -1 || x[2] > innerWidth + 1)"""
+MS_MIN = """() => { const ms = Array.from(document.querySelectorAll('main .view:not([hidden]) .ms')).filter(e => e.offsetParent); return ms.length ? Math.min(...ms.map(e => e.getBoundingClientRect().width)) : null; }"""
+
 VARIANTES = [
     ("v6", seis, None, False),
     ("v10", dez, None, False),
@@ -99,7 +108,7 @@ try:
                 arq, ng = variante(nome, mav, mte, sc)
             except (dados.ErroDeck, ValueError) as e:
                 R.ok(nome + ": montagem", False, e); continue
-            for w, h in ((375, 812), (1280, 900)):
+            for w, h in ((375, 812), (1280, 900), (1360, 900)):
                 pg = b.new_page(viewport={"width": w, "height": h})
                 comum.bloquear_rede(pg)
                 err = []
@@ -108,12 +117,26 @@ try:
                 largos = []
                 v3 = pg.evaluate("!!(window.PAINEL.D.meta.v3 && window.PAINEL.D.criterios)")
                 nc = len(pg.evaluate("window.PAINEL.D.criterios || []"))
+                ms_min = []
                 for t in ("geral", "gal", "tier", "pk") + (("crit",) if v3 else ()) + ("tab", "ctrl", "radar", "ofi"):
                     pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(120)
                     sw = pg.evaluate("document.documentElement.scrollWidth")
                     if sw > w + 1:
                         largos.append("%s=%d" % (t, sw))
+                    if t in ("gal", "tier", "radar"):
+                        x = pg.evaluate(MS_MIN)
+                        if x is not None:
+                            ms_min.append((x, t))
                 pg.click('[data-tab="geral"]'); pg.wait_for_timeout(200)
+                # auditoria de layout (15/10/2026): abas inteiras, rótulos do gráfico na tela, símbolo de mana legível
+                ab = pg.evaluate(ABAS)
+                if w > 640:
+                    R.ok("%s, %d px: nenhuma aba cortada ou coberta" % (nome, w), not ab["cortadas"] and ab["scroll"] <= 1, ab)
+                else:
+                    R.ok("%s, %d px: abas numa linha própria, sem nada por cima" % (nome, w), ab["abas_topo"] >= ab["botoes_base"] - 1, ab)
+                    fora = pg.evaluate(ROTULOS_FORA)
+                    R.ok("%s, %d px: rótulos do gráfico dentro da tela" % (nome, w), not fora, fora[:3])
+                R.ok("%s, %d px: símbolo de mana com 12px ou mais" % (nome, w), not ms_min or min(ms_min)[0] >= 11.95, min(ms_min) if ms_min else None)
                 fatias = pg.locator(".rosa .petal, .rosa .wedge, .rosa .lapide").count()
                 pg.click('[data-tab="tab"]'); pg.wait_for_timeout(120)
                 cols = pg.locator("#v-tab thead th.gh").count()
