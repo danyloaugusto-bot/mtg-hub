@@ -220,7 +220,12 @@ function pct(x, d) { return num(x * 100, d || 0) + '%'; }
 function sinal(n, d) { return (n > 0 ? '+' : n < 0 ? '−' : '±') + num(Math.abs(n), d || 0); }
 function lista(a) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' e ' + a[a.length - 1]; }
 function soma(a, f) { var t = 0; a.forEach(function (x) { t += f ? f(x) : x; }); return t; }
-function pts(c) { var t = 0; (c.s || []).forEach(function (v) { t += v; }); return t; }
+/* régua da pontuação (motor/pontuacao.json). Deck v3: os dez critérios na ordem da régua, peso × pontos da nota;
+   deck antigo: a nota vale o que é. A aceleração é a mesma conta nos dois. */
+var RG = H.regua;
+function ptsNota(v, i, v3) { return v3 ? (v > 0 ? RG.criterios[i].peso * RG.pontos_por_nota[Math.min(3, v)] : 0) : v; }
+function pontosAcel(y) { var a = RG.aceleracao; return y < 0 ? 0 : Math.min(a.teto, a.piso + a.pontos_por_passo * Math.floor(y / a.passo)); }
+function pts(c, v3) { var t = 0; (c.s || []).forEach(function (v, i) { t += ptsNota(v, i, v3); }); return t; }
 function chave(c) { return c.o || c.n; }
 function dataDe(s) {
   var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(s || '');
@@ -252,7 +257,7 @@ function contas(cs, A) {
   var st = { n: 0, nonland: 0, cmcSum: 0, lands: 0, mdfc: 0, tapped: 0, cri: 0, tribo: 0, wipes: 0, low: 0, top: 0, foils: 0,
              grp: [], mk: {}, pip: { W: 0, U: 0, B: 0, R: 0, G: 0 }, src: { W: 0, U: 0, B: 0, R: 0, G: 0 }, srcC: 0,
              usd: 0, usdN: 0, usdSem: 0, relUsd: {}, rel: {}, tier: {}, tipos: {}, tipoPts: {}, curva: [0, 0, 0, 0, 0, 0, 0, 0] };
-  for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0 });
+  for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0, notas: 0 });
   Object.keys(A.marcadores || {}).forEach(function (k) { st.mk[k] = { n: 0, v: {}, nomes: [] }; });
   cs.forEach(function (c) {
     var q = c.q || 1, mk = c.mk || {}, j, v;
@@ -263,10 +268,10 @@ function contas(cs, A) {
     if (c.f) st.foils += q;
     if (c.u != null) { st.usd += c.u * q; st.usdN += q; st.relUsd[c.r] = (st.relUsd[c.r] || 0) + c.u * q; } else st.usdSem += q;
     for (j = 0; j < NG; j++) {
-      v = c.s[j] || 0; st.grp[j].pts += v * q;
+      v = c.s[j] || 0; st.grp[j].pts += ptsNota(v, j, A.v3) * q; st.grp[j].notas += v * q;
       if (v >= 2) st.grp[j].hard += q; else if (v === 1) st.grp[j].soft += q;
     }
-    st.tipoPts[c.t] = (st.tipoPts[c.t] || 0) + pts(c) * q;
+    st.tipoPts[c.t] = (st.tipoPts[c.t] || 0) + pts(c, A.v3) * q;
     if (c.L) { st.lands += q; if (c.tp) st.tapped += q; }
     else {
       st.nonland += q; st.cmcSum += c.c * q; st.curva[Math.min(c.c, 7)] += q;
@@ -289,10 +294,10 @@ function contas(cs, A) {
     });
   });
   var a = st.avg = st.nonland ? st.cmcSum / st.nonland : 0;
-  st.cmcPts = a === 0 ? 0 : a < 2 ? 5 : a < 3 ? 4 : a < 4 ? 3 : a < 5 ? 2 : 1;
-  st.ramp = st.grp[Math.max(0, gix(A, 'ramp'))].pts;
+  st.cmcPts = (A.v3 && !RG.pontos_de_cmc_antigos) || a === 0 ? 0 : a < 2 ? 5 : a < 3 ? 4 : a < 4 ? 3 : a < 5 ? 2 : 1;
+  st.ramp = st.grp[Math.max(0, gix(A, A.v3 ? 'aceleradores' : 'ramp'))].notas;
   st.accX = a ? st.ramp / a : 0;
-  st.accPts = st.accX < 0 ? 0 : Math.min(90, 5 * (Math.floor(st.accX * 2) + 1));
+  st.accPts = pontosAcel(st.accX);
   st.crit = soma(st.grp, function (g) { return g.pts; });
   st.total = st.cmcPts + st.accPts + st.crit;
   return st;

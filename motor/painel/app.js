@@ -10,7 +10,13 @@ var G = D.grupos.map(function (g) {
 });
 var NG = G.length;
 function gi(id) { for (var i = 0; i < NG; i++) if (G[i].id === id) return i; return -1; }
-var IR = Math.max(0, gi('ramp'));
+/* régua da pontuação (motor/pontuacao.json, via build). Deck v3: os dez critérios, peso × pontos da nota e aceleração
+   pelas notas de Aceleradores. Deck antigo: soma das notas, pontos do CMC médio e a aceleração, que é a mesma conta. */
+var RG = M.regua, V3 = !!M.v3;
+var PESO = G.map(function (g) { var c = V3 && RG.criterios.filter(function (x) { return x.k === g.id; })[0]; return c ? c.peso : 1; });
+function ptsNota(v, i) { return V3 ? (v > 0 ? PESO[i] * RG.pontos_por_nota[Math.min(3, v)] : 0) : v; }
+function pontosAcel(y) { var a = RG.aceleracao; return y < 0 ? 0 : Math.min(a.teto, a.piso + a.pontos_por_passo * Math.floor(y / a.passo)); }
+var IR = Math.max(0, gi(V3 ? 'aceleradores' : 'ramp'));
 var IPET = (function () { for (var i = 0; i < NG; i++) if (G[i].pet) return i; return -1; })();
 var NUM = ['zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
 var MK = D.marcadores || {};
@@ -187,7 +193,7 @@ function byId(id) {
 function deck() { return D.cards.concat(cands()).map(E).filter(function (c) { return c.inDeck; }); }
 function gv(c, i) { return (c.s[i] || 0) + (i === IPET && c.pet ? 1 : 0); }
 function usdOf(c) { var u = c.foil && c.usdf ? +c.usdf : (c.usd ? +c.usd : null); return isNaN(u) ? null : u; }
-function pts(c) { var t = 0; for (var i = 0; i < NG; i++) t += gv(c, i); return t; }
+function pts(c) { var t = 0; for (var i = 0; i < NG; i++) t += ptsNota(gv(c, i), i); return t; }
 function ov(id) { if (!S.ov[id]) S.ov[id] = {}; return S.ov[id]; }
 function pips(cost) {
   var n = {}; WUBRG.forEach(function (ch) { n[ch] = 0; });
@@ -204,7 +210,7 @@ function stats(cs) {
              foils: 0, sets: {}, low: 0, top: 0 };
   var i;
   for (i = 0; i < 8; i++) st.curve.push({ n: 0, t: {}, c: {} });
-  for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0 });
+  for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0, notas: 0 });
   Object.keys(MK).forEach(function (k) { st.mk[k] = { n: 0, v: {}, names: [] }; });
   WUBRG.forEach(function (ch) { st.pip[ch] = 0; st.src[ch] = 0; st.pw[ch] = [0, 0, 0, 0]; });
   cs.forEach(function (c) {
@@ -219,7 +225,7 @@ function stats(cs) {
     if (u != null) { st.usd += u * q; st.usdN += q; st.relUsd[c.rel] = (st.relUsd[c.rel] || 0) + u * q; } else st.usdSem += q;
     if (c.set) st.sets[c.set] = (st.sets[c.set] || 0) + q;
     for (var j = 0; j < NG; j++) {
-      var v = gv(c, j); st.grp[j].pts += v * q;
+      var v = gv(c, j); st.grp[j].pts += ptsNota(v, j) * q; st.grp[j].notas += v * q;
       if (v >= 2) st.grp[j].hard += q; else if (v === 1) st.grp[j].soft += q;
     }
     if (c.land) {
@@ -249,9 +255,9 @@ function stats(cs) {
   });
   st.avg = st.nonland ? st.cmcSum / st.nonland : 0;
   var a = st.avg;
-  st.cmcPts = a === 0 ? 0 : a < 2 ? 5 : a < 3 ? 4 : a < 4 ? 3 : a < 5 ? 2 : 1;
-  st.accX = a ? st.grp[IR].pts / a : 0;
-  st.accPts = st.accX < 0 ? 0 : Math.min(90, 5 * (Math.floor(st.accX * 2) + 1));
+  st.cmcPts = (V3 && !RG.pontos_de_cmc_antigos) || a === 0 ? 0 : a < 2 ? 5 : a < 3 ? 4 : a < 4 ? 3 : a < 5 ? 2 : 1;
+  st.accX = a ? st.grp[IR].notas / a : 0;
+  st.accPts = pontosAcel(st.accX);
   st.crit = st.grp.reduce(function (t, g) { return t + g.pts; }, 0);
   st.total = st.cmcPts + st.accPts + st.crit;
   return st;

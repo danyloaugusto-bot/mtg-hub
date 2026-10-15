@@ -32,23 +32,29 @@ BASICOS = {"Plains", "Island", "Swamp", "Mountain", "Forest", "Wastes",
            "Snow-Covered Plains", "Snow-Covered Island", "Snow-Covered Swamp", "Snow-Covered Mountain", "Snow-Covered Forest"}
 
 
-def placar(cards, grupos):
-    """A mesma conta do painel (app.js, stats): CMC médio, aceleração e soma das notas. Sem PetCard: ele é do dono."""
+def placar(cards, grupos, v3=False):
+    """A mesma conta do painel (app.js, stats), com a régua de motor/pontuacao.json. Sem PetCard: ele é do dono.
+    Método antigo: pontos do CMC médio + aceleração + soma das notas. v3: soma de peso × pontos da nota em cada critério
+    + aceleração (as notas de Aceleradores, não os pontos, sobre o CMC médio); os pontos do CMC médio só se a régua pedir."""
+    R = dados.regua()
+    peso = {c["k"]: c["peso"] for c in R["criterios"]}
+    pnota = R["pontos_por_nota"]
     nonland = cmc = 0
     pts = [0] * len(grupos)
+    notas = [0] * len(grupos)
     for c in cards:
         q = c["q"]
         for i, v in enumerate(c["s"]):
-            pts[i] += v * q
+            notas[i] += v * q
+            pts[i] += (peso[grupos[i]["k"]] * pnota[v] if v > 0 else 0) * q if v3 else v * q
         if not c.get("land"):
             nonland += q
             cmc += c["cmc"] * q
     avg = cmc / nonland if nonland else 0
-    cmc_pts = 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
-    ir = next((i for i, g in enumerate(grupos) if g["k"] == "ramp"), 0)
-    acc = pts[ir] / avg if avg else 0
-    acc_pts = 0 if acc < 0 else min(90, 5 * (math.floor(acc * 2) + 1))
-    return cmc_pts + acc_pts + sum(pts), avg
+    cmc_pts = dados.pontos_cmc(avg) if (not v3 or R.get("pontos_de_cmc_antigos")) else 0
+    ir = next((i for i, g in enumerate(grupos) if g["k"] == ("aceleradores" if v3 else "ramp")), 0)
+    acc = notas[ir] / avg if avg else 0
+    return cmc_pts + dados.pontos_aceleracao(acc) + sum(pts), avg
 
 
 def ler_inventario():
@@ -274,7 +280,7 @@ def resumo_dashboard(pasta, base, m, t, cache, gc=None):
         painel=t.get("painel") or nome_do_deck(pasta), rev=t.get("rev", 1), feito=m.get("feito", ""), scryfall=m.get("scryfall_data", ""),
         hist=ler_historico(base), conf=ler_confronto(base), ident=m["ident"],
         cmd=dict(n=cmd["n"], c=cmd["cmc"], co=cmd.get("cost", "")) if cmd else None,
-        grupos=[dict(k=g["k"], n=g.get("curto") or g["nome"], ab=g["ab"], ref=g.get("ref")) for g in m["grupos"]],
+        grupos=[dict(k=g["k"], n=g.get("curto") or g["nome"], ab=g["ab"], ref=g.get("ref")) for g in m["grupos"]], v3=bool(m.get("v3")),
         marcadores={k: {kk: v[kk] for kk in ("nome", "plural") if v.get(kk)} for k, v in m["marcadores"].items()},
         leituras=m["leituras"],
         cards=[compacta(c, None, sinais(c, cache, gc)) for c in m["cards"]], cands=cands,
@@ -321,7 +327,7 @@ def montar(avisar=print):
                 m = None
             if m:
                 t = dados.ler_json(os.path.join(base, "tema.json"), obrigatorio=False) or {}
-                pt, avg = placar(m["cards"], m["grupos"])
+                pt, avg = placar(m["cards"], m["grupos"], m.get("v3", False))
                 tipos = {}
                 for c in m["cards"]:
                     k = "cri" if c.get("cmd") else c["t"]
@@ -337,7 +343,7 @@ def montar(avisar=print):
             d["ref"] = ler_referencias(base, cache, gc) if os.path.isdir(base) else []
         decks.append(d)
 
-    H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS),
+    H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS), regua=dados.regua_compacta(),
              pastas=[dict(n=n, c=c) for n, c in PASTAS], em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"),
              gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None)
 

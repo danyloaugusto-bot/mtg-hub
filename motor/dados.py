@@ -3,7 +3,7 @@
 
 Contrato: contexto/ARQUITETURA.md, seção "Contrato de um deck".
 """
-import json, os, re, unicodedata
+import json, math, os, re, unicodedata
 
 import scryfall
 
@@ -21,6 +21,61 @@ RESULTADOS = ("forte", "equilibrado", "fraco")
 
 class ErroDeck(Exception):
     pass
+
+
+# ---------------------------------------------------------------- régua da pontuação
+# motor/pontuacao.json é a única fonte de pesos, faixas, pontos por nota e da regra de aceleração (pontuação v3,
+# decidida com o dono em 15/10/2026). Deck sem "versao_pontuacao": 3 no avaliacao.json segue o método antigo;
+# dele, a régua só fornece a aceleração, que é a mesma conta nos dois métodos.
+REGUA_ARQ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pontuacao.json")
+_REGUA = None
+
+
+def regua():
+    """A régua, lida uma vez e conferida: versão 3, dez critérios de chave única, peso e faixa em cada um,
+    pontos das notas 0 a 3 e os quatro números da aceleração."""
+    global _REGUA
+    if _REGUA is None:
+        with open(REGUA_ARQ, encoding="utf-8") as f:
+            r = json.load(f)
+        ks = [c.get("k") for c in r.get("criterios") or []]
+        if r.get("versao") != 3 or len(ks) != 10 or len(set(ks)) != 10:
+            raise ErroDeck("motor/pontuacao.json: precisa da versão 3 e de dez critérios com chaves únicas")
+        if len(r.get("pontos_por_nota") or []) != 4:
+            raise ErroDeck("motor/pontuacao.json: 'pontos_por_nota' precisa dos pontos das notas 0, 1, 2 e 3")
+        for c in r["criterios"]:
+            if not isinstance(c.get("peso"), (int, float)) or c["peso"] <= 0:
+                raise ErroDeck("motor/pontuacao.json: critério %s sem peso positivo" % c["k"])
+            if not (isinstance(c.get("faixa"), list) and len(c["faixa"]) == 2):
+                raise ErroDeck("motor/pontuacao.json: critério %s sem faixa [mínimo, máximo]" % c["k"])
+        a = r.get("aceleracao") or {}
+        for campo in ("passo", "pontos_por_passo", "piso", "teto"):
+            if not isinstance(a.get(campo), (int, float)):
+                raise ErroDeck("motor/pontuacao.json: aceleração sem '%s'" % campo)
+        _REGUA = r
+    return _REGUA
+
+
+def regua_compacta():
+    """O que o painel e o hub precisam da régua (sem as notas de texto)."""
+    r = regua()
+    return dict(pontos_por_nota=r["pontos_por_nota"], saturacao=r["saturacao"], pontos_de_cmc_antigos=bool(r.get("pontos_de_cmc_antigos")),
+                aceleracao={k: r["aceleracao"][k] for k in ("passo", "pontos_por_passo", "piso", "teto")},
+                criterios=[{k: c[k] for k in ("k", "nome", "curto", "peso", "faixa", "cor") if k in c} for c in r["criterios"]])
+
+
+def pontos_aceleracao(y):
+    """Y = soma das notas de aceleração ÷ CMC médio. 0 se Y é negativo; senão o piso, mais os pontos de cada passo
+    inteiro de Y, até o teto. Com a régua de 15/10/2026: min(90, 5 × (piso(2Y) + 1)), a fórmula do Excel do dono."""
+    a = regua()["aceleracao"]
+    if y < 0:
+        return 0
+    return min(a["teto"], a["piso"] + a["pontos_por_passo"] * math.floor(y / a["passo"]))
+
+
+def pontos_cmc(avg):
+    """Os pontos do CMC médio do método antigo (1 a 5). Na v3 só valem se a régua pedir (pontos_de_cmc_antigos)."""
+    return 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
 
 
 PASTAS_FORA = {"pastas"}   # dados/pastas guarda as pastas de cartas do dono, não é deck
@@ -439,6 +494,14 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     av = ler_json(os.path.join(base, "avaliacao.json"))
     com = ler_json(os.path.join(base, "comunidade.json"), obrigatorio=False)
 
+    # pontuação v3: as notas vêm do cadastro único (dados/cartas.json) mais as sinergias do deck; até esse cadastro
+    # existir, um deck marcado como v3 para aqui, em vez de montar com as notas do método antigo
+    v3 = av.get("versao_pontuacao") == 3
+    if v3:
+        raise ErroDeck("avaliacao.json: a pontuação v3 deste deck depende do cadastro único de cartas (dados/cartas.json), que o motor ainda não monta")
+    if av.get("versao_pontuacao") not in (None, 3):
+        raise ErroDeck("avaliacao.json: 'versao_pontuacao' só aceita 3 (sem o campo, o deck segue o método antigo)")
+
     grupos = av.get("agrupamentos") or []
     if not 6 <= len(grupos) <= 10:
         raise ErroDeck("avaliacao.json: o deck tem %d agrupamentos; o motor aceita de 6 a 10" % len(grupos))
@@ -579,6 +642,6 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         for k, q in cs.items():
             if k in minhas:
                 em_pastas.setdefault(k, []).append(dict(p=p, q=q))
-    return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia,
+    return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, v3=v3,
                 marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))
