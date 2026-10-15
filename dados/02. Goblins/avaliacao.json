@@ -1,0 +1,1639 @@
+{
+ "feito": "14/10/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Pedras, rituais e o que transforma fichas em mana. Terreno sempre virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra de cartas."
+  },
+  {
+   "k": "removal",
+   "nome": "Removal",
+   "ab": "Rem.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção pontual e limpezas; marca nas que só acertam o lado deles."
+  },
+  {
+   "k": "token",
+   "nome": "Token",
+   "ab": "Token",
+   "desc": "O que cria fichas."
+  },
+  {
+   "k": "dano",
+   "nome": "Combate + Dano direto",
+   "ab": "Dano",
+   "desc": "Atacar, e o dano fora do combate."
+  },
+  {
+   "k": "buff",
+   "nome": "Buff + Haste",
+   "ab": "Buff",
+   "desc": "Lords e ímpeto: o ímpeto deixa o Krenko ativar no turno em que entra."
+  },
+  {
+   "k": "goblins",
+   "nome": "Goblins",
+   "ab": "Gobl.",
+   "desc": "Sinergia 1: a tribo, os tutores e a densidade."
+  },
+  {
+   "k": "conversao",
+   "nome": "Conversão",
+   "ab": "Conv.",
+   "desc": "Sinergia 2: sacrifício que vira mana, dano ou carta, e os laços."
+  }
+ ],
+ "marcadores": {
+  "tribo": {
+   "nome": "Goblin",
+   "plural": "Goblins",
+   "subtipo": "Goblin"
+  },
+  "imp": {
+   "nome": "Dá ímpeto ao Krenko"
+  },
+  "saida": {
+   "nome": "Saída de sacrifício"
+  },
+  "poupa": {
+   "nome": "Limpeza só do lado deles"
+  },
+  "contra": {
+   "nome": "Trabalha contra a horda"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "32 terrenos e 1 carta com verso de terreno."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 8,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de draw dedicada",
+    "fontes de draw dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "removal",
+   "massa_max": 3,
+   "massa_ref": [
+    1,
+    3
+   ],
+   "alerta": "As limpezas da lista matam a horda."
+  },
+  {
+   "tipo": "tribo",
+   "min_pct": 80,
+   "texto": "cada Goblin conta para o Krenko."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "imp",
+   "min": 4,
+   "listar": true,
+   "rotulo": [
+    "fonte de ímpeto para o Krenko",
+    "fontes de ímpeto para o Krenko"
+   ],
+   "texto": "O Krenko ativa no turno em que entra; com o Skirk, cada uma fecha um laço.",
+   "ok": "O Krenko não espera um turno."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "saida",
+   "min": 3,
+   "listar": true,
+   "rotulo": [
+    "saída de sacrifício",
+    "saídas de sacrifício"
+   ],
+   "texto": "Convertem as fichas em mana, dano ou carta.",
+   "alerta": "Poucas saídas: a horda fica parada.",
+   "ok": "A horda vira o que você precisa."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "contra",
+   "max": 0,
+   "listar": true,
+   "rotulo": [
+    "carta contra a horda",
+    "cartas contra a horda"
+   ],
+   "alerta": "Limpezas e destruição de terrenos que acertam o seu lado.",
+   "ok": "Nada trabalha contra a horda."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Goblins baratos (Goblin Guide, Rundvelt Hordemaster, Searslicer) e pedras; Goblin Warchief ou Rising of the Day prontos para dar ímpeto. O Krenko no turno 3 ou 4.",
+   "fortes": [
+    "25 Goblins: a mão quase sempre tem o que jogar.",
+    "Seis fontes de ímpeto: o Krenko ativa no turno em que entra."
+   ],
+   "fracos": [
+    "Só duas pedras rápidas e nenhum Sol Ring.",
+    "Compra quase toda de filtro."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "O Krenko ativa e dobra a horda; lords (Hobgoblin Bandit Lord, Rundvelt, Patchwork Banner) e o Enduring Courage a deixam pronta para atacar. Goblin Bombardment e Ashnod's Altar convertem as sobras.",
+   "fortes": [
+    "Cada ativação dobra a mesa.",
+    "O Bandit Lord transforma uma ativação numa bola de fogo."
+   ],
+   "fracos": [
+    "O Krenko é o motor: sem proteção na lista.",
+    "Disk e Floodgates matam a sua própria horda."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "Shared Animosity, Embercleave ou Eldrazi Monument num ataque de vinte Goblins; Goblin War Strike, Bombardment e Fiery Emancipation fecham fora do combate. Com o Skirk do radar, o laço com o ímpeto.",
+   "fortes": [
+    "Muitas linhas de fechamento.",
+    "Laços prontos com uma carta só (Skirk Prospector)."
+   ],
+   "fracos": [
+    "Limpezas dos oponentes levam a horda inteira.",
+    "Nenhuma resposta na pilha."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "controle",
+    "resultado": "equilibrado",
+    "porque": "A horda refaz rápido depois de uma limpeza, se o Krenko sobreviver."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "forte",
+    "porque": "Fichas sem fim para bloquear, e o Bombardment fecha antes."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "Pressão cedo e dano em massa antes de as criaturas grandes deles chegarem."
+   },
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "As fichas bloqueiam, mas o Bedlam e o Diplomats abrem você também."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Corrida de dreno contra dano: o Bombardment e o Impact Tremors costumam ganhar."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "Pressão rápida, mas nenhuma anulação."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "fraco",
+    "porque": "Sem anulação; precisa vencer antes."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Taxa por criatura e travas de ataque seguram a horda."
+   }
+  ]
+ },
+ "cartas": {
+  "Krenko, Mob Boss": {
+   "notas": {
+    "token": 3,
+    "dano": 1,
+    "goblins": 3,
+    "conversao": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Goblin Guerreiro lendário 3/3 de 4. Vira: cria uma ficha Goblin 1/1 por Goblin que você controla, ele incluído.",
+   "porque": "A horda dobra a cada ativação: com ímpeto, já no turno em que entra."
+  },
+  "Goblin Warchief": {
+   "notas": {
+    "ramp": 1,
+    "buff": 3,
+    "goblins": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Goblin Guerreiro de 3: mágicas de Goblin custam {1} a menos; seus Goblins têm ímpeto.",
+   "porque": "O Krenko ativa no turno em que entra; com o Skirk do radar, é laço (Commander Spellbook 38-659-1288).",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Goblin Matron": {
+   "notas": {
+    "draw": 2,
+    "goblins": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Goblin de 3. Ao entrar, busca um Goblin.",
+   "porque": "Acha o Skirk, o Warchief ou o Muxus."
+  },
+  "Muxus, Goblin Grandee": {
+   "notas": {
+    "draw": 2,
+    "token": 1,
+    "dano": 1,
+    "buff": 1,
+    "goblins": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Goblin Nobre lendário de 6. Ao entrar, põe em campo os Goblins de valor até 5 entre as seis do topo; ao atacar, +1/+1 por outro Goblin.",
+   "porque": "Uma mesa inteira de graça."
+  },
+  "Hobgoblin Bandit Lord": {
+   "notas": {
+    "removal": 2,
+    "dano": 3,
+    "buff": 3,
+    "goblins": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Goblin Ladino de 3: outros Goblins +1/+1. {R}, vira: dano igual aos Goblins que entraram no turno, em qualquer alvo.",
+   "porque": "Depois de uma ativação do Krenko, é uma bola de fogo do tamanho da horda."
+  },
+  "Rundvelt Hordemaster": {
+   "notas": {
+    "draw": 1,
+    "buff": 3,
+    "goblins": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Goblin Guerreiro de 2: outros Goblins +1/+1. Um Goblin seu morre: exila o topo e, se for Goblin, você pode conjurá-lo.",
+   "porque": "Lord de 2 que compra com as mortes."
+  },
+  "Marvin, Murderous Mimic": {
+   "notas": {
+    "token": 3,
+    "goblins": 1,
+    "conversao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Brinquedo artefato lendário 2/2 de 2. Tem as habilidades ativadas das suas criaturas com outro nome.",
+   "porque": "Um segundo Krenko, e o deck tem seis fontes de ímpeto."
+  },
+  "Purphoros, Bronze-Blooded": {
+   "notas": {
+    "dano": 1,
+    "buff": 2,
+    "goblins": 1,
+    "conversao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Deus lendário indestrutível de 5; outras criaturas suas têm ímpeto. {2}{R}: põe uma criatura vermelha ou artefato da mão em campo, sacrificada no fim do turno.",
+   "porque": "Ímpeto para o Krenko; com o Skirk do radar, laço (38-659-3480).",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Enduring Courage": {
+   "notas": {
+    "dano": 1,
+    "buff": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento Criatura Cão 3/3 de 4. Outra criatura sua entra: +2/+0 e ímpeto no turno; morrendo, volta como encantamento.",
+   "porque": "Cada ficha do Krenko entra 3/1 e ataca na hora; e o Krenko recém-chegado ativa.",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Urabrask the Hidden": {
+   "notas": {
+    "dano": 1,
+    "buff": 2,
+    "conversao": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Praetor lendário 4/4 de 5: suas criaturas têm ímpeto; as dos oponentes entram viradas.",
+   "porque": "Ímpeto e freio; com o Skirk do radar, laço (38-647-659).",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Goblin Rabblemaster": {
+   "notas": {
+    "token": 2,
+    "dano": 2,
+    "buff": 1,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Goblin Guerreiro de 3: outros Goblins atacam todo combate; no seu combate, uma ficha Goblin com ímpeto; ao atacar, +1/+0 por Goblin atacante.",
+   "porque": "Uma ficha por turno e pressão."
+  },
+  "Legion Warboss": {
+   "notas": {
+    "token": 2,
+    "dano": 2,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Goblin Soldado de 3 com mentor: no seu combate, uma ficha Goblin com ímpeto que ataca.",
+   "porque": "Uma ficha por turno."
+  },
+  "Caterwauling Boggart": {
+   "notas": {
+    "dano": 2,
+    "buff": 2,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin Xamã de 4: seus Goblins e Elementais têm ameaça.",
+   "porque": "A horda passa pelos bloqueios."
+  },
+  "Battle Cry Goblin": {
+   "notas": {
+    "token": 1,
+    "dano": 1,
+    "buff": 2,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin de 2. {1}{R}: Goblins +1/+0 e ímpeto; ao atacar com força total 6 ou mais, ficha atacando.",
+   "porque": "Ímpeto pago e pump da horda.",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Searslicer Goblin": {
+   "notas": {
+    "token": 2,
+    "dano": 1,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin Guerreiro de 2. Na sua etapa final, se atacou, uma ficha Goblin.",
+   "porque": "Ficha por turno."
+  },
+  "Grenzo, Havoc Raiser": {
+   "notas": {
+    "draw": 1,
+    "dano": 2,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin Ladino lendário de 2. Uma criatura sua acerta um jogador: goad numa criatura dele, ou exila o topo dele e você pode conjurar.",
+   "porque": "Cada acerto da horda vira carta ou briga na mesa."
+  },
+  "Gut, True Soul Zealot": {
+   "notas": {
+    "token": 1,
+    "dano": 2,
+    "goblins": 1,
+    "conversao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin Xamã lendário de 3. Ao atacar, pode sacrificar outra criatura ou artefato: Esqueleto 4/1 com ameaça, virado e atacando.",
+   "porque": "Uma ficha 1/1 vira 4/1 atacando.",
+   "marcas": {
+    "saida": 1
+   },
+   "pacote": "conversao"
+  },
+  "Brash Taunter": {
+   "notas": {
+    "removal": 1,
+    "dano": 2,
+    "goblins": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Goblin indestrutível 1/1 de 5. Recebe dano: causa esse tanto a um oponente; {2}{R}, vira: luta.",
+   "porque": "Com o Fiery Emancipation, dano triplicado duas vezes."
+  },
+  "Goblin Engineer": {
+   "notas": {
+    "goblins": 2,
+    "conversao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin Artífice de 2. Ao entrar, põe um artefato do grimório no cemitério; {R}, vira, sacrifique um artefato: um artefato de valor até 3 do cemitério ao campo.",
+   "porque": "Tutor de artefato lento."
+  },
+  "Goblin Guide": {
+   "notas": {
+    "dano": 1,
+    "goblins": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin Batedor 2/2 de 1 com ímpeto; ao atacar, o defensor revela o topo e pega se for terreno.",
+   "porque": "Pressão cedo que dá terreno aos outros."
+  },
+  "Impulsive Pilferer": {
+   "notas": {
+    "ramp": 1,
+    "dano": 1,
+    "goblins": 2,
+    "conversao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin Pirata 1/1 de 1; morrendo, um Tesouro; bis {3}{R}.",
+   "porque": "Goblin barato que vira mana."
+  },
+  "Goblin Traprunner": {
+   "notas": {
+    "token": 1,
+    "dano": 1,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin de 4. Ao atacar, joga três moedas: uma ficha atacando por vitória.",
+   "porque": "Fichas na sorte.",
+   "prioridade": 9
+  },
+  "Breeches, Eager Pillager": {
+   "notas": {
+    "ramp": 1,
+    "draw": 1,
+    "dano": 1,
+    "goblins": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin Pirata lendário de 3 com golpe primeiro. Um Pirata seu ataca: Tesouro, criatura não bloqueia, ou impulso.",
+   "porque": "Só dois Piratas na lista; as fichas não contam."
+  },
+  "Relic Robber": {
+   "notas": {
+    "dano": 1,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin Ladino de 3 com ímpeto. Ao acertar, o jogador ganha uma ficha artefato que o fere todo turno.",
+   "porque": "Pressão pequena.",
+   "prioridade": 8
+  },
+  "Treasure Nabber": {
+   "notas": {
+    "ramp": 1,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin Ladino de 3. Oponente vira artefato para mana: você o controla até o seu próximo turno.",
+   "porque": "Depende da mesa."
+  },
+  "Goblin Welder": {
+   "notas": {
+    "goblins": 1,
+    "conversao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin Artífice de 1. Vira: troca um artefato de um jogador por um do cemitério dele.",
+   "porque": "Poucos alvos na lista.",
+   "prioridade": 10
+  },
+  "Rummaging Goblin": {
+   "notas": {
+    "draw": 1,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin Ladino de 3. Vira, descarte: compre.",
+   "porque": "Filtro lento.",
+   "prioridade": 6
+  },
+  "Sparksmith": {
+   "notas": {
+    "removal": 2,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Goblin de 2. Vira: X de dano numa criatura e em você, X os Goblins em campo.",
+   "porque": "Com a horda grande, fere você do mesmo tanto.",
+   "prioridade": 7
+  },
+  "Goblin Diplomats": {
+   "notas": {
+    "dano": 1,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Goblin de 2. Vira: toda criatura ataca neste turno, se puder.",
+   "porque": "Política que não ajuda o plano.",
+   "prioridade": 3
+  },
+  "Izzet Chemister": {
+   "notas": {
+    "draw": 1,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Goblin Mago de 3 com ímpeto; guarda instantâneas e feitiços do cemitério e os conjura de graça depois.",
+   "porque": "Poucas mágicas que valham a pena repetir.",
+   "prioridade": 4
+  },
+  "Ashnod's Altar": {
+   "notas": {
+    "ramp": 2,
+    "dano": 1,
+    "conversao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 3. Sacrifique uma criatura: {C}{C}.",
+   "porque": "Cada ficha vira duas manas; com o Thornbite Staff do radar, laço (659-2034-2178).",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Eldrazi Monument": {
+   "notas": {
+    "dano": 2,
+    "buff": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 5: suas criaturas +1/+1, voar e indestrutíveis; na manutenção, sacrifique uma criatura.",
+   "porque": "A horda voa e não morre; uma ficha paga o custo."
+  },
+  "Gauntlet of Power": {
+   "notas": {
+    "ramp": 2,
+    "buff": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Artefato de 5 da cor escolhida: criaturas dela +1/+1; básicos dessa cor dão uma mana a mais.",
+   "porque": "Com 28 Mountains, dobra a sua mana."
+  },
+  "Embercleave": {
+   "notas": {
+    "dano": 3,
+    "buff": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Equipamento lendário de 6 com lampejo, uma a menos por atacante: +1/+1, golpe duplo e atropelar.",
+   "porque": "Com a horda atacando, sai por 1 ou 2.",
+   "caro_por_desenho": true
+  },
+  "Patchwork Banner": {
+   "notas": {
+    "ramp": 2,
+    "buff": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3 do tipo escolhido: +1/+1; vira: qualquer cor.",
+   "porque": "Lord e pedra."
+  },
+  "Icon of Ancestry": {
+   "notas": {
+    "draw": 1,
+    "buff": 2,
+    "goblins": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 3 do tipo escolhido: +1/+1; {3}, vira: olha três e pega uma criatura desse tipo.",
+   "porque": "Lord e busca."
+  },
+  "Arcane Signet": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: mana da identidade.",
+   "porque": "Pedra."
+  },
+  "Ruby Medallion": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Artefato de 2: suas mágicas vermelhas custam {1} a menos.",
+   "porque": "Redutor de todo o deck."
+  },
+  "Chainsaw": {
+   "notas": {
+    "removal": 2,
+    "dano": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Equipamento de 2. Ao entrar, 3 de dano numa criatura; marcador por morte; +X/+0.",
+   "porque": "Remoção, e cresce com as fichas que morrem."
+  },
+  "Door of Destinies": {
+   "notas": {
+    "buff": 2,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 4 do tipo escolhido: marcador por mágica dele conjurada; +1/+1 por marcador.",
+   "porque": "As fichas não são conjuradas: cresce devagar.",
+   "prioridade": 11
+  },
+  "Hedron Archive": {
+   "notas": {
+    "ramp": 2,
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 4: {C}{C}; {2}, vira, sacrifique: compre duas.",
+   "porque": "Pedra cara.",
+   "prioridade": 12
+  },
+  "Glittering Stockpile": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Tesouro artefato de 3: {R} e um marcador; sacrifique: X manas.",
+   "porque": "Pedra lenta.",
+   "prioridade": 13
+  },
+  "Wand of Wonder": {
+   "notas": {
+    "draw": 1,
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Artefato de 4. {4}, vira: rola d20 e conjura de graça de uma a três mágicas dos grimórios dos oponentes.",
+   "porque": "Caro e sorteado.",
+   "prioridade": 14
+  },
+  "Lavabrink Floodgates": {
+   "notas": {
+    "ramp": 2,
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Artefato de 4: {R}{R}; na manutenção, marcadores; com três, 6 de dano em cada criatura.",
+   "porque": "A limpeza mata a horda.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 2
+  },
+  "Nevinyrral's Disk": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Artefato de 4, entra virado. {1}, vira: destrói artefatos, criaturas e encantamentos.",
+   "porque": "Mata a horda e o Krenko.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 1
+  },
+  "Goblin Bombardment": {
+   "notas": {
+    "removal": 2,
+    "dano": 3,
+    "conversao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 2. Sacrifique uma criatura: 1 de dano em qualquer alvo.",
+   "porque": "Cada ficha vira 1 de dano; com o Thornbite Staff do radar, laço infinito (659-2178-5147).",
+   "marcas": {
+    "saida": 1
+   },
+   "pacote": "conversao"
+  },
+  "Shared Animosity": {
+   "notas": {
+    "dano": 3,
+    "buff": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: cada atacante +1/+0 por outro atacante do mesmo tipo.",
+   "porque": "Com vinte Goblins atacando, cada um bate 21."
+  },
+  "Fiery Emancipation": {
+   "notas": {
+    "dano": 3,
+    "buff": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 6: o dano das suas fontes é triplicado.",
+   "porque": "Cada Bombardment vira 3; o Taunter vira 117."
+  },
+  "Raid Bombardment": {
+   "notas": {
+    "dano": 3
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: criatura sua de força até 2 ataca: 1 de dano no defensor.",
+   "porque": "Cada ficha atacando é 1 de dano; lords passam da força 2."
+  },
+  "Rising of the Day": {
+   "notas": {
+    "buff": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 3: suas criaturas têm ímpeto; lendárias +1/+0.",
+   "porque": "Ímpeto; com o Skirk do radar, laço (38-659-1879).",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Outpost Siege": {
+   "notas": {
+    "draw": 2,
+    "dano": 1,
+    "conversao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Encantamento de 4: Khans, impulso de uma carta por turno; ou Dragões, 1 de dano a cada criatura sua que sai do campo.",
+   "porque": "Compra, ou dano a cada ficha sacrificada."
+  },
+  "Bedlam": {
+   "notas": {
+    "dano": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Encantamento de 4: criaturas não bloqueiam.",
+   "porque": "Vale para todos; a horda ganha a corrida, mas abre você."
+  },
+  "Curse of Opulence": {
+   "notas": {
+    "ramp": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Maldição de 1: o jogador encantado é atacado, quem ataca cria um Ouro.",
+   "porque": "Mana pequena.",
+   "prioridade": 15
+  },
+  "Mizzium Mortars": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 2: 4 numa criatura que não é sua; sobrecarga {3}{R}{R}{R}: em cada uma.",
+   "porque": "Limpeza só do lado deles.",
+   "marcas": {
+    "poupa": 1
+   },
+   "massa": true,
+   "pontual": true
+  },
+  "Goblin War Strike": {
+   "notas": {
+    "dano": 3,
+    "conversao": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Feitiço {R}: dano a um jogador igual aos seus Goblins.",
+   "porque": "Fecha a partida depois de uma ativação."
+  },
+  "Brightstone Ritual": {
+   "notas": {
+    "ramp": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea {R}: {R} por Goblin em campo.",
+   "porque": "Mana do tamanho da horda."
+  },
+  "Goblin Negotiation": {
+   "notas": {
+    "removal": 2,
+    "token": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço X{R}{R}: X numa criatura; o excesso vira fichas Goblin.",
+   "porque": "Remoção que faz horda."
+  },
+  "Goblin Surprise": {
+   "notas": {
+    "token": 2,
+    "dano": 1,
+    "buff": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 3: +2/+0 ou duas fichas.",
+   "porque": "Flexível."
+  },
+  "You See a Pair of Goblins": {
+   "notas": {
+    "token": 2,
+    "dano": 1,
+    "buff": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 3: +2/+0 ou duas fichas.",
+   "porque": "Flexível."
+  },
+  "Dragon Fodder": {
+   "notas": {
+    "token": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 2: duas fichas Goblin.",
+   "porque": "Corpo cedo."
+  },
+  "Goblin Rally": {
+   "notas": {
+    "token": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 5: quatro fichas Goblin.",
+   "porque": "O Krenko faz mais.",
+   "prioridade": 5
+  },
+  "Red Sun's Twilight": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço X{R}{R}: destrói X artefatos; com X 5+, cópias com ímpeto.",
+   "porque": "Resposta a artefatos."
+  },
+  "Thrill of Possibility": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 2; descarte: compre duas.",
+   "porque": "Filtro."
+  },
+  "Faithless Looting": {
+   "notas": {
+    "draw": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço {R}: compre duas, descarte duas; recapitular.",
+   "porque": "Filtro."
+  },
+  "Wheel of Fate": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço suspenso 4 ({1}{R}): cada jogador descarta a mão e compra sete.",
+   "porque": "Recarrega todos."
+  },
+  "Sundering Eruption": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 3: destrói um terreno; sem voar não bloqueia. O verso é terreno.",
+   "porque": "Terreno quando falta."
+  },
+  "Worldfire": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 9: exila todas as permanentes, mãos e cemitérios; a vida de todos vira 1.",
+   "porque": "Exila o seu lado também.",
+   "marcas": {
+    "contra": 1
+   },
+   "massa": true,
+   "prioridade": 1
+  },
+  "Boom // Bust": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "D",
+   "rel": "BAX",
+   "faz": "Feitiço de 2: destrói um terreno seu e um de oponente; o outro lado, de 6: destrói todos os terrenos.",
+   "porque": "Fora do plano da horda.",
+   "marcas": {
+    "contra": 1
+   },
+   "prioridade": 1
+  },
+  "Mountain": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Básico.",
+   "porque": "Base; com o Gauntlet of Power, duas manas."
+  },
+  "Den of the Bugbear": {
+   "notas": {
+    "token": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "{R}; virado com dois outros terrenos; {3}{R}: vira um Goblin 3/2 que cria uma ficha atacando.",
+   "porque": "Terreno que é Goblin."
+  },
+  "Soulstone Sanctuary": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; {4}: vira uma criatura 3/3 de todos os tipos.",
+   "porque": "Terreno que vira Goblin."
+  },
+  "Opal Palace": {
+   "notas": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{C}; {1}, vira: mana da identidade; o Krenko conjurado com ela entra com marcadores.",
+   "porque": "Filtro."
+  },
+  "Path of Ancestry": {
+   "notas": {
+    "ramp": -1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Sempre virado: mana da identidade; Goblin conjurado com ela, vidência 1.",
+   "porque": "Lento.",
+   "virado": true
+  }
+ },
+ "radar": {
+  "Skirk Prospector": {
+   "notas": {
+    "ramp": 2,
+    "goblins": 2,
+    "conversao": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Goblin 1/1 de 1. Sacrifique um Goblin: {R}.",
+   "porque": "Com o Krenko e qualquer ímpeto da lista (Warchief, Rising of the Day, Urabrask, Purphoros), laço. Nas três fontes, só como ramp.",
+   "sai": "Boom // Bust",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Thornbite Staff": {
+   "notas": {
+    "removal": 1,
+    "dano": 1,
+    "conversao": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Equipamento de 2, equipar {4}: '{2}, vira: 1 de dano' e 'uma criatura morre: desvire esta'.",
+   "porque": "No Krenko, com o Bombardment ou o Ashnod's, laço infinito. Fonte B.",
+   "sai": "Worldfire"
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Artefato de 1: {C}{C}.",
+   "porque": "O Krenko no turno 2. Fontes A e B.",
+   "sai": "Nevinyrral's Disk"
+  },
+  "Skullclamp": {
+   "notas": {
+    "draw": 3,
+    "conversao": 1
+   },
+   "tier": "S",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Equipamento de 1, equipar {1}: +1/-1; morrendo, compre duas.",
+   "porque": "Cada ficha 1/1 vira duas cartas. Fontes A e B.",
+   "sai": "Lavabrink Floodgates"
+  },
+  "Goblin Chieftain": {
+   "notas": {
+    "dano": 1,
+    "buff": 3,
+    "goblins": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Goblin 2/2 de 3 com ímpeto: outros Goblins +1/+1 e ímpeto.",
+   "porque": "Lord e ímpeto; com o Skirk, outro laço. Nas três fontes.",
+   "sai": "Goblin Diplomats",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Swiftfoot Boots": {
+   "notas": {
+    "buff": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
+   "porque": "Protege o Krenko sem barrar o Thornbite Staff. Fontes A, B e C pedem proteção.",
+   "sai": "Izzet Chemister",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Goblin Chainwhirler": {
+   "notas": {
+    "removal": 2,
+    "dano": 1,
+    "goblins": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Goblin Guerreiro 3/3 de 3 com golpe primeiro. Ao entrar, 1 de dano em cada oponente e em cada criatura e planeswalker deles.",
+   "porque": "Limpa as fichas deles sem tocar nas suas. Fonte B.",
+   "sai": "Sparksmith",
+   "marcas": {
+    "poupa": 1
+   }
+  },
+  "Pashalik Mons": {
+   "notas": {
+    "removal": 1,
+    "token": 1,
+    "dano": 2,
+    "goblins": 2,
+    "conversao": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Goblin Guerreiro lendário 2/2 de 3. Ele ou outro Goblin seu morre: 1 de dano; {3}{R}, sacrifique um Goblin: duas fichas.",
+   "porque": "Cada ficha sacrificada é mais 1 de dano. Nas três fontes.",
+   "sai": "Relic Robber"
+  },
+  "Idol of Oblivion": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 2. Vira: compre, se você criou uma ficha no turno.",
+   "porque": "O Krenko cria fichas todo turno. Fontes A e B.",
+   "sai": "Rummaging Goblin"
+  },
+  "The One Ring": {
+   "notas": {
+    "draw": 3
+   },
+   "tier": "A",
+   "rel": "INS",
+   "veredito": "entra",
+   "faz": "Artefato lendário indestrutível de 4: proteção ao conjurar; vira: compre uma por marcador; perde 1 por marcador.",
+   "porque": "Compra que cresce. Game Changer. Fontes A e B.",
+   "sai": "Hedron Archive"
+  },
+  "Impact Tremors": {
+   "notas": {
+    "dano": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Encantamento de 2: criatura sua entra, 1 de dano em cada oponente.",
+   "porque": "Uma ativação de vinte fichas são 20 em cada oponente. Fontes B e C.",
+   "sai": "Door of Destinies"
+  },
+  "Chaos Warp": {
+   "notas": {
+    "removal": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3: o dono embaralha uma permanente; revela o topo e põe se for permanente.",
+   "porque": "A resposta vermelha a qualquer coisa. Nas três fontes.",
+   "sai": "Wand of Wonder"
+  },
+  "Mana Vault": {
+   "notas": {
+    "ramp": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Artefato de 1: {C}{C}{C}; não desvira sozinho; virado no passo de compra, 1 de dano.",
+   "porque": "O Krenko no turno 2. Game Changer. Fontes A e B.",
+   "sai": "Glittering Stockpile"
+  },
+  "Goblin Ringleader": {
+   "notas": {
+    "draw": 2,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Goblin 2/2 de 4 com ímpeto. Ao entrar, revela quatro e pega os Goblins.",
+   "porque": "Compra de Goblins. Fontes A e B.",
+   "sai": "Goblin Rally"
+  },
+  "Deflecting Swat": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Instantânea de 3, grátis com um comandante seu em campo: muda os alvos de uma mágica ou habilidade.",
+   "porque": "A remoção no Krenko vai para outro lugar. Fontes B e C.",
+   "sai": "Curse of Opulence"
+  },
+  "Electrickery": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Instantânea {R}: 1 numa criatura que não é sua; sobrecarga {1}{R}: em cada uma.",
+   "porque": "Limpa as fichas deles. Fonte B.",
+   "sai": "Goblin Welder",
+   "massa": true,
+   "pontual": true,
+   "marcas": {
+    "poupa": 1
+   }
+  },
+  "Umbral Mantle": {
+   "notas": {
+    "conversao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Equipamento de 3, equipar {0}: '{3}, desvire: +2/+2'.",
+   "porque": "No Krenko com o Ashnod's, laço (659-2034-2816). Fonte B."
+  },
+  "Staff of Domination": {
+   "notas": {
+    "draw": 1,
+    "conversao": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3 com cinco habilidades, entre elas desvirar uma criatura e comprar.",
+   "porque": "Com o Ashnod's, laço com compra (659-2034-2645). Fonte B."
+  },
+  "Phyrexian Altar": {
+   "notas": {
+    "ramp": 2,
+    "dano": 1,
+    "conversao": 3
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3. Sacrifique uma criatura: uma mana de qualquer cor.",
+   "porque": "Segunda saída que vira mana; peça de vários laços. Fonte B.",
+   "marcas": {
+    "saida": 1
+   }
+  },
+  "Thousand-Year Elixir": {
+   "notas": {
+    "buff": 2,
+    "conversao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 3: habilidades das suas criaturas como se tivessem ímpeto; {1}, vira: desvira uma criatura.",
+   "porque": "Ativação imediata do Krenko e do Marvin; com o Skirk, laço (38-659-5295). Fonte A.",
+   "marcas": {
+    "imp": 1
+   }
+  },
+  "Purphoros, God of the Forge": {
+   "notas": {
+    "dano": 3
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Deus lendário de 4: outra criatura sua entra, 2 de dano em cada oponente.",
+   "porque": "O Impact Tremors em dobro. Fonte B."
+  },
+  "Siege-Gang Commander": {
+   "notas": {
+    "removal": 1,
+    "token": 2,
+    "dano": 2,
+    "goblins": 2,
+    "conversao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Goblin 2/2 de 5. Ao entrar, três fichas; {1}{R}, sacrifique um Goblin: 2 de dano.",
+   "porque": "Fichas e saída de dano. Fontes B e C."
+  },
+  "Goblin Recruiter": {
+   "notas": {
+    "draw": 2,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Goblin 1/1 de 2. Ao entrar, busca quantos Goblins quiser e os põe no topo em qualquer ordem.",
+   "porque": "Prepara o Muxus e o Ringleader. Fonte A."
+  },
+  "Conspicuous Snoop": {
+   "notas": {
+    "draw": 2,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Goblin Ladino de 2: topo revelado; conjura Goblins do topo e tem as habilidades ativadas do Goblin do topo.",
+   "porque": "Compra de Goblins. Fontes B e C."
+  },
+  "Ancient Tomb": {
+   "notas": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Terreno: {C}{C}, com 2 de dano.",
+   "porque": "Aceleração. Game Changer. Fontes A e B.",
+   "sai": "Opal Palace"
+  },
+  "Jeska's Will": {
+   "notas": {
+    "ramp": 2,
+    "draw": 2
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 3: {R} por carta na mão de um oponente; com comandante, também exila três e você joga.",
+   "porque": "Mana e compra. Game Changer. Fontes A e B."
+  },
+  "Gamble": {
+   "notas": {
+    "draw": 2,
+    "conversao": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Feitiço {R}: busca qualquer carta e descarta uma ao acaso.",
+   "porque": "Acha a peça do laço. Game Changer. Fonte B."
+  },
+  "Vanquisher's Banner": {
+   "notas": {
+    "draw": 2,
+    "buff": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Artefato de 5 do tipo escolhido: +1/+1; compre a cada mágica de criatura dele.",
+   "porque": "Lord e compra. Fonte B."
+  },
+  "Blasphemous Act": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 9, uma a menos por criatura: 13 de dano em cada criatura.",
+   "porque": "Com o Eldrazi Monument, só o lado deles morre; com o Brash Taunter e o Fiery, 117. Fontes A e C.",
+   "massa": true
+  },
+  "Abrade": {
+   "notas": {
+    "removal": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea de 2: 3 numa criatura ou destrói um artefato.",
+   "porque": "Resposta barata. Fonte B."
+  },
+  "Pyroblast": {
+   "notas": {
+    "removal": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Instantânea {R}: anula mágica azul ou destrói permanente azul.",
+   "porque": "A anulação do vermelho. Fonte B."
+  },
+  "Cavern of Souls": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno do tipo escolhido: {C}, ou qualquer cor para criatura dele, que não pode ser anulada.",
+   "porque": "Goblins que não são anulados. Fonte A.",
+   "sai": "Soulstone Sanctuary"
+  },
+  "Three Tree City": {
+   "notas": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno lendário do tipo escolhido: {C}; {2}, vira: uma mana de uma cor por criatura desse tipo.",
+   "porque": "Mana da horda. Fonte A."
+  },
+  "Goblin Trashmaster": {
+   "notas": {
+    "removal": 2,
+    "buff": 2,
+    "goblins": 1,
+    "conversao": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Goblin Guerreiro 3/3 de 4: outros Goblins +1/+1; sacrifique um Goblin: destrói um artefato.",
+   "porque": "Lord e remoção de artefato. Fontes A e C."
+  },
+  "Goblin Chirurgeon": {
+   "notas": {
+    "goblins": 1,
+    "conversao": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Goblin Xamã 0/2 de 1. Sacrifique um Goblin: regenera uma criatura.",
+   "porque": "Protege o Krenko de destruição. Fonte A."
+  },
+  "Krenko, Tin Street Kingpin": {
+   "notas": {
+    "token": 2,
+    "dano": 1,
+    "goblins": 2
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Goblin lendário 1/2 de 3. Ao atacar, +1/+1 e fichas iguais à força.",
+   "porque": "Outro gerador. Fonte C."
+  },
+  "Lightning Greaves": {
+   "notas": {
+    "buff": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
+   "porque": "O manto impede equipar o Thornbite Staff no Krenko; as Boots não. Nas três fontes."
+  },
+  "Goblin King": {
+   "notas": {
+    "dano": 1,
+    "buff": 2,
+    "goblins": 1
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Goblin 2/2 de 3: outros Goblins +1/+1 e travessia de montanha.",
+   "porque": "Dá +1/+1 aos Goblins dos oponentes também. Fonte C."
+  },
+  "Wheel of Fortune": {
+   "notas": {
+    "draw": 2
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Feitiço de 3: cada jogador descarta a mão e compra sete.",
+   "porque": "Recarrega os três oponentes; o Skullclamp e o Idol compram só para você. Fonte C."
+  }
+ },
+ "combos": [
+  {
+   "nome": "Laço do Skirk com Goblin Warchief",
+   "tipo": "Combo",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Skirk Prospector",
+    "Goblin Warchief"
+   ],
+   "texto": "O Krenko vira e cria fichas; o Skirk o sacrifica, e ele volta ao comando; as fichas sacrificadas pagam o Krenko de novo, com o imposto; ele entra com ímpeto e vira outra vez, com mais Goblins. Commander Spellbook 38-659-1288. O Skirk é do radar."
+  },
+  {
+   "nome": "Laço do Skirk com Rising of the Day",
+   "tipo": "Combo",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Skirk Prospector",
+    "Rising of the Day"
+   ],
+   "texto": "O Krenko vira e cria fichas; o Skirk o sacrifica, e ele volta ao comando; as fichas sacrificadas pagam o Krenko de novo, com o imposto; ele entra com ímpeto e vira outra vez, com mais Goblins. Commander Spellbook 38-659-1879. O Skirk é do radar."
+  },
+  {
+   "nome": "Laço do Skirk com Urabrask the Hidden",
+   "tipo": "Combo",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Skirk Prospector",
+    "Urabrask the Hidden"
+   ],
+   "texto": "O Krenko vira e cria fichas; o Skirk o sacrifica, e ele volta ao comando; as fichas sacrificadas pagam o Krenko de novo, com o imposto; ele entra com ímpeto e vira outra vez, com mais Goblins. Commander Spellbook 38-647-659. O Skirk é do radar."
+  },
+  {
+   "nome": "Laço do Skirk com Purphoros",
+   "tipo": "Combo",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Skirk Prospector",
+    "Purphoros, Bronze-Blooded"
+   ],
+   "texto": "O Krenko vira e cria fichas; o Skirk o sacrifica, e ele volta ao comando; as fichas sacrificadas pagam o Krenko de novo, com o imposto; ele entra com ímpeto e vira outra vez, com mais Goblins. Commander Spellbook 38-659-3480. O Skirk é do radar."
+  },
+  {
+   "nome": "Bastão e Bombardeio",
+   "tipo": "Combo",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Thornbite Staff",
+    "Goblin Bombardment"
+   ],
+   "texto": "O Staff no Krenko: cada Goblin sacrificado ao Bombardment desvira o Krenko, que cria mais fichas. Dano infinito. Commander Spellbook 659-2178-5147. O Staff é do radar."
+  },
+  {
+   "nome": "Bastão e Altar",
+   "tipo": "Combo",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Thornbite Staff",
+    "Ashnod's Altar"
+   ],
+   "texto": "O mesmo laço, com mana infinita no lugar do dano. Commander Spellbook 659-2034-2178."
+  },
+  {
+   "nome": "Taunter triplicado",
+   "tipo": "Motor",
+   "pecas": [
+    "Brash Taunter",
+    "Fiery Emancipation"
+   ],
+   "texto": "Todo dano no Taunter volta triplicado a um oponente, e o Fiery triplica de novo. Com o Blasphemous Act do radar: 13 × 3 = 39 no Taunter, 117 no oponente. Nenhuma análise juntou."
+  },
+  {
+   "nome": "Bola de fogo da horda",
+   "tipo": "Motor",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Hobgoblin Bandit Lord"
+   ],
+   "texto": "Depois de uma ativação do Krenko, o Bandit Lord causa dano igual a todos os Goblins que entraram no turno."
+  },
+  {
+   "nome": "Horda com ímpeto",
+   "tipo": "Motor",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Enduring Courage"
+   ],
+   "texto": "Cada ficha entra 3/1 e ataca na hora; o Krenko que acabou de chegar também ativa."
+  },
+  {
+   "nome": "Horda voadora",
+   "tipo": "Motor",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Eldrazi Monument"
+   ],
+   "texto": "As fichas voam, são indestrutíveis e +1/+1; uma delas paga o custo da manutenção."
+  },
+  {
+   "nome": "Segundo Krenko",
+   "tipo": "Motor",
+   "pecas": [
+    "Krenko, Mob Boss",
+    "Marvin, Murderous Mimic"
+   ],
+   "texto": "O Marvin tem a habilidade do Krenko e dobra a horda de novo no mesmo turno."
+  },
+  {
+   "nome": "Armadilha: limpeza que mata a horda",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Nevinyrral's Disk",
+    "Lavabrink Floodgates"
+   ],
+   "texto": "Disk, Floodgates, Worldfire e Bust acertam o seu lado. O Chainwhirler e o Electrickery do radar limpam só o deles."
+  },
+  {
+   "nome": "Armadilha: Sparksmith",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Sparksmith",
+    "Krenko, Mob Boss"
+   ],
+   "texto": "O dano em você é igual ao número de Goblins em campo: com a horda grande, ele mata você antes."
+  }
+ ]
+}
