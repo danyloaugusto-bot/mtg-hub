@@ -68,6 +68,21 @@ with open(a.origem, encoding="utf-8") as f:
 with open(novo, encoding="utf-8") as f:
     h = f.read()
 N = json.loads(re.search(r"var D = (\{.*?\});\nvar M = ", h, re.S).group(1))
+# nome impresso: o motor mostra o nome da carta física e guarda o do Scryfall em "on"; o painel de origem é anterior a isso,
+# então a comparação devolve os nomes impressos aos do Scryfall, nos campos e nos textos. Qualquer outra diferença continua falhando.
+IMPRESSO = {c["n"]: c["on"] for c in N["cards"] + N["cands"] if c.get("on")}
+def scry(v):
+    if isinstance(v, str):
+        for imp, sf in IMPRESSO.items():
+            v = v.replace(imp, sf)
+        return v
+    if isinstance(v, list):
+        return [scry(x) for x in v]
+    if isinstance(v, dict):
+        return {k: scry(x) for k, x in v.items() if k != "on"}
+    return v
+for chave in ("cards", "cands", "combos"):
+    N[chave] = scry(N[chave])
 IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain"}
 dif = []
 for chave in ("cards", "cands"):

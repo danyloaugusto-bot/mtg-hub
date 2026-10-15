@@ -373,8 +373,10 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
         d["usdf"] = sf["usd_foil"]
     if d.get("etched") and sf.get("usd_etched"):
         d["usdf"] = sf["usd_etched"]
-    if entrada is not None and nome_impresso(sf):
-        # o painel mostra o nome da carta física; o do Scryfall fica guardado para busca, links e exportação
+    if entrada is not None and entrada.get("set") and nome_impresso(sf):
+        # o painel mostra o nome da carta física; o do Scryfall fica guardado para busca, links e exportação.
+        # Só quando a lista diz a impressão: sem edição, o Scryfall devolve a impressão mais nova, que pode ter outro
+        # nome impresso (o Lightning Bolt sem edição do Storm virava "Hadoken", do Secret Lair de Street Fighter).
         d["on"] = nome
         d["n"] = nome_impresso(sf)
     return d
