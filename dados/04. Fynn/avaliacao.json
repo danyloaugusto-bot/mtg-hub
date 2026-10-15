@@ -1,4 +1,5 @@
 {
+ "versao_pontuacao": 3,
  "feito": "09/10/2026",
  "agrupamentos": [
   {
@@ -182,7 +183,7 @@
  "estrategia": {
   "inicio": {
    "turnos": "1 a 3",
-   "plano": "Uma criatura de 1 mana com toque mortífero no turno 1, o Fynn no turno 2, e o ataque começa no turno 3. Sol Ring e Wild Growth adiantam um turno.",
+   "plano": "Uma criatura de 1 mana com toque mortífero no turno 1 e o Fynn no turno 2, antes do combate: o ataque começa no turno 2. Sol Ring e Wild Growth adiantam um turno.",
    "fortes": [
     "Quatro criaturas de 1 mana com toque mortífero (Ankle Biter, Fang of Shigeki, Sedge Scorpion, Tajuru Blightblade) e quatro de 2 (Ambush Viper, Deadly Recluse, Thornweald Archer, Flesh Burrower).",
     "O Fynn custa 2: volta à mesa barato se for removido."
@@ -266,6 +267,12 @@
     "buff": 2,
     "dupla": 2
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "É o comandante: toda criatura sua com toque mortífero que conecta dá dois venenos, e ele mesmo tem toque mortífero."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "1/3 toque mortífero, de 2 manas. Sempre que uma criatura sua com toque mortífero causa dano de combate a um jogador, ele recebe dois marcadores de veneno.",
@@ -278,6 +285,12 @@
   "Ankle Biter": {
    "notas": {
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
    },
    "tier": "A",
    "rel": "ALT",
@@ -292,6 +305,12 @@
    "notas": {
     "sinergia": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "1/1 toque mortífero, de 1 mana. É também encantamento.",
@@ -305,6 +324,12 @@
    "notas": {
     "sinergia": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "1/1 toque mortífero, de 1 mana.",
@@ -317,6 +342,12 @@
   "Tajuru Blightblade": {
    "notas": {
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
    },
    "tier": "A",
    "rel": "ALT",
@@ -332,6 +363,12 @@
     "sinergia": 3,
     "protecao": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "2/1 flash e toque mortífero.",
@@ -344,6 +381,12 @@
   "Deadly Recluse": {
    "notas": {
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
    },
    "tier": "B",
    "rel": "MED",
@@ -358,6 +401,12 @@
    "notas": {
     "sinergia": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "2/1 alcance e toque mortífero.",
@@ -371,6 +420,12 @@
    "notas": {
     "sinergia": 3,
     "dupla": 2
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Tem toque mortífero e dá toque mortífero a outra criatura a cada ataque: dois gatilhos por combate."
    },
    "tier": "A",
    "rel": "INS",
@@ -387,6 +442,12 @@
     "sinergia": 2,
     "dupla": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "2/2 toque mortífero de 5. Ao entrar, destrói um artefato, encantamento ou terreno.",
@@ -401,6 +462,12 @@
     "sinergia": 3,
     "buff": 3,
     "dupla": 2
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Põe cinco criaturas voadoras com toque mortífero em campo de uma vez."
    },
    "tier": "S",
    "rel": "INS",
@@ -417,6 +484,14 @@
     "buff": 2,
     "dupla": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Envenena sozinha, com tóxico 1; sem toque mortífero, não dispara o Fynn.",
+    "sin2": "Motor de proliferar: prolifera a cada dano de combate a um jogador."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "4/4 atropelar, de 3. Toxic 1. Ao causar dano de combate a um jogador, prolifera.",
@@ -430,6 +505,12 @@
    "notas": {
     "buff": 1,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Envenena sozinha, com tóxico 2; sem toque mortífero, não dispara o Fynn."
    },
    "tier": "C",
    "rel": "MED",
@@ -446,6 +527,12 @@
     "buff": 1,
     "dupla": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Envenena sozinha, com infectar; sem toque mortífero, não dispara o Fynn."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "1/1 infect, de 2 manas. Vira: um incolor.",
@@ -461,6 +548,12 @@
     "buff": 1,
     "dupla": 2
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Prolifera uma vez, como um dos modos ao entrar."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "2/2 vigilância, de 3. Ao entrar, +2/+2 e vigilância em uma criatura, ou prolifera.",
@@ -470,6 +563,12 @@
    "notas": {
     "prolif": 2,
     "dupla": 1
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Prolifera uma vez, como um dos modos ao entrar."
    },
    "tier": "B",
    "rel": "MED",
@@ -482,6 +581,12 @@
     "prolif": 2,
     "dupla": 3
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Prolifera uma vez, como um dos modos ao ser sacrificada."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "3/2 de 2. 1 e sacrifica: destrói artefato, destrói encantamento, ou prolifera.",
@@ -490,6 +595,12 @@
   "Courage in Crisis": {
    "notas": {
     "prolif": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Prolifera uma vez, sem condição."
    },
    "tier": "C",
    "rel": "BAX",
@@ -503,6 +614,12 @@
     "prolif": 2,
     "dupla": 2
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Prolifera só pelos terrenos que faltarem entre as seis do topo: sob condição."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Olha as seis do topo e põe até duas terras viradas; para cada terra que faltar, prolifera.",
@@ -514,6 +631,12 @@
     "prolif": 2,
     "dupla": 2
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Prolifera uma vez ao entrar; a mana a mais vem do veneno já espalhado."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 3, entra virado e prolifera. Vira: qualquer cor. Corrupted: com um oponente com três ou mais venenos, vira por três manas de uma cor.",
@@ -523,6 +646,12 @@
    "notas": {
     "prolif": 3,
     "removal": 1
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Prolifera duas vezes a cada ativação, todo turno."
    },
    "tier": "A",
    "rel": "ALT",
@@ -534,6 +663,12 @@
     "sinergia": 3,
     "protecao": 1,
     "dupla": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Dá toque mortífero à criatura equipada: ela vira gatilho do Fynn."
    },
    "tier": "A",
    "rel": "INS",
@@ -549,6 +684,12 @@
     "buff": 3,
     "dupla": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Dá toque mortífero à criatura equipada: ela vira gatilho do Fynn."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Equipamento de 3: toque mortífero. Ao causar dano de combate a um jogador, ele perde metade da vida, arredondada para cima. Equipar 3.",
@@ -563,6 +704,12 @@
     "sinergia": 2,
     "dupla": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Dá toque mortífero a uma criatura no turno: um gatilho do Fynn a mais."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de 2: toque mortífero e indestrutível até o fim do turno.",
@@ -575,6 +722,8 @@
    "notas": {
     "buff": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Equipamento: +1/+1 por terra sua. Equipar em lendária 3, senão 7.",
@@ -583,6 +732,12 @@
   "Loxodon Warhammer": {
    "notas": {
     "buff": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dá atropelar a uma criatura só, sem toque mortífero."
    },
    "tier": "C",
    "rel": "MED",
@@ -596,6 +751,8 @@
    "notas": {
     "buff": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Equipamento de 5 com um Germe. +1/+1; ao causar dano de combate a um jogador, ele perde metade da vida. Equipar 3.",
@@ -606,6 +763,8 @@
    "notas": {
     "buff": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 1: +X/+X, X igual à sua devoção ao verde.",
@@ -614,6 +773,12 @@
   "Strength in Numbers": {
    "notas": {
     "buff": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dá atropelar a uma criatura só, no turno, sem toque mortífero."
    },
    "tier": "C",
    "rel": "MED",
@@ -627,6 +792,12 @@
    "notas": {
     "buff": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Dá atropelar ao time inteiro no turno em que entra."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "7/7 vigilância, atropelar e pressa, de 8. Ao entrar, as outras criaturas ganham +2/+2, vigilância e atropelar.",
@@ -639,6 +810,8 @@
    "notas": {
     "buff": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 7: +10/+10 e vigilância até o fim do turno.",
@@ -649,6 +822,8 @@
    "notas": {
     "buff": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "D",
    "rel": "BAX",
    "faz": "Aura de 7: +20/+20, e vira a criatura ao entrar.",
@@ -661,6 +836,8 @@
     "buff": 2,
     "dupla": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 5: compra cartas igual ao maior poder entre suas criaturas não Humanas, ou +3/+3 nelas.",
@@ -670,6 +847,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de 1: um marcador +1/+1 e hexproof até o fim do turno.",
@@ -679,6 +858,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Equipamento: hexproof e pressa. Equipar 1.",
@@ -688,6 +869,8 @@
    "notas": {
     "protecao": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Equipamento: pressa e shroud. Equipar 0.",
@@ -697,6 +880,8 @@
    "notas": {
     "protecao": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Equipamento: +1/+2 e hexproof. Equipar 3.",
@@ -709,6 +894,8 @@
     "protecao": 2,
     "dupla": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea com escalada: destrói artefato, destrói encantamento, ou hexproof e indestrutível numa criatura.",
@@ -718,6 +905,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de 3: destrói qualquer permanente; o dono cria uma Fera 3/3.",
@@ -727,6 +916,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 1: cada oponente sacrifica um artefato, um encantamento ou um voador.",
@@ -738,6 +929,8 @@
     "removal": 2,
     "dupla": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 1: busca um básico, ou uma criatura sua luta com uma de fora.",
@@ -747,6 +940,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 5 com cascata: destrói artefato ou encantamento.",
@@ -757,6 +952,8 @@
     "removal": 1,
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 4: escolhe um artefato ou encantamento por oponente; cada um pode exilá-lo, e para cada um que ficar você busca uma terra.",
@@ -767,6 +964,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 8: para cada criatura dos oponentes, cria uma Fera 4/4 que luta com ela.",
@@ -778,6 +977,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "2/7 alcance. XGG: X de dano em cada voador.",
@@ -787,6 +988,8 @@
    "notas": {
     "removal": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "D",
    "rel": "BAX",
    "faz": "Dano igual à devoção ao verde em cada voador.",
@@ -797,6 +1000,8 @@
    "notas": {
     "removal": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "D",
    "rel": "BAX",
    "faz": "Instantânea: X de dano em cada voador.",
@@ -810,6 +1015,8 @@
     "ramp": 1,
     "dupla": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "1/2 de 1. 2 e sacrifica: destrói artefato, destrói encantamento, ou compra e põe uma terra da mão.",
@@ -819,6 +1026,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "S",
    "rel": "INS",
    "faz": "Vira: dois incolores.",
@@ -828,6 +1037,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Vira: verde.",
@@ -837,6 +1048,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Aura de 1 numa terra: gera G a mais.",
@@ -846,6 +1059,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Busca dois básicos: um no campo virado, o outro na mão.",
@@ -856,6 +1071,8 @@
     "ramp": 1,
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Terra extra no turno e compra uma.",
@@ -865,15 +1082,19 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "3/3 vigilância de 3. Suas criaturas têm 'vira: uma mana de qualquer cor'. Se morrer como criatura, volta como encantamento.",
-   "porque": "Cada criatura vira fonte de mana e ela resiste à remoção. Mas virar por mana e atacar são a mesma ação: no turno do ataque, a mana some."
+   "porque": "Cada criatura vira fonte de mana e ela resiste à remoção. Mas, sem vigilância, virar por mana e atacar disputam a mesma criatura: no turno do ataque, a mana some. A própria Vitality, o Sporesinger e o time no turno do End-Raze atacam e ainda viram por mana."
   },
   "Karametra's Acolyte": {
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "1/4 de 4. Vira: G igual à devoção ao verde.",
@@ -887,6 +1108,8 @@
     "buff": 1,
     "dupla": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Aventura de 3 (Fertile Footsteps): busca um básico para o campo. Depois, Gigante */* igual às suas terras, de 7.",
@@ -897,6 +1120,8 @@
     "ramp": 2,
     "buff": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Artefato de 6: criaturas da cor escolhida ganham +1/+1; terra que gera essa cor gera uma a mais.",
@@ -909,6 +1134,8 @@
     "draw": 2,
     "buff": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "X GGG: revela X e põe no campo as permanentes de valor X ou menos.",
@@ -918,6 +1145,8 @@
    "notas": {
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 4: compra três.",
@@ -927,6 +1156,8 @@
    "notas": {
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "2, vira: compra, se você tem três terras com o mesmo nome.",
@@ -935,6 +1166,12 @@
   "Tome of Legends": {
    "notas": {
     "draw": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Rende quando o comandante ataca, sem envenenar."
    },
    "tier": "B",
    "rel": "MED",
@@ -945,6 +1182,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Scry 1 na manutenção; ao conjurar criatura, paga G e compra.",
@@ -954,6 +1193,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 5: compra igual ao poder de uma criatura sua.",
@@ -964,6 +1205,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Artefato de 4: cada jogador compra mais duas no seu passo de compra.",
@@ -976,6 +1219,8 @@
     "draw": 2,
     "dupla": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "2/1 de 3. Ao morrer, busca dois básicos para a mão. 2, sacrifica: compra.",
@@ -983,6 +1228,8 @@
   },
   "Forest": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
@@ -991,6 +1238,12 @@
   "Karn's Bastion": {
    "notas": {
     "prolif": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Motor de proliferar: por {4}, prolifera todo turno, num terreno."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1001,6 +1254,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. 3G, vira, sacrifica: busca dois básicos virados.",
@@ -1010,6 +1265,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Entra virada. 2, vira, sacrifica: busca dois básicos do mesmo tipo virados.",
@@ -1018,6 +1275,8 @@
   },
   "Temple of the False God": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "D",
    "rel": "BAX",
    "faz": "Vira: dois incolores, só com cinco terras.",
@@ -1028,6 +1287,8 @@
    "notas": {
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. 4, vira, sacrifica: você vira o monarca.",
@@ -1042,6 +1303,12 @@
     "draw": 3,
     "dupla": 3
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Dá toque mortífero a todos os atacantes, de forma contínua."
+   },
    "tier": "S",
    "rel": "INS",
    "veredito": "entra",
@@ -1053,6 +1320,12 @@
    "notas": {
     "sinergia": 3,
     "protecao": 1
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Dá toque mortífero a todos os atacantes, de forma contínua."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1067,16 +1340,28 @@
     "protecao": 2,
     "dupla": 2
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Dá toque mortífero às outras criaturas viradas, como ficam as que atacam sem vigilância, de forma contínua."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "3/4 de 4. As outras criaturas viradas têm toque mortífero; as desviradas têm hexproof.",
-   "porque": "Atacar vira as criaturas: todas com toque mortífero. Na defesa, hexproof para a mesa.",
+   "porque": "Atacar vira as criaturas: as outras ganham toque mortífero, mas não a Saryth nem quem tem vigilância (o time no turno do End-Raze ou do Preposterous Proportions). Na defesa, hexproof para a mesa.",
    "sai": "Caged Sun"
   },
   "Toski, Bearer of Secrets": {
    "notas": {
     "draw": 3
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Rende quando uma criatura sua conecta, sem envenenar."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1088,6 +1373,12 @@
   "Triumph of the Hordes": {
    "notas": {
     "buff": 3
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Dá veneno, com infectar, e atropelar ao time inteiro no turno."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1101,6 +1392,12 @@
     "buff": 2,
     "dupla": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Evasão para o time inteiro: criaturas de força menor que a dela não bloqueiam as suas."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1112,6 +1409,14 @@
    "notas": {
     "removal": 2,
     "dupla": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Dá veneno fora do combate, uma vez.",
+    "sin2": "Dá o primeiro veneno a todos os oponentes de uma vez."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1127,6 +1432,14 @@
     "buff": 2,
     "dupla": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Envenena sozinha, com tóxico 1; sem toque mortífero, não dispara o Fynn.",
+    "sin2": "Motor de proliferar: prolifera a cada combate em que criaturas suas conectam."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1137,6 +1450,12 @@
   "Evolution Sage": {
    "notas": {
     "prolif": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Motor de proliferar: prolifera a cada terreno que entra."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1149,6 +1468,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1159,6 +1480,12 @@
   "Rogue's Passage": {
    "notas": {
     "buff": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Deixa uma criatura só imbloqueável, pagando {4} a cada vez, sem toque mortífero."
    },
    "tier": "B",
    "rel": "MED",
@@ -1171,6 +1498,12 @@
    "notas": {
     "buff": 3,
     "prolif": 2
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Dobra os marcadores que você põe, inclusive os de cada proliferar."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1185,6 +1518,12 @@
     "sinergia": 2,
     "dupla": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com toque mortífero: um gatilho do Fynn a cada conexão."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1196,6 +1535,8 @@
    "notas": {
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1206,6 +1547,14 @@
   "Venerated Rotpriest": {
    "notas": {
     "buff": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Envenena sozinha, com tóxico 1; sem toque mortífero, não dispara o Fynn.",
+    "sin2": "Dá veneno fora do combate a um oponente por vez, só quando uma criatura sua vira alvo de mágica."
    },
    "tier": "C",
    "rel": "MED",

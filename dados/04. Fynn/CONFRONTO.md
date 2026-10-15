@@ -57,16 +57,16 @@ Concordância não prova nada. Abaixo, o que o texto das cartas diz.
 
 ## O que entra no radar a partir daqui
 
-As cartas que dão toque mortífero a **todos os atacantes** (Ohran Frostfang, Bow of Nylea e Saryth, the Viper's Fang) transformam cada atacante num gatilho do Fynn. Nenhuma das análises de fora pôs isso em primeiro lugar. Todas estão na identidade verde, conferido no Scryfall.
+As cartas que dão toque mortífero a **todos os atacantes** (Ohran Frostfang, Bow of Nylea e, para os outros atacantes sem vigilância, Saryth, the Viper's Fang) transformam cada atacante num gatilho do Fynn. Nenhuma das análises de fora pôs isso em primeiro lugar. Todas estão na identidade verde, conferido no Scryfall.
 
 ## A análise do Claude (chegou depois do rascunho)
 
-Confirma o que este confronto já tinha (o Fynn não dá infect; Basilisk Collar e atropelar fazem o dano passar; o shroud do Lightning Greaves barra as suas mágicas; os três que dão toque mortífero a todos os atacantes são as melhores entradas). O texto de todas as cartas que ela cita confere no Scryfall.
+Confirma o que este confronto já tinha (o Fynn não dá infect; Basilisk Collar e atropelar fazem o dano passar; o shroud do Lightning Greaves barra as suas mágicas; os três que dão toque mortífero aos atacantes são as melhores entradas). O texto de todas as cartas que ela cita confere no Scryfall.
 
 **O que ela viu e eu não, e que o texto sustenta:**
 
 - **Windstorm, Skyreaping e Silklash Spider matam a sua própria Hornet Queen.** As três atingem toda criatura com voar. Entrou na avaliação e como armadilha.
-- **Enduring Vitality contra atacar.** Virar a criatura por mana e atacar com ela são a mesma ação. Ela desceu de A para B.
+- **Enduring Vitality contra atacar.** Sem vigilância, virar a criatura por mana e atacar com ela não cabem no mesmo turno. Ela desceu de A para B.
 - **Caged Sun dobra só a mana de terreno**, não a do Vitality nem a do Acolyte.
 - **Ezuri's Predation não gera veneno:** luta não é dano de combate, e as Feras não têm toque mortífero.
 - **Três relógios que não se somam:** veneno, dano de comandante (Colossification e Blackblade no Fynn) e metade da vida (Scytheclaw e Quietus Spike).

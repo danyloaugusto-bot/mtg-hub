@@ -29,9 +29,9 @@ Concordância não prova nada. Aqui o texto sustenta: Curse of Thirst causa dano
 | Carta | A | B | C | Sigo | Por quê |
 |---|---|---|---|---|---|
 | Archfiend of Depravity | — | corta | A, ALT | C | Limpeza de um lado só a cada turno de oponente, e com Cruel Reality o oponente fica sem mesa. |
-| Alexios | corta | — | B, MÉD | C | Roda a mesa atacando todos menos você e dispara Opulence, Verbosity e Disturbance a cada ataque. |
+| Alexios | corta | — | B, MÉD | C | Roda a mesa atacando todos menos você e dispara Opulence, Verbosity e Disturbance quando ataca o amaldiçoado, à escolha de quem o controla no turno. |
 | Hydroelectric Specimen | corta | — | C, MÉD | C | É terreno no verso. Cortar tira o deck de 35 para 34 fontes. |
-| Captive Audience | corta | — | B, MÉD | C | Mata um jogador em três turnos. Mas não é Maldição: destruída, não volta. |
+| Captive Audience | corta | — | B, MÉD | C | Não mata sozinha: vida em 4, mão vazia e cinco Zumbis para cada oponente dele. Mas não é Maldição: destruída, não volta. |
 | Relic of Sauron | — | corta | B, ALT | C | Duas manas coloridas num deck de três cores. |
 | Court of Vantress | corta | corta | B, MÉD | A e B | O deck defende mal a coroa. |
 | Curse of Echoes | entra | entra | fora | C | Dá a cópia a cada outro jogador, não só a você. |

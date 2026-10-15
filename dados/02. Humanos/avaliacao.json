@@ -1,4 +1,5 @@
 {
+ "versao_pontuacao": 3,
  "feito": "08/10/2026",
  "agrupamentos": [
   {
@@ -164,7 +165,7 @@
     "carta perde força com o +2/+2",
     "cartas perdem força com o +2/+2"
    ],
-   "alerta": "Com quatro Humanos, as fichas entram 3/3: não morrem com a Skullclamp, não disparam a Enduring Innocence e morrem com Dusk.",
+   "alerta": "Com quatro Humanos, as fichas Humanas entram 3/3: não morrem com a Skullclamp, não disparam a Enduring Innocence e morrem com Dusk.",
    "ok": "Nada brigando com o comandante."
   },
   {
@@ -204,7 +205,7 @@
     "Proteção em massa de sobra: o Flawless Maneuver sai de graça, e Selfless Spirit e Spectacular Spider-Man se sacrificam na hora."
    ],
    "fracos": [
-    "Com o Greymond ativo, Skullclamp e Enduring Innocence param de comprar.",
+    "Com o Greymond ativo, Skullclamp e Enduring Innocence param de comprar com as fichas Humanas.",
     "Quase sem evasão: dez 3/3 param numa mesa com dez bloqueadores."
    ]
   },
@@ -269,6 +270,14 @@
     "buff": 3,
     "sinergia": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "É o comandante: conta para os quatro Humanos e arma todos eles; a regra o põe em 3.",
+    "sin2": "Dá vigilância e vínculo a todos os Humanos e +2/+2 com quatro: o bônus que arma a mesa inteira; a regra o põe em 3."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "3/4. Ao entrar, escolhe duas entre first strike, vigilância e vínculo com a vida, e os seus Humanos ganham as duas. Com quatro ou mais Humanos, os seus Humanos ganham +2/+2.",
@@ -280,6 +289,12 @@
     "tax": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro do Greymond e recebe o bônus; a taxa no ataque não se volta aos outros Humanos."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "2/4 vigilância. Atacar você custa 1 por criatura.",
@@ -289,6 +304,12 @@
    "notas": {
     "removal": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus; a remoção não se volta aos outros Humanos."
    },
    "tier": "B",
    "rel": "MED",
@@ -300,6 +321,12 @@
     "removal": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "3/1 com lampejo. 1 e sacrifica: destrói artefato ou encantamento.",
@@ -310,6 +337,14 @@
     "removal": 1,
     "token": 3,
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano que cria fichas Humanas em série, a cada terreno ou mágica do tipo exilado.",
+    "sin2": "Motor de fichas: uma ficha Humana a cada terreno ou mágica do tipo exilado."
    },
    "tier": "A",
    "rel": "ALT",
@@ -323,10 +358,12 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "2/1 vínculo. Compra 1, uma vez por turno, quando outra criatura sua de poder 2 ou menos entra. Volta como encantamento ao morrer.",
-   "porque": "Não é Humano, e para de comprar com o Greymond ativo: o poder é checado na entrada, e a ficha entra 3/3.",
+   "porque": "Não é Humano, e as fichas Humanas param de comprar com o Greymond ativo: o poder é checado na entrada, e elas entram 3/3.",
    "marcas": {
     "anti": 1
    },
@@ -338,6 +375,12 @@
     "tax": 2,
     "sinergia": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o +2/+2, que ainda sobe a taxa dela para 3; não mexe com os outros Humanos."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "1/1. A primeira mágica não criatura de cada oponente por turno custa X a mais ou você compra, X sendo o poder dele.",
@@ -347,6 +390,12 @@
    "notas": {
     "removal": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
    },
    "tier": "B",
    "rel": "MED",
@@ -361,6 +410,14 @@
     "removal": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus; o treinamento só faz crescer a ela mesma.",
+    "sin2": "O treinamento põe marcador +1/+1 só nela mesma."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "1/2 com training. 2W e remove dois marcadores +1/+1 de criaturas suas: destrói artefato ou encantamento.",
@@ -372,6 +429,12 @@
     "removal": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "2/1 vigilância. Ao entrar destrói artefato ou encantamento. Vira: você e um oponente compram.",
@@ -382,6 +445,14 @@
     "tax": 1,
     "sinergia": 3,
     "token": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano que cria uma ficha Humana por turno, e cada Humano que entra vira uma criatura de oponente.",
+    "sin2": "Motor de fichas: uma ficha Humana em toda manutenção."
    },
    "tier": "A",
    "rel": "ALT",
@@ -397,6 +468,12 @@
     "removal": 3,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "É Humano, mas o efeito destrói a própria mesa de Humanos: a regra o deixa em 1."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Entra virado. 1 e vira: destrói todos os artefatos, criaturas e encantamentos.",
@@ -409,6 +486,12 @@
     "protecao": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Lampejo. Suas criaturas viradas bloqueiam como se estivessem desviradas.",
@@ -419,6 +502,14 @@
    "notas": {
     "buff": 2,
     "sinergia": 2
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Shapeshifter, conta como Humano, e põe marcador +1/+1 em cada outro Humano que entra.",
+    "sin2": "Marcador +1/+1 contínuo em cada Humano que entra."
    },
    "tier": "B",
    "rel": "MED",
@@ -431,6 +522,12 @@
     "tax": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "2/2. Quando uma fonte de um oponente causa dano a você, ele sacrifica uma permanente.",
@@ -441,6 +538,14 @@
     "buff": 3,
     "sinergia": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro; o marcador vai para todas as criaturas, sem se voltar aos Humanos.",
+    "sin2": "Marcador +1/+1 em todas as suas outras criaturas, repetível por ativação com virar."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Entra com X marcadores. Vira: põe um nele. Vira e remove um: põe um em cada outra criatura sua.",
@@ -450,6 +555,14 @@
    "notas": {
     "buff": 3,
     "sinergia": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Changeling, conta como Humano; o efeito vale para todas as criaturas, não só para os Humanos.",
+    "sin2": "A mesa inteira vira X/X e ganha todos os tipos, e o +2/+2 do Greymond soma por cima: multiplica a mesa."
    },
    "tier": "A",
    "rel": "ALT",
@@ -464,6 +577,12 @@
     "protecao": 3,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus; a proteção vale para qualquer criatura sua."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "Vira: uma criatura sua ganha proteção contra uma cor.",
@@ -474,6 +593,12 @@
     "draw": 2,
     "sinergia": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro; busca criatura de resistência até 2 sem citar Humanos."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Ao entrar, busca criatura de resistência 2 ou menos.",
@@ -483,6 +608,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "2/1 voar. Sacrifica: suas criaturas ganham indestrutível.",
@@ -493,6 +620,12 @@
     "protecao": 3,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus; a proteção vale para todas as suas criaturas, não só Humanos."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "3/2 com lampejo. Paga para voar; paga e sacrifica: suas criaturas ganham hexproof e indestrutível.",
@@ -502,6 +635,12 @@
    "notas": {
     "tax": 3,
     "sinergia": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
    },
    "tier": "A",
    "rel": "INS",
@@ -514,6 +653,12 @@
     "buff": 1,
     "sinergia": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "3/4 lampejo, convoke, golpe duplo. Suas outras criaturas viradas têm hexproof.",
@@ -524,6 +669,14 @@
     "buff": 1,
     "token": 3,
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano que cria uma ficha Humana por turno, só virando.",
+    "sin2": "Motor de fichas: uma ficha Humana por turno, só virando."
    },
    "tier": "A",
    "rel": "ALT",
@@ -538,6 +691,14 @@
     "buff": 1,
     "token": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro; a Besta que cria não é Humana.",
+    "sin2": "Com quatro fichas, todas as suas fichas de criatura voam: habilidade contínua para o time de fichas, além da Besta."
    },
    "tier": "C",
    "rel": "MED",
@@ -554,6 +715,12 @@
     "draw": 1,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "3/3 first strike. Se um oponente tem mais terrenos, joga terreno do topo.",
@@ -565,6 +732,14 @@
     "tax": 2,
     "token": 1,
     "sinergia": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro; os Guerreiros do mobilizar não são Humanos.",
+    "sin2": "Motor de fichas: duas fichas que já entram atacando a cada ataque."
    },
    "tier": "A",
    "rel": "ALT",
@@ -579,6 +754,12 @@
     "ramp": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "W e vira: busca um terreno se um oponente tem mais terrenos.",
@@ -589,6 +770,8 @@
     "protecao": 1,
     "tax": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "2/3 voar. Atacar você custa 2 por criatura.",
@@ -599,6 +782,12 @@
    "notas": {
     "removal": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum pela frente: conta para os quatro e recebe o bônus; o verso é terreno."
    },
    "tier": "B",
    "rel": "MED",
@@ -611,16 +800,28 @@
     "buff": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Vínculo e, com 30 de vida, +5/+5 numa criatura só, por Equipamento."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Vínculo com a vida. Com 30 de vida ou mais, +5/+5, indestrutível e previne todo dano à criatura. Equipar WW.",
-   "porque": "O Commander começa com 40 de vida e o vínculo do Greymond a mantém acima de 30: Greymond 8/9, indestrutível e sem levar dano. Não protege de exílio."
+   "porque": "O Commander começa com 40 de vida e o vínculo do Greymond a mantém acima de 30: Greymond 10/11 com quatro Humanos, indestrutível e sem levar dano. Não protege de exílio."
   },
   "Commander's Plate": {
    "notas": {
     "protecao": 3,
     "buff": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "+3/+3 numa criatura só, por Equipamento."
    },
    "tier": "A",
    "rel": "ALT",
@@ -631,6 +832,14 @@
    "notas": {
     "token": 3,
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Não é Humano, mas existe por causa deles: cria uma ficha Humana por Humano que você controla.",
+    "sin2": "Fichas em série cujo número cresce com a mesa: uma ficha Humana por Humano seu a cada ativação."
    },
    "tier": "A",
    "rel": "INS",
@@ -645,15 +854,23 @@
     "draw": 2,
     "sinergia": 2
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Põe na mão uma criatura sem citar Humanos."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Quando duas ou mais criaturas suas atacam um jogador, olha as cinco do topo e pega uma criatura.",
-   "porque": "Com 30 criaturas, acerta quase sempre. Compra que cresce com o plano de atacar."
+   "porque": "Com 29 criaturas no grimório, acerta quase sempre. Compra que cresce com o plano de atacar."
   },
   "Nyx Lotus": {
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Entra virada. Gera mana igual à devoção a uma cor.",
@@ -664,6 +881,14 @@
     "ramp": 2,
     "token": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Barateia toda mágica de criatura branca, o que inclui os Humanos, sem citá-los; a ficha é Guerreiro.",
+    "sin2": "Motor de fichas: um Guerreiro 1/1 a cada mágica de criatura."
    },
    "tier": "A",
    "rel": "ALT",
@@ -677,6 +902,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Mágicas brancas custam 1 a menos.",
@@ -687,6 +914,8 @@
     "draw": 3,
     "sinergia": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "+1/-1; compra 2 quando a criatura equipada morre. Equipar 1.",
@@ -699,6 +928,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Gera 2 incolores.",
@@ -710,6 +941,14 @@
     "buff": 2,
     "sinergia": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Não é Humano, mas com Humano escolhido dá +1/+1 aos Humanos e compra a cada mágica de Humano.",
+    "sin2": "+1/+1 contínuo para todos os Humanos."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Tipo escolhido ganha +1/+1. Conjurar criatura do tipo compra 1.",
@@ -719,6 +958,12 @@
    "notas": {
     "draw": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Devolve do cemitério permanente de valor até 3 sem citar Humanos."
    },
    "tier": "B",
    "rel": "ALT",
@@ -730,6 +975,8 @@
     "tax": 3,
     "sinergia": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Criaturas não brancas de poder 3 ou mais não desviram.",
@@ -738,6 +985,12 @@
   "Duelist's Heritage": {
    "notas": {
     "buff": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Golpe duplo para um atacante a cada combate."
    },
    "tier": "C",
    "rel": "BAX",
@@ -750,6 +1003,8 @@
     "protecao": 1,
     "tax": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Atacar você custa 2 por criatura.",
@@ -760,6 +1015,8 @@
     "ramp": 1,
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Na manutenção, se um oponente tem mais terrenos, busca até três básicos.",
@@ -769,6 +1026,12 @@
    "notas": {
     "tax": 1,
     "buff": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "+1/+1 para todas no nível 2 e, no nível 3, um atacante cresce com cada outro atacante e ganha golpe duplo: multiplica a mesa."
    },
    "tier": "A",
    "rel": "ALT",
@@ -783,6 +1046,8 @@
     "ramp": 3,
     "tax": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Quando um oponente compra, paga 2 ou você cria um Treasure.",
@@ -792,6 +1057,8 @@
    "notas": {
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Compra quando um oponente ataca com duas ou mais, compra a segunda carta ou conjura a segunda mágica do turno.",
@@ -800,6 +1067,12 @@
   "True Conviction": {
    "notas": {
     "buff": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Golpe duplo e vínculo para todas as suas criaturas: multiplica a mesa inteira."
    },
    "tier": "C",
    "rel": "MED",
@@ -814,6 +1087,12 @@
    "notas": {
     "buff": 3,
     "token": 1
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Marcador +1/+1 em todas as suas criaturas toda rodada, sem custo, e a aventura ainda cria um Cavaleiro."
    },
    "tier": "B",
    "rel": "MED",
@@ -830,6 +1109,14 @@
     "token": 2,
     "sinergia": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Não é Humano, mas cria fichas Humanas nos turnos em que você não ataca.",
+    "sin2": "Fichas Humanas ou compra por três turnos, e depois +1/+1 contínuo para todas."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Três fins de turno: cria Humano ou compra. Depois vira +1/+1 para todas.",
@@ -842,6 +1129,14 @@
    "notas": {
     "token": 3,
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Não é Humano, mas cria uma ficha Humana por criatura dos oponentes escolhidos.",
+    "sin2": "Várias fichas Humanas de uma vez, uma por criatura dos oponentes escolhidos."
    },
    "tier": "A",
    "rel": "INS",
@@ -856,6 +1151,8 @@
     "removal": 3,
     "protecao": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Spree: tira habilidades de todas; dá indestrutível a uma sua; destrói todas.",
@@ -867,6 +1164,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Suas criaturas ganham indestrutível. De graça com o comandante.",
@@ -876,6 +1175,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Destrói criatura, encantamento ou planeswalker.",
@@ -885,6 +1186,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Dano igual ao número de criaturas suas. Verso: terreno.",
@@ -894,6 +1197,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "3 de dano em atacante ou bloqueador. Verso: terreno.",
@@ -903,6 +1208,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Destrói permanente não terreno; o dono ganha um Humano 1/1.",
@@ -912,6 +1219,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Você e suas permanentes saem de fase até o seu próximo turno.",
@@ -922,6 +1231,8 @@
     "draw": 2,
     "protecao": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Escolhe: suas criaturas ganham indestrutível, ou você e um oponente compram duas.",
@@ -931,10 +1242,12 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Escolhe dois: artefatos, encantamentos, criaturas de custo 3 ou menos, criaturas de custo 4 ou mais.",
-   "porque": "Dá para poupar os seus Humanos baratos, mas ficha tem custo 0 e o Greymond custa 4: sempre perde um dos dois.",
+   "porque": "Dá para poupar os seus Humanos baratos, mas ficha tem custo 0 e o Greymond custa 4: com um modo de criatura, perde um dos dois.",
    "massa": true
   },
   "Dusk // Dawn": {
@@ -942,10 +1255,16 @@
     "draw": 1,
     "removal": 3
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dawn devolve à mão as criaturas de força 2 ou menos, sem citar Humanos."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Dusk destrói poder 3 ou mais. Dawn devolve criaturas de poder 2 ou menos do cemitério.",
-   "porque": "Com o Greymond ativo, as suas fichas têm poder 3 e morrem. Sem ele, é limpeza de um lado só, e Dawn devolve do cemitério os Humanos de poder 2 ou menos.",
+   "porque": "Com o Greymond ativo, as suas fichas Humanas têm poder 3 e morrem. Sem ele, é limpeza de um lado só, e Dawn devolve do cemitério os Humanos de poder 2 ou menos.",
    "marcas": {
     "anti": 1
    },
@@ -956,6 +1275,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Destrói todas as permanentes não terreno.",
@@ -967,6 +1288,14 @@
    "notas": {
     "token": 3,
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Não é Humano, mas cria cinco fichas Humanas, e dez no flashback.",
+    "sin2": "Várias fichas de uma vez: cinco Humanos, e dez no flashback."
    },
    "tier": "A",
    "rel": "INS",
@@ -980,6 +1309,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Destrói todas as permanentes não terreno. Verso: terreno.",
@@ -989,6 +1320,12 @@
   "Storm Herd": {
    "notas": {
     "token": 3
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Várias fichas de uma vez: um Pégaso voador por ponto de vida."
    },
    "tier": "C",
    "rel": "BAX",
@@ -1005,6 +1342,14 @@
     "token": 1,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Cria duas fichas Humanas só se um oponente tiver mais criaturas.",
+    "sin2": "Cria duas fichas Humanas uma vez, e só se um oponente tiver mais criaturas."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Vida, dois Humanos ou carta, conforme você esteja atrás em cada um.",
@@ -1019,6 +1364,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Destrói todas as criaturas. Custa 1 a menos por criatura em jogo.",
@@ -1029,6 +1376,14 @@
    "notas": {
     "token": 3,
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Não é Humano, mas cria uma ficha Humana por criatura sua, e repete no flashback.",
+    "sin2": "Várias fichas de uma vez, uma por criatura sua, e de novo no flashback."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1043,6 +1398,14 @@
     "token": 2,
     "sinergia": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Terreno que cria uma ficha Humana por ativação: existe por causa deles.",
+    "sin2": "Motor de fichas: uma ficha Humana a cada ativação, repetível."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "Gera W. 2WW e vira: cria um Humano.",
@@ -1055,6 +1418,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Entra virado. Devolve carta do cemitério para o fundo do grimório.",
@@ -1066,6 +1431,8 @@
    "notas": {
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Gera W. 2WW e vira: olha cinco e pega uma carta histórica.",
@@ -1075,6 +1442,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Gera mana pela devoção.",
@@ -1085,6 +1454,12 @@
     "ramp": -1,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vidência ao conjurar criatura que compartilhe tipo com o comandante: liga-se ao tipo de passagem."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Entra virado. Scry 1 ao conjurar Humano.",
@@ -1093,6 +1468,8 @@
   },
   "Plains": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
@@ -1100,6 +1477,8 @@
   },
   "Temple of the False God": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Gera 2 incolores com cinco terrenos.",
@@ -1111,6 +1490,12 @@
     "protecao": 1,
     "buff": 1
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Marcador +1/+1 e depois marcador de indestrutível numa criatura lendária só."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "Faz uma lendária virar God com marcador; depois dá um marcador de indestrutível.",
@@ -1120,6 +1505,8 @@
    "notas": {
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "3 e vira, paga 1 de vida: compra.",
@@ -1132,6 +1519,14 @@
     "token": 3,
     "sinergia": 3,
     "buff": 1
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humana que cria fichas Humanas a cada ataque, uma por oponente.",
+    "sin2": "Motor de fichas: fichas Humanas que já entram atacando, a cada ataque."
    },
    "tier": "S",
    "rel": "INS",
@@ -1148,6 +1543,14 @@
     "buff": 3,
     "sinergia": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano que põe marcador +1/+1 em cada outro Humano ao entrar e cresce a cada Humano que entra.",
+    "sin2": "Marcador +1/+1 em todos os seus outros Humanos ao entrar."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1159,6 +1562,14 @@
    "notas": {
     "buff": 1,
     "sinergia": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e cresce a cada Humano que entra, mas o bônus fica só nele.",
+    "sin2": "Cresce com marcador a cada Humano que entra, mas só nela mesma."
    },
    "tier": "B",
    "rel": "MED",
@@ -1173,6 +1584,14 @@
     "buff": 2,
     "sinergia": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Lorde de Humanos: +1/+0 e ward {1} para os outros Humanos.",
+    "sin2": "+1/+0 e ward {1} contínuos para todos os outros Humanos."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1186,6 +1605,12 @@
     "tax": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1198,6 +1623,12 @@
     "draw": 3,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Compra quando entram criaturas de valor até 3, sem citar Humanos; as fichas Humanas disparam."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1209,6 +1640,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "veredito": "entra",
@@ -1220,6 +1653,12 @@
    "notas": {
     "protecao": 3,
     "buff": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Voar e golpe duplo para todas as suas criaturas: multiplica a mesa inteira."
    },
    "tier": "A",
    "rel": "INS",
@@ -1237,6 +1676,12 @@
     "tax": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus; a proteção vale para todas as suas criaturas."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1248,6 +1693,12 @@
    "notas": {
     "ramp": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos."
    },
    "tier": "B",
    "rel": "MED",
@@ -1263,6 +1714,14 @@
     "protecao": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Humana comum: conta para os quatro; as fichas dela são Soldados artefato, não Humanos.",
+    "sin2": "Fichas em série cujo número cresce com a mesa: um Soldado por Soldado seu a cada ataque."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1275,6 +1734,12 @@
     "protecao": 1,
     "sinergia": 2
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Escolhe o tipo: as mágicas de Humano conjuradas com ela não podem ser anuladas."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1286,6 +1751,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1298,16 +1765,30 @@
     "draw": 2,
     "sinergia": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, embora o +2/+2 tire as fichas Humanas da compra dele."
+   },
    "tier": "C",
    "rel": "BAX",
    "veredito": "fora",
    "faz": "Humano 2W. Quando entra outra criatura sua de poder 2 ou menos, paga 1 e compra.",
-   "porque": "Checa poder na entrada: com o Greymond ativo as fichas entram 3/3 e não disparam. Mesma falha da Enduring Innocence."
+   "porque": "Checa poder na entrada: com o Greymond ativo as fichas Humanas entram 3/3 e não disparam. Mesma falha da Enduring Innocence."
   },
   "Kwende, Pride of Femeref": {
    "notas": {
     "buff": 2,
     "sinergia": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Humano comum: conta para os quatro e recebe o bônus, sem efeito voltado aos outros Humanos.",
+    "sin2": "Golpe duplo para o time sob condição: suas criaturas com golpe primeiro, que o Greymond dá aos Humanos se escolhido."
    },
    "tier": "C",
    "rel": "BAX",
@@ -1396,7 +1877,7 @@
     "Greymond, Avacyn's Stalwart",
     "Skullclamp"
    ],
-   "texto": "Com quatro Humanos, as fichas entram 3/3: a Skullclamp não as mata, a Enduring Innocence não compra e Dusk destrói o seu time. Use a Skullclamp antes do Greymond ou nas fichas que não são Humanas."
+   "texto": "Com quatro Humanos, as fichas Humanas entram 3/3: a Skullclamp não as mata, a Enduring Innocence não compra e Dusk destrói o seu time. Use a Skullclamp antes do Greymond ou nas fichas que não são Humanas."
   }
  ]
 }

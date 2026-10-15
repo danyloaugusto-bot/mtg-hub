@@ -29,7 +29,7 @@ Concordância não prova nada. Aqui o texto sustenta: Storm Herd custa 10 e cria
 | Carta | A | B | C | Sigo | Por quê |
 |---|---|---|---|---|---|
 | Skullclamp | — | trava (9,6) | A, com ressalva | C | Com o Greymond ativo a ficha Humana é 3/3 e, com a Skullclamp, 4/2: não morre. Rende antes do comandante e nas fichas não Humanas. |
-| Enduring Innocence | — | fica (8,8) | BAX | C | Checa poder 2 ou menos na entrada; com o Greymond ativo as fichas entram 3/3 e não compram. |
+| Enduring Innocence | — | fica (8,8) | BAX | C | Checa poder 2 ou menos na entrada; com o Greymond ativo as fichas Humanas entram 3/3 e não compram. |
 | Mentor of the Meek | entra | entra | fora | C | Mesma checagem de poder 2 ou menos. B e A não viram. |
 | Dusk // Dawn | — | fica, "recuperação" | BAX | meio-termo | Com o Greymond ativo, Dusk mata o seu time. Sem ele, é limpeza de um lado só e Dawn devolve a maioria dos Humanos. |
 | The Wandering Rescuer | — | núcleo, "suas criaturas ficam viradas" | B | depende da escolha | O hexproof vale para criaturas viradas. Se o Greymond der vigilância, elas não viram. |
@@ -51,8 +51,8 @@ Concordância não prova nada. Aqui o texto sustenta: Storm Herd custa 10 e cria
 **B**
 - Conta 7 Humanos de custo 2 ou menos. São 10 (9 sem o Mikaeus, que custa X).
 - Diz que a Coppercoat Vanguard dá "proteção contra dano não de combate". Dá +1/+0 e ward {1} aos outros Humanos.
-- Recomenda Mentor of the Meek como "motor de compra com fichas". Com o Greymond ativo, as fichas entram 3/3 e não disparam.
-- Chama a Skullclamp de "excelente com fichas" e a Enduring Innocence de "compra repetida", sem notar que o +2/+2 do Greymond as desliga.
+- Recomenda Mentor of the Meek como "motor de compra com fichas". Com o Greymond ativo, as fichas Humanas entram 3/3 e não disparam.
+- Chama a Skullclamp de "excelente com fichas" e a Enduring Innocence de "compra repetida", sem notar que o +2/+2 do Greymond as desliga nas fichas Humanas.
 - Diz que a Adeline cria um Humano "para cada oponente que você ataca". Cria um para cada oponente, atacado ou não.
 
 **C**

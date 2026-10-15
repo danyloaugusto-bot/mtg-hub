@@ -1,4 +1,5 @@
 {
+ "versao_pontuacao": 3,
  "feito": "08/10/2026",
  "agrupamentos": [
   {
@@ -261,6 +262,14 @@
     "demons": 3,
     "wincon": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "É o comandante: a primeira perda de vida de cada oponente no turno dele vira marcador e carta.",
+    "sin2": "Demônio: liga a Unholy Annex e conta para o Liliana's Contract, mas não tem efeito voltado aos outros Demônios."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "4/4 com voo e ward (pagar 2 de vida). Na primeira perda de vida de cada oponente no turno dele, ganha um marcador +1/+1 e você compra.",
@@ -271,9 +280,15 @@
     "ramp": 1,
     "dd_outros": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Virado depois de atacar, faz cada terreno que o oponente vira para mana no turno dele lhe causar 1 de dano: depende do que ele faz."
+   },
    "tier": "C",
    "rel": "MED",
-   "faz": "3/2 com iniciativa e ímpeto. Enquanto está virado, todo terreno virado por mana gera uma mana a mais e causa 1 de dano ao dono.",
+   "faz": "3/2 com iniciativa e ímpeto. Enquanto está virado, todo terreno virado por mana gera uma mana a mais e causa 1 de dano a quem o virou.",
    "porque": "Alimenta o gatilho, mas dobra a mana de três oponentes para isso. O preço é alto demais para um corpo 3/2. Nasceu na DSC, candidata a carta de estimação: fica fora da fila de corte.",
    "fora_do_corte": true
   },
@@ -282,6 +297,12 @@
     "demons": 3,
     "dd_outros": 1,
     "wincon": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio sem efeito voltado aos outros Demônios. Em sin1 fica em 0: só dobra a perda de vida no seu turno."
    },
    "tier": "A",
    "rel": "ALT",
@@ -293,6 +314,12 @@
     "ramp": 3,
     "dd_outros": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "A extorsão tira 1 de cada oponente numa instantânea que você conjura no turno dele, pagando mana a cada vez."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Dobra a mana preta de cada Swamp e tem extorsão.",
@@ -302,6 +329,12 @@
    "notas": {
     "dd_compra": 3
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Cada carta que o oponente compra lhe causa 1 de dano: dispara sozinho na fase de compra de todo oponente, só neles."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "3/4. Sempre que um oponente compra, leva 1 de dano.",
@@ -310,6 +343,12 @@
   "Gleeful Arsonist": {
    "notas": {
     "dd_outros": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Cada mágica não-criatura que o oponente conjura lhe causa dano: dispara no turno dele, mas depende do que ele joga."
    },
    "tier": "B",
    "rel": "MED",
@@ -322,6 +361,8 @@
     "dd_outros": 1,
     "wincon": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Ao entrar, drena cada oponente pela sua devoção ao preto.",
@@ -333,6 +374,12 @@
     "ramp": 2,
     "demons": 3,
     "wincon": 2
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Só Demônio, com efeito voltado aos outros: mágicas de Demônio custam {2} a menos e seus outros Demônios têm ímpeto."
    },
    "tier": "A",
    "rel": "ALT",
@@ -348,6 +395,12 @@
     "dd_outros": 2,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "O oponente que ataca outro perde 1 no turno dele, e o goad dos seus ataques o obriga a atacar: depende do combate dele."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "5/5. Ao atacar um jogador, vira e incita uma criatura dele. Quando um oponente ataca outro, você e ele compram 1 e perdem 1 de vida.",
@@ -359,14 +412,28 @@
     "dd_outros": 2,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Por uma rodada, as criaturas dos oponentes atacam outro jogador, e cada atacante que morre tira 1 de cada oponente, inclusive do jogador da vez: por pouco tempo.",
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Demon 4/3. Ao entrar, força as criaturas dos oponentes a atacar por uma rodada. Atacante que morre drena 1 de cada oponente.",
-   "porque": "Demon barato que gera perda de vida no turno deles por uma rodada. O efeito de entrada é de uso único."
+   "porque": "Demon barato que gera perda de vida no turno deles. O efeito de entrada é de uso único, mas o dreno de atacante que morre é permanente."
   },
   "Kederekt Parasite": {
    "notas": {
     "dd_compra": 3
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Com uma permanente vermelha sua, cada carta que o oponente compra lhe causa 1 de dano: dispara sozinho na fase de compra de todo oponente, só neles."
    },
    "tier": "S",
    "rel": "INS",
@@ -378,6 +445,12 @@
     "demons": 2,
     "wincon": 2
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Demon 7/7 voador. Ao causar dano de combate, exila sete do topo do oponente e rouba uma criatura.",
@@ -387,6 +460,12 @@
   "Mai, Scornful Striker": {
    "notas": {
     "dd_outros": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Quem conjura mágica não-criatura perde 2: dispara no turno do oponente, mas depende do que ele joga."
    },
    "tier": "A",
    "rel": "ALT",
@@ -402,9 +481,15 @@
     "dd_outros": 1,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "O −2/−2 cai no seu turno; depois, só tira vida no turno do oponente se uma criatura dele morrer nesse turno."
+   },
    "tier": "A",
    "rel": "ALT",
-   "faz": "6/5. Ao entrar, criaturas dos oponentes ganham -2/-2. Criatura de oponente que morre tira 2 de vida do dono.",
+   "faz": "6/5. Ao entrar, criaturas dos oponentes ganham -2/-2. Criatura de oponente que morre tira 2 de vida de quem a controlava.",
    "porque": "Uma das duas remoções em massa que não matam o Valgavoth. Limpa os bloqueadores pequenos.",
    "massa": true
   },
@@ -412,6 +497,12 @@
    "notas": {
     "demons": 3,
     "wincon": 3
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
    },
    "tier": "A",
    "rel": "ALT",
@@ -424,6 +515,12 @@
     "dd_outros": 2,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Na manutenção de cada oponente, 2 de dano, a menos que ele sacrifique uma criatura: dispara no turno dele, mas ele escolhe."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Indestrutível. Só é criatura com devoção a preto e vermelho de 7 ou mais. Na manutenção de cada oponente, causa 2 de dano a ele, a menos que ele sacrifique uma criatura.",
@@ -434,6 +531,14 @@
     "draw": 2,
     "demons": 3,
     "wincon": 2
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Rende como um segundo Valgavoth: cada perda de exatamente 1 de vida dos oponentes, também no turno deles, vira marcador e carta.",
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
    },
    "tier": "A",
    "rel": "ALT",
@@ -446,6 +551,12 @@
     "demons": 3,
     "wincon": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio; o desconto vale para toda criatura, não só para Demônios."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Demon 6/6 voador com atropelar. Só pode ser conjurado se um oponente perdeu vida no turno. Criaturas custam 1 a menos por ponto de vida perdido pelos oponentes.",
@@ -456,6 +567,12 @@
     "dd_outros": 2,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Cada criatura que entra causa 1 de dano ao controlador: dispara no turno do oponente quando ele desce criatura ou ficha."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "3/3 com ameaçar. Ninguém ganha vida. Causa 1 de dano ao controlador de cada outra criatura que entra.",
@@ -465,6 +582,12 @@
   "Razorkin Needlehead": {
    "notas": {
     "dd_compra": 3
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Cada carta que o oponente compra lhe causa 1 de dano: dispara sozinho na fase de compra de todo oponente, só neles."
    },
    "tier": "S",
    "rel": "INS",
@@ -477,6 +600,12 @@
     "demons": 2,
     "wincon": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Demon 5/5 com atropelar e decayed (não bloqueia e é sacrificado depois de atacar). Do cemitério, por XBB, põe marcador decayed em X criaturas.",
@@ -486,6 +615,12 @@
    "notas": {
     "draw": 1,
     "dd_compra": 3
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Cada carta que o oponente compra lhe faz perder 1: dispara sozinho na fase de compra de todo oponente, só neles."
    },
    "tier": "A",
    "rel": "ALT",
@@ -498,26 +633,42 @@
     "dd_outros": 1,
     "wincon": 2
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "O dano espelhado só cai no jogador da vez quando ele mesmo causa dano ao outro escolhido, por exemplo atacando: de passagem.",
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Demon 6/6 voador. Escolha dois jogadores: dano causado a um faz o outro perder a mesma vida.",
-   "porque": "Dobra a sangria entre dois oponentes, mas a perda espelhada cai fora do turno de quem a sofre. Seis manas."
+   "porque": "Dobra a sangria entre dois jogadores, mas a perda espelhada só cai no turno de quem a sofre quando ele mesmo causa o dano: escolhendo você e um oponente, cada ataque dele em você tira dele a mesma vida. Seis manas."
   },
   "The Lord of Pain": {
    "notas": {
     "dd_outros": 1,
     "wincon": 2
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Só tira vida do jogador da vez quando outro jogador, você incluído, conjura a primeira mágica no turno dele; a mágica do próprio jogador da vez manda o dano a outro."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "5/5 com ameaçar. Oponentes não ganham vida. Na primeira mágica de cada jogador no turno, causa dano igual ao custo dela a outro jogador.",
-   "porque": "O dano vai para outro jogador, nunca para quem conjurou. Machuca bastante, mas quase nunca dispara o Valgavoth. Nasceu na DSC, candidata a carta de estimação: fica fora da fila de corte.",
+   "porque": "O dano vai para outro jogador, nunca para quem conjurou. Machuca bastante, e dispara o Valgavoth quando outro jogador, você incluído, conjura a primeira mágica no turno de um oponente: uma instantânea sua basta. Nasceu na DSC, candidata a carta de estimação: fica fora da fila de corte.",
    "fora_do_corte": true
   },
   "Unstoppable Slasher": {
    "notas": {
     "wincon": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "2/3 com toque mortífero. Dano de combate a um jogador tira metade da vida dele. Volta uma vez quando morre.",
@@ -531,6 +682,12 @@
     "demons": 2,
     "wincon": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Demon 8/8 voador. Sempre que você perde vida, compra essa quantidade de cartas.",
@@ -541,6 +698,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "13 de dano a cada criatura. Custa 1 a menos por criatura em campo.",
@@ -552,6 +711,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Cada jogador sacrifica treze criaturas. Custa B se houver treze ou mais em campo.",
@@ -564,6 +725,8 @@
     "removal": 1,
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Muda o alvo de mágica ou habilidade com alvo único. Custa R se você controla criatura de poder 4 ou mais.",
@@ -573,6 +736,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Embaralha uma permanente no grimório do dono, que revela o topo e põe em campo se for permanente.",
@@ -583,6 +748,12 @@
     "draw": 2,
     "demons": 2
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Não é Demônio, mas existe por causa deles: busca um Demônio."
+   },
    "tier": "B",
    "rel": "ALT",
    "faz": "Busca um Demon. Com delirium, busca qualquer carta.",
@@ -592,6 +763,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Destrói criatura ou encantamento de oponente. Você perde vida igual ao custo.",
@@ -602,6 +775,8 @@
     "removal": 1,
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Muda o alvo de uma mágica com alvo único. Você perde vida igual ao custo dela.",
@@ -611,6 +786,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Modal: buscar uma carta e pôr no topo (+2), e/ou um jogador compra 3 e perde 3 (+BB).",
@@ -622,6 +799,8 @@
     "ramp": 3,
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Com o comandante em campo: mana vermelha igual à mão de um oponente e três cartas do topo jogáveis no turno.",
@@ -631,6 +810,8 @@
    "notas": {
     "protecao": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Você perde 2 de vida; se a criatura alvo morrer no turno, volta virada. O verso é terreno.",
@@ -641,6 +822,8 @@
     "removal": 3,
     "wincon": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Escolha uma criatura sua. Destrói todas as criaturas com poder menor que o dela.",
@@ -651,6 +834,8 @@
    "notas": {
     "protecao": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Se a criatura alvo morrer no turno, volta virada com um Wicked Role (+1/+1).",
@@ -661,6 +846,12 @@
    "notas": {
     "removal": 3,
     "dd_outros": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Os marcadores rad fazem cada oponente perder vida no próprio turno, mas só por algumas rodadas e só pelas cartas moídas que não são terreno."
    },
    "tier": "B",
    "rel": "MED",
@@ -673,6 +864,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Suspender 2 por 1B: busca qualquer carta.",
@@ -685,6 +878,12 @@
     "dd_outros": 1,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "O terceiro modo, instantâneo, faz cada criatura causar 1 de dano ao controlador no turno do oponente: uma vez só."
+   },
    "tier": "B",
    "rel": "ALT",
    "faz": "Modal: exila um cemitério, destrói um artefato, ou cada criatura causa 1 de dano ao controlador.",
@@ -695,6 +894,8 @@
     "removal": 1,
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Custo adicional de 2 manas ou 5 de vida. Muda o alvo de mágica ou habilidade com alvo único.",
@@ -706,6 +907,12 @@
     "protecao": 2,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Pode copiar o gatilho do Valgavoth, ou o da carta que causou a perda de vida, uma vez só."
+   },
    "tier": "B",
    "rel": "ALT",
    "faz": "Modal: copia mágica instantânea, feitiço ou habilidade (+1), e/ou muda o alvo de mágica ou habilidade (+1).",
@@ -715,6 +922,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Cada jogador, a começar pelo oponente seguinte, escolhe uma criatura que você não controla. As escolhidas são destruídas.",
@@ -724,6 +933,12 @@
   "Spikefield Hazard": {
    "notas": {
     "removal": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Instantânea: 1 de dano no oponente durante o turno dele, uma vez só."
    },
    "tier": "C",
    "rel": "MED",
@@ -736,6 +951,8 @@
     "protecao": 2,
     "wincon": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Modal: destrói artefato, muda o alvo de mágica ou habilidade, ou até duas criaturas não podem bloquear.",
@@ -748,6 +965,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Destrói criatura ou encantamento. Você perde 2 de vida.",
@@ -757,6 +976,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Gera uma mana de qualquer cor do comandante.",
@@ -766,6 +987,8 @@
    "notas": {
     "wincon": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Equipamento: toque mortífero e vínculo com a vida.",
@@ -776,6 +999,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Gera mana de cor que um terreno de oponente produz.",
@@ -786,6 +1011,8 @@
     "protecao": 3,
     "wincon": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "S",
    "rel": "INS",
    "faz": "Equipamento de custo 0: ímpeto e manto.",
@@ -798,6 +1025,12 @@
    "notas": {
     "wincon": 2
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Rende com a perda de vida dos oponentes, moendo, mas não a causa; é metade do combo com a Bloodchief Ascension."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Oponente que perde vida tritura a mesma quantidade.",
@@ -807,6 +1040,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "S",
    "rel": "INS",
    "faz": "Duas manas incolores por uma.",
@@ -816,6 +1051,12 @@
    "notas": {
     "ramp": 1,
     "demons": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "A mana paga Demônios, mas também instantâneas, feitiços e Espíritos: liga-se aos Demônios de passagem."
    },
    "tier": "C",
    "rel": "MED",
@@ -827,6 +1068,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Gera incolor, ou preta ou vermelha com 1 de dano em você.",
@@ -835,6 +1078,12 @@
   "Thought Vessel": {
    "notas": {
     "ramp": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Sem limite de mão, guarda as cartas que o gatilho compra: aproveita o gatilho de passagem."
    },
    "tier": "A",
    "rel": "ALT",
@@ -845,6 +1094,12 @@
    "notas": {
     "dd_outros": 2,
     "wincon": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Ativa rápido com a perda de vida dos oponentes, e depois cada carta que vai ao cemitério do oponente no turno dele lhe tira 2: depende do que ele faz."
    },
    "tier": "A",
    "rel": "ALT",
@@ -857,6 +1112,8 @@
     "dd_outros": 1,
     "wincon": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Na sua manutenção, soma dois marcadores; cada jogador cria X tesouros e leva X de dano.",
@@ -870,16 +1127,24 @@
    "notas": {
     "removal": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Obriga uma criatura do oponente a atacar outro jogador, o que só lhe tira vida no turno dele com o Karazikar ou o Kardur em campo."
+   },
    "tier": "D",
    "rel": "BAX",
    "faz": "Aura: +1/+1, toque mortífero e a criatura fica incitada.",
-   "porque": "Incitar faz o oponente bater em outro oponente, que perde vida fora do próprio turno. Não alimenta o gatilho.",
+   "porque": "Incitar faz o oponente bater em outro oponente, que perde vida fora do próprio turno. Sozinha, não alimenta o gatilho: precisa do Karazikar, que tira 1 de quem ataca, ou do Kardur, se ela morrer atacando.",
    "prioridade": 1
   },
   "Kaya's Ghostform": {
    "notas": {
     "protecao": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Aura: se a criatura morrer ou for exilada, volta ao campo.",
@@ -891,6 +1156,12 @@
     "demons": 2,
     "wincon": 2
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Não é Demônio, mas existe por causa deles: vence com quatro Demônios de nomes diferentes."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Ao entrar, compre 4 e perca 4. Na sua manutenção, com quatro Demons de nomes diferentes, você vence.",
@@ -901,9 +1172,15 @@
     "dd_outros": 3,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Cada terreno virado para mana causa 1 de dano a quem o virou: dispara no turno do oponente, mas depende de ele virar terreno, e bate em você também."
+   },
    "tier": "A",
    "rel": "ALT",
-   "faz": "Todo terreno virado por mana causa 1 de dano ao dono.",
+   "faz": "Todo terreno virado por mana causa 1 de dano a quem o virou.",
    "porque": "Gatilho praticamente garantido em todo turno de oponente. Cobra de você na mesma moeda.",
    "marcas": {
     "sangra": 1
@@ -913,6 +1190,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Uma carta a mais por turno, por 1 de vida.",
@@ -925,6 +1204,12 @@
    "notas": {
     "dd_outros": 3,
     "wincon": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "1 de dano na manutenção de cada jogador: dispara sozinho no turno de todo oponente, mas bate em você também."
    },
    "tier": "S",
    "rel": "INS",
@@ -939,6 +1224,12 @@
     "draw": 1,
     "dd_compra": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Cada oponente compra uma a mais e leva 1 por carta comprada: dispara sozinho no turno dele, mas bate em você também."
+   },
    "tier": "B",
    "rel": "ALT",
    "faz": "Cada jogador compra uma carta a mais na fase de compra. Quem compra leva 1 de dano.",
@@ -952,6 +1243,12 @@
     "dd_outros": 3,
     "wincon": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "2 de dano na manutenção de cada jogador: dispara sozinho no turno de todo oponente, mas bate em você também."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "2 de dano a cada jogador na manutenção dele. Ninguém ganha vida.",
@@ -963,6 +1260,12 @@
   "Underworld Dreams": {
    "notas": {
     "dd_compra": 3
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Cada carta que o oponente compra lhe causa 1 de dano: dispara sozinho na fase de compra de todo oponente, só neles."
    },
    "tier": "A",
    "rel": "INS",
@@ -976,6 +1279,12 @@
     "dd_outros": 1,
     "wincon": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Não é Demônio, mas existe por causa deles: drena com um Demônio em campo, e a outra porta cria um Demônio 6/6. Em sin1 fica em 0: o dreno cai no seu fim de turno."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "No seu fim de turno, compre. Com Demon em campo, drena 2 de cada oponente; sem, você perde 2. A segunda porta cria um Demon 6/6 voador.",
@@ -985,6 +1294,8 @@
    "notas": {
     "wincon": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Gera R. Exaurida, gera RR para criatura, que ganha ímpeto.",
@@ -995,6 +1306,8 @@
   },
   "Blazemire Verge": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Gera B, ou R se você controla Swamp ou Mountain.",
@@ -1004,6 +1317,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Swamp Mountain que entra virado, com reciclar.",
@@ -1012,6 +1327,8 @@
   },
   "Command Tower": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Gera as duas cores.",
@@ -1019,6 +1336,8 @@
   },
   "Dragonskull Summit": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Dual que entra desvirado com Swamp ou Mountain.",
@@ -1026,6 +1345,8 @@
   },
   "Exotic Orchard": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Gera cor que terreno de oponente produz.",
@@ -1033,6 +1354,8 @@
   },
   "Foreboding Ruins": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Dual que entra desvirado se você revelar Swamp ou Mountain.",
@@ -1043,6 +1366,12 @@
     "ramp": -1,
     "dd_outros": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Ativado no turno do oponente, tira 1 dele, pagando {B} e virando o terreno: uma vez por rodada."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Swamp que entra virado. Por B, cada oponente perde 1, com duas permanentes pretas.",
@@ -1051,6 +1380,8 @@
   },
   "Rakdos Carnarium": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Entra virado, devolve um terreno, gera BR.",
@@ -1059,6 +1390,12 @@
   },
   "Reliquary Tower": {
    "notas": {},
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Sem limite de mão, guarda as cartas que o gatilho compra: aproveita o gatilho de passagem."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. Sem limite de mão.",
@@ -1068,6 +1405,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Entra virado com hideaway. Libera a carta se um oponente levou 7 de dano no turno.",
@@ -1076,6 +1415,8 @@
   },
   "Tainted Peak": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Gera B ou R se você controla Swamp.",
@@ -1085,6 +1426,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Duas incolores, só com cinco terrenos.",
@@ -1094,6 +1437,8 @@
    "notas": {
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Incolor. Por 3 e 2 de vida, compra uma carta.",
@@ -1101,6 +1446,8 @@
   },
   "Mountain": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
@@ -1108,6 +1455,8 @@
   },
   "Swamp": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
@@ -1119,6 +1468,8 @@
    "notas": {
     "wincon": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1131,6 +1482,8 @@
   },
   "Sulfurous Springs": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
@@ -1140,6 +1493,8 @@
   },
   "Smoldering Marsh": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
@@ -1151,6 +1506,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1163,6 +1520,8 @@
     "protecao": 3,
     "wincon": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1177,6 +1536,12 @@
    "notas": {
     "protecao": 2,
     "wincon": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Guarda os marcadores que o gatilho deu ao Valgavoth quando ele sai do campo: aproveita o gatilho de passagem."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1194,6 +1559,8 @@
     "dd_outros": 1,
     "wincon": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1208,6 +1575,12 @@
     "demons": 2,
     "wincon": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1219,6 +1592,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1232,6 +1607,12 @@
     "dd_outros": 1,
     "wincon": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio sem efeito voltado aos outros Demônios. Em sin1 fica em 0: o dano cai na sua manutenção."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1242,6 +1623,12 @@
   "Harsh Mentor": {
    "notas": {
     "dd_outros": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Cada habilidade que o oponente ativa, fora as de mana, lhe causa 2: dispara no turno dele, mas depende do que ele faz."
    },
    "tier": "B",
    "rel": "ALT",
@@ -1255,6 +1642,12 @@
     "draw": 2,
     "demons": 3
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Demônio sem efeito voltado aos outros Demônios."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1267,6 +1660,8 @@
     "protecao": 2,
     "wincon": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1280,6 +1675,12 @@
   "Orcish Bowmasters": {
    "notas": {
     "dd_compra": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Com lampejo, entra no turno do oponente e lhe causa 1, uma vez; depois, só dispara com compra extra dele."
    },
    "tier": "B",
    "rel": "MED",

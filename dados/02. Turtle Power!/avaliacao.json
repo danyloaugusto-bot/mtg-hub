@@ -1,4 +1,5 @@
 {
+ "versao_pontuacao": 3,
  "feito": "13/10/2026",
  "agrupamentos": [
   {
@@ -197,7 +198,7 @@
  "estrategia": {
   "inicio": {
    "turnos": "1 a 3",
-   "plano": "Terreno de cor, Sol Ring ou Arcane Signet, e o Michelangelo no turno 2, que já ataca e cria a primeira Food. Uma Tartaruga barata (Mikey & Leo, Genghis Frog, Lita) prepara a mesa para o Leonardo.",
+   "plano": "Terreno de cor, Sol Ring ou Arcane Signet, e o Michelangelo no turno 2, que já ataca e cria a primeira Food. Uma Tartaruga barata (Mikey & Leo, Lita) ou o Genghis Frog prepara a mesa para o Leonardo.",
    "fortes": [
     "Michelangelo, Mikey & Leo, Genghis Frog e Lita custam duas manas.",
     "Command Tower, City of Brass e oito terrenos de duas cores entram desvirados na mesa de quatro."
@@ -221,7 +222,7 @@
   },
   "fim": {
    "turnos": "7 em diante",
-   "plano": "O {W}{U}{B}{R}{G} do Leonardo, Heroes in a Half Shell, Baxter e o Michelangelo, Mutant BFF levam o time por cima dos bloqueadores; Raph & Leo, Raphael, Tag Team Tough e Waves of Aggression dão combate extra; Raphael, the Muscle dobra o dano.",
+   "plano": "O {W}{U}{B}{R}{G} do Leonardo e o Baxter levam o time por cima dos bloqueadores, e o Michelangelo, Mutant BFF impede o bloqueio duplo; Raph & Leo, Raphael, Tag Team Tough e Waves of Aggression dão combate extra; Raphael, the Muscle dobra o dano.",
    "fortes": [
     "Três combates extras e três fontes de evasão para o time inteiro.",
     "O Raphael, the Muscle dobra o dano de quem tem marcador, que é todo mundo."
@@ -282,6 +283,14 @@
     "fechamento": 3,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Comandante, e Tartaruga.",
+    "sin2": "Comandante: converte cada ficha que entra num marcador +1/+1 no time inteiro."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "3/3 de 4. Sempre que uma ficha sua entra, você pode pôr um marcador +1/+1 em cada criatura sua, só uma vez por turno. {W}{U}{B}{R}{G}: suas criaturas ganham ameaça, atropelar e vínculo até o fim do turno. Parceiro (Character select).",
@@ -294,6 +303,14 @@
     "fechamento": 1,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Comandante, e Tartaruga.",
+    "sin2": "Comandante: ficha e marcador em todo turno em que você atacou, uma Comida e um marcador +1/+1."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "2/1 atropelar, de 2. No começo da sua segunda fase principal, se você atacou no turno, põe um marcador +1/+1 numa criatura e cria uma Food. Parceiro (Character select).",
@@ -304,6 +321,12 @@
     "ramp": 1,
     "draw": 1,
     "fichas": 2
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Multiplica as fichas: cada Pista, Comida ou Tesouro que você criaria vira um de cada."
    },
    "tier": "C",
    "rel": "MED",
@@ -316,6 +339,14 @@
     "fichas": 2,
     "tartarugas": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Não é Tartaruga, mas recompensa cada Mutant, Ninja ou Turtle que entra.",
+    "sin2": "Ficha repetível: uma Pista a cada Mutant, Ninja ou Turtle que entra."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "De 2. Sempre que um Mutant, Ninja ou Turtle seu entra, você investiga (uma Clue). Parceiro (Character select).",
@@ -326,6 +357,14 @@
     "marcadores": 1,
     "fechamento": 2
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Mutant ou Ninja que não é Tartaruga: só aciona as recompensas da tribo.",
+    "sin2": "Motor que rende com os marcadores do time: voar para toda criatura com marcador ao entrar e a cada ataque."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "De 4. Quando entra ou ataca, suas criaturas com marcador ganham voar até o fim do turno. Cresce a cada carta que você compra.",
@@ -335,6 +374,12 @@
    "notas": {
     "marcadores": 3,
     "fechamento": 1
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Dobra os marcadores +1/+1 de todas as suas criaturas, toda vez."
    },
    "tier": "A",
    "rel": "INS",
@@ -350,6 +395,14 @@
     "fichas": 1,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Repete no seu fim de turno a entrada de uma carta que cria ficha, como o Mutagen do Raphael, the Muscle."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "De 5, vigilância. No seu fim de turno, exila até um artefato e até uma criatura suas e as devolve.",
@@ -360,6 +413,12 @@
    "notas": {
     "fechamento": 1,
     "tartarugas": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo."
    },
    "tier": "C",
    "rel": "BAX",
@@ -373,6 +432,14 @@
     "fichas": 1,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Ficha repetível: uma cópia de artefato a cada dano de combate num jogador."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "De 3, com sneak {1}{U}. Dano de combate num jogador: cria uma ficha cópia de um artefato seu.",
@@ -384,6 +451,14 @@
     "marcadores": 1,
     "fechamento": 1,
     "tartarugas": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Marcador só em si mesmo, a cada artefato que entra."
    },
    "tier": "C",
    "rel": "BAX",
@@ -397,6 +472,14 @@
     "marcadores": 1,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Multiplica as fichas: cada vez que você cria fichas, vem também um Mutagen."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "De 3. Sempre que você criaria fichas, cria também um Mutagen. Parceiro (Character select).",
@@ -407,6 +490,14 @@
    "notas": {
     "fichas": 2,
     "tartarugas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Não é Tartaruga, mas recompensa cada Mutant que entra, e toda Tartaruga do deck é Mutant.",
+    "sin2": "Mutagen em série: um a cada Mutant que entra."
    },
    "tier": "B",
    "rel": "MED",
@@ -420,6 +511,14 @@
     "fechamento": 3,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga que rende para a tribo inteira: cada Mutant, Ninja ou Turtle que acerta um jogador ganha marcador, e você compra.",
+    "sin2": "Marcador em várias criaturas, repetível: em cada Mutant, Ninja ou Turtle que causa dano de combate a um jogador."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "De {W}{U}{B}{R}{G}, com vigilância, ameaça, atropelar e ímpeto. Quando Mutants, Ninjas ou Turtles seus causam dano de combate a um jogador, cada um deles ganha um marcador e você compra.",
@@ -429,6 +528,12 @@
    "notas": {
     "fechamento": 1,
     "tartarugas": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo."
    },
    "tier": "C",
    "rel": "BAX",
@@ -441,6 +546,14 @@
     "marcadores": 1,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Marcador só em si mesmo, a cada ganho de vida."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "De 2, com sneak {W} e vínculo. Ganha um marcador sempre que você ganha vida.",
@@ -451,6 +564,12 @@
    "notas": {
     "fechamento": 1,
     "tartarugas": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo."
    },
    "tier": "C",
    "rel": "BAX",
@@ -464,6 +583,14 @@
     "marcadores": 1,
     "tartarugas": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Ficha repetível: uma Comida quando outra criatura sua entra, uma vez por turno."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "De 2. Sempre que outra criatura sua entra, escolhe uma opção ainda não usada no turno: marcador nela, uma Food ou vidência 1.",
@@ -474,6 +601,14 @@
     "fichas": 2,
     "fechamento": 2,
     "tartarugas": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Mutagen em série, a cada ataque, e evasão para as criaturas com marcador."
    },
    "tier": "A",
    "rel": "ALT",
@@ -486,6 +621,14 @@
     "fichas": 1,
     "marcadores": 3,
     "tartarugas": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Multiplica os marcadores de todas as suas criaturas: um a mais toda vez."
    },
    "tier": "A",
    "rel": "INS",
@@ -503,6 +646,14 @@
     "marcadores": 1,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga que faz conjurar Tartarugas fora da mão: Mutants, Ninjas e Turtles do topo do grimório.",
+    "sin2": "Marcador repetível: cada criatura conjurada do topo entra com um a mais."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "De 4, ward 2. Você vê o topo do grimório e pode jogar terrenos e conjurar Mutants, Ninjas e Turtles dele; criatura conjurada assim entra com um marcador a mais.",
@@ -514,6 +665,14 @@
     "marcadores": 1,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Motor que rende com os marcadores: compra uma quando você põe marcador numa criatura sua, uma vez por turno."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "De 2. Sempre que você põe um marcador numa criatura sua, compra uma carta. Só uma vez por turno.",
@@ -523,6 +682,12 @@
    "notas": {
     "ramp": 3,
     "tartarugas": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Mutant ou Ninja que não é Tartaruga: só aciona as recompensas da tribo."
    },
    "tier": "A",
    "rel": "ALT",
@@ -535,6 +700,14 @@
     "marcadores": 1,
     "tartarugas": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Mutant ou Ninja que não é Tartaruga: só aciona as recompensas da tribo.",
+    "sin2": "Marcador em várias criaturas: X Mutagens de uma vez, que ficam mais baratos de ativar."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "De X+2, atropelar. Cria X Mutagens ao entrar. Habilidades de fichas de artefato suas custam {1} a menos.",
@@ -545,6 +718,12 @@
     "fechamento": 3,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "De 3. Quando atacam no primeiro combate do turno, desviram até duas criaturas atacantes e há um combate extra.",
@@ -554,6 +733,12 @@
    "notas": {
     "fechamento": 3,
     "tartarugas": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo."
    },
    "tier": "B",
    "rel": "MED",
@@ -567,6 +752,14 @@
     "fechamento": 3,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo.",
+    "sin2": "Motor que rende com os marcadores do time: dobra o dano de toda criatura com marcador."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "De 5. Dobra todo dano que criaturas suas com marcador causariam. Cria um Mutagen ao entrar. Parceiro (Character select).",
@@ -577,6 +770,14 @@
     "draw": 2,
     "marcadores": 1,
     "tartarugas": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Mutant ou Ninja que não é Tartaruga: só aciona as recompensas da tribo.",
+    "sin2": "Motor que rende com os marcadores do time: compra a cada criatura com marcador que acerta um jogador."
    },
    "tier": "B",
    "rel": "MED",
@@ -589,6 +790,14 @@
     "fechamento": 2,
     "tartarugas": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Mutant ou Ninja que não é Tartaruga: só aciona as recompensas da tribo.",
+    "sin2": "Ficha repetível: as cópias que atacam os outros oponentes, a cada ataque."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "De 5. Quando ataca um jogador, cria cópias dele atacando cada outro oponente, sacrificadas no fim do combate. Dano de combate faz o jogador perder metade da vida.",
@@ -598,6 +807,14 @@
    "notas": {
     "marcadores": 2,
     "tartarugas": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Mutant ou Ninja que não é Tartaruga: só aciona as recompensas da tribo.",
+    "sin2": "Marcador só em si mesmo."
    },
    "tier": "C",
    "rel": "BAX",
@@ -610,6 +827,12 @@
     "marcadores": 2,
     "fechamento": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Marcador em até quatro criaturas, e dobra os marcadores de uma criatura por vez."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Artefato de 3. Ao entrar, um marcador em até quatro criaturas. {2}, vira e sacrifica uma ficha: dobra cada tipo de marcador numa criatura.",
@@ -620,6 +843,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "MED",
    "faz": "Artefato de 2: uma mana de qualquer cor da identidade.",
@@ -629,6 +854,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Artefato de 3: seus terrenos dão qualquer cor, e ela também.",
@@ -639,6 +866,12 @@
     "ramp": 2,
     "fichas": 2,
     "marcadores": 1
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Ficha repetível em qualquer turno, um Tesouro por virada, e marcador a mais nas criaturas conjuradas com mana de artefato."
    },
    "tier": "A",
    "rel": "ALT",
@@ -652,6 +885,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "MED",
    "faz": "Artefato de 1: {C}{C}.",
@@ -664,6 +899,12 @@
     "fichas": 2,
     "marcadores": 1,
     "tartarugas": 1
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Converte marcador em ficha: cada criatura com marcador que sai vira um Mutagen por marcador; e cria um Mutagen por virada, em qualquer turno."
    },
    "tier": "A",
    "rel": "ALT",
@@ -679,6 +920,12 @@
     "protecao": 2,
     "marcadores": 2
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Motor que guarda os marcadores do time: passa os de quem sai para outra criatura."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato lendário de 1. Quando uma criatura sua com marcadores sai, eles vão para a Ozolith. No seu combate, passa todos para uma criatura.",
@@ -693,6 +940,14 @@
     "fechamento": 1,
     "tartarugas": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Liga-se pelo tipo: dobra só se quem tripula é Mutant, Ninja ou Turtle.",
+    "sin2": "Dobra os marcadores de uma criatura só, a cada ataque."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Veículo de 3, tripular 1. Ao atacar, um marcador na criatura que o tripulou; se for Mutant, Ninja ou Turtle, dobra os marcadores dela.",
@@ -704,6 +959,14 @@
     "fichas": 3,
     "fechamento": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Cria Ninjas, que acionam as recompensas da tribo, mas não Tartarugas.",
+    "sin2": "Ficha repetível: um Ninja por oponente a cada ataque."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 3, com esquadrão {1}{W}. Sempre que você ataca, cria um Ninja 1/1 virado e atacando para cada oponente.",
@@ -713,6 +976,12 @@
    "notas": {
     "draw": 2,
     "marcadores": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Multiplica os marcadores de todas as suas criaturas: um a mais toda vez."
    },
    "tier": "A",
    "rel": "ALT",
@@ -727,16 +996,28 @@
     "marcadores": 2,
     "fechamento": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Marcador repetível: numa atacante a cada ataque e, no nível 3, em todo o time a cada mágica."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "Classe de 2. Nível 1: marcador numa criatura atacante. Nível 2: ganha 2 de vida quando uma criatura sua com marcador sai. Nível 3: cada mágica sua põe um marcador em cada criatura sua.",
-   "porque": "Marcador fora do Leonardo, mas o nível 3 custa sete manas no total."
+   "porque": "Marcador fora do Leonardo, mas chegar ao nível 3 custa nove manas no total."
   },
   "Level Up": {
    "notas": {
     "draw": 1,
     "marcadores": 2,
     "fechamento": 1
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Dobra os marcadores de uma criatura só, a cada ataque."
    },
    "tier": "C",
    "rel": "BAX",
@@ -750,6 +1031,12 @@
     "fichas": 2,
     "tartarugas": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Ficha repetível: uma Comida toda segunda fase principal."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 3. Suas Foods viram: sacrifique, uma mana de qualquer cor. Cria uma Food no começo da sua segunda fase principal.",
@@ -761,6 +1048,12 @@
     "marcadores": 1,
     "fechamento": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Marcador repetível: cada criatura sua que não é ficha entra com um."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "Encantamento de 3. Suas criaturas não podem ser anuladas. Criaturas não-ficha entram com ímpeto ou com um marcador.",
@@ -770,6 +1063,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 4. Pula turnos extras dos oponentes. Você compra quando um oponente ataca você com duas criaturas, compra a segunda carta ou conjura a segunda mágica no turno.",
@@ -779,6 +1074,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de 2: destrói uma permanente de oponente; ele busca um terreno básico.",
@@ -788,6 +1085,8 @@
    "notas": {
     "protecao": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 2: devolve ao campo até quatro criaturas do seu cemitério que foram para lá neste turno.",
@@ -802,6 +1101,12 @@
     "marcadores": 1,
     "fechamento": 1
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Marcador uma vez só, de voar, numa criatura."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "Fusível. Double Jump, {1}{U}: marcador de voar numa criatura sua, que vira base 5/5 até o fim do turno. Flying Kick, {1}{R}: uma criatura sua causa dano igual à força numa criatura de oponente.",
@@ -812,6 +1117,14 @@
     "protecao": 3,
     "marcadores": 1,
     "tartarugas": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Liga-se pelo tipo: desconto se você controla uma Turtle.",
+    "sin2": "Marcador +1/+1 uma vez só, numa criatura."
    },
    "tier": "A",
    "rel": "ALT",
@@ -827,6 +1140,12 @@
     "fichas": 2,
     "tartarugas": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Marcador em várias criaturas: um Mutagen por criatura atingida, em velocidade instantânea."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de X+1: X de dano em até uma criatura de cada oponente; um Mutagen por criatura atingida.",
@@ -841,6 +1160,14 @@
     "fechamento": 1,
     "tartarugas": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Não é Tartaruga, mas cria Tartarugas: três fichas de Ninja Turtle Spirit.",
+    "sin2": "Fichas uma vez só, ainda que em velocidade instantânea."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de 4, com sneak {1}{W}: três Ninja Turtle Spirit 1/1; com sneak, entram virados e atacando.",
@@ -854,6 +1181,12 @@
     "draw": 2,
     "tartarugas": 2
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Busca lendárias, e quase toda Tartaruga é lendária: liga-se a elas de passagem."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 4: busca quatro criaturas lendárias de nomes diferentes; um oponente escolhe duas para a sua mão.",
@@ -863,6 +1196,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 9, uma a menos por criatura em campo: 13 de dano em cada criatura.",
@@ -877,6 +1212,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 3: busca dois terrenos básicos, um para o campo virado e outro para a mão.",
@@ -886,6 +1223,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 5, duas a menos se um jogador tem metade da vida inicial ou menos: destrói todas as criaturas.",
@@ -901,6 +1240,12 @@
     "draw": 2,
     "fichas": 1
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Ficha uma vez só, num feitiço."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de X+3: um jogador compra X; cria uma ficha cópia de até uma criatura de valor X ou menos.",
@@ -912,6 +1257,8 @@
     "protecao": 1,
     "tartarugas": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 4, com sneak {1}{W}: devolve do cemitério ao campo uma ou duas criaturas de valor 3 ou menos.",
@@ -923,6 +1270,8 @@
     "ramp": 1,
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 4: compre três e ponha um terreno da mão no campo virado.",
@@ -933,6 +1282,8 @@
     "ramp": 2,
     "tartarugas": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 4, com sneak {2}{G}: busca dois terrenos básicos para o campo virados.",
@@ -943,6 +1294,8 @@
     "draw": 2,
     "tartarugas": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Instantânea de 6, com sneak {2}{R}: cada jogador pode descartar a mão e comprar sete.",
@@ -954,6 +1307,8 @@
     "removal": 2,
     "tartarugas": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 3, com sneak {B}: destrói uma criatura ou um encantamento; se for encantamento, você perde 2.",
@@ -964,6 +1319,8 @@
     "draw": 1,
     "tartarugas": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "MED",
    "faz": "Feitiço de 4, com sneak {1}{B}: busca qualquer carta.",
@@ -973,6 +1330,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 2, replicar {2}: uma criatura sua causa dano igual à força numa criatura de oponente, uma vez por cópia.",
@@ -983,6 +1342,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 4, não pode ser anulado: destrói todas as criaturas.",
@@ -997,6 +1358,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 8, uma a menos por criatura em campo: destrói todas as criaturas.",
@@ -1011,6 +1374,12 @@
    "notas": {
     "removal": 3
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Rende uma vez com os marcadores do time: poupa só as criaturas com marcador +1/+1."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 4: devolve à mão do dono toda criatura sem marcador +1/+1.",
@@ -1021,6 +1390,8 @@
    "notas": {
     "fechamento": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 5: desvira quem atacou, e depois desta fase há um combate extra e outra fase principal. Retrace (descartando um terreno).",
@@ -1030,6 +1401,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Qualquer cor; causa 1 de dano em você ao virar.",
@@ -1039,6 +1412,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Qualquer cor da identidade.",
@@ -1048,6 +1423,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Uma cor que um terreno de oponente geraria.",
@@ -1057,6 +1434,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Sacrifique: busca um básico, virado, que desvira se você tem quatro terrenos.",
@@ -1066,6 +1445,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Forest Island: {G} ou {U}; entra virado se você não tem dois básicos.",
@@ -1075,6 +1456,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "{B} ou {R}; desvirado com dois ou mais oponentes.",
@@ -1084,6 +1467,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "{U} ou {B}; desvirado com dois ou mais oponentes.",
@@ -1093,6 +1478,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "{G} ou {U}; desvirado com dois ou mais oponentes.",
@@ -1102,6 +1489,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "{U} ou {R}; desvirado com dois ou mais oponentes.",
@@ -1111,6 +1500,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "{B} ou {G}; desvirado com dois ou mais oponentes.",
@@ -1120,6 +1511,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "{R} ou {G}; desvirado com dois ou mais oponentes.",
@@ -1129,6 +1522,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "{W} ou {U}; desvirado com dois ou mais oponentes.",
@@ -1138,6 +1533,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "{W} ou {B}; desvirado com dois ou mais oponentes.",
@@ -1145,6 +1542,8 @@
   },
   "Rootbound Crag": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "{R} ou {G}; entra virado se você não controla Mountain nem Forest.",
@@ -1153,6 +1552,8 @@
   },
   "Ash Barrens": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Incolor. Ciclo de básico {1}: troca a carta por um básico na mão.",
@@ -1163,6 +1564,12 @@
    "notas": {
     "ramp": -1,
     "fichas": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Ficha cara de ativar: {5} e o próprio terreno pelos Ratos."
    },
    "tier": "C",
    "rel": "BAX",
@@ -1175,6 +1582,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Não gera mana. Sacrifique: um básico virado; ou uma criatura de força 2 ou menos fica imbloqueável.",
@@ -1186,6 +1595,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado. Incolor, ou qualquer cor com 1 de dano.",
@@ -1196,6 +1607,12 @@
   "Hidden Hideout": {
    "notas": {
     "ramp": -1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Rende de passagem com uma criatura com marcador: vínculo com a vida no turno."
    },
    "tier": "C",
    "rel": "BAX",
@@ -1209,6 +1626,12 @@
     "ramp": -1,
     "tartarugas": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Liga-se pelo tipo do comandante: vidência ao conjurar Tartaruga."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado. Qualquer cor da identidade; vidência 1 ao conjurar criatura que divide tipo com o comandante.",
@@ -1218,6 +1641,8 @@
   },
   "Reliquary Tower": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "D",
    "rel": "BAX",
    "faz": "Incolor. Sem limite de mão.",
@@ -1229,6 +1654,12 @@
     "fechamento": 1,
     "tartarugas": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Liga-se pelo tipo: mana e imbloqueável só para Ninja ou Turtle."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Incolor, ou qualquer cor só para mágica de Ninja ou Turtle. {3}, vira: um Ninja ou Turtle imbloqueável.",
@@ -1237,6 +1668,8 @@
   },
   "Forest": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Básico.",
@@ -1244,6 +1677,8 @@
   },
   "Island": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Básico.",
@@ -1251,6 +1686,8 @@
   },
   "Mountain": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Básico.",
@@ -1258,6 +1695,8 @@
   },
   "Plains": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Básico.",
@@ -1265,6 +1704,8 @@
   },
   "Swamp": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Básico.",
@@ -1275,6 +1716,12 @@
   "Hardened Scales": {
    "notas": {
     "marcadores": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Multiplica os marcadores de todas as suas criaturas: um a mais toda vez."
    },
    "tier": "A",
    "rel": "INS",
@@ -1292,6 +1739,12 @@
     "marcadores": 1,
     "fechamento": 3
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Marcador numa atacante a cada ataque, e motor que transforma os marcadores do time em dano."
+   },
    "tier": "A",
    "rel": "INS",
    "veredito": "entra",
@@ -1306,6 +1759,12 @@
    "notas": {
     "fichas": 3,
     "tartarugas": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Mutagen em série, no turno dos oponentes: um a cada artefato, instantânea ou feitiço de qualquer jogador."
    },
    "tier": "A",
    "rel": "INS",
@@ -1322,6 +1781,12 @@
     "ramp": 2,
     "fichas": 3
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Ficha repetível no turno dos oponentes: um Tesouro a cada compra que eles não pagam."
+   },
    "tier": "A",
    "rel": "INS",
    "veredito": "entra",
@@ -1336,6 +1801,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1350,6 +1817,8 @@
     "protecao": 1,
     "fechamento": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "veredito": "entra",
@@ -1363,6 +1832,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1376,6 +1847,12 @@
     "protecao": 1,
     "fichas": 2,
     "tartarugas": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Ficha uma vez só, um Mutagen."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1391,6 +1868,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "veredito": "entra",
@@ -1405,6 +1884,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1419,6 +1900,12 @@
    "notas": {
     "fichas": 2,
     "marcadores": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Dobra as fichas e os marcadores, toda vez."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1435,11 +1922,17 @@
     "removal": 2,
     "fechamento": 3
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Motor que transforma os marcadores postos em dano, toda vez."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Encantamento de 5. Sempre que você põe marcadores numa permanente ou num jogador, causa esse tanto de dano a um oponente, a uma criatura ou a um planeswalker dele.",
-   "porque": "O segundo Casey Jones, que também remove criatura. Conta qualquer marcador, inclusive Mutagen. Tem impressão TMNT (PZA).",
+   "porque": "O segundo Casey Jones, que também remove criatura. Conta qualquer marcador, inclusive o +1/+1 que o Mutagen põe. Tem impressão TMNT (PZA).",
    "sai": "Arcade Cabinet",
    "marcas": {
     "conv": 1
@@ -1448,6 +1941,12 @@
   "Branching Evolution": {
    "notas": {
     "marcadores": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Dobra os marcadores +1/+1 de todas as suas criaturas, toda vez."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1464,6 +1963,12 @@
     "ramp": 2,
     "marcadores": 3
    },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Multiplica os marcadores de todas as suas criaturas: um a mais toda vez."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1478,6 +1983,14 @@
    "notas": {
     "fichas": 3,
     "tartarugas": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Mutant ou Ninja que não é Tartaruga: só aciona as recompensas da tribo.",
+    "sin2": "Mutagen em série, no turno de quem conjura criatura."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1495,6 +2008,14 @@
     "fichas": 3,
     "tartarugas": 2
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Mutant ou Ninja que não é Tartaruga: só aciona as recompensas da tribo.",
+    "sin2": "Mutagen em série, a cada criatura sua que não é ficha e sai do campo."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1510,6 +2031,12 @@
     "draw": 3,
     "protecao": 3
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Rende uma vez com os marcadores do time: compra uma por criatura com marcador e as deixa indestrutíveis."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1524,6 +2051,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1540,6 +2069,12 @@
     "protecao": 3,
     "marcadores": 2
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Marcador em duas criaturas ao entrar, e protege as que têm marcador, repetível."
+   },
    "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
@@ -1554,6 +2089,8 @@
    "notas": {
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1567,6 +2104,14 @@
     "fechamento": 2,
     "tartarugas": 1
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "É Shapeshifter, conta como Tartaruga: aciona as recompensas da tribo.",
+    "sin2": "Marcador só em si mesma, a cada combate."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1579,6 +2124,12 @@
     "fechamento": 3,
     "tartarugas": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Tartaruga comum: aciona as recompensas da tribo."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1590,6 +2141,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1601,6 +2154,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
@@ -1612,6 +2167,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1624,6 +2181,12 @@
     "ramp": 1,
     "fichas": 3
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Ficha repetível: uma Comida ou um Tesouro a cada terreno que entra."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1635,6 +2198,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1646,6 +2211,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1656,6 +2223,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1667,6 +2236,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1678,6 +2249,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1689,6 +2262,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1700,6 +2275,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1711,6 +2288,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1722,6 +2301,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1733,6 +2314,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1744,6 +2327,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1756,6 +2341,8 @@
    "notas": {
     "protecao": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1768,6 +2355,12 @@
   "Secure the Wastes": {
    "notas": {
     "fichas": 3
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Fichas uma vez só, ainda que em velocidade instantânea."
    },
    "tier": "B",
    "rel": "MED",
@@ -1783,6 +2376,8 @@
    "notas": {
     "fechamento": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1795,6 +2390,12 @@
     "marcadores": 3,
     "fechamento": 1
    },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Converte em massa: cada criatura que entra, ficha inclusive, vira marcador no time inteiro, sem limite por turno."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1806,6 +2407,8 @@
    "notas": {
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1818,11 +2421,17 @@
     "marcadores": 3,
     "fechamento": 1
    },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Dobra os marcadores que você põe, toda vez."
+   },
    "tier": "A",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "6/6 atropelar e ímpeto, de 6. Marcadores que você põe vêm em dobro; os dos oponentes, pela metade.",
-   "porque": "Dobrador que ataca no turno em que entra. Seis manas pelo mesmo efeito do Branching Evolution.",
+   "porque": "Dobrador que ataca no turno em que entra. Seis manas, mas dobra mais que o Branching Evolution: todo tipo de marcador, em permanente ou jogador.",
    "sai": "Raphael, Tag Team Tough",
    "marcas": {
     "multi": 1
@@ -1831,6 +2440,12 @@
   "Parallel Lives": {
    "notas": {
     "fichas": 2
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Dobra as fichas que você cria, toda vez."
    },
    "tier": "B",
    "rel": "MED",
@@ -1842,6 +2457,12 @@
    "notas": {
     "fichas": 2
    },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Dobra as fichas que você cria, toda vez."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "fora",
@@ -1852,6 +2473,8 @@
    "notas": {
     "fechamento": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "MED",
    "veredito": "fora",
@@ -1863,6 +2486,14 @@
     "fechamento": 1,
     "tartarugas": 1
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Não é Tartaruga, mas recompensa cada Ninja que dispara, e as Tartarugas são Ninjas.",
+    "sin2": "Dobra de passagem os gatilhos de Ninja, como a Comida e o marcador do Michelangelo, the Heart."
+   },
    "tier": "C",
    "rel": "BAX",
    "veredito": "fora",
@@ -1873,6 +2504,12 @@
    "notas": {
     "fichas": 2,
     "ramp": 1
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Ficha repetível no turno dos oponentes: uma Comida a cada mágica não-criatura deles."
    },
    "tier": "B",
    "rel": "MED",

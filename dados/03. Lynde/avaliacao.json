@@ -1,4 +1,5 @@
 {
+ "versao_pontuacao": 3,
  "feito": "08/10/2026",
  "agrupamentos": [
   {
@@ -276,6 +277,14 @@
     "motor": 3,
     "defesa": 1
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "É a comandante: devolve as Maldições que saem do campo e transforma cada repasse em duas cartas.",
+    "sin2": "Toda manutenção escolhe qual oponente recebe a Maldição, e com as de ataque decide quem a mesa ataca; bloqueia com toque mortífero."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "2/4 toque mortífero. Maldição sua que vai da mesa ao cemitério volta no fim do turno, anexada a você. Na sua manutenção, você pode passar uma Maldição de você para um oponente e comprar duas.",
@@ -286,16 +295,26 @@
     "politica": 2,
     "fechamento": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Ataca todo combate, o que dispara as Maldições de ataque, mas não mexe no ciclo.",
+    "sin2": "Criatura que ataca todo combate e nunca você, passando de jogador em jogador."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "4/4 atropelar. Ataca todo combate se puder, não pode ser sacrificado e não ataca o dono. Na manutenção de cada jogador, esse jogador ganha o controle dele, o desvira e põe um marcador +1/+1.",
-   "porque": "Roda a mesa atacando todo mundo menos você, e cada ataque dispara Opulence, Verbosity e Disturbance."
+   "porque": "Roda a mesa atacando todo mundo menos você, e dispara Opulence, Verbosity e Disturbance quando ataca o amaldiçoado, o que quem o controla no turno escolhe."
   },
   "Archfiend of Depravity": {
    "notas": {
     "removal": 3,
     "defesa": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "5/4 voar. No fim do turno de cada oponente, ele fica com duas criaturas e sacrifica o resto.",
@@ -307,6 +326,12 @@
     "draw": 2,
     "defesa": 2
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Bloqueador com toque mortífero: desencoraja o ataque a você."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "1/1 voar, toque mortífero, compra 1.",
@@ -317,6 +342,12 @@
     "maldicao": 1,
     "motor": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Entra como cópia de uma Maldição, e a Lynde a devolve como a original."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Entra como cópia de qualquer permanente não terreno.",
@@ -326,6 +357,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "2/3 voar, offspring {B}. Na sua manutenção, revela o topo, põe na mão e perde vida igual ao custo.",
@@ -336,6 +369,8 @@
    "notas": {
     "removal": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Clone que pode destruir a criatura de mesmo nome.",
@@ -346,6 +381,8 @@
    "notas": {
     "defesa": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "1/4 com lampejo. Ao entrar, pode mudar para si o alvo de uma instantânea ou feitiço de alvo único. Verso: terreno que gera {U}.",
@@ -356,15 +393,27 @@
     "defesa": 3,
     "politica": 1
    },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Cada criatura que ataca você vira uma ficha de Ogro 3/3 sua, se o controlador dela não pagar {3}."
+   },
    "tier": "B",
    "rel": "MED",
-   "faz": "5/4. Criatura que ataca você: o dono paga 3 ou você cria um Ogre 3/3.",
+   "faz": "5/4. Criatura que ataca você: quem a controla paga 3 ou você cria um Ogre 3/3.",
    "porque": "Segunda Propaganda, em corpo."
   },
   "Keen Duelist": {
    "notas": {
     "draw": 2,
     "fechamento": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Dá uma carta a um oponente escolhido toda volta: presente de passagem, com perda de vida dos dois."
    },
    "tier": "C",
    "rel": "MED",
@@ -376,6 +425,8 @@
    "notas": {
     "defesa": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "3/3 hexproof. Vira cópia de criatura que cai no cemitério de um oponente.",
@@ -387,6 +438,8 @@
     "ramp": 2,
     "defesa": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Mágicas azuis e vermelhas custam 1 a menos. Regenera.",
@@ -398,6 +451,12 @@
     "politica": 1,
     "fechamento": 2
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Lucra com as compras que a Curse of Verbosity e a Curse of Surveillance dão aos outros, mas não mexe no ciclo."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "3/1 lampejo. Compras extras dos oponentes vão para você.",
@@ -407,6 +466,8 @@
    "notas": {
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "5/4. Na manutenção todos exilam até uma não terreno; um oponente veta uma e você conjura até duas das outras de graça.",
@@ -417,10 +478,16 @@
    "notas": {
     "motor": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dispara com cada Maldição que entra, mas virar cópia de criatura não volta ao ciclo."
+   },
    "tier": "C",
    "rel": "BAX",
-   "faz": "2/2. Constellation: vira cópia de outra criatura.",
-   "porque": "24 encantamentos disparam, mas copiar criatura não é o que o deck quer.",
+   "faz": "1/1. Constellation: vira cópia de outra criatura.",
+   "porque": "23 encantamentos disparam, mas copiar criatura não é o que o deck quer.",
    "prioridade": 5
   },
   "Varragoth, Bloodsky Sire": {
@@ -428,6 +495,14 @@
     "draw": 2,
     "motor": 1,
     "defesa": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Tutor de qualquer carta para o topo, que pode buscar a Maldição que falta.",
+    "sin2": "Bloqueador com toque mortífero: desencoraja o ataque a você."
    },
    "tier": "B",
    "rel": "ALT",
@@ -438,6 +513,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Pedra de 2.",
@@ -446,6 +523,12 @@
   "Claws of Gix": {
    "notas": {
     "motor": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Saída repetível: por {1}, sacrifica uma Maldição sua, que volta para você no fim do turno."
    },
    "tier": "A",
    "rel": "INS",
@@ -460,6 +543,12 @@
     "draw": 1,
     "motor": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Recupera de uma vez todas as Maldições do cemitério, o seguro para quando a Lynde não está em campo."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "3, vira e sacrifica: devolve todos os encantamentos do cemitério para a mão.",
@@ -469,6 +558,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Gera R. Ao entrar pode ser cópia de uma criatura até o fim do turno, com ímpeto.",
@@ -477,6 +568,12 @@
   "Despotic Scepter": {
    "notas": {
     "motor": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Saída repetível: destrói uma Maldição sua por volta, e ela volta para você."
    },
    "tier": "A",
    "rel": "ALT",
@@ -491,6 +588,8 @@
     "ramp": 2,
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Gera U. Aos doze marcadores, embaralha mão e cemitério e compra sete.",
@@ -501,6 +600,8 @@
     "ramp": 3,
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Gera duas manas entre U, B e R. Paga 3: compra duas, descarta uma.",
@@ -510,6 +611,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "S",
    "rel": "INS",
    "faz": "Gera 2 incolores.",
@@ -520,6 +623,12 @@
     "ramp": 1,
     "draw": 1,
     "motor": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Saída repetível: destrói uma Maldição sua por 1 de vida, e ela volta para você."
    },
    "tier": "A",
    "rel": "ALT",
@@ -533,6 +642,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Pedra de 2, U ou R.",
@@ -542,6 +653,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Pedra de 2, U ou B.",
@@ -551,6 +664,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Pedra de 2, B ou R.",
@@ -561,6 +676,12 @@
     "removal": 2,
     "maldicao": 3,
     "fechamento": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
    },
    "tier": "A",
    "rel": "ALT",
@@ -576,6 +697,14 @@
     "politica": 1,
     "fechamento": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada.",
+    "sin2": "Dobra o dano ao amaldiçoado e convida a mesa a bater nele."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Dano causado ao amaldiçoado é dobrado.",
@@ -590,6 +719,14 @@
     "defesa": 2,
     "politica": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada.",
+    "sin2": "Cada ataque ao amaldiçoado dá um Zumbi a você e a cada atacante: a mesa briga e você ganha bloqueadores."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Quando o amaldiçoado é atacado, você cria um Zumbi 2/2, e cada atacante também.",
@@ -600,6 +737,14 @@
     "maldicao": 2,
     "politica": 2,
     "fechamento": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada.",
+    "sin2": "Dá atropelar e cartas a quem ataca o amaldiçoado."
    },
    "tier": "B",
    "rel": "MED",
@@ -614,6 +759,12 @@
     "maldicao": 1,
     "fechamento": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição de dia, combustível do ciclo; à noite vira criatura, e se morrer assim a Lynde não a devolve."
+   },
    "tier": "C",
    "rel": "BAX",
    "faz": "Na manutenção do amaldiçoado, ele perde 1 e você ganha 1. À noite vira criatura 4/4.",
@@ -626,6 +777,12 @@
     "maldicao": 3,
     "motor": 3
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Põe uma Maldição nova em campo toda volta; em você, a Lynde a repassa e você compra duas."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "Na SUA manutenção, busca uma Maldição de nome diferente das que estão no amaldiçoado e a anexa a ele.",
@@ -636,6 +793,14 @@
     "ramp": 2,
     "maldicao": 3,
     "politica": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada.",
+    "sin2": "Cada ataque ao amaldiçoado dá um Gold a você e a cada atacante."
    },
    "tier": "S",
    "rel": "INS",
@@ -649,6 +814,12 @@
    "notas": {
     "maldicao": 2,
     "fechamento": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
    },
    "tier": "B",
    "rel": "MED",
@@ -664,6 +835,14 @@
     "maldicao": 3,
     "politica": 1
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Rende a cada Maldição no jogador: uma carta por Maldição anexada a ele, toda volta.",
+    "sin2": "Você escolhe quem compra: pode dividir as cartas com um aliado de ocasião."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Na manutenção do amaldiçoado, outros jogadores à sua escolha compram cartas igual ao número de Maldições nele.",
@@ -673,6 +852,12 @@
    "notas": {
     "maldicao": 3,
     "fechamento": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
    },
    "tier": "B",
    "rel": "MED",
@@ -684,6 +869,12 @@
     "draw": 1,
     "maldicao": 2,
     "motor": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
    },
    "tier": "B",
    "rel": "MED",
@@ -699,6 +890,14 @@
     "maldicao": 2,
     "politica": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada.",
+    "sin2": "Cada ataque ao amaldiçoado dá uma carta a você e a cada atacante."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "Quando o amaldiçoado é atacado, você compra, e cada atacante também.",
@@ -709,6 +908,12 @@
     "maldicao": 2,
     "fechamento": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Quando um terreno entra para o amaldiçoado, você cria um Zumbi 2/2 decadente.",
@@ -718,6 +923,12 @@
    "notas": {
     "maldicao": 2,
     "fechamento": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
    },
    "tier": "A",
    "rel": "ALT",
@@ -733,6 +944,12 @@
     "maldicao": 3,
     "fechamento": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Na manutenção do amaldiçoado, ele perde 3, a menos que sacrifique permanente não terreno ou descarte.",
@@ -747,6 +964,12 @@
     "defesa": 1,
     "fechamento": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
+   },
    "tier": "B",
    "rel": "ALT",
    "faz": "Quando uma criatura entra para o amaldiçoado, ele perde 1 e você ganha 1.",
@@ -759,15 +982,27 @@
    "notas": {
     "fechamento": 3
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Arma a mesa contra um jogador, com cinco Zumbis para cada oponente dele, num dos três modos, na ordem que ele escolhe."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Entra sob controle de um oponente. A cada manutenção dele, um modo novo: vida vira 4, descarta a mão, ou cada oponente dele cria cinco Zumbis.",
-   "porque": "Mata um jogador em três turnos. Não é Maldição: se for destruída, não volta."
+   "porque": "Não mata sozinha: vida em 4, mão vazia e cinco Zumbis para cada oponente dele, na ordem que ele escolhe. Não é Maldição: se for destruída, não volta."
   },
   "Copy Enchantment": {
    "notas": {
     "maldicao": 1,
     "motor": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Entra como cópia de uma Maldição, como uma segunda Curse of Misfortunes, e volta pela Lynde."
    },
    "tier": "A",
    "rel": "ALT",
@@ -779,6 +1014,12 @@
     "draw": 2,
     "motor": 2
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Cria uma cópia de uma Maldição toda volta só enquanto você for o monarca; fora disso, vira cópia dela."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Monarca. Na manutenção vira cópia de outro encantamento ou artefato; se monarca, cria ficha cópia.",
@@ -789,6 +1030,12 @@
     "maldicao": 1,
     "motor": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Entra como cópia de uma Maldição sua e pode sair e voltar a cada manutenção, anexada a você, para a Lynde repassar."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Cópia de um encantamento seu; na manutenção pode sair e voltar copiando outro.",
@@ -798,6 +1045,12 @@
    "notas": {
     "motor": 2
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Põe uma Maldição nova em campo toda volta: uma ficha cópia, que pode entrar em você para a Lynde repassar."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "Na manutenção, cria ficha cópia de outra permanente não terreno sua.",
@@ -805,6 +1058,8 @@
   },
   "Powerbalance": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "D",
    "rel": "BAX",
    "faz": "Quando um oponente conjura, revela o topo; se o custo for igual, conjura de graça.",
@@ -814,6 +1069,12 @@
   "Propaganda": {
    "notas": {
     "defesa": 3
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Cobra {2} por criatura que ataca você: a mesa ataca outro jogador."
    },
    "tier": "A",
    "rel": "INS",
@@ -826,6 +1087,8 @@
     "removal": 2,
     "fechamento": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Saga: rouba uma criatura não lendária de cada oponente; compra por criatura roubada; depois cada jogador escolhe uma e elas morrem.",
@@ -835,6 +1098,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Embaralha uma permanente no grimório do dono.",
@@ -845,6 +1110,8 @@
     "removal": 3,
     "defesa": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "S",
    "rel": "INS",
    "faz": "Devolve uma permanente; com overload, todas as dos oponentes.",
@@ -856,6 +1123,8 @@
    "notas": {
     "defesa": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Criatura que morrer neste turno volta virada. Verso: terreno.",
@@ -865,6 +1134,12 @@
    "notas": {
     "draw": 3,
     "motor": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Sacrifica várias Maldições no lugar do descarte, e todas voltam para você no fim do turno."
    },
    "tier": "A",
    "rel": "ALT",
@@ -878,15 +1153,19 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "faz": "Exila uma criatura; o dono manifesta o topo.",
+   "faz": "Exila uma criatura; quem a controlava manifesta o topo.",
    "porque": "Exílio por 2."
   },
   "Sauron's Ransom": {
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Um oponente separa as quatro do topo em duas pilhas; você fica com uma.",
@@ -897,6 +1176,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "13 de dano em cada criatura.",
@@ -907,6 +1188,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Dano em cada criatura igual ao número de criaturas.",
@@ -917,6 +1200,8 @@
    "notas": {
     "fechamento": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Cada oponente escolhe: você conjura de graça a primeira não terreno dele, ou ele leva dano pelo custo das quatro do topo.",
@@ -927,6 +1212,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Olha três: uma na mão, uma exilada para jogar no turno.",
@@ -936,6 +1223,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Destrói criatura ou encantamento de um oponente; perde vida igual ao custo.",
@@ -945,6 +1234,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Sobra uma criatura ao acaso.",
@@ -955,6 +1246,12 @@
    "notas": {
     "draw": 2,
     "politica": 2
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Votação: a mesa decide entre o turno a mais e as três cartas, negociação de passagem."
    },
    "tier": "C",
    "rel": "MED",
@@ -967,6 +1264,8 @@
     "motor": 1,
     "politica": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Troca o controle de duas permanentes do mesmo tipo.",
@@ -976,9 +1275,11 @@
    "notas": {
     "removal": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
-   "faz": "Destrói um terreno. Verso: terreno.",
+   "faz": "Destrói um terreno, e criaturas sem voar não bloqueiam no turno. Verso: terreno.",
    "porque": "Terreno com opção. Conta como fonte."
   },
   "Windfall": {
@@ -986,6 +1287,8 @@
     "draw": 3,
     "fechamento": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Todos descartam e compram igual à maior mão.",
@@ -993,6 +1296,8 @@
   },
   "Blightstep Pathway": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "B ou R.",
@@ -1003,6 +1308,8 @@
     "ramp": -1,
     "removal": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Entra virado; exila um cemitério.",
@@ -1011,6 +1318,8 @@
   },
   "Clearwater Pathway": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "U ou B.",
@@ -1018,6 +1327,8 @@
   },
   "Command Tower": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "S",
    "rel": "INS",
    "faz": "Gera as três cores.",
@@ -1027,6 +1338,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Tri-land virado.",
@@ -1035,6 +1348,8 @@
   },
   "Crypt of the Eternals": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Incolor, ou filtra para U, B ou R por 1.",
@@ -1042,6 +1357,8 @@
   },
   "Dreadship Reef": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Terreno de estoque U/B.",
@@ -1049,6 +1366,8 @@
   },
   "Drowned Catacomb": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "U ou B.",
@@ -1056,6 +1375,8 @@
   },
   "Exotic Orchard": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Cores que os oponentes geram.",
@@ -1063,6 +1384,8 @@
   },
   "Fabled Passage": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Busca um básico.",
@@ -1070,6 +1393,8 @@
   },
   "Grixis Panorama": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor; paga para buscar básico.",
@@ -1077,6 +1402,8 @@
   },
   "Luxury Suite": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "B ou R.",
@@ -1086,6 +1413,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Entra virado; criatura do cemitério no topo.",
@@ -1094,6 +1423,8 @@
   },
   "Rivendell": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "U; scry 2 com lendária.",
@@ -1101,6 +1432,8 @@
   },
   "Riverglide Pathway": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "U ou R.",
@@ -1110,6 +1443,8 @@
    "notas": {
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Incolor; sacrifica para comprar até 2.",
@@ -1117,6 +1452,8 @@
   },
   "Seething Landscape": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor; sacrifica para buscar básico; cycling.",
@@ -1124,6 +1461,8 @@
   },
   "Stormcarved Coast": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "U ou R.",
@@ -1131,6 +1470,8 @@
   },
   "Sulfur Falls": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "U ou R.",
@@ -1141,6 +1482,8 @@
     "ramp": -1,
     "removal": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "R virado; sacrifica para 2 de dano em cada criatura.",
@@ -1149,6 +1492,8 @@
   },
   "Temple of the False God": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "2 incolores com cinco terrenos.",
@@ -1157,6 +1502,8 @@
   },
   "Underground River": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "U ou B com 1 de dano.",
@@ -1164,6 +1511,8 @@
   },
   "Unknown Shores": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Incolor; filtra por 1.",
@@ -1174,6 +1523,8 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Tri-land com tipos básicos e cycling.",
@@ -1182,6 +1533,8 @@
   },
   "Island": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
@@ -1189,6 +1542,8 @@
   },
   "Mountain": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
@@ -1196,6 +1551,8 @@
   },
   "Swamp": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
@@ -1207,6 +1564,12 @@
    "notas": {
     "maldicao": 3,
     "fechamento": 3
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Rende a cada Maldição no jogador: o dano cresce com o empilhamento."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1221,18 +1584,32 @@
     "fechamento": 3,
     "defesa": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Ensnared by the Mara",
    "faz": "Maldição 4BB. Sempre que o amaldiçoado compra, ele perde 2 e você ganha 2. Madness {3}{B}.",
-   "porque": "Num jogador com Curse of Surveillance ou Verbosity, cada compra extra dele custa 2 de vida."
+   "porque": "A Surveillance e a Verbosity não fazem o amaldiçoado comprar: a Fool's Wisdom rende em outro jogador, como quem ataca o da Verbosity ou o alvo da Surveillance, e cada compra dele custa 2 de vida."
   },
   "Bitterheart Witch": {
    "notas": {
     "motor": 3,
     "draw": 1,
     "defesa": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Ao morrer, busca uma Maldição e a põe em campo: uma vez, não é motor.",
+    "sin2": "Bloqueador com toque mortífero: desencoraja o ataque a você."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1246,6 +1623,12 @@
     "motor": 3,
     "draw": 2
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Dobra a manutenção da Lynde: dois repasses e quatro cartas por turno, e a Curse of Misfortunes busca duas vezes."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1258,6 +1641,12 @@
     "draw": 3,
     "motor": 1
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Rende a cada Maldição que entra, inclusive as que a Lynde devolve: uma carta a cada vez."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1269,6 +1658,8 @@
    "notas": {
     "defesa": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1280,6 +1671,12 @@
    "notas": {
     "motor": 3,
     "maldicao": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Entra como cópia de uma Maldição e volta pela Lynde."
    },
    "tier": "B",
    "rel": "MED",
@@ -1293,6 +1690,8 @@
     "defesa": 3,
     "removal": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1304,6 +1703,14 @@
    "notas": {
     "politica": 3,
     "defesa": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Faz as criaturas dos oponentes atacarem outro jogador, o que dispara as Maldições de ataque, mas não mexe no ciclo.",
+    "sin2": "Goad em todas as criaturas que você não controla: uma rodada de ataques longe de você."
    },
    "tier": "B",
    "rel": "MED",
@@ -1318,6 +1725,12 @@
     "motor": 2,
     "fechamento": 1
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "entra",
@@ -1327,6 +1740,8 @@
   },
   "Blood Crypt": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
@@ -1338,6 +1753,8 @@
    "notas": {
     "defesa": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "avaliar",
@@ -1349,6 +1766,12 @@
    "notas": {
     "fechamento": 3,
     "defesa": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Lucra com as compras que as Maldições dão à mesa, mas não mexe no ciclo."
    },
    "tier": "A",
    "rel": "ALT",
@@ -1362,6 +1785,14 @@
     "maldicao": 1,
     "politica": 1
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada.",
+    "sin2": "Dá a cada outro jogador uma cópia das mágicas do amaldiçoado: presente para a mesa."
+   },
    "tier": "C",
    "rel": "BAX",
    "veredito": "fora",
@@ -1372,6 +1803,8 @@
    "notas": {
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "veredito": "fora",
@@ -1441,7 +1874,7 @@
     "Alexios, Deimos of Kosmos",
     "Curse of Opulence"
    ],
-   "texto": "O Alexios ataca sempre e nunca ataca você, disparando as maldições de ataque em todo turno."
+   "texto": "O Alexios ataca sempre e nunca ataca você; quando quem o controla no turno o manda contra o amaldiçoado, as maldições de ataque disparam."
   },
   {
    "nome": "Mesa vazia todo turno",
