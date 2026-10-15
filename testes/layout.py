@@ -106,7 +106,9 @@ try:
                 pg.on("pageerror", lambda e: err.append(str(e)))
                 pg.goto(comum.url(arq)); pg.wait_for_timeout(700)
                 largos = []
-                for t in ("geral", "gal", "tier", "pk", "tab", "ctrl", "radar", "ofi"):
+                v3 = pg.evaluate("!!(window.PAINEL.D.meta.v3 && window.PAINEL.D.criterios)")
+                nc = len(pg.evaluate("window.PAINEL.D.criterios || []"))
+                for t in ("geral", "gal", "tier", "pk") + (("crit",) if v3 else ()) + ("tab", "ctrl", "radar", "ofi"):
                     pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(120)
                     sw = pg.evaluate("document.documentElement.scrollWidth")
                     if sw > w + 1:
@@ -120,7 +122,10 @@ try:
                 dw = pg.evaluate("(() => { const d = document.querySelector('#drawer'); return d.scrollWidth - d.clientWidth; })()")
                 pg.keyboard.press("Escape")
                 R.ok("%s, %d px: %d agrupamentos sem rolagem lateral" % (nome, w, ng), not largos and dw <= 1, ", ".join(largos) or ("gaveta +%d" % dw if dw > 1 else ""))
-                R.ok("%s, %d px: gráfico, tabelão e gaveta com %d" % (nome, w, ng), fatias == cols == passos == ng, (fatias, cols, passos))
+                if v3:   # deck v3: o gráfico mostra os critérios; a gaveta tem os critérios e os agrupamentos
+                    R.ok("%s, %d px: gráfico com %d critérios, tabelão com %d e gaveta com os dois" % (nome, w, nc, ng), fatias == nc and cols == ng and passos == ng + nc, (fatias, cols, passos))
+                else:
+                    R.ok("%s, %d px: gráfico, tabelão e gaveta com %d" % (nome, w, ng), fatias == cols == passos == ng, (fatias, cols, passos))
                 R.ok("%s, %d px: sem erro de página" % (nome, w), not err, err[:2])
                 if a.fotos:
                     os.makedirs(a.fotos, exist_ok=True)

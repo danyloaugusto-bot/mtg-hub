@@ -99,5 +99,11 @@ class Relatorio:
         sys.exit(1 if (self.falhas or self.erros) else 0)
 
 
+def num_br(txt):
+    """Número como o painel mostra (1.011,5): sem o ponto de milhar, vírgula vira ponto. Inteiro quando não tem fração."""
+    x = float(txt.strip().replace(".", "").replace(",", "."))
+    return int(x) if x == int(x) else x
+
+
 def bloquear_rede(pg):
     pg.route("**/*", lambda r: r.abort() if r.request.url.startswith("http") else r.continue_())

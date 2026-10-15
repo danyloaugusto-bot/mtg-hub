@@ -29,7 +29,7 @@ def com_trocas(pasta):
     entra = [c for c in m["cands"] if c["verdict"] == "entra"]
     sai = {c["sai"] for c in entra if c.get("sai")}
     cartas = [c for c in m["cards"] if c["id"] not in sai] + [dict(c, q=c.get("q", 1)) for c in entra]
-    return motor_hub.placar(cartas, m["grupos"])[0]
+    return motor_hub.placar(cartas, m["grupos"], m.get("v3", False))[0]
 
 
 SECOES = ["resumo", "fichas", "comparar", "movimentacoes", "compartilhadas", "compras", "radar", "mesa", "trocas", "reserva", "placar", "fundamentos", "mana", "potencial", "auditoria", "carteira"]
@@ -122,7 +122,8 @@ with sync_playwright() as p:
             R.ok("cartões dos painéis apontam para arquivos que existem",
                  all(os.path.exists(os.path.join(comum.RAIZ, "saidas", d["pasta"] + ".html")) for d in prontos))
             for d in prontos:
-                R.ok("%s: placar igual ao do controle" % d["pasta"], d["placar"] == comum.controle(d["pasta"]).get("placar", d["placar"]), d["placar"])
+                chave_ctl = "placar_v3" if (d.get("a") or {}).get("v3") else "placar"   # deck v3: o placar novo, conferido à parte
+                R.ok("%s: placar igual ao do controle" % d["pasta"], d["placar"] == comum.controle(d["pasta"]).get(chave_ctl, d["placar"]), d["placar"])
             R.ok("rodapé com o limite do hub", "foto do último build" in pg.inner_text("#foot"))
             pg.fill("#q", "giada"); pg.wait_for_timeout(100)
             R.ok("busca filtra os cartões", pg.locator(".deck:not([hidden])").count() == 1)
@@ -237,7 +238,7 @@ with sync_playwright() as p:
                 R.ok("%s: placar do Dashboard igual ao do motor" % d["pasta"], x.get("placar") == d["placar"], (x.get("placar"), d["placar"]))
                 esperado = com_trocas(d["pasta"])
                 R.ok("%s: placar com as trocas igual à conta em Python" % d["pasta"], x.get("placar_trocas") == esperado, (x.get("placar_trocas"), esperado))
-                ctl = comum.controle(d["pasta"]).get("placar_trocas")
+                ctl = comum.controle(d["pasta"]).get("placar_trocas_v3" if (d.get("a") or {}).get("v3") else "placar_trocas")
                 if ctl is not None:
                     R.ok("%s: placar com as trocas igual ao controle" % d["pasta"], x.get("placar_trocas") == ctl, (x.get("placar_trocas"), ctl))
                 nb, cmc_b = comum.custo_baixo(dados.montar(d["pasta"], avisar=lambda *x: None))
@@ -331,7 +332,8 @@ with sync_playwright() as p:
                 comum.bloquear_rede(pp)
                 pp.goto(comum.url(caminho)); pp.wait_for_timeout(700)
                 warn = pp.locator(".read li.warn").count()
-                total = pp.evaluate("document.querySelector('.score-big b') ? +document.querySelector('.score-big b').textContent : null")
+                # o placar aparece como no Brasil (1.011,5): sem o ponto de milhar, vírgula vira ponto
+                total = pp.evaluate("document.querySelector('.score-big b') ? +document.querySelector('.score-big b').textContent.replace(/[.]/g, '').replace(',', '.') : null")
                 pp.close()
                 R.ok("%s: alertas do Dashboard iguais aos do painel" % d["pasta"], dash[d["pasta"]]["alertas"] == warn, (dash[d["pasta"]]["alertas"], warn))
                 R.ok("%s: placar do painel igual ao do Dashboard" % d["pasta"], total == dash[d["pasta"]]["placar"], (total, dash[d["pasta"]]["placar"]))

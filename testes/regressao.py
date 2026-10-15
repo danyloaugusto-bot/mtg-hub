@@ -27,12 +27,18 @@ with sync_playwright() as p:
     NG = len(D["grupos"])
     ipet = next((i for i, g in enumerate(D["grupos"]) if g.get("pet")), -1)
     cnt = lambda: pg.inner_text("#deckCount")
+    # deck v3: o placar vem dos dez critérios (aba Critérios); o 8×8 segue com os agrupamentos, à parte
+    V3 = bool(D["meta"].get("v3") and D.get("criterios"))
+    CR = D.get("criterios") or []
+    RG = D["meta"]["regua"]
+    placar_tela = lambda: comum.num_br(pg.inner_text("#v-geral .score-big b"))
 
     # números do topo e do placar
     facts = pg.inner_text("#v-geral .facts").replace("\n", " ")
-    placar = int(pg.inner_text("#v-geral .score-big b"))
-    if "placar" in ctl:
-        R.ok("placar de origem", placar == ctl["placar"], placar)
+    placar = placar_tela()
+    k_pl = "placar_v3" if V3 else "placar"
+    if k_pl in ctl:
+        R.ok("placar de origem" + (" (v3)" if V3 else ""), placar == ctl[k_pl], placar)
     if "cmc" in ctl:
         R.ok("fatos do topo", ("cartas %d " % ctl["cartas"]) in facts and ("CMC médio " + ctl["cmc"]) in facts and ("fontes de terreno %d " % ctl["fontes"]) in facts and facts.endswith("foils %d" % ctl["foils"]), facts)
     if "relevancia" in ctl:
@@ -54,12 +60,13 @@ with sync_playwright() as p:
          (not so and nb == 0) or (len(so) == 1 and ("(%d)" % nb) in so[0] and abs(float(so[0].split("	")[1].split()[0].replace(",", ".")) - cmc_b) < 0.006),
          (so, nb, round(cmc_b, 2)))
 
-    abas = ("gal", "tier", "pk", "tab", "ctrl", "radar", "ofi", "geral")
+    abas = ("gal", "tier", "pk") + (("crit",) if V3 else ()) + ("tab", "ctrl", "radar", "ofi", "geral")
+    R.ok("aba Critérios só no deck v3", pg.locator('[data-tab="crit"]').count() == (1 if V3 else 0))
     visto = []
     for t in abas:
         pg.click('[data-tab="%s"]' % t); pg.wait_for_timeout(150)
         visto.append(pg.evaluate("document.querySelector('main').innerText"))
-    R.ok("oito abas sem exceção", not R.erros, R.erros)
+    R.ok("%d abas sem exceção" % len(abas), not R.erros, R.erros)
     # nome impresso: a página mostra o nome da carta física; o do Scryfall fica só nos dados
     escondidos = [c["on"] for c in D["cards"] if c.get("on")]
     if escondidos:
@@ -72,11 +79,22 @@ with sync_playwright() as p:
     pg.click('[data-tab="tier"]'); pg.wait_for_timeout(250)
     n_d = pg.locator('#v-tier .tier[data-t="D"] .chip').count()
     pg.click('#v-tier .chip[data-card="%s"]' % alvo["id"]); pg.wait_for_timeout(200)
-    p0 = int(pg.inner_text(".dw-sum b"))
+    # no deck v3 a soma do 8×8 fica na linha menor da gaveta, e o número grande é o valor nos critérios
+    soma8 = (lambda: int(pg.inner_text(".dw-sum small").split(":")[1])) if V3 else (lambda: int(pg.inner_text(".dw-sum b")))
+    if V3:
+        pg.click(".dw-8:not(.dw-c3) summary"); pg.click(".dw-c3 > summary"); pg.wait_for_timeout(80)   # notas do 8×8 e dos critérios ficam em blocos que abrem
+    p0, v0 = soma8(), comum.num_br(pg.inner_text(".dw-sum b"))
     pg.click('[data-act="step"][data-g="1"][data-d="1"]'); pg.check('[data-act="pet"]'); pg.wait_for_timeout(120)
     R.ok("gaveta mostra onde a carta aparece em outros decks e pastas", "Em outros decks e pastas" in pg.inner_text("#drawer"))
-    R.ok("stepper e PetCard", int(pg.inner_text(".dw-sum b")) == p0 + (2 if ipet >= 0 else 1), alvo["n"])
-    R.ok("gaveta com uma nota por agrupamento", pg.locator(".drawer .step").count() == NG)
+    R.ok("stepper e PetCard", soma8() == p0 + (2 if ipet >= 0 else 1), alvo["n"])
+    R.ok("gaveta com uma nota por agrupamento" + (" e uma por critério" if V3 else ""), pg.locator(".drawer .step").count() == NG + len(CR))
+    d3 = 0
+    if V3:
+        R.ok("gaveta v3: o 8×8 não mexe no valor da carta nos critérios", comum.num_br(pg.inner_text(".dw-sum b")) == v0, v0)
+        j = next(i for i, v in enumerate(alvo["s3"]) if v < 3)
+        d3 = CR[j]["peso"] * (RG["pontos_por_nota"][alvo["s3"][j] + 1] - RG["pontos_por_nota"][alvo["s3"][j]])
+        pg.click('[data-act="step3"][data-g="%d"][data-d="1"]' % j); pg.wait_for_timeout(120)
+        R.ok("gaveta v3: +1 em %s soma peso × pontos da nota" % CR[j]["nome"], comum.num_br(pg.inner_text(".dw-sum b")) == v0 + d3, (v0, d3))
     pg.fill('[data-act="val"]', "12.5"); pg.click('[data-act="set-tier"][data-v="D"]'); pg.wait_for_timeout(150)
     R.ok("valor não engole o clique seguinte", pg.locator('#v-tier .tier[data-t="D"] .chip').count() == n_d + 1)
     pg.keyboard.press("Escape"); pg.click('[data-tab="geral"]'); pg.wait_for_timeout(200)
@@ -94,7 +112,7 @@ with sync_playwright() as p:
     R.ok("arrastar entre tiers", pg.locator('#v-tier .tier[data-t="B"] .chip[data-card="%s"]' % mover["id"]).count() == 1, mover["n"])
     # 8×8: um quadro por agrupamento e um de Mana; arrastar muda a contagem e não o placar
     pg.click('[data-tab="geral"]'); pg.wait_for_timeout(200)
-    pt0 = int(pg.inner_text("#v-geral .score-big b"))
+    pt0 = placar_tela()
     pg.click('[data-tab="pk"]'); pg.wait_for_timeout(250)
     gks = [g["k"] for g in D["grupos"]]
     R.ok("8×8: um quadro por agrupamento e um de Mana", pg.locator("#v-pk .kcol").count() in (NG + 1, NG + 2), pg.locator("#v-pk .kcol").count())
@@ -112,7 +130,7 @@ with sync_playwright() as p:
         R.ok("8×8: arrastar muda a contagem dos dois quadros",
              pg.locator('#v-pk [data-drop="pk:%s"] .chip' % orig).count() == n_o - 1 and pg.locator('#v-pk [data-drop="pk:%s"] .chip' % dest).count() == n_d2 + 1, cid)
         pg.click('[data-tab="geral"]'); pg.wait_for_timeout(200)
-        R.ok("8×8: a simulação não muda o placar", int(pg.inner_text("#v-geral .score-big b")) == pt0, pt0)
+        R.ok("8×8: a simulação não muda o placar", placar_tela() == pt0, pt0)
         pg.click('[data-act="backup"]'); R.ok("8×8: o backup guarda o pacote movido", cid in json.loads(pg.input_value("#bk-out")).get("pk", {}))
         pg.keyboard.press("Escape")
         pg.click('[data-tab="pk"]'); pg.click('[data-act="pk-reset"]'); pg.wait_for_timeout(200)
@@ -141,10 +159,13 @@ with sync_playwright() as p:
     R.ok("histórico com uma linha por troca", pg.locator("#v-radar .hist tbody tr").count() == len(entram))
     pg.click('[data-tab="geral"]'); pg.wait_for_timeout(300)
     facts = pg.inner_text("#v-geral .facts").replace("\n", " "); read = pg.inner_text("#v-geral .read")
-    pt = int(pg.inner_text("#v-geral .score-big b"))
-    R.nota("depois das %d trocas: %s | placar %d" % (len(entram), facts, pt))
+    pt = placar_tela()
+    R.nota("depois das %d trocas: %s | placar %s" % (len(entram), facts, pt))
     R.nota(" / ".join(x.split(".")[0] for x in read.split("\n") if x.strip())[:400])
-    if "placar_trocas" in ctl:
+    if V3 and "placar_trocas_v3" in ctl:
+        # no v3 só a nota +1 no critério mexe no placar; o 8×8, o PetCard e o tier, não
+        R.ok("placar depois das trocas (v3)", pt == ctl["placar_trocas_v3"] + d3, (pt, ctl["placar_trocas_v3"], d3))
+    elif not V3 and "placar_trocas" in ctl:
         # o PetCard e o tier alterados acima não mexem no placar das trocas, mas a nota +1 mexe
         R.ok("placar depois das trocas", pt == ctl["placar_trocas"] + 2 if ipet >= 0 else pt == ctl["placar_trocas"] + 1, pt)
     for t in ctl.get("ausente", []):
