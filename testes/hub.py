@@ -125,7 +125,7 @@ with sync_playwright() as p:
             R.ok("atalho da raiz abre o hub", pg.url.endswith("00.%20Hub.html"), pg.url[-30:])
             R.ok("abas Decks, Pastas e Dashboard", pg.eval_on_selector_all("[role=tab][data-vista]", "e=>e.map(x=>x.textContent)") == ["Decks", "Pastas", "Dashboard"])
             R.ok("grupos na ordem do aplicativo", pg.eval_on_selector_all(".grupo h2", "e=>e.map(x=>x.textContent.trim())") ==
-                 ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "05. Desejo"])
+                 ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "05. Desejo", "06. Compras"])
             pastas = [d["pasta"] for d in H["decks"]]
             R.ok("todos os decks do inventário e de dados/", set(inv) <= set(pastas), sorted(set(inv) - set(pastas)))
             R.ok("um cartão por deck, sem repetição", pg.locator(".deck").count() == len(H["decks"]) == len(set(pastas)), pg.locator(".deck").count())
@@ -143,12 +143,12 @@ with sync_playwright() as p:
             R.ok("busca filtra os cartões", pg.locator(".deck:not([hidden])").count() == 1)
             pg.fill("#q", "")
             # aba Decks: grupos fechados até o clique, com as miniaturas das capas no cabeçalho
-            R.ok("Decks: grupos fechados ao abrir o hub", pg.locator("#v-decks details.g-sf[open]").count() == 0 and pg.locator("#v-decks details.g-sf").count() == 5)
+            R.ok("Decks: grupos fechados ao abrir o hub", pg.locator("#v-decks details.g-sf[open]").count() == 0 and pg.locator("#v-decks details.g-sf").count() == 6)
             R.ok("Decks: miniaturas de todos os decks nos cabeçalhos", pg.locator("#v-decks .minis i").count() == len(H["decks"]))
             pg.click('#v-decks details[data-sf="g-02"] > summary'); pg.wait_for_timeout(150)
             R.ok("Decks: um clique abre só aquele grupo", pg.locator("#v-decks details.g-sf[open]").count() == 1 and pg.is_visible('#v-decks details[data-sf="g-02"] .deck >> nth=0'))
             pg.click('[data-dk="abrir"]'); pg.wait_for_timeout(150)
-            R.ok("Decks: abrir todos", pg.locator("#v-decks details.g-sf[open]").count() == 5)
+            R.ok("Decks: abrir todos", pg.locator("#v-decks details.g-sf[open]").count() == 6)
             # aba Decks: estante, lista e por cor, com filtros de cor e situação
             R.ok("Decks: cartão sem contador de alertas nem bracket, a pedido do dono", pg.locator(".deck .al").count() == 0 and pg.locator(".brk").count() == 0)
             R.ok("Decks: passos de quem está em construção", pg.locator(".deck.vazio .passos").count() == len(H["decks"]) - len(prontos))
@@ -175,7 +175,7 @@ with sync_playwright() as p:
             pg.click('[data-dk="v"][data-k="lista"]'); pg.wait_for_timeout(150)
             R.ok("Decks: lista em grupos que abrem no clique", pg.locator('#v-decks details.g-sf').count() == 5)
             pg.click('[data-dk="v"][data-k="estante"]'); pg.wait_for_timeout(150)
-            R.ok("Decks: volta para a estante com os grupos", pg.eval_on_selector_all(".grupo h2", "e=>e.map(x=>x.textContent.trim())") == ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "05. Desejo"])
+            R.ok("Decks: volta para a estante com os grupos", pg.eval_on_selector_all(".grupo h2", "e=>e.map(x=>x.textContent.trim())") == ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "05. Desejo", "06. Compras"])
             pg.click("#t-pastas"); R.ok("aba Pastas com as oito pastas", pg.is_visible("#v-pastas") and pg.locator(".pasta").count() == 8)
 
             # ---------------- Dashboard
@@ -207,6 +207,7 @@ with sync_playwright() as p:
             # Compras: sem banco (arquivo offline) a lista avisa e o radar fica sem botão
             aba(pg, "compras")
             R.ok("Compras: offline, a lista avisa que mora no hub publicado", "mora no hub publicado" in pg.inner_text("#d-compras") and pg.locator('#d-radar [data-act="comp"]').count() == 0)
+            R.ok("06. Compras: offline, o grupo da estante avisa que a lista mora no hub publicado", "mora no hub publicado" in (pg.text_content('#v-decks .grupo[data-grupo="06"]') or ""))
             R.ok("Compras: radar com todos os S e A dos radares", pg.evaluate("window.HUB_DASH.radar") >= pg.locator("#d-radar tbody tr:not(.mais)").count() > 0)
             cp = b.new_page(viewport={"width": 1360, "height": 1000})
             cp.on("pageerror", lambda e: R.erros.append("PAGEERROR " + str(e)))
@@ -216,7 +217,12 @@ with sync_playwright() as p:
             cp.click('.dnav a[data-dtab="compras"]'); cp.wait_for_timeout(300)
             R.ok("Compras: com banco, lista vazia e botões no radar", "Lista vazia" in cp.inner_text("#d-compras") and cp.locator('#d-radar [data-act="comp"]').count() > 0)
             nome = cp.inner_text('#d-radar tbody tr >> nth=0 >> td >> nth=0 >> b')
+            b0 = cp.locator('#d-radar [data-act="comp"] >> nth=0')
+            c0 = cp.evaluate("([k, v]) => window.HUB.decks.find(x => x.pasta === k).a.cands.find(x => x.i === v) || {}", [b0.get_attribute("data-k"), b0.get_attribute("data-v")])
+            ci = c0.get("ci")
+            cor = "L" if c0.get("L") else "?" if ci is None else "C" if ci == "" else "M" if len(ci) > 1 else ci
             cp.click('#d-radar [data-act="comp"] >> nth=0'); cp.wait_for_timeout(300)
+            R.ok("06. Compras: a carta marcada aparece na estante, no espaço da sua cor (ou em Terrenos)", nome in (cp.text_content('#v-decks .grupo[data-grupo="06"] .cmp-cor[data-cor="%s"]' % cor) or ""), (nome, cor))
             R.ok("Compras: + Compras grava no banco e aparece na lista", len(cp.evaluate("Object.keys(window.__store)")) == 1 and nome in cp.inner_text("#d-compras"), nome)
             R.ok("Compras: o botão vira Na lista", cp.locator('#d-radar [data-act="comp"][aria-pressed="true"]').count() >= 1)
             enc = cp.inner_text('#d-radar tbody tr >> nth=0 >> td[data-l="Rende mais em"]').strip()

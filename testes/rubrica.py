@@ -111,13 +111,18 @@ def notas_mao(nome, pasta):
     return dict(CAD[nome.split(" // ")[0]]["n"])
 
 
-def ganho_mao(nome, pasta, terra):
+def lados(c):
+    """Terreno, mágica, ou os dois: a carta com terreno no verso (MDFC) joga dos dois lados."""
+    return {"terra", "magia"} if c.get("mdfc") else {"terra"} if c.get("land") else {"magia"}
+
+
+def ganho_mao(nome, pasta, ls):
     m = MON[pasta]
     n2 = {k: sum(c["q"] for c in m["cards"] if c["s3"][i] >= SAT.get("conta_com_nota_minima", 2)) for i, k in enumerate(CRIT)}
     mult = {k: SAT["abaixo"] if n2[k] < FAIXA[k][0] else SAT["acima"] if n2[k] > FAIXA[k][1] else SAT["dentro"] for k in CRIT}
     val = lambda nt, ml=None: sum(PESO[k] * PN[v] * (ml[k] if ml else 1) for k, v in nt.items() if v)
-    # terreno troca com terreno; carta com terreno no verso (MDFC) conta como terreno
-    cands = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and bool(c.get("land") or c.get("mdfc")) == terra and c["q"] == 1]
+    # terreno troca com terreno, mágica com mágica; a MDFC está nos dois grupos e, entrando, troca com qualquer um
+    cands = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and lados(c) & ls and c["q"] == 1]
     sai = min(cands, key=lambda c: (val(dict(zip(CRIT, c["s3"]))), c["n"]))
     return round(val(notas_mao(nome, pasta), mult) - val(dict(zip(CRIT, sai["s3"]))), 2), sai["n"]
 
@@ -128,12 +133,14 @@ for pasta in v3:
     enc = D.get("encaixe") or {}
     R.ok("%s: o painel traz o encaixe de toda carta do deck e do radar" % pasta, all(c["id"] in enc for c in D["cards"] + D["cands"] if not c.get("cmd")), len(enc))
     erros = []
-    for c in (D["cands"] + D["cards"])[:25]:
+    amostra = (D["cands"] + D["cards"])[:25]
+    amostra += [c for c in D["cards"] + D["cands"] if c.get("mdfc") and c not in amostra]   # as MDFC, que jogam dos dois lados
+    for c in amostra:
         if c.get("cmd"):
             continue
         for e in enc.get(c["id"], []):
-            g, sai = ganho_mao(c.get("on", c["n"]), e["p"], bool(c.get("land") or c.get("mdfc")))
+            g, sai = ganho_mao(c.get("on", c["n"]), e["p"], lados(c))
             if abs(g - e["g"]) > 1e-6 or sai != e["s"]:
                 erros.append("%s em %s: painel %s/%s, à mão %s/%s" % (c["n"], e["p"], e["g"], e["s"], g, sai))
-    R.ok("%s: ganho e quem sai, refeitos à mão, iguais aos do painel (25 cartas)" % pasta, not erros, erros[:3])
+    R.ok("%s: ganho e quem sai, refeitos à mão, iguais aos do painel (%d cartas, com as MDFC)" % (pasta, len(amostra)), not erros, erros[:3])
 R.fim()
