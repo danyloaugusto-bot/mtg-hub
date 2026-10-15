@@ -53,6 +53,33 @@ def ler(nome):
         return f.read()
 
 
+def _contraste(a, b):
+    """Razão de contraste WCAG entre duas cores [r, g, b] de 0 a 255."""
+    def lum(c):
+        f = [(v / 255) / 12.92 if v / 255 <= .03928 else (((v / 255) + .055) / 1.055) ** 2.4 for v in c]
+        return .2126 * f[0] + .7152 * f[1] + .0722 * f[2]
+    l1, l2 = lum(a), lum(b)
+    return (max(l1, l2) + .05) / (min(l1, l2) + .05)
+
+
+def selos_legiveis(pal, claro):
+    """Selos INS e BAX com contraste de pelo menos 4,5:1 em qualquer tema (auditoria de layout, 15/10/2026). Muda só a cor
+    do texto do selo: o INS tem o acento de fundo e a tinta por cima; o BAX, um véu vermelho sobre os painéis do tema."""
+    hx = lambda h: list(tema._hex(h))
+    css = ""
+    ouro, tinta = hx(pal["acento"]), hx(pal["tinta"])
+    if _contraste(tinta, ouro) < 4.5:
+        melhor = max(("#111111", "#ffffff"), key=lambda c: _contraste(hx(c), ouro))
+        css += ":root .rb-INS{color:%s}" % melhor   # :root para vencer a regra do style.css, que vem depois
+    veu, alfa, cor = ((192, 57, 75), .1, "#a3283b") if claro else ((234, 84, 102), .2, "#ff9aa7")
+    fundos = [[veu[i] * alfa + hx(pal[k])[i] * (1 - alfa) for i in range(3)] for k in ("painel", "painel2", "fundo", "folha", "folha2") if pal.get(k)]
+    pior = lambda c: min(_contraste(hx(c), f) for f in fundos)
+    if pior(cor) < 4.5:
+        opcoes = ("#7a1726", "#5c0f1c", "#2a0a10") if claro else ("#ffc2ca", "#ffe0e4", "#ffffff")
+        css += ":root .rb-BAX,:root .vd-fora,:root.claro .rb-BAX,:root.claro .vd-fora{color:%s}" % next((c for c in opcoes if pior(c) >= 4.5), opcoes[-1])
+    return css + "\n" if css else ""
+
+
 def conferir_tema(t):
     cap = t.get("capa") or {}
     if cap.get("moldura", "retrato") not in MOLDURAS:
@@ -125,6 +152,10 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
     root += "".join(".c-%s{--cc:%s}" % (c["k"], c["c"]) for c in cores) + "\n"
     if not art_css:
         root += ".ava{display:none}\n"
+    root += selos_legiveis(pal, t.get("modo") == "claro")
+    if t.get("numeros_no_texto"):
+        # fonte de título gótica ou só de contorno: o placar grande também vai para a fonte do texto (auditoria de layout)
+        root += ".rosa .ctr-n,.score-big b{font-family:var(--fb);font-variant-numeric:tabular-nums}\n"
 
     cmd = next((c for c in d["cards"] if c.get("cmd")), None)
     curto = t.get("comandante_curto") or (cmd["n"].split(",")[0] if cmd else "")

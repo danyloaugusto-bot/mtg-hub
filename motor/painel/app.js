@@ -152,7 +152,7 @@ function storeTxt() {
 }
 function updStoreNote() { var n = $('#storeNote'); if (n) n.textContent = storeTxt(); }
 var S = loadState();
-var ui = { tab: 'geral', curve: 'tipo', q: '', fg: -1, fc: -1, ft: '', fr: '', sort: { k: 'n', d: 1 }, grouped: true,
+var ui = { tab: 'geral', curve: 'tipo', q: '', fg: -1, fc: -1, fech: {}, ft: '', fr: '', sort: { k: 'n', d: 1 }, grouped: true,
            tierType: '', tierLands: false, tierView: '', ctrlLands: false, drawer: null, modal: null, first: true, confirmReset: false,
            galBy: 'tipo', galLands: false, face: 0, narrow: false, poolAll: false, of: {} };
 
@@ -226,7 +226,6 @@ function byId(id) {
 }
 function deck() { return D.cards.concat(cands()).map(E).filter(function (c) { return c.inDeck; }); }
 function gv(c, i) { if (TABC) return (c.s3 || [])[i] || 0; return (c.s[i] || 0) + (i === IPET && c.pet ? 1 : 0); }
-function usdOf(c) { var u = c.foil && c.usdf ? +c.usdf : (c.usd ? +c.usd : null); return isNaN(u) ? null : u; }
 function pts(c) { if (TABC) return pts3(c); var t = 0; for (var i = 0; i < NG; i++) t += gv(c, i); return t; }
 function pts3(c) { var t = 0; for (var i = 0; i < NC; i++) t += ptsCrit((c.s3 || [])[i] || 0, i); return t; }
 function ov(id) { if (!S.ov[id]) S.ov[id] = {}; return S.ov[id]; }
@@ -240,7 +239,7 @@ function pips(cost) {
 }
 
 function stats(cs) {
-  var st = { n: 0, nonland: 0, cmcSum: 0, curve: [], types: {}, cols: {}, rel: {}, relVal: {}, relValN: {}, tier: {}, grp: [], usd: 0, usdN: 0, usdSem: 0, relUsd: {},
+  var st = { n: 0, nonland: 0, cmcSum: 0, curve: [], types: {}, cols: {}, rel: {}, tier: {}, grp: [],
              pip: {}, src: {}, pw: {}, srcC: 0, lands: 0, mdfc: 0, tapped: 0, cri: 0, tribo: 0, wipes: 0, mk: {},
              foils: 0, sets: {}, low: 0, top: 0 };
   var i;
@@ -255,10 +254,7 @@ function stats(cs) {
     st.types[c.t] = (st.types[c.t] || 0) + q;
     st.rel[c.rel] = (st.rel[c.rel] || 0) + q;
     st.tier[c.tier] = (st.tier[c.tier] || 0) + q;
-    if (c.val != null) { st.relVal[c.rel] = (st.relVal[c.rel] || 0) + c.val * q; st.relValN[c.rel] = (st.relValN[c.rel] || 0) + q; }
     if (c.foil) st.foils += q;
-    var u = usdOf(c);
-    if (u != null) { st.usd += u * q; st.usdN += q; st.relUsd[c.rel] = (st.relUsd[c.rel] || 0) + u * q; } else st.usdSem += q;
     if (c.set) st.sets[c.set] = (st.sets[c.set] || 0) + q;
     for (var j = 0; j < NG; j++) {
       var v = gv(c, j); st.grp[j].pts += v * q;
@@ -1079,7 +1075,7 @@ function chartHero(st) {
   LAB = st.c3.map(function (x) { return x.pts; }); MAXFIX = 100;
   try { o = chartSvg(st); } finally { G = g0; NG = n0; st.grp = s0; LAB = null; MAXFIX = null; }
   return o.replace(/data-act="filter-group"/g, 'data-act="ver-crit"').replace(/Abrir no tabelão\./g, 'Abrir na aba Critérios.')
-    .replace(/agrupamentos, com a pontuação/g, 'critérios da pontuação v3, com o total');
+    .replace(/agrupamentos, com a pontuação/g, 'critérios, com o placar');
 }
 /* cores dos critérios no gráfico da página inicial (as variáveis --gN da página são as dos agrupamentos) */
 function crVars() { return V3 ? ' style="' + CR.map(function (g, i) { return '--g' + i + ':' + g.cor; }).join(';') + '"' : ''; }
@@ -1740,7 +1736,7 @@ function comoV3() {
   var pn = RG.pontos_por_nota, a = RG.aceleracao, pesos = {};
   CR.forEach(function (g) { (pesos[g.peso] = pesos[g.peso] || []).push(g.k); });
   var ps = Object.keys(pesos).map(Number).sort(function (x, y) { return y - x; }).map(function (w) { return lista(pesos[w]) + ', ' + fmt(w, w % 1 ? 1 : 0); });
-  return '<p>Pontuação v3. Cada carta tem nota de 0 a 3 em ' + NUM[NC] + ' critérios: a Sinergia Primária e a Secundária vêm deste deck, os outros oito vêm do cadastro único das cartas. ' +
+  return '<p>Cada carta tem nota de 0 a 3 em ' + NUM[NC] + ' critérios: a Sinergia Primária e a Secundária vêm deste deck, os outros oito vêm do cadastro único das cartas. ' +
     'A nota vale ' + pn.slice(1).join(', ').replace(/, (\d+)$/, ' ou $1') + ' pontos (0 não pontua), vezes o peso do critério: ' + ps.join('; ') + '. ' +
     'O potencial de aceleração é a soma das notas de ' + esc(CR[ICA].k) + ' dividida pelo CMC médio: vale ' + a.piso + ' pontos, mais ' + a.pontos_por_passo + ' a cada ' + fmt(a.passo, 1) + ', até ' + a.teto + '. ' +
     (RG.pontos_de_cmc_antigos ? 'O CMC médio ainda vale de 1 a 5 pontos.' : 'O CMC médio não soma pontos: ele entra só como divisor da aceleração.') + '</p>' +
@@ -1758,7 +1754,7 @@ function heroHtml(st, cmds) {
   var nome = M.cmd || (cmd ? cmd.n : '');
   var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
-    '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
+    (st.foils ? '<div><dt>foils</dt><dd>' + st.foils + '</dd></div>' : '') + '</dl>';
   var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'maos' ? 'mão' : M.grafico === 'engrenagens' ? 'engrenagem' : M.grafico === 'pergaminhos' ? 'pergaminho' : M.grafico === 'lunetas' ? 'luneta' : M.grafico === 'torres' ? 'torre' : M.grafico === 'meteoros' ? 'meteoro' : M.grafico === 'canhoes' ? 'canhão' : M.grafico === 'tumbas' ? 'lápide' : M.grafico === 'asas' && (V3 ? NC : NG) === 8 ? 'pena' : 'fatia';
   // motivo votado: a legenda vem do arquivo do motivo (peça, gênero e o que a pontuação muda)
   var mvl = typeof MOTIVO_PAINEL === 'object' && MOTIVO_PAINEL && MOTIVO_PAINEL.legenda;
@@ -1840,13 +1836,11 @@ function renderGeral() {
     return '<div class="bar"><span>' + t.n + '</span><span class="bar-t"><i style="width:' + (st.types[t.k] / maxT * 100).toFixed(1) + '%;--c:' + t.c + '"></i></span><b class="num">' + st.types[t.k] + '</b></div>';
   }).join('');
 
-  var anyVal = RELS.some(function (r) { return st.relValN[r.k]; });
+  // sem preço no painel (decisão do dono, 14/10/2026): o quadro mostra só a relevância
   var relRows = RELS.map(function (r) {
     var n = st.rel[r.k] || 0;
-    return '<tr><th scope="row">' + relB(r.k) + ' ' + r.n + '</th><td class="num"><b>' + n + '</b></td><td class="num">' + fmt(st.n ? n / st.n * 100 : 0, 0) + '%</td>' +
-      (st.usdN ? '<td class="num">US$ ' + fmt(st.relUsd[r.k] || 0) + '</td>' : '') +
-      (anyVal ? '<td class="num">' + (st.relValN[r.k] ? 'R$ ' + fmt(st.relVal[r.k]) : '—') + '</td><td class="num">' + (st.relValN[r.k] ? 'R$ ' + fmt(st.relVal[r.k] / st.relValN[r.k]) : '—') + '</td>' : '') + '</tr>';
-  }).join('') + (st.usdN ? '<tr class="tot-r"><th scope="row">Deck inteiro</th><td class="num"><b>' + st.n + '</b></td><td></td><td class="num"><b>US$ ' + fmt(st.usd) + '</b></td>' + (anyVal ? '<td></td><td></td>' : '') + '</tr>' : '');
+    return '<tr><th scope="row">' + relB(r.k) + ' ' + r.n + '</th><td class="num"><b>' + n + '</b></td><td class="num">' + fmt(st.n ? n / st.n * 100 : 0, 0) + '%</td></tr>';
+  }).join('');
 
   var sets = Object.keys(st.sets).sort(function (a, b) { return st.sets[b] - st.sets[a] || a.localeCompare(b); }).slice(0, 5);
   var maxS = sets.length ? st.sets[sets[0]] : 1;
@@ -1872,7 +1866,7 @@ function renderGeral() {
     '<div class="legend">' + (ui.curve === 'cor' ? COLS.filter(function (c) { return st.cols[c.k]; }) : TYPES.filter(function (t) { return t.k !== 'ter' && st.types[t.k]; })).map(function (k) {
       return '<span><i style="background:' + k.c + '"></i>' + esc(k.n) + ' ' + (ui.curve === 'cor' ? st.cols[k.k] : st.types[k.k]) + '</span>';
     }).join('') + '</div></fieldset>' +
-    '<fieldset class="pn"><legend>Placar do deck</legend><div class="score-big"><b>' + fmtP(st.total) + '</b><span>pontos' + (V3 ? ', pontuação v3' : '') + '</span></div>' +
+    '<fieldset class="pn"><legend>Placar do deck</legend><div class="score-big"><b>' + fmtP(st.total) + '</b><span>pontos</span></div>' +
     '<table class="kv"><tr><th scope="row">CMC médio</th><td class="num">' + fmt(st.avg) + '</td><td class="num">' + (V3 && !RG.pontos_de_cmc_antigos ? 'não pontua' : '<b>' + st.cmcPts + '</b> pts') + '</td></tr>' +
     '<tr><th scope="row">Potencial de aceleração</th><td class="num">' + fmt(st.accX) + '</td><td class="num"><b>' + st.accPts + '</b> pts</td></tr>' +
     '<tr><th scope="row">' + (V3 ? 'Pontos dos dez critérios' : 'Soma das notas') + '</th><td></td><td class="num"><b>' + fmtP(st.crit) + '</b> pts</td></tr></table>' +
@@ -1894,10 +1888,8 @@ function renderGeral() {
   h += '<div class="grid g-111">' + coresPanel(st) +
     '<fieldset class="pn"><legend>Tipos de carta</legend><div class="bars">' + typeBars + '</div>' +
     '<h3 class="sub">Edições mais presentes</h3><div class="bars">' + setBars + '</div></fieldset>' +
-    '<fieldset class="pn"><legend>Relevância e valor</legend><table class="rel-t"><thead><tr><th></th><th>Qtd</th><th>Do deck</th>' + (st.usdN ? '<th>US$</th>' : '') + (anyVal ? '<th>R$</th><th>Média R$</th>' : '') + '</tr></thead><tbody>' + relRows + '</tbody></table>' +
-    '<p class="pn-note">' + (st.usdN ? 'Dólar: preço do Scryfall' + (M.scryfall ? ', consultado em ' + fdate(M.scryfall) : '') + ', na impressão da sua lista e em foil quando a carta é foil' + (st.usdSem ? '; ' + pl(st.usdSem, 'carta está', 'cartas estão') + ' sem preço lá' : '') + '. ' : '') +
-    (anyVal ? 'Reais: somam apenas as cartas com preço preenchido.' : 'Para ver em reais, preencha o preço em cada carta.') +
-    ' <button class="linkish" data-act="go" data-v="ctrl">Abrir o painel de controle</button></p></fieldset></div>';
+    '<fieldset class="pn"><legend>Relevância</legend><table class="rel-t"><thead><tr><th></th><th>Qtd</th><th>Do deck</th></tr></thead><tbody>' + relRows + '</tbody></table>' +
+    '<p class="pn-note"><button class="linkish" data-act="go" data-v="ctrl">Abrir o painel de controle</button></p></fieldset></div>';
 
   if (D.combos.length) h += '<fieldset class="pn"><legend>Combos e linhas de jogo</legend><div class="combos">' + combos + '</div></fieldset>';
   h += edhPanel(cs);
@@ -2217,7 +2209,6 @@ function sortVal(c, k) {
   if (k === 'cmc') return c.land ? -1 : c.cmc;
   if (k === 'pts') return pts(c);
   if (k === 'syn') return c.syn == null ? -999 : c.syn;
-  if (k === 'usd') { var u = usdOf(c); return u == null ? -1 : u; }
   if (k === 'tier') return TR[c.tier];
   if (k === 'rel') return RR[c.rel];
   return gv(c, +k.slice(1));
@@ -2231,7 +2222,15 @@ function scCell(v, i) {
   var cl = v > 0 ? 'v' + Math.min(v, 3) : v < 0 ? 'vn' : 'z';
   return '<td class="sc ' + cl + (G[i].lt ? ' lt' : '') + '" style="--c:var(--g' + i + ')">' + (v === 0 ? '·' : (v < 0 ? '−' + (-v) : v)) + '</td>';
 }
-var NCOL = 8 + NG + (EDH ? 1 : 0);
+var NCOL = 7 + NG + (EDH ? 1 : 0);
+/* o total de Pts do Tabelão e o placar não são o mesmo número: no deck v3, o placar soma os critérios e a aceleração;
+   na visão do 8×8, o total é a soma das notas dos agrupamentos, que não entra no placar */
+function totPl(cs, tp) {
+  if (!V3 || cs.length !== deck().length) return '';
+  if (!TABC) return '<small class="tot-pl">soma das notas do 8×8</small>';
+  var st = stats(deck());
+  return '<small class="tot-pl">+ ' + st.accPts + ' de aceleração = ' + fmtP(st.total) + ', o placar</small>';
+}
 function tabRows() {
   var q = ui.q.trim().toLowerCase();
   var cs = deck().filter(function (c) {
@@ -2248,20 +2247,22 @@ function tabRows() {
       (imgOn() ? '<span class="thb">' + imgTag(c, 'small', false) + '</span>' : '') + '<span class="t">' + esc(c.n) + '</span>' +
       (c.foil ? '<span class="foil" title="Foil">✦</span>' : '') + (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') + (c.edited ? '<span class="edt" title="Avaliação alterada por você"></span>' : '') +
       '</div></td><td class="dimc num hm">' + c.q + '</td><td class="hm">' + (c.cost ? mana(c.cost) : '<span class="dimc">—</span>') + '</td><td class="num">' + (c.land ? '<span class="dimc">—</span>' : c.cmc) + '</td>' + cells +
-      '<td class="pts num">' + fmtP(pts(c)) + '</td><td class="num dimc usd">' + (usdOf(c) == null ? '—' : fmt(usdOf(c))) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + '</td></tr>';
+      '<td class="pts num">' + fmtP(pts(c)) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + '</td></tr>';
   }
-  var tot = [], tp = 0, tn = 0, tu = 0, i;
+  var tot = [], tp = 0, tn = 0, i;
   for (i = 0; i < NG; i++) tot.push(0);
-  cs.forEach(function (c) { for (var i = 0; i < NG; i++) tot[i] += gv(c, i) * c.q; tp += pts(c) * c.q; tn += c.q; tu += (usdOf(c) || 0) * c.q; });
+  cs.forEach(function (c) { for (var i = 0; i < NG; i++) tot[i] += gv(c, i) * c.q; tp += pts(c) * c.q; tn += c.q; });
   var h = '<tr class="tot"><td class="c-name">' + (cs.length === deck().length ? 'Total do deck' : 'Total do filtro') + '</td><td class="num hm">' + tn + '</td><td class="hm"></td><td></td>' +
-    tot.map(function (v) { return '<td class="num">' + v + '</td>'; }).join('') + '<td class="num">' + fmtP(tp) + '</td><td class="num">' + fmt(tu) + '</td>' + (EDH ? '<td></td>' : '') + '<td></td><td></td></tr>';
+    tot.map(function (v) { return '<td class="num">' + v + '</td>'; }).join('') + '<td class="num">' + fmtP(tp) + totPl(cs, tp) + '</td>' + (EDH ? '<td></td>' : '') + '<td></td><td></td></tr>';
   if (!cs.length) return h + '<tr><td class="c-name" colspan="' + NCOL + '" style="position:static;padding:22px 14px;color:var(--mute);max-width:none">Nenhuma carta com esses filtros. Limpe a busca ou escolha outro agrupamento.</td></tr>';
   if (ui.grouped) {
     TG.forEach(function (g) {
       var list = cs.filter(function (c) { return c.g === g.k; }).sort(sorter);
       if (!list.length) return;
       var n = 0, p = 0; list.forEach(function (c) { n += c.q; p += pts(c) * c.q; });
-      h += '<tr class="grp"><td colspan="' + NCOL + '"><div class="grp-in">' + g.n + ' (' + n + ')<span>' + fmtP(p) + ' pts</span></div></td></tr>' + list.map(row).join('');
+      // cada tipo abre e fecha ao tocar no cabeçalho; fechado, mostra só a contagem e os pontos
+      var fech = !!ui.fech[g.k];
+      h += '<tr class="grp' + (fech ? ' fechado' : '') + '" data-act="grp-tog" data-g="' + g.k + '" data-fid="grp' + g.k + '" tabindex="0" role="button" aria-expanded="' + !fech + '" title="' + (fech ? 'Abrir' : 'Fechar') + ' ' + g.n.toLowerCase() + '"><td colspan="' + NCOL + '"><div class="grp-in"><i class="grp-sw" aria-hidden="true">▾</i>' + g.n + ' (' + n + ')<span>' + fmtP(p) + ' pts</span></div></td></tr>' + (fech ? '' : list.map(row).join(''));
     });
   } else {
     h += cs.sort(sorter).map(row).join('');
@@ -2277,28 +2278,29 @@ function th(k, label, cls, title, style) {
 function comTabC(fn) {
   if (!(V3 && ui.tabv === 'crit')) return fn();
   var g0 = G, n0 = NG, k0 = NCOL;
-  TABC = true; G = CR; NG = NC; NCOL = 8 + NC + (EDH ? 1 : 0);
+  TABC = true; G = CR; NG = NC; NCOL = 7 + NC + (EDH ? 1 : 0);
   try { return fn(); } finally { TABC = false; G = g0; NG = n0; NCOL = k0; }
 }
 function renderTab() { comTabC(renderTab0); }
 function renderTab0() {
   var tc = V3 && ui.tabv === 'crit';
   var h = (V3 ? '<div class="pn-tools tab-v"><div class="seg" role="group" aria-label="O que as colunas mostram">' +
-    '<button data-act="tab-v" data-v="grp" data-fid="tvg" aria-pressed="' + !tc + '">Agrupamentos (8×8)</button>' +
-    '<button data-act="tab-v" data-v="crit" data-fid="tvc" aria-pressed="' + tc + '">Critérios (v3)</button></div></div>' : '') +
+    '<button data-act="tab-v" data-v="grp" data-fid="tvg" aria-pressed="' + !tc + '">8×8</button>' +
+    '<button data-act="tab-v" data-v="crit" data-fid="tvc" aria-pressed="' + tc + '">Critérios</button></div></div>' : '') +
     '<div class="tools"><label class="fld"><span>Buscar</span><input class="inp" id="q" type="search" placeholder="nome ou tipo" value="' + esc(ui.q) + '" autocomplete="off"></label>' +
     '<label class="fld"><span>Tipo</span><select class="inp" data-act="ft" data-fid="ft"><option value="">Todos</option>' + TG.map(function (t) { return '<option value="' + t.k + '"' + (ui.ft === t.k ? ' selected' : '') + '>' + t.n + '</option>'; }).join('') + '</select></label>' +
     '<label class="fld"><span>Relevância</span><select class="inp" data-act="fr" data-fid="fr"><option value="">Todas</option>' + RELS.map(function (r) { return '<option value="' + r.k + '"' + (ui.fr === r.k ? ' selected' : '') + '>' + r.l + ' ' + r.n + '</option>'; }).join('') + '</select></label>' +
-    '<span class="sp"></span><label class="tog"><input type="checkbox" data-act="grouped" data-fid="gp"' + (ui.grouped ? ' checked' : '') + '> Agrupar por tipo</label></div>';
+    '<span class="sp"></span>' + (ui.grouped ? '<button class="btn ghost sm" data-act="grp-all" data-fid="gpa">' + (TG.some(function (g) { return !ui.fech[g.k]; }) ? 'Recolher tudo' : 'Expandir tudo') + '</button>' : '') +
+    '<label class="tog"><input type="checkbox" data-act="grouped" data-fid="gp"' + (ui.grouped ? ' checked' : '') + '> Agrupar por tipo</label></div>';
   h += '<div class="pills" role="group" aria-label="Filtrar por ' + (tc ? 'critério' : 'agrupamento') + '"' + (tc ? crVars() : '') + '>' + G.map(function (g, i) {
     return '<button class="pill" style="--c:var(--g' + i + ')" data-act="fg" data-g="' + i + '" data-fid="fg' + i + '" aria-pressed="' + (ui.fg === i) + '" title="' + esc(g.d) + '"><i class="dot" style="--c:var(--g' + i + ')"></i>' + esc(g.k) + '</button>';
   }).join('') + '</div>';
-  h += '<div class="tw" id="tw"' + (tc ? crVars() : '') + '><table class="tbl" style="min-width:' + (654 + 52 * NG) + 'px"><thead><tr>' +
+  h += '<div class="tw" id="tw"' + (tc ? crVars() : '') + '><table class="tbl" style="min-width:' + (590 + 52 * NG) + 'px"><thead><tr>' +
     th('n', 'Carta', 'c-name') + th('q', 'Qtd', 'hm') + '<th scope="col" class="hm">Custo</th>' + th('cmc', 'CMC') +
     G.map(function (g, i) { return th('g' + i, esc(g.ab), 'gh', g.k + ': ' + g.d, '--c:var(--g' + i + ')'); }).join('') +
-    th('pts', 'Pts') + th('usd', 'US$', '', 'Preço no Scryfall, na impressão da lista') + (EDH ? th('syn', 'Wiki', '', 'Sinergia no ' + EDH.fonte + (EDH.pagina ? ' para ' + EDH.pagina : '') + ': presença na comunidade, não força') : '') +
+    th('pts', 'Pts') + (EDH ? th('syn', 'Wiki', '', 'Sinergia no ' + EDH.fonte + (EDH.pagina ? ' para ' + EDH.pagina : '') + ': presença na comunidade, não força') : '') +
     th('tier', 'Tier') + th('rel', 'Relev.') + '</tr></thead><tbody id="tbody">' + tabRows() + '</tbody></table></div>';
-  h += '<p class="hint">' + (tc ? 'Notas de 0 a 3 nos ' + NUM[NC] + ' critérios da pontuação v3. Pts é o valor da carta: peso do critério × pontos da nota, somado.' :
+  h += '<p class="hint">' + (tc ? 'Notas de 0 a 3 nos ' + NUM[NC] + ' critérios. Pts é o valor da carta: peso do critério × pontos da nota, somado.' :
     'Notas de 0 a 3 em cada agrupamento: 1 é efeito de passagem, 2 é função da carta, 3 é referência do deck. Uma carta pode pontuar em vários.') + (EDH ? ' A coluna Wiki é a sinergia no ' + esc(EDH.fonte) + '.' : '') + ' Toque na linha para ver a carta, o motivo e editar.</p>';
   $('#v-tab').innerHTML = h;
 }
@@ -2458,7 +2460,7 @@ function renderRadar() {
     '<label>Custo de mana<input class="inp" id="nc-c" type="text" placeholder="2B ou {2}{B}" autocomplete="off"></label>' +
     '<label>Tipo<select class="inp" id="nc-t">' + TYPES.map(function (t) { return '<option value="' + t.k + '">' + t.o + '</option>'; }).join('') + '</select></label>' +
     '<label>Tier<select class="inp" id="nc-tier">' + TIERS.map(function (t) { return '<option value="' + t.k + '"' + (t.k === 'B' ? ' selected' : '') + '>' + t.k + ', ' + t.d.toLowerCase() + '</option>'; }).join('') + '</select></label>' +
-    (V3 ? '<div class="wide"><p class="nc-h">Notas por critério (v3): Sinergias deste deck e os oito critérios da carta. Contam no placar.</p><div class="g8">' + CR.map(function (g, i) {
+    (V3 ? '<div class="wide"><p class="nc-h">Notas por critério: as duas sinergias deste deck e os oito critérios da carta. Contam no placar.</p><div class="g8">' + CR.map(function (g, i) {
       return '<label title="' + esc(g.d) + '">' + esc(g.sh || g.k) + '<select class="inp" id="nc-c' + i + '"><option selected>0</option><option>1</option><option>2</option><option>3</option></select></label>';
     }).join('') + '</div></div>' : '') +
     '<div class="wide">' + (V3 ? '<p class="nc-h">Notas por agrupamento (8×8)</p>' : '') + '<div class="g8">' + G.map(function (g, i) {
@@ -2574,13 +2576,12 @@ function renderDrawer() {
   var cadW = !V3 ? '' : (w3.cad ? '<p class="step-w"><b>Cadastro da carta:</b> ' + esc(w3.cad) + '</p>' : '') + (w3.aj ? '<p class="step-w"><b>Ajuste neste deck:</b> ' + esc(w3.aj) + '</p>' : '');
   var enc = encodeURIComponent;
   var link = c.set ? 'https://scryfall.com/card/' + enc(c.set.toLowerCase()) + '/' + enc(c.num) : 'https://scryfall.com/search?q=' + enc('!"' + (c.on || c.n) + '"');
-  var liga = 'https://www.ligamagic.com.br/?view=cards/card&card=' + enc(c.n);
   var back = !!(ui.face && c.dfc && c.back);
   var where = c.cand ? (c.inDeck ? 'No deck, vinda do radar' : 'No radar, fora do deck') : (c.inDeck ? '' : 'Fora do deck');
   var h = '<button class="x" data-act="close" aria-label="Fechar">×</button>' +
     '<p class="dw-type">' + esc(c.line) + '</p><h2 id="dw-title">' + esc(c.n) + '</h2>' +
     '<div class="dw-meta">' + (c.cost ? mana(c.cost) : '') + (c.land ? '' : '<span>CMC ' + c.cmc + '</span>') + (c.pt ? '<span>' + (c.ptl ? c.ptl + ' ' : '') + esc(c.pt) + '</span>' : '') +
-    (c.set ? '<span>' + esc(c.set) + ' ' + esc(c.num) + '</span>' : '') + (c.q > 1 ? '<span>' + c.q + ' cópias</span>' : '') + (c.foil ? '<span><span class="foil">✦</span> foil' + (c.etched ? ' etched' : '') + '</span>' : '') + (usdOf(c) != null ? '<span>US$ ' + fmt(usdOf(c)) + ' no Scryfall</span>' : '') + (where ? '<span>' + where + '</span>' : '') + '</div>';
+    (c.set ? '<span>' + esc(c.set) + ' ' + esc(c.num) + '</span>' : '') + (c.q > 1 ? '<span>' + c.q + ' cópias</span>' : '') + (c.foil ? '<span><span class="foil">✦</span> foil' + (c.etched ? ' etched' : '') + '</span>' : '') + (where ? '<span>' + where + '</span>' : '') + '</div>';
   if (imgOn()) {
     h += '<div class="dw-art"><div class="dw-card c-' + esc(c.col) + '">' + fbTile(c, back, true) + imgTag(c, 'normal', back) + '</div>' +
       (c.dfc && c.back ? '<p><button class="linkish" data-act="face" data-fid="face">' + (back ? 'Ver a frente' : 'Ver a outra face, ' + esc(c.back.n)) + '</button></p>' : '') +
@@ -2611,9 +2612,7 @@ function renderDrawer() {
     h += '<details class="dw-8"' + (ui.dw8 ? ' open' : '') + '><summary>Notas por agrupamento (8×8)</summary><div class="steps">' + steps + '</div></details>';
   } else h += '<h3>Notas por agrupamento</h3><div class="steps">' + steps + '</div>';
   h += '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="pet" data-fid="pet"' + (c.pet ? ' checked' : '') + '> <span class="pet">♥</span> PetCard: ' + (IPET >= 0 ? 'soma 1 ponto em ' + esc(G[IPET].sh || G[IPET].k) + (V3 ? ' no 8×8' : '') + ' e fica' : 'fica') + ' fora da fila de corte</label></div>' +
-    (c.cand ? '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="tem" data-fid="tem"' + (c.tem ? ' checked' : '') + '> Tenho esta carta</label></div>' : '') +
-    '<div class="dw-row"><label class="fld">Valor em R$ <input class="inp num" type="number" min="0" step="0.01" inputmode="decimal" data-act="val" data-fid="val" value="' + (c.val == null ? '' : c.val) + '" placeholder="0,00"></label>' +
-    '<a href="' + esc(liga) + '" target="_blank" rel="noopener noreferrer">Ver preço na LigaMagic</a></div>';
+    (c.cand ? '<div class="dw-row"><label class="tog"><input type="checkbox" data-act="tem" data-fid="tem"' + (c.tem ? ' checked' : '') + '> Tenho esta carta</label></div>' : '');
   h += '<h3>Anotações de mesa</h3><textarea class="inp" data-act="nota" data-fid="nota" rows="3" placeholder="Como a carta se saiu, com quem combinou, o que faltou" aria-label="Anotações de mesa">' + esc(c.nota) + '</textarea>';
   h += V3 ? '<div class="dw-sum"><span>Pontuação da carta nos critérios<small>soma no 8×8: ' + pts(c) + '</small></span><b>' + fmtP(pts3(c)) + '</b></div>' :
     '<div class="dw-sum"><span>Pontuação da carta</span><b>' + pts(c) + '</b></div>';
@@ -2636,7 +2635,7 @@ function decklistText() {
 function backupHtml() {
   return '<button class="x" data-act="close" aria-label="Fechar">×</button><h2 id="md-title">Backup</h2>' +
     '<p style="margin-top:8px">' + esc(storeTxt()) + (S.ts ? ' Última gravação: ' + fts(S.ts) + '.' : '') + '</p>' +
-    '<h3>Backup do painel</h3><p>Guarda tiers, relevância, notas, PetCards, valores, anotações, trocas com data e motivo, e as cartas que você adicionou ao radar. Para levar ao projeto, use a aba <button class="linkish" data-act="go" data-v="ofi">Oficina</button>.</p>' +
+    '<h3>Backup do painel</h3><p>Guarda tiers, relevância, notas, PetCards, anotações, trocas com data e motivo, e as cartas que você adicionou ao radar. Para levar ao projeto, use a aba <button class="linkish" data-act="go" data-v="ofi">Oficina</button>.</p>' +
     '<textarea id="bk-out" readonly aria-label="Backup do painel">' + esc(JSON.stringify(S)) + '</textarea>' +
     '<div class="acts"><button class="btn sm" data-act="copy" data-t="bk-out">Copiar backup</button></div>' +
     '<h3>Restaurar de um backup</h3><textarea id="bk-in" placeholder="Cole aqui o texto de um backup" aria-label="Texto do backup para restaurar"></textarea>' +
@@ -2775,8 +2774,41 @@ function renderCount() {
    em unidades do desenho é multiplicada por --k, a razão entre a largura do viewBox e a largura desenhada */
 var RO_ROSA = window.ResizeObserver ? new ResizeObserver(function (es) {
   es.forEach(function (e) { var s = e.target, vb = s.viewBox && s.viewBox.baseVal, w = e.contentRect.width; if (vb && vb.width && w) s.style.setProperty('--k', (vb.width / w).toFixed(3)); });
+  quebraRotulos();   // o tamanho do texto mudou com o --k: confere de novo os rótulos que saem da tela
 }) : null;
-function escalaRosa() { if (RO_ROSA) document.querySelectorAll('figure.rosa svg').forEach(function (s) { RO_ROSA.observe(s); }); }
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { quebraRotulos(); });
+function escalaRosa() {
+  if (RO_ROSA) document.querySelectorAll('figure.rosa svg, .curve svg').forEach(function (s) { RO_ROSA.observe(s); });
+  quebraRotulos();
+  var tw = $('#tw'); if (tw && !tw.dataset.sombra) { tw.dataset.sombra = 1; tw.addEventListener('scroll', function () { tw.classList.toggle('rolou', tw.scrollLeft > 2); }, { passive: true }); }
+}
+/* rótulos do gráfico no celular: nome com mais de 14 caracteres que sairia da tela quebra em duas linhas */
+function quebraRotulos() {
+  if (window.innerWidth > 640) return;
+  document.querySelectorAll('figure.rosa svg text').forEach(function (t) {
+    var n = t.firstChild, r = t.getBoundingClientRect();
+    if (r.left >= 0 && r.right <= window.innerWidth) return;
+    if (t.dataset.quebrado || !n || n.nodeType !== 3) { empurra(t); return; }
+    var txt = n.nodeValue, meio = txt.length / 2, i = -1;
+    for (var k = 0; k < txt.length; k++) if (txt[k] === ' ' && (i < 0 || Math.abs(k - meio) < Math.abs(i - meio))) i = k;
+    if (i < 0) { empurra(t); return; }
+    var NS = 'http://www.w3.org/2000/svg', x = t.getAttribute('x'), a = document.createElementNS(NS, 'tspan'), b = document.createElementNS(NS, 'tspan');
+    a.setAttribute('x', x); a.textContent = txt.slice(0, i);
+    b.setAttribute('x', x); b.setAttribute('dy', '1.08em'); b.textContent = txt.slice(i + 1);
+    t.replaceChild(b, n); t.insertBefore(a, b);
+    // na metade de cima do gráfico, sobe uma linha para o número não entrar no desenho
+    var y = parseFloat(t.getAttribute('y')); if (y < 230) t.setAttribute('y', (y - 16).toFixed(1));
+    t.dataset.quebrado = 1;
+    empurra(t);
+  });
+}
+/* se, mesmo em duas linhas, o rótulo ainda sai da tela, ele desliza para dentro (em unidades do desenho) */
+function empurra(t) {
+  var r = t.getBoundingClientRect(), sv = t.ownerSVGElement, k = sv.viewBox.baseVal.width / sv.getBoundingClientRect().width, dx = 0;
+  if (r.left < 0) dx = -r.left + 2; else if (r.right > window.innerWidth) dx = window.innerWidth - r.right - 2;
+  if (!dx) return;
+  [t].concat(Array.prototype.slice.call(t.querySelectorAll('tspan[x]'))).forEach(function (e) { var x = e.getAttribute('x'); if (x != null) e.setAttribute('x', (parseFloat(x) + dx * k).toFixed(1)); });
+}
 function render(keepFocus) {
   var fid = null, a = document.activeElement, tw = $('#tw'), sc = tw ? [tw.scrollTop, tw.scrollLeft] : null;
   if (keepFocus !== false && a && a.dataset) fid = a.dataset.fid || (a.id === 'q' ? '#q' : null);
@@ -2844,6 +2876,8 @@ function act(a, t, ev) {
     case 'edh': ui.drawer = null; go('radar'); o = $('#pool'); if (o) o.scrollIntoView({ block: 'start' }); break;
     case 'curve': ui.curve = t.dataset.v; render(); break;
     case 'rk-f': ui.rkf = t.dataset.v; render(); break;
+    case 'grp-tog': ui.fech[t.dataset.g] = !ui.fech[t.dataset.g]; render(); break;
+    case 'grp-all': (function () { var abrir = !TG.some(function (g) { return !ui.fech[g.k]; }); TG.forEach(function (g) { ui.fech[g.k] = !abrir; }); })(); render(); break;
     case 'tab-v': if (ui.tabv !== t.dataset.v) { ui.tabv = t.dataset.v; ui.fg = -1; if (/^g\d/.test(ui.sort.k)) ui.sort = { k: 'n', d: 1 }; } render(); break;
     case 'filter-group': ui.fg = +t.dataset.g; ui.tabv = 'grp'; ui.q = ''; ui.ft = ''; ui.fr = ''; go('tab'); break;
     case 'ver-crit': ui.fc = +t.dataset.g; if (ui.tab === 'crit') render(); else go('crit');
@@ -2967,11 +3001,6 @@ document.addEventListener('change', function (ev) {
   else if (a === 'tem') { o = ov(ui.drawer); if (t.checked) o.tem = true; else delete o.tem; commit(); }
   else if (a === 'cmp-b') { if (ui.modal && ui.modal.a) { ui.modal.b = t.value; renderModal(); var s = $('[data-fid="cmpb"]'); if (s) s.focus(); } }
   /* campos de texto: grava sem redesenhar, para não engolir o clique que tirou o foco */
-  else if (a === 'val') {
-    var v = parseFloat(String(t.value).replace(',', '.'));
-    o = ov(ui.drawer); if (isNaN(v) || v < 0) delete o.val; else o.val = Math.round(v * 100) / 100;
-    save();
-  }
   else if (a === 'nota') { o = ov(ui.drawer); if (t.value.trim()) o.nota = t.value; else delete o.nota; save(); }
   else if (a === 'motivo') { var sw = S.swaps[+t.dataset.i]; if (sw) { sw.m = t.value; save(); } }
 });
@@ -2987,7 +3016,7 @@ document.addEventListener('keydown', function (ev) {
   hidePeek();
   if (ev.key === 'Escape' && (ui.drawer || ui.modal)) { closeAll(); return; }
   var t = ev.target;
-  if ((ev.key === 'Enter' || ev.key === ' ') && t.matches && t.matches('.chip,.petal,.wedge,.pena,.lapide,tr.row,.gtile,.cand-img')) { ev.preventDefault(); t.dispatchEvent(new MouseEvent('click', { bubbles: true })); return; }
+  if ((ev.key === 'Enter' || ev.key === ' ') && t.matches && t.matches('.chip,.petal,.wedge,.pena,.lapide,tr.row,tr.grp,.gtile,.cand-img')) { ev.preventDefault(); t.dispatchEvent(new MouseEvent('click', { bubbles: true })); return; }
   if (t.matches && t.matches('[role=tab]') && (ev.key === 'ArrowRight' || ev.key === 'ArrowLeft')) {
     var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs [role=tab]')), i = tabs.indexOf(t);
     var n = tabs[(i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); go(n.dataset.tab); n.focus();

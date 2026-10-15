@@ -36,6 +36,13 @@ a{color:var(--gold2)}
 .top-act{display:flex;align-items:center;gap:10px}
 .count{font-weight:700;font-size:15px;color:var(--mute);white-space:nowrap}
 .count.off{color:var(--bad)}
+/* cabeçalho (auditoria de layout, 15/10/2026): a marca encolhe primeiro e as abas nunca cortam no desktop;
+   "100 cartas" sai da barra abaixo de 1500px (o número já está no herói), a não ser quando o deck não fecha em 100 */
+.brand{min-width:0;flex:0 1 auto;overflow:hidden}
+.brand-n{overflow:hidden;text-overflow:ellipsis}
+.top-act{flex:none;margin-left:auto}
+@media (min-width:1101px){.tabs{flex:0 0 auto}}
+@media (max-width:1499px){.count{display:none}.count.off{display:inline}}
 
 .btn{border:1px solid var(--line2);background:linear-gradient(180deg,var(--btn),var(--btn2));color:var(--bone);padding:7px 14px;border-radius:2px;font-weight:700;font-size:15.5px;line-height:1.2}
 .btn:hover{background:linear-gradient(180deg,var(--btnh),var(--btn2h))}
@@ -66,7 +73,7 @@ main{max-width:1320px;margin:0 auto;padding:26px 20px 40px}
 
 /* ---------- símbolos de mana ---------- */
 .mana{display:inline-flex;gap:2px;vertical-align:-.16em;white-space:nowrap}
-.ms{display:inline-grid;place-items:center;width:1.18em;height:1.18em;border-radius:50%;font:800 .7em/1 var(--fb);font-style:normal;
+.ms{display:inline-grid;place-items:center;flex:none;width:1.18em;height:1.18em;min-width:12px;min-height:12px;border-radius:50%;font:800 max(.7em,10.2px)/1 var(--fb);font-style:normal;
   background:#b9aeb0;color:#1d1014;box-shadow:inset 0 -1px 0 rgba(0,0,0,.28)}
 .ms-W{background:#f3e7bf;color:#4a3a12}
 .ms-B{background:#2b2228;color:#e7d9df;box-shadow:inset 0 0 0 1px #77666f}
@@ -87,7 +94,7 @@ main{max-width:1320px;margin:0 auto;padding:26px 20px 40px}
 .facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px}
 .facts div{display:flex;flex-direction:column-reverse;justify-content:flex-end}
 .facts dt{color:var(--dim);font-size:15px;line-height:1.25;max-width:7.2em}
-.facts dd{font:600 40px/1 var(--fd);color:var(--bone)}
+.facts dd{font:800 40px/1 var(--fb);color:var(--bone);font-variant-numeric:tabular-nums}
 .rosa{justify-self:center;width:min(100%,600px)}
 .rosa svg{display:block;width:100%;height:auto;overflow:visible}
 .rosa figcaption{text-align:center;color:var(--dim);font-size:14.5px;margin-top:2px}
@@ -116,10 +123,10 @@ main{max-width:1320px;margin:0 auto;padding:26px 20px 40px}
 .seg button[aria-pressed="true"]{background:rgba(var(--gold-rgb),.16);color:var(--gold2);font-weight:700}
 .pn-tools{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin:-2px 0 6px}
 .curve svg{display:block;width:100%;height:auto}
-.curve text{font-family:var(--fb);fill:var(--mute);font-size:15px}
-.curve text.n{fill:var(--bone);font-weight:800;font-size:17px;paint-order:stroke;stroke:var(--halo);stroke-width:5px;stroke-linejoin:round}
+.curve text{font-family:var(--fb);fill:var(--mute);font-size:calc(15px*var(--k,1))}
+.curve text.n{fill:var(--bone);font-weight:800;font-size:calc(17px*var(--k,1));paint-order:stroke;stroke:var(--halo);stroke-width:5px;stroke-linejoin:round}
 .curve text.n.z{fill:var(--dim);font-weight:600}
-.curve text.avg{fill:var(--gold2);font-weight:700;font-size:14.5px;paint-order:stroke;stroke:var(--halo);stroke-width:5px;stroke-linejoin:round}
+.curve text.avg{fill:var(--gold2);font-weight:700;font-size:calc(14.5px*var(--k,1));paint-order:stroke;stroke:var(--halo);stroke-width:5px;stroke-linejoin:round}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font-size:15px;color:var(--mute)}
 .legend i{display:inline-block;width:11px;height:11px;margin-right:6px;border-radius:1px;vertical-align:-1px}
 
@@ -190,12 +197,12 @@ details.how p{margin-top:6px}
 .rel-t tbody tr+tr>*{border-top:1px solid var(--line)}
 .rel-t th:first-child{text-align:left}
 .rel-t tbody th{font-weight:400}
-.rb{display:inline-block;min-width:44px;text-align:center;padding:1px 7px;border-radius:2px;font-weight:800;font-size:13.5px;letter-spacing:.03em;line-height:1.5}
+.rb{display:inline-block;min-width:44px;text-align:center;padding:1px 7px;border-radius:2px;font-family:var(--fb);font-weight:800;font-size:13.5px;letter-spacing:.03em;line-height:1.5;font-variant-numeric:tabular-nums}
 .rb-INS{background:var(--gold);color:var(--ink)}
 .rb-ALT{background:rgba(95,191,167,.2);color:#9fe3d1;box-shadow:inset 0 0 0 1px rgba(95,191,167,.6)}
 .rb-MED{background:rgba(230,173,69,.17);color:#f2cd82;box-shadow:inset 0 0 0 1px rgba(230,173,69,.5)}
 .rb-BAX{background:rgba(234,84,102,.2);color:#ff9aa7;box-shadow:inset 0 0 0 1px rgba(234,84,102,.65)}
-.tb{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:2px;font:800 21px/1 var(--fd);color:var(--ink)}
+.tb{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:2px;font:800 19px/1 var(--fb);color:var(--ink);font-variant-numeric:tabular-nums}
 .tb.sm{width:23px;height:23px;font-size:17px}
 .tS{background:linear-gradient(160deg,#f6e3b0,#cfa450)}
 .tA{background:linear-gradient(160deg,#f0596a,#b3121f);color:#fff3ea}
@@ -244,7 +251,7 @@ select.inp{padding-right:6px}
 .tiers{display:grid;gap:8px}
 .tier{display:grid;grid-template-columns:138px minmax(0,1fr);border:1px solid var(--line);border-radius:3px;background:rgba(var(--bg2-rgb),.74);min-height:78px}
 .tier-l{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:2px;padding:10px 14px;border-right:1px solid var(--line)}
-.tier-l b{font:800 54px/.82 var(--fd)}
+.tier-l b{font:800 50px/.82 var(--fb);font-variant-numeric:tabular-nums}
 .tier-l span{font-size:14.5px;color:var(--mute);line-height:1.2}
 .tier-l small{font-size:13.5px;color:var(--dim)}
 .tier[data-t="S"] .tier-l{background:linear-gradient(120deg,rgba(207,164,80,.3),transparent)}.tier[data-t="S"] b{color:#f6e3b0}
@@ -276,6 +283,9 @@ select.inp{padding-right:6px}
 .tbl tr.grp td{background:linear-gradient(90deg,rgba(var(--wine-rgb),.72),rgba(var(--wine-rgb),.18));font:600 19px/1.2 var(--fd);color:var(--gold2);text-align:left}
 .tbl tr.grp .grp-in{position:sticky;left:12px;display:inline-block}
 .tbl tr.grp td span{font:400 15px var(--fb);color:var(--mute);margin-left:10px}
+.tbl tr.grp{cursor:pointer}.tbl tr.grp:hover td{filter:brightness(1.12)}
+.grp-sw{display:inline-block;font-style:normal;margin-right:8px;transition:transform .15s}
+.tbl tr.grp.fechado .grp-sw{transform:rotate(-90deg)}
 .tbl tr.tot td,.tbl tr.tot th{background:var(--total);font-weight:800;color:var(--bone);border-bottom:1px solid var(--line2)}
 .tbl tr.tot .c-name{background:var(--total)}
 .sc{font-weight:800;font-variant-numeric:tabular-nums lining-nums;width:52px}
@@ -412,6 +422,16 @@ select.inp{padding-right:6px}
   .tw{max-height:calc(100vh - var(--top) - 90px)}
   .drawer{width:100%;top:auto;max-height:90vh;border-left:0;border-top:1px solid var(--line2);border-radius:10px 10px 0 0;padding-top:18px}
   .x{top:12px}
+}
+/* celular: as abas vão para uma segunda linha de largura total, com rolagem e esmaecimento nas bordas */
+@media (max-width:640px){
+  :root{--top:98px}
+  .top-in{height:auto;flex-wrap:wrap;column-gap:10px;row-gap:0}
+  .top-in>.voltar{margin:10px 0}
+  .top-act{height:54px}
+  .tabs{order:3;flex:0 0 calc(100% + 24px);height:44px;margin:0 -12px;padding:0 14px;border-top:1px solid var(--line);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 24px,#000 calc(100% - 24px),transparent 100%)}
 }
 @media print{.top,.foot,.drawer,.scrim,.modal,.toast{display:none!important}body{background:#fff;color:#000}}
 
@@ -571,7 +591,7 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .tile-i{position:relative;display:block;aspect-ratio:5/7;border-radius:6px;overflow:hidden;background:var(--bg2);box-shadow:0 0 0 1px var(--line)}
 .tile-i .gt-fb{padding:7px 6px;border-top-width:4px;gap:4px}.tile-i .gt-fb b{font-size:13px}.tile-i .gt-fb .l{font-size:10.5px}.tile-i .gt-fb .mana{font-size:11px}
 .tile-i .ci{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.tile-b{position:absolute;right:4px;bottom:4px;display:inline-flex;align-items:center;gap:5px;padding:0 6px;border-radius:2px;background:rgba(var(--deep-rgb),.86);font-size:12.5px;line-height:1.55}
+.tile-b{position:absolute;right:4px;bottom:4px;display:inline-flex;align-items:center;gap:5px;padding:0 6px;border-radius:2px;background:rgba(var(--deep-rgb),.86);font-size:13px;line-height:1.55}
 .tile-b .p{color:var(--bone);font-weight:800;font-size:12.5px}
 .tile-q{color:var(--gold2);font-weight:800}
 .tile-n{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:5px;font-size:13.5px;line-height:1.2;font-weight:500;color:var(--mute);text-align:center}
@@ -780,3 +800,7 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .hero.retrato .rosa.asas{width:min(100%,580px)}
 @media (min-width:1121px){.hero.retrato:has(.rosa.asas){grid-template-columns:232px minmax(0,1fr) minmax(0,580px)}}
 @media (max-width:560px){.rosa.asas text{font-size:calc(9.5px*var(--k,3))}.rosa.asas .v{font-size:calc(11px*var(--k,3))}}
+.tile-b .foil{font-size:max(.8em,12px)}
+/* passo 8: Tabelão com sombra na coluna fixa quando a tabela rola para o lado */
+.tw.rolou .tbl .c-name{box-shadow:8px 0 10px -6px rgba(0,0,0,.55)}
+.tbl .tot-pl{display:block;font:600 12.5px var(--fb);color:var(--dim);white-space:nowrap;margin-top:2px}
