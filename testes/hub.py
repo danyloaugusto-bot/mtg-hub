@@ -32,8 +32,8 @@ def com_trocas(pasta):
     return motor_hub.placar(cartas, m["grupos"])[0]
 
 
-SECOES = ["resumo", "fichas", "comparar", "movimentacoes", "compartilhadas", "mesa", "trocas", "reserva", "placar", "fundamentos", "mana", "potencial", "auditoria", "carteira"]
-ABAS = ["resumo", "fichas", "mov", "mesa", "trocas", "mana", "potencial", "bastidores"]
+SECOES = ["resumo", "fichas", "comparar", "movimentacoes", "compartilhadas", "compras", "radar", "mesa", "trocas", "reserva", "placar", "fundamentos", "mana", "potencial", "auditoria", "carteira"]
+ABAS = ["resumo", "fichas", "mov", "compras", "mesa", "trocas", "mana", "potencial", "bastidores"]
 
 
 def aba(pg, t):
@@ -56,7 +56,7 @@ def movimentos_py():
             if k in bas or c.get("cmd"):
                 continue
             no_deck.setdefault(k, []).append((p, c["tier"]))
-    cartas, mova = set(), set()
+    cartas, mova, sub = set(), set(), set()
     for p, m in ms.items():
         for c in m["cands"]:
             if c["verdict"] == "fora":
@@ -68,7 +68,24 @@ def movimentos_py():
             cartas.add(k)
             if max(TR[t] for _, t in onde) > TR[c["tier"]]:
                 mova.add((k, p))
-    return dict(cartas=len(cartas), mova=len(mova))
+                if TR[c["tier"]] <= 1 and min(TR[t] for _, t in onde) > TR[c["tier"]]:
+                    sub.add("%s|%s" % (k, p))
+    return dict(cartas=len(cartas), mova=len(mova), sub=sorted(sub))
+
+
+# Um banco de mentira com a mesma forma do db do claude.ai: o hub publicado grava a lista de compras nele.
+FAKE_DB = """(function () {
+  var store = {}, subs = [];
+  function snap() { var docs = Object.keys(store).sort().map(function (id) { var v = store[id]; return { id: id, exists: true, data: function () { return v; }, metadata: {} }; });
+    return { docs: docs, size: docs.length, empty: !docs.length, docChanges: function () { return []; }, metadata: {} }; }
+  function avisa() { var s = snap(); subs.forEach(function (f) { setTimeout(function () { f(s); }, 0); }); }
+  var db = { collection: function () { return { doc: function (id) { return {
+      set: function (d) { store[id] = JSON.parse(JSON.stringify(d)); avisa(); return Promise.resolve(); },
+      delete: function () { delete store[id]; avisa(); return Promise.resolve(); } }; },
+    onSnapshot: function (f) { subs.push(f); setTimeout(function () { f(snap()); }, 0); return function () {}; } }; } };
+  window.__store = store;
+  window.claude = { use: function (n) { return Promise.resolve(n === 'db' ? db : n === 'user' ? { canEdit: function () { return Promise.resolve(true); } } : null); } };
+})();"""
 
 def reserva_py(m):
     """Funções sem reserva, contadas em Python: até duas cartas dedicadas (nota 2 ou 3) fora o comandante, e o comandante não cumpre a função."""
@@ -118,7 +135,7 @@ with sync_playwright() as p:
             pg.click('[data-dk="abrir"]'); pg.wait_for_timeout(150)
             R.ok("Decks: abrir todos", pg.locator("#v-decks details.g-sf[open]").count() == 5)
             # aba Decks: estante, lista e por cor, com filtros de cor e situação
-            R.ok("Decks: alertas em cada cartão com painel, sem bracket", pg.locator(".deck:not(.vazio) .al").count() == len(prontos) and pg.locator(".brk").count() == 0)
+            R.ok("Decks: cartão sem contador de alertas nem bracket, a pedido do dono", pg.locator(".deck .al").count() == 0 and pg.locator(".brk").count() == 0)
             R.ok("Decks: passos de quem está em construção", pg.locator(".deck.vazio .passos").count() == len(H["decks"]) - len(prontos))
             pg.click('[data-dk="sit"][data-k="obra"]'); pg.wait_for_timeout(150)
             R.ok("Decks: filtro Em construção", pg.locator(".deck").count() == len(H["decks"]) - len(prontos) and pg.locator(".deck:not(.vazio)").count() == 0)
@@ -149,7 +166,7 @@ with sync_playwright() as p:
             # ---------------- Dashboard
             pg.click("#t-dash"); pg.wait_for_timeout(200)
             R.ok("aba Dashboard", pg.is_visible("#v-dash"))
-            R.ok("Dashboard com as seções e as oito abas", all(pg.locator("#d-" + s).count() == 1 for s in SECOES) and
+            R.ok("Dashboard com as seções e as nove abas", all(pg.locator("#d-" + s).count() == 1 for s in SECOES) and
                  pg.eval_on_selector_all(".dnav a", "e=>e.map(x=>x.dataset.dtab)") == ABAS, [s for s in SECOES if not pg.locator("#d-" + s).count()])
             R.ok("uma aba por vez: abre no Resumo", pg.eval_on_selector_all("#v-dash .dtab:not([hidden])", "e=>e.map(x=>x.dataset.dtab)") == ["resumo"])
             for t in ABAS:
@@ -170,6 +187,28 @@ with sync_playwright() as p:
             mv_js, mv_py = pg.evaluate("window.HUB_DASH.mov"), movimentos_py()
             R.ok("Movimentações: cartas do radar que você já tem, iguais à conta em Python", mv_js["cartas"] == mv_py["cartas"], (mv_js["cartas"], mv_py["cartas"]))
             R.ok("Movimentações: pares para mover iguais à conta em Python", mv_js["mova"] == mv_py["mova"], (mv_js["mova"], mv_py["mova"]))
+            R.ok("Sub-utilizadas iguais à conta em Python (S ou A no radar, pior em todo deck onde está)", mv_js["sub"] == mv_py["sub"], (len(mv_js["sub"]), len(mv_py["sub"])))
+            R.ok("Movimentações: caixa das sub-utilizadas nos dois modos", pg.locator("#d-movimentacoes .sub-box").count() == 1)
+            # Compras: sem banco (arquivo offline) a lista avisa e o radar fica sem botão
+            aba(pg, "compras")
+            R.ok("Compras: offline, a lista avisa que mora no hub publicado", "mora no hub publicado" in pg.inner_text("#d-compras") and pg.locator('#d-radar [data-act="comp"]').count() == 0)
+            R.ok("Compras: radar com todos os S e A dos radares", pg.evaluate("window.HUB_DASH.radar") >= pg.locator("#d-radar tbody tr:not(.mais)").count() > 0)
+            cp = b.new_page(viewport={"width": 1360, "height": 1000})
+            cp.on("pageerror", lambda e: R.erros.append("PAGEERROR " + str(e)))
+            cp.add_init_script(FAKE_DB)
+            cp.goto(comum.url(atalho)); cp.wait_for_timeout(1000)
+            cp.click('[role=tab][data-vista="dash"]'); cp.wait_for_timeout(300)
+            cp.click('.dnav a[data-dtab="compras"]'); cp.wait_for_timeout(300)
+            R.ok("Compras: com banco, lista vazia e botões no radar", "Lista vazia" in cp.inner_text("#d-compras") and cp.locator('#d-radar [data-act="comp"]').count() > 0)
+            nome = cp.inner_text('#d-radar tbody tr >> nth=0 >> td >> nth=0 >> b')
+            cp.click('#d-radar [data-act="comp"] >> nth=0'); cp.wait_for_timeout(300)
+            R.ok("Compras: + Compras grava no banco e aparece na lista", len(cp.evaluate("Object.keys(window.__store)")) == 1 and nome in cp.inner_text("#d-compras"), nome)
+            R.ok("Compras: o botão vira Na lista", cp.locator('#d-radar [data-act="comp"][aria-pressed="true"]').count() >= 1)
+            cp.click('#d-compras [data-act="comp-tirar"]'); cp.wait_for_timeout(300)
+            R.ok("Compras: Tirar apaga do banco", cp.evaluate("Object.keys(window.__store)") == [] and "Lista vazia" in cp.inner_text("#d-compras"))
+            cp.click('#d-radar [data-act="rad"][data-k="tem"][data-v="sim"]'); cp.wait_for_timeout(200)
+            R.ok("Compras: filtro Já tenho em outro deck", all(cp.locator("#d-radar tbody tr:not(.mais)").nth(i).locator(".tem").count() == 1 for i in range(min(5, cp.locator("#d-radar tbody tr:not(.mais)").count()))))
+            cp.close()
             # Game Changers: contados em Python pela lista do cache do Scryfall
             import scryfall
             G = scryfall._ler().get("gc")

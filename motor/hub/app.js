@@ -49,7 +49,7 @@ function buscaDe(d) { return esc(semAcento(d.nome + ' ' + (d.painel || '') + ' '
 function cartao(d) {
   var busca = buscaDe(d);
   if (d.painel && d.a) {
-    var A = d.a, al = nAlertas(A.le), i = idxDK(d), dt = atualizado(d);
+    var A = d.a, i = idxDK(d), dt = atualizado(d);
     return '<article class="deck" data-busca="' + busca + '">' +
       (d.capa ? '<img class="capa" src="' + d.capa + '" alt="" loading="lazy" style="object-position:' + esc(d.foco || '50% 30%') + '">' : '') +
       '<a class="ir" href="' + esc(d.href) + '" aria-label="Abrir o painel ' + esc(d.painel) + ', deck ' + esc(d.nome) + '"></a>' +
@@ -60,7 +60,7 @@ function cartao(d) {
         '<div><dt>CMC médio</dt><dd>' + num(A.st.avg, 2) + '</dd></div><div><dt>Sem reserva</dt><dd>' + (A.res.frageis.length ? pl(A.res.frageis.length, 'função', 'funções') : 'nenhuma') + '</dd></div>' +
         '<div><dt>Trocas</dt><dd>' + (A.tr.length || 'nenhuma') + '</dd></div><div><dt>Atualizado</dt><dd>' + (dt ? brData(dt) : '—') + '</dd></div>' +
       '</dl></div>' +
-      '<div class="base"><span class="b-st">' + (al ? '<span class="al' + (al >= 3 ? ' muitos' : '') + '" title="' + pl(al, 'leitura em alerta', 'leituras em alerta') + ' no painel">' + al + ' !</span>' : '<span class="al ok" title="Nenhuma leitura em alerta">✓</span>') + '</span>' +
+      '<div class="base"><span class="b-st"></span>' +
         cores(d.cores) + '</div>' +
       '<span class="b-lk"><a href="#f-' + i + '" class="lk" title="Ficha no Dashboard">Ficha</a>' + (d.pub ? '<a href="' + esc(d.pub) + '" class="lk" target="_blank" rel="noopener noreferrer" title="Painel publicado">Online ↗</a>' : '') + '</span></article>';
   }
@@ -1457,6 +1457,123 @@ function movimentos() {
 }
 var MOV = movimentos();
 var movF = { deck: '', so: '', modo: 'deck' };
+/* ============ sub-utilizadas ============ */
+/* S ou A no radar de um deck e tier pior em todos os decks onde a carta já está (critério do dono, 14/10/2026):
+   antes de comprar, a carta pode sair de onde rende menos. */
+var SUB = MOV.mova.filter(function (x) { return TR[x.c.T] <= 1 && x.onde.every(function (o) { return TR[o.c.T] > TR[x.c.T]; }); })
+  .sort(function (a, b) { return TR[a.c.T] - TR[b.c.T] || TR[b.de.c.T] - TR[a.de.c.T] || RELS.indexOf(b.de.c.r) - RELS.indexOf(a.de.c.r) || (a.c.v === 'entra' ? 0 : 1) - (b.c.v === 'entra' ? 0 : 1) || a.k.localeCompare(b.k); });
+function caixaSub() {
+  var L = SUB.filter(function (x) { return (!movF.deck || x.para.pasta === movF.deck || x.onde.some(function (o) { return o.A.pasta === movF.deck; })) && (!movF.so || x.c.v === 'entra'); });
+  var vd = function (v) { return '<span class="vd vd-' + v + '">' + (v === 'entra' ? 'entra' : 'avaliar') + '</span>'; };
+  var rows = mais('sub', L, 12, function (x) {
+    return '<tr><td><b>' + esc(x.k) + '</b></td><td><div class="pede">' + x.onde.map(function (o) { return '<span>' + deckLink(o.A) + ' ' + tierB(o.c.T) + ' ' + relB(o.c.r) + '</span>'; }).join('') + '</div></td>' +
+      '<td class="c seta">→</td><td>' + deckLink(x.para) + ' ' + tierB(x.c.T) + ' ' + vd(x.c.v) + '</td></tr>';
+  }, 4);
+  return caixa('Sub-utilizadas: S ou A no radar, pior onde estão (' + L.length + ')', (L.length ? '<div class="tw"><table class="tbl mov"><thead><tr><th scope="col">Carta</th><th scope="col">Hoje está em</th><th></th><th scope="col">Pedida por</th></tr></thead><tbody>' + rows + '</tbody></table></div>' : '<p class="hint">Nada com esse filtro.</p>') +
+    nota('A carta é S ou A no radar de um deck e tem tier pior em todos os decks onde já está. É a primeira coisa a olhar antes de comprar: mova, ou compre outra cópia. As primeiras são as que estão mais mal aproveitadas onde moram.'), 'larga sub-box');
+}
+
+/* ============ compras ============ */
+/* A lista de compras mora no banco do hub publicado (coleção "compras", um documento por carta, com os decks que pedem).
+   No arquivo offline não há banco: o radar aparece, a lista e o botão não. Só quem edita o hub grava. */
+var COMP = { db: null, pode: false, pronto: !(window.claude && typeof window.claude.use === 'function'), docs: {}, ocupado: {}, erro: '', copiado: false };
+var radF = { deck: '', tier: 'SA', v: '', tem: '' };
+var ONDE = {}; DK.forEach(function (d) { d.a.cards.forEach(function (c) { var k = chave(c); if (BAS[k] || c.cm) return; (ONDE[k] = ONDE[k] || []).push({ A: d.a, c: c }); }); });
+var RAD = []; DK.forEach(function (d) { d.a.cands.forEach(function (c) { if (c.v !== 'fora') RAD.push({ A: d.a, c: c }); }); });
+var PEDIDOS = {}; RAD.forEach(function (x) { var k = chave(x.c); PEDIDOS[k] = (PEDIDOS[k] || 0) + 1; });
+function slugC(n) { return semAcento(n).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 180) || 'carta'; }
+function pastaDe(n) { var p = (H.em_pastas || {})[String(n).split(' // ')[0].trim().toLowerCase()]; return p && p.length ? p : null; }
+function hojeISO() { var d = new Date(), z = function (n) { return (n < 10 ? '0' : '') + n; }; return d.getFullYear() + '-' + z(d.getMonth() + 1) + '-' + z(d.getDate()); }
+function funcaoDe(A, c) { var k = pkDe(A, c), i = gix(A, k); return i >= 0 ? A.grupos[i].n : k === 'mana' ? 'Mana' : ''; }
+function naLista(A, c) { var d = COMP.docs[slugC(chave(c))]; return !!(d && (d.pedidos || []).some(function (p) { return p.p === A.pasta; })); }
+function jaTem(k, A) { return (ONDE[k] || []).filter(function (o) { return o.A !== A; }); }
+function temTxt(onde) { return onde.map(function (o) { return '<span>' + esc(o.A.nome) + ' ' + tierB(o.c.T) + '</span>'; }).join(''); }
+function secCompras() {
+  var lista = Object.keys(COMP.docs).map(function (id) { var d = COMP.docs[id]; return { id: id, n: d.n, ped: d.pedidos || [], em: d.em || '' }; })
+    .filter(function (x) { return x.n && x.ped.length; });
+  lista.forEach(function (x) { x.T = x.ped.map(function (p) { return p.T; }).sort(function (a, b) { return TR[a] - TR[b]; })[0]; });
+  lista.sort(function (a, b) { return TR[a.T] - TR[b.T] || b.ped.length - a.ped.length || a.n.localeCompare(b.n); });
+  var corpo;
+  if (!COMP.pronto) corpo = '<p class="hint">Conectando à lista…</p>';
+  else if (!COMP.db) corpo = '<p class="hint">A lista de compras mora no hub publicado. Abra o hub pelo link do claude.ai para ver, marcar e tirar cartas; aqui, sem internet, o radar abaixo continua valendo.</p>';
+  else if (COMP.erro) corpo = '<p class="hint">A lista não respondeu agora (' + esc(COMP.erro) + '). Recarregue a página.</p>';
+  else if (!lista.length) corpo = '<p class="hint">Lista vazia. Marque cartas no radar logo abaixo, com o botão "+ Compras".</p>';
+  else corpo = '<ul class="cl">' + lista.map(function (x) {
+      var tem = jaTem(x.n, null), pas = pastaDe(x.n);
+      return '<li><div class="cl-n"><b>' + esc(x.n) + '</b> ' + tierB(x.T) + (x.em ? '<small class="dim">desde ' + brData(x.em) + '</small>' : '') + '</div>' +
+        '<div class="cl-p"><span class="dim">pedida por</span> ' + x.ped.map(function (p) { return '<span class="cl-d">' + esc(p.d) + ' ' + tierB(p.T) + '</span>'; }).join('') + '</div>' +
+        (tem.length ? '<div class="cl-a">' + pill('warn', 'você já tem', '!') + ' <span class="tem">' + temTxt(tem) + '</span></div>' : '') +
+        (pas ? '<div class="cl-a">' + pill('ok', 'na pasta', '✓') + ' ' + esc(lista(pas.map(function (q) { return q.p + ' ×' + q.q; }))) + '</div>' : '') +
+        (COMP.pode ? '<button class="linkish cl-x" data-act="comp-tirar" data-k="' + esc(x.id) + '"' + (COMP.ocupado[x.id] ? ' disabled' : '') + '>Tirar</button>' : '') + '</li>';
+    }).join('') + '</ul>';
+  var topo = COMP.db && lista.length ? '<div class="ctl"><button class="bt" data-act="comp-copiar">' + (COMP.copiado ? 'Copiada ✓' : 'Copiar a lista') + '</button><span class="dim">uma carta por linha, "1 Nome", para colar na loja ou na wishlist</span></div>' : '';
+  return secao('compras', 'Lista de compras', 'O que você marcou no radar dos decks para comprar ou trocar quando tiver chance. Uma carta pedida por mais de um deck aparece uma vez só.',
+    caixa('', topo + corpo + nota('"Você já tem": a carta está na lista de outro deck; veja se não vale mover em vez de comprar. "Na pasta": está numa das suas pastas (quando as listas chegarem). A lista fica no hub publicado e acompanha você no celular.'), 'larga'));
+}
+function secRadar() {
+  var V = { entra: 0, avaliar: 1 };
+  var L = RAD.filter(function (x) {
+    var k = chave(x.c), tem = jaTem(k, x.A).length > 0;
+    return (!radF.deck || x.A.pasta === radF.deck) && (radF.tier !== 'SA' || TR[x.c.T] <= 1) && (!radF.v || x.c.v === radF.v) && (!radF.tem || (radF.tem === 'sim') === tem);
+  }).sort(function (a, b) { return TR[a.c.T] - TR[b.c.T] || V[a.c.v] - V[b.c.v] || (PEDIDOS[chave(b.c)] || 0) - (PEDIDOS[chave(a.c)] || 0) || chave(a.c).localeCompare(chave(b.c)) || a.A.nome.localeCompare(b.A.nome); });
+  var seg = function (rot, campo, ops) { return '<div class="seg" role="group" aria-label="' + rot + '"><span class="seg-l">' + rot + '</span>' + ops.map(function (o) { return '<button data-act="rad" data-k="' + campo + '" data-v="' + o[0] + '" aria-pressed="' + (radF[campo] === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div>'; };
+  var ctl = '<div class="ctl"><label class="cmp-s"><span class="seg-l">Deck</span><select data-rad="deck"><option value="">Todos</option>' + DK.map(function (d) { return '<option value="' + esc(d.pasta) + '"' + (radF.deck === d.pasta ? ' selected' : '') + '>' + esc(d.nome) + '</option>'; }).join('') + '</select></label>' +
+    seg('Tier', 'tier', [['SA', 'S e A'], ['', 'Todos']]) + seg('Veredito', 'v', [['', 'Entra e avaliar'], ['entra', 'Entra'], ['avaliar', 'Avaliar']]) + seg('Você tem?', 'tem', [['', 'Tanto faz'], ['nao', 'Não tenho'], ['sim', 'Já tenho em outro deck']]) + '</div>';
+  var bt = function (x) {
+    var on = naLista(x.A, x.c), key = slugC(chave(x.c));
+    if (!COMP.db || !COMP.pode) return '<span class="dim cl-off" title="' + (COMP.db ? 'Só quem edita o hub marca' : 'Só no hub publicado') + '">' + (on ? '✓ na lista' : '') + '</span>';
+    return '<button class="bt-c' + (on ? ' on' : '') + '" data-act="comp" data-k="' + esc(x.A.pasta) + '" data-v="' + esc(x.c.i) + '" aria-pressed="' + on + '"' + (COMP.ocupado[key] ? ' disabled' : '') + '>' + (on ? '✓ Na lista' : '+ Compras') + '</button>';
+  };
+  var rows = mais('radar', L, 30, function (x) {
+    var k = chave(x.c), tem = jaTem(k, x.A), pas = pastaDe(k), sai = x.c.sa ? x.A.idx[x.c.sa] : null, f = funcaoDe(x.A, x.c);
+    return '<tr><td><b>' + esc(x.c.n) + '</b> ' + tierB(x.c.T) + (f ? '<small class="dim">' + esc(f) + (PEDIDOS[k] > 1 ? ' · em ' + PEDIDOS[k] + ' radares' : '') + '</small>' : '') + '</td>' +
+      '<td data-l="Radar de">' + deckLink(x.A) + ' <span class="vd vd-' + x.c.v + '">' + (x.c.v === 'entra' ? 'entra' : 'avaliar') + '</span>' + (sai ? '<small class="dim">sai ' + esc(sai.n) + '</small>' : '') + '</td>' +
+      '<td data-l="Você já tem em">' + (tem.length ? '<span class="tem">' + temTxt(tem) + '</span>' : '') + (pas ? '<small class="ok-t">na pasta ' + esc(pas[0].p) + '</small>' : '') + (!tem.length && !pas ? '<span class="dim">—</span>' : '') + '</td>' +
+      '<td class="n">' + bt(x) + '</td></tr>';
+  }, 4);
+  return secao('radar', 'Radar de todos os decks', 'As cartas que os painéis querem pôr, num lugar só: marque as que vale comprar ou trocar.', ctl +
+    caixa('', '<div class="tw"><table class="tbl rad"><thead><tr><th scope="col">Carta</th><th scope="col">Radar de</th><th scope="col">Você já tem em</th><th scope="col" class="n"><span class="sr">Compras</span></th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      nota(pl(L.length, 'carta', 'cartas') + ' com esse filtro. Uma carta pedida por dois decks aparece duas vezes, uma por radar; na lista de compras ela vira uma linha só. "Você já tem em": a carta está na lista de outro deck, com o tier de lá.'), 'larga'));
+}
+function redesenharCompras(k) { redesenharSecao(k && k.indexOf('comp-') < 0 ? k : null, 'radar'); redesenharSecao(k && k.indexOf('comp-') >= 0 ? k : null, 'compras'); }
+function compToggle(pasta, id) {
+  var d = porPasta(pasta), c = d && d.a.idx[id]; if (!c || !COMP.db || !COMP.pode) return;
+  var key = slugC(chave(c)); if (COMP.ocupado[key]) return;
+  var atual = COMP.docs[key], ped = ((atual && atual.pedidos) || []).filter(function (p) { return p.p !== pasta; });
+  var tinha = !!atual && ped.length !== (atual.pedidos || []).length;
+  if (!tinha) ped.push({ p: pasta, d: d.nome, T: c.T, v: c.v });
+  var ref = COMP.db.collection('compras').doc(key);
+  COMP.ocupado[key] = 1; redesenharCompras('[data-act="comp"][data-k="' + pasta + '"][data-v="' + id + '"]');
+  (ped.length ? ref.set({ n: chave(c), pedidos: ped, em: (atual && atual.em) || hojeISO() }) : ref.delete())
+    .then(function () { COMP.erro = ''; }, function (e) { COMP.erro = (e && e.code) || 'erro'; if (e && e.code === 'invalid_argument') COMP.pode = false; })
+    .then(function () { delete COMP.ocupado[key]; redesenharCompras('[data-act="comp"][data-k="' + pasta + '"][data-v="' + id + '"]'); });
+}
+function compTirar(key) {
+  if (!COMP.db || !COMP.pode || COMP.ocupado[key]) return;
+  COMP.ocupado[key] = 1; redesenharCompras();
+  COMP.db.collection('compras').doc(key).delete().then(function () { COMP.erro = ''; }, function (e) { COMP.erro = (e && e.code) || 'erro'; })
+    .then(function () { delete COMP.ocupado[key]; redesenharCompras(); });
+}
+function compCopiar() {
+  var t = Object.keys(COMP.docs).map(function (id) { return COMP.docs[id]; }).filter(function (d) { return d.n && (d.pedidos || []).length; })
+    .map(function (d) { return '1 ' + d.n; }).sort().join('\n');
+  var ok = function () { COMP.copiado = true; redesenharCompras('[data-act="comp-copiar"]'); setTimeout(function () { COMP.copiado = false; redesenharCompras(); }, 2500); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(ok, function () {}); 
+}
+function ligarCompras() {
+  if (!window.claude || typeof window.claude.use !== 'function') { COMP.pronto = true; return; }
+  Promise.all([window.claude.use('db'), window.claude.use('user')]).then(function (r) {
+    COMP.db = r[0];
+    if (!COMP.db) { COMP.pronto = true; redesenharCompras(); return; }
+    var u = r[1];
+    (u && u.canEdit ? u.canEdit() : Promise.resolve(true)).then(function (p) { COMP.pode = p !== false; redesenharCompras(); }, function () { COMP.pode = true; });
+    COMP.db.collection('compras').onSnapshot(function (s) {
+      var m = {}; s.docs.forEach(function (x) { if (x.exists) m[x.id] = x.data(); });
+      COMP.docs = m; COMP.pronto = true; redesenharCompras();
+    }, function (e) { COMP.erro = (e && e.code) || 'erro'; COMP.pronto = true; redesenharCompras(); });
+  }, function () { COMP.pronto = true; redesenharCompras(); });
+}
+
 function filtraMov(L) { return L.filter(function (x) { return (!movF.deck || x.para.pasta === movF.deck || x.onde.some(function (o) { return o.A.pasta === movF.deck; })) && (!movF.so || (x.c && x.c.v === 'entra')); }); }
 function ondeTxt(x, exceto) { return x.onde.filter(function (o) { return o !== exceto; }).map(function (o) { return o.A.nome + ' ' + o.c.T; }); }
 function secMov() {
@@ -1483,9 +1600,9 @@ function secMov() {
   var rowsP = mais('pot', pot, 8, function (x) {
     return '<li><b>' + esc(x.k) + '</b>, potencial do ' + deckLink(x.para) + ', já está em ' + esc(lista(x.onde.map(function (o) { return o.A.nome + ' (' + o.c.T + ')'; }))) + '.</li>';
   });
-  if (movF.modo === 'deck') return secao('movimentacoes', 'Movimentações', 'Onde cada carta rende mais, entre o que você já tem e o que os radares pedem.', '<div class="ctl">' + modo + sel + seg + '</div>' + movPorDeck());
+  if (movF.modo === 'deck') return secao('movimentacoes', 'Movimentações', 'Onde cada carta rende mais, entre o que você já tem e o que os radares pedem.', '<div class="ctl">' + modo + sel + seg + '</div>' + caixaSub() + movPorDeck());
   var h = '<div class="ctl">' + modo + sel + seg + '</div>' +
-    '<p class="dest">' + pl(MOV.n, 'carta que os radares pedem já está', 'cartas que os radares pedem já estão') + ' em algum deck seu: decida onde cada uma rende mais antes de comprar outra cópia.</p>' +
+    '<p class="dest">' + pl(MOV.n, 'carta que os radares pedem já está', 'cartas que os radares pedem já estão') + ' em algum deck seu: decida onde cada uma rende mais antes de comprar outra cópia.</p>' + caixaSub() +
     caixa('Mova em vez de comprar (' + mv.length + ')', (mv.length ? '<div class="tw"><table class="tbl mov"><thead><tr><th scope="col">Carta</th><th scope="col">Hoje está em</th><th></th><th scope="col">Rende mais em</th></tr></thead><tbody>' + rowsM + '</tbody></table></div>' : '<p class="hint">Nada com esse filtro.</p>') +
       nota('O radar de um deck pede, com tier melhor, uma carta que você já tem em outro deck. Da mais vantajosa para a menos: maior salto de tier, depois "entra" antes de "avaliar", depois quem está na berlinda onde está. Mova, ou compre outra cópia.'), 'larga', pl(mv.length, 'carta', 'cartas')) +
     caixa('Antes de comprar: você já tem (' + jaG.length + ')', (jaG.length ? '<div class="tw"><table class="tbl mov"><thead><tr><th scope="col">Carta</th><th scope="col">Pedida por</th><th scope="col">Já está em</th></tr></thead><tbody>' + rowsJ + '</tbody></table></div>' : '<p class="hint">Nada com esse filtro.</p>') +
@@ -1587,7 +1704,7 @@ function acoes(att) {
     L.push({ tipo: 'Rebalancear', sec: 'reserva', h: '<b>' + esc(Ad.nome) + ': ' + esc(p.sobra.g.n) + ' tem ' + p.sobra.n + ' (' + faixaTxt(p.sobra) + ') e ' + esc(p.falta.g.n) + ' tem ' + p.falta.n + (p.falta.lo != null ? ' (' + faixaTxt(p.falta) + ')' : '') + '.</b> Tire ' + esc(p.sai.n) + (p.entra ? ' e ponha ' + esc(p.entra.n) + ', do radar (em avaliação).' : '; procure mais uma carta de ' + esc(p.falta.g.n) + (p.jaEntram ? ': as do radar já entram por outras trocas.' : ': o radar não tem.')) });
   }
   /* a melhor para agir já: entra no radar, maior salto de tier */
-  var mv = MOV.mova.filter(function (m) { return m.c.v === 'entra'; }).sort(function (a, b) { return b.ganho - a.ganho || TR[a.c.T] - TR[b.c.T]; });
+  var mv = SUB.filter(function (m) { return m.c.v === 'entra'; });
   mv.slice(0, 1).forEach(function (m) {
     L.push({ tipo: 'Mover', sec: 'movimentacoes', h: '<b>' + esc(m.k) + ': do ' + esc(m.de.A.nome) + ' para o ' + esc(m.para.nome) + '.</b> Lá é ' + m.de.c.T + ' (' + RELL[m.de.c.r] + '); no radar do ' + esc(m.para.nome) + ', ' + m.c.T + '. Mova, ou compre outra cópia.' });
   });
@@ -1630,7 +1747,7 @@ function secResumo(att) {
     kpi('Decks com painel', comp + ' <small>de ' + total + '</small>', pct(comp / total) + ' da carteira analisada', '<span class="meter" aria-hidden="true"><i style="width:' + (comp / total * 100).toFixed(1) + '%"></i></span>', 'fichas') +
     kpi('Funções sem reserva', String(nFr), (nFr ? 'em ' + pl(dFr, 'deck', 'decks') + '; ' : '') + pl(nCo, 'corte seguro', 'cortes seguros') + ' em pacotes com sobra', '', 'reserva') +
     kpi('Trocas recomendadas', String(nTr), 'em ' + pl(dTr, 'deck', 'decks'), '', 'trocas') +
-    kpi('Você já tem', String(MOV.n), 'cartas que os radares pedem e já estão em outro deck', '', 'movimentacoes') +
+    kpi('Sub-utilizadas', String(SUB.length), 'S ou A no radar de um deck e pior onde estão; ' + MOV.n + ' cartas dos radares você já tem', '', 'movimentacoes') +
     kpi('Leituras em alerta', al0 + ' <small>de ' + nLe + '</small>', 'caem para ' + al2 + ' com as trocas', '', 'fundamentos') +
     (cego ? kpi('Ponto cego', esc(cego.a.n), 'nenhum deck vai bem; ' + cego.mal + ' de ' + cego.n + ' vão mal', '', 'mesa') : '') +
     '</div>';
@@ -1649,7 +1766,7 @@ function secResumo(att) {
       nota('Clique num deck para abrir a ficha dele. O placar fica de fora de propósito: ele compara o deck com ele mesmo, não com os outros.') + '</div></div>' +
     caixa('Rotina de conferência', '<dl class="rot">' +
     '<div><dt>Antes de jogar</dt><dd>' + ir('mesa', 'Mesa') + ', pela mesa que vai sentar, e a ' + ir('fichas', 'ficha') + ' do deck.</dd></div>' +
-    '<div><dt>Antes de comprar</dt><dd>' + ir('movimentacoes', 'Movimentações') + ': a carta pode já estar num deck onde rende menos.</dd></div>' +
+    '<div><dt>Antes de comprar</dt><dd>' + ir('movimentacoes', 'Movimentações') + ' (as sub-utilizadas primeiro): a carta pode já estar num deck onde rende menos. Depois, ' + ir('compras', 'Compras') + '.</dd></div>' +
     '<div><dt>Antes de trocar</dt><dd>' + ir('reserva', 'Reserva e sobra') + ': tire do pacote com sobra, não da função sem reserva.</dd></div>' +
     '<div><dt>Depois de mexer num deck</dt><dd>' + ir('fichas', 'Fichas') + ', ' + ir('fundamentos', 'Fundamentos') + ' e ' + ir('trocas', 'Trocas') + '.</dd></div>' +
     '<div><dt>Uma vez por mês</dt><dd>' + ir('auditoria', 'Bastidores') + '. Monte o hub com internet para renovar os Game Changers.</dd></div>' +
@@ -1659,10 +1776,10 @@ function secResumo(att) {
 }
 
 /* ============ montagem do dashboard ============ */
-var DTABS = [['resumo', 'Resumo', ['resumo']], ['fichas', 'Fichas', ['fichas', 'comparar']], ['mov', 'Movimentações', ['movimentacoes', 'compartilhadas']],
+var DTABS = [['resumo', 'Resumo', ['resumo']], ['fichas', 'Fichas', ['fichas', 'comparar']], ['mov', 'Movimentações', ['movimentacoes', 'compartilhadas']], ['compras', 'Compras', ['compras', 'radar']],
              ['mesa', 'Mesa', ['mesa']], ['trocas', 'Trocas e reserva', ['trocas', 'reserva', 'placar']], ['mana', 'Fundamentos e mana', ['fundamentos', 'mana']],
              ['potencial', 'Decks em potencial', ['potencial']], ['bastidores', 'Bastidores', ['auditoria', 'carteira']]];
-var SEC_HTML = { fichas: secFichas, comparar: secComparar, movimentacoes: secMov, compartilhadas: secComp, mesa: secMesa, trocas: secTrocas, placar: secPlacar,
+var SEC_HTML = { compras: secCompras, radar: secRadar, fichas: secFichas, comparar: secComparar, movimentacoes: secMov, compartilhadas: secComp, mesa: secMesa, trocas: secTrocas, placar: secPlacar,
                  reserva: secReserva, fundamentos: secFund, mana: secMana, potencial: secPotencial, auditoria: secAudit, carteira: secCarteira };
 function abaDe(sec) { for (var i = 0; i < DTABS.length; i++) if (DTABS[i][2].indexOf(sec) >= 0) return DTABS[i]; return null; }
 function vistaDash() {
@@ -1809,12 +1926,17 @@ document.addEventListener('click', function (ev) {
   }
   else if (act === 'fi-abrir' || act === 'fi-fechar') { document.querySelectorAll('#d-fichas details.fi').forEach(function (d) { d.open = act === 'fi-abrir'; }); }
   else if (act === 'mov-modo') { movF.modo = k; redesenharSecao('[data-act="mov-modo"][data-k="' + k + '"]', 'movimentacoes'); }
+  else if (act === 'comp') compToggle(k, a.dataset.v);
+  else if (act === 'comp-tirar') compTirar(k);
+  else if (act === 'comp-copiar') compCopiar();
+  else if (act === 'rad') { radF[k] = a.dataset.v; abertos.radar = false; redesenharSecao('[data-act="rad"][data-k="' + k + '"][data-v="' + a.dataset.v + '"]', 'radar'); }
   else if (act === 'mov-so') { movF.so = k; redesenharSecao('[data-act="mov-so"][data-k="' + k + '"]', 'movimentacoes'); }
 });
 document.addEventListener('change', function (ev) {
   var t = ev.target;
   if (t.matches && t.matches('select[data-cmp]')) { cmp[t.dataset.cmp] = t.value; redesenharSecao('[data-cmp="' + t.dataset.cmp + '"]', 'comparar'); }
   else if (t.matches && t.matches('select[data-mov]')) { movF.deck = t.value; redesenharSecao('[data-mov="deck"]', 'movimentacoes'); }
+  else if (t.matches && t.matches('select[data-rad]')) { radF.deck = t.value; abertos.radar = false; redesenharSecao('[data-rad="deck"]', 'radar'); }
 });
 document.addEventListener('change', function (ev) {
   var c = ev.target.closest('#v-dash [data-sim]'); if (!c) return;
@@ -1827,8 +1949,10 @@ document.addEventListener('keydown', function (ev) {
   var n = tabs[(i + (ev.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; irPara(n.dataset.vista); n.focus();
 });
 /* para os testes e para conferência: as contas do Dashboard, deck a deck */
+ligarCompras();
 window.HUB_DASH = { decks: DK.map(function (d) { var A = d.a; return { pasta: d.pasta, placar: A.st.total, placar_trocas: A.st2.total, alertas: nAlertas(A.le), alertas_trocas: nAlertas(A.le2), sem_reserva: A.res.frageis.map(function (f) { return f.g.k; }), cortes: A.res.fun.reduce(function (o, f) { if (f.cortes.length) o[f.g.k] = f.cortes.map(function (x) { return x.c.n; }); return o; }, {}), fontes: A.mana.src, karsten: Math.round(A.kar.sug * 10) / 10,
   cmc: Math.round(A.st.avg * 100) / 100, cmc_custo: Math.round(A.cv.st.avg * 100) / 100, baixa_custo: A.cv.boas.length,
   game_changers: A.br.gc.slice().sort() }; }),
-  mov: { mova: MOV.mova.length, ja: MOV.ja.length, pot: MOV.pot.length, cartas: MOV.n } };
+  mov: { mova: MOV.mova.length, ja: MOV.ja.length, pot: MOV.pot.length, cartas: MOV.n, sub: SUB.map(function (x) { return x.k + '|' + x.para.pasta; }).sort() },
+  radar: RAD.length };
 })();
