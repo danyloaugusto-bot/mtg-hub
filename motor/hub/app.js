@@ -112,7 +112,7 @@ function vistaEstante(ds) {
     var gs = ds.filter(function (d) { return d.grupo === g.k; });
     return '<section class="grupo" data-grupo="' + g.k + '">' + sanfona('g-' + g.k, '<h2>' + esc(g.n) + '</h2><span class="g-r">' + resumoGrupo(gs) + '</span>', miniaturas(gs),
       gs.length ? '<div class="grade">' + gs.map(cartao).join('') + '</div>' : '<p class="vazio-g">Nenhum deck neste grupo ainda.</p>', 'g-sf') + '</section>';
-  }).join('');
+  }).join('') + comprasEstante();
 }
 /* as capas pequenas no cabeçalho do grupo fechado: dá para reconhecer o grupo sem abrir */
 function miniaturas(gs) {
@@ -1545,6 +1545,45 @@ var ONDE = {}; DK.forEach(function (d) { d.a.cards.forEach(function (c) { var k 
 var RAD = []; DK.forEach(function (d) { d.a.cands.forEach(function (c) { if (c.v !== 'fora') RAD.push({ A: d.a, c: c }); }); });
 var PEDIDOS = {}; RAD.forEach(function (x) { var k = chave(x.c); PEDIDOS[k] = (PEDIDOS[k] || 0) + 1; });
 var ENC = {}; RAD.forEach(function (x) { if (x.c.en && x.c.en.length && !ENC[chave(x.c)]) ENC[chave(x.c)] = x.c; });
+/* a lista de compras em oito espaços: as cinco cores, incolor e multicolorido, pela identidade de cor, e os terrenos à parte
+   (qualquer identidade; a carta com terreno no verso fica na cor da frente). A cor vem do radar (cache do Scryfall, no build)
+   e, se a carta saiu do radar, do que foi gravado com ela na lista. */
+var ESPACOS = [['W', 'Branco'], ['U', 'Azul'], ['B', 'Preto'], ['R', 'Vermelho'], ['G', 'Verde'], ['C', 'Incolor'], ['M', 'Multicolorido'], ['L', 'Terrenos']];
+var CI = {}, TER = {}; RAD.forEach(function (x) { var k = chave(x.c); if (x.c.ci != null && CI[k] == null) CI[k] = x.c.ci; if (x.c.L) TER[k] = 1; });
+function corDe(n, ci, ter) { if (TER[n] || ter) return 'L'; var c = CI[n] != null ? CI[n] : ci; return c == null ? '?' : !c.length ? 'C' : c.length > 1 ? 'M' : c; }
+function simbCor(k) { return k === 'M' ? '<i class="ms ms-M" aria-hidden="true"></i>' : k === '?' ? '<i class="ms ms-C" aria-hidden="true">?</i>' : k === 'L' ? '<i class="ms ms-L" aria-hidden="true">T</i>' : '<i class="ms ms-' + k + '" aria-hidden="true">' + k + '</i>'; }
+function listaCompras() {
+  var L = Object.keys(COMP.docs).map(function (id) { var d = COMP.docs[id]; return { id: id, n: d.n, ped: d.pedidos || [], em: d.em || '', ci: d.ci, ter: d.ter }; })
+    .filter(function (x) { return x.n && x.ped.length; });
+  L.forEach(function (x) { x.T = x.ped.map(function (p) { return p.T; }).sort(function (a, b) { return TR[a] - TR[b]; })[0]; x.cor = corDe(x.n, x.ci, x.ter); });
+  return L.sort(function (a, b) { return TR[a.T] - TR[b.T] || b.ped.length - a.ped.length || a.n.localeCompare(b.n); });
+}
+function porCor(L) {
+  var g = ESPACOS.concat(L.some(function (x) { return x.cor === '?'; }) ? [['?', 'Sem cor no cache']] : []);
+  return g.map(function (k) { return { k: k[0], n: k[1], L: L.filter(function (x) { return x.cor === k[0]; }) }; });
+}
+/* 06. Compras na estante: o grupo que vem depois dos cinco do aplicativo, com a lista por cor */
+function comprasEstante() {
+  var L = listaCompras(), corpo, res;
+  if (!COMP.pronto) { corpo = '<p class="vazio-g">Conectando à lista…</p>'; res = 'conectando'; }
+  else if (!COMP.db) { corpo = '<p class="vazio-g">A lista de compras mora no hub publicado: abra o hub pelo link do claude.ai para ver as cartas por cor. Para pôr uma carta na lista, use o botão "+ Compras" no radar, no <a href="#d-radar">Dashboard, aba Compras</a>.</p>'; res = 'só no hub publicado'; }
+  else if (COMP.erro) { corpo = '<p class="vazio-g">A lista não respondeu agora (' + esc(COMP.erro) + '). Recarregue a página.</p>'; res = 'sem resposta'; }
+  else {
+    res = pl(L.length, 'carta', 'cartas');
+    corpo = '<div class="cmp7">' + porCor(L).map(function (g) {
+      return '<article class="cmp-cor" data-cor="' + g.k + '"><h3>' + simbCor(g.k) + esc(g.n) + '<span class="num">' + g.L.length + '</span></h3>' +
+        (g.L.length ? '<ul>' + g.L.map(function (x) {
+          return '<li><b>' + esc(x.n) + '</b> ' + tierB(x.T) + '<small class="dim">' + esc(lista(x.ped.map(function (p) { return p.d; }))) + '</small></li>';
+        }).join('') + '</ul>' : '<p class="dim">Nada nesta cor.</p>') + '</article>';
+    }).join('') + '</div>' + nota('Cada carta fica no espaço da sua identidade de cor; terreno fica em Terrenos, com qualquer identidade, e a carta com terreno no verso fica na cor da frente. Para marcar, tirar ou copiar a lista, use o <a href="#d-compras">Dashboard, aba Compras</a>.');
+  }
+  var minis = COMP.db && !COMP.erro && L.length ? '<span class="cmp-m">' + porCor(L).filter(function (g) { return g.L.length; }).map(function (g) { return '<span>' + simbCor(g.k) + g.L.length + '</span>'; }).join('') + '</span>' : '';
+  return '<section class="grupo" data-grupo="06">' + sanfona('g-06', '<h2>06. Compras</h2><span class="g-r">' + res + '</span>', minis, corpo, 'g-sf') + '</section>';
+}
+function redesenharComprasEstante() {
+  var el = document.querySelector('#v-decks .grupo[data-grupo="06"]'); if (!el) return;
+  var t = document.createElement('div'); t.innerHTML = comprasEstante(); el.parentNode.replaceChild(t.firstChild, el);
+}
 function slugC(n) { return semAcento(n).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 180) || 'carta'; }
 function pastaDe(n) { var p = (H.em_pastas || {})[String(n).split(' // ')[0].trim().toLowerCase()]; return p && p.length ? p : null; }
 function hojeISO() { var d = new Date(), z = function (n) { return (n < 10 ? '0' : '') + n; }; return d.getFullYear() + '-' + z(d.getMonth() + 1) + '-' + z(d.getDate()); }
@@ -1553,16 +1592,13 @@ function naLista(A, c) { var d = COMP.docs[slugC(chave(c))]; return !!(d && (d.p
 function jaTem(k, A) { return (ONDE[k] || []).filter(function (o) { return o.A !== A; }); }
 function temTxt(onde) { return onde.map(function (o) { return '<span>' + esc(o.A.nome) + ' ' + tierB(o.c.T) + '</span>'; }).join(''); }
 function secCompras() {
-  var lista = Object.keys(COMP.docs).map(function (id) { var d = COMP.docs[id]; return { id: id, n: d.n, ped: d.pedidos || [], em: d.em || '' }; })
-    .filter(function (x) { return x.n && x.ped.length; });
-  lista.forEach(function (x) { x.T = x.ped.map(function (p) { return p.T; }).sort(function (a, b) { return TR[a] - TR[b]; })[0]; });
-  lista.sort(function (a, b) { return TR[a.T] - TR[b.T] || b.ped.length - a.ped.length || a.n.localeCompare(b.n); });
+  var L = listaCompras();
   var corpo;
   if (!COMP.pronto) corpo = '<p class="hint">Conectando à lista…</p>';
   else if (!COMP.db) corpo = '<p class="hint">A lista de compras mora no hub publicado. Abra o hub pelo link do claude.ai para ver, marcar e tirar cartas; aqui, sem internet, o radar abaixo continua valendo.</p>';
   else if (COMP.erro) corpo = '<p class="hint">A lista não respondeu agora (' + esc(COMP.erro) + '). Recarregue a página.</p>';
-  else if (!lista.length) corpo = '<p class="hint">Lista vazia. Marque cartas no radar logo abaixo, com o botão "+ Compras".</p>';
-  else corpo = '<ul class="cl">' + lista.map(function (x) {
+  else if (!L.length) corpo = '<p class="hint">Lista vazia. Marque cartas no radar logo abaixo, com o botão "+ Compras".</p>';
+  else corpo = porCor(L).filter(function (g) { return g.L.length; }).map(function (g) { return '<h4 class="cl-cor">' + simbCor(g.k) + esc(g.n) + ' <span class="dim">' + g.L.length + '</span></h4><ul class="cl">' + g.L.map(function (x) {
       var tem = jaTem(x.n, null), pas = pastaDe(x.n);
       return '<li><div class="cl-n"><b>' + esc(x.n) + '</b> ' + tierB(x.T) + (x.em ? '<small class="dim">desde ' + brData(x.em) + '</small>' : '') + '</div>' +
         '<div class="cl-p"><span class="dim">pedida por</span> ' + x.ped.map(function (p) { return '<span class="cl-d">' + esc(p.d) + ' ' + tierB(p.T) + '</span>'; }).join('') + '</div>' +
@@ -1570,9 +1606,9 @@ function secCompras() {
         (tem.length ? '<div class="cl-a">' + pill('warn', 'você já tem', '!') + ' <span class="tem">' + temTxt(tem) + '</span></div>' : '') +
         (pas ? '<div class="cl-a">' + pill('ok', 'na pasta', '✓') + ' ' + esc(lista(pas.map(function (q) { return q.p + ' ×' + q.q; }))) + '</div>' : '') +
         (COMP.pode ? '<button class="linkish cl-x" data-act="comp-tirar" data-k="' + esc(x.id) + '"' + (COMP.ocupado[x.id] ? ' disabled' : '') + '>Tirar</button>' : '') + '</li>';
-    }).join('') + '</ul>';
-  var topo = COMP.db && lista.length ? '<div class="ctl"><button class="bt" data-act="comp-copiar">' + (COMP.copiado ? 'Copiada ✓' : 'Copiar a lista') + '</button><span class="dim">uma carta por linha, "1 Nome", para colar na loja ou na wishlist</span></div>' : '';
-  return secao('compras', 'Lista de compras', 'O que você marcou no radar dos decks para comprar ou trocar quando tiver chance. Uma carta pedida por mais de um deck aparece uma vez só.',
+    }).join('') + '</ul>'; }).join('');
+  var topo = COMP.db && L.length ? '<div class="ctl"><button class="bt" data-act="comp-copiar">' + (COMP.copiado ? 'Copiada ✓' : 'Copiar a lista') + '</button><span class="dim">uma carta por linha, "1 Nome", para colar na loja ou na wishlist</span></div>' : '';
+  return secao('compras', 'Lista de compras', 'O que você marcou no radar dos decks para comprar ou trocar quando tiver chance, por identidade de cor, com os terrenos à parte (a mesma lista aparece na estante, no grupo 06. Compras). Uma carta pedida por mais de um deck aparece uma vez só.',
     caixa('', topo + corpo + nota('"Rende mais em": o deck onde a carta mais soma no placar dos critérios, com quem sairia (só os decks já nos critérios). "Você já tem": a carta está na lista de outro deck; veja se não vale mover em vez de comprar. "Na pasta": está numa das suas pastas (quando as listas chegarem). A lista fica no hub publicado e acompanha você no celular.'), 'larga'));
 }
 /* encaixe da carta nos decks já nos critérios (motor/encaixe.py): o melhor deck, o ganho e quem sairia */
@@ -1610,7 +1646,7 @@ function secRadar() {
     caixa('', '<div class="tw"><table class="tbl rad"><thead><tr><th scope="col">Carta</th><th scope="col">Radar de</th><th scope="col">Rende mais em</th><th scope="col">Você já tem em</th><th scope="col" class="n"><span class="sr">Compras</span></th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
       nota(pl(L.length, 'carta', 'cartas') + ' com esse filtro. Uma carta pedida por dois decks aparece duas vezes, uma por radar; na lista de compras ela vira uma linha só. "Rende mais em": os decks já nos critérios onde a carta mais soma no placar, trocando pela carta de menor valor ("sai"); o asterisco quer dizer sinergia ainda não avaliada naquele deck. "Você já tem em": a carta está na lista de outro deck, com o tier de lá.'), 'larga'));
 }
-function redesenharCompras(k) { redesenharSecao(k && k.indexOf('comp-') < 0 ? k : null, 'radar'); redesenharSecao(k && k.indexOf('comp-') >= 0 ? k : null, 'compras'); }
+function redesenharCompras(k) { redesenharSecao(k && k.indexOf('comp-') < 0 ? k : null, 'radar'); redesenharSecao(k && k.indexOf('comp-') >= 0 ? k : null, 'compras'); redesenharComprasEstante(); }
 function compToggle(pasta, id) {
   var d = porPasta(pasta), c = d && d.a.idx[id]; if (!c || !COMP.db || !COMP.pode) return;
   var key = slugC(chave(c)); if (COMP.ocupado[key]) return;
@@ -1619,7 +1655,10 @@ function compToggle(pasta, id) {
   if (!tinha) ped.push({ p: pasta, d: d.nome, T: c.T, v: c.v });
   var ref = COMP.db.collection('compras').doc(key);
   COMP.ocupado[key] = 1; redesenharCompras('[data-act="comp"][data-k="' + pasta + '"][data-v="' + id + '"]');
-  (ped.length ? ref.set({ n: chave(c), pedidos: ped, em: (atual && atual.em) || hojeISO() }) : ref.delete())
+  var doc = { n: chave(c), pedidos: ped, em: (atual && atual.em) || hojeISO() };
+  if (c.ci != null) doc.ci = c.ci;   // a identidade de cor e o tipo vão juntos, para a carta seguir no espaço certo se sair do radar
+  if (c.L) doc.ter = 1;
+  (ped.length ? ref.set(doc) : ref.delete())
     .then(function () { COMP.erro = ''; }, function (e) { COMP.erro = (e && e.code) || 'erro'; if (e && e.code === 'invalid_argument') COMP.pode = false; })
     .then(function () { delete COMP.ocupado[key]; redesenharCompras('[data-act="comp"][data-k="' + pasta + '"][data-v="' + id + '"]'); });
 }

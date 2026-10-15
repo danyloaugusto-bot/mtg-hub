@@ -283,6 +283,10 @@ def resumo_dashboard(pasta, base, m, t, cache, gc=None):
     est = m.get("estrategia") or {}
     futuro = lancamentos_futuros(m["cands"], cache)
     cands = [compacta(c, futuro.get(c.get("on", c["n"])) if preco(c) is None else None, sinais(c, cache, gc)) for c in m["cands"]]
+    for c, x in zip(m["cands"], cands):
+        ci = encaixe.identidade(c.get("on", c["n"]))
+        if ci is not None:
+            x["ci"] = ci   # identidade de cor, para a lista de compras por cor
     # encaixe nos decks já nos critérios: [pasta, ganho, quem sai, já está no deck, sinergia avaliada], os três melhores
     v3s = encaixe.decks_v3()
     if v3s:

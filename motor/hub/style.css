@@ -793,3 +793,20 @@ details.mv-dk>summary .cores{margin-left:0}
 .pcomp .cdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:1px}
 .pcomp td.topo{color:var(--ok);font-weight:800}
 .pcomp tfoot th,.pcomp tfoot td{border-top:1px solid rgba(255,255,255,.18);color:var(--dim)}
+/* 06. Compras: a lista de compras por identidade de cor, na estante e no Dashboard */
+.ms-L{background:#b39b78}
+.ms-M{background:conic-gradient(#f3e7bf 0 72deg,#a9cdf0 0 144deg,#8a7a92 0 216deg,#f0a28c 0 288deg,#9fd0a6 0)}
+.cmp7{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.cmp-cor{background:#232326;border-radius:12px;padding:12px 14px 14px;min-width:0}
+.cmp-cor h3{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:800;margin-bottom:8px}
+.cmp-cor h3 .num{margin-left:auto;color:var(--dim);font-weight:700}
+.cmp-cor ul{display:grid;gap:7px}
+.cmp-cor li{font-size:14px;line-height:1.3}
+.cmp-cor li small{display:block;font-size:12.5px;margin-top:1px}
+.cmp-cor p.dim{font-size:13.5px}
+.cmp-m{display:flex;gap:10px;align-items:center;margin-left:auto;padding-left:6px;font-size:13px;color:var(--dim)}
+.cmp-m span{display:inline-flex;align-items:center;gap:3px}
+.cmp-m .ms{width:16px;height:16px;font-size:9px}
+.cl-cor{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800;margin:14px 0 2px}
+.cl-cor .ms{width:18px;height:18px;font-size:10px}
+@media (max-width:640px){.cmp7{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.cmp-cor{padding:10px}}
