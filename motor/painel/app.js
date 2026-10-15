@@ -978,7 +978,34 @@ function tumbasSvg(st) {
     frente.s + chao(yF, 71, .97) + '<rect x="0" y="' + (yF - 30) + '" width="680" height="48" fill="url(#nevoa)" pointer-events="none"/>' + frente.lb + '</svg>';
   return o;
 }
+/* motivos votados pelo dono (15/10/2026): o desenho vem de motor/painel/motivos/<grafico>.js, que o build põe só no painel
+   que o usa (MOTIVO_PAINEL = {defs, stage, group, center}). Aqui fica a moldura: rótulos, placar e o clique em cada agrupamento. */
+function motivoSvg(st, m) {
+  var R = 184, r0 = 60, step = 360 / NG, gap = 2.4, max = 1, i, uidN = 0;
+  for (i = 0; i < NG; i++) max = Math.max(max, st.grp[i].pts);
+  var groups = [];
+  for (i = 0; i < NG; i++) {
+    var v = st.grp[i].pts;
+    groups.push({ i: i, n: G[i].sh || G[i].k, v: v, frac: Math.max(0, v) / max, a0: -90 + i * step + gap, a1: -90 + (i + 1) * step - gap, am: -90 + (i + 0.5) * step,
+      top: v === max, near: v >= 0.85 * max, cor: 'rgb(var(--g' + i + '))', rgba: (function (k) { return function (a) { return 'rgba(var(--g' + k + '),' + a + ')'; }; })(i) });
+  }
+  function polA(r, a) { var t = a * Math.PI / 180; return [230 + r * Math.cos(t), 230 + r * Math.sin(t)]; }
+  var ctx = { NG: NG, step: step, gap: gap, max: max, R: R, r0: r0, CX: 230, CY: 230, total: st.total, groups: groups, pol: polA, esc: esc,
+    P: function (r, a) { var p = polA(r, a); return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }, f1: function (n) { return (+n).toFixed(1); },
+    uid: function (p) { return (p || 'u') + 'm' + (++uidN); } };
+  var o = '<svg class="motivo" viewBox="-58 -2 576 464" role="group" aria-label="Gráfico dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>' + (m.defs ? m.defs(ctx) : '') + '</defs>';
+  o += m.stage ? m.stage(ctx) : '<circle cx="230" cy="230" r="' + (R + 10) + '" style="fill:rgba(var(--deep-rgb),.55);stroke:rgba(var(--gold-rgb),.4)" stroke-width="1.2"/>';
+  groups.forEach(function (g) {
+    o += '<g class="wedge" style="--i:' + g.i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + g.i + '" aria-label="' + esc(G[g.i].k) + ': ' + g.v + ' pontos. Abrir no tabelão.">' +
+      '<title>' + esc(G[g.i].k) + ': ' + g.v + ' pontos, ' + pl(st.grp[g.i].hard + st.grp[g.i].soft, 'carta', 'cartas') + '</title>' + m.group(g, ctx) + '</g>';
+  });
+  o += m.center ? m.center(ctx) : '<circle cx="230" cy="230" r="' + (r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>';
+  groups.forEach(function (g) { o += gLabel(g.i, g.am, R, g.v); });
+  return o + '<text class="ctr-n" x="230" y="243" text-anchor="middle">' + st.total + '</text>' +
+    '<text class="ctr-l" x="230" y="260" text-anchor="middle">pontos</text></svg>';
+}
 function chartSvg(st) {
+  if (typeof MOTIVO_PAINEL === 'object' && MOTIVO_PAINEL) return motivoSvg(st, MOTIVO_PAINEL);
   if (M.grafico === 'asas' && NG === 8) return wingsSvg(st);
   if (M.grafico === 'tumbas' && NG >= 4 && NG <= 8) return tumbasSvg(st);
   var fios = M.grafico === 'fios', chamas = M.grafico === 'chamas', band = M.grafico === 'estandartes', pin = M.grafico === 'alfinetes', reb = M.grafico === 'rebites', esp = M.grafico === 'espinhos', fang = M.grafico === 'presas', crown = M.grafico === 'coroa', vial = M.grafico === 'frascos', runa = M.grafico === 'runas', casco = M.grafico === 'cascos', leque = M.grafico === 'leque', lua = M.grafico === 'luas', raio = M.grafico === 'raios', balao = M.grafico === 'baloes', tranca = M.grafico === 'trancas', folha = M.grafico === 'folhas', ovo = M.grafico === 'ovos', fenda = M.grafico === 'fendas', moeda = M.grafico === 'moedas', mao = M.grafico === 'maos', gear = M.grafico === 'engrenagens', perg = M.grafico === 'pergaminhos', lun = M.grafico === 'lunetas', torre = M.grafico === 'torres', meteor = M.grafico === 'meteoros', horde = M.grafico === 'canhoes', rosa = M.grafico === 'rosacea' || chamas, r0 = 60, R = 184, max = 1, i, step = 360 / NG, gap = rosa || fios || band || pin || reb || esp || fang || crown || vial || runa || casco || leque || lua || raio || balao || tranca || folha || ovo || fenda || moeda || mao || gear || perg || lun || torre || meteor || horde ? 2.4 : 1.2;
@@ -1515,48 +1542,47 @@ function chartSvg(st) {
 }
 
 /* ============ curva de mana ============ */
-function lancet(x, w, base, top) {
-  var h = base - top, ah = Math.min(w * 0.8, h * 0.62), ys = top + ah;
-  return 'M' + x.toFixed(1) + ' ' + base + 'V' + ys.toFixed(1) + 'Q' + x.toFixed(1) + ' ' + (top + ah * 0.28).toFixed(1) + ' ' + (x + w / 2).toFixed(1) + ' ' + top.toFixed(1) +
-    'Q' + (x + w).toFixed(1) + ' ' + (top + ah * 0.28).toFixed(1) + ' ' + (x + w).toFixed(1) + ' ' + ys.toFixed(1) + 'V' + base + 'Z';
-}
-function barra(x, w, base, top) {
-  var r = Math.min(4, (base - top) / 2);
+/* Desde 15/10/2026, uma curva só para todos os painéis (o "curva" do tema, ogiva ou barra, não é mais lido):
+   barras de topo arredondado sobre um trilho apagado, os tipos (ou as cores) empilhados com uma fresta entre eles, sem contorno. */
+function pill(x, w, base, top) {
+  var r = Math.min(w / 2.6, 11, (base - top) / 1.6);
   return 'M' + x.toFixed(1) + ' ' + base + 'V' + (top + r).toFixed(1) + 'Q' + x.toFixed(1) + ' ' + top.toFixed(1) + ' ' + (x + r).toFixed(1) + ' ' + top.toFixed(1) +
     'H' + (x + w - r).toFixed(1) + 'Q' + (x + w).toFixed(1) + ' ' + top.toFixed(1) + ' ' + (x + w).toFixed(1) + ' ' + (top + r).toFixed(1) + 'V' + base + 'Z';
 }
 function curveSvg(st, mode) {
-  var narrow = window.innerWidth < 700, shape = M.curva === 'barra' ? barra : lancet;
+  var narrow = window.innerWidth < 700;
   var W = narrow ? 460 : 760, H = narrow ? 316 : 336, ml = narrow ? 4 : 12, mr = ml, mb = 56, mt = 52;
-  var cw = (W - ml - mr) / 8, bw = cw * (narrow ? 0.72 : 0.62), base = H - mb, maxH = base - mt;
+  var cw = (W - ml - mr) / 8, bw = cw * (narrow ? 0.64 : 0.54), base = H - mb, maxH = base - mt;
   var max = 1; st.curve.forEach(function (c) { max = Math.max(max, c.n); });
   var keys = mode === 'cor' ? COLS : TYPES.filter(function (t) { return t.k !== 'ter'; });
-  var defs = '', body = '';
+  var defs = '<linearGradient id="cvBrilho" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/>' +
+    '<stop offset=".5" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#000" stop-opacity=".14"/></linearGradient>', body = '';
+  for (var g = 5; g < max; g += 5) {
+    var gy = base - g / max * maxH;
+    body += '<line x1="' + ml + '" x2="' + (W - mr) + '" y1="' + gy.toFixed(1) + '" y2="' + gy.toFixed(1) + '" style="stroke:rgba(var(--gold-rgb),.08)"/>';
+  }
   st.curve.forEach(function (col, i) {
     var x = ml + i * cw + (cw - bw) / 2, cx = x + bw / 2, h = col.n / max * maxH, top = base - h;
+    body += '<path d="' + pill(x, bw, base, mt) + '" style="fill:rgba(var(--gold-rgb),.05)"/>';
     if (col.n) {
-      var path = shape(x, bw, base, top), y = base, segs = '';
-      defs += '<clipPath id="lc' + i + '"><path d="' + path + '"/></clipPath>';
+      var y = base, segs = '';
+      defs += '<clipPath id="lc' + i + '"><path d="' + pill(x, bw, base, top) + '"/></clipPath>';
       keys.forEach(function (k) {
         var v = (mode === 'cor' ? col.c : col.t)[k.k] || 0; if (!v) return;
         var sh = v / max * maxH; y -= sh;
-        segs += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + (sh + 0.6).toFixed(1) + '" fill="' + k.c + '"><title>Custo ' + (i === 7 ? '7 ou mais' : i) + ', ' + esc(k.n) + ': ' + v + '</title></rect>' +
-          '<line x1="' + x.toFixed(1) + '" x2="' + (x + bw).toFixed(1) + '" y1="' + (y + sh).toFixed(1) + '" y2="' + (y + sh).toFixed(1) + '" style="stroke:var(--bg)" stroke-width="2"/>';
+        // fresta de 2 px no alto de cada fatia, menos na de cima e nas finas demais
+        var gap = (y - top > 0.5 && sh > 6) ? 2 : 0;
+        segs += '<rect x="' + x.toFixed(1) + '" y="' + (y + gap).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + (sh - gap + 0.6).toFixed(1) + '" fill="' + k.c + '"><title>Custo ' + (i === 7 ? '7 ou mais' : i) + ', ' + esc(k.n) + ': ' + v + '</title></rect>';
       });
       body += '<g class="lanc" style="--i:' + i + '"><g clip-path="url(#lc' + i + ')">' + segs +
-        (shape === lancet ? '<line x1="' + cx.toFixed(1) + '" x2="' + cx.toFixed(1) + '" y1="' + top.toFixed(1) + '" y2="' + base + '" style="stroke:rgba(var(--bg-rgb),.4)" stroke-width="2"/>' : '') +
-        '<rect x="' + x.toFixed(1) + '" y="' + top.toFixed(1) + '" width="' + (bw * 0.5).toFixed(1) + '" height="' + h.toFixed(1) + '" fill="rgba(255,255,255,.07)"/></g>' +
-        '<path d="' + path + '" style="fill:none;stroke:var(--gold)" stroke-width="1.7"/></g>';
-    } else {
-      body += '<path d="' + shape(x, bw, base, base - 12) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.32)" stroke-dasharray="3 4"/>';
-      top = base - 12;
+        '<rect x="' + x.toFixed(1) + '" y="' + top.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="url(#cvBrilho)" style="pointer-events:none"/></g></g>';
     }
-    body += '<text class="n" x="' + cx.toFixed(1) + '" y="' + (top - 9).toFixed(1) + '" text-anchor="middle">' + col.n + '</text>' +
+    body += '<text class="n' + (col.n ? '' : ' z') + '" x="' + cx.toFixed(1) + '" y="' + ((col.n ? top : base) - 9).toFixed(1) + '" text-anchor="middle">' + col.n + '</text>' +
       '<text x="' + cx.toFixed(1) + '" y="' + (base + 23) + '" text-anchor="middle">' + (i === 7 ? '7+' : i) + '</text>';
   });
   var ax = ml + cw / 2 + Math.min(st.avg, 7) * cw;
-  body = '<line x1="' + ax.toFixed(1) + '" x2="' + ax.toFixed(1) + '" y1="24" y2="' + (base + 6) + '" style="stroke:var(--gold2)" stroke-width="1.4" stroke-dasharray="2 5"/>' + body +
-    '<line x1="' + ml + '" x2="' + (W - mr) + '" y1="' + base + '" y2="' + base + '" style="stroke:rgba(var(--gold-rgb),.5)"/>' +
+  body = '<line x1="' + ax.toFixed(1) + '" x2="' + ax.toFixed(1) + '" y1="26" y2="' + (base + 4) + '" style="stroke:var(--gold2);stroke-opacity:.6" stroke-width="1.2" stroke-dasharray="2 4"/>' + body +
+    '<line x1="' + ml + '" x2="' + (W - mr) + '" y1="' + base + '" y2="' + base + '" style="stroke:rgba(var(--gold-rgb),.35)"/>' +
     '<text class="avg" x="' + (ax > W * 0.6 ? ax - 7 : ax + 7).toFixed(1) + '" y="20"' + (ax > W * 0.6 ? ' text-anchor="end"' : '') + '>CMC médio ' + fmt(st.avg) + '</text>' +
     '<text x="' + (W / 2) + '" y="' + (H - 6) + '" text-anchor="middle">' + (narrow ? 'Custo de mana, sem contar terrenos' : 'Custo de mana convertido, sem contar terrenos') + '</text>';
   return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Curva de mana: ' +
@@ -1636,7 +1662,11 @@ function heroHtml(st, cmds) {
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     '<div><dt>foils</dt><dd>' + st.foils + '</dd></div></dl>';
   var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'maos' ? 'mão' : M.grafico === 'engrenagens' ? 'engrenagem' : M.grafico === 'pergaminhos' ? 'pergaminho' : M.grafico === 'lunetas' ? 'luneta' : M.grafico === 'torres' ? 'torre' : M.grafico === 'meteoros' ? 'meteoro' : M.grafico === 'canhoes' ? 'canhão' : M.grafico === 'tumbas' ? 'lápide' : M.grafico === 'asas' && NG === 8 ? 'pena' : 'fatia';
-  var chart = '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
+  // motivo votado: a legenda vem do arquivo do motivo (peça, gênero e o que a pontuação muda)
+  var mvl = typeof MOTIVO_PAINEL === 'object' && MOTIVO_PAINEL && MOTIVO_PAINEL.legenda;
+  if (mvl) peca = mvl.peca;
+  var chart = mvl ? '<figure class="rosa">' + chartSvg(st) + '<figcaption>Cada ' + esc(mvl.peca) + esc(mvl.texto) + ' Toque ' + (mvl.masc ? 'num ' : 'numa ') + esc(mvl.peca) + ' para abrir no tabelão.</figcaption></figure>' :
+    '<figure class="rosa' + (M.grafico === 'asas' && NG === 8 ? ' asas' : '') + '">' + chartSvg(st) + '<figcaption>Cada ' + peca +
     (peca === 'frasco' ? ' é um agrupamento, e o sangue sobe nele com a soma das notas.' : peca === 'pedra' ? ' é um agrupamento: a luz sobe nela com a soma das notas, e a runa acende quando chega lá.' : peca === 'casco' ? ' é um agrupamento: a cor sobe nele com a soma das notas, e cada placa do meio acende quando a cor passa dela.' : peca === 'raio' ? ' do leque é um agrupamento: a cor sobe nele com a soma das notas, e cada degrau acende quando a cor passa dele.' : peca === 'lua' ? ' é um agrupamento: vai de nova a cheia com a soma das notas.' : peca === 'relâmpago' ? ' é um agrupamento, e o relâmpago vai até a soma das notas.' : peca === 'balão' ? ' é um agrupamento, e cresce com a soma das notas.' : peca === 'trança' ? ' é um agrupamento: os gomos acendem até a soma das notas.' : peca === 'pilha' ? ' de moedas é um agrupamento: cresce em proporção à soma das notas, e na mais alta a moeda do topo salta.' : peca === 'mão' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta abre os dedos.' : peca === 'lápide' ? ' é um agrupamento: sobe da cova em proporção à soma das notas, e a mais alta ganha a chama fria.' : peca === 'engrenagem' ? ' é um agrupamento: os dez dentes acendem em proporção à soma das notas, e a mais cheia ganha o brilho verde do óleo phyrexiano.' : peca === 'pergaminho' ? ' é um agrupamento: se desenrola em proporção à soma das notas, e o mais cheio ganha o lacre.' : peca === 'luneta' ? ' é um agrupamento: estica em proporção à soma das notas, e a mais cheia ganha o brilho na lente.' : peca === 'torre' ? ' é um agrupamento: sobe em proporção à soma das notas, as janelas acendem com a altura, e a mais alta ganha a águia.' : peca === 'canhão' ? ' é um agrupamento: a carga de goblins o enche em proporção à soma das notas (cheio até a boca em 100%, pela metade em 50%), e o mais cheio dispara.' : peca === 'meteoro' ? ' é um agrupamento: a cauda de fogo cresce em proporção à soma das notas, e o maior solta faíscas.' : peca === 'fenda' ? ' é um agrupamento: abre e acende em proporção à soma das notas, e a mais cheia solta uma asa.' : peca === 'ovo' ? ' é um agrupamento: a cor acende e as rachaduras se abrem em proporção à soma das notas, e o mais cheio eclode.' : peca === 'galho' ? ' é um agrupamento com sete folhas, que acendem em proporção à soma das notas: o mais cheio tem as sete.' : ' é um agrupamento e sua área é a soma das notas.') + ' Toque ' + (/^(estandarte|alfinete|painel|espinho|frasco|casco|raio|balão|relâmpago|galho|ovo|pergaminho|meteoro|canhão)$/.test(peca) ? 'num ' : 'numa ') + peca + ' para abrir no tabelão.</figcaption></figure>';
   // dois comandantes (parceiros): nome, custo, tipo e texto de cada um
   var sub = '<p class="hero-sub' + (par ? ' par' : '') + '">' + (par ? cmds.map(function (c) { return esc(c.n) + mana(c.cost); }).join(' <span class="hero-mais">+</span> ') : esc(nome) + (cmd ? mana(cmd.cost) : '')) + '</p>';

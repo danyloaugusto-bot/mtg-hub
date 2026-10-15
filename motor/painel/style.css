@@ -118,6 +118,7 @@ main{max-width:1320px;margin:0 auto;padding:26px 20px 40px}
 .curve svg{display:block;width:100%;height:auto}
 .curve text{font-family:var(--fb);fill:var(--mute);font-size:15px}
 .curve text.n{fill:var(--bone);font-weight:800;font-size:17px;paint-order:stroke;stroke:var(--halo);stroke-width:5px;stroke-linejoin:round}
+.curve text.n.z{fill:var(--dim);font-weight:600}
 .curve text.avg{fill:var(--gold2);font-weight:700;font-size:14.5px;paint-order:stroke;stroke:var(--halo);stroke-width:5px;stroke-linejoin:round}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font-size:15px;color:var(--mute)}
 .legend i{display:inline-block;width:11px;height:11px;margin-right:6px;border-radius:1px;vertical-align:-1px}
@@ -549,6 +550,9 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .wedge:hover .fill,.wedge:focus-visible .fill{filter:brightness(1.25)}
 .wedge:focus-visible{outline:none}
 .wedge:focus-visible .ghost{stroke:var(--gold2);stroke-width:2}
+/* motivos votados (motor/painel/motivos): o desenho não tem .fill nem .ghost, então o realce vai no agrupamento inteiro */
+.motivo .wedge:hover{filter:brightness(1.12)}
+.motivo .wedge:focus-visible{filter:drop-shadow(0 0 4px var(--gold2))}
 @media (prefers-reduced-motion:no-preference){.anim .wedge{animation:bloom .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*55ms + 120ms)}}
 /* ---------- barra superior ---------- */
 .btn.pot{white-space:nowrap}

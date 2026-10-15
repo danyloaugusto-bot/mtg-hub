@@ -24,6 +24,8 @@ PAINEL = os.path.join(MOTOR, "painel")
 CACHE_IMG = os.path.join(RAIZ, "cache", "img")
 MOLDURAS = ("larga", "retrato")
 GRAFICOS = ("rosacea", "fios", "chamas", "estandartes", "alfinetes", "rebites", "espinhos", "presas", "coroa", "frascos", "runas", "cascos", "leque", "luas", "raios", "baloes", "trancas", "folhas", "ovos", "fendas", "moedas", "maos", "engrenagens", "pergaminhos", "lunetas", "torres", "meteoros", "canhoes", "asas", "tumbas", "padrao")
+# mais os motivos votados, um arquivo por gráfico em motor/painel/motivos/
+GRAFICOS += tuple(sorted(f[:-3] for f in os.listdir(os.path.join(PAINEL, "motivos")) if f.endswith(".js")))
 CURVAS = ("ogiva", "barra")
 TEXTURAS = ("vitral", "fios", "impacto", "brasao", "papel", "colmeia", "ogivas", "neve", "damasco", "cortinas", "entalhe", "redemoinho", "deco", "trigal", "tempestade", "reticula", "astrolabio", "copa", "caverna", "cinzas", "gosma", "telhados", "nervuras", "nuvens", "cordame", "tijolos", "labaredas", "estouro", "padrao", "nenhuma")
 MODOS = ("escuro", "claro")
@@ -142,6 +144,10 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
              outros=d["outros"], em_pastas=d["em_pastas"], pastas_com_lista=d["pastas_com_lista"])
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
+    # motivo votado (motor/painel/motivos/<grafico>.js): entra só no painel que o usa, antes do app.js
+    motivo = os.path.join(PAINEL, "motivos", "%s.js" % t.get("grafico", "padrao"))
+    if os.path.exists(motivo):
+        js = ler(os.path.join("motivos", "%s.js" % t.get("grafico", "padrao"))) + "\n" + js
     html = (ler("template.html")
             .replace('<html lang="pt-BR">', '<html lang="pt-BR" class="claro">' if t.get("modo") == "claro" else '<html lang="pt-BR">')
             .replace("/*__TITULO__*/", "%s: painel do deck de %s" % (painel, curto))
