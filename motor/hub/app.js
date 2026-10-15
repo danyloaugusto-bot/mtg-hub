@@ -55,7 +55,7 @@ function cartao(d) {
       '<a class="ir" href="' + esc(d.href) + '" aria-label="Abrir o painel ' + esc(d.painel) + ', deck ' + esc(d.nome) + '"></a>' +
       '<div class="tampa"></div>' +
       '<div class="faixa"><div class="nome"><h3>' + esc(d.nome) + '</h3><p class="sub">' + esc(d.painel) + '</p></div>' +
-      '<span class="pts num" title="Placar do deck: compara o deck com ele mesmo">' + d.placar + '<small>pts</small></span></div>' +
+      '<span class="pts num" title="' + ((d.a || {}).v3 ? 'Placar nos critérios: compara com os outros decks já migrados' : 'Placar do deck: compara o deck com ele mesmo') + '">' + numP(d.placar) + '<small>pts</small></span></div>' +
       '<div class="verso" aria-hidden="true"><dl>' +
         '<div><dt>CMC médio</dt><dd>' + num(A.st.avg, 2) + '</dd></div>' +
       '</dl></div>' +
@@ -127,7 +127,7 @@ function tabelaLista(ds) {
     ds.map(linha).join('') + '</tbody></table></div>';
 }
 function vistaLista(ds) {
-  var n = nota('O placar compara o deck com ele mesmo: a coluna mostra quanto as trocas recomendadas mudam, não quem é melhor. Use a Ordem para reorganizar.');
+  var n = nota('A coluna mostra quanto as trocas recomendadas mudam o placar. Nos decks já nos critérios, o placar também se compara entre eles (seção Placar); nos outros, compara o deck com ele mesmo. Use a Ordem para reorganizar.');
   if (dk.ord !== 'grupo') return '<div class="cx lista-dk">' + tabelaLista(ds) + n + '</div>';
   /* em ordem de grupo, cada grupo abre no clique, como na estante */
   return H.grupos.map(function (g) {
@@ -267,7 +267,7 @@ function contas(cs, A) {
              grp: [], mk: {}, pip: { W: 0, U: 0, B: 0, R: 0, G: 0 }, src: { W: 0, U: 0, B: 0, R: 0, G: 0 }, srcC: 0,
              usd: 0, usdN: 0, usdSem: 0, relUsd: {}, rel: {}, tier: {}, tipos: {}, tipoPts: {}, curva: [0, 0, 0, 0, 0, 0, 0, 0] };
   for (i = 0; i < NG; i++) st.grp.push({ hard: 0, soft: 0, pts: 0 });
-  st.c3 = []; if (A.v3) for (i = 0; i < NC; i++) st.c3.push({ pts: 0, notas: 0 });
+  st.c3 = []; if (A.v3) for (i = 0; i < NC; i++) st.c3.push({ pts: 0, notas: 0, hard: 0, soft: 0 });
   Object.keys(A.marcadores || {}).forEach(function (k) { st.mk[k] = { n: 0, v: {}, nomes: [] }; });
   cs.forEach(function (c) {
     var q = c.q || 1, mk = c.mk || {}, j, v;
@@ -281,7 +281,10 @@ function contas(cs, A) {
       v = c.s[j] || 0; st.grp[j].pts += v * q;
       if (v >= 2) st.grp[j].hard += q; else if (v === 1) st.grp[j].soft += q;
     }
-    for (j = 0; j < st.c3.length; j++) { v = (c.s3 || [])[j] || 0; st.c3[j].pts += ptsCrit(v, j) * q; st.c3[j].notas += v * q; }
+    for (j = 0; j < st.c3.length; j++) {
+      v = (c.s3 || [])[j] || 0; st.c3[j].pts += ptsCrit(v, j) * q; st.c3[j].notas += v * q;
+      if (v >= 2) st.c3[j].hard += q; else if (v === 1) st.c3[j].soft += q;
+    }
     st.tipoPts[c.t] = (st.tipoPts[c.t] || 0) + valor(c, A) * q;
     if (c.L) { st.lands += q; if (c.tp) st.tapped += q; }
     else {
@@ -476,29 +479,45 @@ function custoDeck(A) {
 var RES_ROT = { fragil: 'sem reserva', cmd: 'o comandante cobre', baixo: 'abaixo da faixa', sobra: 'com sobra', ok: 'na faixa' };
 var RR = { INS: 0, ALT: 1, MED: 2, BAX: 3 }, FAIXA_K = { ramp: 1, draw: 1, removal: 1 };
 function corteCmp(a, b) { return (RR[b.r] - RR[a.r]) || ((a.pr || 99) - (b.pr || 99)) || (TR[b.T] - TR[a.T]) || (pts(a) - pts(b)) || a.n.localeCompare(b.n); }
+/* As funções de um deck para a reserva: no deck v3, os dez critérios da régua (faixa só em aceleradores, draw e remoção, como
+   no método antigo: nos temas, passar da faixa é o plano); no antigo, os agrupamentos do painel, com a faixa de ramp, compra e remoção. */
+var FAIXA_V3 = { aceleradores: 1, draw: 1, remocao: 1 };
+function funcoes(A) {
+  if (A.v3) return RG.criterios.map(function (c, j) { return { k: c.k, n: c.nome, ab: c.curto, ref: FAIXA_V3[c.k] ? c.faixa : null, j: j }; });
+  return A.grupos.map(function (g, j) { return { k: g.k, n: g.n, ab: g.ab, ref: FAIXA_K[g.k] ? g.ref : null, j: j }; });
+}
+function notaF(A, c, j) { return ((A.v3 ? c.s3 : c.s) || [])[j] || 0; }
+/* pacote primário no deck v3: o critério da carta (não as sinergias) com a maior nota; empate, o primeiro da régua */
+function pkV3(c) {
+  if (c.L || c.md) return 'mana';
+  var b = 0, bi = -1; (c.s3 || []).forEach(function (v, i) { if (i >= 2 && v > b) { b = v; bi = i; } });
+  return bi < 0 ? 'sem' : RG.criterios[bi].k;
+}
 function reserva(A) {
   var N = Math.max(8, A.st.n - nCmd(A)), q = function (c) { return c.q || 1; };
   var saiNa = {}; A.tr.forEach(function (t) { if (t.out) saiNa[t.out.i] = t.c; });
-  var fun = A.grupos.map(function (g, j) {
-    var ded = A.cards.filter(function (c) { return !c.cm && (c.s[j] || 0) >= 2; });
-    var nb = soma(ded, q), n = A.st.grp[j].hard, cmd = A.cards.some(function (c) { return c.cm && (c.s[j] || 0) >= 2; });
-    var fx = FAIXA_K[g.k] && g.ref, lo = fx ? g.ref[0] : null, hi = fx ? g.ref[1] : null;
+  var gr = function (st, j) { return A.v3 ? st.c3[j] : st.grp[j]; };
+  var fun = funcoes(A).map(function (g) {
+    var j = g.j;
+    var ded = A.cards.filter(function (c) { return !c.cm && notaF(A, c, j) >= 2; });
+    var nb = soma(ded, q), n = gr(A.st, j).hard, cmd = A.cards.some(function (c) { return c.cm && notaF(A, c, j) >= 2; });
+    var lo = g.ref ? g.ref[0] : null, hi = g.ref ? g.ref[1] : null;
     var est = nb <= 2 && !cmd ? 'fragil' : lo != null && n < lo ? 'baixo' : nb <= 2 ? 'cmd' : hi != null && n > hi ? 'sobra' : 'ok';
-    return { g: g, j: j, n: n, nb: nb, ded: ded, cmd: cmd, lo: lo, hi: hi, est: est, p: pGE(N, nb, 10, 1), n2: A.st2.grp[j].hard, cortes: [], radar: [] };
+    return { g: g, j: j, n: n, nb: nb, ded: ded, cmd: cmd, lo: lo, hi: hi, est: est, p: pGE(N, nb, 10, 1), n2: gr(A.st2, j).hard, cortes: [], radar: [] };
   });
-  var curta = function (o, c) { return (c.s[o.j] || 0) >= 2 && (o.est === 'fragil' || o.est === 'baixo' || (o.lo != null && o.n - q(c) < o.lo)); };
+  var curta = function (o, c) { return notaF(A, c, o.j) >= 2 && (o.est === 'fragil' || o.est === 'baixo' || (o.lo != null && o.n - q(c) < o.lo)); };
   var usado = {};
   fun.forEach(function (f) {
     if (f.est !== 'sobra') return;
     f.cortes = f.ded.filter(function (c) {
-      return pkDe(A, c) === f.g.k && !c.nc && !c.L && !c.md && (TR[c.T] >= 3 || c.r === 'BAX') && c.r !== 'INS' && !usado[c.i] && !fun.some(function (o) { return o !== f && curta(o, c); });
+      return (A.v3 ? pkV3(c) : pkDe(A, c)) === f.g.k && !c.nc && !c.L && !c.md && (TR[c.T] >= 3 || c.r === 'BAX') && c.r !== 'INS' && !usado[c.i] && !fun.some(function (o) { return o !== f && curta(o, c); });
     }).sort(corteCmp).slice(0, f.n - f.hi).map(function (c) { usado[c.i] = 1; return { c: c, troca: saiNa[c.i] || null }; });
   });
   var V = { entra: 0, avaliar: 1 };
   fun.forEach(function (f) {
     if (f.est !== 'fragil' && f.est !== 'baixo') return;
-    f.radar = A.cands.filter(function (c) { return c.v !== 'fora' && (c.s[f.j] || 0) >= 2; })
-      .sort(function (a, b) { return V[a.v] - V[b.v] || TR[a.T] - TR[b.T] || (b.s[f.j] || 0) - (a.s[f.j] || 0) || a.n.localeCompare(b.n); });
+    f.radar = A.cands.filter(function (c) { return c.v !== 'fora' && notaF(A, c, f.j) >= 2; })
+      .sort(function (a, b) { return V[a.v] - V[b.v] || TR[a.T] - TR[b.T] || notaF(A, b, f.j) - notaF(A, a, f.j) || a.n.localeCompare(b.n); });
   });
   var falta = fun.filter(function (f) { return f.est === 'fragil' || f.est === 'baixo'; });
   var sobra = fun.filter(function (f) { return f.cortes.length; });
@@ -742,11 +761,14 @@ function secMesa() {
 }
 
 /* ============ 3. fundamentos ============ */
+/* cartas dedicadas (nota 2 ou 3) numa função: no deck v3, pelo critério da régua; no antigo, pelo agrupamento */
+function iCrit(k) { for (var i = 0; i < NC; i++) if (RG.criterios[i].k === k) return i; return -1; }
+function dedicadas(A, g, c3) { if (A.v3) { var j = iCrit(c3); return j < 0 ? null : A.st.c3[j].hard; } var i = gix(A, g); return i < 0 ? null : A.st.grp[i].hard; }
 var FUND = [
   { k: 'fontes', n: 'Fontes de terreno', ref: [35, 37], max: 40, min0: 28, v: function (A) { return A.st.lands + A.st.mdfc; }, le: 'terrenos' },
-  { k: 'ramp', n: 'Ramp dedicado', ref: [10, 12], max: 16, v: function (A) { var i = gix(A, 'ramp'); return i < 0 ? null : A.st.grp[i].hard; }, le: 'agrupamento:ramp', g: 'ramp' },
-  { k: 'draw', n: 'Compra dedicada', ref: [10, 12], max: 18, v: function (A) { var i = gix(A, 'draw'); return i < 0 ? null : A.st.grp[i].hard; }, le: 'agrupamento:draw', g: 'draw' },
-  { k: 'rem', n: 'Remoção', ref: [8, 12], max: 20, v: function (A) { var i = gix(A, 'removal'); return i < 0 ? null : A.st.grp[i].hard; }, le: 'remocao', g: 'removal' },
+  { k: 'ramp', n: 'Ramp dedicado', ref: [10, 12], max: 16, v: function (A) { return dedicadas(A, 'ramp', 'aceleradores'); }, le: 'agrupamento:ramp', g: 'ramp', c3: 'aceleradores' },
+  { k: 'draw', n: 'Compra dedicada', ref: [10, 12], max: 18, v: function (A) { return dedicadas(A, 'draw', 'draw'); }, le: 'agrupamento:draw', g: 'draw', c3: 'draw' },
+  { k: 'rem', n: 'Remoção', ref: [8, 12], max: 20, v: function (A) { return dedicadas(A, 'removal', 'remocao'); }, le: 'remocao', g: 'removal', c3: 'remocao' },
   { k: 'massa', n: 'Em massa', ref: [3, 5], max: 9, v: function (A) { return A.st.wipes; }, le: 'remocao', alto: true }
 ];
 function estadoFund(f, A, v) {
@@ -767,7 +789,7 @@ function secFund() {
     var A = d.a;
     return '<tr><th scope="row">' + deckLink(A) + '</th>' + FUND.map(function (f) {
       var v = f.v(A); if (v == null) return '<td class="vz">—</td>';
-      var e = estadoFund(f, A, v), soft = f.g ? A.st.grp[gix(A, f.g)].soft : 0;
+      var e = estadoFund(f, A, v), soft = !f.g ? 0 : A.v3 ? A.st.c3[iCrit(f.c3)].soft : A.st.grp[gix(A, f.g)].soft;
       var tip = A.nome + ': ' + v + ' ' + f.n.toLowerCase() + (soft ? ', mais ' + soft + ' de passagem' : '') + '. Referência de ' + f.ref[0] + ' a ' + f.ref[1] + '.';
       return '<td class="fu fu-' + e + '"><b class="num">' + v + (e === 'warn' ? ' <i class="ic" aria-label="em alerta">!</i>' : '') + '</b>' + bullet(f, v, e, tip) + '</td>';
     }).join('') +
@@ -875,14 +897,39 @@ function secTrocas() {
 }
 
 /* ============ 5. placar ============ */
+/* Placar comparável (pontuação v3): os decks já migrados, pelo placar e pela soma de cada critério, com a média dos decks.
+   Só os decks v3 entram: o placar do método antigo depende dos agrupamentos de cada deck e não se compara. */
+function placarComparavel() {
+  var V = DK.filter(function (d) { return d.a.v3; }).sort(function (x, y) { return y.a.st.total - x.a.st.total; });
+  if (!V.length) return '';
+  var cr = RG.criterios, max = cr.map(function (c, j) { return Math.max.apply(null, V.map(function (d) { return d.a.st.c3[j].pts; })); });
+  var head = '<tr><th scope="col">#</th><th scope="col">Deck</th><th scope="col" class="n">Placar</th>' + cr.map(function (c) {
+    return '<th scope="col" class="n" title="' + esc(c.nome + ', peso ' + num(c.peso, c.peso % 1 ? 1 : 0)) + '"><i class="cdot" style="background:rgb(' + c.cor + ')"></i>' + esc(c.curto) + '</th>';
+  }).join('') + '<th scope="col" class="n">Aceleração</th></tr>';
+  var rows = V.map(function (d, i) {
+    var st = d.a.st;
+    return '<tr><td class="n num">' + (i + 1) + 'ª</td><th scope="row">' + deckLink(d.a) + '</th><td class="n num"><b>' + numP(st.total) + '</b></td>' +
+      cr.map(function (c, j) { var v = st.c3[j].pts; return '<td class="n num' + (V.length > 1 && v === max[j] && v > 0 ? ' topo' : '') + '" title="' + esc(c.nome + ': ' + st.c3[j].hard + ' com nota 2 ou 3, faixa ' + c.faixa[0] + ' a ' + c.faixa[1]) + '">' + numP(v) + '</td>'; }).join('') +
+      '<td class="n num">' + st.accPts + '</td></tr>';
+  }).join('');
+  var media = function (f) { return soma(V, f) / V.length; };
+  var foot = '<tr class="med"><td></td><th scope="row">Média dos decks</th><td class="n num"><b>' + numP(Math.round(media(function (d) { return d.a.st.total; }) * 10) / 10) + '</b></td>' +
+    cr.map(function (c, j) { return '<td class="n num">' + numP(Math.round(media(function (d) { return d.a.st.c3[j].pts; }) * 10) / 10) + '</td>'; }).join('') +
+    '<td class="n num">' + numP(Math.round(media(function (d) { return d.a.st.accPts; }) * 10) / 10) + '</td></tr>';
+  var fora = DK.length - V.length;
+  return caixa('Placar comparável', '<div class="tw"><table class="tbl pcomp"><thead>' + head + '</thead><tbody>' + rows + '</tbody><tfoot>' + foot + '</tfoot></table></div>' +
+    nota('Os dez critérios valem igual em todos os decks: peso do critério × pontos da nota (0, 1, 3 ou 6), mais a aceleração. Em destaque, o deck que mais soma em cada critério. ' +
+      (fora ? pl(fora, 'deck ainda está', 'decks ainda estão') + ' no método antigo e ' + (fora === 1 ? 'entra' : 'entram') + ' aqui ao migrar.' : '')), 'larga', pl(V.length, 'deck', 'decks') + ' nos critérios');
+}
 function secPlacar() {
   var rows = DK.map(function (d) {
     var A = d.a, st = A.st, g = A.deg, t = st.total || 1;
     var comp = '<span class="comp" aria-hidden="true"><i class="c1" style="flex:' + st.cmcPts + '"></i><i class="c2" style="flex:' + st.accPts + '"></i><i class="c3" style="flex:' + st.crit + '"></i></span>';
-    var sobe = g.teto ? 'no teto de 90' : '+' + pl(g.sobe, 'ponto', 'pontos') + ' de Ramp: +5';
-    var cai = g.teto ? '—' : g.folga === 0 ? '<b class="aviso">−1 ponto de Ramp: −5</b>' : 'aguenta perder ' + g.folga + ' de Ramp';
+    var rn = rampNome(A);
+    var sobe = g.teto ? 'no teto de 90' : '+' + pl(g.sobe, 'ponto', 'pontos') + ' de ' + rn + ': +5';
+    var cai = g.teto ? '—' : g.folga === 0 ? '<b class="aviso">−1 ponto de ' + rn + ': −5</b>' : 'aguenta perder ' + g.folga + ' de ' + rn;
     var cmcCai = g.folgaCmc == null ? '—' : g.folgaCmc === 0 ? '<b class="aviso">+1 de CMC somado: −5</b>' : 'aguenta +' + g.folgaCmc + ' de CMC somado';
-    var cmcSobe = g.lim ? 'cortar ' + g.corte + ' de CMC somado: +1' : 'no máximo';
+    var cmcSobe = A.v3 && !RG.pontos_de_cmc_antigos ? 'o CMC médio não pontua' : g.lim ? 'cortar ' + g.corte + ' de CMC somado: +1' : 'no máximo';
     return '<tr><th scope="row">' + deckLink(A) + '</th><td class="n num"><b>' + numP(st.total) + '</b></td>' +
       '<td>' + sobe + '</td><td>' + cai + '</td><td>' + cmcCai + '</td><td>' + cmcSobe + '</td>' +
       '<td class="n num">' + num(st.accX, 2) + '<small>próximo: ' + num(g.prox, 1) + '</small></td><td class="compc">' + comp +
@@ -903,7 +950,7 @@ function secPlacar() {
     nota('A aceleração é a soma das notas de Ramp dividida pelo CMC médio; cada 0,5 vale 5 pontos, até 90. Por isso um ponto de Ramp pode valer 6 no placar, e um pouco de CMC a mais pode custar 5. CMC somado é a soma dos custos das mágicas: trocar uma carta de 5 por uma de 2 corta 3.'), 'larga');
   h += caixa('Onde mora a força de cada deck', '<div class="exs">' + expo + '</div><p class="legenda">' + leg + '</p>' +
     nota('Parte das notas que está em cada tipo de carta. É a exposição do deck: quanto mais concentrada, mais um tipo de remoção dói.'), 'larga', 'a parte das notas em cada tipo de carta');
-  return secao('placar', 'Sensibilidade do placar', 'Onde cada placar muda de degrau, e quanto ele aguenta antes de cair. Compare cada deck com ele mesmo.', h);
+  return secao('placar', 'Placar', 'O placar dos decks já nos critérios, comparável entre eles; e onde cada placar muda de degrau.', placarComparavel() + h);
 }
 
 /* ============ 6. mana ============ */
@@ -1393,7 +1440,7 @@ function secFichas() {
   var h = ctl.replace('</div></div>', '</div><span class="dk-ab"><button class="linkish" data-act="fi-abrir">Abrir todas</button><button class="linkish" data-act="fi-fechar">Fechar todas</button></span></div>') + '<div class="fis">' + ordFichas().map(function (x) { return fichaDe(x.d, x.i); }).join('') + '</div>' +
     nota('Game Changers: a lista oficial do Scryfall' + (H.gc ? ' (' + H.gc.n + ' cartas, consulta de ' + brData(H.gc.d) + ')' : ', indisponível neste build') + '. ' +
       'Na mão: probabilidade hipergeométrica, grimório sem o comandante, mão de 7 sem mulligan.');
-  return secao('fichas', 'Fichas dos decks', 'Cada deck numa tela: força, custo, reserva, base, interação e a mesa. O placar compara o deck com ele mesmo, nunca com os outros.', h);
+  return secao('fichas', 'Fichas dos decks', 'Cada deck numa tela: força, custo, reserva, base, interação e a mesa. Nos decks já nos critérios, o placar se compara com os outros; nos demais, compara o deck com ele mesmo.', h);
 }
 
 /* ============ comparar dois decks ============ */
@@ -1497,6 +1544,7 @@ var radF = { deck: '', tier: 'SA', v: '', tem: '' };
 var ONDE = {}; DK.forEach(function (d) { d.a.cards.forEach(function (c) { var k = chave(c); if (BAS[k] || c.cm) return; (ONDE[k] = ONDE[k] || []).push({ A: d.a, c: c }); }); });
 var RAD = []; DK.forEach(function (d) { d.a.cands.forEach(function (c) { if (c.v !== 'fora') RAD.push({ A: d.a, c: c }); }); });
 var PEDIDOS = {}; RAD.forEach(function (x) { var k = chave(x.c); PEDIDOS[k] = (PEDIDOS[k] || 0) + 1; });
+var ENC = {}; RAD.forEach(function (x) { if (x.c.en && x.c.en.length && !ENC[chave(x.c)]) ENC[chave(x.c)] = x.c; });
 function slugC(n) { return semAcento(n).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 180) || 'carta'; }
 function pastaDe(n) { var p = (H.em_pastas || {})[String(n).split(' // ')[0].trim().toLowerCase()]; return p && p.length ? p : null; }
 function hojeISO() { var d = new Date(), z = function (n) { return (n < 10 ? '0' : '') + n; }; return d.getFullYear() + '-' + z(d.getMonth() + 1) + '-' + z(d.getDate()); }
@@ -1518,13 +1566,23 @@ function secCompras() {
       var tem = jaTem(x.n, null), pas = pastaDe(x.n);
       return '<li><div class="cl-n"><b>' + esc(x.n) + '</b> ' + tierB(x.T) + (x.em ? '<small class="dim">desde ' + brData(x.em) + '</small>' : '') + '</div>' +
         '<div class="cl-p"><span class="dim">pedida por</span> ' + x.ped.map(function (p) { return '<span class="cl-d">' + esc(p.d) + ' ' + tierB(p.T) + '</span>'; }).join('') + '</div>' +
+        (ENC[x.n] ? '<div class="cl-a"><span class="dim">rende mais em</span> ' + encTxt(ENC[x.n]) + '</div>' : '') +
         (tem.length ? '<div class="cl-a">' + pill('warn', 'você já tem', '!') + ' <span class="tem">' + temTxt(tem) + '</span></div>' : '') +
         (pas ? '<div class="cl-a">' + pill('ok', 'na pasta', '✓') + ' ' + esc(lista(pas.map(function (q) { return q.p + ' ×' + q.q; }))) + '</div>' : '') +
         (COMP.pode ? '<button class="linkish cl-x" data-act="comp-tirar" data-k="' + esc(x.id) + '"' + (COMP.ocupado[x.id] ? ' disabled' : '') + '>Tirar</button>' : '') + '</li>';
     }).join('') + '</ul>';
   var topo = COMP.db && lista.length ? '<div class="ctl"><button class="bt" data-act="comp-copiar">' + (COMP.copiado ? 'Copiada ✓' : 'Copiar a lista') + '</button><span class="dim">uma carta por linha, "1 Nome", para colar na loja ou na wishlist</span></div>' : '';
   return secao('compras', 'Lista de compras', 'O que você marcou no radar dos decks para comprar ou trocar quando tiver chance. Uma carta pedida por mais de um deck aparece uma vez só.',
-    caixa('', topo + corpo + nota('"Você já tem": a carta está na lista de outro deck; veja se não vale mover em vez de comprar. "Na pasta": está numa das suas pastas (quando as listas chegarem). A lista fica no hub publicado e acompanha você no celular.'), 'larga'));
+    caixa('', topo + corpo + nota('"Rende mais em": o deck onde a carta mais soma no placar dos critérios, com quem sairia (só os decks já nos critérios). "Você já tem": a carta está na lista de outro deck; veja se não vale mover em vez de comprar. "Na pasta": está numa das suas pastas (quando as listas chegarem). A lista fica no hub publicado e acompanha você no celular.'), 'larga'));
+}
+/* encaixe da carta nos decks já nos critérios (motor/encaixe.py): o melhor deck, o ganho e quem sairia */
+function encTxt(c) {
+  var L = c.en; if (!L || !L.length) return '<span class="dim" title="A carta ainda não tem cadastro nos critérios, ou não cabe nas cores de nenhum deck migrado">—</span>';
+  return L.slice(0, 2).map(function (e, i) {
+    var dk = porPasta(e[0]), nome = dk ? dk.nome : e[0];
+    return (i ? '<small class="dim">' : '<span>') + esc(nome) + ' <b class="num ' + (e[1] > 0 ? 'pos' : e[1] < 0 ? 'neg' : '') + '">' + sinalP(e[1]) + '</b>' +
+      (e[3] ? ' <span class="dim">já está</span>' : e[2] ? ' <span class="dim">sai ' + esc(e[2]) + '</span>' : '') + (e[4] ? '' : ' <span class="aviso" title="sinergia a avaliar">*</span>') + (i ? '</small>' : '</span>');
+  }).join('');
 }
 function secRadar() {
   var V = { entra: 0, avaliar: 1 };
@@ -1544,12 +1602,13 @@ function secRadar() {
     var k = chave(x.c), tem = jaTem(k, x.A), pas = pastaDe(k), sai = x.c.sa ? x.A.idx[x.c.sa] : null, f = funcaoDe(x.A, x.c);
     return '<tr><td><b>' + esc(x.c.n) + '</b> ' + tierB(x.c.T) + (f ? '<small class="dim">' + esc(f) + (PEDIDOS[k] > 1 ? ' · em ' + PEDIDOS[k] + ' radares' : '') + '</small>' : '') + '</td>' +
       '<td data-l="Radar de">' + deckLink(x.A) + ' <span class="vd vd-' + x.c.v + '">' + (x.c.v === 'entra' ? 'entra' : 'avaliar') + '</span>' + (sai ? '<small class="dim">sai ' + esc(sai.n) + '</small>' : '') + '</td>' +
+      '<td data-l="Rende mais em">' + encTxt(x.c) + '</td>' +
       '<td data-l="Você já tem em">' + (tem.length ? '<span class="tem">' + temTxt(tem) + '</span>' : '') + (pas ? '<small class="ok-t">na pasta ' + esc(pas[0].p) + '</small>' : '') + (!tem.length && !pas ? '<span class="dim">—</span>' : '') + '</td>' +
       '<td class="n">' + bt(x) + '</td></tr>';
   }, 4);
   return secao('radar', 'Radar de todos os decks', 'As cartas que os painéis querem pôr, num lugar só: marque as que vale comprar ou trocar.', ctl +
-    caixa('', '<div class="tw"><table class="tbl rad"><thead><tr><th scope="col">Carta</th><th scope="col">Radar de</th><th scope="col">Você já tem em</th><th scope="col" class="n"><span class="sr">Compras</span></th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
-      nota(pl(L.length, 'carta', 'cartas') + ' com esse filtro. Uma carta pedida por dois decks aparece duas vezes, uma por radar; na lista de compras ela vira uma linha só. "Você já tem em": a carta está na lista de outro deck, com o tier de lá.'), 'larga'));
+    caixa('', '<div class="tw"><table class="tbl rad"><thead><tr><th scope="col">Carta</th><th scope="col">Radar de</th><th scope="col">Rende mais em</th><th scope="col">Você já tem em</th><th scope="col" class="n"><span class="sr">Compras</span></th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      nota(pl(L.length, 'carta', 'cartas') + ' com esse filtro. Uma carta pedida por dois decks aparece duas vezes, uma por radar; na lista de compras ela vira uma linha só. "Rende mais em": os decks já nos critérios onde a carta mais soma no placar, trocando pela carta de menor valor ("sai"); o asterisco quer dizer sinergia ainda não avaliada naquele deck. "Você já tem em": a carta está na lista de outro deck, com o tier de lá.'), 'larga'));
 }
 function redesenharCompras(k) { redesenharSecao(k && k.indexOf('comp-') < 0 ? k : null, 'radar'); redesenharSecao(k && k.indexOf('comp-') >= 0 ? k : null, 'compras'); }
 function compToggle(pasta, id) {
@@ -1779,7 +1838,7 @@ function secResumo(att) {
     nota('As que mais mudam a carteira hoje: uma decisão de mesa, a troca dentro do deck mais urgente, a melhor movimentação, o maior descompasso de cor, o buraco mais comum e a troca que mais sobe o placar. Tudo sai do último build.') + '</div>' +
     '<div class="cx"><h3>A carteira num relance</h3>' + saude() +
       '<p class="legenda"><span><i class="lg-ok"></i>sem alerta</span><span><i class="lg-warn"></i>1 ou 2 alertas</span><span><i class="lg-bad"></i>3 ou mais</span></p>' +
-      nota('Clique num deck para abrir a ficha dele. O placar fica de fora de propósito: ele compara o deck com ele mesmo, não com os outros.') + '</div></div>' +
+      nota('Clique num deck para abrir a ficha dele. O placar fica de fora de propósito: só os decks já nos critérios se comparam, e eles estão na seção Placar.') + '</div></div>' +
     caixa('Rotina de conferência', '<dl class="rot">' +
     '<div><dt>Antes de jogar</dt><dd>' + ir('mesa', 'Mesa') + ', pela mesa que vai sentar, e a ' + ir('fichas', 'ficha') + ' do deck.</dd></div>' +
     '<div><dt>Antes de comprar</dt><dd>' + ir('movimentacoes', 'Movimentações') + ' (as sub-utilizadas primeiro): a carta pode já estar num deck onde rende menos. Depois, ' + ir('compras', 'Compras') + '.</dd></div>' +

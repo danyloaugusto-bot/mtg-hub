@@ -15,7 +15,7 @@ só lê e empacota; não decide nada.
 import base64, csv, datetime, glob, io, json, math, os, re
 from urllib.parse import quote
 
-import dados, tema
+import dados, encaixe, tema
 
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(MOTOR)
@@ -283,6 +283,14 @@ def resumo_dashboard(pasta, base, m, t, cache, gc=None):
     est = m.get("estrategia") or {}
     futuro = lancamentos_futuros(m["cands"], cache)
     cands = [compacta(c, futuro.get(c.get("on", c["n"])) if preco(c) is None else None, sinais(c, cache, gc)) for c in m["cands"]]
+    # encaixe nos decks já nos critérios: [pasta, ganho, quem sai, já está no deck, sinergia avaliada], os três melhores
+    v3s = encaixe.decks_v3()
+    if v3s:
+        cad = dados.ler_cadastro()
+        for c, x in zip(m["cands"], cands):
+            r = encaixe.ranking(c.get("on", c["n"]), v3s, cad, dict(cmc=c["cmc"], land=c.get("land"), mdfc=c.get("mdfc")), n=3)
+            if r:
+                x["en"] = [[g["deck"], g["ganho"], g["sai"], 1 if g["ja_no_deck"] else 0, 1 if g["avaliada"] else 0] for g in r]
     return dict(
         painel=t.get("painel") or nome_do_deck(pasta), rev=t.get("rev", 1), feito=m.get("feito", ""), scryfall=m.get("scryfall_data", ""),
         hist=ler_historico(base), conf=ler_confronto(base), ident=m["ident"],
