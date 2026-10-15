@@ -17,3 +17,4 @@
 ## Nova análise de fora, 13/10/2026
 
 - Entrou `Análise completa — Strefan.md` como quarta fonte (D), só como voto no `CONFRONTO.md`. Nenhuma nota, tier, estimação, combo nem troca recomendada mudou. Foram ao radar, para avaliar, Swiftfoot Boots, Blood Artist e Scion of Opulence (27 cartas no radar). Crossway Troublemakers e Cordial Vampire seguem como potenciais, à espera do dono.
+- 15/10/2026: Crossway Troublemakers (+86%) e Cordial Vampire (+74%) foram ao radar, para avaliar, com o ok do dono (29 cartas no radar; 11 potenciais ficam em `comunidade.json`).
