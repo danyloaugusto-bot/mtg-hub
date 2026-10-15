@@ -30,7 +30,7 @@ function fmtP(n) { return fmt(n, n % 1 ? 1 : 0); }
    Durante o desenho, LAB guarda os pontos reais e MAXFIX fixa a escala, para a peça mais cheia não virar 100% sozinha. */
 var LAB = null, MAXFIX = null, FOLGA = 1.5, FAIXA_VIS = false;
 function LB(i, v) { return LAB ? LAB[i] : v; }
-function ctrLongo(st) { return fmtP(st.total).length > 5 ? ' longo' : ''; }
+function ctrLongo(st) { return fmtP(st.total).length > 4 ? ' longo' : ''; }
 var IPET = (function () { for (var i = 0; i < NG; i++) if (G[i].pet) return i; return -1; })();
 var NUM = ['zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
 var MK = D.marcadores || {};
