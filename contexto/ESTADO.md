@@ -82,7 +82,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 
 ## Próxima ação
 
-Publicar os 30 painéis e o hub (o dono pediu a publicação no fim de todas as fases; no hub, não passar `capabilities`). Depois, o merge do ramo `pontuacao-v3`. Pendências do dono: padronizar ou não o lorde de tribo nas sinergias (3 em Giada, Lobos, Humanos e Goblins; 2 em Zumbis, Clavileño, Strefan, Elfos e Dragões); o Roaming Throne como Changeling; o ímpeto, que não entra em critério; o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Os painéis publicados ainda são os de antes da v3. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.
+Os 30 painéis e o hub foram publicados em 15/10/2026, por cima dos links (o Markov ganhou o primeiro link, no inventário, com `db` e `user`; o hub sem `capabilities`). Falta o merge do ramo `pontuacao-v3`. Pendências do dono: padronizar ou não o lorde de tribo nas sinergias (3 em Giada, Lobos, Humanos e Goblins; 2 em Zumbis, Clavileño, Strefan, Elfos e Dragões); o Roaming Throne como Changeling; o ímpeto, que não entra em critério; o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.
 
 ## Feito
 
