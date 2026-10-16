@@ -151,6 +151,18 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` ou `F` para foil
 
 Sinergia mede presença nos decks do comandante, não força, e não entra no placar. Potenciais que já estão no deck ou no radar são ignorados.
 
+## A pontuação v3
+
+Em 15/10/2026 os 30 decks migraram para a pontuação v3 (roteiro em `contexto/pontuacao/`: `RUBRICA.md`, as regras de nota, com as decisões do dono no fim; `DADOS.md`, os formatos; `PROMPT-CODE.md`, as fases).
+
+- **Régua:** `motor/pontuacao.json`: os dez critérios (chave, nome, peso, faixa e cor), os pontos por nota (0, 1, 3, 6), a saturação (abaixo da faixa 1,5×, dentro 1×, acima 0,5×) e a aceleração. Nenhum desses números fica escrito no código.
+- **Cadastro único:** `dados/cartas.json`, uma entrada por carta com os oito critérios da carta, o porquê, a fonte e a data. `motor/prenota.py` faz a pré-nota automática (`fonte: "auto"`), que nunca sobrescreve `claude` nem `dono`.
+- **Por deck:** `avaliacao.json` com `"versao_pontuacao": 3`, e `sin` e `sin_por_que` em cada carta do deck e do radar; `tema.json` com as `sinergias` (nome, regra de 0 a 3 e a data de `aprovado`). O 8×8 (agrupamentos e `notas`) segue como era, à parte do placar.
+- **Motor:** `dados.py` monta as notas de cada carta (cadastro + `sin` + `ajustes` com motivo) e recusa carta sem cadastro; `encaixe.py` faz a conta da seção 4 do `DADOS.md` (ganho no placar trocando pela carta de menor valor, com saturação e identidade de cor; terreno troca com terreno, e a carta com terreno no verso joga dos dois lados).
+- **Painel:** placar pelos dez critérios; o gráfico do topo com dez peças em todos os desenhos (regra C: cartas com nota 2 ou 3 contra a faixa, o máximo da faixa a 2/3, ▲ e ▼ no número); a aba Critérios (tabela, sinergias, ranking das cartas); o tabelão com o seletor "8×8 | Critérios"; a gaveta com os critérios editáveis, o porquê de cada nota e a caixa Encaixe (com o comandante e as cores de cada deck); a fila de corte por valor.
+- **Hub:** o placar passa a comparar decks (Placar comparável, com a média); Fundamentos e Reserva pelos critérios; Radar e Compras com "Rende mais em"; o grupo 06. Compras na estante, por cor e com os terrenos à parte.
+- **Testes:** `testes/rubrica.py` refaz em Python, sem o JavaScript, o cadastro, as sinergias, o placar e o encaixe; os controles guardam `placar_v3` e `placar_trocas_v3`.
+
 ## Imagens
 
 Ordem de tentativa no painel: o mapa embutido no arquivo (`D.img`), a imagem exata no servidor do Scryfall (pelo id da impressão), o redirecionamento da API e, no fim, a ficha de texto. Sem pacote e sem internet, o aviso oferece "Tentar de novo".

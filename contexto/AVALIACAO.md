@@ -2,6 +2,12 @@
 
 Herdado da planilha do deck do Vito (em `origem/vito/`) e do painel do Clavileño.
 
+## Pontuação v3: o placar segue a RUBRICA
+
+Desde 15/10/2026 os 30 decks estão na pontuação v3, e **o placar segue a `contexto/pontuacao/RUBRICA.md`**: dez critérios iguais para todos os decks, com as regras do dono anotadas no fim dela. Os oito critérios da carta ficam no cadastro único `dados/cartas.json`; as duas sinergias são do deck (`tema.json`, aprovadas pelo dono) e cada carta leva `sin` e `sin_por_que` no `avaliacao.json`. Os formatos estão em `contexto/pontuacao/DADOS.md`.
+
+Este arquivo continua valendo para o resto da avaliação: os agrupamentos e as notas do 8×8 (que seguem no painel, à parte do placar), tier, relevância, os textos `faz` e `porque`, o radar e a fila de corte.
+
 ## Agrupamentos
 
 Cada deck tem os seus, em geral oito. Parta destes e troque o que não fizer sentido para o comandante:
