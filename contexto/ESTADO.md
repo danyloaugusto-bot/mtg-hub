@@ -85,7 +85,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 15/10/2026: toda tabela do painel e do hub passou a se ordenar pelo cabeçalho, a pedido do dono (`motor/comum/ordenar.js`; o Tabelão segue com a ordenação própria). Testado nas tabelas de pontuação, no ranking das cartas e no placar do hub.
 ## Próxima ação
 
-Republicar os 30 painéis e o hub com os ajustes (a `master` já tem tudo) (por cima dos links; no hub, sem `capabilities`). Pendência do dono: o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.
+Os 30 painéis e o hub estão publicados com tudo (pontuação v3, ímpeto, Roaming Throne e as tabelas que se ordenam pelo cabeçalho), em 15/10/2026, por cima dos links. Pendência do dono: o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.
 
 ## Feito
 
