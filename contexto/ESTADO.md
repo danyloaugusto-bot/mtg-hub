@@ -82,6 +82,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 
 - 15/10/2026: ajustes depois da publicação, a pedido do dono. Merge do ramo `pontuacao-v3` na `master` (avanço direto, sem conflito); os ajustes seguem no ramo `ajustes-v3`. Ímpeto passou a contar em Aceleradores (na própria criatura ou dado a uma, 1; ao time ou à tribo, 2; somado a outra aceleração, sobe um nível): 94 cartas do cadastro. Roaming Throne conta como da tribo e chegou a 3 na sin1 do Clavileño, do Dragões, do Strefan e do Zumbis. O lorde de tribo fica como cada deck definiu. Radar do Valgavoth revisto: terreno troca com terreno (as fontes ficam em 34), e Rakdos Signet e Terminate tiram cartas de menor valor; o placar depois das trocas foi de 849,5 (igual ao de hoje) para 880. Os placares de 25 decks subiram (Dragões 938, Goblins 1.018, Assassin Creed 734, Master Of Evil 843,5, Strefan 1.080,5, entre outros).
 
+- 15/10/2026: toda tabela do painel e do hub passou a se ordenar pelo cabeçalho, a pedido do dono (`motor/comum/ordenar.js`; o Tabelão segue com a ordenação própria). Testado nas tabelas de pontuação, no ranking das cartas e no placar do hub.
 ## Próxima ação
 
 Republicar os 30 painéis e o hub com os ajustes (a `master` já tem tudo) (por cima dos links; no hub, sem `capabilities`). Pendência do dono: o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.

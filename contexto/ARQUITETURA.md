@@ -151,6 +151,10 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` ou `F` para foil
 
 Sinergia mede presença nos decks do comandante, não força, e não entra no placar. Potenciais que já estão no deck ou no radar são ignorados.
 
+## Ordenar tabela pelo cabeçalho
+
+Desde 15/10/2026, a pedido do dono, toda tabela do painel e do hub se ordena clicando no cabeçalho (`motor/comum/ordenar.js`, que o build junta aos dois `app.js`): um clique ordena, outro inverte; número do maior para o menor (lê o formato da tela, "1.019" e "955,5"), tier de S a D, relevância de INS a BAX, texto de A a Z, vazio no fim. Total, média, "mostrar mais" e cabeçalho de grupo ficam no lugar; lista cortada ("Ver todas") abre inteira antes de ordenar; a ordem volta sozinha quando a tabela é redesenhada. O Tabelão segue com a ordenação própria (botões no cabeçalho), e uma tabela com `data-nosort` fica de fora. Os testes `regressao.py` e `hub.py` conferem o ranking das cartas e o placar.
+
 ## A pontuação v3
 
 Em 15/10/2026 os 30 decks migraram para a pontuação v3 (roteiro em `contexto/pontuacao/`: `RUBRICA.md`, as regras de nota, com as decisões do dono no fim; `DADOS.md`, os formatos; `PROMPT-CODE.md`, as fases).
