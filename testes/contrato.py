@@ -35,7 +35,7 @@ except dados.ErroDeck as e:
 fora = sorted(set(t.get("agrupamentos") or {}) - {g["k"] for g in d["grupos"]})
 R.ok("cores do tema só para agrupamentos que existem", not fora, fora)
 R.ok("arquivos de fora ficam em entrada/", not [f for f in os.listdir(base) if f not in (
-    "deck.md", "decklist.txt", "tema.json", "avaliacao.json", "comunidade.json", "CONFRONTO.md", "HISTORICO.md", "Abrir o painel.html", "entrada")
+    "deck.md", "decklist.txt", "tema.json", "avaliacao.json", "comunidade.json", "confrontos.json", "CONFRONTO.md", "HISTORICO.md", "Abrir o painel.html", "entrada")
     and not f.startswith("capa.")], [f for f in os.listdir(base)][:12])
 
 # o motor recusa dados quebrados, com mensagem que diz onde está o erro

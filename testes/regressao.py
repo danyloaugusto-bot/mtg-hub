@@ -208,6 +208,17 @@ with sync_playwright() as p:
         pg.click('#pool [data-act="pool-in"][data-v="avaliar"]'); pg.wait_for_timeout(200)
         R.ok("levar ao radar", pg.locator("#cand-" + pid).count() == 1 and pg.inner_text("#edhBtn") == "Potenciais %d" % (n0 - 1))
         R.ok("pedido de atualização pronto", "/potenciais " + pasta in pg.input_value("#edh-req"))
+    # confronto com listas de fora (motor/confronto.py): a caixa mostra o placar gravado e o das duas listas bate com a soma dos critérios + aceleração
+    CF = D.get("confrontos")
+    if CF and CF.get("listas"):
+        pg.click('[data-tab="radar"]'); pg.wait_for_timeout(150)
+        R.ok("confronto: uma caixa por lista de fora", pg.locator("fieldset.cf").count() == len(CF["listas"]), pg.locator("fieldset.cf").count())
+        pl = [comum.num_br(x.replace("−", "-").replace("+", "")) for x in pg.eval_on_selector_all("fieldset.cf .cf-pl b", "e => e.map(x => x.textContent)")]
+        R.ok("confronto: placar do deck e da lista como gravados", pl[:2] == [CF["meu"]["placar"], CF["listas"][0]["placar"]] and abs(pl[2] - (pl[1] - pl[0])) < 0.06, pl)
+        L = CF["listas"][0]
+        R.ok("confronto: a lista de fora tem 100 cartas e a soma dos critérios fica abaixo do placar (aceleração à parte)",
+             L["cartas"] == 100 and 0 <= L["placar"] - sum(L["pts"]) <= 90, (L["cartas"], L["placar"], sum(L["pts"])))
+        R.ok("confronto: só dela não tem carta do deck", not set(c["n"] for c in L["so_dele"]) & {c["n"] for c in D["cards"]})
     pg.fill("#nc-n", "Carta de Teste"); pg.fill("#nc-c", "{2}{W}{B}"); pg.click('[data-act="add-custom"]'); pg.wait_for_timeout(200)
     R.ok("carta nova no radar", pg.locator('#v-radar .cand h3:has-text("Carta de Teste")').count() == 1)
 

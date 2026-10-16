@@ -37,6 +37,7 @@ Tudo mora em `dados/<pasta>/`. Na raiz, só estes arquivos; o resto vai para `en
 | `tema.json` | O Claude, a partir do clima pedido em `deck.md` | não; sem ele, vale o tema padrão |
 | `comunidade.json` | O `/potenciais` | não; sem ele, somem o painel da comunidade, a coluna Wiki e os potenciais |
 | `CONFRONTO.md` | O Claude | quando houver material em `entrada/` |
+| `confrontos.json` | O `/confrontar` (`motor/confronto.py`) | não; só no deck v3, com as listas de `entrada/listas/` |
 | `HISTORICO.md` | O Claude | sim, uma entrada por versão |
 | `Abrir o painel.html` | O build | gerado |
 
@@ -150,6 +151,14 @@ Uma carta por linha: `1 Nome da Carta (SET) número`, com `*F*` ou `F` para foil
 ```
 
 Sinergia mede presença nos decks do comandante, não força, e não entra no placar. Potenciais que já estão no deck ou no radar são ignorados.
+
+O número é sempre a **sinergia** da página: o "+N%" do edh.wiki, ou o campo `synergy` do EDHREC (×100, arredondado), que é a diferença entre a presença nos decks do comandante e a presença geral. Nunca a inclusão (% dos decks que jogam a carta): até 15/10/2026, os quatro decks lidos no EDHREC guardavam a inclusão, e Swords to Plowshares aparecia com 82 no Humanos quando a sinergia é 7. A página do EDHREC só mostra a inclusão ao WebFetch; a sinergia vem do JSON que alimenta a página (`json.edhrec.com/pages/commanders/<comandante>[/<tema>].json`).
+
+**Corte dos potenciais** (decisão do dono, 15/10/2026): só as 25 de maior sinergia, com sinergia +10 ou mais. Sem corte, a página rende de 100 a 200 cartas por deck, quase todas de +1 a +9. `listas` guarda só "Alta sinergia" (`alta`) e "Mais usadas" (`top`); as outras seções da página entram só no cálculo de `sinergia` e `potenciais`.
+
+## Confronto com listas de fora
+
+Desde 15/10/2026, a pedido do dono, um deck v3 pode ser comparado com listas de outros jogadores, de forma recorrente (`/confrontar <pasta> [link do Moxfield]`, `motor/confronto.py`). A lista fica em `dados/<pasta>/entrada/listas/<nome>.txt`, no formato da decklist, com um cabeçalho de comentários (`# nome`, `# autor`, `# fonte`, `# url`, `# atualizada`, `# lido`); um link do Moxfield vira esse arquivo pela API pública do site (`api2.moxfield.com/v2/decks/all/<id>`). Cada lista é pontuada com a régua e as sinergias **deste** deck: carta que o deck já avaliou (deck ou radar) leva as notas dele; carta só no cadastro único leva os oito critérios da carta e sinergia 0, marcada "a avaliar"; carta sem cadastro vale 0 e é listada. O placar da lista de fora é um piso. O resultado vai para `confrontos.json` (`meu` e, por lista, placar, CMC, pontos e cartas com nota 2 ou mais por critério, `so_dele` com o ganho do encaixe, `comum`, `so_meu`, `sem_cadastro`), e o painel mostra a caixa "Contra outras listas" no topo da aba Radar. O placar do deck ali é o da lista no arquivo, sem as trocas da tela. Sites que o motor não lê (LigaMagic, login) entram pelo arquivo em texto.
 
 ## Ordenar tabela pelo cabeçalho
 

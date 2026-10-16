@@ -816,3 +816,20 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .enc-ja{font-weight:700;color:var(--gold2)}
 .enc-c{color:var(--ok)!important}.enc-av{color:var(--warn)!important}
 .rosa .fx-s{font-size:.78em;font-weight:800}.rosa .fx-a{fill:var(--gold2)}.rosa .fx-b{fill:var(--warn)}
+/* Contra outras listas (aba Radar): o deck contra listas de fora, pela pontuação v3 */
+.cf .cf-pl{display:flex;gap:28px;flex-wrap:wrap;margin:10px 0 6px}
+.cf .cf-pl>div{display:flex;flex-direction:column;min-width:120px}
+.cf .cf-pl small{color:var(--mute);font-size:13.5px}
+.cf .cf-pl b{font-size:30px;line-height:1.15;font-family:inherit}
+.cf .pos{color:var(--ok)}.cf .neg{color:var(--warn)}
+.cf .cf-t{width:100%;border-collapse:collapse;min-width:560px;font-size:15px}
+.cf .cf-t th{color:var(--dim);font-weight:400;font-size:14px;text-align:left;padding:4px 10px 6px 0;white-space:nowrap}
+.cf .cf-t td{padding:6px 10px 6px 0;border-top:1px solid var(--line);vertical-align:top}
+.cf .cf-t .num{text-align:right;white-space:nowrap}
+.cf .cf-t td small{display:block;font-size:12.5px;font-weight:400}
+.cf .dim{color:var(--mute)}
+.cf .aviso{color:var(--warn);font-weight:700;cursor:help}
+.cf .cf-s{font-size:.75em;opacity:.85}
+.cf .cf-n{display:inline-block;margin:1px 5px 1px 0;padding:0 6px;border:1px solid var(--line2);border-radius:3px;font-size:12.5px;white-space:nowrap}
+.cf .cf-d{margin-top:10px}.cf .cf-d summary{cursor:pointer;color:var(--gold2)}.cf .cf-d p{color:var(--mute);font-size:14.5px;margin-top:6px}
+@media (max-width:720px){.cf .g-11{grid-template-columns:minmax(0,1fr)}.cf .cf-pl b{font-size:24px}}

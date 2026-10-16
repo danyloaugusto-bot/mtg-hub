@@ -707,6 +707,8 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
                 raise ErroDeck("combo '%s': a peça %s não está no deck nem no radar" % (x["nome"], p))
         combos.append(dict(n=x["nome"], kind=x.get("tipo", "Combo"), p=[ids[p] for p in x["pecas"]], t=x.get("texto", "")))
 
+    # confronto com listas de fora (motor/confronto.py), só no deck v3
+    confrontos = ler_json(os.path.join(base, "confrontos.json"), obrigatorio=False) if v3 else None
     edh = None
     if com:
         sin = com.get("sinergia") or {}
@@ -735,6 +737,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
             if porque3.get(k3):
                 c["s3w"] = porque3[k3]
     return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, v3=v3,
+                confrontos=confrontos,
                 criterios=grupos_v3() if v3 else None,
                 marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))

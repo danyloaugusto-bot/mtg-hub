@@ -1973,12 +1973,16 @@ function edhPanel(cs) {
   var nb = {}, tot = 0;
   cs.forEach(function (c) { if (c.cmd || c.land || c.custom) return; var k = synCls(c.syn); nb[k] = (nb[k] || 0) + c.q; tot += c.q; });
   var bon = BANDS.filter(function (b) { return nb[b.k]; });
-  var inDeck = {}, radar = {}; cs.forEach(function (c) { inDeck[c.id] = 1; }); cands().forEach(function (c) { radar[c.id] = 1; });
-  function nomes(a) { return lista(a.map(function (nm) { var id = slug(nm), c = (inDeck[id] || radar[id]) ? byId(id) : null; return c ? '<button class="linkish" data-card="' + esc(id) + '">' + esc(c.n) + '</button>' : esc(nm); })); }
+  var inDeck = {}, radar = {}, oficial = {};
+  cs.forEach(function (c) { inDeck[c.id] = 1; }); cands().forEach(function (c) { radar[c.id] = 1; });
+  // a página usa o nome do Scryfall; carta com nome impresso (Hades Grip, do Sulfuric Vortex) é achada pelo nome oficial
+  cs.concat(cands()).forEach(function (c) { if (c.on) oficial[slug(c.on)] = c.id; });
+  function idDe(nm) { var s = slug(nm); return oficial[s] || s; }
+  function nomes(a) { return lista(a.map(function (nm) { var id = idDe(nm), c = (inDeck[id] || radar[id]) ? byId(id) : null; return c ? '<button class="linkish" data-card="' + esc(id) + '">' + esc(c.n) + '</button>' : esc(nm); })); }
   var listas = (EDH.listas || []).map(function (l) {
     var ok = [], miss = [];
-    l.cards.forEach(function (nm) { (inDeck[slug(nm)] ? ok : miss).push(nm); });
-    var noRadar = miss.length && miss.filter(function (nm) { return radar[slug(nm)]; }).length === miss.length;
+    l.cards.forEach(function (nm) { (inDeck[idDe(nm)] ? ok : miss).push(nm); });
+    var noRadar = miss.length && miss.filter(function (nm) { return radar[idDe(nm)]; }).length === miss.length;
     var t = miss.length ? (miss.length === 1 ? 'Falta ' : 'Faltam ') + nomes(miss) + (noRadar ? (miss.length === 1 ? ', que já está no radar.' : ', que já estão no radar.') : '.') : 'Todas no deck.';
     return '<li><b class="num">' + ok.length + ' de ' + l.cards.length + '</b><span><em>' + esc(l.n) + '.</em> ' + t + '</span></li>';
   }).join('');
@@ -2458,11 +2462,50 @@ function poolSection() {
   }
   return h + '</fieldset>';
 }
+/* Contra outras listas (motor/confronto.py, aba Radar): cada lista de fora pontuada pela régua e pelas sinergias deste deck.
+   O placar do seu deck aqui é o da lista como está no arquivo, sem as trocas desta tela. */
+function confrontoSection() {
+  var CF = D.confrontos;
+  if (!V3 || !CF || !CF.listas || !CF.listas.length) return '';
+  var meu = CF.meu;
+  function sinal(v) { return (v > 0 ? '+' : v < 0 ? '−' : '') + fmtP(Math.abs(v)); }
+  function cls(v, inv) { var p = inv ? v < 0 : v > 0, n = inv ? v > 0 : v < 0; return p ? ' pos' : n ? ' neg' : ''; }
+  function seta(n, i) { var r = CR[i].ref; return !r ? '' : n < r[0] ? ' <span class="cf-s" title="abaixo da faixa">▼</span>' : n > r[1] ? ' <span class="cf-s" title="acima da faixa">▲</span>' : ''; }
+  function notas(s3) { return s3.map(function (v, i) { return v ? '<span class="cf-n" title="' + esc(CR[i].k) + ': ' + v + '">' + esc(CR[i].sh || CR[i].ab) + ' ' + v + '</span>' : ''; }).join(''); }
+  return CF.listas.map(function (L) {
+    var dif = L.placar - meu.placar, nome = L.nome + (L.autor ? ', de ' + L.autor : '');
+    var topo = '<div class="cf-pl"><div><small>Seu deck</small><b class="num">' + fmtP(meu.placar) + '</b><small>CMC ' + fmt(meu.cmc, 2) + '</small></div>' +
+      '<div><small>' + esc(nome) + '</small><b class="num">' + fmtP(L.placar) + '</b><small>CMC ' + fmt(L.cmc, 2) + '</small></div>' +
+      '<div><small>Diferença</small><b class="num' + cls(dif, true) + '">' + sinal(dif) + '</b><small>' + (dif > 0 ? 'ela está na frente' : dif < 0 ? 'o seu está na frente' : 'empate') + '</small></div></div>';
+    var crit = '<div class="scx"><table class="cf-t"><thead><tr><th scope="col">Critério</th><th scope="col" class="num">Seu deck</th><th scope="col" class="num">Cartas</th><th scope="col" class="num">' + esc(L.nome) + '</th><th scope="col" class="num">Cartas</th><th scope="col" class="num">Diferença</th></tr></thead><tbody>' +
+      CR.map(function (g, i) {
+        var d = L.pts[i] - meu.pts[i];
+        return '<tr><td>' + esc(g.k) + '</td><td class="num">' + fmtP(meu.pts[i]) + '</td><td class="num">' + meu.n[i] + seta(meu.n[i], i) + '</td><td class="num">' + fmtP(L.pts[i]) + '</td><td class="num">' + L.n[i] + seta(L.n[i], i) + '</td><td class="num' + cls(d, true) + '">' + sinal(d) + '</td></tr>';
+      }).join('') + '</tbody></table></div><p class="pn-note">Pontos por critério e cartas com nota 2 ou 3 em cada um; ▼ e ▲ marcam abaixo e acima da faixa da régua. A aceleração entra só no placar.</p>';
+    var sd = L.so_dele || [];
+    var dele = '<div class="scx"><table class="cf-t"><thead><tr><th scope="col">Carta</th><th scope="col">Notas aqui</th><th scope="col" class="num">Ganho no seu deck</th><th scope="col">Situação</th></tr></thead><tbody>' +
+      sd.map(function (c) {
+        var sit = c.radar ? 'no seu radar' : !c.cad ? 'sem cadastro' : 'sinergia a avaliar';
+        return '<tr><td><b>' + esc(c.n) + '</b>' + (c.cost ? ' ' + mana(c.cost) : '') + '<small class="dim">' + esc(c.line) + '</small></td><td>' + (notas(c.s3) || '<span class="dim">—</span>') + '</td>' +
+          '<td class="num' + (c.ganho != null ? cls(c.ganho) : '') + '">' + (c.ganho == null ? '<span class="dim">—</span>' : sinal(c.ganho) + (c.sai ? '<small class="dim">sai ' + esc(c.sai) + '</small>' : '')) + '</td>' +
+          '<td>' + sit + (!c.radar && c.cad ? ' <span class="aviso" title="este deck nunca avaliou a carta: sinergia 0, o ganho é um piso">*</span>' : '') + '</td></tr>';
+      }).join('') + '</tbody></table></div><p class="pn-note">Da maior para a menor pelo ganho (motor/encaixe.py): o valor da carta nos critérios deste deck, com saturação, menos o da carta de menor valor que sairia. Carta que o deck nunca avaliou entra com sinergia zero: o ganho dela é um piso, e sobe se a sinergia for boa.</p>';
+    var resto = '<div class="grid g-11"><details class="cf-d"><summary>Em comum (' + (L.comum || []).length + ')</summary><p>' + esc((L.comum || []).join(', ') || '—') + '</p></details>' +
+      '<details class="cf-d"><summary>Só no seu deck (' + (L.so_meu || []).length + ')</summary><p>' + esc((L.so_meu || []).join(', ') || '—') + '</p></details></div>' +
+      (L.sem_cadastro && L.sem_cadastro.length ? '<p class="pn-note">Sem cadastro nos critérios, valendo 0: ' + esc(L.sem_cadastro.join(', ')) + '.</p>' : '');
+    return '<fieldset class="pn cf"><legend>Contra outras listas</legend>' +
+      '<p class="hint">' + esc(nome) + (L.url ? ' (<a href="' + esc(L.url) + '" target="_blank" rel="noopener noreferrer">' + esc(L.fonte || 'lista') + '</a>)' : '') + (L.atualizada ? ', atualizada em ' + esc(fdate(L.atualizada)) : '') +
+      ', ' + L.cartas + ' cartas. Pontuada pela régua e pelas sinergias deste deck, lida em ' + esc(fdate(CF.lido)) + '. Para reler: <code>/confrontar ' + esc(M.pasta) + '</code>.</p>' +
+      topo + '<h3 class="sub">Critério a critério</h3>' + crit +
+      '<h3 class="sub">Cartas dela que você não tem (' + sd.length + ')</h3>' + dele + resto + '</fieldset>';
+  }).join('');
+}
 function renderRadar() {
   var vo = { entra: 0, avaliar: 1, fora: 2 };
   var all = cands().map(E).sort(function (a, b) { return (vo[a.verdict] - vo[b.verdict]) || (V3 ? (pts3(b) - pts3(a)) || (TR[a.tier] - TR[b.tier]) : (TR[a.tier] - TR[b.tier]) || (pts(b) - pts(a))) || a.n.localeCompare(b.n); });
   var main = all.filter(function (c) { return c.verdict !== 'fora' || c.inDeck; }), no = all.filter(function (c) { return c.verdict === 'fora' && !c.inDeck; });
   var h = '<p class="hint">Cartas fora do deck que valem acompanhar. Ao colocar uma no deck você escolhe quem sai, e todos os gráficos passam a refletir a troca. Quem você deixa de fora desce para a lista abaixo, com a nota e o motivo guardados. A pergunta de sempre: a carta é boa, ou é boa ' + (artigo() === 'a' ? 'na' : 'no') + ' ' + esc(M.curto || 'comandante') + '?</p>';
+  h += confrontoSection();
   h += '<div class="cands">' + main.map(candCard).join('') + '</div>';
   if (no.length) {
     h += '<fieldset class="pn"><legend>Avaliadas, ficam de fora</legend><ul class="fora">' + no.map(function (c) {
