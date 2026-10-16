@@ -377,6 +377,7 @@ def montar(avisar=print):
         with open(os.path.join(PASTA_HUB, n), encoding="utf-8") as f:
             return f.read()
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(H, ensure_ascii=False, separators=(",", ":")))
+    js += chr(10) + ler(os.path.join("..", "comum", "ordenar.js"))   # ordenar tabela pelo cabeçalho (o mesmo do painel)
     html = (ler("template.html").replace("/*__FONTS__*/", css_fontes).replace("/*__ROOT__*/", root + cores)
             .replace("/*__CSS__*/", ler("style.css")).replace("/*__JS__*/", js.replace("</script", "<\\/script")))
     return html, H

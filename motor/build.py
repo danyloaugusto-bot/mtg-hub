@@ -184,6 +184,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
              encaixe_decks=encaixe.decks_info(d, pasta, painel) if d.get("v3") else None)
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
+    js += chr(10) + ler(os.path.join("..", "comum", "ordenar.js"))   # ordenar tabela pelo cabeçalho (o mesmo do hub)
     # motivo votado (motor/painel/motivos/<grafico>.js): entra só no painel que o usa, antes do app.js
     motivo = os.path.join(PAINEL, "motivos", "%s.js" % t.get("grafico", "padrao"))
     if os.path.exists(motivo):
