@@ -84,7 +84,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 
 ## Próxima ação
 
-Merge do ramo `ajustes-v3` na `master` e republicar os 30 painéis e o hub com os ajustes (por cima dos links; no hub, sem `capabilities`). Pendência do dono: o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.
+Republicar os 30 painéis e o hub com os ajustes (a `master` já tem tudo) (por cima dos links; no hub, sem `capabilities`). Pendência do dono: o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.
 
 ## Feito
 
