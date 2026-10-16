@@ -87,7 +87,7 @@ Atualize este arquivo ao fim de cada sessão, com `/fechar`. Ele é a primeira l
 - 16/10/2026: `/confrontar` (novo): o deck contra listas de fora, pela v3 (`motor/confronto.py`, link do Moxfield ou arquivo em `entrada/listas/`, caixa "Contra outras listas" na aba Radar, com cada carta abrindo no toque e o botão "Levar ao radar"). Primeiro caso: Strefan contra a lista do Biobug (887, depois 908 com as sinergias avaliadas, contra 1.080,5). Com o ok do dono, 22 potenciais e cartas do confronto foram ao radar de 11 decks, para avaliar, com sinergia pela régua de cada um (Persistent Constrictor +30 no Valgavoth, Demon of Fate's Design +24,5 na Lynde, Alhammarret's Archive +24 no Vito, Sorin +20,5 no Markov, entre outras); `testes/origem.py` aceita as duas do Clavileño como acréscimo depois do kit.
 ## Próxima ação
 
-Publicar os 30 painéis e o hub (`/publicar todos`) com os potenciais, o confronto e o radar de 16/10. Pendência do dono: o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.
+Os 30 painéis e o hub estão publicados por cima dos links em 16/10/2026, com os potenciais, o confronto do Strefan e o radar novo (hub na versão 35, com `db` e `user`). Pendências do dono: avaliar no painel as 22 cartas que entraram no radar como "avaliar"; o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Pendência do dono: o rebranding dos gráficos de `contexto/visual/GUIA-VISUAL.md`. Trinta decks com painel; o hub publicado: https://claude.ai/artifact/WCpF4ip1x1tmX1EoPF6BtB.
 
 ## Feito
 
