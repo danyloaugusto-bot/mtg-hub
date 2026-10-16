@@ -2482,14 +2482,21 @@ function confrontoSection() {
         var d = L.pts[i] - meu.pts[i];
         return '<tr><td>' + esc(g.k) + '</td><td class="num">' + fmtP(meu.pts[i]) + '</td><td class="num">' + meu.n[i] + seta(meu.n[i], i) + '</td><td class="num">' + fmtP(L.pts[i]) + '</td><td class="num">' + L.n[i] + seta(L.n[i], i) + '</td><td class="num' + cls(d, true) + '">' + sinal(d) + '</td></tr>';
       }).join('') + '</tbody></table></div><p class="pn-note">Pontos por critério e cartas com nota 2 ou 3 em cada um; ▼ e ▲ marcam abaixo e acima da faixa da régua. A aceleração entra só no placar.</p>';
-    var sd = L.so_dele || [];
-    var dele = '<div class="scx"><table class="cf-t"><thead><tr><th scope="col">Carta</th><th scope="col">Notas aqui</th><th scope="col" class="num">Ganho no seu deck</th><th scope="col">Situação</th></tr></thead><tbody>' +
-      sd.map(function (c) {
-        var sit = c.radar ? 'no seu radar' : !c.cad ? 'sem cadastro' : 'sinergia a avaliar';
-        return '<tr><td><b>' + esc(c.n) + '</b>' + (c.cost ? ' ' + mana(c.cost) : '') + '<small class="dim">' + esc(c.line) + '</small></td><td>' + (notas(c.s3) || '<span class="dim">—</span>') + '</td>' +
-          '<td class="num' + (c.ganho != null ? cls(c.ganho) : '') + '">' + (c.ganho == null ? '<span class="dim">—</span>' : sinal(c.ganho) + (c.sai ? '<small class="dim">sai ' + esc(c.sai) + '</small>' : '')) + '</td>' +
-          '<td>' + sit + (!c.radar && c.cad ? ' <span class="aviso" title="este deck nunca avaliou a carta: sinergia 0, o ganho é um piso">*</span>' : '') + '</td></tr>';
-      }).join('') + '</tbody></table></div><p class="pn-note">Da maior para a menor pelo ganho (motor/encaixe.py): o valor da carta nos critérios deste deck, com saturação, menos o da carta de menor valor que sairia. Carta que o deck nunca avaliou entra com sinergia zero: o ganho dela é um piso, e sobe se a sinergia for boa.</p>';
+    var sd = L.so_dele || [], noRadar = {}; cands().forEach(function (x) { noRadar[x.id] = 1; });
+    /* cada carta abre no toque (funciona no celular, onde a gaveta não existe para carta de fora): texto oficial, o porquê
+       do cadastro, as notas e um botão que a põe no radar com essas notas, para avaliar */
+    var dele = '<div class="cf-l">' + sd.map(function (c) {
+      var emRadar = c.radar || noRadar[c.id], sit = emRadar ? 'no seu radar' : !c.cad ? 'sem cadastro nos critérios' : 'sinergia a avaliar';
+      return '<details class="cf-c"><summary><span class="cf-cn"><b>' + esc(c.n) + '</b>' + (c.cost ? ' ' + mana(c.cost) : '') + '</span>' +
+        '<span class="cf-cg num' + (c.ganho != null ? cls(c.ganho) : '') + '">' + (c.ganho == null ? '—' : sinal(c.ganho)) + '</span></summary>' +
+        '<div class="cf-cb"><p class="cand-m">' + esc(c.line) + (c.pt ? ', ' + esc(c.pt) : '') + '</p>' +
+        (c.fx ? '<p class="orig">' + rich(c.fx) + '</p>' : '') +
+        (c.pq ? '<p><em>Nos critérios:</em> ' + esc(c.pq) + '</p>' : '') +
+        '<p>' + (notas(c.s3) || '<span class="dim">sem nota nos critérios</span>') + '</p>' +
+        '<p class="hint">' + (c.ganho == null ? 'Sem ganho calculado.' : 'Ganho no seu deck: <b class="num' + cls(c.ganho) + '">' + sinal(c.ganho) + '</b>' + (c.sai ? ', saindo ' + esc(c.sai) : '') + '.') + ' ' + sit +
+        (!emRadar && c.cad ? ': este deck nunca avaliou a carta, então a sinergia conta como zero e o ganho é um piso.' : '.') + '</p>' +
+        (!emRadar ? '<div class="pc-a"><button class="btn sm" data-act="cf-radar" data-id="' + esc(c.id) + '">Levar ao radar</button></div>' : '') + '</div></details>';
+    }).join('') + '</div><p class="pn-note">Da maior para a menor pelo ganho (motor/encaixe.py): o valor da carta nos critérios deste deck, com saturação, menos o da carta de menor valor que sairia. "Levar ao radar" põe a carta para avaliar, com os critérios do cadastro e sinergia zero; a sinergia você dá na gaveta, ou eu dou no projeto.</p>';
     var resto = '<div class="grid g-11"><details class="cf-d"><summary>Em comum (' + (L.comum || []).length + ')</summary><p>' + esc((L.comum || []).join(', ') || '—') + '</p></details>' +
       '<details class="cf-d"><summary>Só no seu deck (' + (L.so_meu || []).length + ')</summary><p>' + esc((L.so_meu || []).join(', ') || '—') + '</p></details></div>' +
       (L.sem_cadastro && L.sem_cadastro.length ? '<p class="pn-note">Sem cadastro nos critérios, valendo 0: ' + esc(L.sem_cadastro.join(', ')) + '.</p>' : '');
@@ -3017,6 +3024,14 @@ function act(a, t, ev) {
         fx: o.fx, why: '', orig: 1, syn: o.syn, sid: o.sid, cand: 1, custom: 1, pool: 1, verdict: t.dataset.v, mk: o.mk || {}, land: o.land ? 1 : 0, prod: o.prod, mdfc: o.mdfc, dfc: o.dfc, back: o.back });
       commit(o.n + (t.dataset.v === 'fora' ? ' fica de fora' : ' entrou no radar')); break;
     case 'pool-all': ui.poolAll = !ui.poolAll; render(); break;
+    case 'cf-radar': {   // carta de uma lista de fora (confronto) vai ao radar, para avaliar, com os critérios do cadastro
+      var cf = null; (D.confrontos && D.confrontos.listas || []).forEach(function (L) { (L.so_dele || []).forEach(function (x) { if (x.id === id) cf = x; }); });
+      if (!cf) break;
+      if (byId(id)) { toast(cf.n + ' já está no radar'); break; }
+      S.custom.push({ id: cf.id, n: cf.n, q: 1, cost: cf.cost || '', cmc: cf.cmc || 0, t: cf.t || 'cri', g: GROUP_OF[cf.t || 'cri'], line: cf.line, pt: cf.pt, col: cf.col || 'C',
+        s: G.map(function () { return 0; }), tier: 'B', rel: 'MED', fx: cf.fx || '', why: '', orig: 1, cand: 1, custom: 1, verdict: 'avaliar', mk: {}, land: cf.land ? 1 : 0, s3: V3 ? cf.s3.slice() : undefined });
+      commit(cf.n + ' entrou no radar, para avaliar'); break;
+    }
     case 'add-custom':
       var name = $('#nc-n').value.trim();
       if (!name) { toast('Informe o nome da carta'); $('#nc-n').focus(); break; }

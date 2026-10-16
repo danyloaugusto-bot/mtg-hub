@@ -18,3 +18,7 @@
 ## Potenciais, 15/10/2026
 
 - Primeira leitura da página em https://edh.wiki/commanders/edgar-markov/vampires/: 25 potenciais, de +22% a +56%, 25 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 2 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Sorin, Imperious Bloodlord (B/MED, sin1 1 e sin2 1, +20,5), Patron of the Vein (A/ALT, sin1 2 e sin2 3, +19,75) e Twilight Prophet (A/ALT, sin1 2, +10,75), saindo Faithless Looting. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

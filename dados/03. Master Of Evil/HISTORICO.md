@@ -28,3 +28,7 @@
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edh.wiki/commanders/davros-dalek-creator/artifacts/: 25 potenciais, de +13% a +41%, 13 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 22 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Padeem, Consul of Innovation (B/MED, sem sinergia, +9), saindo The Master, Formed Anew; o deck é pré-construído intacto e o radar é só referência. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

@@ -109,7 +109,10 @@ def confrontar(pasta, avisar=print):
                 comum.append(nome)
             elif not c.get("cmd"):
                 g = encaixe.ganho(nome, m, cad, carta=c) if nome not in sem else None
-                so_dele.append(dict(n=nome, id=c["id"], cost=c.get("cost", ""), line=c.get("line", ""), cmc=c["cmc"], col=c.get("col", "C"),
+                faces = sf[i].get("faces") or []
+                fx = sf[i].get("oracle_text") or " // ".join(f.get("oracle_text", "") for f in faces)
+                so_dele.append(dict(n=nome, id=c["id"], cost=c.get("cost", ""), line=c.get("line", ""), cmc=c["cmc"], col=c.get("col", "C"), t=c.get("t"),
+                                    pt=c.get("pt"), fx=fx, pq=(cad.get(nome) or {}).get("por_que", ""),
                                     land=c.get("land", 0), s3=c["s3"], radar=nome in avaliadas, cad=nome not in sem,
                                     ganho=g["ganho"] if g else None, sai=g["sai"] if g else None, cobre=g["cobre"] if g else []))
         plx, avgx = hub.placar(cards, m["grupos"], v3=True)

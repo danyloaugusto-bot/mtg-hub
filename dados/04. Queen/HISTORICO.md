@@ -29,3 +29,7 @@
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edh.wiki/commanders/queen-marchesa/monarch/: 25 potenciais, de +19% a +59%, 13 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 9 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Promise of Loyalty (B/MED, sin2 2, +10,5), saindo Approach of the Second Sun. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

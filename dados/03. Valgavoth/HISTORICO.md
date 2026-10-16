@@ -31,3 +31,7 @@
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edhrec.com/commanders/valgavoth-harrower-of-souls: 25 potenciais, de +27% a +73%, 19 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 17 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3. A leitura anterior guardava a presença (%% dos decks que jogam a carta), não a sinergia; agora é a sinergia do EDHREC.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Kaervek the Merciless (A/ALT, sin1 2, +19,25) e Persistent Constrictor (A/ALT, sin1 3 como o Ob Nixilis, +30), saindo Malakir Rebirth. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

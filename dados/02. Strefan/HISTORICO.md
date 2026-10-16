@@ -32,3 +32,7 @@
 ## Confronto, 15/10/2026
 
 - Primeiro confronto com lista de fora (`/confrontar`, novo): "Strefan, Blood Aristocrats", do Biobug, no Moxfield (https://moxfield.com/decks/k5DPtIcFA0SanM047O6kig, atualizada em 10/10/2026), pontuada pela régua e pelas sinergias deste deck: 887 contra 1.080,5 (CMC 3,16 contra 3,51). Ela leva vantagem em Draw (+24), Evasão (+5), Resiliência (+4) e Dano (+2); o Baile fica na frente nas duas sinergias, em Recurso, Remoção e Aceleradores. 56 cartas só dela, 35 em comum; 16 entraram no cadastro único. A caixa "Contra outras listas" fica na aba Radar.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: do confronto com o Biobug: Anje's Ravager (A/ALT, sin1 2 e sin2 1, +19,5), Preacher of the Schism (A/ALT, sin1 2, +12,75), Deadly Dispute, Insatiable Avarice e Obsessive Pursuit (B/MED, sin2 1, +7,75 a +8,25), saindo Gamble; com a sinergia delas avaliada, a lista do Biobug foi de 887 para 908. A caixa do confronto passou a abrir cada carta no toque (texto, leitura do cadastro, notas) com o botão "Levar ao radar", a pedido do dono, pelo celular. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

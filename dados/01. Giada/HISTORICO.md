@@ -38,3 +38,7 @@
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edh.wiki/commanders/giada-font-of-hope/angels/: 25 potenciais, de +15% a +41%, 0 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 18 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Vanquisher's Banner (B/MED, sin1 2, +12,5) e Sunblast Angel (B/MED, sin1 2, +12,5), saindo Sejiri Shelter. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

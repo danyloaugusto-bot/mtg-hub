@@ -111,6 +111,8 @@ for chave in ("cards", "cands", "combos"):
     N[chave] = scry(N[chave])
 # textos que o texto oficial desmentia, corrigidos com autorização do dono (15/10/2026): o que a carta faz (fx) ou o porquê (why)
 TEXTO_CORRIGIDO = {"High-Society Hunter", "Drivnod, Carnage Dominus", "Path of Ancestry", "Black Market Connections"}
+# cartas levadas ao radar depois do kit, com o ok do dono (16/10/2026, dos potenciais da página relida): o kit não as tem
+RADAR_NOVO = {"Crossway Troublemakers", "Pact of the Serpent"}
 # s3 e s3w: as notas dos dez critérios e o porquê delas, que a pontuação v3 acrescentou (o kit não tem)
 IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain", "s3", "s3w"}
 dif = []
@@ -119,6 +121,8 @@ for chave in ("cards", "cands"):
     for c in N[chave]:
         x = ob.pop(c["id"], None)
         if not x:
+            if chave == "cands" and c["n"] in RADAR_NOVO:
+                continue
             dif.append("%s: %s só no motor" % (chave, c["n"])); continue
         for k in sorted((set(x) | set(c)) - IGNORA):
             if k == "tier" and c["id"] in REGRA_S:

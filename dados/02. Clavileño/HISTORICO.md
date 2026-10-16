@@ -27,3 +27,7 @@ Painel feito em conversa: avaliação das 100 cartas, radar com 22 candidatas, s
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edh.wiki/commanders/clavileno-first-of-the-blessed/vampires/: 25 potenciais, de +21% a +66%, 14 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 11 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Crossway Troublemakers (B/MED, sin1 2 e sin2 1, +11) e Pact of the Serpent (B/MED, sin1 1, +9,5), saindo Malakir Rebirth; o `testes/origem.py` passou a aceitar as duas como acréscimo depois do kit. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

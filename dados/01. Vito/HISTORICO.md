@@ -29,3 +29,7 @@
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edh.wiki/commanders/vito-thorn-of-the-dusk-rose/: 25 potenciais, de +16% a +34%, 14 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 14 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Alhammarret's Archive (A/ALT, sin1 3: dobra o dreno, +24), saindo Malakir Rebirth. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

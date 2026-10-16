@@ -28,3 +28,7 @@
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edhrec.com/commanders/lynde-cheerful-tormentor/curses: 25 potenciais, de +24% a +70%, 25 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 20 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3. A leitura anterior guardava a presença (%% dos decks que jogam a carta), não a sinergia; agora é a sinergia do EDHREC.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Demon of Fate's Design (A/ALT, sin1 3 pela regra de "faz duas vezes": saída de sacrifício repetível e conjura Maldição por vida, +24,5), saindo Hydroelectric Specimen. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

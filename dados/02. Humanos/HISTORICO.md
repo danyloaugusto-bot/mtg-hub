@@ -32,3 +32,7 @@
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edhrec.com/commanders/greymond-avacyns-stalwart/humans: 25 potenciais, de +25% a +63%, 21 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 18 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3. A leitura anterior guardava a presença (%% dos decks que jogam a carta), não a sinergia; agora é a sinergia do EDHREC.
+
+## Radar, 16/10/2026
+
+- Com o ok do dono, dos potenciais da página relida em 15/10: Mangara, the Diplomat (A/MED, sin1 2, +14,25) e Herald's Horn (B/MED, sin1 1, +10,25), saindo Crackdown. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.

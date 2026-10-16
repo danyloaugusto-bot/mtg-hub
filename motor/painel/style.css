@@ -833,3 +833,14 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .cf .cf-n{display:inline-block;margin:1px 5px 1px 0;padding:0 6px;border:1px solid var(--line2);border-radius:3px;font-size:12.5px;white-space:nowrap}
 .cf .cf-d{margin-top:10px}.cf .cf-d summary{cursor:pointer;color:var(--gold2)}.cf .cf-d p{color:var(--mute);font-size:14.5px;margin-top:6px}
 @media (max-width:720px){.cf .g-11{grid-template-columns:minmax(0,1fr)}.cf .cf-pl b{font-size:24px}}
+.cf .cf-l{display:flex;flex-direction:column}
+.cf .cf-c{border-top:1px solid var(--line)}
+.cf .cf-c>summary{display:flex;align-items:center;gap:10px;padding:8px 0;cursor:pointer;list-style:none}
+.cf .cf-c>summary::-webkit-details-marker{display:none}
+.cf .cf-c>summary::before{content:"▸";color:var(--gold2);font-size:.9em;flex:0 0 auto}
+.cf .cf-c[open]>summary::before{content:"▾"}
+.cf .cf-cn{flex:1;min-width:0}
+.cf .cf-cg{flex:0 0 auto;font-weight:700;white-space:nowrap}
+.cf .cf-cb{padding:0 0 12px 18px}
+.cf .cf-cb p{margin:4px 0;font-size:15px}
+.cf .cf-cb .orig{color:var(--mute);white-space:pre-line}
