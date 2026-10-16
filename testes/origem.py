@@ -83,6 +83,9 @@ for k in ("placar", "conta", "agrupamentos", "tiers", "relevancia", "fatos", "cu
             R.nota("%-22s %-48s %s%s" % (k if i == 0 else "", str(x)[:48], str(y)[:60] if x != y else "igual", "" if x == y else "   <- difere"))
     else:
         R.nota("%-22s %-48s %s" % (k, ov, "igual" if ov == nv else nv))
+    if k in ("placar", "conta") and N["meta"].get("v3"):
+        R.nota("%s: o deck está na pontuação v3, que muda o placar por desenho; não se compara com o de origem" % k)
+        continue
     R.ok(k + " iguais ao painel de origem", ov == nv)
 
 # os tipos: o painel novo junta "Cores" e "Base de mana" num só; os tipos de carta seguem iguais
@@ -106,7 +109,10 @@ def scry(v):
     return v
 for chave in ("cards", "cands", "combos"):
     N[chave] = scry(N[chave])
-IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain"}
+# textos que o texto oficial desmentia, corrigidos com autorização do dono (15/10/2026): o que a carta faz (fx) ou o porquê (why)
+TEXTO_CORRIGIDO = {"High-Society Hunter", "Drivnod, Carnage Dominus", "Path of Ancestry", "Black Market Connections"}
+# s3 e s3w: as notas dos dez critérios e o porquê delas, que a pontuação v3 acrescentou (o kit não tem)
+IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain", "s3", "s3w"}
 dif = []
 for chave in ("cards", "cands"):
     ob = {c["id"]: c for c in O[chave]}
@@ -116,6 +122,8 @@ for chave in ("cards", "cands"):
             dif.append("%s: %s só no motor" % (chave, c["n"])); continue
         for k in sorted((set(x) | set(c)) - IGNORA):
             if k == "tier" and c["id"] in REGRA_S:
+                continue
+            if k in ("fx", "why") and c["n"] in TEXTO_CORRIGIDO:
                 continue
             if x.get(k) != c.get(k):
                 dif.append("%s: %s: %s antes %r, agora %r" % (chave, c["n"], k, x.get(k), c.get(k)))
