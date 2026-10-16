@@ -15,8 +15,8 @@ Para deck que já tem painel. Uma análise nova é mais uma fonte de ideias e ma
 
 # Arquivos
 
-- Lê: a pasta `dados/$ARGUMENTS/` inteira (`deck.md`, `decklist.txt`, `CONFRONTO.md`, `avaliacao.json`, `comunidade.json`, `HISTORICO.md` e tudo em `entrada/`), mais `contexto/AVALIACAO.md`.
-- Grava, só depois do "pode": `CONFRONTO.md` (uma fonte nova e uma seção nova), `avaliacao.json` (só o que foi aprovado), `HISTORICO.md`, `testes/controle/$ARGUMENTS.json` (se o placar mudar de propósito) e `contexto/ESTADO.md`.
+- Lê: a pasta `dados/$ARGUMENTS/` inteira (`deck.md`, `decklist.txt`, `CONFRONTO.md`, `avaliacao.json`, `tema.json`, `comunidade.json`, `HISTORICO.md` e tudo em `entrada/`), mais `contexto/AVALIACAO.md`, a `contexto/pontuacao/RUBRICA.md` e o cadastro único `dados/cartas.json`.
+- Grava, só depois do "pode": `CONFRONTO.md` (uma fonte nova e uma seção nova), `avaliacao.json` (só o que foi aprovado), `dados/cartas.json` (só entradas novas, para cartas que ainda não estão no cadastro), `HISTORICO.md`, `testes/controle/$ARGUMENTS.json` (se o placar mudar de propósito: `placar_v3` e `placar_trocas_v3`) e `contexto/ESTADO.md`.
 - Nunca: `decklist.txt` e `tema.json`. `deck.md` só muda para registrar uma decisão nova do dono.
 
 # Passos
@@ -31,8 +31,8 @@ Para deck que já tem painel. Uma análise nova é mais uma fonte de ideias e ma
 4. **Parar e mostrar a proposta:** o que muda (cartas novas no radar e com que veredito; notas, tiers ou trocas recomendadas que mudariam, com o motivo), o que fica igual e o efeito no placar e nas trocas. Se nada muda além do confronto, diga. Espere o "pode".
 5. **Com o "pode", aplicar só o que foi aprovado:**
    - `CONFRONTO.md`: uma linha na tabela de fontes (a próxima letra, o arquivo, a data e uma observação) e uma seção "Mais um voto: a análise X (data)", com a tabela de votos e o que o texto desmente;
-   - `avaliacao.json`: editar no lugar, preservando todo o resto; não regerar do zero. Carta nova no radar leva notas, tier, relevância, veredito, motivo e quem sairia, como as outras;
-   - montar o painel, rodar `python testes/todos.py --deck "$ARGUMENTS" --sem-montar`, montar o hub (`python motor/build.py --hub`) e rodar `python testes/hub.py`;
+   - `avaliacao.json`: editar no lugar, preservando todo o resto; não regerar do zero. Carta nova no radar leva notas (8×8), `sin` e `sin_por_que` pelas sinergias do `tema.json`, tier, relevância, veredito, motivo e quem sairia, como as outras. Se ela não está no cadastro único, ganha entrada em `dados/cartas.json` pela RUBRICA (`fonte: "claude"`, `por_que` sem citar o deck). Uma nota do cadastro só muda com motivo, porque vale em todos os decks: diga quais decks o placar dela mexe;
+   - montar o painel, rodar `python testes/todos.py --deck "$ARGUMENTS" --sem-montar` e `python testes/rubrica.py`, montar o hub (`python motor/build.py --hub`) e rodar `python testes/hub.py`;
    - se o placar ou o placar com as trocas mudou de propósito, atualizar os números de controle.
 
 # Regras

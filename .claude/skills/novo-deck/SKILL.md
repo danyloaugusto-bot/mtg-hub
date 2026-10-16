@@ -44,11 +44,18 @@ Concordância entre IAs não prova nada: elas erram juntas. Quem decide é o tex
 
 Devolva para eu aprovar: o plano do deck em uma frase; os agrupamentos que fazem sentido para este deck, com uma linha cada; a proposta de tema (três opções de nome para o painel, no espírito de Ritos de Sangue, Coro da Alvorada e Dízimo das Almas; clima; paleta de cinco cores; a moldura, que é retrato por padrão; um motivo gráfico ligado ao comandante e à capa, que se inspira nos painéis existentes sem copiar nenhum). Diga se o motivo já existe no motor ou se é acréscimo ao motor. Pare aqui e espere minha resposta.
 
+Proponha também as duas sinergias da pontuação v3, no `tema.json` (`"sinergias": {"sin1": {"nome", "regra"}, "sin2": {...}, "aprovado": ""}`): `sin1` é a mecânica principal do comandante, `sin2` a segunda mecânica ou o que se espera do deck. A regra é uma escada objetiva de 0 a 3, com exemplos do próprio deck, como as do Giada e do Markov. Em deck tribal, só carta da tribo chega a 3 (Changeling e Shapeshifter contam como da tribo): escreva "Carta que não é <tribo> fica no máximo em 2", nunca com palavras como "penalidade". O 3 é excepcional (poucas cartas). A data da aprovação do dono vai em `aprovado`.
+
 Ao escrever o `tema.json`, preencha `"tema_jogo"` com `{"nome": tema em poucas palavras, "familia": uma de Tribais, Ataque e dano, Controle, Motores e combos, Caos e mesa}`, e mostre ao dono para ele corrigir.
 
 ## Passo 4: avaliação carta a carta
 
-Siga `contexto/AVALIACAO.md`. Para cada carta: notas de 0 a 3 nos agrupamentos, tier, relevância, uma frase do que faz e uma do porquê neste deck. Depois: combos e linhas de jogo, diagnóstico, fila de corte, e um radar com 8 a 15 cartas de fora (entra, avaliar, fica de fora), cada uma com motivo e com quem sairia.
+Siga `contexto/AVALIACAO.md` e a `contexto/pontuacao/RUBRICA.md`. A pontuação é a v3 (`contexto/pontuacao/RUBRICA.md`, com as regras do dono no fim dela): dez critérios iguais para todos os decks. Os oito critérios da carta (Resiliência, Recurso, Draw, Amplificador, Remoção, Evasão, Dano Direto, Aceleradores) ficam no cadastro único `dados/cartas.json`, uma vez por carta, valendo em todo deck; as duas sinergias (`sin1`, `sin2`) são do deck, escritas no `tema.json` e aprovadas pelo dono. O 8×8 (agrupamentos e `notas`) continua como está, à parte.
+
+Para cada carta: notas de 0 a 3 nos agrupamentos (8×8), tier, relevância, uma frase do que faz e uma do porquê neste deck. Na v3:
+- carta que ainda não está no cadastro único ganha entrada em `dados/cartas.json` (`n` só com os critérios acima de 0, `por_que` curto que não cita o deck nem a tribo, `fonte: "claude"`, `revisado` com a data, `so_com` quando parte da nota depende de um tipo). `python motor/prenota.py --deck "$ARGUMENTS" --ver` dá um ponto de partida; a nota é sua, pela RUBRICA;
+- toda carta do deck e do radar ganha `"sin": {"sin1": n, "sin2": n}` (nota 0 não entra) e `"sin_por_que"` com uma frase por nota acima de 0;
+- o `avaliacao.json` leva `"versao_pontuacao": 3` no topo. Depois: combos e linhas de jogo, diagnóstico, fila de corte, e um radar com 8 a 15 cartas de fora (entra, avaliar, fica de fora), cada uma com motivo e com quem sairia.
 
 Escreva também a `estrategia` (formato em `contexto/ARQUITETURA.md`): início, meio e fim, cada fase com turnos, plano, fortes e fracos, e contra quem o deck vai bem, equilibrado ou mal, com o motivo. Use os números da lista, conferidos.
 
@@ -60,11 +67,11 @@ Marque `"caro_por_desenho": true` nas cartas de custo alto que custam menos na p
 
 ## Passo 5: revisão comigo
 
-Antes de montar, mostre: todas as cartas tier S e todas as BAX, com o motivo; as cinco avaliações em que você tem menos certeza; as trocas que recomenda. Ajuste o que eu contestar.
+Antes de montar, mostre: as duas sinergias para aprovar (nome e regra); todas as cartas tier S e todas as BAX, com o motivo; as cinco avaliações em que você tem menos certeza (8×8 ou rubrica); as contagens de `sin1` e `sin2` com nota 2 ou 3 contra a faixa da régua (20 a 30 e 8 a 15); as trocas que recomenda. Ajuste o que eu contestar. Em deck tribal, tier S só para carta da tribo (o comandante é exceção).
 
 ## Passo 6: montar
 
-Imagens, build, testes e hub.
+Imagens, build, testes (`python testes/todos.py --deck "$ARGUMENTS"` e `python testes/rubrica.py`) e hub. Grave em `testes/controle/$ARGUMENTS.json` o `placar_v3` (refeito à mão pela rubrica) e o `placar_trocas_v3` (do hub).
 
 ## Pronto quando
 

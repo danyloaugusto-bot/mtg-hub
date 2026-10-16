@@ -12,7 +12,7 @@ Deck: $ARGUMENTS
 1. Abra a página de comunidade indicada em `deck.md` (edh.wiki ou EDHREC). Se não houver link, procure a do comandante e me mostre antes de usar.
 2. Colete as cartas que a página recomenda e o número de sinergia de cada uma. Tire as que já estão no deck, no radar ou na lista das que ficam de fora.
 3. Para cada carta que sobrar, busque o texto oficial no Scryfall (use o cache) e escreva uma frase do que ela faz e uma de por que serviria, ou não, a este deck.
-4. Grave a lista de potenciais nos dados do deck, com a data da leitura, e monte o painel de novo.
+4. Grave a lista de potenciais nos dados do deck, com a data da leitura. Para o encaixe da pontuação v3 (gaveta da carta, Radar e Compras do hub) funcionar, toda potencial que ainda não está no cadastro único `dados/cartas.json` ganha entrada pela `contexto/pontuacao/RUBRICA.md` (os oito critérios da carta, `por_que` curto sem citar o deck, `fonte: "claude"`); a sinergia dela neste deck fica para quando ela for ao radar. Monte o painel de novo.
 5. Mostre as dez de maior sinergia e diga quais você levaria ao radar.
 
 Lembre: o número mede presença na comunidade, não força. Carta de pré-construído aparece inflada.
