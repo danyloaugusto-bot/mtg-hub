@@ -80,6 +80,9 @@ Os critérios 3 a 10 são **da carta**: a nota da Swords to Plowshares em Remoç
 - **Tutor só ganha Draw quando traz 2 cartas ou mais para a mão** (Land Tax, Cultivate): trocar uma carta por outra é um por um. A busca de uma carta, mesmo direto para o campo, fica só em Recurso, e não conta em Aceleradores.
 - **Turno a mais é Draw 1 e Aceleradores 2**: compra, desvira e joga terreno de novo (Time Warp). Com condição ou sorteio, Aceleradores cai para 1 (Stitch in Time, Second Chance).
 - **Goad é Resiliência**, porque tira os ataques de você, como Ghostly Prison e Propaganda: numa criatura vale 1, em massa ou repetível vale 2.
+- **Ímpeto é Aceleradores** (decisão do dono, 15/10/2026): a criatura age no turno em que entra, e o jogo acelera. Na própria criatura ou dado a uma criatura = 1; dado ao time ou à tribo = 2; só por um turno ou ativado cai um nível; somado a outra aceleração da carta, sobe um nível (faz duas vezes).
+- **Roaming Throne conta como da tribo** escolhida (como Changeling e Shapeshifter) e pode chegar a 3 na sinergia da tribo.
+- **Lorde de tribo:** cada deck decide na regra da sua sinergia (3 em Giada, Lobos, Humanos e Goblins; 2 nos outros tribais), por decisão do dono.
 - **Ficha de artefato conta pelo que faz**: Tesouro em Aceleradores, Pista em Draw, Comida em Resiliência. Ficha de criatura e ficha genérica ficam em Recurso, e a ficha a cada turno vale 3.
 
 ## Exemplos de calibração
