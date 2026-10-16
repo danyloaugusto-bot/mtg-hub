@@ -69,6 +69,24 @@ with sync_playwright() as p:
     R.ok("%d abas sem exceção" % len(abas), not R.erros, R.erros)
     pg.click('[data-tab="tab"]'); pg.wait_for_timeout(150)
     R.ok("Tabelão sem coluna de preço", "US$" not in pg.inner_text("#v-tab thead"))
+    # ordenar pelo cabeçalho (motor/comum/ordenar.js): o Tabelão segue com a ordenação própria; as outras tabelas ganham a genérica
+    R.ok("ordenar: o Tabelão fica com a ordenação própria", pg.locator("#v-tab th.ordenavel").count() == 0)
+    pg.click('[data-tab="geral"]'); pg.wait_for_timeout(150)
+    if pg.locator("#v-geral table.rel-t").count():
+        th_q = pg.locator("#v-geral table.rel-t thead th", has_text="Qtd")
+        if th_q.count():
+            th_q.first.click(); pg.wait_for_timeout(100)
+            ult = pg.eval_on_selector_all("#v-geral table.rel-t tbody tr", "rs => rs.map(r => r.className)")
+            R.ok("ordenar: no quadro de relevância, o total fica no fim", not ult or "tot-r" in (ult[-1] or "") or all("tot-r" not in x for x in ult), ult[-2:])
+    if V3:
+        pg.click('[data-tab="crit"]'); pg.wait_for_timeout(150)
+        hs = pg.eval_on_selector_all("table.rk-t thead th", "e => e.map(x => x.textContent.trim())")
+        if "Pontos" in hs:
+            ip = hs.index("Pontos")
+            pg.locator("table.rk-t thead th").nth(ip).click(); pg.wait_for_timeout(150)
+            pts_rk = [comum.num_br(x) for x in pg.eval_on_selector_all("table.rk-t tbody tr", "rs => rs.map(r => r.cells[%d].textContent.trim())" % ip)]
+            R.ok("ordenar: ranking das cartas pelos pontos, do maior para o menor", pts_rk == sorted(pts_rk, reverse=True) and len(pts_rk) > 5, pts_rk[:5])
+        pg.click('[data-tab="tab"]'); pg.wait_for_timeout(150)
     # nome impresso: a página mostra o nome da carta física; o do Scryfall fica só nos dados
     escondidos = [c["on"] for c in D["cards"] if c.get("on")]
     if escondidos:
