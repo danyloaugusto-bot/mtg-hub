@@ -14,3 +14,7 @@
 ## Pontuação v3, 15/10/2026
 
 - O deck nasceu na v3, com placar 955,5. Com as regras do dono depois dos lotes 1 e 2 (ficha a cada ataque em Recurso 3, ficha de Sangue em Recurso, evasão e ódio a cemitério), foi a 956,5 (critérios 946,5 + aceleração 10).
+
+## Potenciais, 15/10/2026
+
+- Primeira leitura da página em https://edh.wiki/commanders/edgar-markov/vampires/: 25 potenciais, de +22% a +56%, 25 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 2 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.

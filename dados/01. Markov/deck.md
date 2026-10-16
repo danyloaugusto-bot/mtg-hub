@@ -8,6 +8,7 @@
 - **grupo:** 01. Top
 - **situação:** em construção
 - **nome do painel:** Linhagem Vampírica
+- **comunidade:** https://edh.wiki/commanders/edgar-markov/vampires/
 
 O deck onde tudo começou. Ficou por último de propósito, e terá sempre um cantinho especial.
 

@@ -18,3 +18,7 @@
 - Placar no método antigo: 249. Placar na pontuação v3: 861 (critérios 796 + aceleração 65). A régua mudou; o placar novo não se compara com os anteriores a esta data.
 - Sinergias aprovadas pelo dono: sin1 "Cargas da Kaalia" e sin2 "A Kaalia viva e atacando". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
 - Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
+
+## Potenciais, 15/10/2026
+
+- Os potenciais da leitura de 14/10/2026 ganharam entrada no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3 funcionar: 9 cartas novas. A página não foi relida (leitura de ontem).

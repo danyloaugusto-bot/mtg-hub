@@ -27,3 +27,7 @@
 - Placar no método antigo: 329. Placar na pontuação v3: 839,5 (critérios 749,5 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
 - Sinergias aprovadas pelo dono: sin1 "Sangria no turno deles" e sin2 "Demônios". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
 - Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
+
+## Potenciais, 15/10/2026
+
+- Página relida em https://edhrec.com/commanders/valgavoth-harrower-of-souls: 25 potenciais, de +27% a +73%, 19 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 17 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3. A leitura anterior guardava a presença (%% dos decks que jogam a carta), não a sinergia; agora é a sinergia do EDHREC.

@@ -34,3 +34,7 @@
 
 - Placar no método antigo: 429. Placar na pontuação v3: 1.029 (critérios 944 + aceleração 85). A régua mudou; o placar novo não se compara com os anteriores a esta data.
 - Sinergias aprovadas pelo dono: sin1 "Anjos" e sin2 "Marcadores e ganho de vida". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+
+## Potenciais, 15/10/2026
+
+- Página relida em https://edh.wiki/commanders/giada-font-of-hope/angels/: 25 potenciais, de +15% a +41%, 0 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 18 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.

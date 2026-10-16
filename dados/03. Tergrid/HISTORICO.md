@@ -20,3 +20,7 @@
 - Placar no método antigo: 342. Placar na pontuação v3: 1.001,5 (critérios 921,5 + aceleração 80). A régua mudou; o placar novo não se compara com os anteriores a esta data.
 - Sinergias aprovadas pelo dono: sin1 "Roubo da Tergrid" e sin2 "Do cemitério para o campo". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
 - Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
+
+## Potenciais, 15/10/2026
+
+- Os potenciais da leitura de 14/10/2026 ganharam entrada no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3 funcionar: 9 cartas novas. A página não foi relida (leitura de ontem).

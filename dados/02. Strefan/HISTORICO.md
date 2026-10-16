@@ -24,3 +24,11 @@
 - Placar no método antigo: 369. Placar na pontuação v3: 1.055 (critérios 980 + aceleração 75). A régua mudou; o placar novo não se compara com os anteriores a esta data.
 - Sinergias aprovadas pelo dono: sin1 "Corte de Vampiros" e sin2 "Taças de Sangue". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
 - Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
+
+## Potenciais, 15/10/2026
+
+- Página relida em https://edh.wiki/commanders/strefan-maurer-progenitor/blood/: 25 potenciais, de +25% a +72%, 15 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 10 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
+
+## Confronto, 15/10/2026
+
+- Primeiro confronto com lista de fora (`/confrontar`, novo): "Strefan, Blood Aristocrats", do Biobug, no Moxfield (https://moxfield.com/decks/k5DPtIcFA0SanM047O6kig, atualizada em 10/10/2026), pontuada pela régua e pelas sinergias deste deck: 887 contra 1.080,5 (CMC 3,16 contra 3,51). Ela leva vantagem em Draw (+24), Evasão (+5), Resiliência (+4) e Dano (+2); o Baile fica na frente nas duas sinergias, em Recurso, Remoção e Aceleradores. 56 cartas só dela, 35 em comum; 16 entraram no cadastro único. A caixa "Contra outras listas" fica na aba Radar.

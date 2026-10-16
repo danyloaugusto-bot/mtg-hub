@@ -26,3 +26,7 @@
 - Placar no método antigo: 375. Placar na pontuação v3: 1.004 (critérios 914 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
 - Sinergias aprovadas pelo dono: sin1 "Ken equipado" e sin2 "Shoryuken". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
 - Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
+
+## Potenciais, 15/10/2026
+
+- Página relida em https://edhrec.com/commanders/aisha-of-sparks-and-smoke/equipment: 25 potenciais, de +19% a +49%, 19 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 17 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3. A leitura anterior guardava a presença (%% dos decks que jogam a carta), não a sinergia; agora é a sinergia do EDHREC.

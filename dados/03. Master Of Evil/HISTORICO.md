@@ -24,3 +24,7 @@
 - Placar no método antigo: 252. Placar na pontuação v3: 814,5 (critérios 754,5 + aceleração 60). A régua mudou; o placar novo não se compara com os anteriores a esta data.
 - Sinergias aprovadas pelo dono: sin1 "Perda de 3 de vida" e sin2 "Escolha vilanesca". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
 - Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
+
+## Potenciais, 15/10/2026
+
+- Página relida em https://edh.wiki/commanders/davros-dalek-creator/artifacts/: 25 potenciais, de +13% a +41%, 13 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 22 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.

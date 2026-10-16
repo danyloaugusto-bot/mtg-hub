@@ -20,3 +20,7 @@
 - Sinergias aprovadas pelo dono: sin1 "Moedas vencidas" e sin2 "Converter". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
 - Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
 - Radar revisto na v3: as cartas que saem nas trocas passaram a ser as de menor valor, e o Counterspell foi para avaliar; o placar depois das trocas foi de 833 para 855,5.
+
+## Potenciais, 15/10/2026
+
+- Os potenciais da leitura de 14/10/2026 ganharam entrada no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3 funcionar: 18 cartas novas. A página não foi relida (leitura de ontem).

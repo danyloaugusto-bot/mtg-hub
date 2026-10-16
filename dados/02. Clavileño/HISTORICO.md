@@ -23,3 +23,7 @@ Painel feito em conversa: avaliação das 100 cartas, radar com 22 candidatas, s
 - Placar no método antigo: 485. Placar na pontuação v3: 1.097,5 (critérios 1.022,5 + aceleração 75). A régua mudou; o placar novo não se compara com os anteriores a esta data.
 - Sinergias aprovadas pelo dono: sin1 "Vampiros abençoados" e sin2 "Morrer e voltar". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
 - Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
+
+## Potenciais, 15/10/2026
+
+- Página relida em https://edh.wiki/commanders/clavileno-first-of-the-blessed/vampires/: 25 potenciais, de +21% a +66%, 14 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 11 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
