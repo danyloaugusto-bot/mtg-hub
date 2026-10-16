@@ -14,3 +14,9 @@
 
 - Lida a página de Descarte da Tergrid no edh.wiki (temas: Descarte 35%, Sacrifício 16%, Roubo 8%). Treze potenciais gravados em `comunidade.json`; Elderfang Disciple, Burglar Rat e Plaguecrafter são os de maior sinergia. Das 20 cartas das listas de destaque da página, 13 já estão no deck, com Waste Not, Smallpox, Geth's Grimoire, Dark Deal e Syphon Mind no topo. A Pox Plague, carta nova que a página sugere, já estava no radar.
 - Levados do edh.wiki ao radar, para avaliar, a pedido do dono: Plaguecrafter, Painful Quandary e The Raven Man (35 cartas no radar). Os descartes de entrada (Elderfang Disciple, Burglar Rat, Virus Beetle) seguem como potenciais: o oponente escolhe o que descarta.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 342. Placar na pontuação v3: 1.001,5 (critérios 921,5 + aceleração 80). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Roubo da Tergrid" e sin2 "Do cemitério para o campo". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

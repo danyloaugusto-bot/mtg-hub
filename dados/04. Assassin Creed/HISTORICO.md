@@ -11,3 +11,9 @@
 - No 8×8, Arbaaz Mir, Shao Jun e Mjölnir contam em Fechamento; Smoke Bomb em Proteção; Rest in Peace em Removal.
 - Tema "Irmandade Oculta", nome escolhido pelo dono: o Ezio saltando entre os prédios de Florença, fonte Italiana. Motivos novos no motor: gráfico "torres" (campanários que sobem com a soma das notas, com janelas que acendem; a mais alta ganha a águia; a insígnia da Irmandade no placar) e textura "tijolos".
 - 14/10/2026: potenciais lidos em https://edh.wiki/commanders/ezio-auditore-da-firenze/assassins/ (Assassinos do Ezio): 23 cartas de fora, de +24% a +64%, e a sinergia de 82 cartas do deck e do radar. Quatro foram ao radar, para avaliar, com o ok do dono: Mari, Evie Frye, Rooftop Bypass e Rogue's Passage; 19 ficam em `comunidade.json`.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 295. Placar na pontuação v3: 698 (critérios 663 + aceleração 35). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Assassinos" e sin2 "Conexão e execução". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

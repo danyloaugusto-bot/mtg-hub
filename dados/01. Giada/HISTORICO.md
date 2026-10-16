@@ -29,3 +29,8 @@
 ## Custo de mana, 10/10/2026
 
 - O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: Vanquish the Horde (custa 1 a menos por criatura em campo) e Steel Seraph (protótipo por {1}{W}{W}).
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 429. Placar na pontuação v3: 1.029 (critérios 944 + aceleração 85). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Anjos" e sin2 "Marcadores e ganho de vida". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).

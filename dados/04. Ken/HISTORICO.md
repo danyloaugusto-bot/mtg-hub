@@ -20,3 +20,9 @@
 ## Temas da comunidade, 14/10/2026
 
 - Os temas estavam gravados como contagem de decks (Equipment 26) e o painel os mostrava como porcentagem. Relidos no EDHREC (1.401 decks da Aisha) e convertidos em porcentagem do total: Spellslinger 8%, Combates extras 6%, Voltron 4%, Agressivo 3%, Equipamentos 2%.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 375. Placar na pontuação v3: 1.004 (critérios 914 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Ken equipado" e sin2 "Shoryuken". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

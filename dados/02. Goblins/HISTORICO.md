@@ -12,3 +12,9 @@
 - No 8×8, Goblin Bombardment e Gut contam em Conversão.
 - Tema "Horda em Chamas", nome escolhido pelo dono. Ele quis um tema para cima, vermelho com amarelo e laranja, nada de sombras, e goblins impetuosos, não fofos: fundo vermelho da capa do Krenko com raios de estouro, títulos em Rye. O gráfico de cabeças de goblin ficou infantil; ficou o canhão, ideia do dono: cada agrupamento um canhão carregado de goblins até a altura da soma das notas, e o mais cheio dispara um goblin em chamas, como no Goblin Bombardment. Motivos novos no motor: gráfico "canhoes" e textura "estouro".
 - 14/10/2026: potenciais lidos em https://edh.wiki/commanders/krenko-mob-boss/goblins/ (Goblins do Krenko): 24 cartas de fora, de +21% a +48%, e a sinergia de 78 cartas do deck e do radar. Cinco foram ao radar, para avaliar, com o ok do dono: General Kreat, Howlsquad Heavy, Goblin Grenade, Warren Instigator e Massive Raid; 19 ficam em `comunidade.json`.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 333. Placar na pontuação v3: 984 (critérios 894 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Horda Goblin" e sin2 "Converter a horda". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

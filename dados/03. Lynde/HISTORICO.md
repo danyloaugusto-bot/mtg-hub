@@ -18,3 +18,9 @@
 ## Temas da comunidade, 14/10/2026
 
 - Os temas estavam gravados como contagem de decks (Curses 893) e o painel os mostrava como porcentagem. Relidos no EDHREC (7.690 decks da Lynde) e convertidos em porcentagem do total: Maldições 11%, Encantamentos 7%, Auras 4%, Controle 1%, Pillow Fort 1%.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 308. Placar na pontuação v3: 860 (critérios 780 + aceleração 80). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Ciclo das Maldições" e sin2 "Política e fortaleza". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

@@ -13,3 +13,10 @@
 ## Comunidade, 14/10/2026
 
 - Lida a página de moedas do Okaun e do Zndrsplt no edh.wiki (temas: Caos 62%, Moedas 14%, Voltron 4%, Combo 3%, Compra de cartas 2%). Vinte e quatro potenciais; seis foram ao radar, para avaliar, com o ok do dono (Soul's Fire, Kazuul's Fury, Chaotic Strike, Relentless Assault, Tezzeret the Seeker e Brotherhood Regalia), e dezoito ficam em `comunidade.json`, com Creepy Doll, Goblin Bomb e Chaotic Goo no topo; as cartas novas da página têm sinergia negativa e ficaram de fora. Karplusan Minotaur (+71%), Goblin Kaboomist (+45%), Game of Chaos (+56%), Boompile (+54%) e Mana Clash (+38%) têm sinergia alta, mas seguem como estavam, na fila de corte ou fora do radar: o número mede presença, não força, e carta de pré-construído aparece inflada.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 303. Placar na pontuação v3: 835 (critérios 745 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Moedas vencidas" e sin2 "Converter". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
+- Radar revisto na v3: as cartas que saem nas trocas passaram a ser as de menor valor, e o Counterspell foi para avaliar; o placar depois das trocas foi de 833 para 855,5.

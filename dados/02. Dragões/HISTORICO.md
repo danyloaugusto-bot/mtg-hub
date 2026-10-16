@@ -12,3 +12,9 @@
 - No 8×8, Balefire Dragon, Ryusei e Incinerator contam em Dragões; Crawlspace e War's Toll em Removal.
 - Tema "Fogo e Sangue", nome escolhido pelo dono (o lema dos Targaryen): a rainha dragão de asas magenta pousada no pico, fonte Almendra Display. A primeira versão (céu cinza, escamas e revoada) não agradou: o dono pediu fogo, chamas, destruição e um vermelho mais vivo, e um gráfico com mais cara de dragão, tesouro e poder; recusou também as gemas e a montanha de ouro, e escolheu os meteoros entre três opções desenhadas com os números do deck. Ficou a paleta de vermelho vivo, laranja e amarelo de chama, e dois motivos novos no motor: gráfico "meteoros" (cada agrupamento uma bola de fogo caindo, como o Ryusei, com a cauda que cresce com a soma das notas; o maior ganha halo e faíscas; o olho de pupila em fenda no placar e um aro de brasas) e textura "labaredas". Escamas, revoada, gemas e tesouro saíram do motor.
 - 14/10/2026: potenciais lidos em https://edh.wiki/commanders/lathliss-dragon-queen/dragons/ (Dragões da Lathliss): 24 cartas de fora, de +24% a +66%, e a sinergia de 72 cartas do deck e do radar. Cinco foram ao radar, para avaliar, com o ok do dono: Thunderbreak Regent, Crucible of Fire, Dragonmaster Outcast, Haven of the Spirit Dragon e Spit Flame; 19 ficam em `comunidade.json`.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 289. Placar na pontuação v3: 898,5 (critérios 808,5 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Dragões" e sin2 "Fogo dobrado". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

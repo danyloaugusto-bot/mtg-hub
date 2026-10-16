@@ -12,3 +12,9 @@
 ## Comunidade, 14/10/2026
 
 - Lida a página Aggro da Kaalia no edh.wiki (temas: Voar 22%, Anjos 15%, Agressivo 12%, Demônios 11%, Dragões 10%). Dezenove potenciais gravados em `comunidade.json`; Vilis, Broker of Blood, Dragon Tempest e Archfiend of Despair são os de maior sinergia, e três cartas novas entraram (Erode, Decorum Dissertation e Fix What's Broken). Das 20 cartas das listas de destaque, 8 estão no deck e 11 no radar; só o Vilis ficava de fora, e virou potencial.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 249. Placar na pontuação v3: 861 (critérios 796 + aceleração 65). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Cargas da Kaalia" e sin2 "A Kaalia viva e atacando". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

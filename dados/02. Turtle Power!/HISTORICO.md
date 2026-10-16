@@ -14,3 +14,9 @@
 
 - Lida a página do Leonardo e Michelangelo no edh.wiki. A página tem poucos decks: dezenas de cartas empatam em +33%, e os temas e as listas de destaque não aparecem. Onze potenciais gravados em `comunidade.json`, quase todos peças de cEDH (Chrome Mox, Mystic Remora, Enlightened Tutor, Deflecting Swat, Counterspell); The Cabbage Merchant, que cria Comida e aciona o Leonardo, é o de maior sinergia. As Tartarugas novas que a página sugere (Donatello, the Brains, os dois Raphael e Turtles Forever) já estão no deck ou no radar.
 - Levado do edh.wiki ao radar, para avaliar, a pedido do dono: The Cabbage Merchant (48 cartas no radar). O resto dos potenciais é peça de cEDH e fica onde está.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 396. Placar na pontuação v3: 909 (critérios 839 + aceleração 70). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Tartarugas" e sin2 "Fichas e marcadores". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

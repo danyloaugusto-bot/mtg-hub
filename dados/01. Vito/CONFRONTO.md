@@ -38,7 +38,7 @@ Todo texto de carta foi conferido no Scryfall, inclusive as cartas de 2026 que a
 | Sorin Markov | B | não cita | corte, "não ganha vida" | ALT | **B.** O +2 ganha 2 de vida. O −3 põe o mais forte em 10. |
 | Throne of Eldraine | C, BAX | ramp | corte, "monarca" | — | **C, BAX.** Não tem monarca (abaixo). A mana só paga mágica preta monocolorida. |
 | Mindcrank | C, BAX, primeiro corte | combo | não cita | MÉD | **C, BAX.** Só serve ao laço com Bloodchief Ascension, que é plano B. |
-| Necrodominance | C, BAX | compra, "sequenciar" | segura | — | **C, MÉD.** Forte, mas desliga dez cartas da lista e disputa com a Necropotence (mão máxima de cinco). |
+| Necrodominance | C, BAX | compra, "sequenciar" | segura | — | **C, MÉD.** Forte, mas atrapalha dez cartas da lista e disputa com a Necropotence (mão máxima de cinco). |
 | Grim Tutor | B, corte 10 | sai por Emeritus | segura | ALT | **B, MÉD.** O tutor mais dispensável dos cinco quando o combo é plano B. |
 
 ## O que o texto oficial desmente

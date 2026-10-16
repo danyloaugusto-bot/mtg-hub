@@ -11,3 +11,9 @@
 - No 8×8, os dois Niv-Mizzet e o Mob Rule contam em Fechamento.
 - Tema "Tripulação Alheia", nome escolhido pelo dono depois de duas rodadas de sugestões: a capitã de casaca violeta e monóculo de latão descendo a escada dourada do navio, fonte Trade Winds. Motivos novos no motor: gráfico "lunetas" (lunetas de latão que esticam com a soma das notas; a mais cheia ganha o brilho na lente; o monóculo da Zara no placar) e textura "cordame".
 - 14/10/2026: potenciais lidos em https://edh.wiki/commanders/zara-renegade-recruiter/theft/ (Roubo da Zara): 21 cartas de fora, de +21% a +44%, e a sinergia de 82 cartas do deck e do radar. Cinco foram ao radar, para avaliar, com o ok do dono: Malcolm, High Market, Thud, Breeches (Brazen Plunderer) e Protean Raider; 16 ficam em `comunidade.json`.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 266. Placar na pontuação v3: 710,5 (critérios 640,5 + aceleração 70). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Roubo" e sin2 "Copiar, sacrificar ou piscar". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

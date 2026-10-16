@@ -19,3 +19,9 @@
 ## Custo de mana, 10/10/2026
 
 - O painel ganhou o quadro "Custo e curva" na Visão geral, o ganho de custo em cada cartão do radar e a mais cara de cada pacote no 8×8. Marcadas como `caro_por_desenho`, porque custam menos na prática e ficam fora da conta: K'rrik, Son of Yawgmoth (cada {B} pode ser pago com 2 de vida) e Blasphemous Edict ({B} com treze criaturas em campo).
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 373. Placar na pontuação v3: 999 (critérios 909 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Conversão de vida" e sin2 "Vampiros". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

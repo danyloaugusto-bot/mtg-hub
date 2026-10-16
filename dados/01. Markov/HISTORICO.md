@@ -10,3 +10,7 @@
 - Tiers: 2 S (Edgar e Welcoming Vampire), 12 BAX. Radar com 15 cartas: 10 trocas recomendadas (Sanctum Seeker, Indulgent Aristocrat, Emeritus of Woe, Bloodletter of Aclazotz, Isshin, Stensian Sanguinist, Blood Crypt, Godless Shrine, Marsh Flats e Bloodstained Mire) e 5 para avaliar (Crippling Fear, Three Tree City, Scheming Silvertongue, Champion of Dusk, Iroas). Com as trocas, 34 terrenos e placar 969,5; as fetches custam pontos porque o placar não mede terreno. A lista não muda.
 - Quatro combos e motores: o laço Vito + Bloodthirsty Conqueror, a eminência dobrada pela Anointed Procession, Skullclamp com Yahenni e a Bolas's Citadel com a horda.
 - Tema: cripta da família Markov à luz de vela, ébano, latão velho e veludo cor de sangue, fonte Cinzel. Gráfico "caixoes" (Caixões: vigília), escolhido pelo dono na votação.
+
+## Pontuação v3, 15/10/2026
+
+- O deck nasceu na v3, com placar 955,5. Com as regras do dono depois dos lotes 1 e 2 (ficha a cada ataque em Recurso 3, ficha de Sangue em Recurso, evasão e ódio a cemitério), foi a 956,5 (critérios 946,5 + aceleração 10).

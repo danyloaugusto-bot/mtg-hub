@@ -21,3 +21,9 @@
 ## Temas da comunidade, 14/10/2026
 
 - Os temas estavam gravados como contagem de decks (Group Slug 2.300) e o painel os mostrava como porcentagem. Relidos no EDHREC (29.609 decks do Valgavoth) e convertidos em porcentagem do total: Group Slug 8%, Dano direto 6%, Marcadores +1/+1 1%, Agressivo 1%, Dreno 1%.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 329. Placar na pontuação v3: 839,5 (critérios 749,5 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Sangria no turno deles" e sin2 "Demônios". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

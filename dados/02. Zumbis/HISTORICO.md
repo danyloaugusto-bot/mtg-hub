@@ -13,3 +13,9 @@
 ## Comunidade, 14/10/2026
 
 - Lida a página de Zumbis da Wilhelt no edh.wiki (temas: Zumbis 35%, Fichas 14%, Aristocratas 11%, Reanimação 10%, Combo 8%). Vinte e quatro potenciais; seis foram ao radar, para avaliar, com o ok do dono (Mikaeus, the Unhallowed, Grave Pact, Grimgrin, Corpse-Born, Overcharged Amalgam, Diabolic Intent e Patchwork Banner), e dezoito ficam em `comunidade.json`, com Archghoul of Thraben, Open the Graves e Liliana's Mastery no topo; as cartas novas da página têm sinergia de +3% a −1% e ficaram de fora. A página dá alta sinergia a Lord of the Undead (+43%) e Poppet Stitcher (+43%), que seguem fora do radar: o primeiro fortalece os Zumbis dos oponentes, o segundo só faz fichas decayed. O número mede presença, não força.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 302. Placar na pontuação v3: 1.065,5 (critérios 975,5 + aceleração 90). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Zumbis" e sin2 "Sacrifício e recursão". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

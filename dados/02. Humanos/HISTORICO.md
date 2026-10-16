@@ -22,3 +22,9 @@
 ## Temas da comunidade, 14/10/2026
 
 - Os temas estavam gravados como contagem de decks (Humans 271) e o painel os mostrava como porcentagem. Relidos no EDHREC (2.844 decks do Greymond) e convertidos em porcentagem do total: Humanos 9%, Ganho de vida 2%, Fichas 2%, Agressivo 2%, Marcadores +1/+1 1%.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 347. Placar na pontuação v3: 1.008 (critérios 948 + aceleração 60). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Humanos" e sin2 "Marcha". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.

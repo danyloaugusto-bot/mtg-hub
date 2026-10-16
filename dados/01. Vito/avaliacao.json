@@ -1,4 +1,5 @@
 {
+ "versao_pontuacao": 3,
  "feito": "09/10/2026",
  "agrupamentos": [
   {
@@ -167,9 +168,9 @@
  "estrategia": {
   "inicio": {
    "turnos": "1 a 3",
-   "plano": "Vito no turno 3, ou no 2 com Sol Ring, Ancient Tomb ou Dark Ritual. O que decide o começo é ter uma fonte de ganho de vida ao lado dele: Vampire of the Dire Moon, Indulgent Aristocrat, Gifted Aetherborn, Nullpriest, Creeping Bloodsucker ou a Shadowspear.",
+   "plano": "Vito no turno 3, no 2 com Sol Ring ou Ancient Tomb, ou no 1 com Dark Ritual. O que decide o começo é ter uma fonte de ganho de vida ao lado dele: Vampire of the Dire Moon, Indulgent Aristocrat, Gifted Aetherborn, Nullpriest, Creeping Bloodsucker ou a Shadowspear.",
    "fortes": [
-    "Três cartas adiantam o Vito para o turno 2, e Jet Medallion e Arcane Signet ajudam no 3.",
+    "Três cartas adiantam o Vito: Sol Ring e Ancient Tomb para o turno 2, Dark Ritual para o 1. Jet Medallion e Arcane Signet ajudam no 3.",
     "Seis fontes de ganho de até duas manas."
    ],
    "fracos": [
@@ -186,7 +187,7 @@
    ],
    "fracos": [
     "A mesa inteira olha para o Vito, e ele é o único conversor barato além da Enduring Tenacity.",
-    "Necrodominance desliga dez cartas se for jogada junto delas."
+    "Necrodominance atrapalha dez cartas se for jogada junto delas; Blood Artist, Vein Ripper e Meathook seguem só com as mortes dos oponentes."
    ]
   },
   "fim": {
@@ -251,6 +252,14 @@
     "vamp_c": 3,
     "vida": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "É o comandante: cada ganho de vida vira perda de vida de um oponente alvo, e por {3}{B}{B} o time inteiro ganha vínculo com a vida.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e a Malakir Bloodwitch, e paga o reforço do Blood Tribute e o custo do New Blood."
+   },
    "tier": "S",
    "rel": "INS",
    "faz": "1/3. Sempre que você ganha vida, um oponente alvo perde o mesmo tanto. Por {3}{B}{B}, suas criaturas ganham vínculo com a vida até o fim do turno.",
@@ -264,16 +273,32 @@
     "vamp_c": 2,
     "vida": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: cada criatura que morre faz um jogador perder 1 e você ganhar 1, um gatilho do Vito por morte.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "0/1. Sempre que ele ou outra criatura morre, um jogador alvo perde 1 e você ganha 1.",
-   "porque": "Cada morte é um ganho separado e um gatilho do Vito. Rende nas quatro limpezas da lista. Kalitas e Necrodominance trocam a morte por exílio e o desligam."
+   "porque": "Cada morte é um ganho separado e um gatilho do Vito. Rende nas quatro limpezas da lista. O Kalitas troca por exílio a morte das criaturas não ficha dos oponentes, e a Necrodominance a das suas: cada um corta só parte dos gatilhos."
   },
   "Bloodletter of Aclazotz": {
    "notas": {
     "combos": 1,
     "vamp_c": 3,
     "vida": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dobra a perda de vida dos oponentes no seu turno, a do Vito incluída.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "A",
    "rel": "ALT",
@@ -283,6 +308,12 @@
   "Bloodline Keeper": {
    "notas": {
     "vamp_c": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Vampiro que cria um Vampiro 2/2 voador por turno, só virando, e transformado é lorde de +2/+2 dos outros Vampiros."
    },
    "tier": "A",
    "rel": "ALT",
@@ -295,6 +326,14 @@
     "vamp_c": 3,
     "vida": 3
    },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Fecha o laço com o Vito: toda vida que os oponentes perdem volta como ganho, que o Vito converte de novo.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "5/5 voar e toque mortífero. Sempre que um oponente perde vida, você ganha o mesmo tanto.",
@@ -304,6 +343,12 @@
    "notas": {
     "removal": 1,
     "vamp_c": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Lorde de +1/+1 dos outros Vampiros; virando cinco Vampiros, rouba uma criatura, que vira Vampiro."
    },
    "tier": "B",
    "rel": "MED",
@@ -315,6 +360,14 @@
     "vamp_c": 2,
     "vida": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: na sua manutenção, ganha 1 de vida por oponente num evento só, que o Vito devolve inteiro num alvo.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "1/2. Na sua manutenção, causa 1 de dano a cada oponente e você ganha o total.",
@@ -324,6 +377,12 @@
    "notas": {
     "ramp": 3,
     "vida": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: o extorquir, pago a cada mágica, faz cada oponente perder 1 e você ganhar o total, um gatilho do Vito por mágica."
    },
    "tier": "A",
    "rel": "ALT",
@@ -335,6 +394,14 @@
     "combos": 3,
     "vamp_c": 2,
     "vida": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Segunda cópia do texto do Vito: cada ganho de vida vira perda de vida de um oponente alvo.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "C",
    "rel": "BAX",
@@ -350,6 +417,12 @@
     "combos": 3,
     "vida": 3
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Segunda cópia do texto do Vito, que volta como encantamento quando morre como criatura."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "4/3. Sempre que você ganha vida, um oponente alvo perde o mesmo tanto. Ao morrer como criatura, volta como encantamento.",
@@ -363,6 +436,14 @@
     "vamp_s": 2,
     "vida": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo 2/3: ganho só em combate.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "2/3 toque mortífero e vínculo, de 2.",
@@ -374,6 +455,12 @@
   "Gray Merchant of Asphodel": {
    "notas": {
     "vida": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande de uma vez: cada oponente perde vida pela devoção ao preto e você ganha o total, que o Vito devolve inteiro num alvo."
    },
    "tier": "A",
    "rel": "ALT",
@@ -387,6 +474,14 @@
     "vamp_s": 1,
     "vida": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Transformada, tem vínculo com a vida: ganho só em combate.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: o +1/+0 do verso vale para qualquer criatura com voar, toque mortífero ou vínculo."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "1/3 voar. No início do combate, escolhe um modo ainda não usado: todos sacrificam uma criatura; você compra e perde 1; ou transforma em Henrika, Infernal Seer, com voar, toque mortífero e vínculo.",
@@ -397,6 +492,14 @@
    "notas": {
     "vamp_c": 1,
     "vida": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo 1/1: ganho só em combate.",
+    "sin2": "Vampiro que põe um marcador +1/+1 em cada Vampiro seu a cada ativação."
    },
    "tier": "C",
    "rel": "BAX",
@@ -414,10 +517,16 @@
     "combos": 1,
     "vida": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida: ganho só em combate; pagar vida no lugar do {B} não conta aqui."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "2/2 vínculo. Cada {B} de um custo pode ser pago com 2 de vida. Cresce a cada mágica preta.",
-   "porque": "Num deck que ganha vida, a vida vira mana. Deixa Exsanguinate, tutores e remoções quase de graça.",
+   "porque": "Num deck que ganha vida, a vida vira mana. Deixa tutores e remoções quase de graça; no Exsanguinate, só o {B}{B} sai em vida, e o X segue em mana.",
    "marcas": {
     "vinculo": 1
    }
@@ -428,10 +537,18 @@
     "vamp_s": 3,
     "vida": 2
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo 3/4: ganho só em combate.",
+    "sin2": "Vampiro cujo efeito usa os outros: sacrifica outro Vampiro ou Zumbi para crescer, sem multiplicar a tribo."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "3/4 vínculo. Criatura não ficha de oponente que morreria é exilada, e você cria um Zumbi 2/2.",
-   "porque": "O melhor corpo com vínculo da lista e a única resposta a cemitério. Desliga o Blood Artist, o Vein Ripper e o ganho do Meathook pelas criaturas dos oponentes.",
+   "porque": "O melhor corpo com vínculo da lista e a única resposta a cemitério. Desliga o Blood Artist, o Vein Ripper e o ganho do Meathook pelas criaturas não ficha dos oponentes.",
    "marcas": {
     "vinculo": 1
    }
@@ -440,6 +557,14 @@
    "notas": {
     "vamp_c": 2,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande de uma vez: cada oponente perde vida pelo número de Vampiros seus e você ganha o total, que o Vito devolve inteiro num alvo.",
+    "sin2": "Vampiro que conta os Vampiros seus, sem multiplicá-los."
    },
    "tier": "B",
    "rel": "MED",
@@ -451,6 +576,14 @@
     "combos": 3,
     "vamp_c": 2,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Converte cada ganho de vida em perda de 1 para cada oponente, e fecha laço com o Exquisite Blood.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "A",
    "rel": "ALT",
@@ -465,6 +598,14 @@
     "vamp_c": 3,
     "vida": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo 2/2: ganho só em combate.",
+    "sin2": "Lorde de +1/+1 dos outros Vampiros."
+   },
    "tier": "B",
    "rel": "ALT",
    "faz": "2/2 com convocar e vínculo. Outros Vampiros ganham +1/+1. Tem loucura.",
@@ -478,6 +619,14 @@
     "vamp_s": 2,
     "vida": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo com voar: ganho só em combate.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Voar, toque mortífero e vínculo. Poder igual a 1 mais os tipos de carta nos cemitérios dos oponentes.",
@@ -490,6 +639,14 @@
    "notas": {
     "vamp_s": 1,
     "vida": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo 2/1: ganho só em combate.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "C",
    "rel": "MED",
@@ -506,15 +663,31 @@
     "vamp_s": 3,
     "vida": 1
    },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "As fichas têm vínculo com a vida e a compra pede a maior vida da mesa: rende com vida alta, sem ganhar vida sozinha.",
+    "sin2": "Vampiro que cria Vampiros 1/1, mas só atacando o jogador de mais vida, e não cria quando essa vida é a sua."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "2/4 toque mortífero. Atacando quem tem mais vida, cria um Vampiro 1/1 com vínculo. Atacando enquanto você tem mais vida, compra uma carta e perde 1.",
-   "porque": "Num deck que ganha vida, você quase sempre tem a maior: ela compra todo turno. E recompensa bater no mais forte, como o dono descreveu."
+   "porque": "Num deck que ganha vida, você quase sempre tem a maior: ela compra todo turno. A ficha, por bater em quem tem mais vida, só vem quando não é você: as duas juntas, só no empate."
   },
   "Qarsi Revenant": {
    "notas": {
     "vamp_s": 3,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida nela e, pelo renovar, em outra criatura: ganho só em combate.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "A",
    "rel": "ALT",
@@ -529,6 +702,14 @@
     "draw": 1,
     "vamp_s": 1,
     "vida": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo 2/3: ganho só em combate.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "C",
    "rel": "BAX",
@@ -545,6 +726,14 @@
     "vamp_c": 2,
     "vida": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: com a bênção da cidade, toda manutenção você ganha vida pelo valor de mana da carta revelada.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "B",
    "rel": "ALT",
    "faz": "2/4 voar. Com dez permanentes, a cada manutenção revela o topo e compra; cada oponente perde o valor de mana dela e você ganha o mesmo.",
@@ -554,6 +743,14 @@
    "notas": {
     "vamp_s": 1,
     "vida": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo 1/1: ganho só em combate.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "C",
    "rel": "MED",
@@ -569,6 +766,14 @@
     "vamp_c": 3,
     "vida": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: cada criatura que morre faz um oponente perder 2 e você ganhar 2, um gatilho do Vito por morte.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "6/5 voar, ward (sacrificar uma criatura). Sempre que uma criatura morre, um oponente alvo perde 2 e você ganha 2.",
@@ -579,6 +784,12 @@
     "removal": 1,
     "combos": 2,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: o +2 ganha 2 de vida todo turno, e o −3 põe um oponente em 10 para o Vito terminar."
    },
    "tier": "B",
    "rel": "MED",
@@ -591,6 +802,14 @@
     "combos": 1,
     "vida": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: um +1 sacrifica um Vampiro para ganhar 3 de vida, e o outro dá vínculo a uma criatura, o Vito incluído.",
+    "sin2": "Não é Vampiro, mas existe por causa deles: marcador no Vampiro, sacrifica um Vampiro e põe Vampiro da mão em campo."
+   },
    "tier": "B",
    "rel": "ALT",
    "faz": "+1: toque mortífero e vínculo numa criatura sua, com marcador se for Vampiro. +1: sacrifica um Vampiro para 3 de dano e 3 de vida. −3: põe um Vampiro da mão em campo.",
@@ -601,15 +820,19 @@
     "ramp": 2,
     "combos": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Gera {B}{B}{B}.",
-   "porque": "Uma das três cartas que põem o Vito no turno 2. No fim, soma três ao X."
+   "porque": "Com um Pântano, põe o Vito no turno 1. No fim, soma três ao X."
   },
   "Deadly Rollick": {
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Exila uma criatura. De graça se você controla um comandante.",
@@ -619,6 +842,12 @@
    "notas": {
     "removal": 2,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande de uma vez: X de vida, X os seus Pântanos, que o Vito devolve inteiro num alvo."
    },
    "tier": "A",
    "rel": "ALT",
@@ -631,6 +860,12 @@
     "vida": 1,
     "pet": 3
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Só rende com o vínculo de outra carta: numa criatura com vínculo, a vida paga volta como ganho grande."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "Custo adicional: pague X de vida. A criatura alvo ganha +X/+0 até o fim do turno.",
@@ -641,6 +876,8 @@
    "notas": {
     "removal": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Muda o alvo de uma mágica de alvo único. Você perde vida igual ao valor de mana dela.",
@@ -653,16 +890,20 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Custo 0: destrói uma criatura não preta. Na próxima manutenção, pague {2}{B} ou perca.",
-   "porque": "Remoção com tudo virado. O K'rrik paga o pacto com vida."
+   "porque": "Remoção com tudo virado. Com o K'rrik, o {B} do pacto sai em vida; o {2} segue em mana."
   },
   "Vampiric Tutor": {
    "notas": {
     "draw": 3,
     "combos": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Busca qualquer carta e põe no topo. Você perde 2.",
@@ -672,6 +913,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Destrói criatura ou encantamento. Você perde 2.",
@@ -681,6 +924,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Destrói uma criatura. O verso é um terreno que entra virado.",
@@ -688,6 +933,8 @@
   },
   "Malakir Rebirth": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Você perde 2. Se a criatura morrer neste turno, volta virada. O verso é um terreno que entra virado.",
@@ -701,6 +948,8 @@
     "draw": 3,
     "combos": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Busca uma carta. Com barganha, conjura de graça se o valor de mana for 4 ou menos.",
@@ -711,6 +960,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "{3}{B}{B}, ou {B} com treze criaturas em campo: cada jogador sacrifica treze criaturas.",
@@ -723,6 +974,14 @@
     "combos": 2,
     "vida": 3
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande de uma vez: reforçado, você ganha metade da vida do alvo, que o Vito tira de novo.",
+    "sin2": "Não é Vampiro e usa um Vampiro só como custo do reforço: de passagem."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "Reforço: vire um Vampiro. Um oponente perde metade da vida, arredondada para cima. Reforçado, você ganha o mesmo tanto.",
@@ -732,6 +991,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Destrói todas as criaturas.",
@@ -743,6 +1004,8 @@
     "draw": 3,
     "combos": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Busca qualquer carta para a mão.",
@@ -754,6 +1017,12 @@
     "vida": 3,
     "pet": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande de uma vez: cada oponente perde X e você ganha o total, que o Vito devolve inteiro num alvo."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "Cada oponente perde X. Você ganha o total perdido.",
@@ -764,6 +1033,8 @@
    "notas": {
     "removal": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Destrói criatura ou encantamento de oponente. Você perde vida igual ao valor de mana.",
@@ -774,6 +1045,8 @@
     "draw": 2,
     "combos": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Busca qualquer carta para a mão. Você perde 3.",
@@ -785,6 +1058,8 @@
     "draw": 2,
     "combos": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Escolha um ou os dois: por {2}, busca uma carta para o topo; por {B}{B}, um jogador compra três e perde 3.",
@@ -794,6 +1069,12 @@
    "notas": {
     "removal": 2,
     "pet": 3
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Não é Vampiro, mas existe por causa deles: vira um Vampiro como custo e torna Vampiro a criatura roubada."
    },
    "tier": "B",
    "rel": "INS",
@@ -806,6 +1087,12 @@
     "removal": 1,
     "vida": 2
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Os oponentes perdem vida sem você ganhar: soma à perda deles, mas não dispara o Vito."
+   },
    "tier": "A",
    "rel": "ALT",
    "faz": "X vezes: cada oponente perde 3, a menos que sacrifique uma permanente não terreno ou descarte.",
@@ -815,6 +1102,8 @@
    "notas": {
     "removal": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Pague X de vida: todas as criaturas ganham −X/−X.",
@@ -823,6 +1112,8 @@
   },
   "Agadeem's Awakening": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Devolve do cemitério criaturas de valores de mana diferentes, até X. O verso é um terreno que entra desvirado por 3 de vida.",
@@ -832,6 +1123,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Vira por {B}.",
@@ -843,6 +1136,12 @@
     "combos": 1,
     "vida": 1
    },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "O sacrifício de dez permanentes tira 10 de cada oponente sem você ganhar: não dispara o Vito."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "Joga do topo pagando vida em vez de mana. Sacrifica dez permanentes: cada oponente perde 10.",
@@ -853,6 +1152,14 @@
     "ramp": 2,
     "vida": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: cada mágica de criatura faz cada oponente perder 1 e você ganhar 1, um gatilho do Vito por criatura.",
+    "sin2": "Não é Vampiro e barateia toda criatura preta, sem citar Vampiros: de passagem."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Criaturas pretas custam 1 a menos. A cada criatura conjurada, cada oponente perde 1 e você ganha 1.",
@@ -862,6 +1169,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Exila um terreno seu. Terrenos com o mesmo nome geram uma mana a mais, de qualquer jogador.",
@@ -872,6 +1181,12 @@
     "ramp": 2,
     "draw": 1
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Não é Vampiro, mas existe por causa deles: com Vampiro escolhido, barateia os Vampiros e os põe na mão."
+   },
    "tier": "B",
    "rel": "MED",
    "faz": "Criaturas do tipo escolhido custam 1 a menos. Na manutenção, se o topo for do tipo, você o compra.",
@@ -881,6 +1196,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Mágicas pretas custam 1 a menos.",
@@ -889,6 +1206,12 @@
   "Mindcrank": {
    "notas": {
     "combos": 3
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Rende com a perda de vida dos oponentes sem causá-la nem ganhar vida."
    },
    "tier": "C",
    "rel": "BAX",
@@ -901,6 +1224,8 @@
     "draw": 2,
     "combos": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "{1}: reordena as três do topo. Vira: compra e volta ao topo.",
@@ -909,6 +1234,12 @@
   "Shadowspear": {
    "notas": {
     "vida": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dá vínculo com a vida a uma criatura por Equipamento, o Vito incluído: ganho só em combate."
    },
    "tier": "A",
    "rel": "ALT",
@@ -922,6 +1253,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Vira: dois incolores.",
@@ -932,6 +1265,8 @@
     "ramp": 2,
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Custa 5. Vira: quatro manas da cor escolhida, só para mágicas monocoloridas dessa cor. {3}, vira: compra duas.",
@@ -943,6 +1278,12 @@
     "ramp": 1,
     "draw": 3
    },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Não é Vampiro, mas cria um Shapeshifter com changeling por turno, que conta como Vampiro."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "A cada turno, escolhe: tesouro (1 de vida), carta (2) ou um Shapeshifter 3/2 com changeling (3).",
@@ -952,6 +1293,12 @@
    "notas": {
     "combos": 3,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: com três marcadores, cada carta que vai ao cemitério de um oponente pode drenar 2, um gatilho do Vito por carta."
    },
    "tier": "A",
    "rel": "ALT",
@@ -963,6 +1310,12 @@
     "combos": 3,
     "vida": 3
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Fecha o laço com o Vito: toda vida que os oponentes perdem volta como ganho, que o Vito converte de novo."
+   },
    "tier": "A",
    "rel": "INS",
    "faz": "Sempre que um oponente perde vida, você ganha o mesmo tanto.",
@@ -972,16 +1325,20 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Pula a compra. No fim do turno, paga vida e compra o mesmo tanto. Mão máxima de cinco. Suas cartas que iriam ao cemitério são exiladas.",
-   "porque": "Compra forte, mas desliga dez cartas da lista (Tenacity, Rebirth, Agadeem, Blood Artist, Vein Ripper) e briga com a Necropotence.",
+   "porque": "Compra forte, mas atrapalha dez cartas da lista: desliga Tenacity, Rebirth e Agadeem, deixa Blood Artist e Vein Ripper só com as mortes dos oponentes, e briga com a Necropotence.",
    "prioridade": 6
   },
   "Necropotence": {
    "notas": {
     "draw": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Pula a compra. Pague 1 de vida: a carta do topo vai para a mão no fim do turno.",
@@ -991,6 +1348,12 @@
    "notas": {
     "removal": 3,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: cada criatura de oponente que morre dá 1 de vida, um gatilho do Vito, e cada criatura sua que morre tira 1 de cada oponente."
    },
    "tier": "A",
    "rel": "INS",
@@ -1002,6 +1365,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Vira: duas incolores, com 2 de dano em você.",
@@ -1011,6 +1376,8 @@
    "notas": {
     "ramp": 3
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "{2}, vira: {B} para cada Pântano.",
@@ -1020,6 +1387,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. {3}, vira: {B} para cada Pântano básico.",
@@ -1029,6 +1398,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "Vira por {B}. {1}{B}{B}, vira: compra e perde vida igual à mão.",
@@ -1038,6 +1409,8 @@
    "notas": {
     "draw": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "C",
    "rel": "BAX",
    "faz": "Incolor. {2}, vira: cada jogador compra uma.",
@@ -1048,6 +1421,8 @@
    "notas": {
     "ramp": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "faz": "{2}, vira: mana igual à devoção a uma cor.",
@@ -1057,6 +1432,12 @@
    "notas": {
     "ramp": -1
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Vidência ao pagar criatura que divide tipo com o Vito, Vampiro ou Clérigo: liga-se à tribo de passagem."
+   },
    "tier": "C",
    "rel": "MED",
    "faz": "Entra virada. Vira por {B}; scry 1 ao pagar criatura que divide tipo com o comandante.",
@@ -1065,6 +1446,8 @@
   },
   "Shizo, Death's Storehouse": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
    "faz": "Vira por {B}. {B}, vira: uma criatura lendária ganha medo.",
@@ -1074,6 +1457,8 @@
    "notas": {
     "ramp": 1
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
    "faz": "Todo terreno é Pântano.",
@@ -1083,6 +1468,8 @@
    "notas": {
     "draw": 2
    },
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Incolor. {3}, vira, 1 de vida: compra.",
@@ -1090,6 +1477,8 @@
   },
   "Witch's Cottage": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "faz": "Pântano. Desvirado com três outros Pântanos; então põe uma criatura do cemitério no topo.",
@@ -1097,6 +1486,8 @@
   },
   "Snow-Covered Swamp": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "INS",
    "faz": "Básico nevado.",
@@ -1109,6 +1500,12 @@
     "combos": 3,
     "vida": 3
    },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Segunda cópia do texto do Vito, num encantamento que sobrevive às limpezas de criaturas."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1118,6 +1515,8 @@
   },
   "Swiftfoot Boots": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
    "veredito": "entra",
@@ -1130,6 +1529,14 @@
     "vamp_s": 2,
     "vida": 2,
     "draw": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Recompensa o ganho: em todo turno em que você ganha 2 de vida, prepara um Sign in Blood; o vínculo com voar alimenta isso.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "B",
    "rel": "MED",
@@ -1144,16 +1551,30 @@
     "vida": 2,
     "pet": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande, repetível quando a criatura com toque mortífero conecta: um Exsanguinate que o Vito devolve inteiro num alvo.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Vampiro 2/2 de 2. Ao atacar, dá toque mortífero a uma criatura; se ela causar dano a um jogador, prepara uma cópia de Exsanguinate.",
-   "porque": "Uma segunda cópia da carta de estimação do dono. E sai a Necrodominance, que desliga dez cartas.",
+   "porque": "Uma segunda cópia da carta de estimação do dono. E sai a Necrodominance, que atrapalha dez cartas.",
    "sai": "Necrodominance"
   },
   "Defiling Daemogoth": {
    "notas": {
     "vida": 3
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Converte o ganho de vida do turno em perda para cada oponente, no seu fim de turno, somando ao Vito."
    },
    "tier": "B",
    "rel": "MED",
@@ -1164,6 +1585,8 @@
   },
   "Lightning Greaves": {
    "notas": {},
+   "sin": {},
+   "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1175,6 +1598,14 @@
    "notas": {
     "vamp_s": 2,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida num corpo com voar: ganho só em combate.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "B",
    "rel": "MED",
@@ -1188,17 +1619,33 @@
     "vamp_c": 2,
     "vida": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: ganha 3 de vida a cada criatura de oponente que morre e a cada descarte de oponente.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Vampiro 3/3 voar. Ganha 3 quando uma criatura de oponente morre ou quando um oponente descarta.",
-   "porque": "Cada morte nas limpezas vira 3 de vida e 3 de dreno. Não dispara com o Kalitas em campo.",
+   "porque": "Cada morte nas limpezas vira 3 de vida e 3 de dreno. Com o Kalitas em campo, só dispara com fichas dos oponentes e com descarte.",
    "sai": "Indulgent Aristocrat"
   },
   "Morlun, Devourer of Spiders": {
    "notas": {
     "vamp_c": 2,
     "vida": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande de uma vez: entra causando X de dano com vínculo a um oponente, e o Vito devolve os X em outro.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "B",
    "rel": "MED",
@@ -1212,6 +1659,12 @@
     "draw": 3,
     "vamp_s": 2
    },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1224,6 +1677,14 @@
     "vamp_c": 3,
     "vida": 2
    },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Motor: cada Vampiro que ataca faz cada oponente perder 1 e você ganhar 1, um gatilho do Vito por atacante.",
+    "sin2": "Vampiro que rende a cada Vampiro que ataca: o dreno cresce com a tribo."
+   },
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
@@ -1235,6 +1696,12 @@
    "notas": {
     "combos": 3
    },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: ganha vida a cada mágica, mais a cada mágica conjurada no turno."
+   },
    "tier": "A",
    "rel": "ALT",
    "veredito": "fora",
@@ -1244,6 +1711,12 @@
   "Bloodline Recollector": {
    "notas": {
     "draw": 2
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
    "tier": "C",
    "rel": "MED",
@@ -1377,7 +1850,7 @@
     "Kalitas, Traitor of Ghet",
     "Blood Artist"
    ],
-   "texto": "Com o Kalitas, as criaturas dos oponentes são exiladas: Blood Artist, Vein Ripper e o ganho do Meathook não disparam por elas."
+   "texto": "Com o Kalitas, as criaturas não ficha dos oponentes são exiladas: Blood Artist, Vein Ripper e o ganho do Meathook não disparam por elas."
   }
  ]
 }

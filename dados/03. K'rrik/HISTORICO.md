@@ -12,3 +12,9 @@
 - Tema "Dívida & Herança", nome escolhido pelo dono: a vida como dívida que o K'rrik saca, e a herança de Yawgmoth; oficina phyrexiana na névoa, sangue e latão, fonte Tourney. Motivos novos no motor: gráfico "engrenagens" (dentes que acendem com a soma das notas; a mais cheia ganha o brilho verde do óleo phyrexiano; o símbolo de mana phyrexiana no placar) e textura "nervuras". A leitura de remoção ganhou a opção `separada`, para as limpezas que têm agrupamento próprio.
 - 14/10/2026: potenciais lidos em https://edh.wiki/commanders/krrik-son-of-yawgmoth/lifegain/ (Ganho de vida do K'rrik): 20 cartas de fora, de +13% a +41%, e a sinergia de 88 cartas do deck e do radar. Quatro foram ao radar, para avaliar, com o ok do dono: Reiver Demon, Sangromancer, Vampire Nighthawk e Greed; 16 ficam em `comunidade.json`.
 - 15/10/2026: Alhammarret's Archive revisto a pedido do dono, depois da página da comunidade (+21%): de C/BAX para B/MED, notas Draw 2 e Drain 2, sem a marca "trabalha contra o K'rrik" e fora da fila de corte. A avaliação antiga só via as cinco manas genéricas; a carta dobra a vida e as compras que o deck converte.
+
+## Pontuação v3, 15/10/2026
+
+- Placar no método antigo: 300. Placar na pontuação v3: 1.103 (critérios 1.018 + aceleração 85). A régua mudou; o placar novo não se compara com os anteriores a esta data.
+- Sinergias aprovadas pelo dono: sin1 "Vida como mana" e sin2 "Dreno e vida de volta". Cada carta do deck e do radar ganhou a nota de sinergia com o porquê, e as cartas novas entraram no cadastro único (`dados/cartas.json`).
+- Textos da avaliação antiga que o texto oficial desmentia foram corrigidos, com autorização do dono, conferidos no Scryfall.
