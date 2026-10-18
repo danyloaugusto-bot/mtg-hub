@@ -1945,7 +1945,7 @@ var PAPEL = { habilita: 'Habilitadora', recompensa: 'Recompensa', multiplica: 'M
 var PAPEIS = { habilita: 'Habilitadoras', recompensa: 'Recompensas', multiplica: 'Multiplicadoras' };
 var PPK = ['habilita', 'recompensa', 'multiplica'];
 var VERP = { excelente: 'Excelente', satisfatorio: 'Satisfatório', insuficiente: 'Insuficiente' };
-function ppB(p) { return '<span class="pp pp-' + p + '">' + PAPEL[p] + '</span>'; }
+function ppB(p) { return p ? '<span class="pp pp-' + p + '">' + PAPEL[p] + '</span>' : '<span class="pp pp-est">Proteção</span>'; }
 function verB(v) { return '<span class="pv pv-' + (v || 'nd') + '">' + (VERP[v] || 'Não classificado') + '</span>'; }
 function mistBar(mx, alto) {
   var n = mx[0] + mx[1] + mx[2] || 1;
