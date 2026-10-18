@@ -28,6 +28,7 @@ Cada comando em `.claude/skills/` já declara o modelo e o esforço no cabeçalh
 | `/caixa [aplicar] [pastas de deck]` | opus | high | Lê as listas da Caixa, avalia a sinergia das cartas nos decks (mostra antes de gravar) e monta a página; com `aplicar`, executa as decisões do dono. |
 | `/plano <pasta do deck> \| todos` | opus | high | Classifica o plano do deck (habilitadoras, recompensas, multiplicadoras), dá o veredito e monta os cenários mais forte e equilibrado; com `todos`, lotes de 5 com o "pode" do dono, e a reavaliação de sinergia junto. |
 | `/precos [origem]` | sonnet | low | Atualiza o valor de hoje das cartas da Caixa e das pastas (Scryfall de novo e dólar PTAX) e monta a página da Caixa. |
+| `/rebranding <lote: 1 \| 2 \| 3 \| 4>` | opus | high | Refaz os gráficos do topo pelo guia visual, um lote por vez, com protótipo aprovado antes do código e o "pode publicar" do dono antes de publicar. |
 | `/importar-backup <pasta do deck>` | sonnet | medium | Traz para o projeto o que foi editado dentro de um painel. |
 
 ## A regra por trás da tabela
