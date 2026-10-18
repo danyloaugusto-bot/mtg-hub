@@ -283,7 +283,10 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Humano Assassino lendário de 4. Suas outras criaturas são Assassinos, em campo, na mão e no grimório; as viradas para baixo têm ameaça; desvirar uma para cima compra e perde 1.",
-   "porque": "Toda criatura do deck passa a ter freerunning {B}{B}, inclusive as oito que não são Assassinos."
+   "porque": "Toda criatura do deck passa a ter freerunning {B}{B}, inclusive as oito que não são Assassinos.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (todo o time vira Assassino)",
+   "papel_por_que": "Torna Assassino todo o resto: cada criatura abre o freerunning e ganha os lordes."
   },
   "Arno Dorian": {
    "notas": {
@@ -306,7 +309,10 @@
    "porque": "O lord que faz a tribo bater forte, e chega por {B}{B} depois de conectar.",
    "marcas": {
     "lord": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Assassino com toque mortífero)",
+   "papel_por_que": "Lorde +2/+0 para os outros Assassinos."
   },
   "Bayek of Siwa": {
    "notas": {
@@ -325,7 +331,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Humano Assassino lendário de 5 com golpe duplo; no seu turno, suas outras criaturas históricas têm golpe duplo; disfarce {1}{R}{W}.",
-   "porque": "No Ezio, golpe duplo: duas chances de execução no mesmo combate. Por freerunning, sai por {B}{B}."
+   "porque": "No Ezio, golpe duplo: duas chances de execução no mesmo combate. Por freerunning, sai por {B}{B}.",
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Assassino)",
+   "papel_por_que": "Golpe duplo nas criaturas históricas no seu turno: dobra o dano do Ezio e dos Assassinos lendários."
   },
   "Queen Marchesa": {
    "notas": {
@@ -346,7 +355,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Humana Assassina lendária de 4 com toque mortífero e ímpeto. Ao entrar, você vira o monarca; se um oponente for o monarca, na sua manutenção, ficha Assassino 1/1 com toque mortífero e ímpeto.",
-   "porque": "Compra por turno, e se perder a coroa, um Assassino por turno para tomá-la de volta."
+   "porque": "Compra por turno, e se perder a coroa, um Assassino por turno para tomá-la de volta.",
+   "papel": "habilita",
+   "papel_dupla": "Draw (monarca)",
+   "papel_por_que": "Corpo Assassino que cria Assassinos com toque mortífero e ímpeto."
   },
   "Arbaaz Mir": {
    "notas": {
@@ -366,7 +378,10 @@
    "rel": "ALT",
    "faz": "Humano Assassino lendário de 2. Ele ou outra permanente histórica sua (não ficha) entra: 1 de dano em cada oponente e você ganha 1.",
    "porque": "39 cartas históricas: leva a mesa toda aos 10 da execução.",
-   "pacote": "fechamento"
+   "pacote": "fechamento",
+   "papel": "habilita",
+   "papel_dupla": "Dano (dreno a cada histórico)",
+   "papel_por_que": "Corpo Assassino; cada histórico que entra drena 1, o que leva a mesa aos 10."
   },
   "Adéwalé, Breaker of Chains": {
    "notas": {
@@ -383,7 +398,10 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Humano Assassino Pirata lendário de 3. Ao entrar, olha seis e pega um Assassino, Pirata ou Veículo; volta do cemitério para a mão quando um Veículo seu acerta um jogador.",
-   "porque": "Acha o próximo Assassino."
+   "porque": "Acha o próximo Assassino.",
+   "papel": "habilita",
+   "papel_dupla": "Recurso (acha Assassino)",
+   "papel_por_que": "Corpo Assassino que, ao entrar, busca outro Assassino entre as seis do topo."
   },
   "Royal Assassin": {
    "notas": {
@@ -399,7 +417,10 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Humano Assassino de 3. Vira: destrói uma criatura virada.",
-   "porque": "Remoção repetível, e Assassino."
+   "porque": "Remoção repetível, e Assassino.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção (repetível)",
+   "papel_por_que": "Corpo Assassino que ganha o freerunning {B}{B} e mata criaturas viradas."
   },
   "Shao Jun": {
    "notas": {
@@ -420,7 +441,10 @@
    "rel": "ALT",
    "faz": "Humana Assassina lendária de 3: no seu turno, voar e golpe primeiro. Vire dois artefatos seus: 1 de dano em cada oponente.",
    "porque": "Conecta pelo ar e pinga a mesa rumo aos 10.",
-   "pacote": "fechamento"
+   "pacote": "fechamento",
+   "papel": "habilita",
+   "papel_dupla": "Dano (pinga com artefatos)",
+   "papel_por_que": "Corpo Assassino que voa no seu turno para conectar."
   },
   "Layla Hassan": {
    "notas": {
@@ -439,7 +463,10 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Humana Assassina lendária de 4 com golpe primeiro. Ao entrar, e quando Assassinos seus acertam um jogador, uma carta histórica do cemitério volta à mão.",
-   "porque": "Recompra a cada conexão."
+   "porque": "Recompra a cada conexão.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Assassino com golpe primeiro)",
+   "papel_por_que": "Cada conexão de Assassinos devolve um histórico do cemitério à mão."
   },
   "Assassin Initiate": {
    "notas": {
@@ -457,7 +484,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Humano Assassino de 1. {1}: voar, toque mortífero ou vínculo até o fim do turno.",
-   "porque": "Conecta no turno 2 e abre o freerunning."
+   "porque": "Conecta no turno 2 e abre o freerunning.",
+   "papel": "habilita",
+   "papel_por_que": "Corpo Assassino de 1 que ganha voar quando precisa conectar."
   },
   "Lydia Frye": {
    "notas": {
@@ -476,7 +505,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Humana Assassina lendária de 3; não pode ser bloqueada por criatura de força 3 ou mais. Na sua etapa final, vigiar X, X os Assassinos virados.",
-   "porque": "Conecta quase sempre, e filtra."
+   "porque": "Conecta quase sempre, e filtra.",
+   "papel": "habilita",
+   "papel_dupla": "Recurso (vigiar)",
+   "papel_por_que": "Corpo Assassino difícil de bloquear por criaturas grandes; vigia pelos Assassinos virados."
   },
   "Mary Read and Anne Bonny": {
    "notas": {
@@ -496,7 +528,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Humanas Assassinas Piratas lendárias de 3 com ímpeto. Vira: compre e descarte; descartar Island, Pirata ou Veículo cria um Tesouro virado.",
-   "porque": "Filtro em corpo de Assassino."
+   "porque": "Filtro em corpo de Assassino.",
+   "papel": "habilita",
+   "papel_dupla": "Draw (saqueio)",
+   "papel_por_que": "Corpo Assassino com ímpeto, que conecta no turno em que entra."
   },
   "Eivor, Wolf-Kissed": {
    "notas": {
@@ -516,7 +551,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Humano Assassino Guerreiro lendário de 6 com atropelar e ímpeto. Ao causar dano de combate, mói esse tanto e põe em campo uma Saga e/ou um terreno de entre elas.",
-   "porque": "Seis manas, ou {B}{B} por freerunning."
+   "porque": "Seis manas, ou {B}{B} por freerunning.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (Saga ou terreno ao conectar)",
+   "papel_por_que": "Corpo Assassino com atropelar e ímpeto."
   },
   "Three Tree Mascot": {
    "notas": {
@@ -537,7 +575,10 @@
    "marcas": {
     "tribo": 1,
     "cores": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Metamorfo: conta como Assassino e ganha o freerunning {B}{B}."
   },
   "Shanid, Sleepers' Scourge": {
    "notas": {
@@ -554,7 +595,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Humano Cavaleiro lendário de 4 com ameaça; suas outras criaturas lendárias têm ameaça. Você conjura uma mágica lendária ou joga um terreno lendário: compre e perca 1.",
-   "porque": "22 lendárias na lista: um motor de compra. Não é Assassino, e perde o freerunning sem o Roshan."
+   "porque": "22 lendárias na lista: um motor de compra. Não é Assassino, e perde o freerunning sem o Roshan.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Dá ameaça às criaturas lendárias, o Ezio e boa parte dos Assassinos."
   },
   "Metallic Mimic": {
    "notas": {
@@ -570,7 +614,10 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Metamorfo artefato de 2 do tipo que escolher; suas outras criaturas desse tipo entram com um marcador +1/+1.",
-   "porque": "Nomeando Assassino, engorda a tribo."
+   "porque": "Nomeando Assassino, engorda a tribo.",
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (vira Assassino)",
+   "papel_por_que": "Cada Assassino que entra ganha um marcador +1/+1."
   },
   "Ezio, Brash Novice": {
    "notas": {
@@ -589,7 +636,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Humano lendário de 2. Ao atacar, um marcador +1/+1; com dois ou mais, golpe primeiro e vira Assassino.",
-   "porque": "Não é Assassino na mão: sem freerunning."
+   "porque": "Não é Assassino na mão: sem freerunning.",
+   "papel": "habilita",
+   "papel_por_que": "Vira Assassino com golpe primeiro depois de dois ataques (papel fraco)."
   },
   "Alexios, Deimos of Kosmos": {
    "notas": {
@@ -638,7 +687,9 @@
    "rel": "MED",
    "faz": "Parede artefato de 2 com defensor e alcance. {3}: uma criatura ganha voar até o fim do turno.",
    "porque": "Conexão cara.",
-   "prioridade": 7
+   "prioridade": 7,
+   "papel": "habilita",
+   "papel_por_que": "Dá voar a uma criatura por {3} (papel fraco, caro)."
   },
   "Shay Cormac": {
    "notas": {
@@ -688,7 +739,10 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Equipamento de 2; equipar lendária {1}, equipar {3}: ward {2}, vira Assassino e não pode ser bloqueada.",
-   "porque": "O Ezio imbloqueável por uma mana: conexão garantida todo turno."
+   "porque": "O Ezio imbloqueável por uma mana: conexão garantida todo turno.",
+   "papel": "habilita",
+   "papel_dupla": "Proteção (ward 2)",
+   "papel_por_que": "Torna a criatura Assassino e imbloqueável; no Ezio, custa {1}."
   },
   "Crystal Skull, Isu Spyglass": {
    "notas": {
@@ -734,7 +788,10 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Equipamento de 3. Ao entrar, equipa e vira todas as criaturas de um oponente; +1/+1 e compre e descarte ao acertar.",
-   "porque": "Abre o caminho inteiro para um ataque."
+   "porque": "Abre o caminho inteiro para um ataque.",
+   "papel": "habilita",
+   "papel_dupla": "Draw (saqueia ao conectar)",
+   "papel_por_que": "Ao entrar, vira todas as criaturas de um oponente: o caminho fica livre para conectar."
   },
   "Lavaspur Boots": {
    "notas": {
@@ -821,7 +878,10 @@
    "rel": "MED",
    "faz": "Equipamento lendário de 4 que entra numa lendária sua. Ao atacar: vira e atordoa uma criatura do defensor, e causa a cada oponente dano igual às criaturas viradas dele.",
    "porque": "Abre bloqueio e leva a mesa aos 10.",
-   "pacote": "fechamento"
+   "pacote": "fechamento",
+   "papel": "habilita",
+   "papel_dupla": "Dano",
+   "papel_por_que": "Ao atacar, vira um bloqueador e drena por criatura virada: abre caminho e leva aos 10."
   },
   "Adrestia": {
    "notas": {
@@ -841,7 +901,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Veículo lendário de 3 com passagem por ilha; tripular 1. Ao atacar tripulado por Assassino, compre e vira Assassino.",
-   "porque": "Conecta e abre o freerunning."
+   "porque": "Conecta e abre o freerunning.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra ao atacar se um Assassino a tripulou, e vira Assassino no ataque."
   },
   "Smoke Bomb": {
    "notas": {
@@ -859,7 +922,10 @@
    "rel": "MED",
    "faz": "Artefato de 3 com lampejo: todas as criaturas têm manto; na sua manutenção, é sacrificado, e uma criatura sua não pode ser bloqueada.",
    "porque": "Em resposta à remoção no Ezio, ela falha; depois, ele passa imbloqueável.",
-   "pacote": "protecao"
+   "pacote": "protecao",
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Deixa uma criatura imbloqueável por um turno (papel fraco, de uma vez)."
   },
   "Haystack": {
    "notas": {
@@ -888,7 +954,10 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Veículo lendário de 3; tripular 3. Ao acertar, pode descartar a mão e comprar uma por artefato seu.",
-   "porque": "Recarga, mas tripular 3 pesa."
+   "porque": "Recarga, mas tripular 3 pesa.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Ao conectar, troca a mão por uma carta por artefato (papel fraco: só rende na própria conexão)."
   },
   "Hemlock Vial": {
    "notas": {
@@ -943,7 +1012,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 4: uma criatura sua causa dano de combate a um oponente, compre.",
-   "porque": "A compra do deck."
+   "porque": "A compra do deck.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra a cada criatura que causa dano de combate a um oponente."
   },
   "Origin of the Hidden Ones": {
    "notas": {
@@ -963,7 +1035,10 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Saga de 4: I, 4 de dano em qualquer alvo; II, duas fichas Assassino 1/1 com ameaça; III, cada Assassino que ataca cria outro, virado e atacando.",
-   "porque": "Remoção, tribo e ataque."
+   "porque": "Remoção, tribo e ataque.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção (4 de dano)",
+   "papel_por_que": "Cria Assassinos com ameaça e mais um a cada Assassino que ataca."
   },
   "The Revelations of Ezio": {
    "notas": {
@@ -981,7 +1056,10 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Saga de 3: I, destrói uma criatura virada de oponente; II, Assassinos que atacam ganham +1/+1; III, um Assassino volta do cemitério ao campo.",
-   "porque": "Remoção e recursão."
+   "porque": "Remoção e recursão.",
+   "papel": "recompensa",
+   "papel_dupla": "Remoção (criatura virada)",
+   "papel_por_que": "Cresce os Assassinos que atacam e devolve um Assassino ao campo."
   },
   "Ballad of the Black Flag": {
    "notas": {
@@ -1011,7 +1089,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Encantamento de 4: no seu combate, suas criaturas ganham cada palavra-chave (voar, ameaça, toque mortífero...) que uma criatura no seu cemitério tenha.",
-   "porque": "Depende do cemitério."
+   "porque": "Depende do cemitério.",
+   "papel": "habilita",
+   "papel_por_que": "Dá ao time as habilidades das criaturas do cemitério, como voar e ameaça, para conectar."
   },
   "The Aesir Escape Valhalla": {
    "notas": {
@@ -1123,7 +1203,10 @@
    "porque": "Remoção de 2 depois de conectar.",
    "marcas": {
     "fr": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Remoção que fica mais barata pelo freerunning quando um Assassino conecta."
   },
   "Mortify": {
    "notas": {
@@ -1177,7 +1260,10 @@
    "porque": "Bounce que salva a sua ou tira um bloqueador.",
    "marcas": {
     "fr": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Remoção (devolve) e Draw",
+   "papel_por_que": "Devolve uma criatura e compra; o freerunning a deixa sem custo de mana."
   },
   "Become Anonymous": {
    "notas": {
@@ -1225,7 +1311,10 @@
    "porque": "Duas cartas e uma mana por 2.",
    "marcas": {
     "fr": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Draw e Ramp",
+   "papel_por_que": "Pelo freerunning, duas cartas do oponente e um Tesouro por {1}{B}."
   },
   "Monastery Raid": {
    "notas": {
@@ -1243,7 +1332,10 @@
    "porque": "Compra grande depois de conectar.",
    "marcas": {
     "fr": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Pelo freerunning, exila X cartas para jogar: rende muito quando um Assassino conecta."
   },
   "Restart Sequence": {
    "notas": {
@@ -1263,7 +1355,10 @@
    "porque": "Recursão de 2.",
    "marcas": {
     "fr": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Recursão",
+   "papel_por_que": "Reanima uma criatura por {1}{B} quando um Assassino conectou."
   },
   "Distract the Guards": {
    "notas": {
@@ -1282,7 +1377,9 @@
    "porque": "Corpos para bloquear ou ir largo.",
    "marcas": {
     "fr": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Pelo freerunning, três fichas mais baratas depois que um Assassino conecta."
   },
   "Supreme Verdict": {
    "notas": {
@@ -1543,7 +1640,10 @@
    "sai": "Rest in Peace",
    "marcas": {
     "lord": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Recompensa (execução vira vitória)",
+   "papel_por_que": "Lorde +1/+1 dos Assassinos."
   },
   "Command Tower": {
    "notas": {},
@@ -1625,7 +1725,10 @@
    "veredito": "entra",
    "faz": "Humano Assassino lendário 2/2 de 2. Uma vez por turno, ao conjurar mágica histórica: compre, e ele não pode ser bloqueado no turno; ao acertar, +1/+1.",
    "porque": "Conecta e compra; 39 históricas. Nas três fontes.",
-   "sai": "Deflecting Palm"
+   "sai": "Deflecting Palm",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Corpo Assassino que fica imbloqueável quando você conjura um histórico."
   },
   "Ezio, Blade of Vengeance": {
    "notas": {
@@ -1646,7 +1749,10 @@
    "veredito": "entra",
    "faz": "Humano Assassino lendário 5/5 de 5 com toque mortífero. Um Assassino seu acerta um jogador: compre.",
    "porque": "Cada conexão vira carta; por freerunning, sai por {B}{B}. Nas três fontes.",
-   "sai": "Tax Collector"
+   "sai": "Tax Collector",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Assassino)",
+   "papel_por_que": "Compra a cada Assassino que causa dano de combate a um jogador."
   },
   "Achilles Davenport": {
    "notas": {
@@ -1672,7 +1778,10 @@
    "marcas": {
     "lord": 1,
     "fr": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Assassino com ameaça)",
+   "papel_por_que": "Lorde +1/+1 dos Assassinos."
   },
   "Desmond Miles": {
    "notas": {
@@ -1693,7 +1802,9 @@
    "veredito": "entra",
    "faz": "Humano Assassino lendário 1/3 de 2 com ameaça; +1/+0 por outro Assassino seu e por Assassino no seu cemitério; ao acertar, vigiar X.",
    "porque": "Assassino de 2 que conecta, no lugar de uma conexão de 3 manas. Fonte B.",
-   "sai": "Towering Viewpoint"
+   "sai": "Towering Viewpoint",
+   "papel": "habilita",
+   "papel_por_que": "Corpo Assassino com ameaça que cresce com os outros Assassinos."
   },
   "Swiftfoot Boots": {
    "notas": {
@@ -1731,7 +1842,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Encantamento de 2: criaturas do tipo escolhido têm medo (só artefato ou preta bloqueia).",
-   "porque": "Nomeando Assassino, a tribo conecta. Fonte C; banco de B."
+   "porque": "Nomeando Assassino, a tribo conecta. Fonte C; banco de B.",
+   "papel": "habilita",
+   "papel_por_que": "Dá medo à tribo escolhida: os Assassinos conectam."
   },
   "Eagle Vision": {
    "notas": {
@@ -1750,7 +1863,10 @@
    "porque": "Três cartas por 2 depois de conectar. Fonte A; banco de B.",
    "marcas": {
     "fr": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Pelo freerunning, compra três por {1}{U}."
   },
   "Aya of Alexandria": {
    "notas": {
@@ -1771,7 +1887,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Humana Assassina lendária 4/3 de 4 com ameaça e vínculo. Uma criatura histórica sua acerta um jogador: ficha Assassino 1/1 com ameaça.",
-   "porque": "Tribo que cresce. Fonte A; banco de B."
+   "porque": "Tribo que cresce. Fonte A; banco de B.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (cria Assassinos)",
+   "papel_por_que": "Cada histórico que conecta cria um Assassino com ameaça."
   },
   "Altaïr Ibn-La'Ahad": {
    "notas": {
@@ -1792,7 +1911,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Humano Assassino lendário 3/3 de 3 com golpe primeiro. Ao atacar, exila um Assassino do cemitério com memória e cria fichas atacando das criaturas com memória no exílio, exiladas no fim do combate.",
-   "porque": "Bom sem o Rest in Peace. Fonte A; banco de B."
+   "porque": "Bom sem o Rest in Peace. Fonte A; banco de B.",
+   "papel": "habilita",
+   "papel_por_que": "Põe cópias de Assassinos exilados atacando a cada ataque."
   },
   "Jacob Frye": {
    "notas": {
@@ -1812,7 +1933,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Humano Assassino lendário 3/2 de 3, parceiro com a Evie Frye. Assassinos seus acertam: exila um Assassino ou carta com freerunning do cemitério e conjura uma cópia.",
-   "porque": "Recursão por conexão. Banco de B."
+   "porque": "Recursão por conexão. Banco de B.",
+   "papel": "recompensa",
+   "papel_por_que": "A conexão de Assassinos copia um Assassino ou freerunning do cemitério."
   },
   "Ratonhnhaké꞉ton": {
    "notas": {
@@ -1833,7 +1956,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Humano Assassino lendário 3/3 de 3: enquanto não causou dano, resistência a magia e imbloqueável; ao acertar, ficha Assassino e um Equipamento do cemitério volta equipado.",
-   "porque": "Conecta na primeira vez, garantido. Banco de B."
+   "porque": "Conecta na primeira vez, garantido. Banco de B.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (ficha e Equipamento ao conectar)",
+   "papel_por_que": "Corpo Assassino imbloqueável e com resistência até conectar."
   },
   "Sorin Markov": {
    "notas": {
@@ -1850,7 +1976,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Planeswalker de 6. +2: 2 de dano e ganhe 2; −3: a vida de um oponente vira 10; −7: controla um jogador no próximo turno.",
-   "porque": "Com o Ezio, execução em duas cartas (Commander Spellbook 367-5712). Banco de B."
+   "porque": "Com o Ezio, execução em duas cartas (Commander Spellbook 367-5712). Banco de B.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção (2 de dano)",
+   "papel_por_que": "Põe um oponente em 10 de vida: abre a execução."
   },
   "Brotherhood Headquarters": {
    "notas": {},
@@ -1918,7 +2047,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Vampira Assassina lendária 3/5 de 4, imbloqueável. Ao acertar, exila uma criatura do jogador com marcador; três marcadores, ele perde; Etrata volta ao grimório.",
-   "porque": "Outra execução, e com o Ramses vence. Fonte C."
+   "porque": "Outra execução, e com o Ramses vence. Fonte C.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção (exila ao conectar)",
+   "papel_por_que": "Corpo Assassino imbloqueável."
   },
   "Kindred Dominance": {
    "notas": {
@@ -1982,7 +2114,10 @@
    "rel": "MED",
    "veredito": "fora",
    "faz": "Equipamento de 3, equipar {2}: imbloqueável e manto.",
-   "porque": "A Regalia faz o mesmo por {1} sem manto. Fonte C."
+   "porque": "A Regalia faz o mesmo por {1} sem manto. Fonte C.",
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Deixa a criatura equipada imbloqueável, como o Ezio."
   },
   "Dark Ritual": {
    "notas": {
@@ -2019,7 +2154,10 @@
    "porque": "Toque mortífero para a tribo inteira desencoraja o bloqueio, e cada conexão, havendo marcador, paga carta e mana de qualquer cor para o WUBRG. Potencial do edh.wiki (+64%).",
    "marcas": {
     "lord": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Draw e Ramp",
+   "papel_por_que": "Dá aos Assassinos toque mortífero e compra com Tesouros ao conectar."
   },
   "Evie Frye": {
    "notas": {
@@ -2040,7 +2178,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Humana Assassina lendária 2/1 de 2, parceira com o Jacob Frye. {1}, vira: compre e descarte; descartou criatura, uma criatura sua não pode ser bloqueada no turno.",
-   "porque": "Filtra a mão e, descartando um Assassino, deixa o Ezio imbloqueável; ao entrar, traz o Jacob, que está no radar, do grimório para a mão. Potencial do edh.wiki (+62%)."
+   "porque": "Filtra a mão e, descartando um Assassino, deixa o Ezio imbloqueável; ao entrar, traz o Jacob, que está no radar, do grimório para a mão. Potencial do edh.wiki (+62%).",
+   "papel": "habilita",
+   "papel_dupla": "Draw (saqueio)",
+   "papel_por_que": "Corpo Assassino que deixa uma criatura imbloqueável de forma repetível."
   },
   "Rooftop Bypass": {
    "notas": {
@@ -2059,7 +2200,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Encantamento de 3. Criaturas não ficha suas causam dano de combate a um jogador: uma ficha Assassino 1/1 com ameaça.",
-   "porque": "Cada conexão vira mais um Assassino com ameaça, que também liga o freerunning. Potencial do edh.wiki (+54%)."
+   "porque": "Cada conexão vira mais um Assassino com ameaça, que também liga o freerunning. Potencial do edh.wiki (+54%).",
+   "papel": "recompensa",
+   "papel_por_que": "Cada conexão de criatura que não é ficha cria um Assassino com ameaça."
   },
   "Rogue's Passage": {
    "notas": {
@@ -2075,7 +2218,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: {C}; {4}, vira: uma criatura não pode ser bloqueada no turno.",
-   "porque": "Garante a conexão do Ezio na hora da execução, na vaga de terreno. Não dá cor, num deck que precisa das cinco. Potencial do edh.wiki (+46%)."
+   "porque": "Garante a conexão do Ezio na hora da execução, na vaga de terreno. Não dá cor, num deck que precisa das cinco. Potencial do edh.wiki (+46%).",
+   "papel": "habilita",
+   "papel_por_que": "Terreno que deixa uma criatura imbloqueável por {4}."
   }
  },
  "combos": [
@@ -2178,5 +2323,92 @@
    ],
    "texto": "A mana colorida do Courtyard só vale para mágica de criatura: não paga o WUBRG, que é parte de um gatilho. A Brotherhood Headquarters tem o mesmo limite."
   }
- ]
+ ],
+ "avaliadas": {
+  "Mind into Matter": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Eladamri, Korvecdal": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Professor Dellian Fel": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Savanti Romero, Time's Exile": {
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Atropelar só em si mesma: \"evasão (...) só em si mesma\", nota 1."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Lavabrink Floodgates": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Emeritus of Ideation": {
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Voar só em si mesma: \"evasão (...) só em si mesma\", nota 1."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Jeskai Revelation": {
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "4 de dano a qualquer alvo, uma vez: \"tira vida de oponente uma vez\", nota 1."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Roaring Furnace": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "K'rrik, Son of Yawgmoth": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Vilis, Broker of Blood": {
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Voar só em si mesma: \"evasão (...) só em si mesma\", nota 1."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "recompensa",
+    "por_que": "Converte a conexão em freerunning e, com o jogador em 10, em execução: o deck precisa de muitos Assassinos que conectem e de evasão."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
