@@ -319,6 +319,15 @@ def em_pastas_hub():
     return out
 
 
+def resumo_caixa():
+    """A Caixa no hub: cartas, cópias e quantas S e A, sem valor (o hub não mostra preço), e o link publicado."""
+    import caixa
+    r = caixa.ler_resumo()
+    if not r or not os.path.isdir(os.path.join(caixa.pasta_caixa(), "listas")):
+        return None
+    return dict(r, href=quote(caixa.NOME + ".html"), pub=caixa.link_publicado())
+
+
 def montar(avisar=print):
     import scryfall
     inv = ler_inventario()
@@ -364,7 +373,7 @@ def montar(avisar=print):
 
     H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS), regua=dados.regua_compacta(),
              pastas=[dict(n=n, c=c) for n, c in PASTAS], em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"),
-             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None)
+             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None, caixa=resumo_caixa())
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
