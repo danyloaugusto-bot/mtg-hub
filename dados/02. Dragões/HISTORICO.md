@@ -22,3 +22,7 @@
 ## Potenciais, 15/10/2026
 
 - Os potenciais da leitura de 14/10/2026 ganharam entrada no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3 funcionar: 17 cartas novas. A página não foi relida (leitura de ontem).
+
+## Regra do dono no cadastro, 17/10/2026
+
+- Dano uma vez em qualquer alvo vale Remoção 1 (regra do dono de 15/10/2026: "uma vez: Fling, Lightning Bolt"). O cadastro tinha Remoção 2 em Lightning Bolt, Goblin Grenade, Massive Raid e Electrodominance; as quatro foram para 1. Placar de 938 para 934; com as trocas, de 1044,5 para 1040,5. Controle atualizado.
