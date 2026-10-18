@@ -101,6 +101,9 @@ def ganho(nome, m, cad, carta=None):
         if e is None:
             return None
         s3, avaliada = [e["n"].get(k, 0) for k in ks], False
+        av = (m.get("avaliadas") or {}).get(base)
+        if av:   # sinergia avaliada fora do deck e do radar (avaliacao.json, "avaliadas"): o ganho deixa de ser piso
+            s3[0], s3[1], avaliada = av["sin"][0], av["sin"][1], True
     sai = ctx["sai"][_chave(_lados(carta))]
     vc, vs = valor(s3, ctx["mult"]), (valor(sai["s3"]) if sai else 0)
     out = dict(deck=m.get("pasta"), painel=m.get("painel"), avaliada=avaliada, ja_no_deck=base in ctx["no_deck"], valor=round(vc, 2),
