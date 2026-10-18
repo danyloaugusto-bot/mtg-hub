@@ -144,7 +144,7 @@ def pontos_cmc(avg):
     return 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
 
 
-PASTAS_FORA = {"pastas"}   # dados/pastas guarda as pastas de cartas do dono, não é deck
+PASTAS_FORA = {"pastas", "caixa"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py). Não são decks
 
 
 def eh_deck(nome):
@@ -169,10 +169,8 @@ def ler_pastas():
     """
     base = os.path.join(DADOS, "pastas")
     out = {}
-    if not os.path.isdir(base):
-        return out
     pad = re.compile(r"^(\d+)\s*x?\s+(.+?)(?:\s+\([A-Za-z0-9]+\)\s+\S+.*)?\s*$", re.I)
-    for f in sorted(os.listdir(base)):
+    for f in sorted(os.listdir(base)) if os.path.isdir(base) else []:
         if not f.lower().endswith(".txt"):
             continue
         cartas = {}
@@ -186,6 +184,11 @@ def ler_pastas():
                     k = chave_nome(m.group(2))
                     cartas[k] = cartas.get(k, 0) + int(m.group(1))
         out[f[:-4]] = cartas
+    # a Caixa (dados/caixa/listas/) entra como mais uma pasta: "está na Caixa" nos painéis e no hub
+    import caixa
+    na_caixa = caixa.nomes()
+    if na_caixa:
+        out["Caixa"] = na_caixa
     return out
 
 
@@ -354,6 +357,26 @@ def ordem_cores(s):
 
 
 # ---------------------------------------------------------------- avaliação
+def ler_avaliadas(av):
+    """avaliacao.json, chave "avaliadas" (17/10/2026, decisão do dono): a sinergia de uma carta neste deck avaliada sem
+    pôr a carta no radar (o /caixa grava, para o encaixe deixar de tratar o ganho como piso). Formato por carta, pelo nome
+    do Scryfall: {"sin": {"sin1": 0..3, "sin2": 0..3}, "sin_por_que": {"sin1": "..."}, "em": "AAAA-MM-DD", "fonte": "caixa"}.
+    Carta que está no deck ou no radar usa as notas de lá; esta chave não as substitui."""
+    out = {}
+    for n, a in (av.get("avaliadas") or {}).items():
+        if n.startswith("_"):
+            continue
+        sin = (a or {}).get("sin") or {}
+        for k, v in sin.items():
+            if k not in ("sin1", "sin2") or not isinstance(v, int) or not 0 <= v <= 3:
+                raise ErroDeck("avaliacao.json, avaliadas, %s: sinergia %s=%r; vale sin1 ou sin2, de 0 a 3" % (n, k, v))
+        for k, v in sin.items():
+            if v and not ((a.get("sin_por_que") or {}).get(k) or "").strip():
+                raise ErroDeck("avaliacao.json, avaliadas, %s: falta o porquê de %s" % (n, k))
+        out[n.split(" // ")[0]] = dict(sin=[sin.get("sin1", 0), sin.get("sin2", 0)], por_que=a.get("sin_por_que") or {}, em=a.get("em", ""))
+    return out
+
+
 def vetor(notas, grupos, quem):
     if not isinstance(notas, dict):
         raise ErroDeck("%s: 'notas' precisa ser um objeto {agrupamento: nota}" % quem)
@@ -587,6 +610,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
                     porque3[n] = {k: v for k, v in w.items() if v}
         if faltam_cad:
             raise ErroDeck("cartas sem cadastro em dados/cartas.json: " + ", ".join(faltam_cad))
+    avaliadas = ler_avaliadas(av) if v3 else {}
 
     grupos = av.get("agrupamentos") or []
     if not 6 <= len(grupos) <= 10:
@@ -737,7 +761,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
             if porque3.get(k3):
                 c["s3w"] = porque3[k3]
     return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, v3=v3,
-                confrontos=confrontos,
+                confrontos=confrontos, avaliadas=avaliadas,
                 criterios=grupos_v3() if v3 else None,
                 marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))

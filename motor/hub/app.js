@@ -187,8 +187,14 @@ function redesenharDecks(foco) {
 }
 
 /* ============ pastas ============ */
+function caixaPastas() {
+  var C = H.caixa; if (!C) return '';
+  var href = (location.protocol !== 'file:' && C.pub) ? C.pub : C.href;
+  return '<article class="cx-res"><div><h3>Caixa</h3><p>' + pl(C.cartas, 'carta', 'cartas') + ', ' + pl(C.copias, 'cópia', 'cópias') + ' à espera de destino: ' +
+    C.S + ' de prioridade S e ' + C.A + ' de prioridade A.</p></div><a class="bt-c" href="' + esc(href) + '">Abrir a Caixa</a></article>';
+}
 function vistaPastas() {
-  return '<p class="intro">As suas pastas de cartas. Quando chegar a lista de cada uma, ela aparece aqui organizada por cor e custo, com ' +
+  return caixaPastas() + '<p class="intro">As suas pastas de cartas. Quando chegar a lista de cada uma, ela aparece aqui organizada por cor e custo, com ' +
     'o que tem sinergia com os seus decks e não está sendo usado e os temas que já formariam um deck novo.</p>' +
     '<div class="pastas">' + H.pastas.map(function (p) {
       return '<article class="pasta" style="--pc:' + esc(p.c) + '"><div class="lomb"></div><div class="t"><h3>' + esc(p.n) + '</h3><p>Sem lista ainda.</p></div></article>';
@@ -2003,6 +2009,7 @@ function filtrar(semIr) {
 }
 $('#v-decks').innerHTML = vistaDecks(); filtrar(true);
 $('#v-pastas').innerHTML = vistaPastas();
+if (H.caixa) { var tc = $('#t-caixa'); tc.hidden = false; if (location.protocol !== 'file:' && H.caixa.pub) tc.href = H.caixa.pub; }
 $('#v-dash').innerHTML = vistaDash();
 $('#foot').innerHTML = '<p>O hub mostra a foto do último build, de ' + esc(H.gerado) + '. O que você edita dentro de um painel fica naquele painel até voltar para o projeto com o <code>/importar-backup</code>, pela aba Oficina.</p>' +
   '<p>Arte das cartas e dos comandantes: © Wizards of the Coast.</p>';

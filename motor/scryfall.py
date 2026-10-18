@@ -78,6 +78,11 @@ def _post(ids):
             raise ErroScryfall("Scryfall respondeu %s" % e.code)
         except urllib.error.URLError as e:
             raise ErroScryfall("sem acesso ao Scryfall (%s)" % e.reason)
+        except (TimeoutError, OSError) as e:   # demora na leitura: o mesmo "sem acesso", e o cache segue valendo
+            if tentativa < 2:
+                time.sleep(1.5 * (tentativa + 1))
+                continue
+            raise ErroScryfall("sem resposta do Scryfall (%s)" % e)
     raise ErroScryfall("Scryfall recusou depois de três tentativas")
 
 
@@ -207,6 +212,11 @@ def _get(url):
             raise ErroScryfall("Scryfall respondeu %s" % e.code)
         except urllib.error.URLError as e:
             raise ErroScryfall("sem acesso ao Scryfall (%s)" % e.reason)
+        except (TimeoutError, OSError) as e:
+            if tentativa < 2:
+                time.sleep(1.5 * (tentativa + 1))
+                continue
+            raise ErroScryfall("sem resposta do Scryfall (%s)" % e)
     raise ErroScryfall("Scryfall recusou depois de três tentativas")
 
 

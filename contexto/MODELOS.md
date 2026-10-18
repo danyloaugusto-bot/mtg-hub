@@ -24,6 +24,8 @@ Cada comando em `.claude/skills/` já declara o modelo e o esforço no cabeçalh
 | `/tema <pasta do deck>` | opus | high | Propõe variações de tema visual para um painel, sem implementar. |
 | `/mover <pasta atual> para <pasta nova>` | haiku | não se aplica | Renomeia a pasta de um deck (muda grupo ou nome) e remonta o que depende dela. |
 | `/compras` | sonnet | medium | Monta a lista única de compras a partir dos radares de todos os decks. |
+| `/confrontar <pasta do deck> [link do Moxfield]` | sonnet | medium | Compara o deck com listas de fora (Moxfield ou arquivo), pela pontuação v3, e mostra no painel. |
+| `/caixa [aplicar] [pastas de deck]` | opus | high | Lê as listas da Caixa, avalia a sinergia das cartas nos decks (mostra antes de gravar) e monta a página; com `aplicar`, executa as decisões do dono. |
 | `/importar-backup <pasta do deck>` | sonnet | medium | Traz para o projeto o que foi editado dentro de um painel. |
 
 ## A regra por trás da tabela

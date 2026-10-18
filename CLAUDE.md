@@ -39,11 +39,15 @@ Na raiz da pasta de um deck ficam só `deck.md`, `decklist.txt`, `capa.*` e o qu
 | `contexto/` | Arquitetura, método de avaliação, paridade, modelos, `ESTADO.md` (o handover vivo), inventário, referências e a origem. Também o `handover-analise-de-decks.md`, que o dono entrega a outras IAs para que analisem um deck neste mesmo método. |
 | `.claude/skills/` | Os comandos do projeto, um por pasta, cada um com seu `SKILL.md`. Cada um declara modelo e esforço. Resumo em `contexto/MODELOS.md`; modelo para criar um novo em `contexto/modelo-de-skill.md`. |
 | `dados/<pasta>/` | Um deck: `deck.md`, `decklist.txt`, `capa.*`, `entrada/`, e o que o motor gera (avaliação, tema, `CONFRONTO.md`, `HISTORICO.md`, `Abrir o painel.html`). |
+| `dados/traducoes.json` | O texto das cartas da Caixa e das pastas em português (tradução livre do Claude, com a marca do texto em inglês traduzido). Só a página da Caixa lê. |
+| `dados/caixa/` | A Caixa: as cartas sem destino. `listas/` (uma por lote, do dono, nunca editadas), `decisoes.json`, `compras.json`, `bundles.txt`, `bulk.txt`, `HISTORICO.md` e o `LEIA-ME.md` com o passo a passo. Não é deck. |
+| `dados/pastas/` | As pastas físicas de cartas do dono (`<pasta>.txt`), as decisões e as marcas de pet card delas. Não é deck. |
 | `motor/` | O código do painel e os scripts de montagem. Contrato dos dados em `contexto/ARQUITETURA.md`. |
 | `testes/` | Os testes, que recebem o deck por `--deck`, e os números de controle em `testes/controle/`. |
 | `cache/` | Dados e imagens do Scryfall. Fora do Git. |
-| `saidas/` | Um HTML por deck, com o nome da pasta, e `00. Hub.html`. |
+| `saidas/` | Um HTML por deck, com o nome da pasta, `00. Hub.html` e `00. Caixa.html`. |
 | `Abrir o Hub.html` | Na raiz. O atalho de um clique, que funciona sem internet. |
+| `Abrir a Caixa.html` | Na raiz. O atalho da página da Caixa. |
 
 ## Comandos de montagem
 
@@ -55,6 +59,7 @@ Mantenha esta seção atualizada.
 - Cartas do zero no Scryfall: acrescente `--atualizar-scryfall`
 - Testes de um deck: `python testes/todos.py --deck "02. Clavileño"` (contrato, regressão, página publicada, layout e, no Clavileño, a comparação com o painel de origem). Cada um também roda sozinho, com `--deck`.
 - Hub: `python motor/build.py --hub` (grava `saidas/00. Hub.html` e `Abrir o Hub.html` na raiz). Teste: `python testes/hub.py`, que também confere as contas do Dashboard contra o motor e contra cada painel (os painéis precisam estar montados em `saidas/`).
+- Caixa: `python motor/build.py --caixa` (grava `saidas/00. Caixa.html` e `Abrir a Caixa.html`; `--todos` monta a Caixa antes do hub). A conta sozinha: `python motor/caixa.py`. Teste: `python testes/caixa.py`. O comando do dia a dia é o `/caixa` (e `/caixa aplicar`).
 - Não rode o `build.py` do kit em `contexto/origem/`: ele grava dentro da pasta de origem.
 
 ## Idioma e tom
@@ -65,7 +70,7 @@ Mantenha esta seção atualizada.
 
 ## Limites da plataforma que moldam o projeto
 
-- **Página publicada:** um arquivo, até 16 MiB, sem carregar nada de fora. Por isso é um artefato por deck, com imagens reduzidas e embutidas.
+- **Página publicada:** um arquivo, até 16 MiB, sem carregar nada de fora. Por isso é um artefato por deck, com imagens reduzidas e embutidas, mais o hub e a Caixa. A Caixa é a única página com preço (decisão do dono, 17/10/2026).
 - **Scryfall:** no máximo 10 chamadas por segundo à API (use 100 ms de intervalo), mande `User-Agent`, guarde em cache.
 - **Artes:** são da Wizards of the Coast. Painel com imagem fica privado.
 - **Três ambientes, um arquivo:** arquivo local, página publicada e prévia de chat. O handover do kit explica o que muda em cada um.
