@@ -20,7 +20,8 @@ import dados, edhrec, encaixe, prenota, scryfall
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 REGUA_ARQ = os.path.join(MOTOR, "caixa.json")
 DESTINOS = ["deck", "guardar", "venda", "bundles", "bulk"]
-NOME_DESTINO = {"deck": "Deck", "guardar": "Guardar", "venda": "Venda", "bundles": "Bundles", "bulk": "Bulk"}
+NOME_DESTINO = {"deck": "Deck", "guardar": "Guardar", "venda": "Venda", "bundles": "Bundles", "bulk": "Bulk", "remover": "Remover"}
+CAIXA = "Caixa"   # a origem padrão; as outras são as pastas com lista em dados/pastas/<pasta>.txt
 PRIORIDADES = ["S", "A", "B", "C"]
 _REGUA = None
 
@@ -216,6 +217,19 @@ def ler_resumo():
         return None
 
 
+def _arq_marcas():
+    return os.path.join(dados.DADOS, "pastas", "marcas.json")
+
+
+def _ler_marcas():
+    """dados/pastas/marcas.json: {pasta: {chave do nome: {"pet": true}}}, as cartas de estimação de cada pasta."""
+    try:
+        with open(_arq_marcas(), encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
 def link_publicado(base=None):
     try:
         with open(os.path.join(pasta_caixa(base), "link.txt"), encoding="utf-8") as f:
@@ -226,13 +240,22 @@ def link_publicado(base=None):
 
 # ---------------------------------------------------------------- decisões
 
-def ler_decisoes(base=None):
-    p = os.path.join(pasta_caixa(base), "decisoes.json")
+def _arq_decisoes(base=None, origem=None):
+    if origem and origem != CAIXA:
+        return os.path.join(dados.DADOS, "pastas", "decisoes.json")
+    return os.path.join(pasta_caixa(base), "decisoes.json")
+
+
+def ler_decisoes(base=None, origem=None):
+    """As decisões de uma origem: a Caixa (dados/caixa/decisoes.json) ou uma pasta (dados/pastas/decisoes.json, por pasta)."""
+    p = _arq_decisoes(base, origem)
     try:
         with open(p, encoding="utf-8") as f:
             d = json.load(f)
     except (OSError, ValueError):
         d = {}
+    if origem and origem != CAIXA:
+        d = (d.get("pastas") or {}).get(origem) or {"versao": 2, "cartas": {}}
     if d.get("versao") != 2:   # a semente era v1, {"versao": 1, "cartas": {}}
         cartas = {}
         for n, v in (d.get("cartas") or {}).items():
@@ -241,10 +264,36 @@ def ler_decisoes(base=None):
     return d
 
 
-def gravar_decisoes(d, base=None):
-    p = os.path.join(pasta_caixa(base), "decisoes.json")
+def gravar_decisoes(d, base=None, origem=None):
+    p = _arq_decisoes(base, origem)
+    if origem and origem != CAIXA:
+        try:
+            with open(p, encoding="utf-8") as f:
+                todas = json.load(f)
+        except (OSError, ValueError):
+            todas = {"versao": 2, "pastas": {}}
+        todas.setdefault("pastas", {})[origem] = d
+        d = todas
+    os.makedirs(os.path.dirname(p), exist_ok=True)
     with open(p, "w", encoding="utf-8", newline="\n") as f:
         f.write(json.dumps(d, ensure_ascii=False, indent=1) + "\n")
+
+
+def origens(base=None):
+    """A Caixa (se tem listas) e cada pasta com lista não vazia em dados/pastas/<pasta>.txt."""
+    out = []
+    if os.path.isdir(os.path.join(pasta_caixa(base), "listas")):
+        out.append(CAIXA)
+    pf = os.path.join(dados.DADOS, "pastas")
+    for f in sorted(os.listdir(pf)) if os.path.isdir(pf) else []:
+        if f.lower().endswith(".txt") and os.path.getsize(os.path.join(pf, f)) > 0:
+            out.append(f[:-4])
+    return out
+
+
+def colecao(origem):
+    """A coleção do banco da página publicada: "decisoes" para a Caixa, "decisoes-<pasta>" para cada pasta."""
+    return "decisoes" if not origem or origem == CAIXA else "decisoes-" + chave_id(origem)
 
 
 # ---------------------------------------------------------------- Scryfall
@@ -369,21 +418,34 @@ def _imp(set_, num):
     return ("%s %s" % ((set_ or "").upper(), num or "")).strip() if set_ else ""
 
 
-def montar(avisar=print, base=None, rede=True, fonte_edhrec=None):
+def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
     """A Caixa inteira, pronta para o teste e para a página. base: outra pasta no lugar de dados/caixa (testes).
-    fonte_edhrec(nome) substitui a leitura do EDHREC (testes, sem rede)."""
+    fonte_edhrec(nome) substitui a leitura do EDHREC (testes, sem rede). origem: uma pasta (dados/pastas/<pasta>.txt)
+    no lugar da caixa: as mesmas contas e decisões para as cartas daquela pasta."""
     R = regua()
     hoje = datetime.date.today().isoformat()
-    copias, resumo_listas = ler_listas(base)
+    origem = origem or CAIXA
+    if origem == CAIXA:
+        copias, resumo_listas = ler_listas(base)
+    else:
+        arq = os.path.join(dados.DADOS, "pastas", origem + ".txt")
+        copias, ign, ruins = ler_txt(arq)
+        for c in copias:
+            c["lista"] = origem + ".txt"
+        for x in ruins:
+            x["lista"] = origem + ".txt"
+        resumo_listas = [dict(arquivo=origem + ".txt", formato="txt", linhas=len(copias) + len(ruins), copias=sum(c["q"] for c in copias),
+                              colunas_ignoradas=[], ilegiveis=ruins)]
     _resolver_ids(copias, avisar)
     achados = _buscar(copias, avisar) if copias else {}
     cad = dados.ler_cadastro()
     ks = encaixe._regua()[1]
     decks = info_decks()
     ds_v3 = encaixe.decks_v3()
-    pastas_fis = {p: v for p, v in dados.ler_pastas().items() if p.lower() != "caixa"}
+    pastas_fis = {p: v for p, v in dados.ler_pastas().items() if p != origem}
     compras = _ler_compras(base)
-    dec = ler_decisoes(base)
+    dec = ler_decisoes(base, origem)
+    pet = (_ler_marcas().get(origem) or {}) if origem != CAIXA else {}
     cmd_do_dono = {}
     for p, d in decks.items():
         for n in d["cmds"]:
@@ -419,7 +481,7 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None):
     for nome, v in por_carta.items():
         ds_c = (dec["cartas"].get(nome) or {}).get("copias") or []
         resto = []
-        aplicadas = [x for x in ds_c if x.get("aplicado")]
+        aplicadas = [x for x in ds_c if x.get("aplicado")] if origem == CAIXA else []
         pendentes = [x for x in ds_c if not x.get("aplicado") and x.get("destino")]
         for cp in v["copias"]:
             a = next((x for x in aplicadas if x.get("imp") == cp["imp"] and x.get("acab", "normal") == cp["acab"]), None)
@@ -481,7 +543,8 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None):
         for g in encaixe.ranking(nome, ds_v3, cad2, carta, n=None):
             d = decks.get(g["deck"]) or {}
             x = (d.get("cartas") or {}).get(ch) or (d.get("radar") or {}).get(ch)
-            sin = [x["s3"][0], x["s3"][1]] if x and x.get("s3") else [0, 0]
+            av = ((d.get("m") or {}).get("avaliadas") or {}).get(nome)
+            sin = [x["s3"][0], x["s3"][1]] if x and x.get("s3") else list(av["sin"]) if av else [0, 0]
             enc.append(dict(p=g["deck"], n=g["painel"], g=g["ganho"], v=g["valor"], s=g["sai"], vs=g["valor_sai"], c=g["cobre"],
                             a=1 if g["avaliada"] else 0, j=1 if g["ja_no_deck"] else 0, sin=sin,
                             pre=1 if d.get("precon") else 0, des=1 if d.get("desejo") else 0,
@@ -502,7 +565,7 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None):
                     rank=rank, gc=1 if gc else 0, staple=1 if staple else 0, forte=1 if forte else 0, vp=vp, s8=s8,
                     cad_auto=1 if cad_auto else 0, por_que=e.get("por_que", ""), copias=v["copias"],
                     em_decks=em_decks, radares=radares, pastas=nas_pastas, compra=na_compra, enc=enc, edh=edh,
-                    sid=r.get("id"), iset=r.get("set"), inum=r.get("num"), image=r.get("image", True))
+                    sid=r.get("id"), iset=r.get("set"), inum=r.get("num"), image=r.get("image", True), pet=1 if pet.get(ch) else 0)
         _sugerir(card, decks, em_desejo, R)
         card["avaliar"] = _decks_a_avaliar(card, decks)
         card["q"] = len(card["copias"])
@@ -516,7 +579,7 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None):
                   sem_preco=sum(1 for c in cartas for cp in c["copias"] if cp["usd"] is None),
                   outro_idioma=sum(1 for c in cartas for cp in c["copias"] if any("preço de referência" in a for a in cp["avisos"])),
                   valor=round(sum(c["valor"] for c in cartas), 2))
-    return dict(lido=hoje, regua=R, resumo=resumo, cartas=cartas,
+    return dict(lido=hoje, regua=R, resumo=resumo, cartas=cartas, origem=origem,
                 decks={p: dict(n=d["painel"], c=d["curto"], i=d["ident"], g=d["grupo"], desejo=1 if d["desejo"] else 0,
                                precon=1 if d["precon"] else 0) for p, d in decks.items()})
 
@@ -728,10 +791,13 @@ def pagina(cx=None, avisar=print, modo_img="embutidas"):
     cx = cx or montar(avisar=avisar)
     R = cx["regua"]
     crit = [dict(k=c["k"], curto=c.get("curto") or c["nome"]) for c in dados.regua()["criterios"] if not c.get("do_deck")]
-    dec = ler_decisoes()
-    D = dict(lido=cx["lido"], regua=R, resumo=cx["resumo"], cartas=cx["cartas"], decks=cx["decks"], crit=crit,
-             dec=dec["cartas"], pastas=[n for n, _ in hub.PASTAS], pastas_com_lista=bool([p for p in dados.ler_pastas() if p.lower() != "caixa"]),
-             hub_pub=R.get("hub_publicado"), img=_img(cx["cartas"], avisar) if modo_img == "embutidas" else None)
+    # a Caixa e cada pasta com lista: as mesmas contas e decisões, uma origem por vez na tela
+    lista = [cx] + [montar(avisar=avisar, origem=o) for o in origens() if o != CAIXA]
+    todas = [c for x in lista for c in x["cartas"]]
+    ors = [dict(k=x["origem"], col=colecao(x["origem"]), resumo=x["resumo"], cartas=x["cartas"], dec=ler_decisoes(origem=x["origem"])["cartas"]) for x in lista]
+    D = dict(lido=cx["lido"], regua=R, origens=ors, decks=cx["decks"], crit=crit,
+             pastas=[n for n, _ in hub.PASTAS], pastas_com_lista=bool([p for p in dados.ler_pastas() if p != CAIXA]),
+             hub_pub=R.get("hub_publicado"), img=_img(todas, avisar) if modo_img == "embutidas" else None)
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
     css_fontes, _ = tema.fontes(["Alegreya Sans"])
@@ -759,13 +825,221 @@ def atalho():
             '<p><a href="%s">Abrir a Caixa</a></p>\n</body>\n</html>\n') % (alvo, alvo)
 
 
+# ---------------------------------------------------------------- o /caixa: avaliar a sinergia e aplicar as decisões
+
+def _ler_av(pasta):
+    p = os.path.join(dados.DADOS, pasta, "avaliacao.json")
+    with open(p, encoding="utf-8") as f:
+        bruto = f.read()
+    m = re.match(r"\{\n( +)\"", bruto)
+    return p, json.loads(bruto), (len(m.group(1)) if m else 1), bruto.endswith("\n")
+
+
+def dossie_avaliar(cx, decks_filtro=None):
+    """Os pares (carta, deck) sem sinergia avaliada, para o /caixa avaliar: o texto da carta (Scryfall) e a régua das duas
+    sinergias de cada deck (tema.json). decks_filtro: só estes decks."""
+    out = {}
+    for c in cx["cartas"]:
+        # com decks escolhidos: toda carta nas cores deles ainda sem sinergia avaliada (a vista "Para o deck");
+        # sem escolha: os "decks a avaliar" de cada carta (os três primeiros do encaixe, os radares e o EDHREC)
+        alvos = [e["p"] for e in c["enc"] if e["p"] in decks_filtro and not e["a"] and not e["j"] and not e["pre"]] if decks_filtro else c["avaliar"]
+        for p in alvos:
+            t = dados.ler_json(os.path.join(dados.DADOS, p, "tema.json"), obrigatorio=False) or {}
+            sins = (t.get("sinergias") or {})
+            d = out.setdefault(p, dict(deck=p, sinergias={k: dict(nome=v.get("nome"), regra=v.get("regra")) for k, v in sins.items() if k in ("sin1", "sin2")}, cartas=[]))
+            e = next((x for x in c["enc"] if x["p"] == p), {})
+            d["cartas"].append(dict(nome=c["n"], custo=c["cost"], tipo=c["line"], texto=c["fx"], ganho_piso=e.get("g"), sai=e.get("s")))
+    return out
+
+
+def gravar_avaliadas(arquivo, hoje=None):
+    """{pasta: {carta: {"sin": {...}, "sin_por_que": {...}}}} -> chave "avaliadas" do avaliacao.json de cada deck (no lugar,
+    preservando o recuo). Carta que já está no deck ou no radar não entra: lá ela já tem sinergia."""
+    hoje = hoje or datetime.date.today().isoformat()
+    with open(arquivo, encoding="utf-8") as f:
+        novo = json.load(f)
+    feitos = []
+    for pasta, cartas in novo.items():
+        p, av, ind, nl = _ler_av(pasta)
+        ja = {n.split(" // ")[0] for n in list((av.get("cartas") or {})) + list((av.get("radar") or {}))}
+        alvo = av.setdefault("avaliadas", {})
+        for n, x in cartas.items():
+            if n.split(" // ")[0] in ja:
+                continue
+            alvo[n] = dict(sin={k: v for k, v in (x.get("sin") or {}).items() if v}, sin_por_que={k: v for k, v in (x.get("sin_por_que") or {}).items() if v},
+                           em=hoje, fonte="caixa")
+            feitos.append((pasta, n))
+        dados.ler_avaliadas(av)   # recusa nota fora da régua antes de gravar
+        with open(p, "w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(av, ensure_ascii=False, indent=ind) + ("\n" if nl else ""))
+    return feitos
+
+
+def importar_banco(arquivo, base=None, origem=None):
+    """Documentos de uma coleção de decisões do banco da Caixa publicada (lista ou {id: doc}) -> decisões da origem; o banco
+    prevalece. Coleção "decisoes" para a Caixa, "decisoes-<pasta>" para cada pasta (colecao())."""
+    with open(arquivo, encoding="utf-8") as f:
+        j = json.load(f)
+    docs = j.values() if isinstance(j, dict) else j
+    dec = ler_decisoes(base, origem)
+    n = 0
+    for d in docs:
+        d = d.get("data", d) if isinstance(d, dict) else d
+        if isinstance(d, dict) and d.get("n"):
+            dec["cartas"][d["n"]] = {"copias": d.get("copias") or []}
+            n += 1
+    gravar_decisoes(dec, base, origem)
+    return n
+
+
+def _linha(nome, imp, acab):
+    s_, _, num = (imp or "").partition(" ")
+    return "1 %s%s%s" % (nome, (" (%s) %s" % (s_, num)) if s_ and num else "", " *F*" if acab == "foil" else " E" if acab == "etched" else "")
+
+
+def _tirar_da_pasta(pasta, nome, imp, acab):
+    """Tira uma cópia de dados/pastas/<pasta>.txt: a linha da mesma impressão e acabamento (ou a primeira do nome), e
+    desconta 1 se a linha tem quantidade maior. Devolve True se achou."""
+    arq = os.path.join(dados.DADOS, "pastas", pasta + ".txt")
+    try:
+        with open(arq, encoding="utf-8") as f:
+            linhas = f.read().split("\n")
+    except OSError:
+        return False
+    alvo = dados.chave_nome(nome)
+    s_, _, num = (imp or "").partition(" ")
+    cand = []
+    for i, l in enumerate(linhas):
+        m = dados.LINHA.match(l.strip())
+        if not m or dados.chave_nome(m.group(2)) != alvo:
+            continue
+        flags = {x.strip("*").upper() for x in (m.group(5) or "").split()}
+        a = "etched" if "E" in flags else "foil" if "F" in flags else "normal"
+        mesma = (m.group(3) or "").upper() == s_.upper() and (m.group(4) or "") == num and a == acab
+        cand.append((0 if mesma else 1, i, m))
+    if not cand:
+        return False
+    _, i, m = sorted(cand)[0]
+    q = int(m.group(1))
+    linhas[i] = "" if q <= 1 else str(q - 1) + linhas[i].strip()[len(m.group(1)):]
+    with open(arq, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(l for l in linhas if l.strip()) + "\n")
+    return True
+
+
+def aplicar(base=None, hoje=None, origem=None):
+    """Executa as decisões ainda não aplicadas de uma origem: Guardar e Venda -> dados/pastas/<pasta>.txt; Bundles e Bulk
+    -> dados/caixa/bundles.txt e bulk.txt; Remover -> a cópia só sai. Vinda de uma pasta, a cópia sai também do arquivo
+    daquela pasta. Pet card fica marcado em dados/pastas/marcas.json. As de Deck ficam para o /caixa pôr no radar
+    (julgamento: notas, tier, quem sai) e marcar com --marcar. Nenhuma decklist muda; as listas da caixa nunca são editadas."""
+    hoje = hoje or datetime.date.today().isoformat()
+    origem = origem or CAIXA
+    dec = ler_decisoes(base, origem)
+    pasta_fis = os.path.join(dados.DADOS, "pastas")
+    marcas = _ler_marcas()
+    feitos, deck = [], []
+    for nome, v in dec["cartas"].items():
+        for x in v.get("copias") or []:
+            if x.get("aplicado") or not x.get("destino"):
+                continue
+            d = x["destino"]
+            if d == "deck":
+                deck.append(dict(n=nome, deck=x.get("deck"), imp=x.get("imp"), acab=x.get("acab", "normal"), origem=origem))
+                continue
+            if d in ("guardar", "venda") and not x.get("pasta"):
+                continue
+            if d in ("guardar", "venda") and x["pasta"] == origem:
+                x["aplicado"] = hoje   # fica onde está
+                feitos.append((nome, d, origem + ", fica"))
+                continue
+            if origem != CAIXA and not _tirar_da_pasta(origem, nome, x.get("imp"), x.get("acab", "normal")):
+                continue
+            if d != "remover":
+                if d in ("guardar", "venda"):
+                    os.makedirs(pasta_fis, exist_ok=True)
+                    arq = os.path.join(pasta_fis, x["pasta"] + ".txt")
+                else:
+                    arq = os.path.join(pasta_caixa(base), d + ".txt")
+                with open(arq, "a", encoding="utf-8", newline="\n") as f:
+                    f.write(_linha(nome, x.get("imp"), x.get("acab", "normal")) + "\n")
+                if x.get("pet") and d in ("guardar", "venda"):
+                    marcas.setdefault(x["pasta"], {})[dados.chave_nome(nome)] = {"pet": True}
+            x["aplicado"] = hoje
+            feitos.append((nome, d, x.get("pasta") or ("" if d == "remover" else d)))
+    gravar_decisoes(dec, base, origem)
+    if marcas != _ler_marcas():
+        os.makedirs(pasta_fis, exist_ok=True)
+        with open(_arq_marcas(), "w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(marcas, ensure_ascii=False, indent=1) + "\n")
+    if feitos:
+        _historico(["%s%s → %s%s" % (nome, "" if origem == CAIXA else " (da pasta %s)" % origem, NOME_DESTINO[d], " (%s)" % onde if onde else "")
+                    for nome, d, onde in feitos], hoje, base)
+    return feitos, deck
+
+
+def marcar(nome, imp, acab="normal", base=None, hoje=None, origem=None):
+    """Marca como aplicada uma cópia de destino Deck, depois de a carta entrar no radar do deck como "avaliar"; vinda de
+    uma pasta, a cópia sai também do arquivo da pasta."""
+    hoje = hoje or datetime.date.today().isoformat()
+    origem = origem or CAIXA
+    dec = ler_decisoes(base, origem)
+    for x in (dec["cartas"].get(nome) or {}).get("copias") or []:
+        if x.get("destino") == "deck" and not x.get("aplicado") and x.get("imp") == imp and x.get("acab", "normal") == acab:
+            if origem != CAIXA:
+                _tirar_da_pasta(origem, nome, imp, acab)
+            x["aplicado"] = hoje
+            gravar_decisoes(dec, base, origem)
+            _historico(["%s → radar do %s, para avaliar" % (nome, x.get("deck"))], hoje, base)
+            return True
+    return False
+
+
+def _historico(linhas, hoje, base=None):
+    p = os.path.join(pasta_caixa(base), "HISTORICO.md")
+    novo = not os.path.exists(p)
+    with open(p, "a", encoding="utf-8", newline="\n") as f:
+        if novo:
+            f.write("# Caixa: histórico\n\nO que saiu da caixa, decisão a decisão (/caixa aplicar).\n")
+        f.write("\n## %s\n\n" % "/".join(reversed(hoje.split("-"))) + "".join("- %s\n" % l for l in linhas))
+
+
 def main():
     import argparse, sys
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
-    ap = argparse.ArgumentParser(description="A Caixa: leitura, conta e resumo.")
+    ap = argparse.ArgumentParser(description="A Caixa: leitura, conta e resumo; e os passos mecânicos do /caixa.")
     ap.add_argument("--sem-rede", action="store_true", help="não consulta o EDHREC (usa só o cache)")
+    ap.add_argument("--avaliar", metavar="ARQUIVO", help="grava o dossiê dos pares carta e deck a avaliar")
+    ap.add_argument("--decks", nargs="*", help="com --avaliar: só estes decks")
+    ap.add_argument("--gravar-avaliadas", metavar="ARQUIVO", help="grava as sinergias aprovadas na chave avaliadas dos decks")
+    ap.add_argument("--importar-banco", metavar="ARQUIVO", help="traz as decisões do banco da Caixa publicada para decisoes.json")
+    ap.add_argument("--aplicar", action="store_true", help="executa Guardar, Venda, Bundles e Bulk; lista as de Deck")
+    ap.add_argument("--marcar", nargs=3, metavar=("CARTA", "IMPRESSAO", "ACABAMENTO"), help="marca uma cópia de Deck como aplicada")
+    ap.add_argument("--origem", help="uma pasta (dados/pastas/<pasta>.txt) no lugar da Caixa, para --importar-banco, --aplicar e --marcar")
     a = ap.parse_args()
+    if a.gravar_avaliadas:
+        for p, n in gravar_avaliadas(a.gravar_avaliadas):
+            print("avaliada: %s em %s" % (n, p))
+        return
+    if a.importar_banco:
+        print("decisões do banco copiadas (%s): %d cartas" % (a.origem or CAIXA, importar_banco(a.importar_banco, origem=a.origem)))
+        return
+    if a.aplicar:
+        feitos, deck = aplicar(origem=a.origem)
+        for n, d, onde in feitos:
+            print("aplicada: %s -> %s (%s)" % (n, NOME_DESTINO[d], onde))
+        for x in deck:
+            print("deck, a pôr no radar: %s -> %s (%s, %s)" % (x["n"], x["deck"], x["imp"], x["acab"]))
+        return
+    if a.marcar:
+        print("marcada" if marcar(*a.marcar, origem=a.origem) else "nenhuma cópia de Deck pendente com essa impressão e acabamento")
+        return
     cx = montar(rede=not a.sem_rede)
+    if a.avaliar:
+        d = dossie_avaliar(cx, a.decks)
+        with open(a.avaliar, "w", encoding="utf-8") as f:
+            json.dump(d, f, ensure_ascii=False, indent=1)
+        print("dossiê: %d decks, %d pares carta e deck" % (len(d), sum(len(x["cartas"]) for x in d.values())))
+        return
     r = cx["resumo"]
     print("Caixa: %d linhas, %d cartas, %d cópias, %s" % (r["linhas"], r["cartas"], r["copias"], usd(r["valor"])))
     print("não encontradas: %d | sem cadastro: %d | sem preço: %d | colunas ignoradas: %s" % (
