@@ -357,6 +357,26 @@ def ordem_cores(s):
 
 
 # ---------------------------------------------------------------- avaliação
+def ler_avaliadas(av):
+    """avaliacao.json, chave "avaliadas" (17/10/2026, decisão do dono): a sinergia de uma carta neste deck avaliada sem
+    pôr a carta no radar (o /caixa grava, para o encaixe deixar de tratar o ganho como piso). Formato por carta, pelo nome
+    do Scryfall: {"sin": {"sin1": 0..3, "sin2": 0..3}, "sin_por_que": {"sin1": "..."}, "em": "AAAA-MM-DD", "fonte": "caixa"}.
+    Carta que está no deck ou no radar usa as notas de lá; esta chave não as substitui."""
+    out = {}
+    for n, a in (av.get("avaliadas") or {}).items():
+        if n.startswith("_"):
+            continue
+        sin = (a or {}).get("sin") or {}
+        for k, v in sin.items():
+            if k not in ("sin1", "sin2") or not isinstance(v, int) or not 0 <= v <= 3:
+                raise ErroDeck("avaliacao.json, avaliadas, %s: sinergia %s=%r; vale sin1 ou sin2, de 0 a 3" % (n, k, v))
+        for k, v in sin.items():
+            if v and not ((a.get("sin_por_que") or {}).get(k) or "").strip():
+                raise ErroDeck("avaliacao.json, avaliadas, %s: falta o porquê de %s" % (n, k))
+        out[n.split(" // ")[0]] = dict(sin=[sin.get("sin1", 0), sin.get("sin2", 0)], por_que=a.get("sin_por_que") or {}, em=a.get("em", ""))
+    return out
+
+
 def vetor(notas, grupos, quem):
     if not isinstance(notas, dict):
         raise ErroDeck("%s: 'notas' precisa ser um objeto {agrupamento: nota}" % quem)
@@ -590,6 +610,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
                     porque3[n] = {k: v for k, v in w.items() if v}
         if faltam_cad:
             raise ErroDeck("cartas sem cadastro em dados/cartas.json: " + ", ".join(faltam_cad))
+    avaliadas = ler_avaliadas(av) if v3 else {}
 
     grupos = av.get("agrupamentos") or []
     if not 6 <= len(grupos) <= 10:
@@ -740,7 +761,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
             if porque3.get(k3):
                 c["s3w"] = porque3[k3]
     return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, v3=v3,
-                confrontos=confrontos,
+                confrontos=confrontos, avaliadas=avaliadas,
                 criterios=grupos_v3() if v3 else None,
                 marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))
