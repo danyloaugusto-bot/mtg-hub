@@ -78,3 +78,5 @@ Imagens, build, testes (`python testes/todos.py --deck "$ARGUMENTS"` e `python t
 `saidas/$ARGUMENTS.html` abre sem internet com as imagens, os testes passam, o hub mostra o deck, e eu aprovei S, BAX e trocas.
 
 Ao terminar: `contexto/ESTADO.md`, uma entrada no `HISTORICO.md` do deck e commit `deck: $ARGUMENTS v1.0`.
+
+Plano do deck: toda carta nova no deck ou no radar ganha `papel` (habilita, recompensa, multiplica, ou nenhum para estrutura), `papel_dupla` quando houver e `papel_por_que`, pelo `contexto/plano/METODO-PLANO.md`, se o deck já tem o bloco `plano`. Deck novo sem classificação: rode o `/plano` depois.
