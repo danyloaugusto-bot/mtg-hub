@@ -290,7 +290,10 @@
       "rel": "MED",
       "faz": "3/2 com iniciativa e ímpeto. Enquanto está virado, todo terreno virado por mana gera uma mana a mais e causa 1 de dano a quem o virou.",
       "porque": "Alimenta o gatilho, mas dobra a mana de três oponentes para isso. O preço é alto demais para um corpo 3/2. Nasceu na DSC, candidata a carta de estimação: fica fora da fila de corte.",
-      "fora_do_corte": true
+      "fora_do_corte": true,
+      "papel": "habilita",
+      "papel_dupla": "Ramp",
+      "papel_por_que": "Virado depois de atacar, cada terreno que o oponente vira por mana o fere no turno dele."
     },
     "Bloodletter of Aclazotz": {
       "notas": {
@@ -307,7 +310,10 @@
       "tier": "A",
       "rel": "ALT",
       "faz": "Demon 2/4 voador. No seu turno, toda perda de vida de oponente é dobrada.",
-      "porque": "Não dispara o gatilho (é no seu turno) nem dobra dano de comandante, mas faz um Valgavoth de poder 10 tirar 20 de vida. É o segundo eixo de abate."
+      "porque": "Não dispara o gatilho (é no seu turno) nem dobra dano de comandante, mas faz um Valgavoth de poder 10 tirar 20 de vida. É o segundo eixo de abate.",
+      "papel": "multiplica",
+      "papel_dupla": "Habilitadora (Demônio)",
+      "papel_por_que": "Dobra a perda de vida dos oponentes no seu turno; não mexe no gatilho do Valgavoth."
     },
     "Crypt Ghast": {
       "notas": {
@@ -338,7 +344,9 @@
       "tier": "A",
       "rel": "ALT",
       "faz": "3/4. Sempre que um oponente compra, leva 1 de dano.",
-      "porque": "Dispara na fase de compra de todo oponente, sem condição e sem custo para você."
+      "porque": "Dispara na fase de compra de todo oponente, sem condição e sem custo para você.",
+      "papel": "habilita",
+      "papel_por_que": "Cada carta que o oponente compra o fere: dispara o Valgavoth na fase de compra dele."
     },
     "Gleeful Arsonist": {
       "notas": {
@@ -354,7 +362,9 @@
       "rel": "MED",
       "faz": "1/2 com undying. Causa dano igual ao próprio poder a cada oponente que conjura mágica não-criatura.",
       "porque": "Alimenta o gatilho quando o oponente joga no turno dele. Depende do que a mesa conjura. Nasceu na DSC, candidata a carta de estimação: fica fora da fila de corte.",
-      "fora_do_corte": true
+      "fora_do_corte": true,
+      "papel": "habilita",
+      "papel_por_que": "Fere o oponente que conjura mágica não-criatura, quase sempre no turno dele."
     },
     "Gray Merchant of Asphodel": {
       "notas": {
@@ -367,7 +377,9 @@
       "rel": "BAX",
       "faz": "Ao entrar, drena cada oponente pela sua devoção ao preto.",
       "porque": "Dreno no seu turno não dá marcador nem carta. É um bom finalizador num deck que não é este.",
-      "prioridade": 5
+      "prioridade": 5,
+      "papel": "recompensa",
+      "papel_por_que": "Fecha o jogo drenando pela devoção ao preto; é no seu turno, então não alimenta o Valgavoth."
     },
     "Herald of Slaanesh": {
       "notas": {
@@ -387,7 +399,10 @@
       "porque": "O Valgavoth é Demon: passa a custar BR, o imposto de comandante cai 2 e ele ataca no turno em que desce.",
       "marcas": {
         "golpe": 1
-      }
+      },
+      "papel": "multiplica",
+      "papel_dupla": "Ramp",
+      "papel_por_que": "Barateia em 2 e dá ímpeto aos Demônios: acelera o que o deck já joga."
     },
     "Karazikar, the Eye Tyrant": {
       "notas": {
@@ -404,7 +419,10 @@
       "tier": "B",
       "rel": "MED",
       "faz": "5/5. Ao atacar um jogador, vira e incita uma criatura dele. Quando um oponente ataca outro, você e ele compram 1 e perdem 1 de vida.",
-      "porque": "O atacante perde vida no turno dele, então dispara o gatilho. Também tira um bloqueador do caminho. Cinco manas é o limite."
+      "porque": "O atacante perde vida no turno dele, então dispara o gatilho. Também tira um bloqueador do caminho. Cinco manas é o limite.",
+      "papel": "habilita",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Incita e, quando um oponente ataca outro, ele perde 1 no turno dele e você compra."
     },
     "Kardur, Doomscourge": {
       "notas": {
@@ -423,7 +441,9 @@
       "tier": "B",
       "rel": "MED",
       "faz": "Demon 4/3. Ao entrar, força as criaturas dos oponentes a atacar por uma rodada. Atacante que morre drena 1 de cada oponente.",
-      "porque": "Demon barato que gera perda de vida no turno deles. O efeito de entrada é de uso único, mas o dreno de atacante que morre é permanente."
+      "porque": "Demon barato que gera perda de vida no turno deles. O efeito de entrada é de uso único, mas o dreno de atacante que morre é permanente.",
+      "papel": "habilita",
+      "papel_por_que": "Demônio que força os oponentes a atacar entre si; atacante que morre drena no turno deles."
     },
     "Kederekt Parasite": {
       "notas": {
@@ -438,7 +458,9 @@
       "tier": "S",
       "rel": "INS",
       "faz": "1/1. Com uma permanente vermelha sua em campo, causa 1 de dano a cada oponente que compra.",
-      "porque": "Uma mana, e o Valgavoth é a permanente vermelha. É a melhor razão custo-gatilho do deck."
+      "porque": "Uma mana, e o Valgavoth é a permanente vermelha. É a melhor razão custo-gatilho do deck.",
+      "papel": "habilita",
+      "papel_por_que": "Com permanente vermelha, cada compra do oponente o fere: dispara o Valgavoth todo turno dele."
     },
     "Lord of the Void": {
       "notas": {
@@ -455,7 +477,9 @@
       "rel": "BAX",
       "faz": "Demon 7/7 voador. Ao causar dano de combate, exila sete do topo do oponente e rouba uma criatura.",
       "porque": "Sete manas para um efeito que só acontece quando você já está ganhando. É Demon, mas não joga o plano.",
-      "prioridade": 4
+      "prioridade": 4,
+      "papel": "habilita",
+      "papel_por_que": "Demônio para o Contract e a Annex; o roubo de criatura é valor à parte."
     },
     "Mai, Scornful Striker": {
       "notas": {
@@ -473,7 +497,9 @@
       "porque": "Duas manas e dispara em quase todo turno de oponente. Cobra de você também: 42 das suas 67 mágicas são não-criatura.",
       "marcas": {
         "sangra": 1
-      }
+      },
+      "papel": "habilita",
+      "papel_por_que": "Oponente que conjura mágica não-criatura perde 2, quase sempre no turno dele."
     },
     "Massacre Wurm": {
       "notas": {
@@ -507,7 +533,10 @@
       "tier": "A",
       "rel": "ALT",
       "faz": "Demon 1/4, iniciativa e toque mortífero, só ataca sozinho. Se não for bloqueado, a vida do jogador vira 1.",
-      "porque": "Vida em 1 com dez fontes de dano no turno dele é morte na manutenção seguinte."
+      "porque": "Vida em 1 com dez fontes de dano no turno dele é morte na manutenção seguinte.",
+      "papel": "recompensa",
+      "papel_dupla": "Habilitadora (Demônio)",
+      "papel_por_que": "Sem bloqueio, a vida do oponente vira 1: fecha o jogo com qualquer sangria seguinte."
     },
     "Mogis, God of Slaughter": {
       "notas": {
@@ -524,7 +553,9 @@
       "tier": "A",
       "rel": "ALT",
       "faz": "Indestrutível. Só é criatura com devoção a preto e vermelho de 7 ou mais. Na manutenção de cada oponente, causa 2 de dano a ele, a menos que ele sacrifique uma criatura.",
-      "porque": "O oponente escolhe: leva o dano, no turno dele, e dispara o gatilho, ou perde um bloqueador. Na maior parte do jogo é um encantamento indestrutível: remoção de criatura não o alcança."
+      "porque": "O oponente escolhe: leva o dano, no turno dele, e dispara o gatilho, ou perde um bloqueador. Na maior parte do jogo é um encantamento indestrutível: remoção de criatura não o alcança.",
+      "papel": "habilita",
+      "papel_por_que": "Na manutenção de cada oponente, 2 de dano ou um sacrifício: dispara o Valgavoth no turno dele."
     },
     "Ob Nixilis, Captive Kingpin": {
       "notas": {
@@ -543,7 +574,10 @@
       "tier": "A",
       "rel": "ALT",
       "faz": "Demon 4/3 voador com atropelar. Quando oponentes perdem exatamente 1 de vida, ganha marcador e exila o topo para você jogar.",
-      "porque": "Mais de dez cartas da lista tiram exatamente 1. É um segundo Valgavoth, e é Demon."
+      "porque": "Mais de dez cartas da lista tiram exatamente 1. É um segundo Valgavoth, e é Demon.",
+      "papel": "recompensa",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Segundo Valgavoth: cada perda de exatamente 1 dos oponentes dá marcador e carta."
     },
     "Rakdos, Lord of Riots": {
       "notas": {
@@ -560,7 +594,10 @@
       "tier": "A",
       "rel": "ALT",
       "faz": "Demon 6/6 voador com atropelar. Só pode ser conjurado se um oponente perdeu vida no turno. Criaturas custam 1 a menos por ponto de vida perdido pelos oponentes.",
-      "porque": "É o que torna os Demons caros jogáveis. Ataque primeiro com o Valgavoth e conjure depois do combate."
+      "porque": "É o que torna os Demons caros jogáveis. Ataque primeiro com o Valgavoth e conjure depois do combate.",
+      "papel": "recompensa",
+      "papel_dupla": "Ramp",
+      "papel_por_que": "Demônio que barateia as criaturas pela vida que os oponentes perderam no turno."
     },
     "Rampaging Ferocidon": {
       "notas": {
@@ -577,7 +614,9 @@
       "rel": "MED",
       "faz": "3/3 com ameaçar. Ninguém ganha vida. Causa 1 de dano ao controlador de cada outra criatura que entra.",
       "porque": "Alimenta o gatilho quando o oponente desce criatura, mas desliga o seu próprio ganho de vida num deck que sangra. A The Ozolith faz mais pela vaga.",
-      "prioridade": 8
+      "prioridade": 8,
+      "papel": "habilita",
+      "papel_por_que": "Fere quem desce criatura e trava o ganho de vida: o oponente se fere no turno dele."
     },
     "Razorkin Needlehead": {
       "notas": {
@@ -592,7 +631,9 @@
       "tier": "S",
       "rel": "INS",
       "faz": "2/2, iniciativa no seu turno. Causa 1 de dano a cada oponente que compra.",
-      "porque": "Duas manas, só oponentes, toda fase de compra. Peça de referência."
+      "porque": "Duas manas, só oponentes, toda fase de compra. Peça de referência.",
+      "papel": "habilita",
+      "papel_por_que": "Cada compra do oponente o fere: dispara o Valgavoth na fase de compra dele."
     },
     "Rot-Curse Rakshasa": {
       "notas": {
@@ -609,7 +650,9 @@
       "tier": "B",
       "rel": "MED",
       "faz": "Demon 5/5 com atropelar e decayed (não bloqueia e é sacrificado depois de atacar). Do cemitério, por XBB, põe marcador decayed em X criaturas.",
-      "porque": "Demon de duas manas para a contagem da tribo. A segunda metade tira X bloqueadores do caminho para sempre."
+      "porque": "Demon de duas manas para a contagem da tribo. A segunda metade tira X bloqueadores do caminho para sempre.",
+      "papel": "habilita",
+      "papel_por_que": "Demônio barato para o Contract e a Annex (papel fraco)."
     },
     "Scrawling Crawler": {
       "notas": {
@@ -625,7 +668,10 @@
       "tier": "A",
       "rel": "ALT",
       "faz": "3/2 artefato. Na sua manutenção, cada jogador compra. Oponente que compra perde 1 de vida.",
-      "porque": "Dispara na compra de todo oponente e ainda liga o Rakdos no seu turno. Dá uma carta por rodada para cada adversário."
+      "porque": "Dispara na compra de todo oponente e ainda liga o Rakdos no seu turno. Dá uma carta por rodada para cada adversário.",
+      "papel": "habilita",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Oponente que compra perde 1, também na fase de compra dele."
     },
     "Sower of Discord": {
       "notas": {
@@ -644,7 +690,10 @@
       "tier": "B",
       "rel": "MED",
       "faz": "Demon 6/6 voador. Escolha dois jogadores: dano causado a um faz o outro perder a mesma vida.",
-      "porque": "Dobra a sangria entre dois jogadores, mas a perda espelhada só cai no turno de quem a sofre quando ele mesmo causa o dano: escolhendo você e um oponente, cada ataque dele em você tira dele a mesma vida. Seis manas."
+      "porque": "Dobra a sangria entre dois jogadores, mas a perda espelhada só cai no turno de quem a sofre quando ele mesmo causa o dano: escolhendo você e um oponente, cada ataque dele em você tira dele a mesma vida. Seis manas.",
+      "papel": "multiplica",
+      "papel_dupla": "Habilitadora (Demônio)",
+      "papel_por_que": "Dano num dos escolhidos vira perda igual no outro: dobra a sangria entre dois jogadores."
     },
     "The Lord of Pain": {
       "notas": {
@@ -691,7 +740,10 @@
       "tier": "B",
       "rel": "MED",
       "faz": "Demon 8/8 voador. Sempre que você perde vida, compra essa quantidade de cartas.",
-      "porque": "Sete fontes suas tiram a sua vida todo turno, então ele compra muito. Com o Spiteful Visions em campo, ele mata você: veja a armadilha nos combos."
+      "porque": "Sete fontes suas tiram a sua vida todo turno, então ele compra muito. Com o Spiteful Visions em campo, ele mata você: veja a armadilha nos combos.",
+      "papel": "habilita",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Demônio para o Contract e a Annex; compra com a vida que você perde."
     },
     "Blasphemous Act": {
       "caro_por_desenho": true,
@@ -757,7 +809,10 @@
       "tier": "B",
       "rel": "ALT",
       "faz": "Busca um Demon. Com delirium, busca qualquer carta.",
-      "porque": "Encontra Herald, Rakdos ou Master of Cruelties por duas manas. Melhora a cada Demon bom que entrar."
+      "porque": "Encontra Herald, Rakdos ou Master of Cruelties por duas manas. Melhora a cada Demon bom que entrar.",
+      "papel": "habilita",
+      "papel_dupla": "Tutor",
+      "papel_por_que": "Busca um Demônio: completa o Liliana's Contract ou liga a Unholy Annex."
     },
     "Feed the Swarm": {
       "notas": {
@@ -1034,7 +1089,9 @@
       "tier": "B",
       "rel": "MED",
       "faz": "Oponente que perde vida tritura a mesma quantidade.",
-      "porque": "Metade do único combo de duas cartas do deck, com Bloodchief Ascension. Sozinha, só enche o cemitério dos outros."
+      "porque": "Metade do único combo de duas cartas do deck, com Bloodchief Ascension. Sozinha, só enche o cemitério dos outros.",
+      "papel": "recompensa",
+      "papel_por_que": "Toda perda de vida do oponente vira trituração; carrega a Bloodchief Ascension."
     },
     "Sol Ring": {
       "notas": {
@@ -1104,7 +1161,10 @@
       "tier": "A",
       "rel": "ALT",
       "faz": "Ganha marcador em todo fim de turno em que um oponente perdeu 2 ou mais de vida. Com três, cada carta que vai ao cemitério de um oponente tira 2 de vida dele.",
-      "porque": "Ativa em três turnos neste deck e fecha combo com Mindcrank."
+      "porque": "Ativa em três turnos neste deck e fecha combo com Mindcrank.",
+      "papel": "habilita",
+      "papel_dupla": "Recompensa (carrega com a perda de vida)",
+      "papel_por_que": "Carregada, cada carta que vai ao cemitério do oponente tira 2 dele, também no turno dele."
     },
     "Descent into Avernus": {
       "notas": {
@@ -1165,7 +1225,10 @@
       "tier": "B",
       "rel": "MED",
       "faz": "Ao entrar, compre 4 e perca 4. Na sua manutenção, com quatro Demons de nomes diferentes, você vence.",
-      "porque": "Compra quatro por cinco. A vitória pede o Valgavoth mais três Demons, e são dez nas 99."
+      "porque": "Compra quatro por cinco. A vitória pede o Valgavoth mais três Demons, e são dez nas 99.",
+      "papel": "recompensa",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Vence o jogo com quatro Demônios de nomes diferentes; ao entrar, compra 4."
     },
     "Manabarbs": {
       "notas": {
@@ -1184,7 +1247,9 @@
       "porque": "Gatilho praticamente garantido em todo turno de oponente. Cobra de você na mesma moeda.",
       "marcas": {
         "sangra": 1
-      }
+      },
+      "papel": "habilita",
+      "papel_por_que": "Cada terreno virado por mana fere quem o virou: o oponente se fere no próprio turno."
     },
     "Phyrexian Arena": {
       "notas": {
@@ -1217,7 +1282,9 @@
       "porque": "Duas manas, incondicional, todo turno de todo oponente.",
       "marcas": {
         "sangra": 1
-      }
+      },
+      "papel": "habilita",
+      "papel_por_que": "1 de dano na manutenção de cada jogador: dispara o Valgavoth todo turno de oponente."
     },
     "Spiteful Visions": {
       "notas": {
@@ -1236,7 +1303,10 @@
       "porque": "Dois de dano no turno de cada oponente. Em você também, e cada carta que o Valgavoth compra custa 1 de vida.",
       "marcas": {
         "sangra": 1
-      }
+      },
+      "papel": "habilita",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Cada compra fere quem compra, e todos compram uma a mais: dispara no turno deles."
     },
     "Sulfuric Vortex": {
       "notas": {
@@ -1255,7 +1325,9 @@
       "porque": "Incondicional e difícil de remover. Custa 2 de vida por turno a você e desliga a sua cura.",
       "marcas": {
         "sangra": 1
-      }
+      },
+      "papel": "habilita",
+      "papel_por_que": "2 de dano a cada jogador na manutenção dele: dispara o Valgavoth todo turno de oponente."
     },
     "Underworld Dreams": {
       "notas": {
@@ -1270,7 +1342,9 @@
       "tier": "A",
       "rel": "INS",
       "faz": "Oponente que compra leva 1 de dano.",
-      "porque": "Só oponentes, toda fase de compra, em encantamento."
+      "porque": "Só oponentes, toda fase de compra, em encantamento.",
+      "papel": "habilita",
+      "papel_por_que": "Oponente que compra leva 1: dispara o Valgavoth na fase de compra dele."
     },
     "Unholy Annex // Ritual Chamber": {
       "notas": {
@@ -1288,7 +1362,10 @@
       "tier": "A",
       "rel": "INS",
       "faz": "No seu fim de turno, compre. Com Demon em campo, drena 2 de cada oponente; sem, você perde 2. A segunda porta cria um Demon 6/6 voador.",
-      "porque": "O Valgavoth é o Demon que liga a carta. Compra todo turno, mesmo que o dreno caia no seu turno."
+      "porque": "O Valgavoth é o Demon que liga a carta. Compra todo turno, mesmo que o dreno caia no seu turno.",
+      "papel": "recompensa",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Com Demônio em campo, compra e drena 2 de cada oponente no seu fim de turno."
     },
     "Arena of Glory": {
       "notas": {
@@ -1586,7 +1663,10 @@
       "veredito": "entra",
       "sai": "Lord of the Void",
       "faz": "Demon 5/4 voador. No fim do turno de cada oponente, esse jogador escolhe até duas criaturas e sacrifica as outras.",
-      "porque": "Demon por Demon, duas manas mais barato, e limpa os bloqueadores a cada turno de cada oponente."
+      "porque": "Demon por Demon, duas manas mais barato, e limpa os bloqueadores a cada turno de cada oponente.",
+      "papel": "habilita",
+      "papel_dupla": "Remoção (limpeza)",
+      "papel_por_que": "Demônio para o Contract e a Annex que limpa o campo do oponente no fim do turno dele."
     },
     "Terminate": {
       "notas": {
@@ -1618,7 +1698,9 @@
       "veredito": "entra",
       "sai": "Unstoppable Slasher",
       "faz": "Demon 4/4 voador com atropelar; espetáculo {1}{B}{B}. Na sua manutenção, causa 1 de dano a cada jogador.",
-      "porque": "Demon de evasão por 3 ou 4 manas, 2 com o Herald. O dano cai no seu turno e não dispara o Valgavoth, mas liga o Rakdos e o Ob Nixilis."
+      "porque": "Demon de evasão por 3 ou 4 manas, 2 com o Herald. O dano cai no seu turno e não dispara o Valgavoth, mas liga o Rakdos e o Ob Nixilis.",
+      "papel": "habilita",
+      "papel_por_que": "Demônio barato para o Contract e a Annex; o dano é no seu turno."
     },
     "Harsh Mentor": {
       "notas": {
@@ -1635,7 +1717,9 @@
       "veredito": "entra",
       "sai": "Ghoulish Impetus",
       "faz": "Sempre que um oponente ativa uma habilidade de artefato, criatura ou terreno que não seja de mana, causa 2 de dano a ele.",
-      "porque": "Duas manas, e dispara no turno do oponente quando ele ativa algo. Depende do que a mesa joga, mas sai a carta que não alimenta o gatilho."
+      "porque": "Duas manas, e dispara no turno do oponente quando ele ativa algo. Depende do que a mesa joga, mas sai a carta que não alimenta o gatilho.",
+      "papel": "habilita",
+      "papel_por_que": "Fere o oponente que ativa habilidade que não é de mana, quase sempre no turno dele."
     },
     "Varragoth, Bloodsky Sire": {
       "notas": {
@@ -1653,7 +1737,10 @@
       "veredito": "avaliar",
       "sai": "Profane Tutor",
       "faz": "Demon 2/3 com toque mortífero. Uma vez por turno, depois de atacar, por {1}{B}: um jogador busca uma carta e a põe no topo do grimório.",
-      "porque": "Tutor repetível num Demon de 3 manas. Só busca depois de atacar, e um 2/3 morre fácil no combate."
+      "porque": "Tutor repetível num Demon de 3 manas. Só busca depois de atacar, e um 2/3 morre fácil no combate.",
+      "papel": "habilita",
+      "papel_dupla": "Tutor",
+      "papel_por_que": "Demônio para o Contract e a Annex; depois de atacar, põe qualquer carta no topo."
     },
     "Commander's Plate": {
       "notas": {
@@ -1687,7 +1774,10 @@
       "veredito": "avaliar",
       "sai": "Phyrexian Arena",
       "faz": "Lampejo. Ao entrar, e sempre que um oponente compra uma carta além da primeira da fase de compra, causa 1 de dano a qualquer alvo e põe um marcador num Exército Orc, criando-o se preciso.",
-      "porque": "Com o Spiteful Visions, cada oponente compra uma carta a mais no próprio turno, e o Bowmasters pune cada uma. Sem ele, depende de compra extra da mesa."
+      "porque": "Com o Spiteful Visions, cada oponente compra uma carta a mais no próprio turno, e o Bowmasters pune cada uma. Sem ele, depende de compra extra da mesa.",
+      "papel": "habilita",
+      "papel_dupla": "Remoção",
+      "papel_por_que": "Com a Spiteful Visions, a compra extra do oponente o fere no turno dele."
     },
     "Kaervek the Merciless": {
       "notas": {
@@ -1705,7 +1795,10 @@
       "veredito": "avaliar",
       "faz": "Sempre que um oponente conjura uma mágica, Kaervek causa a qualquer alvo dano igual ao valor de mana dela.",
       "porque": "Cada mágica do oponente no turno dele vira dano na mesa e dispara o Valgavoth; de quebra, mata criaturas e pune quem conjura grande.",
-      "sai": "Malakir Rebirth"
+      "sai": "Malakir Rebirth",
+      "papel": "habilita",
+      "papel_dupla": "Remoção",
+      "papel_por_que": "Cada mágica do oponente vira dano nele, quase sempre no turno dele."
     },
     "Persistent Constrictor": {
       "notas": {
@@ -1723,7 +1816,10 @@
       "veredito": "avaliar",
       "faz": "Na manutenção de cada oponente, ele perde 1 de vida e você põe um marcador -1/-1 em até uma criatura dele. Persistir.",
       "porque": "Aciona o Valgavoth em toda manutenção de oponente sem depender do que ele faz, e ainda enfraquece as criaturas da mesa; persistir o torna resistente.",
-      "sai": "Malakir Rebirth"
+      "sai": "Malakir Rebirth",
+      "papel": "habilita",
+      "papel_dupla": "Remoção",
+      "papel_por_que": "Na manutenção de cada oponente, ele perde 1: dispara o Valgavoth todo turno dele."
     }
   },
   "combos": [
@@ -1799,5 +1895,109 @@
       ],
       "texto": "Com a Greaves equipada, o manto impede Kaya's Ghostform, Not Dead After All, Malakir Rebirth e Mandate of Abaddon de mirar o Valgavoth. Mova a Greaves para outra criatura antes: equipar custa 0."
     }
-  ]
+  ],
+  "avaliadas": {
+    "Savanti Romero, Time's Exile": {
+      "sin": {
+        "sin2": 2
+      },
+      "sin_por_que": {
+        "sin2": "Demônio sem efeito voltado aos outros Demônios: conta para o Liliana's Contract e sai mais barato com o Herald."
+      },
+      "em": "2026-10-18",
+      "fonte": "caixa",
+      "papel": "habilita",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Demônio para o Contract e a Annex; compra cada vez mais no seu combate, pagando vida."
+    },
+    "Meathook Massacre II": {
+      "sin": {
+        "sin1": 1
+      },
+      "sin_por_que": {
+        "sin1": "Só sob condição que a mesa raramente cumpre: o oponente paga 3 de vida quando a criatura dele morre, e só conta se for no turno dele."
+      },
+      "em": "2026-10-18",
+      "fonte": "caixa"
+    },
+    "The Ooze": {
+      "sin": {
+        "sin1": 1
+      },
+      "sin_por_que": {
+        "sin1": "Aproveita o que o gatilho dá, guardando os marcadores (como a The Ozolith): os marcadores do Valgavoth viram Mutagens quando ele sai."
+      },
+      "em": "2026-10-18",
+      "fonte": "caixa"
+    },
+    "Invasion of Innistrad": {
+      "sin": {},
+      "sin_por_que": {},
+      "em": "2026-10-18",
+      "fonte": "caixa"
+    },
+    "Demonic Covenant": {
+      "sin": {
+        "sin2": 3
+      },
+      "sin_por_que": {
+        "sin2": "Demônio (Kindred) com efeito voltado aos outros Demônios, que rende para o deck inteiro: compra quando eles atacam e cria um por turno."
+      },
+      "em": "2026-10-18",
+      "fonte": "caixa",
+      "papel": "habilita",
+      "papel_dupla": "Recompensa (compra quando Demônios atacam)",
+      "papel_por_que": "Cria um Demônio 5/5 voador no seu fim de turno e compra quando Demônios atacam."
+    },
+    "Bloodgift Demon": {
+      "sin": {
+        "sin2": 2
+      },
+      "sin_por_que": {
+        "sin2": "Demônio sem efeito voltado aos outros Demônios: conta para o Liliana's Contract e liga a Unholy Annex."
+      },
+      "em": "2026-10-18",
+      "fonte": "caixa",
+      "papel": "habilita",
+      "papel_dupla": "Draw",
+      "papel_por_que": "Demônio voador para o Contract e a Annex; compra uma por turno na sua manutenção."
+    },
+    "Suspended Sentence": {
+      "sin": {
+        "sin1": 1
+      },
+      "sin_por_que": {
+        "sin1": "Tira vida do oponente no turno dele uma vez só, numa instantânea: destrói a criatura e ele perde 3."
+      },
+      "em": "2026-10-18",
+      "fonte": "caixa"
+    },
+    "Pox Plague": {
+      "sin": {},
+      "sin_por_que": {},
+      "em": "2026-10-18",
+      "fonte": "caixa"
+    },
+    "Crossway Troublemakers": {
+      "sin": {},
+      "sin_por_que": {},
+      "em": "2026-10-18",
+      "fonte": "caixa"
+    },
+    "Chimil, the Inner Sun": {
+      "sin": {},
+      "sin_por_que": {},
+      "em": "2026-10-18",
+      "fonte": "caixa"
+    }
+  },
+  "plano": {
+    "comandante": [
+      {
+        "papel": "recompensa",
+        "por_que": "Cresce e compra na primeira perda de vida de cada oponente no turno dele: recompensa a sangria. Precisa de muitas habilitadoras que tirem vida no turno deles."
+      }
+    ],
+    "revisado": "2026-10-18"
+  }
 }
