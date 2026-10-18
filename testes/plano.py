@@ -88,7 +88,10 @@ R.ok("deck sem plano: ainda não classificado", plano.avaliar(deck(14, 12, 8), [
 # ---------------------------------------------------------------- a tela: o quadro no painel do Clavileño e num deck sem classificação
 import subprocess
 from playwright.sync_api import sync_playwright
-for pasta in (CL, "01. Giada"):
+SEM = next((p for p in sorted(os.listdir(os.path.join(RAIZ, "dados"))) if p[:2].isdigit() and os.path.exists(os.path.join(RAIZ, "dados", p, "avaliacao.json"))
+            and json.load(open(os.path.join(RAIZ, "dados", p, "avaliacao.json"), encoding="utf-8")).get("versao_pontuacao") == 3
+            and not json.load(open(os.path.join(RAIZ, "dados", p, "avaliacao.json"), encoding="utf-8")).get("plano")), None)   # um deck ainda sem classificação
+for pasta in [CL] + ([SEM] if SEM else []):
     subprocess.run([sys.executable, "-B", os.path.join(RAIZ, "motor", "build.py"), "--deck", pasta], capture_output=True, text=True, encoding="utf-8")
 with sync_playwright() as pw:
     b = pw.chromium.launch()
@@ -106,7 +109,8 @@ with sync_playwright() as pw:
     pg = b.new_page(viewport={"width": 1360, "height": 900})
     pg.goto(comum.url(os.path.join(RAIZ, "saidas", CL + ".html"))); pg.wait_for_timeout(1200)
     pg.click('[data-view="tab"], [data-v="tab"]') if pg.locator('[data-v="tab"]').count() else None
-    pg.goto(comum.url(os.path.join(RAIZ, "saidas", "01. Giada.html"))); pg.wait_for_timeout(1200)
-    R.ok("deck sem classificação: o quadro diz que ainda não foi classificado", "Ainda não classificado" in pg.inner_text("fieldset.plano"))
+    if SEM:
+        pg.goto(comum.url(os.path.join(RAIZ, "saidas", SEM + ".html"))); pg.wait_for_timeout(1200)
+        R.ok("deck sem classificação (%s): o quadro diz que ainda não foi classificado" % SEM, "Ainda não classificado" in pg.inner_text("fieldset.plano"))
     b.close()
 R.fim()
