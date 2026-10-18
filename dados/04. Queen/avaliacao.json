@@ -320,7 +320,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "4/4 atropelar. Ataca todo combate, não pode ser sacrificado nem atacar o dono. Na manutenção de cada jogador, passa a ele, desvira, ganha +1/+1 e pressa.",
-   "porque": "Pressão que roda a mesa e nunca bate em você: política sem você ser o agressor."
+   "porque": "Pressão que roda a mesa e nunca bate em você: política sem você ser o agressor.",
+   "papel": "multiplica",
+   "papel_por_que": "Ataca todo combate e nunca o dono: na mão dos oponentes, bate em outro jogador, não em você."
   },
   "Archon of Coronation": {
    "notas": {
@@ -343,7 +345,10 @@
    "porque": "Com a coroa, você fica imune a dano. O dano ainda é causado: quem conecta toma a coroa e a imunidade acaba.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Proteção (vida, com a coroa)",
+   "papel_por_que": "Dá a coroa ao entrar e, com ela, dano não tira sua vida."
   },
   "Caesar, Legion's Emperor": {
    "notas": {
@@ -360,7 +365,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "4/4. Sempre que você ataca, pode sacrificar outra criatura e escolher dois: dois Soldados atacando, comprar uma carta, ou dano igual às suas fichas.",
-   "porque": "Pede ataque e ficha para sacrificar, e a fortaleza ataca pouco."
+   "porque": "Pede ataque e ficha para sacrificar, e a fortaleza ataca pouco.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Ao atacar, põe dois Soldados atacando: ajuda a retomar a coroa pelo combate."
   },
   "Champions of Minas Tirith": {
    "notas": {
@@ -382,7 +390,10 @@
    "porque": "Coroa e taxa de ataque numa carta, cobrada uma vez por combate e não por criatura.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (atacar você custa caro)",
+   "papel_por_que": "Dá a coroa ao entrar; com ela, quem tem mão cheia paga caro para atacar você."
   },
   "Crimson Fleet Commodore": {
    "notas": {
@@ -402,7 +413,9 @@
    "marcas": {
     "coroa": 1
    },
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "papel": "habilita",
+   "papel_por_que": "Dá a coroa ao entrar; 5/2 com atropelar para retomá-la."
   },
   "Custodi Lich": {
    "notas": {
@@ -423,7 +436,10 @@
    "marcas": {
     "coroa": 1
    },
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "papel": "habilita",
+   "papel_dupla": "Remoção (sacrifício ao virar monarca)",
+   "papel_por_que": "Dá a coroa ao entrar, e cada vez que você vira o monarca um jogador sacrifica."
   },
   "Emberwilde Captain": {
    "notas": {
@@ -446,7 +462,10 @@
    "porque": "Coroa com dissuasão, que só funciona com a coroa.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (castiga quem ataca você)",
+   "papel_por_que": "Dá a coroa ao entrar; com ela, quem ataca você leva dano igual às cartas na mão."
   },
   "Esper Sentinel": {
    "notas": {
@@ -479,7 +498,10 @@
    "rel": "MED",
    "faz": "0/4. Quando você compra a segunda carta do turno, causa 3 de dano a qualquer alvo.",
    "porque": "A compra da coroa, no seu fim de turno, é a segunda do turno: 3 de dano por volta. Sem a coroa, é um 0/4.",
-   "prioridade": 7
+   "prioridade": 7,
+   "papel": "recompensa",
+   "papel_dupla": "Remoção (3 de dano)",
+   "papel_por_que": "A compra do monarca é a segunda carta do turno: 3 de dano a cada vez."
   },
   "Kambal, Consul of Allocation": {
    "notas": {
@@ -511,7 +533,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "5/4. Cada criatura que ataca você rende um Ogro 3/3, a menos que o controlador pague 3.",
-   "porque": "Taxa por atacante que, ignorada, constrói o seu exército."
+   "porque": "Taxa por atacante que, ignorada, constrói o seu exército.",
+   "papel": "multiplica",
+   "papel_por_que": "Cada atacante contra você paga 3 ou vira um Ogro 3/3 seu."
   },
   "Knights of the Black Rose": {
    "notas": {
@@ -533,7 +557,10 @@
    "porque": "Coroa com um pedágio para quem a toma.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (drena quem toma a coroa)",
+   "papel_por_que": "Dá a coroa ao entrar e drena 2 de quem a tomar de você."
   },
   "Master of Ceremonies": {
    "notas": {
@@ -568,7 +595,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "2/4 vigilância. Ao atacar, torna uma criatura suspeita e força as suspeitas a atacar. Quando criaturas de um oponente causam dano a outro oponente, você e ele compram.",
-   "porque": "Tira atacantes de cima de você e paga em cartas. A peça política mais completa."
+   "porque": "Tira atacantes de cima de você e paga em cartas. A peça política mais completa.",
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Goad nas suspeitas manda os ataques para outro jogador, e você compra quando eles se batem."
   },
   "Ophiomancer": {
    "notas": {
@@ -600,7 +630,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "1/1. Vira: destrói uma criatura virada.",
-   "porque": "Quem atacou você perde a criatura no seu turno."
+   "porque": "Quem atacou você perde a criatura no seu turno.",
+   "papel": "multiplica",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Destrói a criatura virada: quem atacou você para tomar a coroa perde o atacante."
   },
   "Skyline Despot": {
    "notas": {
@@ -620,7 +653,10 @@
    "porque": "Um Dragão por turno com a coroa: fecha em três ou quatro voltas.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (dá a coroa)",
+   "papel_por_que": "Dá a coroa e, com ela, cria um Dragão 5/5 voador toda manutenção."
   },
   "Thorn of the Black Rose": {
    "notas": {
@@ -642,7 +678,9 @@
    "porque": "Coroa com um bloqueador que ninguém quer enfrentar.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Dá a coroa ao entrar; toque mortífero para bloquear quem vem buscá-la."
   },
   "Windborn Muse": {
    "notas": {
@@ -657,7 +695,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "2/3 voar. Atacar você custa 2 por criatura.",
-   "porque": "Uma Ghostly Prison com asas."
+   "porque": "Uma Ghostly Prison com asas.",
+   "papel": "multiplica",
+   "papel_por_que": "Atacar você custa 2 por criatura: a coroa fica mais voltas com você."
   },
   "Anguished Unmaking": {
    "notas": {
@@ -729,7 +769,10 @@
    "rel": "MED",
    "faz": "Só no combate de um oponente: previne o dano de combate em você, desvira e força os atacantes a atacar, e há outro combate.",
    "porque": "Salva um turno e joga o ataque em outro. Sem dano, a coroa fica.",
-   "prioridade": 8
+   "prioridade": 8,
+   "papel": "multiplica",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Previne o dano de combate em você e força os atacantes a bater em outro."
   },
   "Terminate": {
    "notas": {
@@ -849,7 +892,10 @@
    "marcas": {
     "coroa": 1
    },
-   "massa": true
+   "massa": true,
+   "papel": "habilita",
+   "papel_dupla": "Remoção (limpeza)",
+   "papel_por_que": "Limpa a mesa com -4/-4 e dá a coroa."
   },
   "Forth Eorlingas!": {
    "notas": {
@@ -868,7 +914,9 @@
    "porque": "Retoma a coroa no mesmo turno e, com X alto, fecha por combate.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "X Cavaleiros com pressa; se baterem num jogador, você vira o monarca."
   },
   "Idyllic Tutor": {
    "notas": {
@@ -957,7 +1005,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Atacar você custa {W/P} por criatura.",
-   "porque": "Quem não joga branco paga com 2 de vida por atacante."
+   "porque": "Quem não joga branco paga com 2 de vida por atacante.",
+   "papel": "multiplica",
+   "papel_por_que": "Atacar você custa {W/P} por criatura: segura a coroa."
   },
   "Skullclamp": {
    "notas": {
@@ -1072,7 +1122,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Na manutenção, mais um marcador e um Soldado 1/1 com pressa por marcador.",
-   "porque": "Exército que cresce atrás da fortaleza. Fecha em cinco ou seis voltas."
+   "porque": "Exército que cresce atrás da fortaleza. Fecha em cinco ou seis voltas.",
+   "papel": "habilita",
+   "papel_por_que": "Soldados com pressa a cada manutenção, cada vez mais, para retomar a coroa pelo combate."
   },
   "Blind Obedience": {
    "notas": {
@@ -1108,7 +1160,10 @@
    "porque": "Desgaste que acaba com as mãos da mesa.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (dá a coroa)",
+   "papel_por_que": "Com a coroa, cada oponente perde 6 ou descarta duas em toda manutenção."
   },
   "Court of Ardenvale": {
    "notas": {
@@ -1127,7 +1182,10 @@
    "porque": "Recupera Ghostly Prison, pedras e peças baratas todo turno.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (dá a coroa)",
+   "papel_por_que": "Com a coroa, devolve do cemitério ao campo uma permanente de valor 3 ou menos todo turno."
   },
   "Court of Embereth": {
    "notas": {
@@ -1147,7 +1205,10 @@
    "porque": "Rende pouco numa mesa de poucas criaturas.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (dá a coroa)",
+   "papel_por_que": "Cavaleiro todo turno e, com a coroa, dano a cada oponente igual às suas criaturas."
   },
   "Court of Grace": {
    "notas": {
@@ -1167,7 +1228,10 @@
    "porque": "A Corte que ganha jogo: um Anjo por turno defende a coroa e depois ataca.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (dá a coroa)",
+   "papel_por_que": "Com a coroa, um Anjo 4/4 voador por turno; sem ela, um Espírito que ajuda a retomá-la."
   },
   "Court of Ire": {
    "notas": {
@@ -1187,7 +1251,10 @@
    "porque": "Sete por turno mata criatura, planeswalker ou jogador.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (dá a coroa)",
+   "papel_por_que": "Com a coroa, 7 de dano em qualquer alvo toda manutenção."
   },
   "Court of Locthwain": {
    "notas": {
@@ -1207,7 +1274,10 @@
    "porque": "Vantagem com as cartas dos outros.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (dá a coroa)",
+   "papel_por_que": "Joga cartas do oponente e, com a coroa, conjura uma de graça todo turno."
   },
   "Darksteel Mutation": {
    "notas": {
@@ -1263,7 +1333,9 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Atacar você custa 2 por criatura.",
-   "porque": "A peça que define a fortaleza."
+   "porque": "A peça que define a fortaleza.",
+   "papel": "multiplica",
+   "papel_por_que": "Atacar você custa 2 por criatura: a coroa fica mais voltas com você."
   },
   "Grave Venerations": {
    "notas": {
@@ -1283,7 +1355,10 @@
    "porque": "Coroa com reposição.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (dá a coroa)",
+   "papel_por_que": "Com a coroa, devolve uma criatura do cemitério à mão em todo fim de turno."
   },
   "Marchesa's Decree": {
    "notas": {
@@ -1304,7 +1379,9 @@
    "porque": "Coroa e pedágio que não depende da coroa.",
    "marcas": {
     "coroa": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Dá a coroa ao entrar; quem ataca você perde 1."
   },
   "No Mercy": {
    "notas": {
@@ -1319,7 +1396,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Sempre que uma criatura causa dano a você, é destruída.",
-   "porque": "Não impede a perda da coroa; cobra o preço depois."
+   "porque": "Não impede a perda da coroa; cobra o preço depois.",
+   "papel": "multiplica",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Criatura que causa dano a você morre: atacar você para tomar a coroa custa a criatura."
   },
   "Smothering Tithe": {
    "notas": {
@@ -1349,7 +1429,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Atacar você custa X por criatura, X igual aos seus encantamentos.",
-   "porque": "Com 18 encantamentos na lista, chega fácil a 5."
+   "porque": "Com 18 encantamentos na lista, chega fácil a 5.",
+   "papel": "multiplica",
+   "papel_por_que": "Atacar você custa um por encantamento seu, e o deck tem muitos: fecha a porta da coroa."
   },
   "Glasswing Grace": {
    "notas": {
@@ -1727,7 +1809,10 @@
    "veredito": "entra",
    "faz": "2/2 de 4. Ao entrar, você vira o monarca e exila uma criatura de oponente até um oponente virar o monarca.",
    "porque": "Coroa com remoção, que dura enquanto a coroa for sua.",
-   "sai": "Irencrag Pyromancer"
+   "sai": "Irencrag Pyromancer",
+   "papel": "habilita",
+   "papel_dupla": "Remoção (exila até perder a coroa)",
+   "papel_por_que": "Dá a coroa e exila uma criatura enquanto ela ficar com você."
   },
   "Queen Mother Ramonda": {
    "notas": {
@@ -1747,7 +1832,10 @@
    "veredito": "entra",
    "faz": "3/5 de 5. Ao entrar, você vira o monarca. Com a coroa, criaturas de poder 2 ou menos não atacam você.",
    "porque": "Fecha a porta das fichas, que é quem rouba a coroa.",
-   "sai": "Master of Ceremonies"
+   "sai": "Master of Ceremonies",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (fracas não atacam você)",
+   "papel_por_que": "Dá a coroa e, com ela, criaturas de poder 2 ou menos não atacam você."
   },
   "Trouble in Pairs": {
    "notas": {
@@ -1767,7 +1855,10 @@
    "veredito": "entra",
    "faz": "Encantamento de 4. Compra quando um oponente ataca você com duas ou mais, compra a segunda carta ou conjura a segunda mágica no turno.",
    "porque": "Motor que não depende da coroa.",
-   "sai": "Decanter of Endless Water"
+   "sai": "Decanter of Endless Water",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra quando o oponente compra a segunda carta, como a do monarca, ou ataca você com duas."
   },
   "Disrupt Decorum": {
    "notas": {
@@ -1785,7 +1876,9 @@
    "veredito": "entra",
    "faz": "Feitiço de 4: força todas as criaturas que não são suas a atacar outro jogador.",
    "porque": "Um turno inteiro da mesa batendo em si mesma.",
-   "sai": "Duelist's Heritage"
+   "sai": "Duelist's Heritage",
+   "papel": "multiplica",
+   "papel_por_que": "Goad em massa: a mesa toda ataca outro jogador e a coroa fica com você."
   },
   "Gleaming Splendor": {
    "notas": {
@@ -1806,7 +1899,10 @@
    "veredito": "entra",
    "faz": "Encantamento de 2. Tesouro quando um oponente compra a segunda carta do turno. {2}{W}: dois jogadores compram uma cada.",
    "porque": "Ramp discreto de turno 2 e moeda de negociação.",
-   "sai": "Thaumatic Compass"
+   "sai": "Thaumatic Compass",
+   "papel": "recompensa",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Tesouro quando um oponente compra a segunda carta, como a do monarca."
   },
   "Godless Shrine": {
    "notas": {},
@@ -1867,7 +1963,10 @@
    "veredito": "avaliar",
    "faz": "3/5 voar, golpe duplo e pressa, de 6. Ao entrar, você vira o monarca. Com a coroa, quem causa dano de combate a você é virado e atordoado.",
    "porque": "Atacante de verdade que também prende quem tomou a coroa.",
-   "sai": "Caesar, Legion's Emperor"
+   "sai": "Caesar, Legion's Emperor",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (atordoa quem lhe bate)",
+   "papel_por_que": "Dá a coroa ao entrar; quem lhe causa dano com ela é virado e atordoado."
   },
   "Inkshield": {
    "notas": {
@@ -1885,7 +1984,10 @@
    "veredito": "avaliar",
    "faz": "Instantânea de 5: previne o dano de combate em você e cria um Inkling 2/1 voador por ponto prevenido.",
    "porque": "Segura o ataque que leva a coroa e devolve um exército.",
-   "sai": "Path of Peril"
+   "sai": "Path of Peril",
+   "papel": "multiplica",
+   "papel_dupla": "Fichas",
+   "papel_por_que": "Previne o dano de combate em você num turno e vira o ataque em Inklings."
   },
   "Spectator Seating": {
    "notas": {},
@@ -1924,7 +2026,9 @@
    "rel": "MED",
    "veredito": "fora",
    "faz": "Pula a compra, você tem shroud e todo dano em você é prevenido; descarte na manutenção.",
-   "porque": "Com a coroa pagando o descarte, tranca o jogo. É o oposto de não chamar atenção."
+   "porque": "Com a coroa pagando o descarte, tranca o jogo. É o oposto de não chamar atenção.",
+   "papel": "multiplica",
+   "papel_por_que": "Todo dano a você é prevenido: ninguém toma a coroa pelo combate."
   },
   "Promise of Loyalty": {
    "notas": {
@@ -1942,7 +2046,10 @@
    "veredito": "avaliar",
    "faz": "Feitiço de 5: cada jogador escolhe uma criatura, sacrifica o resto, e as que ficam com marcador de voto não podem atacar você.",
    "porque": "Desarma a mesa de uma vez e segura a coroa, deixando seus encantamentos intactos; fica a cada oponente uma criatura, que pode vir a ser trocada por novas que atacam.",
-   "sai": "Approach of the Second Sun"
+   "sai": "Approach of the Second Sun",
+   "papel": "multiplica",
+   "papel_dupla": "Remoção (limpeza)",
+   "papel_por_que": "Limpa a mesa e a criatura que sobra a cada oponente não pode atacar você."
   }
  },
  "combos": [
@@ -2063,5 +2170,86 @@
    ],
    "texto": "O modo de encantamentos do Austere Command leva as suas Cortes e a fortaleza. Feast of Succession e Blasphemous Edict matam a Marchesa e os bloqueadores."
   }
- ]
+ ],
+ "avaliadas": {
+  "Lavabrink Floodgates": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "K'rrik, Son of Yawgmoth": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "The Fire Crystal": {
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dá ímpeto a um atacante seu para retomar a coroa pelo combate (nota 1)."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa",
+   "papel": "habilita",
+   "papel_por_que": "Pressa para todas as suas criaturas: qualquer uma que entre já ataca para retomar a coroa."
+  },
+  "Mana Crypt": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Detective's Phoenix": {
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dá a um atacante seu ímpeto e voar, uma evasão que dificulta o bloqueio (nota 1)."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Goblin Chieftain": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Virtue of Loyalty": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "The Ooze": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Dragon's Hoard": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Jeska's Will": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "habilita",
+    "por_que": "Dá a coroa ao entrar e cria Assassinos com pressa e toque mortífero para retomá-la. Comandante habilitadora pede proteção e plano B nas 99."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
