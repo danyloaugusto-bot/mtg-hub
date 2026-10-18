@@ -298,7 +298,6 @@ function controles() {
     (ui.deck ? '' : seg('Agrupar', 'agrupar', [['prioridade', 'Prioridade'], ['tipo', 'Tipo'], ['destino', 'Destino'], ['cor', 'Cor'], ['deck', 'Deck'], ['faixa', 'Valor'], ['nenhum', 'Nenhum']])) +
     seletorOrdem() +
     seg('Decisão', 'dec', [['pendentes', 'Pendentes'], ['decididas', 'Decididas'], ['todas', 'Todas']]) +
-    '<div class="seg" role="group" aria-label="Grupos"><button data-act="grupos" data-v="abrir">Abrir todos</button><button data-act="grupos" data-v="fechar">Fechar todos</button></div>' +
     botoesFaixa() +
     (ui.agrupar === 'cor' && !ui.deck ? botoesCor() : '');
 }
