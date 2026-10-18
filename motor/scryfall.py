@@ -57,6 +57,7 @@ def _reduzir(k, hoje):
         "released_at": k.get("released_at"), "image": bool(k.get("image_uris")),
         "printed_name": k.get("printed_name"), "flavor_name": k.get("flavor_name"), "lang": k.get("lang"),
         "game_changer": True if k.get("game_changer") else None, "edhrec_rank": k.get("edhrec_rank"),
+        "leg": (k.get("legalities") or {}).get("commander"),   # legal, not_legal, banned ou restricted, no Commander
         "consultado": hoje,
     }
     if k.get("card_faces"):
