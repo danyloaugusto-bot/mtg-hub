@@ -5,7 +5,7 @@ var D = /*__DATA__*/null;
 var R = D.regua, CR = D.crit, DECKS = D.decks, ORS = D.origens;
 var O = ORS[0], CARTAS = O.cartas;   // a origem na tela: a Caixa ou uma pasta (motor/caixa.py, origens)
 var LS = 'mtg-hub:caixa:v1';
-var ui = { ver: 'tabela', agrupar: 'prioridade', ord: 'padrao', inv: false, dec: 'pendentes', tipos: [], cores: [], faixas: [], fechados: {}, deck: '', origem: '', q: '' };
+var ui = { ver: 'tabela', agrupar: 'prioridade', ord: 'padrao', inv: false, dec: 'pendentes', tipos: [], cores: [], faixas: [], prios: [], dests: [], fechados: {}, deck: '', origem: '', q: '' };
 try {
   var g = JSON.parse(localStorage.getItem(LS) || '{}');
   ['ver', 'agrupar', 'ord', 'dec', 'deck', 'origem'].forEach(function (k) { if (g[k]) ui[k] = g[k]; });
@@ -13,9 +13,11 @@ try {
   if (Array.isArray(g.tipos)) ui.tipos = g.tipos; else if (g.tipo) ui.tipos = [g.tipo];   // o seletor antigo guardava um tipo só
   if (Array.isArray(g.cores)) ui.cores = g.cores;
   if (Array.isArray(g.faixas)) ui.faixas = g.faixas;
+  if (Array.isArray(g.prios)) ui.prios = g.prios;
+  if (Array.isArray(g.dests)) ui.dests = g.dests;
   if (g.fechados && typeof g.fechados === 'object') ui.fechados = g.fechados;
 } catch (e) { }
-function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, ord: ui.ord, inv: ui.inv, dec: ui.dec, tipos: ui.tipos, cores: ui.cores, faixas: ui.faixas, fechados: ui.fechados, deck: ui.deck, origem: ui.origem })); } catch (e) { } }
+function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, ord: ui.ord, inv: ui.inv, dec: ui.dec, tipos: ui.tipos, cores: ui.cores, faixas: ui.faixas, prios: ui.prios, dests: ui.dests, fechados: ui.fechados, deck: ui.deck, origem: ui.origem })); } catch (e) { } }
 
 var DB = { db: null, pode: false, docs: {}, erro: '', ocupado: {} };   // docs: {coleção: {id: documento}}
 var PUB = location.protocol !== 'file:';
@@ -31,7 +33,11 @@ function fmt(v, casas) {
   return s;
 }
 function usd(v) { return v == null ? 'sem preço' : 'US$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
-function brl(v) { return (R.cambio_brl && v != null) ? ' <small class="dim">≈ R$ ' + Number(v * R.cambio_brl).toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + '</small>' : ''; }
+var CB = D.cambio && D.cambio.v ? D.cambio : null;   // o dólar em reais (PTAX do último dia útil, no /precos); as regras seguem em dólar
+function reais(v) { return 'R$ ' + Number(v * CB.v).toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
+function brl(v) { return (CB && v != null) ? ' <small class="dim">≈ ' + reais(v) + '</small>' : ''; }
+function fdm(d) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ''); return m ? m[3] + '/' + m[2] : '—'; }
+function diasDesde(d) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ''); if (!m) return null; return Math.round((new Date(hojeISO() + 'T12:00:00') - new Date(m[1] + '-' + m[2] + '-' + m[3] + 'T12:00:00')) / 864e5); }
 function sinal(v) { return (v > 0 ? '+' : v < 0 ? '−' : '') + fmt(Math.abs(v)); }
 function slug(s) { return String(s).normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
 function hojeISO() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
@@ -40,10 +46,21 @@ function curto(p) { return DECKS[p] ? DECKS[p].c : p; }
 var NOMED = { deck: 'Deck', guardar: 'Guardar', venda: 'Venda', bundles: 'Bundles', bulk: 'Bulk', remover: 'Remover' };
 function nomeD(d) { return d === 'guardar' && O.k !== 'Caixa' ? 'Manter' : NOMED[d]; }   // numa pasta, guardar é ficar onde está
 function eCaixa() { return O.k === 'Caixa'; }
+var FICHAS = D.fichas || {};   // a ficha de cada pasta (dados/pastas/pastas.json): subnome, formato, frase, papéis
+function subnome(p) { return FICHAS[p] && FICHAS[p].subnome ? FICHAS[p].subnome : ''; }
 function usarOrigem(k) {
   O = ORS.filter(function (x) { return x.k === k; })[0] || ORS[0]; CARTAS = O.cartas; ui.origem = O.k;
   $('#cx-tit').textContent = eCaixa() ? 'Caixa' : 'Pasta ' + O.k;
-  document.title = eCaixa() ? 'Caixa' : 'Pasta ' + O.k;
+  document.title = eCaixa() ? 'Caixa' : O.k + (subnome(O.k) ? ' · ' + subnome(O.k) : '');
+}
+var ICP = ['◆', '♛', '➜'];
+function fichaHtml() {
+  var f = FICHAS[O.k];
+  if (!f) return '';
+  return '<div class="cx-ficha"><svg class="cx-gema" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="cx-gm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a5262"/><stop offset=".5" stop-color="#17141b"/><stop offset="1" stop-color="#040405"/></linearGradient></defs>' +
+    '<path d="M20 6h24l14 16-26 36L6 22z" fill="url(#cx-gm)" stroke="rgba(255,201,107,.6)" stroke-width="1.3"/><path d="M6 22h52M20 6l-4 16 16 36 16-36-4-16M16 22L32 6l16 16" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1"/></svg>' +
+    '<div><p class="cx-fsub">' + esc(f.subnome || '') + '</p>' + (f.formato ? '<span class="cx-ffm">' + esc(f.formato) + '</span>' : '') + (f.frase ? '<p class="cx-ffr">' + esc(f.frase) + '</p>' : '') +
+    (f.papeis ? '<ul class="cx-fpa">' + f.papeis.map(function (x, i) { return '<li><i aria-hidden="true">' + (ICP[i] || '•') + '</i><b>' + esc(x[0]) + '</b> ' + esc(x[1]) + '</li>'; }).join('') + '</ul>' : '') + '</div></div>';
 }
 var ORDD = ['deck', 'guardar', 'venda', 'bundles', 'bulk'], ORDP = ['S', 'A', 'B', 'C'];
 /* faixa de valor de cada cópia: os cortes são os da régua (venda a partir de US$ 5, capital parado a partir de US$ 20), mais US$ 1 */
@@ -76,13 +93,15 @@ function msym(s) { var k = s.toUpperCase(); if (/^[WUBRG]$/.test(k)) return '<i 
 function mana(cost) { return cost ? '<span class="cx-cost">' + cost.replace(/\s/g, '').split('//')[0].replace(/\{([^}]+)\}/g, function (m, s) { return msym(s.replace('/', '')); }) + '</span>' : ''; }
 
 /* ---------- decisões: o banco publicado prevalece sobre o arquivo ---------- */
-function decisoesDe(c) {
-  var dd = DB.docs[O.col], d = dd && dd[c.id] ? dd[c.id] : (O.dec[c.n] || null);
-  return ((d && d.copias) || []).filter(function (x) { return !x.aplicado; });
+function decisoesDe(c, o) {
+  o = o || O;
+  var dd = DB.docs[o.col], d = dd && dd[c.id] ? dd[c.id] : (o.dec[c.n] || null);
+  return ((d && d.copias) || []).filter(function (x) { return !x.aplicado || (o.mb && x.tarefa && !x.tarefa.feita); });
 }
+function aFazer(d) { return !!(d && d.destino && (O.mb || (d.pasta && (D.manabox || []).indexOf(d.pasta) >= 0))); }   // tarefa no ManaBox
 /* a decisão de cada cópia: cópias de mesma impressão e acabamento são intercambiáveis, então casam pela ordem */
-function decCopias(c) {
-  var ds = decisoesDe(c).slice(), out = [];
+function decCopias(c, o) {
+  var ds = decisoesDe(c, o).slice(), out = [];
   c.copias.forEach(function (cp) {
     var i = -1;
     for (var k = 0; k < ds.length; k++) if (ds[k] && ds[k].imp === cp.imp && (ds[k].acab || 'normal') === cp.acab) { i = k; break; }
@@ -98,6 +117,8 @@ function visCopias(c) {
     var feita = !!(dc[i] && dc[i].destino);
     if (ui.dec !== 'todas' && (ui.dec === 'pendentes') === feita) return;
     if (ui.faixas.length && ui.faixas.indexOf(faixaDe(cp.usd)) < 0) return;
+    if (ui.prios.length && ui.prios.indexOf(cp.sug.P) < 0) return;   // prioridade da sugestão (S, A, B, C)
+    if (ui.dests.length && ui.dests.indexOf(feita ? dc[i].destino : cp.sug.d) < 0) return;   // destino: o decidido, ou o sugerido
     out.push(i);
   });
   return out;
@@ -217,6 +238,46 @@ function grupos(L) {
 function valorGrupo(cs) { return cs.reduce(function (s, c) { return s + (c.valor || 0); }, 0); }
 
 /* ---------- resumo e controles ---------- */
+/* placar de valor: cada origem, o valor de hoje e a variação desde a atualização anterior (verde subiu, vermelho caiu) */
+function placarDe(o) {
+  var t = 0, a = 0, n = 0, em = {};
+  o.cartas.forEach(function (c) {
+    c.copias.forEach(function (cp) {
+      if (cp.usd == null) return;
+      t += cp.usd; a += cp.ant != null ? cp.ant : cp.usd; n++;
+      if (cp.ant != null && cp.ant_em) em[cp.ant_em] = (em[cp.ant_em] || 0) + 1;
+    });
+  });
+  var desde = Object.keys(em).sort(function (x, y) { return em[y] - em[x] || (x < y ? -1 : 1); })[0] || null;   // a data mais comum do preço anterior
+  return { t: t, a: a, d: t - a, p: a ? (t - a) / a : 0, desde: desde, copias: n };
+}
+function deltaTxt(pl_) {
+  var d = Math.round(pl_.d * 100) / 100, desde = pl_.desde ? 'desde ' + fdm(pl_.desde) : 'desde a última atualização';
+  if (!d) return '<span class="cx-dz">estável</span><small>' + desde + '</small>';
+  var s = d > 0 ? '+' : '−';
+  return '<span class="' + (d > 0 ? 'cx-up' : 'cx-down') + '">' + (d > 0 ? '▲ ' : '▼ ') + s + usd(Math.abs(d)) + ' (' + s + fmt(Math.abs(pl_.p) * 100, Math.abs(pl_.p) < 0.01 ? 2 : 1) + '%)</span>' +
+    '<small>' + (CB ? '≈ ' + s + reais(Math.abs(d)) + ' · ' : '') + desde + '</small>';
+}
+function placarHtml() {
+  if (ORS.length < 1) return '';
+  return '<div class="cx-placar" role="group" aria-label="Valor de cada lista">' + ORS.map(function (o) {
+    var p = placarDe(o), sn = o.k === 'Caixa' ? '' : subnome(o.k);
+    return '<button class="cx-pl-c' + (o.k === O.k ? ' on' : '') + '" data-act="origem" data-v="' + esc(o.k) + '" style="--oc:' + esc(corOrigem(o.k)) + '">' +
+      '<span class="cx-pl-n"><b>' + esc(o.k === 'Caixa' ? 'Caixa' : 'Pasta ' + o.k) + '</b>' + (sn ? '<small class="cx-pl-s">' + esc(sn) + '</small>' : '') + '<small>' + pl(o.cartas.length, 'carta', 'cartas') + '</small></span>' +
+      '<span class="cx-pl-v"><b>' + (CB ? reais(p.t) + ' <small>' + usd(p.t) + '</small>' : usd(p.t)) + '</b>' + deltaTxt(p) + '</span></button>';
+  }).join('') + '</div>';
+}
+var CORPASTA = { 'Caixa': '#f5a524', 'Rosa (sell)': '#f28bb8', 'Preta P': '#8a7f96', 'Preta': '#6f6a75', 'Amarela': '#f2c94c', 'Laranja': '#f2994a', 'Rosa': '#f5a3c7', 'Azul': '#4f8fe0', 'Vermelha': '#d9534f' };
+function corOrigem(k) { return CORPASTA[k] || '#8a877f'; }
+function tarefasHtml() {
+  var t = D.tarefas || [];
+  if (!t.length) return '';
+  return '<details class="cx-tf"><summary><b>' + pl(t.length, 'tarefa', 'tarefas') + ' a fazer no ManaBox</b> <span class="dim">(dadas como feitas quando o próximo export mostrar)</span></summary><ul>' +
+    t.map(function (x) {
+      return '<li>' + esc(x.n) + ' <span class="dim">(' + esc(x.imp || '') + (x.acab && x.acab !== 'normal' ? ', ' + esc(x.acab) : '') + ')</span>: ' +
+        (x.de === 'Caixa' ? 'da Caixa' : 'da pasta ' + esc(x.de)) + ' → ' + esc(x.pasta ? 'pasta ' + x.pasta : NOMED[x.d] || x.d) + ' <span class="dim">desde ' + esc(fdata(x.em)) + '</span></li>';
+    }).join('') + '</ul></details>';
+}
 function resumo() {
   var pri = { S: [0, 0], A: [0, 0], B: [0, 0], C: [0, 0] }, dest = {}, parado = 0, decid = 0;
   ORDD.forEach(function (d) { dest[d] = [0, 0]; });
@@ -230,9 +291,15 @@ function resumo() {
     });
   });
   var it = function (b, t, z) { return '<span class="it' + (z ? ' z' : '') + '"><b class="num">' + b + '</b> ' + t + '</span>'; };
+  // prioridade e sugestão filtram a lista abaixo: tocar marca (mais de um ao mesmo tempo), tocar de novo desmarca
+  var fb = function (act, v, on, z, html, tit) { return '<button class="it' + (z ? ' z' : '') + '" data-act="' + act + '" data-v="' + v + '" aria-pressed="' + on + '"' + (z ? ' disabled' : '') + ' title="' + esc(tit) + '">' + html + '</button>'; };
   var r = O.resumo;
-  return '<div class="seg"><span class="seg-l">Prioridade</span>' + ORDP.map(function (p) { return it(pri[p][0] + ' ' + p, '', !pri[p][0]); }).join('') + '</div>' +
-    '<div class="seg"><span class="seg-l">Sugestão</span>' + ORDD.map(function (d) { return it(dest[d][0] ? usd(dest[d][1]) : '—', nomeD(d) + ' <small class="dim">' + dest[d][0] + '</small>', !dest[d][0]); }).join('') + '</div>' +
+  return tarefasHtml() + '<div class="seg cx-fi" role="group" aria-label="Filtrar por prioridade"><span class="seg-l">Prioridade</span>' + ORDP.map(function (p) {
+      return fb('prio', p, ui.prios.indexOf(p) >= 0, !pri[p][0], '<b class="num">' + pri[p][0] + ' ' + p + '</b>', 'Só as cópias de prioridade ' + p + ' (' + usd(pri[p][1]) + ')');
+    }).join('') + (ui.prios.length ? '<button class="cx-limpa" data-act="prios-limpar">Limpar</button>' : '') + '</div>' +
+    '<div class="seg cx-fi" role="group" aria-label="Filtrar por sugestão"><span class="seg-l">Sugestão</span>' + ORDD.map(function (d) {
+      return fb('dest', d, ui.dests.indexOf(d) >= 0, !dest[d][0], '<b class="num">' + (dest[d][0] ? usd(dest[d][1]) : '—') + '</b> ' + nomeD(d) + ' <small class="dim">' + dest[d][0] + '</small>', 'Só as cópias com sugestão ' + nomeD(d));
+    }).join('') + (ui.dests.length ? '<button class="cx-limpa" data-act="dests-limpar">Limpar</button>' : '') + '</div>' +
     '<div class="seg">' + it(parado, 'capital parado (≥ ' + usd(R.capital_usd) + ' sem deck)', !parado) + it(decid, 'decididas', !decid) +
     it(r.sem_cadastro.length, 'sem cadastro', !r.sem_cadastro.length) + it(r.nao_encontradas.length, 'não encontradas', !r.nao_encontradas.length) + '</div>';
 }
@@ -291,7 +358,7 @@ function botoesFaixa() {
 function seletorOrigem() {
   if (ORS.length < 2) return '';
   return '<label class="cmp-s cx-fo2"><span class="seg-l">Lista</span><select data-ctl="origem" aria-label="Caixa ou pasta"><option value="Caixa"' + (eCaixa() ? ' selected' : '') + '>Caixa (' + ORS[0].cartas.length + ')</option>' +
-    ORS.slice(1).map(function (o) { return '<option value="' + esc(o.k) + '"' + (O.k === o.k ? ' selected' : '') + '>Pasta ' + esc(o.k) + ' (' + o.cartas.length + ')</option>'; }).join('') + '</select></label>';
+    ORS.slice(1).map(function (o) { return '<option value="' + esc(o.k) + '"' + (O.k === o.k ? ' selected' : '') + '>Pasta ' + esc(o.k) + (subnome(o.k) ? ' · ' + esc(subnome(o.k)) : '') + ' (' + o.cartas.length + ')</option>'; }).join('') + '</select></label>';
 }
 function controles() {
   return seletorOrigem() + seletorDeck() + seletorTipo() + seg('Ver', 'ver', [['tabela', 'Tabela'], ['galeria', 'Galeria']]) +
@@ -310,13 +377,28 @@ function cabGrupo(gr) {
 }
 
 /* ---------- pedaços de uma carta ---------- */
+function selos(c) {
+  var h = c.ban ? '<span class="cx-sl cx-sl-ban" title="banida no Commander: nunca vai para deck">banida no Commander</span>' :
+    c.ilegal ? '<span class="cx-sl cx-sl-ban" title="não vale no Commander (Un-set, Alchemy e afins): nunca vai para deck">fora do Commander</span>' : '';
+  var cs = cps(c), px = cs.filter(function (x) { return x.proxy; }).length, ss = {};
+  cs.forEach(function (x) { (x.selos || []).forEach(function (k) { ss[k] = 1; }); });
+  if (px) h += '<span class="cx-sl" title="proxy: nunca vai para venda nem para deck como carta nova">proxy' + (cs.length > 1 ? ' ×' + px : '') + '</span>';
+  Object.keys(ss).forEach(function (k) { h += '<span class="cx-sl" title="o preço do Scryfall não reflete isso">' + esc(k) + '</span>'; });
+  return h;
+}
+function rarDe(c) { var x = cps(c).filter(function (y) { return y.rar; })[0]; return x ? x.rar : ''; }
+function varTxt(cs) {
+  var x = cs.filter(function (y) { return y.var != null; }).sort(function (a, b) { return Math.abs(b.var) - Math.abs(a.var); })[0];
+  if (!x) return '';
+  return '<small class="cx-var ' + (x.var > 0 ? 'cx-pos' : 'cx-neg') + '" title="desde ' + esc(fdata(x.var_em)) + ', quando valia ' + esc(usd(x.var_de)) + '">' + (x.var > 0 ? '▲' : '▼') + ' ' + fmt(Math.abs(x.var) * 100, 0) + '%</small>';
+}
 function forca(c) {
   return '<b class="num">' + fmt(c.vp) + '</b>' + (c.gc ? ' <span class="cx-gc" title="Game Changer">GC</span>' : '') + (c.staple ? ' <span class="cx-st" title="top ' + R.staple_rank_max + ' do EDHREC">Staple</span>' : '') +
     '<small>' + (c.rank ? '#' + fmt(c.rank, 0) + ' no EDHREC' : 'fora do ranking do EDHREC') + '</small>';
 }
 function valorTxt(c) {
   var foil = cps(c).filter(function (x) { return x.acab !== 'normal'; });
-  return '<b class="num">' + usd(c.valor) + '</b>' + brl(c.valor) + (c.q > 1 ? '<small>' + c.q + ' cópias</small>' : '') +
+  return '<b class="num">' + usd(c.valor) + '</b>' + brl(c.valor) + varTxt(cps(c)) + (c.q > 1 ? '<small>' + c.q + ' cópias</small>' : '') +
     (foil.length ? '<small>' + foil.map(function (x) { return x.acab; }).join(', ') + '</small>' : '');
 }
 function sugTxt(s) {
@@ -353,7 +435,7 @@ function decTxt(c) {
   return '<div class="cx-dec">' + c.copias.map(function (cp, i) {
     if (c.parte && c.parte.indexOf(i) < 0) return '';
     var d = dc[i], s = cp.sug;
-    var rot = d && d.destino ? (i + 1) + ' ✓ ' + nomeD(d.destino) + (d.deck ? ' · ' + curto(d.deck) : d.pasta ? ' · ' + d.pasta : '')
+    var rot = d && d.destino ? (i + 1) + ' ✓ ' + nomeD(d.destino) + (d.deck ? ' · ' + curto(d.deck) : d.pasta ? ' · ' + d.pasta : '') + (aFazer(d) ? ' · a fazer no ManaBox' : '')
       : (i + 1) + ' → ' + nomeD(s.d) + (s.p && s.d === 'deck' ? ' · ' + curto(s.p) : '') + ' ▾';
     return '<button class="bt-c' + (d && d.destino ? ' dec-on' : '') + '" data-act="abrir" data-id="' + esc(c.id) + '">' + esc(rot) + '</button>';
   }).join('') + '</div>';
@@ -374,8 +456,8 @@ function tabela(G) {
       var s = sugCarta(c), e = ui.deck ? encDe(c, ui.deck) : s.p ? c.enc.filter(function (x) { return x.p === s.p; })[0] : null;
       return '<tr class="cx-r" data-id="' + esc(c.id) + '"' + (f ? ' hidden' : '') + '>' +
         '<td class="cx-pr" data-v="' + prioCarta(c) + '">' + tierB(prioCarta(c)) + '</td>' +
-        '<td class="cx-ca" data-v="' + esc(c.n) + '"><button class="cx-nm" data-act="abrir" data-id="' + esc(c.id) + '">' + esc(c.on || c.n) + '</button>' + (c.q > 1 ? '<span class="cx-xn">×' + c.q + '</span>' : '') + (c.pet ? '<span class="cx-petb" title="pet card">pet</span>' : '') +
-        '<small>' + esc(c.line) + ' · ' + esc(cps(c)[0].imp) + '</small></td>' +
+        '<td class="cx-ca" data-v="' + esc(c.n) + '"><button class="cx-nm" data-act="abrir" data-id="' + esc(c.id) + '">' + esc(c.on || c.n) + '</button>' + (c.q > 1 ? '<span class="cx-xn">×' + c.q + '</span>' : '') + (c.pet ? '<span class="cx-petb" title="pet card">pet</span>' : '') + selos(c) +
+        '<small>' + esc(c.line) + (rarDe(c) ? ' · ' + esc(rarDe(c)) : '') + ' · ' + esc(cps(c)[0].imp) + '</small></td>' +
         '<td class="cx-co" data-v="' + c.cmc + '">' + mana(c.cost) + '</td>' +
         '<td class="cx-fo" data-l="Força sozinha" data-v="' + c.vp + '">' + forca(c) + '</td>' +
         '<td class="cx-vl n" data-v="' + (c.valor || 0) + '">' + valorTxt(c) + '</td>' +
@@ -409,11 +491,15 @@ function galeria(G) {
 function gaveta(c) {
   var cp0 = c.copias[0], dc = decCopias(c);
   var chips = CR.map(function (k, i) { var v = c.s8[i]; return v ? '<span>' + esc(k.curto) + ' <b>' + v + '</b></span>' : ''; }).join('') +
-    '<span>força sozinha <b>' + fmt(c.vp) + '</b></span>' + (c.rank ? '<span>#' + fmt(c.rank, 0) + ' no EDHREC</span>' : '') + (c.gc ? '<span class="cx-gc">GC</span>' : '') + (c.staple ? '<span class="cx-st">Staple</span>' : '');
+    '<span>força sozinha <b>' + fmt(c.vp) + '</b></span>' + (c.rank ? '<span>#' + fmt(c.rank, 0) + ' no EDHREC</span>' : '') + (c.gc ? '<span class="cx-gc">GC</span>' : '') + (c.staple ? '<span class="cx-st">Staple</span>' : '') +
+    (c.ban ? '<span class="cx-sl-ban">banida no Commander</span>' : '');
   var valor = c.copias.map(function (x, i) {
-    return '<li><span>' + (c.q > 1 ? 'Cópia ' + (i + 1) + ': ' : '') + esc(x.imp) + ', ' + esc(x.acab) + (x.idioma && x.idioma !== 'en' ? ', ' + esc(x.idioma) : '') + '</span><b class="num">' + usd(x.usd) + brl(x.usd) + '</b></li>' +
-      (x.avisos.length ? '<li class="vz">' + esc(x.avisos.join('; ')) + '</li>' : '');
-  }).join('') + '<li class="vz">Scryfall, ' + esc(fdata(cp0.data)) + '. Confira na LigaMagic antes de vender.</li>';
+    var moeda = x.compra ? (x.compra.moeda === 'USD' ? 'US$ ' : x.compra.moeda === 'BRL' || !x.compra.moeda ? 'R$ ' : x.compra.moeda + ' ') : '';
+    return '<li><span>' + (c.q > 1 ? 'Cópia ' + (i + 1) + ': ' : '') + esc(x.imp) + ', ' + esc(x.acab) + (x.idioma && x.idioma !== 'en' ? ', ' + esc(x.idioma) : '') + (x.rar ? ', ' + esc(x.rar) : '') +
+      (x.proxy ? ' <span class="cx-sl">proxy</span>' : '') + (x.selos || []).map(function (k) { return ' <span class="cx-sl">' + esc(k) + '</span>'; }).join('') + '</span><b class="num">' + usd(x.usd) + brl(x.usd) + varTxt([x]) + '</b></li>' +
+      (x.avisos.length ? '<li class="vz">' + esc(x.avisos.join('; ')) + '</li>' : '') +
+      (x.compra ? '<li class="vz cx-mbx">No cadastro do ManaBox (' + esc(fdata(x.compra.em)) + '): ' + moeda + Number(x.compra.v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '. Não é o valor de hoje.</li>' : '');
+  }).join('') + '<li class="vz">Scryfall, ' + esc(fdata(cp0.data)) + (CB ? '; dólar ' + (CB.fonte === 'PTAX' ? 'PTAX ' : '') + 'R$ ' + fmt(CB.v, 4) + (CB.data ? ' de ' + esc(fdata(CB.data)) : '') : '') + '. Confira na LigaMagic antes de vender.</li>';
   var onde = c.em_decks.map(function (x) {
     var mesma = x.imp && cp0.imp ? (x.imp === cp0.imp ? 'mesma impressão? confira' : 'outra impressão (' + esc(x.imp) + ')') : '';
     var e = c.enc.filter(function (y) { return y.p === x.p; })[0];
@@ -427,7 +513,7 @@ function gaveta(c) {
     var meu = t.meu.length;
     return '<li' + (meu ? ' class="meu"' : '') + '><span>' + esc(t.n) + (meu ? ' · seu deck' : '') + (t.meu_baixo && t.meu_baixo.length ? ' <small class="dim">(seu deck, abaixo de ' + R.edhrec_pct_min + '%)</small>' : '') + '</span><span class="num">' + fmt(t.pct, 0) + '%</span></li>';
   }).join('') : '<li class="vz">Sem a página da carta no EDHREC.</li>';
-  var pastas = c.pastas.length ? c.pastas.map(function (x) { return '<li><span>' + esc(x.p) + '</span><span class="num">×' + x.q + '</span></li>'; }).join('') : '<li class="vz">' + (D.pastas_com_lista ? 'Em nenhuma pasta.' : 'Nenhuma lista de pasta chegou ainda.') + '</li>';
+  var pastas = c.pastas.length ? c.pastas.map(function (x) { return '<li><span>' + esc(x.p) + (subnome(x.p) ? ' <small class="dim">' + esc(subnome(x.p)) + '</small>' : '') + '</span><span class="num">×' + x.q + '</span></li>'; }).join('') : '<li class="vz">' + (D.pastas_com_lista ? 'Em nenhuma pasta.' : 'Nenhuma lista de pasta chegou ainda.') + '</li>';
   var compra = c.compra ? '<li><span class="pill warn"><i>!</i>pedida por ' + esc((c.compra.pedidos || []).map(function (p) { return p.d || p.p; }).join(', ')) + '</span></li><li class="vz">A cópia da caixa resolve.</li>' : '<li class="vz">Não está na lista de compras.</li>';
   var encRows = c.enc.slice(0, aberta === c.id + ':todos' ? c.enc.length : 10).map(function (e, i) {
     var d = DECKS[e.p] || {};
@@ -466,7 +552,7 @@ function gaveta(c) {
     '<p>Impressão da caixa: ' + esc(c.copias.map(function (x) { return x.imp + ', ' + x.acab; }).join('; ')) + '. <a href="https://www.ligamagic.com.br/?view=cards/card&card=' + encodeURIComponent(c.n) + '" target="_blank" rel="noopener noreferrer">Abrir na LigaMagic</a></p>' +
     (c.fx ? '<p class="dim" style="white-space:pre-line">' + esc(c.fx) + '</p>' : '') + '</div>' +
     '<div><h2 id="cx-gav-t">' + esc(c.on || c.n) + (c.q > 1 ? '<span class="cx-xn">×' + c.q + '</span>' : '') + '</h2>' + (c.on ? '<p class="dim">' + esc(c.n) + '</p>' : '') +
-    '<p class="cx-line">' + mana(c.cost) + ' ' + esc(c.line) + (c.pt ? ' ' + esc(c.pt) : '') + ' · identidade ' + (mana(ordemCor(c.ident).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + '</p>' +
+    '<p class="cx-line">' + mana(c.cost) + ' ' + esc(c.line) + (c.pt ? ' ' + esc(c.pt) : '') + (rarDe(c) ? ' · ' + esc(rarDe(c)) : '') + ' · identidade ' + (mana(ordemCor(c.ident).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + '</p>' +
     '<div class="cx-chips">' + chips + '</div>' + (c.por_que ? '<p class="cx-nt" style="margin:-6px 0 14px">' + 'Força sozinha: ' + esc(c.por_que) + '</p>' : '') +
     (c.tx ? '<div class="cx-tx"><h3>O que a carta faz</h3><p>' + esc(c.tx.pt) + '</p><p class="cx-nt">Tradução livre do texto oficial em inglês, que fica abaixo da imagem' +
       (c.tx.velha ? '. <b>O texto oficial mudou depois da tradução: vale o inglês.</b>' : '; na dúvida, vale o inglês.') + '</p></div>' : '') +
@@ -481,9 +567,10 @@ function gaveta(c) {
 }
 function trilha(s) {
   var nomeR = function (t) { return t === 'Guardar' ? nomeD('guardar') : t; };
+  var num = function (n) { return n ? n + '. ' : ''; };
   return '<p class="cx-tr-l">Por quê: o motor testa as regras na ordem e para na primeira que serve.</p><ol class="cx-tr">' +
-    (s.tr || []).map(function (t) { return '<li class="nao"><span class="cx-tr-i" aria-hidden="true">✗</span><span><b>' + t[0] + '. ' + esc(nomeR(t[1])) + '</b>: ' + esc(t[2]) + '.</span></li>'; }).join('') +
-    '<li class="sim"><span class="cx-tr-i" aria-hidden="true">✓</span><span><b>' + s.regra + '. ' + nomeD(s.d) + (s.p && s.d === 'deck' ? ' · ' + esc(curto(s.p)) : '') + '</b>: ' + esc(s.pq) + '</span></li></ol>' +
+    (s.tr || []).map(function (t) { return '<li class="nao"><span class="cx-tr-i" aria-hidden="true">✗</span><span><b>' + num(t[0]) + esc(nomeR(t[1])) + '</b>: ' + esc(t[2]) + '.</span></li>'; }).join('') +
+    '<li class="sim"><span class="cx-tr-i" aria-hidden="true">✓</span><span><b>' + num(s.regra) + nomeD(s.d) + (s.p && s.d === 'deck' ? ' · ' + esc(curto(s.p)) : '') + '</b>: ' + esc(s.pq) + '</span></li></ol>' +
     (s.pp ? '<p class="cx-pp"><b>Prioridade ' + esc(s.pp.slice(0, 1)) + '</b>' + esc(s.pp.slice(1)) + '</p>' : '');
 }
 var SIMF = { ab: '▼ abaixo', de: 'dentro', ac: '▲ acima' };
@@ -533,15 +620,133 @@ function copiaHtml(c, cp, i, d) {
 }
 function fdata(d) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : '—'; }
 
+/* Atualizar preços: o navegador pede ao Scryfall os preços de todas as impressões das listas (lotes de 75, como o motor).
+   No arquivo local funciona; na página publicada o claude.ai pode bloquear a conexão, e aí o caminho é o /precos no Claude Code,
+   que grava em dados/precos/ultimo.json e republica. O que o navegador trouxe fica guardado nele até um build mais novo. */
+var LSP = 'mtg-hub:caixa:precos-vivos', atualizando = false;
+function chaveImp(cp) { return cp.imp + '|' + cp.acab; }
+function aplicarVivos() {
+  var g; try { g = JSON.parse(localStorage.getItem(LSP) || 'null'); } catch (e) { g = null; }
+  if (!g || !g.em || !g.p) return;
+  if (g.build !== D.gerado && ORS.every(function (o) { return (o.resumo.precos_de || '') >= g.em; })) return;   // o build já é mais novo
+  ORS.forEach(function (o) {
+    o.cartas.forEach(function (c) {
+      c.copias.forEach(function (cp) { var x = g.p[chaveImp(cp)]; if (x) { cp.ant = x[1]; cp.ant_em = x[2]; cp.usd = x[0]; cp.data = g.em; } });
+      c.valor = Math.round(c.copias.reduce(function (s, cp) { return s + (cp.usd || 0); }, 0) * 100) / 100;
+    });
+    o.resumo.precos_de = g.em; o.resumo.valor = Math.round(o.cartas.reduce(function (s, c) { return s + c.valor; }, 0) * 100) / 100;
+  });
+}
+function atualizarPrecos() {
+  if (atualizando) return;
+  var imps = {}, lista = [];
+  ORS.forEach(function (o) { o.cartas.forEach(function (c) { c.copias.forEach(function (cp) {
+    var m = /^(\S+) (.+)$/.exec(cp.imp || ''); if (!m) return;
+    var k = m[1].toLowerCase() + '/' + m[2]; if (!imps[k]) { imps[k] = 1; lista.push({ set: m[1].toLowerCase(), collector_number: m[2] }); }
+  }); }); });
+  var lotes = []; for (var i = 0; i < lista.length; i += 75) lotes.push(lista.slice(i, i + 75));
+  var achados = {}, bt = $('#cx-pbt'), feitos = 0;
+  atualizando = true; bt.disabled = true;
+  var passo = function (k) {
+    if (k >= lotes.length) return Promise.resolve();
+    bt.textContent = 'Atualizando ' + (k + 1) + ' de ' + lotes.length + '…';
+    return fetch('https://api.scryfall.com/cards/collection', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ identifiers: lotes[k] }) })
+      .then(function (r) { if (!r.ok) throw new Error('Scryfall ' + r.status); return r.json(); })
+      .then(function (j) { (j.data || []).forEach(function (x) { achados[x.set.toLowerCase() + '/' + x.collector_number] = x.prices || {}; }); feitos++; })
+      .then(function () { return new Promise(function (ok) { setTimeout(ok, 120); }); })
+      .then(function () { return passo(k + 1); });
+  };
+  passo(0).then(function () {
+    var hoje = hojeISO(), mudou = 0, salvo = { em: hoje, build: D.gerado, p: {} };
+    ORS.forEach(function (o) { o.cartas.forEach(function (c) { c.copias.forEach(function (cp) {
+      var m = /^(\S+) (.+)$/.exec(cp.imp || ''), pr = m && achados[m[1].toLowerCase() + '/' + m[2]];
+      if (!pr) return;
+      var v = pr[{ foil: 'usd_foil', etched: 'usd_etched' }[cp.acab] || 'usd'], novo = v ? +v : null;
+      var ant = cp.data === hoje && cp.ant != null ? cp.ant : cp.usd, ant_em = cp.data === hoje && cp.ant_em ? cp.ant_em : cp.data;
+      if (novo != null && ant != null && novo !== ant) mudou++;
+      salvo.p[chaveImp(cp)] = [novo, ant, ant_em];
+    }); }); });
+    try { localStorage.setItem(LSP, JSON.stringify(salvo)); } catch (e) { }
+    aplicarVivos();
+    atualizando = false; bt.disabled = false;
+    render(); redesenharGaveta();
+    var pc = placarDe(O);
+    aviso('Preços do Scryfall de hoje: ' + pl(mudou, 'preço mudou', 'preços mudaram') + '. ' + (O.k === 'Caixa' ? 'A Caixa' : 'A pasta ' + O.k) + ' ' + (pc.d >= 0 ? 'subiu ' : 'caiu ') + usd(Math.abs(pc.d)) +
+      '. Ficam neste navegador; para gravar no projeto e republicar, rode /precos no Claude Code.', 9000);
+  }, function () {
+    atualizando = false; bt.disabled = false; render();
+    try { navigator.clipboard.writeText('/precos').catch(function () { }); } catch (e) { }
+    aviso('Daqui a página não consegue falar com o Scryfall' + (PUB ? ' (o claude.ai bloqueia a conexão)' : '') + '. Rode /precos no Claude Code (já copiei): ele atualiza tudo, grava e republica a Caixa.', 10000);
+  });
+}
+function fontesVenda() {
+  var out = [];
+  ORS.forEach(function (o) {
+    o.cartas.forEach(function (c) {
+      var dc = decCopias(c, o);
+      c.copias.forEach(function (cp, i) {
+        if (cp.proxy) return;
+        var d = dc[i], m = cp.sug.marcas || [], por = '';
+        if (d && d.destino) { if (d.destino !== 'venda') return; por = 'decisão: Venda'; }
+        else if (cp.sug.d === 'venda') por = 'sugestão: Venda';
+        else if (m.indexOf('capital parado') >= 0) por = 'capital parado';
+        else if (m.indexOf('oportunidade') >= 0) por = 'cara para o que rende';
+        else return;
+        out.push({ c: c, cp: cp, o: o.k, por: por });
+      });
+    });
+  });
+  return out.sort(function (a, b) { return (b.cp.usd || 0) - (a.cp.usd || 0) || a.c.n.localeCompare(b.c.n); });
+}
+function vpcHtml() {
+  var fs = fontesVenda(), fator = R.fator_venda == null ? 1 : R.fator_venda;
+  var bruto = fs.reduce(function (s, x) { return s + (x.cp.usd || 0); }, 0), liq = bruto * fator;
+  var acum = 0, cabem = [], ganho = 0;
+  var us = (D.usos || []).map(function (u) {
+    var cabe = false;
+    if (u.usd != null) { acum += u.usd; cabe = acum <= liq + 1e-9; if (cabe) { cabem.push(u); ganho += u.g || 0; } }
+    return { u: u, acum: u.usd != null ? acum : null, cabe: cabe };
+  });
+  var v = function (x) { return x == null ? '<span class="dim">sem preço</span>' : usd(x) + brl(x); };
+  var topo = '<p class="cx-nt" style="margin-top:0">Preços do Scryfall de hoje (a última atualização, /precos), a mesma régua dos dois lados' +
+    (CB ? '; ≈ R$ pelo dólar ' + (CB.fonte === 'PTAX' ? 'PTAX ' : '') + 'de R$ ' + fmt(CB.v, 4) + (CB.data ? ' (' + fdata(CB.data) + ')' : '') : '') +
+    '. Fator de venda: ' + fmt(fator * 100, 0) + '% do preço (quanto você recebe vendendo ou trocando; em motor/caixa.json). Sem preço fica fora das somas.</p>';
+  var tf = '<table class="tbl cx-vt" data-nosort><thead><tr><th>Carta</th><th>Por quê</th><th class="n">Hoje</th></tr></thead><tbody>' +
+    (fs.map(function (x) {
+      return '<tr><td><button class="cx-nm" data-act="vpc-abrir" data-o="' + esc(x.o) + '" data-id="' + esc(x.c.id) + '">' + esc(x.c.on || x.c.n) + '</button><small>' + esc(x.o === 'Caixa' ? 'Caixa' : 'pasta ' + x.o) + ' · ' + esc(x.cp.imp) + (x.cp.acab !== 'normal' ? ', ' + esc(x.cp.acab) : '') + '</small></td>' +
+        '<td>' + esc(x.por) + '</td><td class="n num">' + v(x.cp.usd) + '</td></tr>';
+    }).join('') || '<tr><td colspan="3" class="dim">Nenhuma cópia marcada para venda.</td></tr>') + '</tbody><tfoot><tr><td colspan="2">Bruto (' + pl(fs.length, 'cópia', 'cópias') + ')</td><td class="n num">' + usd(bruto) + brl(bruto) + '</td></tr>' +
+    '<tr><td colspan="2"><b>Líquido</b> (× ' + fmt(fator * 100, 0) + '%)</td><td class="n num"><b>' + usd(liq) + '</b>' + brl(liq) + '</td></tr></tfoot></table>';
+  var tu = '<table class="tbl cx-vt" data-nosort><thead><tr><th>Carta</th><th>Rende mais em</th><th class="n">Hoje</th><th class="n">Acumulado</th><th class="cx-cb">Cabe no que você tem para vender</th></tr></thead><tbody>' +
+    (us.map(function (x) {
+      var u = x.u;
+      return '<tr' + (x.cabe ? ' class="cx-cabe"' : '') + '><td><b>' + esc(u.n) + '</b><small>' + esc(u.de.join(', ')) + '</small></td>' +
+        '<td>' + (u.p ? esc(curto(u.p)) + ' <b class="' + (u.g > 0 ? 'cx-pos' : 'cx-neg') + '">' + sinal(u.g) + '</b>' + (u.a ? '' : '<span class="cx-ast">*</span>') + '<small>sai ' + esc(u.s || '—') + '</small>' : '<span class="dim">sem cadastro para o encaixe</span>') + '</td>' +
+        '<td class="n num">' + v(u.usd) + '</td><td class="n num">' + (x.acum == null ? '—' : usd(x.acum)) + '</td><td>' + (x.cabe ? '✓ cabe' : u.usd == null ? '<span class="dim">sem preço</span>' : '<span class="dim">passa do líquido</span>') + '</td></tr>';
+    }).join('') || '<tr><td colspan="5" class="dim">Nada na lista de compras nem no radar como "entra" que você ainda não tenha.</td></tr>') + '</tbody></table>';
+  var fecho = '<p class="cx-vfecho">Com o que está marcado para venda (' + (CB ? '≈ ' + reais(liq) : usd(liq)) + '), você compra ' + (cabem.length ? (cabem.length === 1 ? 'esta carta' : 'estas ' + cabem.length + ' cartas') + ', que ' + (cabem.length === 1 ? 'soma ' : 'somam ') + sinal(ganho) + ' nos decks.' : 'nenhuma das cartas da lista: a mais cara do topo passa do líquido.') + '</p>';
+  return '<button class="cx-gav-x" data-act="fechar" aria-label="Fechar">×</button><h2 id="cx-gav-t" class="cx-vh">Vender para comprar</h2>' + topo + fecho +
+    '<div class="cx-vpc"><section><h3 class="sub">Fontes: o que está marcado para venda</h3>' + tf + '</section><section><h3 class="sub">Usos: o que comprar, pelo ganho</h3>' + tu +
+    '<p class="cx-nt">A lista de compras (o retrato do hub) e as cartas do radar como "entra" que você não tem em deck, Caixa ou pasta. Rende mais em: o deck de maior ganho (asterisco: sinergia ainda não avaliada lá, o ganho é piso).</p></section></div>';
+}
+function abrirVpc() {
+  aberta = 'vpc';
+  $('#cx-gav-in').classList.add('cx-larga');
+  $('#cx-gav-in').innerHTML = vpcHtml();
+  $('#cx-gav').hidden = false; document.body.style.overflow = 'hidden';
+  $('#cx-gav-in').focus();
+}
 function abrir(id) {
   var c = CARTAS.filter(function (x) { return x.id === id; })[0]; if (!c) return;
   aberta = id;
+  $('#cx-gav-in').classList.remove('cx-larga');
   $('#cx-gav-in').innerHTML = gaveta(c);
   $('#cx-gav').hidden = false; document.body.style.overflow = 'hidden';
   $('#cx-gav-in').focus();
 }
 function redesenharGaveta() {
   if (!aberta || $('#cx-gav').hidden) return;
+  if (aberta === 'vpc') { var sv = $('#cx-gav-in').scrollTop; $('#cx-gav-in').innerHTML = vpcHtml(); $('#cx-gav-in').scrollTop = sv; return; }
   var id = aberta.split(':')[0], c = CARTAS.filter(function (x) { return x.id === id; })[0];
   if (c) { var st = $('#cx-gav-in').scrollTop; $('#cx-gav-in').innerHTML = gaveta(c); $('#cx-gav-in').scrollTop = st; }
 }
@@ -577,7 +782,7 @@ function gravar(c, i, nova) {
     .then(function () { DB.erro = ''; }, function (e) { DB.erro = (e && e.code) || 'erro'; aviso('Não gravou (' + DB.erro + ').'); })
     .then(function () { delete DB.ocupado[key]; render(); redesenharGaveta(); });
 }
-function aviso(t) { var el = $('#cx-aviso'); el.innerHTML = '<p class="cx-aviso">' + esc(t) + '</p>'; setTimeout(function () { if (el.textContent === t) el.innerHTML = ''; }, 4000); }
+function aviso(t, ms) { var el = $('#cx-aviso'); el.innerHTML = '<p class="cx-aviso">' + esc(t) + '</p>'; setTimeout(function () { if (el.textContent === t) el.innerHTML = ''; }, ms || 4000); }
 
 function ligarBanco() {
   if (!window.claude || typeof window.claude.use !== 'function') return;
@@ -598,9 +803,20 @@ function ligarBanco() {
 /* ---------- desenho ---------- */
 function render() {
   var r = O.resumo;
-  $('#cx-tot').textContent = pl(r.cartas, 'carta', 'cartas') + ' · ' + pl(r.copias, 'cópia', 'cópias') + ' · ' + usd(r.valor) + ' no total';
-  $('#cx-lede').textContent = eCaixa() ? 'As cartas da caixa, à espera de destino. Para cada uma, o motor cruza onde ela já está, quem pede no radar, em qual deck ela rende mais, a força dela sozinha, o que a comunidade faz com ela e quanto vale. A decisão é sua, cópia a cópia, e fica gravada.'
-    : 'As cartas da pasta ' + O.k + ', com as mesmas contas da Caixa. Mover leva a cópia para outra pasta, Deck a põe no radar do deck, Remover a tira da pasta. "Manter" é a sugestão de deixar onde está.';
+  var dias = diasDesde(r.precos_de);
+  var bt = $('#cx-pbt'); if (bt && !atualizando) { bt.innerHTML = '↻ Atualizar preços' + (r.precos_de ? ' <small>' + fdm(r.precos_de) + '</small>' : ''); bt.classList.toggle('velho', dias > R.precos_dias); }
+  $('#cx-tot').innerHTML = esc(pl(r.cartas, 'carta', 'cartas') + ' · ' + pl(r.copias, 'cópia', 'cópias')) +
+    (r.precos_de && dias > R.precos_dias ? ' · <span class="cx-velho">preços com ' + dias + ' dias</span>' : '');
+  // o saldo da lista aberta, só indicativo: o valor de hoje e a variação desde a atualização anterior; o detalhe no passar do mouse
+  var ps = placarDe(O), sd = Math.round(ps.d * 100) / 100, sg = sd > 0 ? '+' : sd < 0 ? '−' : '';
+  $('#cx-saldo').innerHTML = '<b>' + (CB ? reais(ps.t) : usd(ps.t)) + '</b> <span class="' + (sd > 0 ? 'cx-up' : sd < 0 ? 'cx-down' : 'cx-dz') + '">' +
+    (sd ? (sd > 0 ? '▲ ' : '▼ ') + sg + fmt(Math.abs(ps.p) * 100, Math.abs(ps.p) < 0.01 ? 2 : 1) + '%' : 'estável') + '</span>';
+  $('#cx-saldo').title = 'Saldo ' + (eCaixa() ? 'da Caixa' : 'da pasta ' + O.k) + ': ' + usd(ps.t) + (CB ? ' (≈ ' + reais(ps.t) + ')' : '') + '. ' +
+    (sd ? (sd > 0 ? 'Subiu ' : 'Caiu ') + usd(Math.abs(sd)) + (CB ? ' (≈ ' + reais(Math.abs(sd)) + ')' : '') + ' desde ' + (ps.desde ? fdata(ps.desde) : 'a atualização anterior') : 'Sem variação desde a atualização anterior') + '. ' +
+    (r.precos_de ? 'Preços do Scryfall de ' + fdata(r.precos_de) + '. ' : '') + (CB ? 'Dólar ' + (CB.fonte === 'PTAX' ? 'PTAX ' : '') + 'R$ ' + fmt(CB.v, 4) + (CB.data ? ' de ' + fdata(CB.data) : '') + (CB.velha ? ' (a última guardada)' : '') + '.' : '');
+  $('#cx-lede').innerHTML = (eCaixa() ? '' : fichaHtml()) + esc(eCaixa() ? 'As cartas da caixa, à espera de destino. Para cada uma, o motor cruza onde ela já está, quem pede no radar, em qual deck ela rende mais, a força dela sozinha, o que a comunidade faz com ela e quanto vale. A decisão é sua, cópia a cópia, e fica gravada.'
+    : 'As cartas da pasta ' + O.k + ', com as mesmas contas da Caixa. Mover leva a cópia para outra pasta, Deck a põe no radar do deck, Remover a tira da pasta. "Manter" é a sugestão de deixar onde está.' +
+      (O.mb ? ' A lista é o export do ManaBox: o motor não a edita; cada decisão vira tarefa para você fazer na mão e no ManaBox, e a cópia sai daqui quando o próximo export não a trouxer mais.' : ''));
   $('#cx-resumo').innerHTML = resumo();
   $('#cx-ctl').innerHTML = controles();
   var L = visiveis(), G = grupos(L);
@@ -609,7 +825,7 @@ function render() {
     (mana(ordemCor(dk.i).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + ', do maior ganho para o menor.' +
     (dk.precon ? ' Precon intacto: a lista não muda, o encaixe é só referência.' : '') + ' Asterisco: o deck nunca avaliou a carta, o ganho é piso (o /caixa avalia a sinergia).</p>' : '';
   $('#cx-lista').innerHTML = lede + (L.length ? (ui.ver === 'tabela' ? tabela(G) : galeria(G)) :
-    '<p class="dim">' + (ui.dec === 'pendentes' ? 'Nenhuma carta pendente' : ui.dec === 'decididas' ? 'Nenhuma carta decidida ainda' : 'Nenhuma carta') + (ui.q ? ' com esse nome' : '') + (ui.tipos.length || ui.faixas.length || (ui.agrupar === 'cor' && ui.cores.length) ? ' com esses filtros' : '') + '.</p>');
+    '<p class="dim">' + (ui.dec === 'pendentes' ? 'Nenhuma carta pendente' : ui.dec === 'decididas' ? 'Nenhuma carta decidida ainda' : 'Nenhuma carta') + (ui.q ? ' com esse nome' : '') + (ui.tipos.length || ui.faixas.length || ui.prios.length || ui.dests.length || (ui.agrupar === 'cor' && ui.cores.length) ? ' com esses filtros' : '') + '.</p>');
   var rod = '<p class="nota">Força sozinha: o valor da carta pela régua, só com os oito critérios dela, sem sinergia, e a posição no EDHREC. Selos <span class="cx-gc">GC</span> Game Changer e <span class="cx-st">Staple</span> top ' + R.staple_rank_max + ' do EDHREC. Com duas cópias ou mais, o nome ganha <span class="cx-xn">×N</span> e a decisão abre uma linha por cópia. Valor: preço do Scryfall em dólar, pela impressão e pelo acabamento de cada cópia; cópia em outro idioma usa a impressão em inglês como referência.</p>';
   if (r.nao_encontradas.length) rod += '<p class="nota">Não encontradas no Scryfall (fora da conta): ' + r.nao_encontradas.map(function (x) { return esc(x.lista + ', linha ' + x.linha + ': ' + x.orig); }).join(' · ') + '</p>';
   if (r.ilegiveis.length) rod += '<p class="nota">Linhas que não deu para ler: ' + r.ilegiveis.map(function (x) { return esc(x.lista + ', linha ' + x.linha + ': ' + x.orig); }).join(' · ') + '</p>';
@@ -628,6 +844,10 @@ document.addEventListener('click', function (ev) {
   var act = a.getAttribute('data-act'), id = a.getAttribute('data-id');
   if (act === 'ui') { ui[a.getAttribute('data-k')] = a.getAttribute('data-v'); guardaUI(); render(); }
   else if (act === 'abrir') abrir(id);
+  else if (act === 'vpc') abrirVpc();
+  else if (act === 'precos') atualizarPrecos();
+  else if (act === 'origem') { usarOrigem(a.getAttribute('data-v')); guardaUI(); render(); }
+  else if (act === 'vpc-abrir') { var oo = a.getAttribute('data-o'); if (oo !== O.k) { usarOrigem(oo); guardaUI(); render(); } abrir(id); }
   else if (act === 'ord-inv') { ui.inv = !ui.inv; guardaUI(); render(); }
   else if (act === 'ord') { var ok = a.getAttribute('data-v'); if (ui.ord === ok) ui.inv = !ui.inv; else { ui.ord = ok; ui.inv = false; } guardaUI(); render(); }
   else if (act === 'tipos-limpar') { ui.tipos = []; ddAberta = false; guardaUI(); render(); }
@@ -635,6 +855,9 @@ document.addEventListener('click', function (ev) {
   else if (act === 'cores-limpar') { ui.cores = []; guardaUI(); render(); }
   else if (act === 'faixa') { var fk = a.getAttribute('data-v'), fi = ui.faixas.indexOf(fk); if (fi >= 0) ui.faixas.splice(fi, 1); else ui.faixas.push(fk); guardaUI(); render(); }
   else if (act === 'faixas-limpar') { ui.faixas = []; guardaUI(); render(); }
+  else if (act === 'prio' || act === 'dest') { var lp = act === 'prio' ? ui.prios : ui.dests, kv = a.getAttribute('data-v'), ix = lp.indexOf(kv); if (ix >= 0) lp.splice(ix, 1); else lp.push(kv); guardaUI(); render(); }
+  else if (act === 'prios-limpar') { ui.prios = []; guardaUI(); render(); }
+  else if (act === 'dests-limpar') { ui.dests = []; guardaUI(); render(); }
   else if (act === 'grupo') { var gk = a.getAttribute('data-g'); if (ui.fechados[gk]) delete ui.fechados[gk]; else ui.fechados[gk] = 1; guardaUI(); render(); }
   else if (act === 'grupos') {
     grupos(visiveis()).forEach(function (gr) { if (a.getAttribute('data-v') === 'fechar') ui.fechados[chaveGrupo(gr)] = 1; else delete ui.fechados[chaveGrupo(gr)]; });
@@ -675,8 +898,14 @@ document.addEventListener('click', function (ev) {   // clicar fora fecha a list
 if (ui.deck && (!DECKS[ui.deck] || DECKS[ui.deck].desejo)) ui.deck = '';
 if (!ORDS.some(function (o) { return o[0] === ui.ord; })) ui.ord = 'padrao';
 ui.faixas = ui.faixas.filter(function (k) { return FAIXAS.indexOf(k) >= 0; });
+ui.prios = ui.prios.filter(function (k) { return ORDP.indexOf(k) >= 0; });
+ui.dests = ui.dests.filter(function (k) { return ORDG.indexOf(k) >= 0; });
+aplicarVivos();   // preços que este navegador já buscou no Scryfall, se mais novos que o build
+// o hub abre uma pasta direto na Caixa: 00. Caixa.html#lista=Preta%20P
+var hl = /^#lista=(.+)$/.exec(location.hash || '');
+if (hl) { try { ui.origem = decodeURIComponent(hl[1]); } catch (e) { } }
 usarOrigem(ui.origem || 'Caixa');
 if (PUB && D.hub_pub) $('#cx-hub').href = D.hub_pub;
 render();
 ligarBanco();
-window.CAIXA = { D: D, ui: ui, render: render, abrir: abrir };   // para os testes
+window.CAIXA = { D: D, ui: ui, render: render, abrir: abrir, fontesVenda: fontesVenda, placarDe: placarDe, ORS: ORS };   // para os testes

@@ -41,7 +41,9 @@ Na raiz da pasta de um deck ficam só `deck.md`, `decklist.txt`, `capa.*` e o qu
 | `dados/<pasta>/` | Um deck: `deck.md`, `decklist.txt`, `capa.*`, `entrada/`, e o que o motor gera (avaliação, tema, `CONFRONTO.md`, `HISTORICO.md`, `Abrir o painel.html`). |
 | `dados/traducoes.json` | O texto das cartas da Caixa e das pastas em português (tradução livre do Claude, com a marca do texto em inglês traduzido). Só a página da Caixa lê. |
 | `dados/caixa/` | A Caixa: as cartas sem destino. `listas/` (uma por lote, do dono, nunca editadas), `decisoes.json`, `compras.json`, `bundles.txt`, `bulk.txt`, `HISTORICO.md` e o `LEIA-ME.md` com o passo a passo. Não é deck. |
-| `dados/pastas/` | As pastas físicas de cartas do dono (`<pasta>.txt`), as decisões e as marcas de pet card delas. Não é deck. |
+| `dados/pastas/` | As pastas físicas de cartas do dono: uma subpasta por pasta com o export do ManaBox (do dono, nunca editado; ex.: `Preta P/Pasta Preta.csv`), ou o formato antigo `<pasta>.txt`; a ficha de cada pasta em `pastas.json` (a Preta P é o Relicário de Ônix); as decisões e as marcas de pet card delas; `LEIA-ME.md` com o passo a passo. Não é deck. |
+| `dados/pastas/links.json` | Os links publicados das páginas das pastas (`saidas/00. Pasta <pasta>.html`), que o hub usa no cartão de cada pasta. |
+| `dados/precos/` | `ultimo.json`: o valor de hoje e o anterior de cada impressão da Caixa e das pastas, gravado pelo `/precos`. Não é deck. |
 | `motor/` | O código do painel e os scripts de montagem. Contrato dos dados em `contexto/ARQUITETURA.md`. |
 | `testes/` | Os testes, que recebem o deck por `--deck`, e os números de controle em `testes/controle/`. |
 | `cache/` | Dados e imagens do Scryfall. Fora do Git. |
@@ -59,7 +61,8 @@ Mantenha esta seção atualizada.
 - Cartas do zero no Scryfall: acrescente `--atualizar-scryfall`
 - Testes de um deck: `python testes/todos.py --deck "02. Clavileño"` (contrato, regressão, página publicada, layout e, no Clavileño, a comparação com o painel de origem). Cada um também roda sozinho, com `--deck`.
 - Hub: `python motor/build.py --hub` (grava `saidas/00. Hub.html` e `Abrir o Hub.html` na raiz). Teste: `python testes/hub.py`, que também confere as contas do Dashboard contra o motor e contra cada painel (os painéis precisam estar montados em `saidas/`).
-- Caixa: `python motor/build.py --caixa` (grava `saidas/00. Caixa.html` e `Abrir a Caixa.html`; `--todos` monta a Caixa antes do hub). A conta sozinha: `python motor/caixa.py`. Teste: `python testes/caixa.py`. O comando do dia a dia é o `/caixa` (e `/caixa aplicar`).
+- Valor de hoje: `/precos [origem]` (`python motor/caixa.py --precos [--origem "Preta P"]`), com a PTAX em `cache/cambio.json`.
+- Caixa: `python motor/build.py --caixa` (grava `saidas/00. Caixa.html`, uma página por pasta com lista, `saidas/00. Pasta <pasta>.html`, e `Abrir a Caixa.html`; `--todos` monta a Caixa antes do hub). A conta sozinha: `python motor/caixa.py`. Teste: `python testes/caixa.py`. O comando do dia a dia é o `/caixa` (e `/caixa aplicar`).
 - Não rode o `build.py` do kit em `contexto/origem/`: ele grava dentro da pasta de origem.
 
 ## Idioma e tom

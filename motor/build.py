@@ -177,6 +177,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         criterios = [dict(c, claro=True) if tema.luz(c["cor"]) > .65 else dict(c) for c in d["criterios"]]
     img = mapa_imagens(d["cards"] + d["cands"]) if modo_img == "embutidas" else None
     D = dict(meta=meta, grupos=[g for g, _ in grupos], criterios=criterios, marcadores=d["marcadores"], leituras=d["leituras"], cores=cores,
+             banidas=d.get("banidas") or None,   # banidas no Commander no deck ou no radar: uma linha nas leituras
              tipos=dict(tema.TIPOS, **(t.get("tipos") or {})), cards=d["cards"], cands=d["cands"], pool=d["pool"],
              combos=d["combos"], edh=d["edh"], estrategia=d.get("estrategia"), img=(img or None),
              confrontos=d.get("confrontos"),   # listas de fora pontuadas na v3 (motor/confronto.py), aba Radar
@@ -242,15 +243,18 @@ def montar_caixa(modo_img="embutidas"):
     if not os.path.isdir(os.path.join(caixa.pasta_caixa(), "listas")):
         print("%s: sem dados/caixa/listas/, pulada" % caixa.NOME)
         return
-    html, cx = caixa.pagina(modo_img=modo_img)
-    mb = len(html.encode("utf-8")) / 1048576
-    if mb > R["teto_mb"]:
-        raise dados.ErroDeck("a Caixa ficou com %.1f MB (teto %s MB): aplique decisões (/caixa aplicar) ou divida as listas em lotes" % (mb, R["teto_mb"]))
-    gravar(os.path.join(SAIDAS, caixa.NOME + ".html"), html)
+    # uma página por lista: a Caixa e cada pasta com lista (00. Pasta <pasta>.html), como um painel por deck
+    for origem in caixa.origens():
+        html, cx = caixa.pagina(modo_img=modo_img, origem=origem)
+        nome = caixa.nome_pagina(origem)
+        mb = len(html.encode("utf-8")) / 1048576
+        if mb > R["teto_mb"]:
+            raise dados.ErroDeck("%s ficou com %.1f MB (teto %s MB): aplique decisões (/caixa aplicar) ou divida as listas em lotes" % (nome, mb, R["teto_mb"]))
+        gravar(os.path.join(SAIDAS, nome + ".html"), html)
+        r = cx["resumo"]
+        print("%s: %d cartas, %d cópias | %.0f KB%s" % (nome, r["cartas"], r["copias"], mb * 1024,
+                                                      "  AVISO: passou de %s MB" % R["aviso_mb"] if mb > R["aviso_mb"] else ""))
     gravar(os.path.join(RAIZ, "Abrir a Caixa.html"), caixa.atalho())
-    r = cx["resumo"]
-    print("%s: %d cartas, %d cópias | %.0f KB%s" % (caixa.NOME, r["cartas"], r["copias"], mb * 1024,
-                                                  "  AVISO: passou de %s MB" % R["aviso_mb"] if mb > R["aviso_mb"] else ""))
 
 
 def decks():

@@ -144,7 +144,7 @@ def pontos_cmc(avg):
     return 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
 
 
-PASTAS_FORA = {"pastas", "caixa"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py). Não são decks
+PASTAS_FORA = {"pastas", "caixa", "precos"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py); dados/precos: o valor de hoje (/precos). Não são decks
 
 
 def eh_deck(nome):
@@ -162,30 +162,13 @@ def chave_nome(n):
 
 
 def ler_pastas():
-    """As listas das pastas de cartas do dono, em dados/pastas/<nome da pasta>.txt.
-
-    Cada linha é `2 Nome da carta`, com ou sem `(SET) 123` e acabamento depois. Devolve {pasta: {chave: quantidade}}.
-    O formato definitivo fecha quando a primeira lista chegar; até lá, só o texto simples é lido.
+    """As listas das pastas de cartas do dono: cada subpasta de dados/pastas/ (o export do ManaBox, .csv ou .txt, somados) e o
+    formato antigo dados/pastas/<pasta>.txt, pelo mesmo leitor da Caixa (caixa.pastas_lista). Devolve {pasta: {chave: quantidade}}.
     """
-    base = os.path.join(DADOS, "pastas")
-    out = {}
-    pad = re.compile(r"^(\d+)\s*x?\s+(.+?)(?:\s+\([A-Za-z0-9]+\)\s+\S+.*)?\s*$", re.I)
-    for f in sorted(os.listdir(base)) if os.path.isdir(base) else []:
-        if not f.lower().endswith(".txt"):
-            continue
-        cartas = {}
-        with open(os.path.join(base, f), encoding="utf-8-sig") as fh:
-            for linha in fh:
-                linha = linha.strip()
-                if not linha or linha.startswith(("#", "//")):
-                    continue
-                m = pad.match(linha)
-                if m:
-                    k = chave_nome(m.group(2))
-                    cartas[k] = cartas.get(k, 0) + int(m.group(1))
-        out[f[:-4]] = cartas
-    # a Caixa (dados/caixa/listas/) entra como mais uma pasta: "está na Caixa" nos painéis e no hub
     import caixa
+    out = {p: caixa.nomes_pasta(p) for p in caixa.pastas_lista()}
+    out = {p: v for p, v in out.items() if v}
+    # a Caixa (dados/caixa/listas/) entra como mais uma pasta: "está na Caixa" nos painéis e no hub
     na_caixa = caixa.nomes()
     if na_caixa:
         out["Caixa"] = na_caixa
@@ -690,6 +673,11 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         if fora:
             raise ErroDeck("%s: fora da identidade de cor do comandante (%s): %s" % (onde, ident or "incolor", ", ".join(fora)))
 
+    # banida no Commander (legalidade do Scryfall): aviso no build e uma linha nas leituras do painel; a decklist não muda
+    banidas = [dict(n=nome, onde=onde) for onde, itens in (("deck", faixas[0][1]), ("radar", faixas[1][1])) for r, nome in itens if r.get("leg") == "banned"]
+    if banidas:
+        avisar("aviso: banidas no Commander: " + ", ".join("%s (%s)" % (b["n"], b["onde"]) for b in banidas))
+
     cards = [montar_carta(e["name"], cartas_av[e["name"]], sf[i], grupos, marcadores, e) for i, e in enumerate(lista)]
     # o mesmo básico em duas impressões vira duas linhas: cada uma precisa de id próprio
     vistos_id = {}
@@ -763,5 +751,5 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, v3=v3,
                 confrontos=confrontos, avaliadas=avaliadas,
                 criterios=grupos_v3() if v3 else None,
-                marcadores=marcadores, leituras=leituras, feito=av.get("feito", ""), ident=ident,
+                marcadores=marcadores, leituras=leituras, banidas=banidas, feito=av.get("feito", ""), ident=ident,
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))

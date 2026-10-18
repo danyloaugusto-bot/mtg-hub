@@ -187,17 +187,45 @@ function redesenharDecks(foco) {
 }
 
 /* ============ pastas ============ */
+function caixaHref(lista) {
+  var C = H.caixa; if (!C) return '';
+  return ((location.protocol !== 'file:' && C.pub) ? C.pub : C.href) + (lista ? '#lista=' + encodeURIComponent(lista) : '');
+}
+/* a gema de ônix das pastas com ficha (Relicário de Ônix, na Preta P) */
+function gema() {
+  return '<svg class="gema" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gm-o" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a5262"/><stop offset=".5" stop-color="#17141b"/><stop offset="1" stop-color="#040405"/></linearGradient></defs>' +
+    '<path d="M20 6h24l14 16-26 36L6 22z" fill="url(#gm-o)" stroke="rgba(255,201,107,.6)" stroke-width="1.3"/>' +
+    '<path d="M6 22h52M20 6l-4 16 16 36 16-36-4-16M16 22L32 6l16 16" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1"/></svg>';
+}
 function caixaPastas() {
   var C = H.caixa; if (!C) return '';
-  var href = (location.protocol !== 'file:' && C.pub) ? C.pub : C.href;
+  var href = caixaHref();
   return '<article class="cx-res"><div><h3>Caixa</h3><p>' + pl(C.cartas, 'carta', 'cartas') + ', ' + pl(C.copias, 'cópia', 'cópias') + ' à espera de destino: ' +
     C.S + ' de prioridade S e ' + C.A + ' de prioridade A.</p></div><a class="bt-c" href="' + esc(href) + '">Abrir a Caixa</a></article>';
 }
+var ICP = ['◆', '♛', '➜'];   // os papéis da ficha: tesouros, comandantes de amanhã, a caminho de um deck
+/* o saldo da pasta: só ao passar o mouse (a única exceção ao "sem preço" do hub, a pedido do dono, 18/10/2026) */
+function saldoPasta(p) {
+  var s = p.s; if (!s || s.valor == null) return '';
+  var real = function (v) { return 'R$ ' + Number(v * H.cambio).toLocaleString('pt-BR', { maximumFractionDigits: 0 }); };
+  var dol = function (v) { return 'US$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  var d = Math.round((s.valor - s.ant) * 100) / 100, pc = s.ant ? d / s.ant * 100 : 0, sg = d > 0 ? '+' : d < 0 ? '−' : '';
+  return '<div class="p-saldo" aria-label="Saldo da pasta"><b>' + (H.cambio ? real(s.valor) : dol(s.valor)) + '</b>' + (H.cambio ? '<small>' + dol(s.valor) + '</small>' : '') +
+    '<span class="' + (d > 0 ? 'up' : d < 0 ? 'down' : 'z') + '">' + (d ? (d > 0 ? '▲ ' : '▼ ') + sg + dol(Math.abs(d)) + ' (' + sg + num(Math.abs(pc), Math.abs(pc) < 1 ? 2 : 1) + '%)' : 'estável') + '</span>' +
+    '<small>' + (s.desde ? 'desde ' + s.desde.slice(8, 10) + '/' + s.desde.slice(5, 7) : '') + (s.precos_de ? ' · preços de ' + s.precos_de.slice(8, 10) + '/' + s.precos_de.slice(5, 7) : '') + '</small></div>';
+}
 function vistaPastas() {
-  return caixaPastas() + '<p class="intro">As suas pastas de cartas. Quando chegar a lista de cada uma, ela aparece aqui organizada por cor e custo, com ' +
-    'o que tem sinergia com os seus decks e não está sendo usado e os temas que já formariam um deck novo.</p>' +
+  return caixaPastas() + '<p class="intro">As suas pastas físicas. A que já tem lista (o export do ManaBox numa subpasta de <code>dados/pastas/</code>) tem página própria, ' +
+    'com as mesmas contas da Caixa: onde cada carta já está, em qual deck rende mais e o que fazer com ela. Passe o mouse na pasta para ver quanto ela vale hoje.</p>' +
     '<div class="pastas">' + H.pastas.map(function (p) {
-      return '<article class="pasta" style="--pc:' + esc(p.c) + '"><div class="lomb"></div><div class="t"><h3>' + esc(p.n) + '</h3><p>Sem lista ainda.</p></div></article>';
+      var f = p.f, tem = p.q > 0;
+      var cont = tem ? pl(p.q, 'carta', 'cartas') + (p.cp !== p.q ? ', ' + pl(p.cp, 'cópia', 'cópias') : '') : 'Sem lista ainda.';
+      return '<article class="pasta' + (f ? ' pasta-f' : '') + '" style="--pc:' + esc(p.c) + '"><div class="lomb">' + (f ? gema() : '') + '</div><div class="t">' +
+        '<h3>' + esc(p.n) + '</h3>' + (f && f.subnome ? '<p class="p-sub">' + esc(f.subnome) + '</p>' : '') +
+        '<p class="p-q">' + (f && f.formato ? '<span>' + esc(f.formato) + '</span> ' : '') + esc(cont) + '</p>' +
+        (f && f.frase ? '<p class="p-fr">' + esc(f.frase) + '</p>' : '') +
+        (f && f.papeis ? '<ul class="p-pa">' + f.papeis.map(function (x, i) { return '<li><i aria-hidden="true">' + (ICP[i] || '•') + '</i><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></li>'; }).join('') + '</ul>' : '') +
+        (tem && p.href ? '<a class="bt-c" href="' + esc((location.protocol !== 'file:' && p.pub) ? p.pub : p.href) + '">Abrir a pasta</a>' : '') + saldoPasta(p) + '</div></article>';
     }).join('') + '</div>';
 }
 

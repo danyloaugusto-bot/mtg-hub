@@ -59,7 +59,7 @@ v = carta(cx, "Vilis, Broker of Blood")
 cv = CTL["vilis"]
 R.ok("Vilis: uma carta, uma cópia", v is not None and v["q"] == 1 and cx["resumo"]["copias"] == 1)
 reg = cache_de("M20", "122")
-R.ok("Vilis: preço da M20 122 normal igual ao do cache (US$ 9,97 em 17/10)", v["copias"][0]["usd"] == float(reg.get("usd")), (v["copias"][0]["usd"], reg.get("usd")))
+R.ok("Vilis: preço da M20 122 normal igual ao do cache", v["copias"][0]["usd"] == float(reg.get("usd")), (v["copias"][0]["usd"], reg.get("usd")))
 R.ok("Vilis: valor próprio %s" % cv["vp"], v["vp"] == cv["vp"], v["vp"])
 R.ok("Vilis: posição no EDHREC igual à do cache (1127 em 17/10)", v["rank"] == reg.get("edhrec_rank"), v["rank"])
 enc = {e["p"]: e for e in v["enc"]}
@@ -239,6 +239,125 @@ finally:
             open(q, "w", encoding="utf-8", newline="\n").write(v)
 R.ok("pastas de teste limpas", not [f for f in os.listdir(PF) if f.startswith("zz teste")])
 
+# ---------------------------------------------------------------- pasta do ManaBox (subpasta): tarefas, proxy, banida, preços de hoje
+MB, TXT = "zz teste MB", "zz teste TXT"
+CAB = "Name,Set code,Set name,Collector number,Foil,Rarity,Quantity,ManaBox ID,Scryfall ID,Purchase price,Misprint,Altered,Signed,Condition,Language,Proxy,Purchase price currency,Added\n"
+
+
+def linha_mb(nome, set_, num, rar="rare", compra="10.00", signed="false", proxy="false"):
+    return "%s,%s,Teste,%s,normal,%s,1,1,,%s,false,false,%s,near_mint,pt,%s,BRL,2026-10-18T00:00:00.000Z\n" % (
+        '"%s"' % nome if "," in nome else nome, set_, num, rar, compra, signed, proxy)
+
+
+csv_mb = os.path.join(PF, MB, "export.csv")
+PREC, CAMB = caixa._arq_precos(), caixa.CAMBIO
+guarda2 = {q: (open(q, encoding="utf-8").read() if os.path.exists(q) else None) for q in (os.path.join(PF, "decisoes.json"), HIST, PREC, CAMB)}
+tmpc = tempfile.mkdtemp()
+try:
+    os.makedirs(os.path.join(PF, MB))
+    hd_linha = linha_mb("Hero's Downfall", "SLD", "312", compra="12.61")
+    with open(csv_mb, "w", encoding="utf-8") as f:
+        f.write(CAB + linha_mb("Mana Crypt", "SPG", "17", rar="mythic") + linha_mb("Commander's Sphere", "SLD", "315", proxy="true")
+                + linha_mb("Umezawa's Jitte", "PLST", "BOK-163", signed="true") + hd_linha)
+    with open(os.path.join(PF, TXT + ".txt"), "w", encoding="utf-8") as f:
+        f.write("1 Hero's Downfall (SLD) 312\n")
+    pl = caixa.pastas_lista()
+    R.ok("pasta em subpasta: lida como ManaBox; o .txt antigo segue valendo", pl.get(MB, {}).get("sub") is True and pl.get(TXT, {}).get("sub") is False
+         and MB in caixa.origens() and TXT in caixa.origens(), {k: v["sub"] for k, v in pl.items()})
+    R.ok("pasta com nome fora do hub: avisada (a Preta P bate)", MB in caixa.pastas_fora_do_hub() and "Preta P" not in caixa.pastas_fora_do_hub())
+    R.ok("leitor leve dos painéis e do hub: a subpasta entra em ler_pastas", dados.ler_pastas().get(MB, {}).get("hero's downfall") == 1)
+    cm = caixa.montar(avisar=lambda *a: None, rede=False, fonte_edhrec=fonte, origem=MB)
+    mc, csf, jt, hd = carta(cm, "Mana Crypt"), carta(cm, "Commander's Sphere"), carta(cm, "Umezawa's Jitte"), carta(cm, "Hero's Downfall")
+    R.ok("ManaBox: resumo da leitura (4 cópias; ignoradas só Set name e ManaBox ID)", cm["manabox"] and cm["resumo"]["copias"] == 4
+         and set(cm["resumo"]["colunas_ignoradas"]) == {"Set name", "ManaBox ID"}, cm["resumo"]["colunas_ignoradas"])
+    R.ok("banida no Commander: selo, nunca Deck; Venda com preço", mc["leg"] == "banned" and mc["ban"] == 1
+         and all(cp["sug"]["d"] == ("venda" if cp["usd"] is not None else "guardar") for cp in mc["copias"]), (mc.get("leg"), [cp["sug"]["d"] for cp in mc["copias"]]))
+    R.ok("proxy: selo, nunca Venda nem Deck", csf["copias"][0].get("proxy") == 1 and csf["copias"][0]["sug"]["d"] not in ("venda", "deck"), csf["copias"][0]["sug"]["d"])
+    R.ok("assinada: selo e aviso de que o preço do Scryfall não reflete", jt["copias"][0].get("selos") == ["assinada"] and any("não reflete" in a for a in jt["copias"][0]["avisos"]))
+    R.ok("raridade e preço do cadastro do ManaBox na cópia, fora das regras", hd["copias"][0].get("rar") == "rara"
+         and hd["copias"][0].get("compra") == {"v": 12.61, "moeda": "BRL", "em": "2026-10-18"}, hd["copias"][0].get("compra"))
+    # remover numa subpasta: o export não é editado; vira tarefa, feita quando o export novo não traz a cópia
+    caixa.gravar_decisoes({"versao": 2, "cartas": {"Hero's Downfall": {"copias": [{"imp": "SLD 312", "acab": "normal", "destino": "remover", "em": "2026-10-18", "aplicado": None}]}}}, origem=MB)
+    antes = open(csv_mb, encoding="utf-8").read()
+    caixa.aplicar(origem=MB)
+    x = caixa.ler_decisoes(origem=MB)["cartas"]["Hero's Downfall"]["copias"][0]
+    R.ok("tarefa no ManaBox: o export não muda e a decisão vira tarefa", open(csv_mb, encoding="utf-8").read() == antes
+         and (x.get("tarefa") or {}).get("q_origem") == 1 and not x.get("aplicado"), x)
+    cm2 = caixa.montar(avisar=lambda *a: None, rede=False, fonte_edhrec=fonte, origem=MB)
+    R.ok("tarefa pendente: a cópia segue na pasta, com a decisão presa a ela", carta(cm2, "Hero's Downfall")
+         and (carta(cm2, "Hero's Downfall")["copias"][0].get("decisao") or {}).get("destino") == "remover")
+    R.ok("tarefa pendente na lista da página", any(t["n"] == "Hero's Downfall" and t["de"] == MB for t in caixa.tarefas_pendentes()))
+    with open(csv_mb, "w", encoding="utf-8") as f:   # o export novo, sem a cópia
+        f.write(antes.replace(hd_linha, ""))
+    caixa.aplicar(origem=MB)
+    x = caixa.ler_decisoes(origem=MB)["cartas"]["Hero's Downfall"]["copias"][0]
+    R.ok("export novo sem a cópia: a tarefa fica feita", (x.get("tarefa") or {}).get("feita") and x.get("aplicado")
+         and not any(t["n"] == "Hero's Downfall" and t["de"] == MB for t in caixa.tarefas_pendentes()), x)
+    # da Caixa para a pasta do ManaBox: sai da Caixa já, e a tarefa fica feita quando o export da pasta traz a cópia
+    os.makedirs(os.path.join(tmpc, "listas"))
+    with open(os.path.join(tmpc, "listas", "l.txt"), "w", encoding="utf-8") as f:
+        f.write("1 Hero's Downfall (SLD) 312\n")
+    caixa.gravar_decisoes({"versao": 2, "cartas": {"Hero's Downfall": {"copias": [{"imp": "SLD 312", "acab": "normal", "destino": "guardar", "pasta": MB, "em": "2026-10-18", "aplicado": None}]}}}, base=tmpc)
+    caixa.aplicar(base=tmpc)
+    y = caixa.ler_decisoes(base=tmpc)["cartas"]["Hero's Downfall"]["copias"][0]
+    R.ok("Caixa -> pasta do ManaBox: sai da Caixa, vira tarefa e nenhum .txt é criado", y.get("aplicado") and (y.get("tarefa") or {}).get("q_destino") == 0
+         and not os.path.exists(os.path.join(PF, MB + ".txt")), y)
+    with open(csv_mb, "a", encoding="utf-8") as f:
+        f.write(linha_mb("Hero's Downfall", "SLD", "312"))
+    caixa.aplicar(base=tmpc)
+    y = caixa.ler_decisoes(base=tmpc)["cartas"]["Hero's Downfall"]["copias"][0]
+    R.ok("o export da pasta de destino traz a cópia: a tarefa fica feita", (y.get("tarefa") or {}).get("feita"), y)
+    # preços de hoje com um Scryfall de mentira: +20% na Jitte, +5% nas outras
+    import copy as copia_
+    if os.path.exists(PREC):
+        os.remove(PREC)
+
+    def scry_mentira(ps, atualizar):
+        out = {}
+        for i, p in enumerate(ps):
+            r = copia_.deepcopy(scryfall.buscar([p], avisar=lambda *a: None)[0])
+            if atualizar and r.get("usd"):
+                r["usd"] = "%.2f" % (float(r["usd"]) * (1.2 if r["name"] == "Umezawa's Jitte" else 1.05))
+            out[i] = r
+        return out
+    com_preco = sum(1 for c in cm["cartas"] if c["copias"][0]["usd"] is not None and c["copias"][0]["acab"] == "normal")
+    rp = caixa.atualizar_precos(MB, avisar=lambda *a: None, buscar=scry_mentira)
+    reg = caixa.ler_precos()["copias"]
+    jk = caixa._chave_preco("PLST BOK-163", "normal")
+    R.ok("/precos: consulta tudo de novo e guarda o anterior; conta os que mudaram e os que passaram de 10%",
+         rp["mudaram"] == com_preco and rp["variacao"] == 1 and abs(reg[jk]["usd"] / reg[jk]["ant"] - 1.2) < 0.01, (rp, com_preco, reg.get(jk)))
+    # a variação na tela: acima de 10% aparece, abaixo não (o preço atual do cache contra o anterior guardado)
+    pj, ph = jt["copias"][0]["usd"], carta(cm, "Mana Crypt")["copias"][0]["usd"]
+    with open(PREC, "w", encoding="utf-8") as f:
+        json.dump({"copias": {jk: {"usd": pj, "em": "2026-10-18", "ant": round(pj / 1.25, 2), "ant_em": "2026-10-01"},
+                              caixa._chave_preco("SPG 17", "normal"): {"usd": ph, "em": "2026-10-18", "ant": round(ph / 1.05, 2), "ant_em": "2026-10-01"}}}, f)
+    cm3 = caixa.montar(avisar=lambda *a: None, rede=False, fonte_edhrec=fonte, origem=MB)
+    vj, vm = carta(cm3, "Umezawa's Jitte")["copias"][0].get("var"), carta(cm3, "Mana Crypt")["copias"][0].get("var")
+    R.ok("variação: +25% aparece ao lado do valor, +5% não", vj is not None and abs(vj - 0.25) < 0.01 and vm is None, (vj, vm))
+    # PTAX de mentira: guarda; sem resposta, usa a última e marca; sem nenhuma guardada, só dólar
+    if os.path.exists(CAMB):
+        os.remove(CAMB)
+
+    def sem_rede(h):
+        raise OSError("sem rede")
+    c1 = caixa.cambio(atualizar=True, fonte=lambda h: {"v": 5.5, "data": "2026-10-16", "fonte": "PTAX"})
+    c2 = caixa.cambio(atualizar=True, fonte=sem_rede, avisar=lambda *a: None)
+    R.ok("PTAX: guarda a cotação; sem resposta, fica a última guardada, marcada", c1["v"] == 5.5 and c2["v"] == 5.5 and c2.get("velha") == 1 and caixa.cambio()["v"] == 5.5)
+    os.remove(CAMB)
+    R.ok("PTAX sem resposta e sem cotação guardada: a página fica só em dólar", caixa.cambio(atualizar=True, fonte=sem_rede, avisar=lambda *a: None) is None)
+finally:
+    shutil.rmtree(os.path.join(PF, MB), ignore_errors=True)
+    if os.path.exists(os.path.join(PF, TXT + ".txt")):
+        os.remove(os.path.join(PF, TXT + ".txt"))
+    shutil.rmtree(tmpc, ignore_errors=True)
+    for q, v in guarda2.items():
+        if v is None:
+            if os.path.exists(q):
+                os.remove(q)
+        else:
+            open(q, "w", encoding="utf-8", newline="\n").write(v)
+R.ok("pasta do ManaBox de teste limpa", not [f for f in os.listdir(PF) if f.startswith("zz teste")])
+
 # ---------------------------------------------------------------- tier estimado e o deck hoje (critérios da v3 e quadros do 8×8)
 R.ok("tier estimado: nunca S (S só com avaliação)", caixa._tier_estimado(99, {"S": 20, "A": 12, "B": 8}) == "A"
      and caixa._tier_estimado(9, {"S": 20, "A": 12, "B": 8}) == "B" and caixa._tier_estimado(1, {"A": 12, "B": 8, "C": 4}) == "C")
@@ -292,7 +411,8 @@ with sync_playwright() as pw:
     R.ok("toda carta pendente aparece, uma linha por prioridade das cópias dela", len(set(ids0)) == len(pend) and len(ids0) == par, (len(set(ids0)), len(pend), len(ids0), par))
     lv = pg.locator('tr.cx-r[data-id="vilis-broker-of-blood"]')
     t = lv.inner_text() if lv.count() else ""
-    R.ok("linha do Vilis: S, K'rrik, +24, US$ 9,97", lv.count() == 1 and lv.locator("td.cx-pr").inner_text().strip() == "S" and "K'rrik" in t and "+24" in t and "US$ 9,97" in t, t[:160])
+    pv = caixa.usd(carta(cx_real, "Vilis, Broker of Blood")["valor"])   # o preço de hoje (muda a cada /precos)
+    R.ok("linha do Vilis: S, K'rrik, +24 e o preço de hoje", lv.count() == 1 and lv.locator("td.cx-pr").inner_text().strip() == "S" and "K'rrik" in t and "+24" in t and pv in t, (pv, t[:160]))
     pg.click('[data-act="ui"][data-k="ver"][data-v="galeria"]'); pg.wait_for_timeout(300)
     pg.click('[data-act="ui"][data-k="agrupar"][data-v="tipo"]'); pg.wait_for_timeout(300)
     xn = pg.eval_on_selector_all(".cx-cd", "es => es.map(e => [e.getAttribute('data-id'), !!e.querySelector('.cx-xn')])")
@@ -422,5 +542,75 @@ with sync_playwright() as pw:
     pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
     R.ok("decisão: a carta sai das pendentes", pg.locator('tr.cx-r[data-id="vilis-broker-of-blood"]').count() == 0)
     R.ok("sem preço fora da Caixa: a página da Caixa é a única com US$", "US$" in pg.inner_text("#cx-resumo"))
+    # placar de valor: a soma de hoje e a variação desde a atualização anterior, por lista
+    soma = round(sum(cp["usd"] or 0 for c in cx_real["cartas"] for cp in c["copias"]), 2)
+    dif = round(sum((cp["usd"] - cp["ant"]) for c in cx_real["cartas"] for cp in c["copias"] if cp["usd"] is not None and cp.get("ant") is not None), 2)
+    pc = pg.evaluate("(() => { var p = window.CAIXA.placarDe(window.CAIXA.ORS[0]); return [Math.round(p.t * 100) / 100, Math.round(p.d * 100) / 100]; })()")
+    R.ok("placar: o valor de hoje e a variação desde a atualização anterior batem com os dados", abs(pc[0] - soma) < 0.011 and abs(pc[1] - dif) < 0.011, (pc, soma, dif))
+    R.ok("saldo no topo: só o da lista aberta, com a cor da variação e o detalhe no passar do mouse", pg.locator("#cx-saldo").count() == 1
+         and pg.locator("#cx-saldo .cx-up, #cx-saldo .cx-down, #cx-saldo .cx-dz").count() == 1 and "desde" in (pg.get_attribute("#cx-saldo", "title") or ""))
+    R.ok("uma página por lista: a Caixa não tem o seletor de lista", pg.locator('select[data-ctl="origem"]').count() == 0)
+    R.ok("o topo numa linha só (1360 px)", pg.evaluate("document.querySelector('.top').getBoundingClientRect().height") < 80)
+    # prioridade e sugestão filtram a lista (cópia a cópia)
+    decid = set(pg.evaluate("Object.keys(window.__store || {})"))   # as que o teste já decidiu no banco de mentira (saem das pendentes)
+    pend2 = [c for c in pend if c["id"] not in decid]
+    ns = sum(1 for c in pend2 if any(cp["sug"]["P"] == "S" for cp in c["copias"]))
+    pg.click('.cx-fi [data-act="prio"][data-v="S"]'); pg.wait_for_timeout(300)
+    ids_s = set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))
+    R.ok("filtro de prioridade: S mostra só as cartas com cópia de prioridade S (%d)" % ns, len(ids_s) == ns and pg.locator("tr.cx-r td.cx-pr .tb.tS").count() == pg.locator("tr.cx-r").count(), (len(ids_s), ns))
+    pg.click('.cx-fi [data-act="dest"][data-v="deck"]'); pg.wait_for_timeout(300)
+    nsd = sum(1 for c in pend2 if any(cp["sug"]["P"] == "S" and cp["sug"]["d"] == "deck" for cp in c["copias"]))
+    R.ok("filtro de sugestão junto: S e Deck", len(set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))) == nsd, nsd)
+    pg.click('[data-act="prios-limpar"]'); pg.click('[data-act="dests-limpar"]'); pg.wait_for_timeout(300)
+    R.ok("filtros de prioridade e sugestão: limpar volta a todas", len(set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))) == len(pend2))
+    R.ok("botão Atualizar preços no topo, com a data dos preços", pg.is_visible("#cx-pbt") and "Atualizar preços" in pg.inner_text("#cx-pbt"))
+    # Atualizar preços com um Scryfall de mentira no navegador: tudo 10% mais caro; o placar sobe e o navegador guarda
+    pg.evaluate(r"""(() => { window.fetch = function (url, op) { var ids = JSON.parse(op.body).identifiers, data = [];
+      window.CAIXA.ORS.forEach(function (o) { o.cartas.forEach(function (c) { c.copias.forEach(function (cp) {
+        var m = /^(\S+) (.+)$/.exec(cp.imp || ''); if (!m || cp.usd == null) return;
+        if (ids.some(function (x) { return x.set === m[1].toLowerCase() && x.collector_number === m[2]; })) {
+          var pr = {}; pr[{ foil: 'usd_foil', etched: 'usd_etched' }[cp.acab] || 'usd'] = String(Math.round(cp.usd * 110) / 100);
+          data.push({ set: m[1].toLowerCase(), collector_number: m[2], prices: pr }); } }); }); });
+      return Promise.resolve({ ok: true, json: function () { return Promise.resolve({ data: data }); } }); }; return 1; })()""")
+    pg.click("#cx-pbt"); pg.wait_for_timeout(2500)
+    p2 = pg.evaluate("(() => { var p = window.CAIXA.placarDe(window.CAIXA.ORS[0]); return [Math.round(p.t * 100) / 100, Math.round(p.p * 1000) / 1000]; })()")
+    R.ok("Atualizar preços: os preços novos entram, o placar fica verde e o navegador guarda", abs(p2[0] - round(soma * 1.1, 2)) < 3.0 and p2[1] > 0.09
+         and pg.locator("#cx-saldo .cx-up").count() == 1 and pg.evaluate("!!localStorage.getItem('mtg-hub:caixa:precos-vivos')") and "Scryfall de hoje" in pg.inner_text("#cx-aviso"), (p2, soma))
+    pg.evaluate("localStorage.removeItem('mtg-hub:caixa:precos-vivos')"); pg.reload(); pg.wait_for_timeout(800)
+    pg.evaluate("(() => { window.fetch = function () { return Promise.reject(new TypeError('bloqueado')); }; return 1; })()")
+    pg.click("#cx-pbt"); pg.wait_for_timeout(600)
+    R.ok("Atualizar preços sem acesso ao Scryfall: avisa e manda rodar /precos", "/precos" in pg.inner_text("#cx-aviso"))
+    # Vender para comprar: bruto das fontes, líquido pelo fator e o acumulado dos usos até o líquido
+    pg.click('[data-act="vpc"]'); pg.wait_for_timeout(400)
+    vp = pg.evaluate(r"""(() => {
+      var num = function (t) { var m = /US\$\s*([\d.]+,\d{2})/.exec(t || ''); return m ? +m[1].replace(/\./g, '').replace(',', '.') : null; };
+      var fs = window.CAIXA.fontesVenda(), b = fs.reduce(function (s, x) { return s + (x.cp.usd || 0); }, 0);
+      var foot = document.querySelectorAll('#cx-gav-in .cx-vpc section:first-child tfoot tr');
+      var rows = Array.prototype.map.call(document.querySelectorAll('#cx-gav-in .cx-vpc section:last-child tbody tr'), function (r) {
+        var td = r.querySelectorAll('td'); return td.length > 3 ? [num(td[3].textContent), r.classList.contains('cx-cabe')] : null; }).filter(Boolean);
+      return { n: fs.length, b: b, fb: num(foot[0].textContent), fl: num(foot[1].textContent), fator: window.CAIXA.D.regua.fator_venda, rows: rows };
+    })()""")
+    ac = [r[0] for r in vp["rows"] if r[0] is not None]
+    cabe = [r[0] for r in vp["rows"] if r[1]]
+    fora = [r[0] for r in vp["rows"] if r[0] is not None and not r[1]]
+    R.ok("Vender para comprar: o bruto é a soma das fontes e o líquido é o bruto vezes o fator", vp["n"] > 0 and abs(vp["fb"] - round(vp["b"], 2)) < 0.011
+         and abs(vp["fl"] - round(vp["b"] * vp["fator"], 2)) < 0.011, (vp["n"], vp["b"], vp["fb"], vp["fl"]))
+    R.ok("Vender para comprar: o acumulado só cresce, e cabe até o líquido", ac == sorted(ac) and all(x <= vp["fl"] + 0.01 for x in cabe)
+         and (not fora or fora[0] > vp["fl"]), (len(cabe), fora[:1], vp["fl"]))
+    R.ok("Vender para comprar: a frase de fechamento com os números", "você compra" in pg.inner_text(".cx-vfecho"))
+    pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
+    # a ficha da pasta e os selos, com a Preta P na tela (dados/pastas/pastas.json e o export do ManaBox)
+    if "Preta P" in caixa.origens():
+        cpp = caixa.montar(avisar=lambda *a: None, rede=False, origem="Preta P")
+        ppag = os.path.join(comum.RAIZ, "saidas", caixa.nome_pagina("Preta P") + ".html")
+        R.ok("Preta P: página própria (00. Pasta Preta P.html), bem mais leve que a Caixa", os.path.exists(ppag) and os.path.getsize(ppag) < os.path.getsize(pag) / 4)
+        pg.goto(comum.url(ppag)); pg.wait_for_timeout(800)
+        pg.click('[data-act="ui"][data-k="agrupar"][data-v="nenhum"]'); pg.wait_for_timeout(300)
+        R.ok("Preta P: a ficha do Relicário de Ônix, com formato e os três papéis", "Relicário de Ônix" in pg.inner_text(".cx-ficha") and pg.locator(".cx-fpa li").count() == 3
+             and "Relicário de Ônix" in pg.evaluate("document.title"))
+        R.ok("Preta P: uma linha por carta e o selo nas banidas", len(set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))) == len(cpp["cartas"])
+             and pg.locator("tr.cx-r .cx-sl-ban").count() == sum(1 for c in cpp["cartas"] if c.get("ban") or c.get("ilegal")))
+        R.ok("Preta P: a lista diz que é do ManaBox (decisão vira tarefa)", "export do ManaBox" in pg.inner_text("#cx-lede"))
+        R.ok("Preta P: o saldo no topo é o da pasta", "pasta Preta P" in (pg.get_attribute("#cx-saldo", "title") or ""))
     b.close()
 R.fim()

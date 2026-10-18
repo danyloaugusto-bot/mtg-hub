@@ -13,7 +13,7 @@ Pedido: $ARGUMENTS
 
 A Caixa é a página das cartas sem destino (`contexto/caixa/PLANO-CAIXA.md`; seção "A Caixa" de `contexto/ARQUITETURA.md`). Cada carta tem encaixe contra todos os decks, força sozinha, comandantes do EDHREC e preço; o dono decide cópia a cópia (Deck, Guardar, Venda, Bundles, Bulk, Remover). As pastas com lista (`dados/pastas/<pasta>.txt`) aparecem na mesma página, como outras origens. A régua mora em `motor/caixa.json`; nenhum número no código.
 
-Sem `aplicar`: leitura e avaliação (passos 1 a 7). Com `aplicar`: só o bloco "Aplicar". Pastas de deck depois do pedido (ex.: `/caixa 02. Goblins 01. Vito`) limitam a avaliação de sinergia a esses decks, com todas as cartas nas cores deles.
+Sem `aplicar`: leitura e avaliação (passos 1 a 7). Com `aplicar`: só o bloco "Aplicar". Numa pasta do ManaBox (subpasta de `dados/pastas/`), o script não edita o export: a decisão vira tarefa para o dono, dada como feita no próximo export. Pastas de deck depois do pedido (ex.: `/caixa 02. Goblins 01. Vito`) limitam a avaliação de sinergia a esses decks, com todas as cartas nas cores deles.
 
 # Arquivos
 
@@ -34,7 +34,7 @@ Sem `aplicar`: leitura e avaliação (passos 1 a 7). Com `aplicar`: só o bloco 
 
 # Aplicar
 
-1. **Trazer as decisões.** Para cada origem da página (a Caixa e cada pasta com lista), leia a coleção do banco da Caixa publicada (link em `dados/caixa/link.txt`): `decisoes` para a Caixa, `decisoes-<pasta em minúsculas, sem acento, com hífens>` para cada pasta. Grave os documentos num JSON e rode `python motor/caixa.py --importar-banco <arquivo.json> [--origem "<pasta>"]`. O banco prevalece sobre o arquivo.
+1. **Trazer as decisões.** Cada lista tem a sua página publicada e o seu banco: a Caixa (link em `dados/caixa/link.txt`, coleção `decisoes`) e cada pasta (link em `dados/pastas/links.json`, coleção `decisoes-<pasta em minúsculas, sem acento, com hífens>`). Leia a coleção de cada uma. Grave os documentos num JSON e rode `python motor/caixa.py --importar-banco <arquivo.json> [--origem "<pasta>"]`. O banco prevalece sobre o arquivo.
 2. **Mecânico.** `python motor/caixa.py --aplicar [--origem "<pasta>"]`: Guardar e Venda vão para `dados/pastas/<pasta>.txt` (e a marca pet card para `dados/pastas/marcas.json`); Bundles e Bulk para `dados/caixa/bundles.txt` e `bulk.txt`; Remover só tira. Vinda de uma pasta, a cópia sai também do arquivo da pasta. O script lista as de destino Deck.
 3. **Deck (julgamento).** Cada carta de destino Deck entra no radar do deck como **"avaliar"**, nunca como "entra", com tudo o que o radar pede (notas do 8×8, `sin` e `sin_por_que` pela régua, tier, relevância, faz, porquê e quem sai pelo encaixe), como no `/atualizar-deck`. Se já está no radar como "entra", confirme com o dono antes de mexer. Tire a carta da lista de compras do hub publicado (`ArtifactData`, `delete` do documento em `compras`), se estiver lá. Depois, `python motor/caixa.py --marcar "<carta>" "<SET número>" <acabamento> [--origem "<pasta>"]`.
 4. **Devolver ao banco.** Atualize, no banco da Caixa publicada, os documentos aplicados (o mesmo corpo de `decisoes.json`, agora com `aplicado`), para a página publicada deixar de mostrá-los como pendentes.
