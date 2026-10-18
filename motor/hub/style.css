@@ -810,3 +810,11 @@ details.mv-dk>summary .cores{margin-left:0}
 .cl-cor{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800;margin:14px 0 2px}
 .cl-cor .ms{width:18px;height:18px;font-size:10px}
 @media (max-width:640px){.cmp7{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.cmp-cor{padding:10px}}
+
+/* ---------- a Caixa (página própria, motor/caixa/): o link na barra e o resumo na aba Pastas, sem preço ---------- */
+.cx-link{font-weight:800;font-size:24px;line-height:1.1;color:var(--dim);text-decoration:none;padding:6px 12px;border-radius:10px}
+.cx-link:hover{color:var(--bone)}
+.cx-res{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#1b1b1e;border-radius:14px;padding:14px 18px;margin:18px 0 6px;box-shadow:inset 0 0 0 1px rgba(245,165,36,.25)}
+.cx-res h3{font-weight:800;font-size:19px;color:var(--gold)}
+.cx-res p{color:var(--mute)}
+@media (max-width:640px){.cx-link{font-size:20px;padding:6px 8px}}
