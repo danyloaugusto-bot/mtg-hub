@@ -305,7 +305,10 @@
    "porque": "A Storm ataca no turno em que entra, protegida.",
    "marcas": {
     "conecta": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Proteção (manto)",
+   "papel_por_que": "Ímpeto: a Storm ataca e conecta no turno em que entra; o manto a protege de remoção com alvo."
   },
   "Lotus Petal": {
    "notas": {
@@ -326,7 +329,9 @@
    "porque": "Mana grátis para o turno do storm; peça do combo com Underworld Breach e Brain Freeze.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Custa 0 e se sacrifica por mana: soma uma mágica à contagem e paga a seguinte."
   },
   "Mox Amber": {
    "notas": {
@@ -414,7 +419,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Mago de 4. Sempre que você conjura ou copia instantânea ou feitiço, compre.",
-   "porque": "Cada cópia do storm compra uma carta: o turno grande não acaba."
+   "porque": "Cada cópia do storm compra uma carta: o turno grande não acaba.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra a cada mágica conjurada ou copiada: as cópias do storm viram cartas."
   },
   "Birds of Paradise": {
    "notas": {
@@ -441,7 +449,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Deusa de 3. Sempre que você conjura uma mágica, ganhe {R}, que fica até o fim do turno.",
-   "porque": "Cada mágica paga parte da próxima."
+   "porque": "Cada mágica paga parte da próxima.",
+   "papel": "habilita",
+   "papel_dupla": "Draw (face de trás)",
+   "papel_por_que": "Cada mágica conjurada gera {R} que não some: o turno de storm se paga sozinho."
   },
   "Delighted Halfling": {
    "notas": {
@@ -488,7 +499,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Goblin de 2. Instantâneas e feitiços custam {1} a menos.",
-   "porque": "Redutor de duas manas."
+   "porque": "Redutor de duas manas.",
+   "papel": "habilita",
+   "papel_por_que": "Instantâneas e feitiços custam {1} a menos: mais mágicas na contagem com a mesma mana."
   },
   "Hexing Squelcher": {
    "notas": {
@@ -577,7 +590,10 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Anão de 4. Sempre que você conjura ou copia instantânea ou feitiço, crie um Treasure.",
-   "porque": "Cada cópia do storm vira mana: o turno se paga."
+   "porque": "Cada cópia do storm vira mana: o turno se paga.",
+   "papel": "recompensa",
+   "papel_dupla": "Ramp (Tesouro por cópia)",
+   "papel_por_que": "Cria um Tesouro a cada mágica conjurada ou copiada: as cópias do storm viram mana."
   },
   "Stormcatch Mentor": {
    "notas": {
@@ -593,7 +609,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Lontra de 2 com ímpeto e prowess. Instantâneas e feitiços custam {1} a menos.",
-   "porque": "O segundo redutor de duas manas."
+   "porque": "O segundo redutor de duas manas.",
+   "papel": "habilita",
+   "papel_por_que": "Barateia instantâneas e feitiços em {1}: mais mágicas na contagem com a mesma mana."
   },
   "Vivi Ornitier": {
    "notas": {
@@ -610,7 +628,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Mago lendário de 3. {0}: X manas azuis ou vermelhas (X a força dele), uma vez no seu turno. Cresce e causa dano a cada mágica não-criatura.",
-   "porque": "Mana grátis que cresce com o turno grande."
+   "porque": "Mana grátis que cresce com o turno grande.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (1 de dano por mágica)",
+   "papel_por_que": "Gera X manas no seu turno e cresce a cada mágica não-criatura: paga o turno de storm."
   },
   "Mystic Remora": {
    "notas": {
@@ -648,7 +669,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 6. Cada instantânea ou feitiço seu é copiado uma vez por instantânea e feitiço que você conjurou antes no turno.",
-   "porque": "Um segundo storm, que não depende da Storm conectar."
+   "porque": "Um segundo storm, que não depende da Storm conectar.",
+   "papel": "multiplica",
+   "papel_por_que": "Dá storm a toda instantânea e feitiço do turno, não só à próxima depois do dano."
   },
   "Underworld Breach": {
    "notas": {
@@ -665,7 +688,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 2. Cartas não-terreno do seu cemitério têm escape: o custo mais exilar três outras.",
-   "porque": "Com Lotus Petal e Brain Freeze, o combo de mill. Game Changer."
+   "porque": "Com Lotus Petal e Brain Freeze, o combo de mill. Game Changer.",
+   "papel": "habilita",
+   "papel_por_que": "Devolve as mágicas do cemitério à contagem por escape; com a Wheel of Fortune, vira combo."
   },
   "An Offer You Can't Refuse": {
    "notas": {
@@ -699,7 +724,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 4: descarte uma, compre duas e crie dois Treasures.",
-   "porque": "Compra e mana no turno do storm."
+   "porque": "Compra e mana no turno do storm.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Instantânea que vira dois Tesouros e duas cartas: conta no storm e paga as próximas."
   },
   "Brain Freeze": {
    "notas": {
@@ -718,7 +746,9 @@
    "porque": "Mói um oponente inteiro no turno grande; com Underworld Breach, a mesa.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Storm própria que mói três por cópia: soma com o storm da Storm e fecha o jogo."
   },
   "Brainstorm": {
    "notas": {
@@ -856,7 +886,10 @@
    "porque": "Vence a guerra de contramágicas no turno grande.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Proteção (anulação)",
+   "papel_por_que": "Storm própria: a anulação cresce com a contagem e protege o turno."
   },
   "Force of Will": {
    "notas": {
@@ -895,7 +928,9 @@
    "porque": "De graça na prática, e conta para o storm.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Desvira três terrenos: entra na contagem quase de graça e cava o resto do turno."
   },
   "Growth Spiral": {
    "notas": {
@@ -932,7 +967,10 @@
     "barata": 1,
     "pet": 1
    },
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Com storm, cada cópia é 3 de dano: alvo do storm que fecha o jogo."
   },
   "Mana Drain": {
    "notas": {
@@ -948,7 +986,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de 2: anula; na sua próxima fase principal, ganhe {C} igual ao custo.",
-   "porque": "Contramágica que paga o turno seguinte."
+   "porque": "Contramágica que paga o turno seguinte.",
+   "papel": "habilita",
+   "papel_dupla": "Proteção (anulação)",
+   "papel_por_que": "Anula e devolve mana na fase principal seguinte: o turno de storm começa com mana extra."
   },
   "Manamorphose": {
    "notas": {
@@ -970,7 +1011,10 @@
     "barata": 1,
     "pet": 1
    },
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Devolve as duas manas e compra: soma uma mágica à contagem de graça."
   },
   "Mystical Tutor": {
    "notas": {
@@ -1047,7 +1091,10 @@
    "porque": "A Storm é multicolorida: golpe duplo é dois gatilhos de storm.",
    "marcas": {
     "conecta": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Golpe duplo na Storm: dois danos de combate, dois gatilhos no mesmo turno."
   },
   "Seething Song": {
    "notas": {
@@ -1062,7 +1109,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 3: {R}{R}{R}{R}{R}.",
-   "porque": "Ritual de duas manas a mais."
+   "porque": "Ritual de duas manas a mais.",
+   "papel": "habilita",
+   "papel_por_que": "Três manas viram cinco: enche a contagem e paga as mágicas do turno."
   },
   "Snap": {
    "notas": {
@@ -1081,7 +1130,10 @@
    "porque": "Remoção de graça que conta para o storm.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Devolve uma criatura e desvira dois terrenos: soma à contagem de graça."
   },
   "Swan Song": {
    "notas": {
@@ -1140,7 +1192,9 @@
    "porque": "Com storm, nove de dano por cópia na mesa.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Com storm, cada cópia é 3 de dano em cada oponente: fecha o jogo."
   },
   "Enter the Enigma": {
    "notas": {
@@ -1162,7 +1216,10 @@
    "marcas": {
     "barata": 1,
     "conecta": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "A Storm não pode ser bloqueada: garante a conexão que liga o storm."
   },
   "Farseek": {
    "notas": {
@@ -1235,7 +1292,10 @@
    "porque": "A vitória: com doze mágicas antes, treze de dano divididos.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Storm própria, 1 de dano por cópia: soma com o storm da Storm e fecha o jogo."
   },
   "Jeska's Will": {
    "notas": {
@@ -1255,7 +1315,10 @@
    "marcas": {
     "pet": 1
    },
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Com a Storm em campo, os dois modos: muita mana vermelha e três cartas para jogar no turno."
   },
   "Mana Geyser": {
    "notas": {
@@ -1270,7 +1333,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 5: {R} por terreno virado dos oponentes.",
-   "porque": "Ritual grande no fim da volta."
+   "porque": "Ritual grande no fim da volta.",
+   "papel": "habilita",
+   "papel_por_que": "Mana vermelha por terreno virado dos oponentes: paga o turno de storm inteiro."
   },
   "Nature's Lore": {
    "notas": {
@@ -1305,7 +1370,10 @@
    "porque": "Depois da Storm conectar, outro combate e outro gatilho.",
    "marcas": {
     "conecta": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Recompensa (combates a mais com storm)",
+   "papel_por_que": "Combate extra com freerunning barato: a Storm conecta e dispara de novo."
   },
   "Ponder": {
    "notas": {
@@ -1361,7 +1429,10 @@
    "porque": "Dois combates extras com a Storm, e cada um é um gatilho.",
    "marcas": {
     "conecta": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Recompensa (combates a mais com storm)",
+   "papel_por_que": "Desvira a Storm e dá outro combate: mais um gatilho; com storm, vários combates."
   },
   "Strike It Rich": {
    "notas": {
@@ -1379,7 +1450,9 @@
    "porque": "Mana e duas mágicas para o storm.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Feitiço de 1 que deixa um Tesouro: conta no storm de graça, duas vezes com o flashback."
   },
   "Three Visits": {
    "notas": {
@@ -1412,7 +1485,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 5: um jogador joga um turno extra.",
-   "porque": "Mais um turno é mais um ataque da Storm."
+   "porque": "Mais um turno é mais um ataque da Storm.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (mais um turno para atacar)",
+   "papel_por_que": "Com storm, cada cópia é um turno a mais: fecha o jogo."
   },
   "Wheel of Fortune": {
    "notas": {
@@ -1428,7 +1504,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 3: cada jogador descarta a mão e compra sete.",
-   "porque": "Mão nova no turno grande; com Underworld Breach, combo."
+   "porque": "Mão nova no turno grande; com Underworld Breach, combo.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Mão nova de sete no meio do turno; com o Underworld Breach, é a peça do combo."
   },
   "Ancient Tomb": {
    "notas": {
@@ -1761,7 +1840,10 @@
    "marcas": {
     "barata": 1,
     "conecta": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Ímpeto: a Storm ataca e conecta no turno em que entra."
   },
   "Twinferno": {
    "notas": {
@@ -1784,7 +1866,9 @@
    "sai": "Crop Rotation",
    "marcas": {
     "conecta": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Golpe duplo na Storm (dois gatilhos) ou cópia da próxima mágica."
   },
   "Archmage of Runes": {
    "notas": {
@@ -1802,7 +1886,10 @@
    "veredito": "entra",
    "faz": "Gigante de 5. Instantâneas e feitiços custam {1} a menos; compre a cada uma.",
    "porque": "Redutor e compra na mesma carta.",
-   "sai": "Simian Spirit Guide"
+   "sai": "Simian Spirit Guide",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (redutor de custo)",
+   "papel_por_que": "Compra a cada instantânea ou feitiço e ainda barateia todos em {1}."
   },
   "Regrowth": {
    "notas": {
@@ -1841,7 +1928,9 @@
    "porque": "Carta pet: faz parte do drop Secret Lair da Storm (SLD 1745). Com storm, é destruição de terreno em massa: sai do bracket 3.",
    "marcas": {
     "pet": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Com storm, cada cópia destrói um terreno: efeito em massa que não fecha o jogo (papel fraco)."
   },
   "Electro, Assaulting Battery": {
    "notas": {
@@ -1861,7 +1950,9 @@
    "porque": "Ritual em criatura, e pet Marvel.",
    "marcas": {
     "pet": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Gera {R} a cada instantânea ou feitiço e guarda a mana: paga o turno de storm."
   },
   "Ashling, Flame Dancer": {
    "notas": {
@@ -1880,7 +1971,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Elemental de 4 com magecraft: descarta e compra; dano na segunda vez do turno e {R}{R}{R}{R} só na terceira.",
-   "porque": "Mais um payoff de cópia."
+   "porque": "Mais um payoff de cópia.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw (filtra)",
+   "papel_por_que": "Magecraft: dano em massa na segunda mágica do turno e quatro manas na terceira."
   },
   "Solve the Equation": {
    "notas": {
@@ -1914,7 +2008,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Elder Dragon de 7. Instantâneas e feitiços têm storm.",
-   "porque": "Storm em todo turno, mesmo sem a Storm conectar."
+   "porque": "Storm em todo turno, mesmo sem a Storm conectar.",
+   "papel": "multiplica",
+   "papel_por_que": "Dá storm a toda instantânea e feitiço, sem depender do dano da Storm."
   },
   "Bear Umbra": {
    "notas": {
@@ -1937,7 +2033,10 @@
    "porque": "Protege a Storm e paga o turno do storm depois do ataque.",
    "marcas": {
     "conecta": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Proteção (armadura)",
+   "papel_por_que": "Ao atacar, desvira seus terrenos: a Storm conecta e o turno de storm tem mana dobrada."
   },
   "Quicksilver, Speedster": {
    "notas": {
@@ -2030,7 +2129,9 @@
    "rel": "MED",
    "veredito": "fora",
    "faz": "Artefato de 0. Descarte a mão e sacrifique: três manas de uma cor.",
-   "porque": "Combo com Underworld Breach; mais um Game Changer numa lista que já tem treze."
+   "porque": "Combo com Underworld Breach; mais um Game Changer numa lista que já tem treze.",
+   "papel": "habilita",
+   "papel_por_que": "Custa 0 e vira três manas: soma à contagem e paga o resto do turno."
   }
  },
  "combos": [
@@ -2135,5 +2236,100 @@
    ],
    "texto": "O storm conta as mágicas conjuradas no turno por qualquer jogador, mas a cópia não conta: só o que foi conjurado."
   }
- ]
+ ],
+ "avaliadas": {
+  "Roaring Furnace": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Chandra's Ignition": {
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "\"mágica sem storm própria que, copiada, fecha o jogo com dano\": cada cópia é o poder da Storm em cada oponente."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa",
+   "papel": "recompensa",
+   "papel_por_que": "Com storm, cada cópia faz a Storm causar 3 a cada oponente: fecha o jogo; limpa a mesa de passagem."
+  },
+  "Mind into Matter": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Emeritus of Ideation": {
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "O lado instantânea custa {U}: \"instantânea ou feitiço de até 2 manas\" que entra na contagem de passagem."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Ashling's Command": {
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "\"instantânea ou feitiço que gera mana para você, por mana, Tesouro\": o modo cria dois Tesouros."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa",
+   "papel": "habilita",
+   "papel_por_que": "Modo de dois Tesouros com compra: conta no storm e paga as mágicas seguintes."
+  },
+  "Mystic Confluence": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Anzrag's Rampage": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Chimil, the Inner Sun": {
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "\"carta que impede resposta às mágicas do turno (Samut, Hexing Squelcher)\": suas mágicas não podem ser anuladas."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Chain Reaction": {
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "\"mágica que, copiada, vira efeito em massa sem fechar o jogo\": cada cópia é outra limpeza."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "The Ooze": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "multiplica",
+    "por_que": "Dá storm à próxima instantânea ou feitiço depois de conectar: multiplica a contagem que as 99 montam. Precisa de 12 habilitadoras e 10 recompensas nas 99."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
