@@ -506,7 +506,8 @@ with sync_playwright() as pw:
     # destino de cada cópia: o Echocasting tem a comum no Bulk e a foil na Venda
     pg.click('[data-act="ui"][data-k="agrupar"][data-v="destino"]'); pg.wait_for_timeout(300)
     ec = pg.evaluate("""(() => { var out = [], g = ''; document.querySelectorAll('tbody tr').forEach(function (r) { if (r.classList.contains('grp')) g = r.querySelector('.cx-tg').textContent.replace(/[▾▸]/g, ''); else if (r.getAttribute('data-id') === 'echocasting-symposium') out.push([g, r.querySelector('td.cx-vl').getAttribute('data-v')]); }); return out; })()""")
-    R.ok("agrupar por destino é cópia a cópia: Echocasting na Venda (US$ 7,73) e no Bulk (US$ 3,19)", sorted(ec) == [["Bulk", "3.19"], ["Venda", "7.73"]], ec)
+    esp_ec = sorted([{"venda": "Venda", "bulk": "Bulk"}.get(cp["sug"]["d"], cp["sug"]["d"]), str(cp["usd"])] for cp in carta(cx_real, "Echocasting Symposium")["copias"])
+    R.ok("agrupar por destino é cópia a cópia: Echocasting com a comum e a foil em grupos diferentes, cada uma com o seu preço", sorted(ec) == esp_ec and len({x[0] for x in ec}) == 2, (ec, esp_ec))
     # faixa de valor: filtro e grupo
     caras = [c for c in pend if any((cp["usd"] or 0) >= caixa.regua()["capital_usd"] for cp in c["copias"])]
     pg.click('[data-act="faixa"][data-v="f20"]'); pg.wait_for_timeout(300)
