@@ -580,25 +580,6 @@ with sync_playwright() as pw:
     pg.evaluate("(() => { window.fetch = function () { return Promise.reject(new TypeError('bloqueado')); }; return 1; })()")
     pg.click("#cx-pbt"); pg.wait_for_timeout(600)
     R.ok("Atualizar preços sem acesso ao Scryfall: avisa e manda rodar /precos", "/precos" in pg.inner_text("#cx-aviso"))
-    # Vender para comprar: bruto das fontes, líquido pelo fator e o acumulado dos usos até o líquido
-    pg.click('[data-act="vpc"]'); pg.wait_for_timeout(400)
-    vp = pg.evaluate(r"""(() => {
-      var num = function (t) { var m = /US\$\s*([\d.]+,\d{2})/.exec(t || ''); return m ? +m[1].replace(/\./g, '').replace(',', '.') : null; };
-      var fs = window.CAIXA.fontesVenda(), b = fs.reduce(function (s, x) { return s + (x.cp.usd || 0); }, 0);
-      var foot = document.querySelectorAll('#cx-gav-in .cx-vpc section:first-child tfoot tr');
-      var rows = Array.prototype.map.call(document.querySelectorAll('#cx-gav-in .cx-vpc section:last-child tbody tr'), function (r) {
-        var td = r.querySelectorAll('td'); return td.length > 3 ? [num(td[3].textContent), r.classList.contains('cx-cabe')] : null; }).filter(Boolean);
-      return { n: fs.length, b: b, fb: num(foot[0].textContent), fl: num(foot[1].textContent), fator: window.CAIXA.D.regua.fator_venda, rows: rows };
-    })()""")
-    ac = [r[0] for r in vp["rows"] if r[0] is not None]
-    cabe = [r[0] for r in vp["rows"] if r[1]]
-    fora = [r[0] for r in vp["rows"] if r[0] is not None and not r[1]]
-    R.ok("Vender para comprar: o bruto é a soma das fontes e o líquido é o bruto vezes o fator", vp["n"] > 0 and abs(vp["fb"] - round(vp["b"], 2)) < 0.011
-         and abs(vp["fl"] - round(vp["b"] * vp["fator"], 2)) < 0.011, (vp["n"], vp["b"], vp["fb"], vp["fl"]))
-    R.ok("Vender para comprar: o acumulado só cresce, e cabe até o líquido", ac == sorted(ac) and all(x <= vp["fl"] + 0.01 for x in cabe)
-         and (not fora or fora[0] > vp["fl"]), (len(cabe), fora[:1], vp["fl"]))
-    R.ok("Vender para comprar: a frase de fechamento com os números", "você compra" in pg.inner_text(".cx-vfecho"))
-    pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
     # a ficha da pasta e os selos, com a Preta P na tela (dados/pastas/pastas.json e o export do ManaBox)
     if "Preta P" in caixa.origens():
         cpp = caixa.montar(avisar=lambda *a: None, rede=False, origem="Preta P")
@@ -612,5 +593,11 @@ with sync_playwright() as pw:
              and pg.locator("tr.cx-r .cx-sl-ban").count() == sum(1 for c in cpp["cartas"] if c.get("ban") or c.get("ilegal")))
         R.ok("Preta P: a lista diz que é do ManaBox (decisão vira tarefa)", "export do ManaBox" in pg.inner_text("#cx-lede"))
         R.ok("Preta P: o saldo no topo é o da pasta", "pasta Preta P" in (pg.get_attribute("#cx-saldo", "title") or ""))
+        R.ok("Preta P não vende: nenhuma sugestão de Venda, Bulk ou Bundles, nem capital parado", all(cp["sug"]["d"] in ("deck", "guardar") and "capital parado" not in cp["sug"]["marcas"]
+             for c in cpp["cartas"] for cp in c["copias"]))
+        pg.evaluate("window.CAIXA.abrir(window.CAIXA.D.origens[0].cartas[0].id)"); pg.wait_for_timeout(300)
+        R.ok("Preta P não vende: a gaveta não tem os botões Venda, Bulk e Bundles", pg.locator('#cx-gav-in [data-act="decidir"][data-k="venda"]').count() == 0
+             and pg.locator('#cx-gav-in [data-act="decidir"][data-k="guardar"]').count() >= 1)
+        pg.keyboard.press("Escape")
     b.close()
 R.fim()

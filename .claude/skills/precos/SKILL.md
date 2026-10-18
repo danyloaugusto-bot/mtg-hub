@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 Origem: $ARGUMENTS
 
-O valor de hoje serve para o dono decidir se compensa mandar uma carta para a pasta de venda e comprar outras melhores (seção "Vender para comprar" da página da Caixa). Preço aparece nas páginas da Caixa e das pastas; no hub, só o saldo de cada pasta, ao passar o mouse; nos painéis, nunca.
+O valor de hoje mostra quanto cada lista vale e se subiu ou caiu desde a atualização anterior, para o dono decidir o que mandar para a pasta de venda (Rosa). Preço aparece nas páginas da Caixa e das pastas; no hub, só o saldo de cada pasta, ao passar o mouse; nos painéis, nunca.
 
 1. Rode `python motor/caixa.py --precos`, com `--origem "<origem>"` se o pedido trouxe uma (Caixa ou uma pasta). O script consulta o Scryfall de novo para as impressões daquela origem (ou de todas), ignorando a validade de 7 dias do cache, guarda o preço anterior de cada impressão em `dados/precos/ultimo.json`, busca a PTAX do último dia útil no Banco Central (`cambio_brl: "ptax"` em `motor/caixa.json`) e monta as páginas: `saidas/00. Caixa.html` e uma por pasta com lista, `saidas/00. Pasta <pasta>.html`.
 2. Mostre ao dono, em poucas linhas: quantas cópias e impressões foram consultadas, quantos preços mudaram e quantos passaram da variação da régua (10%), a cotação usada (e se é a última guardada, porque a API falhou), o tamanho da página e os avisos do script.
