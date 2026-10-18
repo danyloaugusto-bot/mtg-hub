@@ -103,12 +103,20 @@ FAIXA = {c["k"]: c["faixa"] for c in REGUA["criterios"]}
 MON = {p_: dados.montar(p_, avisar=lambda *x: None) for p_ in v3}
 
 
+AVALIADAS = {}   # avaliacao.json, chave "avaliadas": a sinergia avaliada fora do deck e do radar (o /caixa grava), lida do arquivo
+for p_ in v3:
+    with open(os.path.join(RAIZ, "dados", p_, "avaliacao.json"), encoding="utf-8") as f:
+        AVALIADAS[p_] = {n.split(" // ")[0]: a for n, a in (json.load(f).get("avaliadas") or {}).items() if not n.startswith("_")}
+
+
 def notas_mao(nome, pasta):
     m = MON[pasta]
     for c in m["cards"] + m["cands"]:
         if c.get("on", c["n"]).split(" // ")[0] == nome.split(" // ")[0]:
             return dict(zip(CRIT, c["s3"]))
-    return dict(CAD[nome.split(" // ")[0]]["n"])
+    n = dict(CAD[nome.split(" // ")[0]]["n"])
+    n.update({k: v for k, v in ((AVALIADAS[pasta].get(nome.split(" // ")[0]) or {}).get("sin") or {}).items() if v})
+    return n
 
 
 def lados(c):
