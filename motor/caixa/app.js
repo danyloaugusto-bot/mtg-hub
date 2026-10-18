@@ -2,13 +2,14 @@
    A única página que mostra preço: exceção à decisão "Sem preço" de 14/10/2026, só aqui (dono, 17/10/2026).
    Decisão cópia a cópia, gravada no banco da Caixa publicada (coleção "decisoes", um documento por carta). */
 var D = /*__DATA__*/null;
-var R = D.regua, CR = D.crit, CARTAS = D.cartas, DECKS = D.decks;
+var R = D.regua, CR = D.crit, DECKS = D.decks, ORS = D.origens;
+var O = ORS[0], CARTAS = O.cartas;   // a origem na tela: a Caixa ou uma pasta (motor/caixa.py, origens)
 var LS = 'mtg-hub:caixa:v1';
-var ui = { ver: 'tabela', agrupar: 'prioridade', dec: 'pendentes', tipo: '', deck: '', q: '' };
-try { var g = JSON.parse(localStorage.getItem(LS) || '{}'); ['ver', 'agrupar', 'dec', 'tipo', 'deck'].forEach(function (k) { if (g[k]) ui[k] = g[k]; }); } catch (e) { }
-function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, dec: ui.dec, tipo: ui.tipo, deck: ui.deck })); } catch (e) { } }
+var ui = { ver: 'tabela', agrupar: 'prioridade', dec: 'pendentes', tipo: '', deck: '', origem: '', q: '' };
+try { var g = JSON.parse(localStorage.getItem(LS) || '{}'); ['ver', 'agrupar', 'dec', 'tipo', 'deck', 'origem'].forEach(function (k) { if (g[k]) ui[k] = g[k]; }); } catch (e) { }
+function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, dec: ui.dec, tipo: ui.tipo, deck: ui.deck, origem: ui.origem })); } catch (e) { } }
 
-var DB = { db: null, pode: false, docs: null, erro: '', ocupado: {} };
+var DB = { db: null, pode: false, docs: {}, erro: '', ocupado: {} };   // docs: {coleção: {id: documento}}
 var PUB = location.protocol !== 'file:';
 var aberta = null;   // id da carta na gaveta
 
@@ -28,7 +29,14 @@ function slug(s) { return String(s).normalize('NFKD').replace(/[̀-ͯ]/g, '').to
 function hojeISO() { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
 function tierB(t) { return t ? '<span class="tb t' + esc(t) + '">' + esc(t) + '</span>' : ''; }
 function curto(p) { return DECKS[p] ? DECKS[p].c : p; }
-var NOMED = { deck: 'Deck', guardar: 'Guardar', venda: 'Venda', bundles: 'Bundles', bulk: 'Bulk' };
+var NOMED = { deck: 'Deck', guardar: 'Guardar', venda: 'Venda', bundles: 'Bundles', bulk: 'Bulk', remover: 'Remover' };
+function nomeD(d) { return d === 'guardar' && O.k !== 'Caixa' ? 'Manter' : NOMED[d]; }   // numa pasta, guardar é ficar onde está
+function eCaixa() { return O.k === 'Caixa'; }
+function usarOrigem(k) {
+  O = ORS.filter(function (x) { return x.k === k; })[0] || ORS[0]; CARTAS = O.cartas; ui.origem = O.k;
+  $('#cx-tit').textContent = eCaixa() ? 'Caixa' : 'Pasta ' + O.k;
+  document.title = eCaixa() ? 'Caixa' : 'Pasta ' + O.k;
+}
 var ORDD = ['deck', 'guardar', 'venda', 'bundles', 'bulk'], ORDP = ['S', 'A', 'B', 'C'];
 var TIPOS = [['cri', 'Criaturas'], ['ins', 'Mágicas instantâneas'], ['fei', 'Feitiços'], ['art', 'Artefatos'], ['enc', 'Encantamentos'], ['pw', 'Planeswalkers'], ['bat', 'Batalhas'], ['ter', 'Terrenos']];
 var NOMEC = { '': 'Incolor', W: 'Mono-branco', U: 'Mono-azul', B: 'Mono-preto', R: 'Mono-vermelho', G: 'Mono-verde',
@@ -41,7 +49,7 @@ function mana(cost) { return cost ? '<span class="cx-cost">' + cost.replace(/\s/
 
 /* ---------- decisões: o banco publicado prevalece sobre o arquivo ---------- */
 function decisoesDe(c) {
-  var d = DB.docs && DB.docs[c.id] ? DB.docs[c.id] : (D.dec[c.n] || null);
+  var dd = DB.docs[O.col], d = dd && dd[c.id] ? dd[c.id] : (O.dec[c.n] || null);
   return ((d && d.copias) || []).filter(function (x) { return !x.aplicado; });
 }
 /* a decisão de cada cópia: cópias de mesma impressão e acabamento são intercambiáveis, então casam pela ordem */
@@ -111,7 +119,7 @@ function grupos(L) {
     var s = sugCarta(c);
     if (ui.agrupar === 'prioridade') { var p = prioCarta(c); add(p, 'Prioridade ' + p, ORDP.indexOf(p), c); }
     else if (ui.agrupar === 'tipo') { var t = TIPOS.filter(function (x) { return x[0] === c.t; })[0] || ['?', 'Outros']; add(t[0], t[1], TIPOS.indexOf(t), c); }
-    else if (ui.agrupar === 'destino') add(s.d, NOMED[s.d], ORDD.indexOf(s.d), c);
+    else if (ui.agrupar === 'destino') add(s.d, nomeD(s.d), ORDD.indexOf(s.d), c);
     else if (ui.agrupar === 'cor') { var k = ordemCor(c.ident || ''); add('c' + k, NOMEC[k] || k, k.length * 100 + (Object.keys(NOMEC).indexOf(k)), c); }
     else { var dk = s.d === 'deck' && s.p ? s.p : ''; add('d' + dk, dk ? curto(dk) + (DECKS[dk] ? ' · ' + DECKS[dk].n : '') : 'Sem deck sugerido', dk ? 0 : 1, c); }
   });
@@ -136,9 +144,9 @@ function resumo() {
     });
   });
   var it = function (b, t, z) { return '<span class="it' + (z ? ' z' : '') + '"><b class="num">' + b + '</b> ' + t + '</span>'; };
-  var r = D.resumo;
+  var r = O.resumo;
   return '<div class="seg"><span class="seg-l">Prioridade</span>' + ORDP.map(function (p) { return it(pri[p][0] + ' ' + p, '', !pri[p][0]); }).join('') + '</div>' +
-    '<div class="seg"><span class="seg-l">Sugestão</span>' + ORDD.map(function (d) { return it(dest[d][0] ? usd(dest[d][1]) : '—', NOMED[d] + ' <small class="dim">' + dest[d][0] + '</small>', !dest[d][0]); }).join('') + '</div>' +
+    '<div class="seg"><span class="seg-l">Sugestão</span>' + ORDD.map(function (d) { return it(dest[d][0] ? usd(dest[d][1]) : '—', nomeD(d) + ' <small class="dim">' + dest[d][0] + '</small>', !dest[d][0]); }).join('') + '</div>' +
     '<div class="seg">' + it(parado, 'capital parado (≥ ' + usd(R.capital_usd) + ' sem deck)', !parado) + it(decid, 'decididas', !decid) +
     it(r.sem_cadastro.length, 'sem cadastro', !r.sem_cadastro.length) + it(r.nao_encontradas.length, 'não encontradas', !r.nao_encontradas.length) + '</div>';
 }
@@ -162,8 +170,13 @@ function seletorTipo() {
     return '<option value="' + t[0] + '"' + (ui.tipo === t[0] ? ' selected' : '') + '>' + t[1] + ' (' + n[t[0]] + ')</option>';
   }).join('');
 }
+function seletorOrigem() {
+  if (ORS.length < 2) return '';
+  return '<label class="cmp-s cx-fo2"><span class="seg-l">Lista</span><select data-ctl="origem" aria-label="Caixa ou pasta"><option value="Caixa"' + (eCaixa() ? ' selected' : '') + '>Caixa (' + ORS[0].cartas.length + ')</option>' +
+    ORS.slice(1).map(function (o) { return '<option value="' + esc(o.k) + '"' + (O.k === o.k ? ' selected' : '') + '>Pasta ' + esc(o.k) + ' (' + o.cartas.length + ')</option>'; }).join('') + '</select></label>';
+}
 function controles() {
-  return seletorDeck() + seg('Ver', 'ver', [['tabela', 'Tabela'], ['galeria', 'Galeria']]) +
+  return seletorOrigem() + seletorDeck() + seg('Ver', 'ver', [['tabela', 'Tabela'], ['galeria', 'Galeria']]) +
     (ui.deck ? '' : seg('Agrupar', 'agrupar', [['prioridade', 'Prioridade'], ['tipo', 'Tipo'], ['destino', 'Destino'], ['cor', 'Cor'], ['deck', 'Deck']])) +
     seg('Decisão', 'dec', [['pendentes', 'Pendentes'], ['decididas', 'Decididas'], ['todas', 'Todas']]);
 }
@@ -179,7 +192,7 @@ function valorTxt(c) {
     (foil.length ? '<small>' + foil.map(function (x) { return x.acab; }).join(', ') + '</small>' : '');
 }
 function sugTxt(s) {
-  var h = '<span class="cx-dest cx-d-' + s.d + '">' + NOMED[s.d] + '</span>' + (s.p ? esc(curto(s.p)) : '');
+  var h = '<span class="cx-dest cx-d-' + s.d + '">' + nomeD(s.d) + '</span>' + (s.p ? esc(curto(s.p)) : '');
   if (s.T) h += ' ' + tierB(s.T);
   if (s.v) h += ' <span class="vd vd-' + s.v + '">radar: ' + s.v + '</span>';
   if (s.sai) h += '<small>sai ' + esc(s.sai) + '</small>';
@@ -211,8 +224,8 @@ function decTxt(c) {
   var dc = decCopias(c);
   return '<div class="cx-dec">' + c.copias.map(function (cp, i) {
     var d = dc[i], s = cp.sug;
-    var rot = d && d.destino ? (i + 1) + ' ✓ ' + NOMED[d.destino] + (d.deck ? ' · ' + curto(d.deck) : d.pasta ? ' · ' + d.pasta : '')
-      : (i + 1) + ' → ' + NOMED[s.d] + (s.p && s.d === 'deck' ? ' · ' + curto(s.p) : '') + ' ▾';
+    var rot = d && d.destino ? (i + 1) + ' ✓ ' + nomeD(d.destino) + (d.deck ? ' · ' + curto(d.deck) : d.pasta ? ' · ' + d.pasta : '')
+      : (i + 1) + ' → ' + nomeD(s.d) + (s.p && s.d === 'deck' ? ' · ' + curto(s.p) : '') + ' ▾';
     return '<button class="bt-c' + (d && d.destino ? ' dec-on' : '') + '" data-act="abrir" data-id="' + esc(c.id) + '">' + esc(rot) + '</button>';
   }).join('') + '</div>';
 }
@@ -227,12 +240,12 @@ function tabela(G) {
       var s = sugCarta(c), e = ui.deck ? encDe(c, ui.deck) : s.p ? c.enc.filter(function (x) { return x.p === s.p; })[0] : null;
       return '<tr class="cx-r" data-id="' + esc(c.id) + '">' +
         '<td class="cx-pr" data-v="' + prioCarta(c) + '">' + tierB(prioCarta(c)) + '</td>' +
-        '<td class="cx-ca" data-v="' + esc(c.n) + '"><button class="cx-nm" data-act="abrir" data-id="' + esc(c.id) + '">' + esc(c.on || c.n) + '</button>' + (c.q > 1 ? '<span class="cx-xn">×' + c.q + '</span>' : '') +
+        '<td class="cx-ca" data-v="' + esc(c.n) + '"><button class="cx-nm" data-act="abrir" data-id="' + esc(c.id) + '">' + esc(c.on || c.n) + '</button>' + (c.q > 1 ? '<span class="cx-xn">×' + c.q + '</span>' : '') + (c.pet ? '<span class="cx-petb" title="pet card">pet</span>' : '') +
         '<small>' + esc(c.line) + ' · ' + esc(c.copias[0].imp) + '</small></td>' +
         '<td class="cx-co" data-v="' + c.cmc + '">' + mana(c.cost) + '</td>' +
         '<td class="cx-fo" data-l="Força sozinha" data-v="' + c.vp + '">' + forca(c) + '</td>' +
         '<td class="cx-vl n" data-v="' + (c.valor || 0) + '">' + valorTxt(c) + '</td>' +
-        '<td class="cx-sg" data-l="Sugestão" data-v="' + NOMED[s.d] + '">' + sugTxt(s) + '</td>' +
+        '<td class="cx-sg" data-l="Sugestão" data-v="' + nomeD(s.d) + '">' + sugTxt(s) + '</td>' +
         '<td class="cx-ga n" data-v="' + (e ? e.g : '') + '">' + (ui.deck ? ganhoFoco(c) : ganhoTxt(c, s)) + '</td>' +
         '<td class="cx-ja" data-l="Já está em">' + jaTxt(c) + '</td>' +
         '<td class="cx-dc" data-l="Decisão">' + decTxt(c) + '</td></tr>';
@@ -248,7 +261,7 @@ function galeria(G) {
         (c.q > 1 ? '<span class="cx-xn">×' + c.q + '</span>' : '') +
         '<span class="cx-li"><b class="num">' + usd(c.valor) + '</b><span>força ' + fmt(c.vp) + '</span></span>' +
         (ui.deck ? '<span class="cx-sg">' + esc(curto(ui.deck)) + ' <b class="' + (e.g > 0 ? 'cx-pos' : 'cx-neg') + '">' + sinal(e.g) + '</b>' + (e.a ? '' : '<span class="cx-ast">*</span>') + (e.j ? ' · já está' : ' · sai ' + esc(e.s || '—')) + '</span>'
-          : '<span class="cx-sg"><span class="cx-dest cx-d-' + s.d + '">' + NOMED[s.d] + '</span>' + (s.p ? esc(curto(s.p)) : '') + (e ? ' ' + sinal(e.g) : '') + '</span>') + '</button>';
+          : '<span class="cx-sg"><span class="cx-dest cx-d-' + s.d + '">' + nomeD(s.d) + '</span>' + (s.p ? esc(curto(s.p)) : '') + (e ? ' ' + sinal(e.g) : '') + '</span>') + '</button>';
     }).join('') + '</div>';
   }).join('');
 }
@@ -293,7 +306,7 @@ function gaveta(c) {
   }).join('');
   var verTodos = c.enc.length > 10 ? '<p class="cx-nt"><button class="bt-c" data-act="enc-todos" data-id="' + esc(c.id) + '">' + (aberta === c.id + ':todos' ? 'Ver só os dez primeiros' : 'Ver todos os ' + c.enc.length) + '</button></p>' : '';
   var s0 = sugCarta(c);
-  var sugBox = '<div class="cx-sug"><h3>Sugestão: ' + NOMED[s0.d] + (s0.p ? ' → ' + esc(curto(s0.p)) : '') + ' · prioridade ' + s0.P + '</h3><p>' + esc(s0.pq) + '</p>' +
+  var sugBox = '<div class="cx-sug"><h3>Sugestão: ' + nomeD(s0.d) + (s0.p ? ' → ' + esc(curto(s0.p)) : '') + ' · prioridade ' + s0.P + '</h3><p>' + esc(s0.pq) + '</p>' +
     ((s0.marcas || []).length ? '<p>' + s0.marcas.map(function (m) { return '<span class="cx-mc">' + esc(m) + '</span>'; }).join('') + '</p>' : '') +
     (c.avaliar.length ? '<p class="cx-nt">Sinergia a avaliar antes de decidir: ' + c.avaliar.map(curto).map(esc).join(', ') + ' (o /caixa avalia).</p>' : '') + '</div>';
   var cps = '<div class="cx-cps">' + c.copias.map(function (cp, i) { return copiaHtml(c, cp, i, dc[i]); }).join('') + '</div>' +
@@ -327,9 +340,10 @@ function copiaHtml(c, cp, i, d) {
   }).join('') + '</select>';
   var bt = function (k, rot) { return '<button class="bt-c' + (dest === k ? ' dec-on' : '') + '" data-act="decidir" data-k="' + k + '" data-id="' + esc(c.id) + '" data-i="' + i + '"' + (pode && !DB.ocupado[key] ? '' : ' disabled') + '>' + rot + '</button>'; };
   return '<div class="cx-cp"><b>Cópia ' + (i + 1) + ' de ' + c.copias.length + '</b><span class="dim">' + esc(cp.imp) + ' · ' + esc(cp.acab) + ' · ' + usd(cp.usd) + '</span>' +
-    bt('deck', 'Deck') + (opc.length ? selDeck : '') + bt('guardar', 'Guardar') + bt('bundles', 'Bundles') + bt('venda', 'Venda') + bt('bulk', 'Bulk') + selPasta +
+    bt('deck', 'Deck') + (opc.length ? selDeck : '') + bt('guardar', eCaixa() ? 'Guardar' : 'Mover') + bt('bundles', 'Bundles') + bt('venda', 'Venda') + bt('bulk', 'Bulk') + selPasta +
+    bt('remover', 'Remover') + '<label class="cx-pet"><input type="checkbox" data-cp="pet" data-id="' + esc(c.id) + '" data-i="' + i + '"' + ((d && d.pet) || c.pet ? ' checked' : '') + (pode ? '' : ' disabled') + '> pet card</label>' +
     '<input type="text" data-cp="nota" data-id="' + esc(c.id) + '" data-i="' + i + '" placeholder="anotação (opcional)" value="' + esc((d && d.nota) || '') + '"' + (pode ? '' : ' disabled') + '>' +
-    '<small>Sugestão desta cópia: ' + NOMED[s.d] + (s.p ? ' · ' + esc(curto(s.p)) : '') + ' · prioridade ' + s.P + '. ' + esc(s.pq) + (d && d.destino ? ' Decidido em ' + esc(fdata(d.em)) + '.' : '') + '</small></div>';
+    '<small>Sugestão desta cópia: ' + nomeD(s.d) + (s.p ? ' · ' + esc(curto(s.p)) : '') + ' · prioridade ' + s.P + '. ' + esc(s.pq) + (d && d.destino ? ' Decidido em ' + esc(fdata(d.em)) + '.' : '') + '</small></div>';
 }
 function fdata(d) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : '—'; }
 
@@ -351,7 +365,7 @@ function fechar() { $('#cx-gav').hidden = true; document.body.style.overflow = '
 function decidir(c, i, destino) {
   if (!DB.db || !DB.pode) return;
   var dc = decCopias(c), cp = c.copias[i], atual = dc[i];
-  var nova = { imp: cp.imp, acab: cp.acab, destino: destino, deck: null, pasta: null, em: hojeISO(), nota: (atual && atual.nota) || '', aplicado: null };
+  var nova = { imp: cp.imp, acab: cp.acab, destino: destino, deck: null, pasta: null, em: hojeISO(), nota: (atual && atual.nota) || '', pet: !!(atual && atual.pet), aplicado: null };
   if (atual && atual.destino === destino) nova.destino = null;   // clicar de novo desfaz
   if (nova.destino === 'deck') {
     var sel = document.querySelector('select[data-cp="deck"][data-id="' + c.id + '"][data-i="' + i + '"]');
@@ -361,18 +375,18 @@ function decidir(c, i, destino) {
   if (nova.destino === 'guardar' || nova.destino === 'venda') {
     var sp = document.querySelector('select[data-cp="pasta"][data-id="' + c.id + '"][data-i="' + i + '"]');
     nova.pasta = sp ? sp.value : '';
-    if (!nova.pasta) { aviso('Escolha a pasta física de ' + NOMED[nova.destino].toLowerCase() + ' antes.'); if (sp) sp.focus(); return; }
+    if (!nova.pasta) { aviso('Escolha a pasta física de ' + nomeD(nova.destino).toLowerCase() + ' antes.'); if (sp) sp.focus(); return; }
   }
   gravar(c, i, nova);
 }
 function gravar(c, i, nova) {
   var dc = decCopias(c).slice();
   dc[i] = nova;
-  var aplicadas = (((DB.docs && DB.docs[c.id]) || D.dec[c.n] || {}).copias || []).filter(function (x) { return x.aplicado; });
+  var aplicadas = ((((DB.docs[O.col] || {})[c.id]) || O.dec[c.n] || {}).copias || []).filter(function (x) { return x.aplicado; });
   var copias = aplicadas.concat(dc.filter(function (x) { return x && (x.destino || x.nota); }));
   var key = c.id + '|' + i;
   DB.ocupado[key] = 1; redesenharGaveta();
-  var ref = DB.db.collection('decisoes').doc(c.id);
+  var ref = DB.db.collection(O.col).doc(c.id);
   (copias.length ? ref.set({ n: c.n, copias: copias }) : ref.delete())
     .then(function () { DB.erro = ''; }, function (e) { DB.erro = (e && e.code) || 'erro'; aviso('Não gravou (' + DB.erro + ').'); })
     .then(function () { delete DB.ocupado[key]; render(); redesenharGaveta(); });
@@ -386,17 +400,21 @@ function ligarBanco() {
     if (!DB.db) { render(); return; }
     var u = r[1];
     (u && u.canEdit ? u.canEdit() : Promise.resolve(true)).then(function (p) { DB.pode = p !== false; render(); redesenharGaveta(); }, function () { DB.pode = true; render(); });
-    DB.db.collection('decisoes').onSnapshot(function (s) {
-      var m = {}; s.docs.forEach(function (x) { if (x.exists) m[x.id] = x.data(); });
-      DB.docs = m; render(); redesenharGaveta();
-    }, function (e) { DB.erro = (e && e.code) || 'erro'; render(); });
+    ORS.forEach(function (o) {   // uma coleção por origem: "decisoes" (Caixa) e "decisoes-<pasta>"
+      DB.db.collection(o.col).onSnapshot(function (s) {
+        var m = {}; s.docs.forEach(function (x) { if (x.exists) m[x.id] = x.data(); });
+        DB.docs[o.col] = m; render(); redesenharGaveta();
+      }, function (e) { DB.erro = (e && e.code) || 'erro'; render(); });
+    });
   }, function () { render(); });
 }
 
 /* ---------- desenho ---------- */
 function render() {
-  var r = D.resumo;
+  var r = O.resumo;
   $('#cx-tot').textContent = pl(r.cartas, 'carta', 'cartas') + ' · ' + pl(r.copias, 'cópia', 'cópias') + ' · ' + usd(r.valor) + ' no total';
+  $('#cx-lede').textContent = eCaixa() ? 'As cartas da caixa, à espera de destino. Para cada uma, o motor cruza onde ela já está, quem pede no radar, em qual deck ela rende mais, a força dela sozinha, o que a comunidade faz com ela e quanto vale. A decisão é sua, cópia a cópia, e fica gravada.'
+    : 'As cartas da pasta ' + O.k + ', com as mesmas contas da Caixa. Mover leva a cópia para outra pasta, Deck a põe no radar do deck, Remover a tira da pasta. "Manter" é a sugestão de deixar onde está.';
   $('#cx-resumo').innerHTML = resumo();
   $('#cx-ctl').innerHTML = controles();
   var L = visiveis(), G = grupos(L);
@@ -431,6 +449,13 @@ document.addEventListener('click', function (ev) {
 document.addEventListener('change', function (ev) {
   var t = ev.target;
   if (t.matches && t.matches('select[data-ctl="deck"]')) { ui.deck = t.value; guardaUI(); render(); return; }
+  if (t.matches && t.matches('select[data-ctl="origem"]')) { usarOrigem(t.value); seletorTipo(); guardaUI(); render(); return; }
+  if (t.matches && t.matches('input[data-cp="pet"]')) {
+    var cpet = CARTAS.filter(function (x) { return x.id === t.getAttribute('data-id'); })[0]; if (!cpet || !DB.db || !DB.pode) return;
+    var ip = +t.getAttribute('data-i'), dcp = decCopias(cpet), cpp = cpet.copias[ip];
+    var np = dcp[ip] ? JSON.parse(JSON.stringify(dcp[ip])) : { imp: cpp.imp, acab: cpp.acab, destino: null, deck: null, pasta: null, em: hojeISO(), nota: '', aplicado: null };
+    np.pet = t.checked; gravar(cpet, ip, np); return;
+  }
   if (!t.matches || !t.matches('input[data-cp="nota"]')) return;
   var c = CARTAS.filter(function (x) { return x.id === t.getAttribute('data-id'); })[0]; if (!c || !DB.db || !DB.pode) return;
   var i = +t.getAttribute('data-i'), dc = decCopias(c), cp = c.copias[i];
@@ -443,6 +468,7 @@ $('#q').addEventListener('input', function () { ui.q = this.value; render(); });
 $('#ft').addEventListener('change', function () { ui.tipo = this.value; guardaUI(); render(); });
 seletorTipo();
 if (ui.deck && (!DECKS[ui.deck] || DECKS[ui.deck].desejo)) ui.deck = '';
+usarOrigem(ui.origem || 'Caixa');
 if (PUB && D.hub_pub) $('#cx-hub').href = D.hub_pub;
 render();
 ligarBanco();
