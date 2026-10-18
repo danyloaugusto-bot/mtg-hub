@@ -176,6 +176,68 @@ for c in cx["cartas"]:
 R.ok("invariantes: Deck só em deck real e nas cores da carta, nunca precon; GC e staple fora do bulk; venda só com preço; todo destino com porquê", not ruins, ruins[:5])
 R.ok("régua: os números vêm de motor/caixa.json", caixa.regua()["venda_usd_min"] == 5.0 and caixa.regua()["deck_ganho_min"] == 10)
 
+# ---------------------------------------------------------------- "avaliadas": sinergia avaliada fora do deck e do radar
+import encaixe
+cad_t = dados.ler_cadastro()
+mg = dados.montar("02. Goblins", avisar=lambda *a: None)
+mg.update(pasta="02. Goblins", painel="Horda em Chamas")
+g0 = encaixe.ganho("Chain Reaction", mg, cad_t)
+mg2 = dict(mg); mg2.pop("_enc", None)
+mg2["avaliadas"] = dados.ler_avaliadas({"avaliadas": {"Chain Reaction": {"sin": {"sin2": 2}, "sin_por_que": {"sin2": "teste"}}}})
+g1 = encaixe.ganho("Chain Reaction", mg2, cad_t)
+peso2 = next(c["peso"] for c in dados.regua()["criterios"] if c["k"] == "sin2")
+R.ok("avaliadas: a sinergia entra no ganho e ele deixa de ser piso", not g0["avaliada"] and g1["avaliada"]
+     and abs((g1["valor"] - g0["valor"]) - peso2 * dados.regua()["pontos_por_nota"][2]) < 1e-9, (g0["ganho"], g1["ganho"]))
+recusas = 0
+for ruim in ({"X": {"sin": {"sin1": 4}}}, {"X": {"sin": {"sin1": 2}}}, {"X": {"sin": {"sin3": 1}, "sin_por_que": {"sin3": "x"}}}):
+    try:
+        dados.ler_avaliadas({"avaliadas": ruim})
+    except dados.ErroDeck:
+        recusas += 1
+R.ok("avaliadas: recusa nota fora de 0 a 3, sinergia sem porquê e chave que não é sin1 ou sin2", recusas == 3, recusas)
+
+# ---------------------------------------------------------------- pastas como origem: mover, remover, pet card
+PF = os.path.join(comum.RAIZ, "dados", "pastas")
+A, B = "zz teste A", "zz teste B"
+guarda = {}   # o que o teste mexe e devolve como estava: decisões e marcas das pastas, e o histórico da Caixa
+HIST = os.path.join(comum.RAIZ, "dados", "caixa", "HISTORICO.md")
+for q in (os.path.join(PF, "decisoes.json"), os.path.join(PF, "marcas.json"), HIST):
+    guarda[q] = open(q, encoding="utf-8").read() if os.path.exists(q) else None
+try:
+    with open(os.path.join(PF, A + ".txt"), "w", encoding="utf-8") as f:
+        f.write("2 Sol Ring (M3C) 305\n1 Inkwell Leviathan (2XM) 55\n1 Culling Dais (2XM) 246\n")
+    R.ok("origens: a pasta com lista vira origem", A in caixa.origens(), caixa.origens())
+    cp = caixa.montar(avisar=lambda *a: None, rede=False, fonte_edhrec=fonte, origem=A)
+    sr = carta(cp, "Sol Ring")
+    R.ok("origem pasta: as cartas da pasta, com as cópias", cp["origem"] == A and sr and sr["q"] == 2 and cp["resumo"]["copias"] == 4, (cp["origem"], cp["resumo"]["copias"]))
+    R.ok("origem pasta: a própria pasta não aparece em \"nas pastas\"", all(x["p"] != A for c in cp["cartas"] for x in c["pastas"]))
+    R.ok("origem pasta: a coleção do banco é própria", caixa.colecao(A) == "decisoes-zz-teste-a" and caixa.colecao("Caixa") == "decisoes")
+    dec = {"versao": 2, "cartas": {
+        "Sol Ring": {"copias": [{"imp": "M3C 305", "acab": "normal", "destino": "guardar", "pasta": B, "pet": True, "em": "2026-10-17", "aplicado": None}]},
+        "Inkwell Leviathan": {"copias": [{"imp": "2XM 55", "acab": "normal", "destino": "remover", "em": "2026-10-17", "aplicado": None}]}}}
+    caixa.gravar_decisoes(dec, origem=A)
+    feitos, _ = caixa.aplicar(origem=A)
+    txa = open(os.path.join(PF, A + ".txt"), encoding="utf-8").read()
+    txb = open(os.path.join(PF, B + ".txt"), encoding="utf-8").read() if os.path.exists(os.path.join(PF, B + ".txt")) else ""
+    R.ok("mover de pasta: sai uma cópia da A (fica 1 Sol Ring) e entra na B", "1 Sol Ring (M3C) 305" in txa and "2 Sol Ring" not in txa and "Sol Ring (M3C) 305" in txb, (txa, txb))
+    R.ok("remover: a cópia sai da pasta e não vai a lugar nenhum", "Inkwell Leviathan" not in txa and "Inkwell Leviathan" not in txb)
+    R.ok("pet card: marcado na pasta de destino", (caixa._ler_marcas().get(B) or {}).get("sol ring", {}).get("pet") is True)
+    R.ok("aplicar: as decisões ficam aplicadas", all(x.get("aplicado") for v in caixa.ler_decisoes(origem=A)["cartas"].values() for x in v["copias"]), feitos)
+    cb = caixa.montar(avisar=lambda *a: None, rede=False, fonte_edhrec=fonte, origem=B)
+    R.ok("a pasta de destino vira origem, com o selo pet", carta(cb, "Sol Ring") and carta(cb, "Sol Ring")["pet"] == 1)
+finally:
+    for f in (A + ".txt", B + ".txt"):
+        q = os.path.join(PF, f)
+        if os.path.exists(q):
+            os.remove(q)
+    for q, v in guarda.items():
+        if v is None:
+            if os.path.exists(q):
+                os.remove(q)
+        else:
+            open(q, "w", encoding="utf-8", newline="\n").write(v)
+R.ok("pastas de teste limpas", not [f for f in os.listdir(PF) if f.startswith("zz teste")])
+
 # ---------------------------------------------------------------- 3. a página montada (saidas/00. Caixa.html)
 import subprocess, sys
 from playwright.sync_api import sync_playwright
