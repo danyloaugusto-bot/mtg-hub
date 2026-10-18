@@ -211,6 +211,18 @@ def _faltando(av, cmd_papeis):
     falta = [p for p in PAPEIS if av["pct"][p] < R["faixas_pct"][p][0]]
     if av["cont"]["multiplica"] > av["cont"]["habilita"] and "habilita" not in falta:
         falta.append("habilita")
+    # o que a checagem do papel do comandante pede além das faixas (a mesma régua do veredito)
+    cont, pct = av["cont"], av["pct"]
+    for p in cmd_papeis:
+        rc = R["comandante"].get(p) or {}
+        pede = []
+        if p == "habilita":
+            pede = [("recompensa", pct["recompensa"] < rc["recompensa_min_pct"]), ("habilita", cont["habilita"] < rc["habilita_no_99_min"])]
+        elif p == "multiplica":
+            pede = [("habilita", cont["habilita"] < rc["habilita_min"]), ("recompensa", cont["recompensa"] < rc["recompensa_min"])]
+        elif p == "recompensa":
+            pede = [("habilita", pct["habilita"] < rc["habilita_min_pct"])]
+        falta += [k for k, sim in pede if sim and k not in falta]
     return falta
 
 
