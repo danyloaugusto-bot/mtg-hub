@@ -269,7 +269,9 @@
    "rel": "BAX",
    "faz": "Lobo de 1. Entra com um marcador se você controla permanente de valor 4 ou mais; cresce a cada mágica de valor 4 ou mais.",
    "porque": "Conta para os três lobos, mas a condição quase não dispara nesta curva.",
-   "prioridade": 6
+   "prioridade": 6,
+   "papel": "habilita",
+   "papel_por_que": "Lobo de 1 que conta para os três da noite e compra ao conectar com o Tovolar."
   },
   "Augur of Autumn": {
    "notas": {
@@ -302,7 +304,9 @@
    "rel": "MED",
    "faz": "Lobisomem 6/5 de 5 com ward 1; à noite, 8/7 com ward 3 (Daybound).",
    "porque": "Corpo grande e difícil de responder, sem evasão.",
-   "pacote": "noite"
+   "pacote": "noite",
+   "papel": "habilita",
+   "papel_por_que": "Lobisomem grande com ward que conta para os três da noite e fica mais forte com ela."
   },
   "Child of the Pack": {
    "notas": {
@@ -322,7 +326,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Lobisomem de 4. {2}{R}{G}: um Lobo 2/2, em qualquer turno. Verso: atropelar e +1/+0 nas outras criaturas (Daybound).",
-   "porque": "Cria lobo no fim do turno de um oponente: o terceiro lobo da sua manutenção, sem empurrar a mesa para o dia."
+   "porque": "Cria lobo no fim do turno de um oponente: o terceiro lobo da sua manutenção, sem empurrar a mesa para o dia.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (+1/+0 ao time à noite)",
+   "papel_por_que": "Cria Lobos 2/2 pagando mana, em qualquer turno, e conta para os três."
   },
   "Dire Wolf Prowler": {
    "notas": {
@@ -338,7 +345,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Lobo de 3. {1}{G}: +2/+2 e ímpeto, uma vez por turno.",
-   "porque": "Lobo de enchimento que pede mana."
+   "porque": "Lobo de enchimento que pede mana.",
+   "papel": "habilita",
+   "papel_por_que": "Lobo que conta para os três e ganha ímpeto para conectar no turno em que entra."
   },
   "Fearless Pup": {
    "notas": {
@@ -355,7 +364,9 @@
    "rel": "BAX",
    "faz": "Lobo 1/1 de 1 com iniciativa. Boast {2}{R}: +2/+0.",
    "porque": "O lobo mais fraco da lista; só conta para os três.",
-   "prioridade": 4
+   "prioridade": 4,
+   "papel": "habilita",
+   "papel_por_que": "Lobo de 1 que conta para os três da noite cedo."
   },
   "Goblin Anarchomancer": {
    "notas": {
@@ -398,7 +409,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Lobo de 6 com lampejo. Na sua manutenção, um Lobo 2/2 para cada Wolf ou Werewolf seu.",
-   "porque": "Dobra a matilha a cada volta. As fichas garantem a noite da volta seguinte, não a desta: os gatilhos da manutenção disparam juntos."
+   "porque": "Dobra a matilha a cada volta. As fichas garantem a noite da volta seguinte, não a desta: os gatilhos da manutenção disparam juntos.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (dobra a matilha a cada manutenção)",
+   "papel_por_que": "Um Lobo 2/2 por Lobo ou Lobisomem seu em cada manutenção, com lampejo."
   },
   "Hound Tamer": {
    "notas": {
@@ -422,7 +436,10 @@
    "marcas": {
     "evm": 1
    },
-   "pacote": "evasao"
+   "pacote": "evasao",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (atropelar à matilha à noite)",
+   "papel_por_que": "Lobisomem que conta para os três; à noite dá atropelar aos outros."
   },
   "Howlpack Piper": {
    "notas": {
@@ -443,7 +460,10 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Lobisomem de 4 que não pode ser anulado. {1}{G}, vira: uma criatura da mão no campo. Verso: ao entrar ou virar, cava seis por uma criatura (Daybound).",
-   "porque": "Põe os corpos caros em campo sem pagar."
+   "porque": "Põe os corpos caros em campo sem pagar.",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Põe criaturas da mão em campo e desvira se for Lobo; à noite cava criatura."
   },
   "Immerwolf": {
    "notas": {
@@ -464,7 +484,10 @@
    "rel": "INS",
    "faz": "Lobo de 3, intimidar. Outros Wolves e Werewolves seus ganham +1/+1. Werewolves não-Humanos seus não podem se transformar.",
    "porque": "Lorde e trava da noite: o verso dos seus lobisomens fica de noite quando a mesa vira dia (leitura do mtg.wiki, sem ruling impressa).",
-   "pacote": "noite"
+   "pacote": "noite",
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Lobo; trava os Lobisomens à noite)",
+   "papel_por_que": "Lorde +1/+1 dos Lobos e Lobisomens, e os não-Humanos não voltam ao dia."
   },
   "Kessig Naturalist": {
    "notas": {
@@ -485,7 +508,10 @@
    "rel": "INS",
    "faz": "Lobisomem de 2. Ao atacar, gera {R} ou {G}. Verso: outros Wolves e Werewolves seus ganham +1/+1 (Daybound).",
    "porque": "Lobo de turno 2 que acelera e vira lorde à noite.",
-   "pacote": "noite"
+   "pacote": "noite",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde +1/+1 à noite)",
+   "papel_por_que": "Lobisomem de 2 que gera mana ao atacar e, à noite, vira lorde da matilha."
   },
   "Kessig Prowler": {
    "notas": {
@@ -504,7 +530,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Lobisomem de 1. {4}{G}: transforma num 4/4 que não pode ser bloqueado por mais de uma criatura.",
-   "porque": "Lobo de turno 1 com uso tardio."
+   "porque": "Lobo de turno 1 com uso tardio.",
+   "papel": "habilita",
+   "papel_por_que": "Lobisomem de 1 que conta para os três cedo e vira 4/4 pagando mana."
   },
   "Mayor of Avabruck": {
    "notas": {
@@ -524,7 +552,10 @@
    "rel": "INS",
    "faz": "Lobisomem antigo de 2: a frente dá +1/+1 aos Humanos. Verso: +1/+1 aos Wolves e Werewolves e um Lobo 2/2 no começo do seu fim de turno.",
    "porque": "O Tovolar o vira na manutenção: um lorde e uma fábrica de lobo por volta.",
-   "pacote": "noite"
+   "pacote": "noite",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde +1/+1 à noite)",
+   "papel_por_que": "Lobisomem antigo que o Tovolar vira: à noite cria um Lobo 2/2 todo fim de turno."
   },
   "Outland Liberator": {
    "notas": {
@@ -543,7 +574,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Lobisomem de 2. {1}, sacrifique: destrói artefato ou encantamento. Verso: destrói um ao atacar (Daybound).",
-   "porque": "Interação que conta como lobo."
+   "porque": "Interação que conta como lobo.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Lobisomem de 2 que conta para os três e destrói artefato ou encantamento."
   },
   "Packsong Pup": {
    "notas": {
@@ -559,7 +593,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Lobo de 2. Cresce no seu combate se há outro Wolf ou Werewolf; ao morrer, você ganha vida igual à força.",
-   "porque": "Corpo barato da tribo."
+   "porque": "Corpo barato da tribo.",
+   "papel": "habilita",
+   "papel_por_que": "Lobo de 2 que conta para os três e cresce com outro Lobo em campo."
   },
   "Runebound Wolf": {
    "notas": {
@@ -576,7 +612,10 @@
    "rel": "MED",
    "faz": "Lobo de 2. {3}{R}, vira: dano a um oponente igual ao número de Wolves e Werewolves seus, em qualquer turno.",
    "porque": "Alcance direto quando a mesa trava, no fim do turno de quem está perto de morrer.",
-   "pacote": "evasao"
+   "pacote": "evasao",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Lobo)",
+   "papel_por_que": "Causa dano igual ao número de Wolves e Werewolves: rende com a matilha grande."
   },
   "Scorned Villager": {
    "notas": {
@@ -596,7 +635,10 @@
    "rel": "ALT",
    "faz": "Lobisomem antigo de 2: gera {G}. Verso: vigilância e gera {G}{G}.",
    "porque": "Ramp que conta como lobo; o Tovolar o vira e dobra a mana.",
-   "pacote": "noite"
+   "pacote": "noite",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Lobisomem antigo que o Tovolar vira; gera {G}, e {G}{G} à noite."
   },
   "Snarling Wolf": {
    "notas": {
@@ -612,7 +654,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Lobo de 1. {1}{G}: +2/+2 uma vez por turno.",
-   "porque": "Lobo de turno 1 para a contagem."
+   "porque": "Lobo de turno 1 para a contagem.",
+   "papel": "habilita",
+   "papel_por_que": "Lobo de 1 que conta para os três e ganha +2/+2 para conectar."
   },
   "Spirit of the Hunt": {
    "notas": {
@@ -631,7 +675,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Lobo de 3 com lampejo. Ao entrar, outros Wolves e Werewolves seus ganham +0/+3.",
-   "porque": "Entra no fim do turno alheio e garante o terceiro lobo na manutenção."
+   "porque": "Entra no fim do turno alheio e garante o terceiro lobo na manutenção.",
+   "papel": "habilita",
+   "papel_por_que": "Lobo com lampejo: entra no turno alheio e fecha os três da manutenção."
   },
   "Tovolar's Huntmaster": {
    "notas": {
@@ -651,7 +697,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Lobisomem de 6. Ao entrar, dois Lobos 2/2. Verso: dois lobos ao entrar ou atacar, e {2}{G}{G} faz um lobo lutar (Daybound).",
-   "porque": "Três corpos por uma carta."
+   "porque": "Três corpos por uma carta.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção (luta)",
+   "papel_por_que": "Dois Lobos 2/2 ao entrar; à noite, mais dois a cada ataque."
   },
   "Weaver of Blossoms": {
    "notas": {
@@ -671,7 +720,10 @@
    "rel": "ALT",
    "faz": "Lobisomem de 3: mana de qualquer cor. Verso: duas de uma cor (Daybound).",
    "porque": "Ramp que conta como lobo.",
-   "pacote": "noite"
+   "pacote": "noite",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Lobisomem de 3 que conta para os três e gera mana, duas à noite."
   },
   "Werewolf Pack Leader": {
    "notas": {
@@ -688,7 +740,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Lobisomem de 2, de uma face só. Ao atacar com força total 6 ou mais, compre. {3}{G}: vira 5/3 com atropelar.",
-   "porque": "Segundo motor de compra pelo ataque."
+   "porque": "Segundo motor de compra pelo ataque.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (compra ao atacar com força 6)",
+   "papel_por_que": "Lobisomem de 2 que conta para os três e compra quando a matilha ataca forte."
   },
   "Arlinn, the Pack's Hope": {
    "notas": {
@@ -708,7 +763,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Planeswalker de 4 (Daybound). +1: até o seu turno, criaturas com lampejo e um marcador a mais. −3: dois Lobos 2/2. Verso: {R}{G}, ou vira 5/5.",
-   "porque": "Dois lobos de uma vez, ou lobos conjurados no turno dos outros sem trazer o dia."
+   "porque": "Dois lobos de uma vez, ou lobos conjurados no turno dos outros sem trazer o dia.",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "O −3 põe dois Lobos 2/2 em campo, e o +1 dá lampejo para fechar os três da manutenção no turno alheio."
   },
   "Domri, Anarch of Bolas": {
    "notas": {
@@ -1012,7 +1070,9 @@
    "rel": "BAX",
    "faz": "Artefato de 3. O tipo escolhido ganha +1/+1; {3}, vira: cava uma criatura do tipo.",
    "porque": "Anthem pequeno de um tipo só, e Wolf e Werewolf são dois.",
-   "prioridade": 14
+   "prioridade": 14,
+   "papel": "multiplica",
+   "papel_por_que": "Lorde +1/+1 para um tipo só (Lobo ou Lobisomem), metade da matilha."
   },
   "Lightning Greaves": {
    "notas": {
@@ -1068,7 +1128,9 @@
    "faz": "Artefato de 6, convocar. O tipo escolhido ganha +2/+2.",
    "porque": "Anthem de um tipo só; a convocação baixa o custo.",
    "prioridade": 16,
-   "caro_por_desenho": true
+   "caro_por_desenho": true,
+   "papel": "multiplica",
+   "papel_por_que": "Lorde +2/+2 para um tipo só, metade da matilha; convocar barateia."
   },
   "Rhonas's Monument": {
    "notas": {
@@ -1146,7 +1208,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 5: suas criaturas atacantes têm golpe duplo.",
-   "porque": "Cada golpe é dano de combate separado: o Tovolar compra duas por lobo que conecta."
+   "porque": "Cada golpe é dano de combate separado: o Tovolar compra duas por lobo que conecta.",
+   "papel": "multiplica",
+   "papel_por_que": "Golpe duplo nos atacantes: cada Lobo que conecta dispara a compra do Tovolar duas vezes."
   },
   "Bow of Nylea": {
    "notas": {
@@ -1195,7 +1259,10 @@
     "evm": 1,
     "protege": 1
    },
-   "pacote": "evasao"
+   "pacote": "evasao",
+   "papel": "multiplica",
+   "papel_dupla": "Proteção (regenera os Lobisomens)",
+   "papel_por_que": "+1/+0 e atropelar aos Lobisomens: mais dano e mais conexões que compram."
   },
   "Gruul War Chant": {
    "notas": {
@@ -1210,7 +1277,9 @@
    "porque": "Ameaça em massa: a matilha passa e compra.",
    "marcas": {
     "evm": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Atacantes com +1/+0 e ameaça: mais Lobos passam e disparam a compra do Tovolar."
   },
   "Lurking Predators": {
    "notas": {
@@ -1227,7 +1296,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 6. Sempre que um oponente conjura, revele o topo; se for criatura, ela entra.",
-   "porque": "Corpos no turno dos outros, pagos pelo mesmo evento que vira o dia."
+   "porque": "Corpos no turno dos outros, pagos pelo mesmo evento que vira o dia.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Põe criaturas em campo no turno dos oponentes, fechando os três sem conjurar no seu turno."
   },
   "Rhythm of the Wild": {
    "notas": {
@@ -1252,7 +1324,9 @@
    "rel": "BAX",
    "faz": "Encantamento de 2. Criaturas verdes +1/+1; vidência 1 quando uma entra.",
    "porque": "Só o Fearless Pup e o Runebound Wolf não são verdes, mas é anthem pequeno.",
-   "prioridade": 20
+   "prioridade": 20,
+   "papel": "multiplica",
+   "papel_por_que": "+1/+1 às criaturas verdes, quase toda a matilha e as fichas de Lobo."
   },
   "Unnatural Growth": {
    "notas": {
@@ -1265,7 +1339,9 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Encantamento de 5. No começo de cada combate, dobra a força e a resistência das suas criaturas.",
-   "porque": "O melhor multiplicador da lista. Vale em todo combate, inclusive no dos oponentes: os bloqueadores também dobram."
+   "porque": "O melhor multiplicador da lista. Vale em todo combate, inclusive no dos oponentes: os bloqueadores também dobram.",
+   "papel": "multiplica",
+   "papel_por_que": "Dobra força e resistência das suas criaturas em cada combate."
   },
   "Castle Embereth": {
    "notas": {
@@ -1499,7 +1575,10 @@
    "veredito": "entra",
    "faz": "Lobisomem antigo de 4. Ao entrar ou virar para a frente: um Lobo 2/2 e 2 de vida. Verso: atropelar; ao virar, 2 de dano num oponente e 2 numa criatura.",
    "porque": "O Tovolar o vira na manutenção, e a mesa o desvira com duas mágicas: lobo, vida e dano a cada volta. O Immerwolf trava o ciclo no verso.",
-   "sai": "Dire-Strain Rampage"
+   "sai": "Dire-Strain Rampage",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (dano e vida a cada transformação)",
+   "papel_por_que": "Lobisomem antigo que cria um Lobo e 2 de vida ao entrar e a cada volta ao dia."
   },
   "Kruin Outlaw": {
    "notas": {
@@ -1525,7 +1604,10 @@
    "sai": "Evolution Charm",
    "marcas": {
     "evm": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (ameaça aos Lobisomens à noite)",
+   "papel_por_que": "Lobisomem antigo que o Tovolar vira: golpe duplo e ameaça à tribo."
   },
   "Pyreheart Wolf": {
    "notas": {
@@ -1548,7 +1630,10 @@
    "sai": "Moment's Peace",
    "marcas": {
     "evm": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (ameaça ao time ao atacar)",
+   "papel_por_que": "Lobo com persistir; ao atacar, todas as suas criaturas ganham ameaça."
   },
   "Howlpack Resurgence": {
    "notas": {
@@ -1569,7 +1654,9 @@
    "sai": "Icon of Ancestry",
    "marcas": {
     "evm": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Lorde +1/+1 e atropelar aos Lobos e Lobisomens, com lampejo."
   },
   "Heroic Intervention": {
    "notas": {
@@ -1603,7 +1690,10 @@
    "veredito": "entra",
    "faz": "Lobo 2/2 de 2. Vira: mana de qualquer cor. Seu primeiro Humano conjurado no turno entra com marcadores por Dog e Wolf.",
    "porque": "Lobo de turno 2 que acelera.",
-   "sai": "Fearless Pup"
+   "sai": "Fearless Pup",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Lobo de 2 que conta para os três e gera mana de qualquer cor."
   },
   "Duskwatch Recruiter": {
    "notas": {
@@ -1625,7 +1715,10 @@
    "veredito": "entra",
    "faz": "Lobisomem antigo de 2. {2}{G}: cava uma criatura nas três do topo. Verso: suas criaturas custam {1} a menos.",
    "porque": "Pia de mana que acha corpos e conta para a noite; o Tovolar o vira.",
-   "sai": "Goblin Anarchomancer"
+   "sai": "Goblin Anarchomancer",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Lobisomem antigo que cava criaturas; à noite, barateia as criaturas."
   },
   "Nightpack Ambusher": {
    "notas": {
@@ -1645,7 +1738,10 @@
    "veredito": "entra",
    "faz": "Lobo 4/4 de 4 com lampejo. Outros Wolves e Werewolves +1/+1. No seu fim de turno, se você não conjurou nada, um Lobo 2/2.",
    "porque": "Lorde que entra no turno alheio e garante a contagem.",
-   "sai": "Gruul Cluestone"
+   "sai": "Gruul Cluestone",
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Lobo 2/2 no fim de turno)",
+   "papel_por_que": "Lorde +1/+1 dos Lobos e Lobisomens, com lampejo."
   },
   "Avabruck Caretaker": {
    "notas": {
@@ -1670,7 +1766,10 @@
    "sai": "Bow of Nylea",
    "marcas": {
     "protege": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (marcadores em todos à noite)",
+   "papel_por_que": "Lobisomem que conta para os três; à noite protege tudo e põe dois marcadores em cada criatura."
   },
   "Toski, Bearer of Secrets": {
    "notas": {
@@ -1688,7 +1787,9 @@
    "veredito": "entra",
    "faz": "Esquilo lendário de 4, indestrutível, não pode ser anulado, ataca todo combate. Sempre que uma criatura sua causa dano de combate a um jogador, compre.",
    "porque": "Soma com o Tovolar: cada lobo que conecta compra duas. Não é lobo.",
-   "sai": "Cathartic Reunion"
+   "sai": "Cathartic Reunion",
+   "papel": "recompensa",
+   "papel_por_que": "Compra quando qualquer criatura sua conecta, somando com o Tovolar."
   },
   "Ohran Frostfang": {
    "notas": {
@@ -1708,7 +1809,9 @@
    "veredito": "entra",
    "faz": "Cobra 2/6 de 5. Atacantes seus têm toque mortífero; sempre que uma criatura sua causa dano de combate a um jogador, compre.",
    "porque": "Terceiro motor de compra, e bloquear a matilha vira perder criatura. Não é lobo.",
-   "sai": "Storm the Festival"
+   "sai": "Storm the Festival",
+   "papel": "recompensa",
+   "papel_por_que": "Compra quando qualquer criatura conecta, somando com o Tovolar; toque mortífero nos atacantes."
   },
   "Craterhoof Behemoth": {
    "notas": {
@@ -1725,7 +1828,9 @@
    "sai": "Obelisk of Urd",
    "marcas": {
     "evm": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Fecha o jogo: +X/+X e atropelar, X o número de criaturas da matilha."
   },
   "Overwhelming Stampede": {
    "notas": {
@@ -1742,7 +1847,9 @@
    "sai": "Sylvan Anthem",
    "marcas": {
     "evm": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Fecha o jogo: +X/+X e atropelar à matilha, X a maior força."
   },
   "Arlinn Kord": {
    "notas": {
@@ -1767,7 +1874,10 @@
    "sai": "Fires of Yavimaya",
    "marcas": {
     "evm": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "O 0 cria um Lobo 2/2 e transforma; o verso dá +1/+1 e atropelar ao time."
   },
   "Moonmist": {
    "notas": {
@@ -1788,7 +1898,10 @@
    "veredito": "entra",
    "faz": "Instantânea de 2: transforma todos os Humans; previne o dano de combate de quem não é Wolf nem Werewolf.",
    "porque": "Névoa só para os outros: protege o ataque e o bloqueio, e vira os lobisomens antigos.",
-   "sai": "Fog"
+   "sai": "Fog",
+   "papel": "habilita",
+   "papel_dupla": "Proteção (previne o dano dos outros)",
+   "papel_por_que": "Transforma todos os Lobisomens Humanos na hora, sem esperar a noite."
   },
   "Moonlight Hunt": {
    "notas": {
@@ -1805,7 +1918,10 @@
    "veredito": "entra",
    "faz": "Instantânea de 2: cada Wolf e Werewolf seu causa dano igual à força numa criatura de oponente.",
    "porque": "Remoção instantânea que escala com a matilha, na vaga de uma carta que não faz nada.",
-   "sai": "Spellbook"
+   "sai": "Spellbook",
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Cada Lobo e Lobisomem seu causa dano numa criatura: rende com a matilha grande."
   },
   "Beast Within": {
    "notas": {
@@ -1880,7 +1996,10 @@
    "veredito": "avaliar",
    "faz": "Lobo 3/2 de 2 com atropelar. Ao conectar, um marcador num Lobo seu ou um Treasure.",
    "porque": "Lobo de turno 2 que já conecta.",
-   "sai": "Ascendant Packleader"
+   "sai": "Ascendant Packleader",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Lobo de 2 com atropelar que conta para os três e cria Tesouro ao conectar."
   },
   "Reckless Stormseeker": {
    "notas": {
@@ -1902,7 +2021,9 @@
    "veredito": "avaliar",
    "faz": "Lobisomem de 3. No seu combate, +1/+0 e ímpeto numa criatura; à noite, +2/+0, atropelar e ímpeto (Daybound).",
    "porque": "O mesmo ímpeto da Halana and Alena, mas contando como lobo.",
-   "sai": "Halana and Alena, Partners"
+   "sai": "Halana and Alena, Partners",
+   "papel": "habilita",
+   "papel_por_que": "Lobisomem que conta para os três e dá ímpeto a uma criatura a cada combate."
   },
   "Beast Whisperer": {
    "notas": {
@@ -1937,7 +2058,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Lobisomem de 4. Quando recebe dano, causa esse tanto a qualquer alvo. Verso: o mesmo para qualquer permanente sua (Daybound).",
-   "porque": "Pune bloqueio e limpeza. Sugerido pela fonte C."
+   "porque": "Pune bloqueio e limpeza. Sugerido pela fonte C.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Lobisomem que conta para os três e devolve o dano que recebe."
   },
   "Shared Animosity": {
    "notas": {
@@ -1953,7 +2077,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Encantamento de 3. Cada criatura sua que ataca ganha +1/+0 por outra atacante que divide um tipo com ela.",
-   "porque": "Lobos com lobos e lobisomens com lobisomens. Sugerido pela fonte C. Está também na Evelyn."
+   "porque": "Lobos com lobos e lobisomens com lobisomens. Sugerido pela fonte C. Está também na Evelyn.",
+   "papel": "multiplica",
+   "papel_por_que": "Atacantes ganham +1/+0 por outro atacante do mesmo tipo: matilha grande bate muito."
   },
   "Cemetery Prowler": {
    "notas": {
@@ -1971,7 +2097,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Lobo 3/4 de 3 com vigilância. Ao entrar ou atacar, exila uma carta de um cemitério; mágicas que dividem tipo com as exiladas custam menos.",
-   "porque": "Lobo de três com corpo e um pouco de interação. Sugerido pela fonte C."
+   "porque": "Lobo de três com corpo e um pouco de interação. Sugerido pela fonte C.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção (cemitério)",
+   "papel_por_que": "Lobo 3/4 que conta para os três e exila do cemitério ao entrar ou atacar."
   },
   "Unnatural Moonrise": {
    "notas": {
@@ -1990,7 +2119,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de 2: vira noite; uma criatura ganha +1/+0, atropelar e compra quando conecta. Flashback.",
-   "porque": "Só vale quando faltam os três lobos. Primeiro do banco da fonte B."
+   "porque": "Só vale quando faltam os três lobos. Primeiro do banco da fonte B.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Faz virar noite na hora e dá compra ao conectar a uma criatura."
   },
   "Stomping Ground": {
    "notas": {},
@@ -2087,7 +2219,9 @@
    "rel": "MED",
    "veredito": "fora",
    "faz": "Feitiço de 4: suas criaturas ganham +1/+1, atropelar e infectar até o fim do turno.",
-   "porque": "Um turno só, e o deck já tem Craterhoof e Overwhelming Stampede no radar."
+   "porque": "Um turno só, e o deck já tem Craterhoof e Overwhelming Stampede no radar.",
+   "papel": "recompensa",
+   "papel_por_que": "Fecha o jogo: infectar e atropelar na matilha larga."
   },
   "The Celestus": {
    "notas": {
@@ -2105,7 +2239,10 @@
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Artefato lendário de 3. Vira: qualquer cor; {3}, vira: troca dia e noite, como feitiço; a cada troca, ganhe 1 e pode comprar e descartar.",
-   "porque": "Põe a noite quando o Tovolar quer, e cada troca ainda filtra a mão. Potencial do edh.wiki, o de maior sinergia (+78%)."
+   "porque": "Põe a noite quando o Tovolar quer, e cada troca ainda filtra a mão. Potencial do edh.wiki, o de maior sinergia (+78%).",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Troca dia e noite quando você quer, para os Lobisomens virarem."
   },
   "Howling Moon": {
    "notas": {
@@ -2124,7 +2261,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Encantamento de 3. No seu combate, +2/+2 num Lobo ou Lobisomem seu; oponente conjura a segunda mágica do turno: um Lobo 2/2.",
-   "porque": "Lobos justo quando a segunda mágica deles traria o dia. Potencial do edh.wiki (+70%)."
+   "porque": "Lobos justo quando a segunda mágica deles traria o dia. Potencial do edh.wiki (+70%).",
+   "papel": "habilita",
+   "papel_por_que": "Cria Lobos 2/2 no turno dos oponentes, fechando os três da manutenção."
   },
   "Village Watch": {
    "notas": {
@@ -2143,7 +2282,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Lobisomem de 5 com ímpeto e dia. À noite: Lobos e Lobisomens seus têm ímpeto.",
-   "porque": "A matilha ataca no turno em que entra. Potencial do edh.wiki (+68%)."
+   "porque": "A matilha ataca no turno em que entra. Potencial do edh.wiki (+68%).",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (ímpeto à matilha à noite)",
+   "papel_por_que": "Lobisomem que conta para os três; à noite, Lobos e Lobisomens têm ímpeto."
   },
   "Instigator Gang": {
    "notas": {
@@ -2161,7 +2303,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Lobisomem de 4. Atacantes seus +1/+0; à noite, +3/+0 e atropelar.",
-   "porque": "Fecha o jogo à noite. Potencial do edh.wiki (+63%)."
+   "porque": "Fecha o jogo à noite. Potencial do edh.wiki (+63%).",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (+3/+0 aos atacantes à noite)",
+   "papel_por_que": "Lobisomem antigo que o Tovolar vira e que fortalece todo o ataque."
   }
  },
  "combos": [
@@ -2282,5 +2427,78 @@
    ],
    "texto": "O Tovolar vira o Huntmaster na manutenção (2 de dano num oponente e 2 numa criatura); a mesa o desvira com duas mágicas (um lobo e 2 de vida). Sem Immerwolf em campo."
   }
- ]
+ ],
+ "avaliadas": {
+  "Chandra's Ignition": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Chimil, the Inner Sun": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Anzrag's Rampage": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Chain Reaction": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Boom": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Mind's Eye": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Vaultborn Tyrant": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Lavabrink Floodgates": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Slash, Reptile Rampager": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa",
+   "papel": "recompensa",
+   "papel_por_que": "Cada criatura que entra drena 2, inclusive as fichas de Lobo das fábricas do deck."
+  },
+  "Eladamri, Korvecdal": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "recompensa",
+    "por_que": "Compra quando Lobos e Lobisomens conectam e vira noite com três deles: recompensa a matilha. Precisa de muitos corpos da tribo."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
