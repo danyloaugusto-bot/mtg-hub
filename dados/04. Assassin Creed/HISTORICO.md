@@ -21,3 +21,7 @@
 ## Potenciais, 15/10/2026
 
 - Os potenciais da leitura de 14/10/2026 ganharam entrada no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3 funcionar: 13 cartas novas. A página não foi relida (leitura de ontem).
+
+## Plano do deck, 18/10/2026
+
+- Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Satisfatório; com o recomendado: Excelente. Só o radar e o cadastro mudaram, a lista do deck não.

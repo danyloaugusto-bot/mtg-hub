@@ -22,3 +22,7 @@
 ## Radar, 16/10/2026
 
 - Com o ok do dono, dos potenciais da página relida em 15/10: Sorin, Imperious Bloodlord (B/MED, sin1 1 e sin2 1, +20,5), Patron of the Vein (A/ALT, sin1 2 e sin2 3, +19,75) e Twilight Prophet (A/ALT, sin1 2, +10,75), saindo Faithless Looting. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.
+
+## Plano do deck, 18/10/2026
+
+- Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Satisfatório; com o recomendado: Satisfatório. Só o radar e o cadastro mudaram, a lista do deck não.

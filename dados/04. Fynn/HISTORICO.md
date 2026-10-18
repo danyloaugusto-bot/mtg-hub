@@ -28,3 +28,7 @@
 ## Potenciais, 15/10/2026
 
 - Página relida em https://edh.wiki/commanders/fynn-the-fangbearer/deathtouch/: 25 potenciais, de +33% a +75%, 13 deles novos na lista (corte único: sinergia +10% ou mais, as 25 maiores); 25 cartas novas no cadastro único (`dados/cartas.json`), com os oito critérios da carta, para o encaixe da pontuação v3.
+
+## Plano do deck, 18/10/2026
+
+- Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Insuficiente; com o recomendado: Satisfatório. Só o radar e o cadastro mudaram, a lista do deck não.

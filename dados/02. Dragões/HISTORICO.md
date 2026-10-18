@@ -26,3 +26,7 @@
 ## Regra do dono no cadastro, 17/10/2026
 
 - Dano uma vez em qualquer alvo vale Remoção 1 (regra do dono de 15/10/2026: "uma vez: Fling, Lightning Bolt"). O cadastro tinha Remoção 2 em Lightning Bolt, Goblin Grenade, Massive Raid e Electrodominance; as quatro foram para 1. Placar de 938 para 934; com as trocas, de 1044,5 para 1040,5. Controle atualizado.
+
+## Plano do deck, 18/10/2026
+
+- Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Insuficiente; com o recomendado: Satisfatório. Só o radar e o cadastro mudaram, a lista do deck não.

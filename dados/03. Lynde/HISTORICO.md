@@ -32,3 +32,7 @@
 ## Radar, 16/10/2026
 
 - Com o ok do dono, dos potenciais da página relida em 15/10: Demon of Fate's Design (A/ALT, sin1 3 pela regra de "faz duas vezes": saída de sacrifício repetível e conjura Maldição por vida, +24,5), saindo Hydroelectric Specimen. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.
+
+## Plano do deck, 18/10/2026
+
+- Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Excelente; com o recomendado: Excelente. Só o radar e o cadastro mudaram, a lista do deck não.

@@ -33,3 +33,7 @@
 ## Radar, 16/10/2026
 
 - Com o ok do dono, dos potenciais da página relida em 15/10: Alhammarret's Archive (A/ALT, sin1 3: dobra o dreno, +24), saindo Malakir Rebirth. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.
+
+## Plano do deck, 18/10/2026
+
+- Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Excelente; com o recomendado: Excelente. Só o radar e o cadastro mudaram, a lista do deck não.

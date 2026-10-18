@@ -36,3 +36,7 @@
 ## Radar, 16/10/2026
 
 - Com o ok do dono, dos potenciais da página relida em 15/10: do confronto com o Biobug: Anje's Ravager (A/ALT, sin1 2 e sin2 1, +19,5), Preacher of the Schism (A/ALT, sin1 2, +12,75), Deadly Dispute, Insatiable Avarice e Obsessive Pursuit (B/MED, sin2 1, +7,75 a +8,25), saindo Gamble; com a sinergia delas avaliada, a lista do Biobug foi de 887 para 908. A caixa do confronto passou a abrir cada carta no toque (texto, leitura do cadastro, notas) com o botão "Levar ao radar", a pedido do dono, pelo celular. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.
+
+## Plano do deck, 18/10/2026
+
+- Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Excelente; com o recomendado: Excelente. Só o radar e o cadastro mudaram, a lista do deck não.
