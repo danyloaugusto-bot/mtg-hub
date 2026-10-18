@@ -14,7 +14,7 @@ Cópia em idioma que não é inglês: a consulta é pela coleção e pelo númer
 preço de referência); o id do Scryfall de uma versão em outro idioma nunca entra no cache comum, que guarda as cartas
 por coleção e número e alimenta os painéis.
 """
-import csv, datetime, io, json, os, re
+import csv, datetime, hashlib, io, json, os, re, statistics
 import dados, edhrec, encaixe, prenota, scryfall
 
 MOTOR = os.path.dirname(os.path.abspath(__file__))
@@ -230,6 +230,20 @@ def _ler_marcas():
         return {}
 
 
+def ler_traducoes():
+    """dados/traducoes.json: {"cartas": {nome: {"pt", "h", "fonte", "em"}}}, a tradução livre do texto oficial, só para ler.
+    "h" é a marca (sha1, 8 primeiros) do texto em inglês que foi traduzido: se o Scryfall mudar o texto, a tradução fica velha."""
+    try:
+        with open(os.path.join(dados.DADOS, "traducoes.json"), encoding="utf-8") as f:
+            return json.load(f).get("cartas") or {}
+    except (OSError, ValueError):
+        return {}
+
+
+def marca_texto(fx):
+    return hashlib.sha1((fx or "").encode("utf-8")).hexdigest()[:8]
+
+
 def link_publicado(base=None):
     try:
         with open(os.path.join(pasta_caixa(base), "link.txt"), encoding="utf-8") as f:
@@ -364,6 +378,52 @@ def _preco(r, acab):
 
 # ---------------------------------------------------------------- os decks do dono
 
+# critério da v3 e o quadro do 8×8 com o mesmo papel, pela chave do agrupamento (os de tema não têm par)
+CRIT_8X8 = {"draw": "draw", "remocao": "removal", "aceleradores": "ramp", "evasao": "evasao", "recurso": "recursao"}
+
+
+def _perfil_deck(m):
+    """O que a gaveta mostra de um deck ao lado de cada carta: quantas cartas têm nota 2 ou 3 em cada critério da v3 (a mesma
+    conta da saturação), os quadros do 8×8 ligados a um critério (cartas no quadro e a referência, 8 a 8 quando o agrupamento
+    não tem faixa) e o valor mediano de cada tier, para estimar o tier de uma carta que o deck ainda não avaliou.
+    O quadro de cada carta segue o painel: o pacote fixado, ou o agrupamento de maior nota (empate: o primeiro da ordem);
+    terreno, carta com terreno no verso e comandante ficam fora."""
+    gs = m.get("grupos") or []
+    caixas = {g["k"]: 0 for g in gs}
+    for c in m["cards"]:
+        if c.get("cmd") or c.get("land") or c.get("mdfc"):
+            continue
+        k = c.get("pk0")
+        if k not in caixas:
+            best, k = 0, None
+            for i, v in enumerate((c.get("s") or [])[:len(gs)]):
+                if v > best:
+                    best, k = v, gs[i]["k"]
+        if k in caixas:
+            caixas[k] += c["q"]
+    pk = {}
+    for ck, gk in CRIT_8X8.items():
+        g = next((g for g in gs if g["k"] == gk), None)
+        if g:
+            ref = g.get("ref") or [8, 8]
+            pk[ck] = [g["nome"], caixas[gk], ref[0], ref[1]]
+    vals = {}
+    for c in m["cards"]:
+        if not c.get("cmd") and not c.get("land") and c.get("tier"):
+            vals.setdefault(c["tier"], []).append(encaixe.valor(c["s3"]))
+    return dict(nc=encaixe.contexto(m)["ncrit"], pk=pk, med={t: statistics.median(v) for t, v in vals.items()})
+
+
+def _tier_estimado(v, med):
+    """O tier de uma carta que o deck não avaliou, pelo valor dela contra o valor mediano de cada tier do deck. No máximo A:
+    S só com avaliação (o que também guarda a regra dos tribais, S só para carta da tribo)."""
+    presentes = [t for t in ("A", "B", "C", "D") if t in med]
+    for t in presentes:
+        if v >= med[t]:
+            return t
+    return presentes[-1] if presentes else None
+
+
 def info_decks():
     """Cada pasta de deck: grupo, Desejo, precon intacto, comandantes, cartas e radar (pelo nome do Scryfall)."""
     out = {}
@@ -442,10 +502,12 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
     ks = encaixe._regua()[1]
     decks = info_decks()
     ds_v3 = encaixe.decks_v3()
+    perfis = {m["pasta"]: _perfil_deck(m) for m in ds_v3}
     pastas_fis = {p: v for p, v in dados.ler_pastas().items() if p != origem}
     compras = _ler_compras(base)
     dec = ler_decisoes(base, origem)
     pet = (_ler_marcas().get(origem) or {}) if origem != CAIXA else {}
+    trad = ler_traducoes()
     cmd_do_dono = {}
     for p, d in decks.items():
         for n in d["cmds"]:
@@ -545,7 +607,11 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
             x = (d.get("cartas") or {}).get(ch) or (d.get("radar") or {}).get(ch)
             av = ((d.get("m") or {}).get("avaliadas") or {}).get(nome)
             sin = [x["s3"][0], x["s3"][1]] if x and x.get("s3") else list(av["sin"]) if av else [0, 0]
-            enc.append(dict(p=g["deck"], n=g["painel"], g=g["ganho"], v=g["valor"], s=g["sai"], vs=g["valor_sai"], c=g["cobre"],
+            T = x.get("tier") if x else None   # o tier do deck ou do radar; sem ele, estimado pelo valor (com "~")
+            if not T and g["deck"] in perfis:
+                te = _tier_estimado(encaixe.valor(sin + s8), perfis[g["deck"]]["med"])
+                T = "~" + te if te else None
+            enc.append(dict(p=g["deck"], n=g["painel"], g=g["ganho"], v=g["valor"], s=g["sai"], vs=g["valor_sai"], c=g["cobre"], T=T,
                             a=1 if g["avaliada"] else 0, j=1 if g["ja_no_deck"] else 0, sin=sin,
                             pre=1 if d.get("precon") else 0, des=1 if d.get("desejo") else 0,
                             **({"dc": g["d_cmc"], "da": g["d_acel"]} if "d_cmc" in g else {})))
@@ -566,6 +632,11 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
                     cad_auto=1 if cad_auto else 0, por_que=e.get("por_que", ""), copias=v["copias"],
                     em_decks=em_decks, radares=radares, pastas=nas_pastas, compra=na_compra, enc=enc, edh=edh,
                     sid=r.get("id"), iset=r.get("set"), inum=r.get("num"), image=r.get("image", True), pet=1 if pet.get(ch) else 0)
+        t = trad.get(nome)
+        if t and t.get("pt"):
+            card["tx"] = {"pt": t["pt"]}
+            if t.get("h") != marca_texto(card["fx"]):
+                card["tx"]["velha"] = 1
         _sugerir(card, decks, em_desejo, R)
         card["avaliar"] = _decks_a_avaliar(card, decks)
         card["q"] = len(card["copias"])
@@ -581,7 +652,8 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
                   valor=round(sum(c["valor"] for c in cartas), 2))
     return dict(lido=hoje, regua=R, resumo=resumo, cartas=cartas, origem=origem,
                 decks={p: dict(n=d["painel"], c=d["curto"], i=d["ident"], g=d["grupo"], desejo=1 if d["desejo"] else 0,
-                               precon=1 if d["precon"] else 0) for p, d in decks.items()})
+                               precon=1 if d["precon"] else 0, **({"nc": perfis[p]["nc"], "pk": perfis[p]["pk"]} if p in perfis else {}))
+                       for p, d in decks.items()})
 
 
 # ---------------------------------------------------------------- a sugestão, cópia a cópia
@@ -611,6 +683,7 @@ def _sugerir(card, decks, em_desejo, R):
         preco = cp["usd"]
         marcas = []
         sug = None
+        tr = []   # o caminho pelas regras: por que cada regra anterior não serviu (a gaveta mostra)
 
         def nome_deck(p):
             return decks[p]["curto"] if p in decks else p
@@ -626,7 +699,10 @@ def _sugerir(card, decks, em_desejo, R):
                 pq += "; vale %s lá" % fmt(e["v"])
                 if e.get("s"):
                     pq += ", saindo %s" % e["s"]
-            sug = dict(d="deck", p=x["p"], P="S", regra=1, pq=pq + "." + _frase_edh(card, x["p"], decks), g=e.get("g"), sai=e.get("s"), T=x["T"], v="entra")
+            sug = dict(d="deck", p=x["p"], P="S", regra=1, pq=pq + "." + _frase_edh(card, x["p"], decks), g=e.get("g"), sai=e.get("s"), T=x["T"], v="entra",
+                       pp="S: o radar do deck já pede a carta.")
+        else:
+            tr.append([1, "Radar", _nao_radar(card, "entra", em_deck, usados, decks, nome_deck)])
         # 2. ganho com sinergia avaliada a partir do corte de deck
         if not sug:
             fora = {x["p"] for x in card["radares"] if x["v"] == "fora"}
@@ -638,9 +714,24 @@ def _sugerir(card, decks, em_desejo, R):
                 pq = "Rende %s no %s, com a sinergia avaliada lá, saindo %s" % (_sinal(e["g"]), nome_deck(e["p"]), e["s"] or "—")
                 if e["c"]:
                     pq += "; cobre %s, abaixo da faixa" % ", ".join(e["c"])
-                sug = dict(d="deck", p=e["p"], P="S" if forte_ali else "A", regra=2, pq=pq + "." + _frase_edh(card, e["p"], decks), g=e["g"], sai=e["s"])
+                sug = dict(d="deck", p=e["p"], P="S" if forte_ali else "A", regra=2, pq=pq + "." + _frase_edh(card, e["p"], decks), g=e["g"], sai=e["s"],
+                           pp="S: Game Changer." if gc else "S: sinergia 3 no deck e cobre um critério abaixo da faixa." if forte_ali else
+                           "A: rende no deck, mas sem sinergia 3 que cubra um critério abaixo da faixa (isso daria S).")
                 if preco is not None and preco > R["oportunidade_usd"] and e["g"] < R["oportunidade_ganho"]:
                     marcas.append("oportunidade")
+            else:
+                av = [e for e in card["enc"] if e["a"] and not e["j"] and _elegivel(decks.get(e["p"]))]
+                if not av:
+                    t = "nenhum deck seu avaliou a sinergia dela; sem avaliação, o ganho é só um piso e não leva a Deck"
+                else:
+                    e = max(av, key=lambda e: e["g"])
+                    if e["g"] < R["deck_ganho_min"]:
+                        t = "o maior ganho com a sinergia avaliada é %s no %s, abaixo do corte de %s" % (_sinal(e["g"]), nome_deck(e["p"]), fmt(R["deck_ganho_min"]))
+                    elif e["p"] in usados:
+                        t = "rende %s no %s, mas a cópia anterior já vai para lá" % (_sinal(e["g"]), nome_deck(e["p"]))
+                    else:
+                        t = "rende %s no %s, mas o radar de lá a deixa de fora" % (_sinal(e["g"]), nome_deck(e["p"]))
+                tr.append([2, "Ganho num deck", t])
         # 3. guardar
         if not sug:
             motivo, ref = None, None
@@ -677,7 +768,11 @@ def _sugerir(card, decks, em_desejo, R):
                 P = "A" if (preco is not None and preco > R["capital_usd"]) or gc else "B"
                 if card["forte"] and preco is not None and preco >= R["venda_usd_min"]:
                     marcas.append("moeda de troca")
-                sug = dict(d="guardar", p=ref, P=P, regra=3, pq=motivo + ".")
+                pp = ("A: Game Changer." if gc else "A: vale mais de %s." % usd(R["capital_usd"])) if P == "A" else \
+                    "B: vale até %s e não é Game Changer (mais cara, ou Game Changer, seria A)." % usd(R["capital_usd"])
+                sug = dict(d="guardar", p=ref, P=P, regra=3, pq=motivo + ".", pp=pp)
+            else:
+                tr.append([3, "Guardar", _nao_guardar(card, em_deck, em_deck_real, em_desejo, usados, decks, nome_deck, R)])
         # 4. venda
         if not sug and preco is not None and preco >= R["venda_usd_min"]:
             parado = preco >= R["capital_usd"]
@@ -685,7 +780,11 @@ def _sugerir(card, decks, em_desejo, R):
                 marcas.append("capital parado")
             onde = " (já está em todos os seus decks que a querem)" if em_deck_real else ""
             sug = dict(d="venda", p=None, P="A" if parado else "B", regra=4,
-                       pq="Sem casa nos seus decks%s; vale %s%s." % (onde, usd(preco), ": capital parado" if parado else ""))
+                       pq="Sem casa nos seus decks%s; vale %s%s." % (onde, usd(preco), ": capital parado" if parado else ""),
+                       pp="A: %s ou mais, capital parado." % usd(R["capital_usd"]) if parado else "B: entre %s e %s (a partir de %s seria A)." % (
+                           usd(R["venda_usd_min"]), usd(R["capital_usd"]), usd(R["capital_usd"])))
+        elif not sug:
+            tr.append([4, "Venda", "vale %s, abaixo de %s" % (usd(preco), usd(R["venda_usd_min"])) if preco is not None else "sem preço no Scryfall"])
         # 5 e 6. bundles e bulk
         if not sug:
             if card["vp"] >= R["bundles_valor_min"] or (card["rank"] and card["rank"] <= R["bundles_rank_max"]):
@@ -698,14 +797,56 @@ def _sugerir(card, decks, em_desejo, R):
             elif gc or card["staple"]:
                 sug = dict(d="bundles", p=None, P="C", regra=6, pq="Abaixo do corte, mas %s nunca vai para o bulk." % ("Game Changer" if gc else "staple"))
             else:
+                tr.append([5, "Bundles", "força sozinha %s, abaixo de %s%s, e %s" % (
+                    fmt(card["vp"]), fmt(R["bundles_valor_min"]), " (pré-nota automática, a revisar)" if card["cad_auto"] else "",
+                    "posição %s no EDHREC, fora do top %s" % (fmt(card["rank"], 0), fmt(R["bundles_rank_max"], 0)) if card["rank"] else "fora do ranking do EDHREC")])
                 sug = dict(d="bulk", p=None, P="C", regra=6, pq="Sem casa nos seus decks, sem força sozinha e %s." % (
                     "abaixo de %s" % usd(R["venda_usd_min"]) if preco is not None else "sem preço no Scryfall"))
         if preco is None:
             marcas.append("sem preço")
         sug["marcas"] = marcas
+        sug["tr"] = tr
+        sug.setdefault("pp", "C: Bundles e Bulk são sempre prioridade C.")
         if sug.get("p"):
             usados.add(sug["p"])
         cp["sug"] = sug
+
+
+def _nao_radar(card, v, em_deck, usados, decks, nome_deck):
+    """Por que nenhum radar levou a carta (v: "entra" ou "avaliar")."""
+    pq = []
+    for x in card["radares"]:
+        if x["v"] != v:
+            continue
+        if x["p"] in em_deck:
+            m = "ela já está no deck"
+        elif x["p"] in usados:
+            m = "a cópia anterior já vai para lá"
+        elif not _elegivel(decks.get(x["p"])):
+            m = "é deck Desejo ou precon intacto, que não recebe carta"
+        else:
+            continue
+        pq.append("o radar do %s a tem como %s, mas %s" % (nome_deck(x["p"]), v, m))
+    return "; ".join(pq) or "nenhum radar a tem como %s" % v
+
+
+def _nao_guardar(card, em_deck, em_deck_real, em_desejo, usados, decks, nome_deck, R):
+    """Por que a carta não ficou para guardar: as cinco condições da regra 3, uma a uma."""
+    partes = [_nao_radar(card, "avaliar", em_deck, usados, decks, nome_deck)]
+    partes.append("nenhum ganho avaliado entre %s e %s" % (fmt(R["guardar_ganho_min"]), fmt(R["deck_ganho_min"])))
+    partes.append("não está na lista nem no radar de um deck Desejo" if not em_desejo else "o deck Desejo já recebeu a cópia anterior")
+    if card.get("edh") is None:
+        partes.append("sem a página dela no EDHREC")
+    else:
+        partes.append("nenhum deck seu entre os %s comandantes que mais a jogam no EDHREC, com %s%% ou mais" % (R["edhrec_top"], fmt(R["edhrec_pct_min"])))
+    if card["forte"]:
+        partes.append("é forte sozinha, mas já está no seu " + ", ".join(sorted(nome_deck(p) for p in em_deck_real)))
+    else:
+        f = ["força sozinha %s, abaixo de %s%s" % (fmt(card["vp"]), fmt(R["forte_valor_min"]), " (pré-nota automática, a revisar)" if card["cad_auto"] else "")]
+        f.append("posição %s no EDHREC, fora do top %s" % (fmt(card["rank"], 0), fmt(R["staple_rank_max"], 0)) if card["rank"] else "fora do ranking do EDHREC")
+        f.append("não é Game Changer")
+        partes.append("não é forte sozinha (" + "; ".join(f) + ")")
+    return "; ".join(partes)
 
 
 def _sinal(v):
@@ -791,11 +932,12 @@ def pagina(cx=None, avisar=print, modo_img="embutidas"):
     cx = cx or montar(avisar=avisar)
     R = cx["regua"]
     crit = [dict(k=c["k"], curto=c.get("curto") or c["nome"]) for c in dados.regua()["criterios"] if not c.get("do_deck")]
+    crit10 = [[c["k"], c.get("curto") or c["nome"], c["faixa"][0], c["faixa"][1]] for c in dados.regua()["criterios"]]   # os dez, com a faixa
     # a Caixa e cada pasta com lista: as mesmas contas e decisões, uma origem por vez na tela
     lista = [cx] + [montar(avisar=avisar, origem=o) for o in origens() if o != CAIXA]
     todas = [c for x in lista for c in x["cartas"]]
     ors = [dict(k=x["origem"], col=colecao(x["origem"]), resumo=x["resumo"], cartas=x["cartas"], dec=ler_decisoes(origem=x["origem"])["cartas"]) for x in lista]
-    D = dict(lido=cx["lido"], regua=R, origens=ors, decks=cx["decks"], crit=crit,
+    D = dict(lido=cx["lido"], regua=R, origens=ors, decks=cx["decks"], crit=crit, crit10=crit10,
              pastas=[n for n, _ in hub.PASTAS], pastas_com_lista=bool([p for p in dados.ler_pastas() if p != CAIXA]),
              hub_pub=R.get("hub_publicado"), img=_img(todas, avisar) if modo_img == "embutidas" else None)
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
@@ -850,6 +992,43 @@ def dossie_avaliar(cx, decks_filtro=None):
             e = next((x for x in c["enc"] if x["p"] == p), {})
             d["cartas"].append(dict(nome=c["n"], custo=c["cost"], tipo=c["line"], texto=c["fx"], ganho_piso=e.get("g"), sai=e.get("s")))
     return out
+
+
+def traducoes_faltando(cxs):
+    """As cartas da Caixa e das pastas sem tradução, ou com tradução de um texto que o Scryfall já mudou: {nome: {tipo, custo, texto}}."""
+    trad, out = ler_traducoes(), {}
+    for cx in cxs:
+        for c in cx["cartas"]:
+            t = trad.get(c["n"])
+            if c["fx"].strip() and (not t or t.get("h") != marca_texto(c["fx"])):
+                out[c["n"]] = dict(tipo=c["line"], custo=c["cost"], texto=c["fx"])
+    return out
+
+
+def gravar_traducoes(arquivo, cxs, hoje=None):
+    """Grava em dados/traducoes.json as traduções de um JSON {nome: texto em português}, com a marca do texto em inglês de hoje.
+    Só cartas da Caixa ou das pastas (é de lá que vem o texto em inglês); devolve os nomes gravados."""
+    hoje = hoje or datetime.date.today().isoformat()
+    with open(arquivo, encoding="utf-8") as f:
+        novas = json.load(f)
+    fx = {c["n"]: c["fx"] for cx in cxs for c in cx["cartas"]}
+    fora = [n for n in novas if n not in fx]
+    if fora:
+        raise SystemExit("fora da Caixa e das pastas: " + ", ".join(fora))
+    arq = os.path.join(dados.DADOS, "traducoes.json")
+    try:
+        with open(arq, encoding="utf-8") as f:
+            tudo = json.load(f)
+    except (OSError, ValueError):
+        tudo = {"versao": 1, "cartas": {}}
+    for n, t in novas.items():
+        if not str(t).strip():
+            raise SystemExit("tradução vazia: " + n)
+        tudo["cartas"][n] = {"pt": str(t).strip(), "h": marca_texto(fx[n]), "fonte": "claude", "em": hoje}
+    tudo["cartas"] = dict(sorted(tudo["cartas"].items()))
+    with open(arq, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(tudo, f, ensure_ascii=False, indent=1)
+    return sorted(novas)
 
 
 def gravar_avaliadas(arquivo, hoje=None):
@@ -1014,6 +1193,8 @@ def main():
     ap.add_argument("--importar-banco", metavar="ARQUIVO", help="traz as decisões do banco da Caixa publicada para decisoes.json")
     ap.add_argument("--aplicar", action="store_true", help="executa Guardar, Venda, Bundles e Bulk; lista as de Deck")
     ap.add_argument("--marcar", nargs=3, metavar=("CARTA", "IMPRESSAO", "ACABAMENTO"), help="marca uma cópia de Deck como aplicada")
+    ap.add_argument("--traducoes-faltando", metavar="ARQUIVO", help="grava as cartas da Caixa e das pastas que ainda não têm tradução")
+    ap.add_argument("--gravar-traducoes", metavar="ARQUIVO", help="grava em dados/traducoes.json as traduções de um JSON {nome: texto}")
     ap.add_argument("--origem", help="uma pasta (dados/pastas/<pasta>.txt) no lugar da Caixa, para --importar-banco, --aplicar e --marcar")
     a = ap.parse_args()
     if a.gravar_avaliadas:
@@ -1034,6 +1215,16 @@ def main():
         print("marcada" if marcar(*a.marcar, origem=a.origem) else "nenhuma cópia de Deck pendente com essa impressão e acabamento")
         return
     cx = montar(rede=not a.sem_rede)
+    if a.traducoes_faltando or a.gravar_traducoes:
+        cxs = [cx] + [montar(rede=False, origem=o) for o in origens() if o != CAIXA]
+        if a.gravar_traducoes:
+            print("traduções gravadas: %d" % len(gravar_traducoes(a.gravar_traducoes, cxs)))
+        else:
+            d = traducoes_faltando(cxs)
+            with open(a.traducoes_faltando, "w", encoding="utf-8") as f:
+                json.dump(d, f, ensure_ascii=False, indent=1)
+            print("sem tradução: %d cartas" % len(d))
+        return
     if a.avaliar:
         d = dossie_avaliar(cx, a.decks)
         with open(a.avaliar, "w", encoding="utf-8") as f:
