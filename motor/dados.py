@@ -356,7 +356,10 @@ def ler_avaliadas(av):
         for k, v in sin.items():
             if v and not ((a.get("sin_por_que") or {}).get(k) or "").strip():
                 raise ErroDeck("avaliacao.json, avaliadas, %s: falta o porquê de %s" % (n, k))
-        out[n.split(" // ")[0]] = dict(sin=[sin.get("sin1", 0), sin.get("sin2", 0)], por_que=a.get("sin_por_que") or {}, em=a.get("em", ""))
+        if a.get("papel") is not None and (a["papel"] not in PAPEIS or not str(a.get("papel_por_que") or "").strip()):
+            raise ErroDeck("avaliacao.json, avaliadas, %s: papel %r precisa ser %s, com 'papel_por_que'" % (n, a.get("papel"), ", ".join(PAPEIS)))
+        out[n.split(" // ")[0]] = dict(sin=[sin.get("sin1", 0), sin.get("sin2", 0)], por_que=a.get("sin_por_que") or {}, em=a.get("em", ""),
+                                       **({"papel": a["papel"], "papel_por_que": a.get("papel_por_que"), "papel_dupla": a.get("papel_dupla")} if a.get("papel") else {}))
     return out
 
 
@@ -371,6 +374,23 @@ def vetor(notas, grupos, quem):
         if not isinstance(v, int) or v < minimo or v > 3:
             raise ErroDeck("%s: nota %r em %s; vale de %d a 3" % (quem, v, k, minimo))
     return [notas.get(k, 0) for k in chaves]
+
+
+PAPEIS = ("habilita", "recompensa", "multiplica")   # o Plano do deck; sem papel = estrutura
+
+
+def conferir_plano(p, cmds):
+    """Bloco opcional "plano" do avaliacao.json: o papel do comandante (um por comandante, com porquê) e a data da revisão."""
+    if p is None:
+        return None
+    cs = p.get("comandante")
+    cs = cs if isinstance(cs, list) else [cs] if cs else []
+    if not cs or len(cs) != max(1, len(cmds)):
+        raise ErroDeck("avaliacao.json, plano: um papel de comandante para cada comandante (%d)" % max(1, len(cmds)))
+    for c in cs:
+        if not isinstance(c, dict) or c.get("papel") not in PAPEIS or not str(c.get("por_que") or "").strip():
+            raise ErroDeck("avaliacao.json, plano: comandante precisa de 'papel' (%s) e 'por_que'" % ", ".join(PAPEIS))
+    return dict(p, comandante=cs)
 
 
 def conferir_avaliacao(av, quem, grupos, marcadores, radar=False):
@@ -390,6 +410,12 @@ def conferir_avaliacao(av, quem, grupos, marcadores, radar=False):
     for campo in ("faz", "porque"):
         if not isinstance(av.get(campo, ""), str):
             raise ErroDeck("%s: '%s' precisa ser texto" % (quem, campo))
+    # Plano do deck (contexto/plano/METODO-PLANO.md): papel opcional; quem tem papel tem porquê
+    if av.get("papel") is not None:
+        if av["papel"] not in PAPEIS:
+            raise ErroDeck("%s: papel %r; use %s (ou nenhum, para estrutura)" % (quem, av["papel"], ", ".join(PAPEIS)))
+        if not str(av.get("papel_por_que") or "").strip():
+            raise ErroDeck("%s: papel sem 'papel_por_que'" % quem)
 
 
 # ---------------------------------------------------------------- carta
@@ -416,6 +442,8 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
     if av is not None:
         d.update(s=vetor(av.get("notas", {}), grupos, nome), tier=av["tier"], rel=av["rel"],
                  fx=av.get("faz", ""), why=av.get("porque", ""))
+        if av.get("papel"):   # Plano do deck: papel, dupla função e porquê
+            d.update(pp=av["papel"], ppw=av.get("papel_por_que", ""), **({"ppd": av["papel_dupla"]} if av.get("papel_dupla") else {}))
     stat = None
     if frente.get("power") is not None and frente.get("toughness") is not None:
         stat = "%s/%s" % (frente["power"], frente["toughness"])
@@ -752,4 +780,5 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
                 confrontos=confrontos, avaliadas=avaliadas,
                 criterios=grupos_v3() if v3 else None,
                 marcadores=marcadores, leituras=leituras, banidas=banidas, feito=av.get("feito", ""), ident=ident,
+                plano=conferir_plano(av.get("plano"), [e for e in lista if e["cmd"]]),
                 scryfall_data=max((r.get("consultado", "") for r in sf.values()), default=""))
