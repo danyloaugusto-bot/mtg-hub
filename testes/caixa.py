@@ -73,12 +73,12 @@ va = next((x for x in v["em_decks"] if x["p"] == "03. Valgavoth"), {})
 R.ok("Vilis: a do Valgavoth é outra impressão (PM20 122p, a da caixa é M20 122)", va.get("imp") == "PM20 122p" and v["copias"][0]["imp"] == "M20 122", (va.get("imp"), v["copias"][0]["imp"]))
 ka = enc.get("02. Kaalia", {})
 kedh = next((t for t in v["edh"] or [] if t["n"] == "Kaalia of the Vast"), {})
-R.ok("Vilis: Kaalia +%s a avaliar, e marcada pelo EDHREC (50%%)" % cv["kaalia_ganho"],
-     ka.get("g") == cv["kaalia_ganho"] and ka.get("a") == 0 and "02. Kaalia" in kedh.get("meu", []), (ka.get("g"), ka.get("a"), kedh))
+R.ok("Vilis: Kaalia +%s com a sinergia avaliada (plano, lote 2), e marcada pelo EDHREC (50%%)" % cv["kaalia_ganho"],
+     ka.get("g") == cv["kaalia_ganho"] and ka.get("a") == 1 and "02. Kaalia" in kedh.get("meu", []), (ka.get("g"), ka.get("a"), kedh))
 s = v["copias"][0]["sug"]
 R.ok("Vilis: sugestão Deck no K'rrik, prioridade S", (s["d"], s["p"], s["P"]) == ("deck", "03. K'rrik", "S"), s)
 R.ok("Vilis: o porquê traz os números (radar, tier, valor, EDHREC)", "K'rrik" in s["pq"] and "entra" in s["pq"] and "71%" in s["pq"], s["pq"])
-R.ok("Vilis: decks a avaliar incluem a Kaalia", "02. Kaalia" in v["avaliar"], v["avaliar"])
+R.ok("Vilis: a Kaalia sai dos decks a avaliar depois da sinergia avaliada", "02. Kaalia" not in v["avaliar"] and v["avaliar"], v["avaliar"])
 R.ok("Vilis: decks a avaliar sem o precon intacto", "03. Master Of Evil" not in v["avaliar"], v["avaliar"])
 
 # ---------------------------------------------------------------- 2. a caixa de mentira
