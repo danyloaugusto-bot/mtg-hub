@@ -69,6 +69,8 @@ function cartao(d) {
     '<div class="faixa"><div class="nome"><h3>' + esc(d.nome) + '</h3>' + (d.cmd ? '<p class="sub">' + esc(d.cmd) + '</p>' : '') + '</div>' + (d.prio ? '<span class="prio" title="Prioridade no inventário">#' + d.prio + '</span>' : '') + '</div>' +
     '<div class="base"><span class="passos">' + passos.map(function (p) { return '<span class="' + (p[1] ? 'ok' : '') + '">' + (p[1] ? '✓ ' : '') + p[0] + '</span>'; }).join('') + '</span>' + cores(d.cores) + '</div></article>';
 }
+var VERP = { excelente: 'Excelente', satisfatorio: 'Satisfatório', insuficiente: 'Insuficiente' };
+function pvB(A) { return A && A.pv ? '<span class="pv pv-' + A.pv + '" title="Plano do deck: habilitadoras, recompensas e multiplicadoras">' + VERP[A.pv] + '</span>' : ''; }
 function linha(d) {
   var busca = buscaDe(d), A = d.a;
   var thumb = d.capa ? '<img src="' + d.capa + '" alt="" loading="lazy" style="object-position:' + esc(d.foco || '50% 30%') + '">' : '<span></span>';
@@ -76,7 +78,7 @@ function linha(d) {
     '<td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td></td></tr>';
   var al = nAlertas(A.le), dt = atualizado(d), dp = A.st2.total - A.st.total;
   return '<tr class="lrow" data-busca="' + busca + '"><td class="th"><a href="' + esc(d.href) + '" tabindex="-1" aria-hidden="true">' + thumb + '</a></td>' +
-    '<td><a href="' + esc(d.href) + '"><b>' + esc(d.nome) + '</b></a><small>' + esc(d.painel) + '</small></td><td class="cm">' + esc(d.cmd) + '</td><td>' + cores(d.cores) + '</td>' +
+    '<td><a href="' + esc(d.href) + '"><b>' + esc(d.nome) + '</b></a> ' + pvB(A) + '<small>' + esc(d.painel) + '</small></td><td class="cm">' + esc(d.cmd) + '</td><td>' + cores(d.cores) + '</td>' +
     '<td class="n num">' + numP(d.placar) + (dp ? '<small class="' + (dp > 0 ? 'pos' : 'neg') + '">' + sinalP(dp) + '</small>' : '') + '</td><td class="n num">' + num(A.st.avg, 2) + '</td>' +
     '<td class="n num' + (A.res.frageis.length ? ' aviso' : '') + '">' + A.res.frageis.length + '</td><td class="n num' + (al ? ' aviso' : '') + '">' + al + '</td><td class="n num">' + A.tr.length + '</td>' +
     '<td class="n num">' + (dt ? brData(dt) : '—') + '</td><td class="lks"><a href="#f-' + idxDK(d) + '">Ficha</a>' + (d.pub ? ' <a href="' + esc(d.pub) + '" target="_blank" rel="noopener noreferrer">Online ↗</a>' : '') + '</td></tr>';
@@ -1424,7 +1426,7 @@ function fichaDe(d, i) {
     '<span class="fl-k"><small>sem reserva</small><b class="num' + (A.res.frageis.length ? ' aviso' : '') + '">' + A.res.frageis.length + '</b></span>' +
     '<span class="fl-k"><small>alertas</small><b class="num' + (al ? ' aviso' : '') + '">' + al + '</b></span>';
   var h = '<details class="fi sf" id="f-' + i + '" data-sf="fi-' + esc(d.pasta) + '" data-grupo="' + esc(d.grupo) + '"' + (SF['fi-' + d.pasta] ? ' open' : '') + '><summary class="fi-l">' + linhaF + '<i class="sf-i" aria-hidden="true"></i></summary><div class="sf-c">' +
-    '<header class="fi-h"><div><h3>' + deckLink(A) + '</h3><p class="dim">' + esc(A.painel) + (A.cmd ? ' · ' + esc(A.cmd.n) : '') + '</p></div>' +
+    '<header class="fi-h"><div><h3>' + deckLink(A) + ' ' + pvB(A) + '</h3><p class="dim">' + esc(A.painel) + (A.cmd ? ' · ' + esc(A.cmd.n) : '') + '</p></div>' +
     '<div class="fi-b">' + cores(A.ident) + '</div></header>' +
     '<div class="fi-n">' +
       '<div><span>Placar</span><b class="num">' + numP(st.total) + '</b><small class="num ' + (dp > 0 ? 'pos' : dp < 0 ? 'neg' : '') + '">' + (dp ? sinalP(dp) + ' com as trocas' : 'sem trocas') + '</small></div>' +
@@ -1895,6 +1897,10 @@ function secResumo(att) {
     kpi('Decks com painel', comp + ' <small>de ' + total + '</small>', pct(comp / total) + ' da carteira analisada', '<span class="meter" aria-hidden="true"><i style="width:' + (comp / total * 100).toFixed(1) + '%"></i></span>', 'fichas') +
     kpi('Funções sem reserva', String(nFr), (nFr ? 'em ' + pl(dFr, 'deck', 'decks') + '; ' : '') + pl(nCo, 'corte seguro', 'cortes seguros') + ' em pacotes com sobra', '', 'reserva') +
     kpi('Trocas recomendadas', String(nTr), 'em ' + pl(dTr, 'deck', 'decks'), '', 'trocas') +
+    (function () {   // o Plano do deck: quantos já têm veredito e quais estão com plano insuficiente
+      var cl = DK.filter(function (d) { return d.a.pv; }), ins = cl.filter(function (d) { return d.a.pv === 'insuficiente'; });
+      return kpi('Plano do deck', cl.length + ' <small>de ' + DK.length + '</small>', cl.length ? (ins.length ? 'insuficiente: ' + ins.map(function (d) { return esc(d.nome); }).join(', ') : 'nenhum insuficiente') : 'nenhum deck classificado ainda', '', 'fichas');
+    })() +
     kpi('Sub-utilizadas', String(SUB.length), 'S ou A no radar de um deck e pior onde estão; ' + MOV.n + ' cartas dos radares você já tem', '', 'movimentacoes') +
     kpi('Leituras em alerta', al0 + ' <small>de ' + nLe + '</small>', 'caem para ' + al2 + ' com as trocas', '', 'fundamentos') +
     (cego ? kpi('Ponto cego', esc(cego.a.n), 'nenhum deck vai bem; ' + cego.mal + ' de ' + cego.n + ' vão mal', '', 'mesa') : '') +
