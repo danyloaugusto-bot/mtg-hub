@@ -53,6 +53,23 @@ def reduzir(bruto, largura=LARGURA):
     return buf.getvalue()
 
 
+def baixar_faltantes(precisam, avisar=print):
+    """precisam: {arquivo: (id do Scryfall, "front" ou "back")}. Baixa e reduz só o que não está em cache/img/."""
+    os.makedirs(CACHE_IMG, exist_ok=True)
+    ja = {f for f in precisam if os.path.exists(os.path.join(CACHE_IMG, f))}
+    faltam = sorted(set(precisam) - ja)
+    avisar("%d impressões ao todo | %d já no cache | %d para baixar" % (len(precisam), len(ja), len(faltam)))
+    for i, arq in enumerate(faltam):
+        sid, face = precisam[arq]
+        bruto = baixar(cdn_url(sid, face))
+        with open(os.path.join(CACHE_IMG, arq), "wb") as f:
+            f.write(reduzir(bruto))
+        if (i + 1) % 20 == 0 or i + 1 == len(faltam):
+            avisar("  %d/%d" % (i + 1, len(faltam)))
+        time.sleep(0.1)
+    return len(faltam)
+
+
 def decks_alvo(nomes):
     if nomes != ["todos"]:
         return nomes
@@ -102,17 +119,7 @@ def main():
             if ve:
                 precisam[ve] = (c["sid"], "back")
 
-    ja = {f for f in precisam if os.path.exists(os.path.join(CACHE_IMG, f))}
-    faltam = sorted(set(precisam) - ja)
-    print("%d impressões ao todo | %d já no cache | %d para baixar" % (len(precisam), len(ja), len(faltam)))
-    for i, arq in enumerate(faltam):
-        sid, face = precisam[arq]
-        bruto = baixar(cdn_url(sid, face))
-        with open(os.path.join(CACHE_IMG, arq), "wb") as f:
-            f.write(reduzir(bruto))
-        if (i + 1) % 20 == 0 or i + 1 == len(faltam):
-            print("  %d/%d" % (i + 1, len(faltam)))
-        time.sleep(0.1)
+    baixar_faltantes(precisam)
 
     # capa de cada deck, se faltar
     for pasta in alvos:
