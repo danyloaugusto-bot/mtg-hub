@@ -253,7 +253,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea. Escolha um modo: suas criaturas ganham voar, vigilância e golpe duplo; ou ganham vínculo com a vida, indestrutível e proteção contra todas as cores. Com um comandante seu em campo, os dois.",
-   "porque": "O modo de voar e golpe duplo é o letal da horda e não precisa do Edgar; os dois modos juntos só com ele em campo (regra 903.3d)."
+   "porque": "O modo de voar e golpe duplo é o letal da horda e não precisa do Edgar; os dois modos juntos só com ele em campo (regra 903.3d).",
+   "papel": "multiplica",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Golpe duplo e voar para o time inteiro: dobra o dano da horda já em campo."
   },
   "Anguished Unmaking": {
    "notas": {
@@ -280,7 +283,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Se um efeito criaria fichas sob seu controle, cria o dobro.",
-   "porque": "Dobra a eminência: cada Vampiro conjurado vira três corpos, e dobra também Bloodline Keeper, Mavren Fein e Elenda."
+   "porque": "Dobra a eminência: cada Vampiro conjurado vira três corpos, e dobra também Bloodline Keeper, Mavren Fein e Elenda.",
+   "papel": "multiplica",
+   "papel_por_que": "Dobra as fichas: cada Vampiro conjurado vira dois 1/1 da eminência."
   },
   "Arid Mesa": {
    "notas": {
@@ -309,7 +314,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Ao entrar, escolha um tipo de criatura; entra com um marcador para cada criatura sua desse tipo. Suas criaturas desse tipo ganham +1/+1 por marcador.",
-   "porque": "Com oito Vampiros em campo, +8/+8 permanente na horda. Só conta quem está em campo quando ele entra."
+   "porque": "Com oito Vampiros em campo, +8/+8 permanente na horda. Só conta quem está em campo quando ele entra.",
+   "papel": "multiplica",
+   "papel_por_que": "Escolhendo Vampiro, dá +1/+1 por Vampiro em campo ao entrar: um lorde que cresce com a horda."
   },
   "Baron Bertram Graywater": {
    "notas": {
@@ -326,7 +333,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Uma vez por turno, quando fichas entram sob seu controle, cria um Vampiro Ladino 1/1 com vínculo com a vida. Por {1}{B} e sacrificando outra criatura ou artefato, compra uma carta.",
-   "porque": "A ficha da eminência gera outra ficha todo turno, e a saída de sacrifício troca ficha por carta."
+   "porque": "A ficha da eminência gera outra ficha todo turno, e a saída de sacrifício troca ficha por carta.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Cada leva de fichas da eminência põe mais um Vampiro em campo; sacrifica para comprar."
   },
   "Blightstep Pathway": {
    "notas": {
@@ -354,7 +364,9 @@
    "rel": "ALT",
    "faz": "0/1. Sempre que ele ou outra criatura morre, um jogador perde 1 de vida e você ganha 1.",
    "porque": "Vampiro de 2 que transforma bloqueio e limpeza em dreno; liga o combo do Vito com qualquer morte.",
-   "pacote": "banquete"
+   "pacote": "banquete",
+   "papel": "recompensa",
+   "papel_por_que": "Cada criatura que morre drena 1: as fichas trocadas em combate e sacrificadas viram dano."
   },
   "Blood for the Blood God!": {
    "notas": {
@@ -368,7 +380,10 @@
    "rel": "BAX",
    "faz": "Instantânea de 11 manas que custa 1 a menos por criatura que morreu no turno. Descarte a mão, compre oito e cause 8 de dano a cada oponente.",
    "porque": "Brilha depois de uma limpeza; num deck que ataca, o desconto raramente chega cedo.",
-   "caro_por_desenho": true
+   "caro_por_desenho": true,
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Fica barata com as mortes do turno e causa 8 a cada oponente: fecha o jogo."
   },
   "Bloodline Keeper": {
    "notas": {
@@ -390,7 +405,10 @@
    "porque": "Fábrica de corpos voadores todo turno; com cinco Vampiros vira o maior lorde do deck.",
    "marcas": {
     "lorde": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (vira lorde +2/+2)",
+   "papel_por_que": "Um Vampiro voador por turno; com cinco Vampiros vira lorde."
   },
   "Bloodlord of Vaasgoth": {
    "notas": {
@@ -408,7 +426,9 @@
    "tier": "D",
    "rel": "BAX",
    "faz": "Voa. Bloodthirst 3: se um oponente levou dano no turno, entra com três marcadores +1/+1. Mágicas de criatura Vampiro que você conjura ganham bloodthirst 3.",
-   "porque": "Cinco manas por quase nada: o bloodthirst só vale para Vampiro conjurado depois de dano, e não chega às fichas."
+   "porque": "Cinco manas por quase nada: o bloodthirst só vale para Vampiro conjurado depois de dano, e não chega às fichas.",
+   "papel": "multiplica",
+   "papel_por_que": "Dá bloodthirst 3 aos Vampiros conjurados: cada um entra com três marcadores."
   },
   "Bloodthirsty Conqueror": {
    "notas": {
@@ -425,7 +445,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "5/5 com voar e toque mortífero. Sempre que um oponente perde vida, você ganha essa quantidade.",
-   "porque": "Metade do combo com o Vito: com os dois em campo, qualquer perda de vida de um oponente vira laço infinito. Sozinho, um voador forte."
+   "porque": "Metade do combo com o Vito: com os dois em campo, qualquer perda de vida de um oponente vira laço infinito. Sozinho, um voador forte.",
+   "papel": "recompensa",
+   "papel_por_que": "Com o Vito, Thorn of the Dusk Rose, fecha o loop: perda de vida dos oponentes vira ganho seu."
   },
   "Bolas's Citadel": {
    "notas": {
@@ -471,7 +493,10 @@
    "porque": "Lorde de 3 e, com a horda, rouba uma criatura por turno.",
    "marcas": {
     "lorde": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Remoção (rouba criatura)",
+   "papel_por_que": "Lorde +1/+1; com cinco Vampiros, rouba uma criatura."
   },
   "Carmen, Cruel Skymarcher": {
    "notas": {
@@ -491,7 +516,10 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Voa. Sempre que um jogador sacrifica uma permanente, ganha um marcador +1/+1 e você ganha 1 de vida. Atacando, devolve do cemitério ao campo uma permanente de custo até o poder dela.",
-   "porque": "Cinco manas para crescer com sacrifícios; o Edgar já coroa a tribo inteira."
+   "porque": "Cinco manas para crescer com sacrifícios; o Edgar já coroa a tribo inteira.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (cresce e ganha vida a cada sacrifício)",
+   "papel_por_que": "Vampiro voador que, ao atacar, devolve uma permanente do cemitério ao campo."
   },
   "Cemetery Gatekeeper": {
    "notas": {
@@ -507,7 +535,9 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "2/1 com iniciativa. Ao entrar, exila uma carta de um cemitério. Sempre que um jogador joga terreno ou conjura mágica que divide um tipo com a carta exilada, causa 2 de dano a esse jogador.",
-   "porque": "Vampiro de 2 para a eminência, mas o dano também queima você: nunca exile criatura, terreno ou feitiço."
+   "porque": "Vampiro de 2 para a eminência, mas o dano também queima você: nunca exile criatura, terreno ou feitiço.",
+   "papel": "habilita",
+   "papel_por_que": "Vampiro de 2 manas que dispara a eminência; o resto é ódio a cemitério."
   },
   "Chaos Warp": {
    "notas": {
@@ -537,7 +567,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sempre que você ataca, um Vampiro atacante vira Demônio e ganha: ao morrer, compre uma carta e crie um Vampiro Demônio 4/3 voador virado.",
-   "porque": "Cada ataque prepara um Demônio que, ao morrer, compra e deixa um 4/3 voador."
+   "porque": "Cada ataque prepara um Demônio que, ao morrer, compra e deixa um 4/3 voador.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "O Vampiro que ataca e morre vira carta e um Vampiro Demônio 4/3."
   },
   "Coat of Arms": {
    "notas": {
@@ -555,7 +588,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Cada criatura ganha +1/+1 para cada outra criatura em campo que divide um tipo com ela.",
-   "porque": "Com dez Vampiros, +9/+9 em cada um. É simétrico: numa mesa de tribais dá o mesmo ao vizinho."
+   "porque": "Com dez Vampiros, +9/+9 em cada um. É simétrico: numa mesa de tribais dá o mesmo ao vizinho.",
+   "papel": "multiplica",
+   "papel_por_que": "Cada Vampiro cresce +1/+1 por outro Vampiro em campo: lorde que escala com a horda."
   },
   "Command Tower": {
    "notas": {
@@ -586,7 +621,9 @@
    "rel": "ALT",
    "faz": "1/1. Sempre que ele ou outra criatura morre, põe um marcador +1/+1 em cada Vampiro seu.",
    "porque": "Cada morte, de qualquer lado da mesa, é +1/+1 permanente em todos os Vampiros.",
-   "pacote": "coroacao"
+   "pacote": "coroacao",
+   "papel": "multiplica",
+   "papel_por_que": "Cada morte põe marcador em todos os seus Vampiros: a coroação a cada evento."
   },
   "Cover of Darkness": {
    "notas": {
@@ -604,7 +641,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Ao entrar, escolha um tipo de criatura. Criaturas desse tipo têm medo: só criaturas pretas ou artefatos as bloqueiam.",
-   "porque": "Evasão para a horda inteira contra mesas sem criaturas pretas."
+   "porque": "Evasão para a horda inteira contra mesas sem criaturas pretas.",
+   "papel": "multiplica",
+   "papel_por_que": "Dá medo aos Vampiros: a horda que já existe passa sem ser bloqueada."
   },
   "Cruel Celebrant": {
    "notas": {
@@ -621,7 +660,9 @@
    "rel": "ALT",
    "faz": "1/2. Sempre que ela ou outra criatura ou planeswalker seu morre, cada oponente perde 1 de vida e você ganha 1.",
    "porque": "Cada morte sua drena a mesa inteira; com a horda, é relógio.",
-   "pacote": "banquete"
+   "pacote": "banquete",
+   "papel": "recompensa",
+   "papel_por_que": "Cada criatura sua que morre drena 1 de cada oponente."
   },
   "Crystal Grotto": {
    "notas": {},
@@ -677,7 +718,9 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Sempre que criaturas suas causam dano de combate a um jogador, pode sacrificar uma delas para revelar até achar uma criatura que divide tipo com ela e pô-la em campo.",
-   "porque": "Põe no campo, então não dispara a eminência, e pede dano e sacrifício."
+   "porque": "Põe no campo, então não dispara a eminência, e pede dano e sacrifício.",
+   "papel": "recompensa",
+   "papel_por_que": "Ficha que conecta é sacrificada e vira um Vampiro do grimório em campo."
   },
   "Dragonskull Summit": {
    "notas": {
@@ -705,7 +748,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "3/4 com voar e vigilância. Habilidades ativadas das criaturas dos oponentes não podem ser ativadas, e ela ganha todas elas.",
-   "porque": "Voadora que desliga as habilidades ativadas das criaturas deles; boa, mas fora da conta da horda."
+   "porque": "Voadora que desliga as habilidades ativadas das criaturas deles; boa, mas fora da conta da horda.",
+   "papel": "habilita",
+   "papel_por_que": "Vampiro voador que dispara a eminência; o resto é controle, fora do plano."
   },
   "Dusk Legion Sergeant": {
    "notas": {
@@ -722,7 +767,9 @@
    "tier": "D",
    "rel": "BAX",
    "faz": "2/2 com ameaça. Por {1}{B}, sacrifique: seus Vampiros que não são ficha ganham persist até o fim do turno.",
-   "porque": "O persist só vale para Vampiro que não é ficha, e a horda é feita de fichas."
+   "porque": "O persist só vale para Vampiro que não é ficha, e a horda é feita de fichas.",
+   "papel": "habilita",
+   "papel_por_que": "Vampiro de 2 manas; sacrificado, dá persistir aos Vampiros que não são ficha."
   },
   "Edgar, Charmed Groom": {
    "notas": {
@@ -745,7 +792,10 @@
    "porque": "Lorde que, ao morrer, vira o caixão que fabrica Vampiros e o traz de volta.",
    "marcas": {
     "lorde": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde +1/+1)",
+   "papel_por_que": "O Caixão cria um Vampiro por turno e volta a ser o Edgar."
   },
   "Elenda, the Dusk Rose": {
    "notas": {
@@ -765,7 +815,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "1/1 com vínculo. Sempre que outra criatura morre, ganha um marcador +1/+1. Ao morrer, cria X Vampiros 1/1 com vínculo, X = poder dela.",
-   "porque": "Cresce com cada morte e devolve o poder em fichas quando a limpeza chega."
+   "porque": "Cresce com cada morte e devolve o poder em fichas quando a limpeza chega.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (vira Vampiros ao morrer)",
+   "papel_por_que": "Cresce a cada morte e vira um exército quando morre."
   },
   "Exotic Orchard": {
    "notas": {
@@ -815,7 +868,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "2/1. Por {1}{R}, descartando uma carta e sacrificando um Vampiro, compre duas, se um oponente perdeu vida no turno.",
-   "porque": "Vampiro de 1 para a eminência do turno 1; depois troca ficha e carta por duas cartas."
+   "porque": "Vampiro de 1 para a eminência do turno 1; depois troca ficha e carta por duas cartas.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Vampiro de 1 mana que dispara a eminência cedo; sacrifica um Vampiro para comprar duas."
   },
   "Fetid Heath": {
    "notas": {
@@ -843,7 +899,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "3/3 com iniciativa. Na segunda fase principal, olha tantas cartas do topo quanto a vida que os oponentes perderam no turno, exila uma e pode jogá-la no turno.",
-   "porque": "Depois do ataque da horda, olha dez cartas e joga a melhor."
+   "porque": "Depois do ataque da horda, olha dez cartas e joga a melhor.",
+   "papel": "recompensa",
+   "papel_por_que": "A vida que os oponentes perderam no turno vira carta depois do combate."
   },
   "Fountainport": {
    "notas": {
@@ -874,7 +932,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "2/3 com toque mortífero e vínculo com a vida.",
-   "porque": "Segura o começo do jogo e dispara a eminência, mas é genérico."
+   "porque": "Segura o começo do jogo e dispara a eminência, mas é genérico.",
+   "papel": "habilita",
+   "papel_por_que": "Vampiro de 2 manas que dispara a eminência e segura o chão."
   },
   "Graven Cairns": {
    "notas": {
@@ -900,7 +960,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Vire: compre uma carta, se você criou uma ficha neste turno. Por {8}, vire e sacrifique: cria um Eldrazi 10/10.",
-   "porque": "A eminência cria ficha quase todo turno, e o ídolo compra junto."
+   "porque": "A eminência cria ficha quase todo turno, e o ídolo compra junto.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra a cada turno em que a eminência cria ficha."
   },
   "Invasion of New Capenna": {
    "notas": {
@@ -939,7 +1002,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço: escolha um tipo; para cada criatura sua desse tipo, cria uma cópia com ímpeto, exilada no fim do turno.",
-   "porque": "Seis manas por um turno de dano dobrado; as cópias não disparam a eminência."
+   "porque": "Seis manas por um turno de dano dobrado; as cópias não disparam a eminência.",
+   "papel": "multiplica",
+   "papel_por_que": "Copia cada Vampiro com ímpeto: dobra a horda para um ataque."
   },
   "Knight of the Ebon Legion": {
    "notas": {
@@ -958,7 +1023,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "1/2. Por {2}{B}, ganha +3/+3 e toque mortífero até o fim do turno. No seu fim de turno, se um jogador perdeu 4 de vida, ganha um marcador +1/+1.",
-   "porque": "Vampiro de 1 que segura o começo e cresce quando a mesa sangra."
+   "porque": "Vampiro de 1 que segura o começo e cresce quando a mesa sangra.",
+   "papel": "habilita",
+   "papel_por_que": "Vampiro de 1 mana que dispara a eminência e cresce quando o deck causa dano."
   },
   "Legion Lieutenant": {
    "notas": {
@@ -980,7 +1047,9 @@
    "marcas": {
     "lorde": 1
    },
-   "pacote": "coroacao"
+   "pacote": "coroacao",
+   "papel": "multiplica",
+   "papel_por_que": "Lorde +1/+1."
   },
   "Legion's Landing": {
    "notas": {
@@ -996,7 +1065,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Ao entrar, cria um Vampiro 1/1 com vínculo. Quando você ataca com três criaturas, vira Adanto, the First Fort: terreno que gera {W} e, por {2}{W}, cria um Vampiro 1/1 com vínculo.",
-   "porque": "Ficha no turno 1, e depois um terreno a mais que fabrica Vampiros."
+   "porque": "Ficha no turno 1, e depois um terreno a mais que fabrica Vampiros.",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Cria um Vampiro e vira terreno que cria mais Vampiros."
   },
   "Lich-Knights' Conquest": {
    "notas": {
@@ -1012,7 +1084,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço: sacrifique quantos artefatos, encantamentos e fichas quiser e devolva do cemitério ao campo o mesmo número de criaturas.",
-   "porque": "Depois de uma limpeza, as fichas que sobraram viram os Vampiros que morreram; põe, não conjura."
+   "porque": "Depois de uma limpeza, as fichas que sobraram viram os Vampiros que morreram; põe, não conjura.",
+   "papel": "habilita",
+   "papel_por_que": "Sacrifica as fichas e devolve o mesmo número de Vampiros do cemitério."
   },
   "Luxury Suite": {
    "notas": {
@@ -1038,7 +1112,9 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Ao entrar, cria X Vampiros 1/1 com vínculo. Na manutenção, com devoção a branco e preto 7 ou mais, cria um Vampiro Demônio 4/3 voador.",
-   "porque": "X fichas por X+2: caro pelo que dá, e a devoção 7 raramente chega."
+   "porque": "X fichas por X+2: caro pelo que dá, e a devoção 7 raramente chega.",
+   "papel": "habilita",
+   "papel_por_que": "Cria X Vampiros, e Demônios com devoção."
   },
   "Markov Baron": {
    "notas": {
@@ -1060,7 +1136,9 @@
    "porque": "Lorde com convocar: as fichas pagam o próprio lorde.",
    "marcas": {
     "lorde": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Lorde +1/+1, que sai barato com convocar."
   },
   "Mavren Fein, Dusk Apostle": {
    "notas": {
@@ -1076,7 +1154,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sempre que Vampiros seus que não são ficha atacam, cria um Vampiro 1/1 com vínculo.",
-   "porque": "Uma ficha por ataque; com o Isshin, duas."
+   "porque": "Uma ficha por ataque; com o Isshin, duas.",
+   "papel": "habilita",
+   "papel_por_que": "Cada ataque de Vampiros que não são ficha põe outro Vampiro em campo."
   },
   "Mirror Entity": {
    "notas": {
@@ -1095,7 +1175,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "1/1 metamorfo (tem todos os tipos). Por {X}: até o fim do turno, suas criaturas viram X/X e ganham todos os tipos.",
-   "porque": "É Vampiro pelo metamorfo, então dispara a eminência; no fim do jogo, X/X para a horda inteira."
+   "porque": "É Vampiro pelo metamorfo, então dispara a eminência; no fim do jogo, X/X para a horda inteira.",
+   "papel": "multiplica",
+   "papel_por_que": "Metamorfo que dispara a eminência; por X, a horda inteira vira X/X."
   },
   "Mountain": {
    "notas": {},
@@ -1159,7 +1241,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Voar, toque mortífero e vínculo. Poder igual a 1 mais o número de tipos de carta nos cemitérios dos oponentes.",
-   "porque": "Voador forte, mas sem relação com a horda."
+   "porque": "Voador forte, mas sem relação com a horda.",
+   "papel": "habilita",
+   "papel_por_que": "Vampiro voador que dispara a eminência."
   },
   "Nomad Outpost": {
    "notas": {},
@@ -1188,7 +1272,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Voa. Por {1}{R}: causa 1 de dano em outra criatura, que vira Vampiro, e ganha um marcador +1/+1. Por {3}{B}{B}: ganha o controle de um Vampiro enquanto controlar a Olivia.",
-   "porque": "Remoção repetível que transforma o alvo em Vampiro e alimenta os lordes."
+   "porque": "Remoção repetível que transforma o alvo em Vampiro e alimenta os lordes.",
+   "papel": "habilita",
+   "papel_dupla": "Remoção (repetível)",
+   "papel_por_que": "Vampiro que dispara a eminência e mata criaturas pequenas, uma por vez."
   },
   "Olivia's Wrath": {
    "notas": {
@@ -1221,7 +1308,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Voar e ímpeto. Atacando, devolve uma criatura do seu cemitério ao campo virada e atacando; ela é exilada se você não controlar um Vampiro lendário.",
-   "porque": "Seis manas que disputam o turno com o Edgar."
+   "porque": "Seis manas que disputam o turno com o Edgar.",
+   "papel": "habilita",
+   "papel_por_que": "Ao atacar, devolve uma criatura do cemitério ao campo atacando."
   },
   "Pact of the Serpent": {
    "notas": {
@@ -1236,7 +1325,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço: escolha um tipo de criatura; um jogador compra X cartas e perde X de vida, X = criaturas dele desse tipo.",
-   "porque": "Com a horda, mão cheia por 3 manas."
+   "porque": "Com a horda, mão cheia por 3 manas.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra uma carta por Vampiro em campo: a horda vira mão cheia."
   },
   "Path of Ancestry": {
    "notas": {
@@ -1278,7 +1370,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "2/4 com toque mortífero. Atacando o jogador com mais vida, cria um Vampiro 1/1 com vínculo; atacando enquanto você tem mais vida, compra uma carta e perde 1.",
-   "porque": "Ataca e compra ou faz ficha; casa com a mesa casual de jogos longos."
+   "porque": "Ataca e compra ou faz ficha; casa com a mesa casual de jogos longos.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Ao atacar, cria um Vampiro ou compra uma carta."
   },
   "Rite of Oblivion": {
    "notas": {
@@ -1315,7 +1410,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "4/4 com ward 2. Ao entrar, escolha um tipo; ele também é desse tipo. Habilidades disparadas de outras criaturas suas desse tipo disparam uma vez a mais.",
-   "porque": "Escolha Vampiro: dobra os gatilhos da tribo; com o Edgar em campo, a eminência e o ataque dele dobram."
+   "porque": "Escolha Vampiro: dobra os gatilhos da tribo; com o Edgar em campo, a eminência e o ataque dele dobram.",
+   "papel": "multiplica",
+   "papel_por_que": "Gatilhos dos seus Vampiros disparam uma vez a mais, inclusive o ataque do Edgar."
   },
   "Rugged Prairie": {
    "notas": {
@@ -1357,7 +1454,10 @@
    "rel": "ALT",
    "faz": "3/2. Ao entrar, pode sacrificar outra criatura; se fizer, destrói uma permanente que não seja terreno.",
    "porque": "Vampiro de 3 que troca uma ficha por qualquer permanente.",
-   "pontual": true
+   "pontual": true,
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Vampiro que dispara a eminência; sacrifica uma ficha para destruir uma permanente."
   },
   "Savai Triome": {
    "notas": {
@@ -1402,7 +1502,9 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Sempre que uma criatura sua ataca, ganha +1/+0 para cada outra criatura atacante que divide um tipo com ela.",
-   "porque": "Com doze atacantes, cada um ganha +11/+0: é o fechamento da horda."
+   "porque": "Com doze atacantes, cada um ganha +11/+0: é o fechamento da horda.",
+   "papel": "multiplica",
+   "papel_por_que": "Cada Vampiro atacante ganha +1/+0 por outro Vampiro atacando."
   },
   "Shattered Landscape": {
    "notas": {},
@@ -1449,7 +1551,9 @@
    "porque": "Lorde que dá iniciativa à horda inteira: bloqueio vira massacre.",
    "marcas": {
     "lorde": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Lorde +1/+1 que dá iniciativa."
   },
   "Swamp": {
    "notas": {},
@@ -1567,7 +1671,9 @@
    "porque": "+2/+1 e voar para a horda quando o topo é preto: perto de metade das vezes neste deck de três cores.",
    "marcas": {
     "lorde": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Lorde +2/+1 que dá voar, com o topo preto."
   },
   "Vampire Socialite": {
    "notas": {
@@ -1585,7 +1691,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "2/2 com ameaça. Ao entrar, se um oponente perdeu vida no turno, põe um marcador +1/+1 em cada outro Vampiro seu; nesse turno, os outros Vampiros entram com um marcador a mais.",
-   "porque": "Conjurada depois do combate, coroa a horda inteira."
+   "porque": "Conjurada depois do combate, coroa a horda inteira.",
+   "papel": "multiplica",
+   "papel_por_que": "Com oponente ferido, marcador em cada Vampiro, e os próximos entram maiores."
   },
   "Vampire of the Dire Moon": {
    "notas": {
@@ -1601,7 +1709,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "1/1 com toque mortífero e vínculo com a vida.",
-   "porque": "Vampiro de 1 para a eminência do turno 1: a base larga cedo é a tese do deck."
+   "porque": "Vampiro de 1 para a eminência do turno 1: a base larga cedo é a tese do deck.",
+   "papel": "habilita",
+   "papel_por_que": "Vampiro de 1 mana que dispara a eminência cedo."
   },
   "Vault of the Archangel": {
    "notas": {
@@ -1635,7 +1745,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "4/4 voador. Sempre que você sacrifica outra permanente: na primeira vez no turno, ganha 2 de vida; na segunda, cada oponente perde 2; na terceira, cria um Vampiro Demônio 4/3 voador.",
-   "porque": "Pede três sacrifícios no turno para render tudo."
+   "porque": "Pede três sacrifícios no turno para render tudo.",
+   "papel": "recompensa",
+   "papel_por_que": "Cada sacrifício vira vida, dreno e, no terceiro, um Vampiro Demônio."
   },
   "Vito, Thorn of the Dusk Rose": {
    "notas": {
@@ -1652,7 +1764,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Sempre que você ganha vida, um oponente perde essa quantidade. Por {3}{B}{B}, suas criaturas ganham vínculo com a vida até o fim do turno.",
-   "porque": "Peça do combo: com o Bloodthirsty Conqueror, qualquer perda de vida de um oponente vira laço infinito."
+   "porque": "Peça do combo: com o Bloodthirsty Conqueror, qualquer perda de vida de um oponente vira laço infinito.",
+   "papel": "recompensa",
+   "papel_por_que": "Ganho de vida vira perda de vida do oponente; peça do combo com o Bloodthirsty Conqueror."
   },
   "Voldaren Estate": {
    "notas": {
@@ -1685,7 +1799,10 @@
    "tier": "S",
    "rel": "INS",
    "faz": "2/3 voador. Uma vez por turno, quando outras criaturas suas de poder 2 ou menos entram, compre uma carta.",
-   "porque": "Uma carta por turno, porque toda eminência faz entrar um 1/1."
+   "porque": "Uma carta por turno, porque toda eminência faz entrar um 1/1.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra quando entram criaturas pequenas, como as fichas da eminência."
   },
   "Windbrisk Heights": {
    "notas": {
@@ -1717,7 +1834,9 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Ímpeto. Sempre que uma criatura de um oponente morre, ganha um marcador +1/+1. Sacrifique outra criatura: fica indestrutível até o fim do turno.",
-   "porque": "Saída de sacrifício grátis que se protege; com Skullclamp e lorde em campo, é ela que mata as fichas."
+   "porque": "Saída de sacrifício grátis que se protege; com Skullclamp e lorde em campo, é ela que mata as fichas.",
+   "papel": "habilita",
+   "papel_por_que": "Vampiro com ímpeto que dispara a eminência; saída de sacrifício que o protege."
   },
   "Your Temple Is Under Attack": {
    "notas": {
@@ -1753,7 +1872,9 @@
    "veredito": "entra",
    "sai": "Vito, Fanatic of Aclazotz",
    "faz": "3/4. Sempre que um Vampiro seu ataca, cada oponente perde 1 de vida e você ganha 1.",
-   "porque": "Transforma cada atacante em dano mesmo bloqueado: a horda passa a fechar a mesa inteira, não um jogador. Com Isshin, o dobro."
+   "porque": "Transforma cada atacante em dano mesmo bloqueado: a horda passa a fechar a mesa inteira, não um jogador. Com Isshin, o dobro.",
+   "papel": "recompensa",
+   "papel_por_que": "Cada Vampiro que ataca drena 1: a horda da eminência vira dano."
   },
   "Indulgent Aristocrat": {
    "notas": {
@@ -1774,7 +1895,9 @@
    "veredito": "entra",
    "sai": "Dusk Legion Sergeant",
    "faz": "1/1 com vínculo. Por {2}, sacrificando uma criatura: põe um marcador +1/+1 em cada Vampiro seu.",
-   "porque": "Vampiro de 1 que transforma qualquer ficha em +1/+1 para a tribo inteira, e é saída de sacrifício para o Skullclamp."
+   "porque": "Vampiro de 1 que transforma qualquer ficha em +1/+1 para a tribo inteira, e é saída de sacrifício para o Skullclamp.",
+   "papel": "multiplica",
+   "papel_por_que": "Sacrifica uma criatura para pôr marcador em todos os seus Vampiros."
   },
   "Emeritus of Woe": {
    "notas": {
@@ -1793,7 +1916,10 @@
    "veredito": "entra",
    "sai": "Olivia, Crimson Bride",
    "faz": "5/4. Entra preparado: você pode conjurar uma cópia de Demonic Tutor por {1}{B}. No seu fim de turno, se duas criaturas morreram, prepara de novo.",
-   "porque": "Tutor em criatura, como você liberou: busca Skullclamp, Shared Animosity ou o combo. A cópia é feitiço e não dispara a eminência; o Emeritus dispara."
+   "porque": "Tutor em criatura, como você liberou: busca Skullclamp, Shared Animosity ou o combo. A cópia é feitiço e não dispara a eminência; o Emeritus dispara.",
+   "papel": "habilita",
+   "papel_dupla": "Tutor",
+   "papel_por_que": "Vampiro que dispara a eminência e busca qualquer carta."
   },
   "Bloodletter of Aclazotz": {
    "notas": {
@@ -1812,7 +1938,9 @@
    "veredito": "entra",
    "sai": "Carmen, Cruel Skymarcher",
    "faz": "2/4 voador. Durante o seu turno, se um oponente perderia vida, perde o dobro.",
-   "porque": "Dobra o combate e os drenos no seu turno; com o Sanctum Seeker, cada atacante tira 2 de cada oponente."
+   "porque": "Dobra o combate e os drenos no seu turno; com o Sanctum Seeker, cada atacante tira 2 de cada oponente.",
+   "papel": "multiplica",
+   "papel_por_que": "No seu turno, a perda de vida dos oponentes dobra: dano da horda e drenos."
   },
   "Isshin, Two Heavens as One": {
    "notas": {
@@ -1830,7 +1958,9 @@
    "veredito": "entra",
    "sai": "March of the Canonized",
    "faz": "3/4. Se uma criatura atacando dispara uma habilidade de permanente sua, ela dispara uma vez a mais.",
-   "porque": "Dobra os marcadores do Edgar, o Sanctum Seeker, a Shared Animosity, o Preacher e o Clavileño. É Humano: morre para o seu Olivia's Wrath."
+   "porque": "Dobra os marcadores do Edgar, o Sanctum Seeker, a Shared Animosity, o Preacher e o Clavileño. É Humano: morre para o seu Olivia's Wrath.",
+   "papel": "multiplica",
+   "papel_por_que": "Gatilhos de ataque disparam uma vez a mais, como o do Edgar e o do Mavren."
   },
   "Stensian Sanguinist": {
    "notas": {
@@ -1849,7 +1979,9 @@
    "veredito": "entra",
    "sai": "Gifted Aetherborn",
    "faz": "2/2. Sempre que você ataca, uma criatura ganha toque mortífero; se ela causar dano de combate a um jogador, ele fica preparado: cópia de Exsanguinate (cada oponente perde X, você ganha o total).",
-   "porque": "Vampiro de 2 que vira um Exsanguinate em cada turno em que a horda conecta."
+   "porque": "Vampiro de 2 que vira um Exsanguinate em cada turno em que a horda conecta.",
+   "papel": "recompensa",
+   "papel_por_que": "O ataque que conecta vira um Exsanguinate escalado pela mana."
   },
   "Crippling Fear": {
    "notas": {
@@ -1930,7 +2062,10 @@
    "veredito": "avaliar",
    "sai": "Nighthawk Scavenger",
    "faz": "1/3 com voar e vínculo. Na segunda fase principal, se você ganhou 2 ou mais de vida no turno, fica preparado: cópia de Sign in Blood (compra duas, perde 2).",
-   "porque": "Vampiro de 2 voador que vira compra quando o vínculo da horda funciona."
+   "porque": "Vampiro de 2 voador que vira compra quando o vínculo da horda funciona.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Vampiro voador de 2 manas que dispara a eminência e compra duas com ganho de vida."
   },
   "Champion of Dusk": {
    "notas": {
@@ -1948,7 +2083,10 @@
    "veredito": "avaliar",
    "sai": "Bloodlord of Vaasgoth",
    "faz": "4/4. Ao entrar, você compra X cartas e perde X de vida, X = número de Vampiros seus.",
-   "porque": "Recarga de mão com a horda em campo; com quinze Vampiros, são 15 de vida de uma vez, e depois de uma limpeza compra pouco."
+   "porque": "Recarga de mão com a horda em campo; com quinze Vampiros, são 15 de vida de uma vez, e depois de uma limpeza compra pouco.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra uma carta por Vampiro em campo."
   },
   "Iroas, God of Victory": {
    "notas": {
@@ -1967,7 +2105,9 @@
    "veredito": "avaliar",
    "sai": "Blood for the Blood God!",
    "faz": "Indestrutível; só é criatura com devoção a vermelho e branco 7. Suas criaturas têm ameaça; previne todo dano causado às suas criaturas atacantes.",
-   "porque": "Ameaça na horda e nenhum dano nos atacantes: atacar todo turno sai de graça."
+   "porque": "Ameaça na horda e nenhum dano nos atacantes: atacar todo turno sai de graça.",
+   "papel": "multiplica",
+   "papel_por_que": "Ameaça para o time e nenhum dano aos atacantes: a horda ataca de graça."
   },
   "Marsh Flats": {
    "notas": {
@@ -2017,7 +2157,10 @@
    "veredito": "avaliar",
    "sai": "Faithless Looting",
    "faz": "Planeswalker: +1 dá toque mortífero e vínculo a uma criatura (marcador +1/+1 se Vampiro); +1 sacrifica um Vampiro para causar 3 de dano em qualquer alvo e ganhar 3; −3 põe um Vampiro da mão em campo.",
-   "porque": "Transforma ficha ou Vampiro em 3 de dano e 3 de vida todo turno, e o −3 põe um Vampiro grande em campo sem pagar."
+   "porque": "Transforma ficha ou Vampiro em 3 de dano e 3 de vida todo turno, e o −3 põe um Vampiro grande em campo sem pagar.",
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "A cada turno, sacrifica uma ficha de Vampiro para causar 3 de dano em qualquer alvo e ganhar 3."
   },
   "Patron of the Vein": {
    "notas": {
@@ -2039,7 +2182,10 @@
    "veredito": "avaliar",
    "sai": "Faithless Looting",
    "faz": "4/4 voador. Ao entrar, destrói uma criatura de oponente; cada criatura de oponente que morre é exilada e põe um marcador +1/+1 em cada Vampiro seu.",
-   "porque": "Remoção na entrada e, depois, cada morte do lado deles cresce a horda inteira; funciona com o Toxic Deluge e o Crippling Fear."
+   "porque": "Remoção na entrada e, depois, cada morte do lado deles cresce a horda inteira; funciona com o Toxic Deluge e o Crippling Fear.",
+   "papel": "multiplica",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Destrói uma criatura e, a cada morte de oponente, põe marcador em todos os Vampiros."
   },
   "Twilight Prophet": {
    "notas": {
@@ -2059,7 +2205,10 @@
    "veredito": "avaliar",
    "sai": "Faithless Looting",
    "faz": "2/4 voador. Com a bênção da cidade, em toda manutenção põe o topo do deck na mão e drena de cada oponente o valor de mana dela.",
-   "porque": "Com dez permanentes (fácil com a horda), vira compra e dreno todo turno, e voa por cima dos bloqueadores."
+   "porque": "Com dez permanentes (fácil com a horda), vira compra e dreno todo turno, e voa por cima dos bloqueadores.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Com a bênção da cidade, que a horda dá cedo, compra e drena toda manutenção."
   }
  },
  "combos": [
@@ -2099,5 +2248,80 @@
    ],
    "texto": "A curva baixa se paga em vida do topo do grimório, e as fichas da eminência somam as dez permanentes que a Cidadela sacrifica para tirar 10 de cada oponente."
   }
- ]
+ ],
+ "avaliadas": {
+  "Lavabrink Floodgates": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "K'rrik, Son of Yawgmoth": {
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "\"1: marcador ou bônus de passagem, ou só em si mesma\": ganha marcador +1/+1 a cada mágica preta."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "The Fire Crystal": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Mana Crypt": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Vilis, Broker of Blood": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Chandra's Ignition": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Moment of Reckoning": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Suspended Sentence": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Mutinous Massacre": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Dragon's Hoard": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "recompensa",
+    "por_que": "Converte cada mágica de Vampiro conjurada em ficha e cada ataque em marcador para a horda: recompensa o que o deck faz. Precisa de muitas habilitadoras, Vampiros baratos acima de tudo."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
