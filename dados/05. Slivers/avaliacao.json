@@ -284,7 +284,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Artefato de 3. O tipo escolhido custa {1} a menos; na manutenção, se o topo é desse tipo, vai para a mão.",
-   "porque": "Desconto e, quando o topo é Sliver, carta a mais, num deck quase todo de Slivers."
+   "porque": "Desconto e, quando o topo é Sliver, carta a mais, num deck quase todo de Slivers.",
+   "papel": "multiplica",
+   "papel_dupla": "Draw (Sliver do topo)",
+   "papel_por_que": "Barateia em 1 cada Sliver e põe na mão o Sliver do topo: mais Slivers por turno, mais cascatas."
   },
   "Patchwork Banner": {
    "notas": {
@@ -300,7 +303,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 3. O tipo escolhido +1/+1; vira: qualquer cor.",
-   "porque": "Mana e lorde na mesma peça."
+   "porque": "Mana e lorde na mesma peça.",
+   "papel": "multiplica",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Lorde +1/+1 para os Slivers escolhidos e ainda gera mana de qualquer cor."
   },
   "Sol Ring": {
    "notas": {
@@ -329,7 +335,10 @@
    "rel": "ALT",
    "faz": "Artefato de 6, {1} a menos por Sliver. Slivers com golpe duplo e ímpeto; duas fichas de Sliver por manutenção.",
    "porque": "Golpe duplo e ímpeto para a colmeia toda, e duas fichas por turno. Sai por duas ou três manas com a mesa montada.",
-   "caro_por_desenho": true
+   "caro_por_desenho": true,
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (golpe duplo)",
+   "papel_por_que": "Cria dois Slivers por manutenção e dá golpe duplo e ímpeto à colmeia."
   },
   "Urza's Incubator": {
    "notas": {
@@ -347,7 +356,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Artefato de 3. O tipo escolhido custa {2} a menos.",
-   "porque": "Tira só mana genérica: o Sliver de {1}{G} sai por {G}, e os lendários de {W}{U}{B}{R}{G} não ficam mais baratos."
+   "porque": "Tira só mana genérica: o Sliver de {1}{G} sai por {G}, e os lendários de {W}{U}{B}{R}{G} não ficam mais baratos.",
+   "papel": "multiplica",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Cada Sliver custa 2 a menos: a colmeia entra mais rápido e cascateia mais vezes no turno."
   },
   "Vanquisher's Banner": {
    "notas": {
@@ -365,7 +377,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Artefato de 5. O tipo escolhido +1/+1; conjurar dele compra uma carta.",
-   "porque": "Compra por Sliver conjurado, e a cascata conta como conjurar."
+   "porque": "Compra por Sliver conjurado, e a cascata conta como conjurar.",
+   "papel": "multiplica",
+   "papel_dupla": "Recompensa (compra ao conjurar Sliver)",
+   "papel_por_que": "Lorde +1/+1 e compra uma carta a cada Sliver conjurado."
   },
   "Arid Mesa": {
    "notas": {},
@@ -719,7 +734,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Sliver de 4. Slivers que você controla têm golpe duplo.",
-   "porque": "Dobra o dano e o veneno do Virulent Sliver."
+   "porque": "Dobra o dano e o veneno do Virulent Sliver.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (golpe duplo)",
+   "papel_por_que": "Sliver que dá golpe duplo a todos os Slivers: dobra o dano de combate da colmeia."
   },
   "Brood Sliver": {
    "notas": {
@@ -735,7 +753,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sliver de 5. Sliver que causa dano de combate a um jogador: o controlador cria uma ficha de Sliver.",
-   "porque": "A colmeia cresce a cada ataque."
+   "porque": "A colmeia cresce a cada ataque.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (ficha ao causar dano)",
+   "papel_por_que": "Cada Sliver que causa dano a jogador cria outro Sliver: a colmeia cresce atacando."
   },
   "Cloudshredder Sliver": {
    "notas": {
@@ -755,7 +776,9 @@
    "porque": "Voar e ímpeto por duas manas; com o Training Grounds do radar, a ficha da Sliver Queen vira mana na hora.",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Sliver de 2 que dá voar e ímpeto a todos os Slivers."
   },
   "Crypt Sliver": {
    "notas": {
@@ -774,7 +797,10 @@
    "marcas": {
     "todos": 1
    },
-   "prioridade": 3
+   "prioridade": 3,
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Sliver que dá a todos os Slivers regenerar outro Sliver."
   },
   "Crystalline Sliver": {
    "notas": {
@@ -792,7 +818,10 @@
    "porque": "Remoção com alvo não pega a colmeia. Pega também os seus alvos: o Crypt Sliver não regenera, e os Slivers dos oponentes ficam com manto.",
    "marcas": {
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Sliver que dá manto a todos os Slivers: a colmeia não pode ser alvo."
   },
   "Diffusion Sliver": {
    "notas": {
@@ -807,7 +836,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sliver de 2. Mágica ou habilidade de oponente que mira um Sliver seu é anulada se ele não pagar {2}.",
-   "porque": "Taxa a remoção com alvo."
+   "porque": "Taxa a remoção com alvo.",
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Sliver que taxa em 2 cada mágica ou habilidade do oponente que mire um Sliver seu."
   },
   "Galerider Sliver": {
    "notas": {
@@ -822,7 +854,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sliver de 1. Slivers que você controla têm voar.",
-   "porque": "Evasão por uma mana; a cascata não acha nada abaixo dela, mas ela é o alvo de cascata dos Slivers de duas."
+   "porque": "Evasão por uma mana; a cascata não acha nada abaixo dela, mas ela é o alvo de cascata dos Slivers de duas.",
+   "papel": "habilita",
+   "papel_por_que": "Sliver de 1 que dá voar a todos os seus Slivers."
   },
   "Gemhide Sliver": {
    "notas": {
@@ -842,7 +876,10 @@
    "marcas": {
     "combo": 1,
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Sliver que faz todo Sliver gerar mana de qualquer cor."
   },
   "Harmonic Sliver": {
    "notas": {
@@ -860,7 +897,10 @@
    "porque": "Remoção a cada Sliver, mas obrigatória: sem alvo nos oponentes, você destrói o seu Sol Ring, um Banner, a Rhystic ou a Tithe.",
    "marcas": {
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção (artefato ou encantamento)",
+   "papel_por_que": "Sliver que faz cada Sliver que entra destruir um artefato ou encantamento."
   },
   "Hatchery Sliver": {
    "notas": {
@@ -878,7 +918,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Sliver de 2 com replicar. Os seus feitiços de Sliver têm replicar, pelo próprio custo.",
-   "porque": "Cada mana a mais vira outra cópia do Sliver; a cópia não cascateia. Com a Sliver Gravemother, copia até os lendários."
+   "porque": "Cada mana a mais vira outra cópia do Sliver; a cópia não cascateia. Com a Sliver Gravemother, copia até os lendários.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (copia Slivers)",
+   "papel_por_que": "Dá replicar às mágicas de Sliver: cada uma pode virar várias fichas."
   },
   "Heart Sliver": {
    "notas": {
@@ -898,7 +941,9 @@
    "marcas": {
     "combo": 1,
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Sliver de 2 que dá ímpeto a todos os Slivers."
   },
   "Hibernation Sliver": {
    "notas": {
@@ -916,7 +961,10 @@
    "porque": "Foge da remoção e da limpeza devolvendo à mão.",
    "marcas": {
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Sliver que deixa todo Sliver voltar à mão por 2 de vida, para ser conjurado e cascatear de novo."
   },
   "Homing Sliver": {
    "notas": {
@@ -931,7 +979,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sliver de 3. Cartas de Sliver na mão têm slivercycling {3}.",
-   "porque": "Troca o Sliver errado pelo certo do grimório."
+   "porque": "Troca o Sliver errado pelo certo do grimório.",
+   "papel": "habilita",
+   "papel_dupla": "Tutor (slivercycling)",
+   "papel_por_que": "Sliver que dá slivercycling 3 aos Slivers da mão: troca o Sliver errado pelo certo."
   },
   "Horned Sliver": {
    "notas": {
@@ -947,7 +998,9 @@
    "rel": "BAX",
    "faz": "Sliver de 3. Todas as criaturas Sliver têm atropelar.",
    "porque": "Com voar e golpe duplo, atropelar quase não muda o dano.",
-   "prioridade": 1
+   "prioridade": 1,
+   "papel": "habilita",
+   "papel_por_que": "Sliver que dá atropelar a todos os Slivers."
   },
   "Lavabelly Sliver": {
    "notas": {
@@ -965,7 +1018,10 @@
    "porque": "Dano a cada Sliver, e o fechamento do combo da Sliver Queen com o Basal Sliver do radar.",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (drena ao entrar)",
+   "papel_por_que": "Cada Sliver que entra causa 1 de dano a um jogador e você ganha 1."
   },
   "Lazotep Sliver": {
    "notas": {
@@ -983,7 +1039,10 @@
    "faz": "Sliver de 4. Slivers com aflição 2; Sliver não-ficha que morre: amassar 2.",
    "porque": "Pequeno para quatro manas.",
    "prioridade": 4,
-   "pacote": "fechamento"
+   "pacote": "fechamento",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (exército ao morrer)",
+   "papel_por_que": "Dá afligir 2 aos Slivers e cada Sliver que morre engorda um Exército Sliver."
   },
   "Manaweft Sliver": {
    "notas": {
@@ -1002,7 +1061,10 @@
    "porque": "O Gemhide de novo: ramp e peça de combo.",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Sliver que faz todo Sliver gerar mana de qualquer cor."
   },
   "Morophon, the Boundless": {
    "notas": {
@@ -1020,7 +1082,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Metamorfo de 7 com Changeling. Escolhe um tipo: feitiços dele custam {W}{U}{B}{R}{G} a menos; as outras criaturas desse tipo +1/+1.",
-   "porque": "É Sliver e ganha cascata. Com Sliver escolhido, os cinco lendários de cinco cores saem de graça."
+   "porque": "É Sliver e ganha cascata. Com Sliver escolhido, os cinco lendários de cinco cores saem de graça.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde +1/+1 e barateia)",
+   "papel_por_que": "Metamorfo, conta como Sliver: tira WUBRG do custo dos Slivers e dá +1/+1 aos outros."
   },
   "Muscle Sliver": {
    "notas": {
@@ -1038,7 +1103,10 @@
    "porque": "Lorde barato.",
    "marcas": {
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde +1/+1)",
+   "papel_por_que": "Sliver que dá +1/+1 a todos os Slivers."
   },
   "Necrotic Sliver": {
    "notas": {
@@ -1056,7 +1124,10 @@
    "porque": "Remoção de qualquer tipo em cada Sliver; os oponentes com Sliver também podem usar.",
    "marcas": {
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Sliver que faz todo Sliver destruir uma permanente por 3 e sacrifício."
   },
   "Predatory Sliver": {
    "notas": {
@@ -1071,7 +1142,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sliver de 2. Slivers que você controla +1/+1.",
-   "porque": "Lorde barato."
+   "porque": "Lorde barato.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde +1/+1)",
+   "papel_por_que": "Sliver que dá +1/+1 aos seus Slivers."
   },
   "Quick Sliver": {
    "notas": {
@@ -1092,7 +1166,9 @@
    "marcas": {
     "todos": 1
    },
-   "prioridade": 6
+   "prioridade": 6,
+   "papel": "habilita",
+   "papel_por_que": "Sliver que dá lampejo às mágicas de Sliver: a colmeia entra no turno do oponente."
   },
   "Root Sliver": {
    "notas": {
@@ -1110,7 +1186,10 @@
    "rel": "BAX",
    "faz": "Sliver de 4. Não pode ser anulado; feitiços de Sliver não podem ser anulados.",
    "porque": "A Cavern of Souls já protege da contramágica.",
-   "prioridade": 5
+   "prioridade": 5,
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Sliver que torna as mágicas de Sliver impossíveis de anular."
   },
   "Sentinel Sliver": {
    "notas": {
@@ -1125,7 +1204,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sliver de 2. Slivers que você controla têm vigilância.",
-   "porque": "Ataca e continua desvirado para virar mana com o Gemhide."
+   "porque": "Ataca e continua desvirado para virar mana com o Gemhide.",
+   "papel": "habilita",
+   "papel_por_que": "Sliver que dá vigilância aos seus Slivers."
   },
   "Shifting Sliver": {
    "notas": {
@@ -1140,7 +1221,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Sliver de 4. Slivers só podem ser bloqueados por Slivers.",
-   "porque": "A colmeia passa por qualquer mesa sem Sliver."
+   "porque": "A colmeia passa por qualquer mesa sem Sliver.",
+   "papel": "habilita",
+   "papel_por_que": "Sliver que torna os Slivers bloqueáveis só por Slivers."
   },
   "Sinew Sliver": {
    "notas": {
@@ -1158,7 +1241,10 @@
    "porque": "Lorde barato.",
    "marcas": {
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde +1/+1)",
+   "papel_por_que": "Sliver de 2 que dá +1/+1 a todos os Slivers."
   },
   "Sliver Gravemother": {
    "notas": {
@@ -1177,7 +1263,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Sliver lendário de cinco cores. A regra de lendárias não vale para os seus Slivers; Sliver no cemitério tem encore {X}.",
-   "porque": "Recursão: cada Sliver morto volta como uma ficha por oponente, que ataca e é sacrificada no fim do turno; e libera as cópias de lendários do Hatchery."
+   "porque": "Recursão: cada Sliver morto volta como uma ficha por oponente, que ataca e é sacrificada no fim do turno; e libera as cópias de lendários do Hatchery.",
+   "papel": "habilita",
+   "papel_dupla": "Recursão (encore)",
+   "papel_por_que": "Libera cópias de Slivers lendários e dá encore aos Slivers do cemitério."
   },
   "Sliver Hivelord": {
    "notas": {
@@ -1192,7 +1281,10 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Sliver lendário de cinco cores. Slivers que você controla têm indestrutível.",
-   "porque": "A colmeia sobrevive a destruição e a limpeza que destrói."
+   "porque": "A colmeia sobrevive a destruição e a limpeza que destrói.",
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Sliver que dá indestrutível a todos os seus Slivers."
   },
   "Sliver Legion": {
    "notas": {
@@ -1208,7 +1300,10 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Sliver lendário de cinco cores. Todas as criaturas Sliver +1/+1 por outro Sliver em campo.",
-   "porque": "Com dez Slivers, cada um ganha +9/+9: fecha o jogo num ataque."
+   "porque": "Com dez Slivers, cada um ganha +9/+9: fecha o jogo num ataque.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde crescente)",
+   "papel_por_que": "Sliver que dá +1/+1 a cada Sliver por outro Sliver em campo."
   },
   "Sliver Overlord": {
    "notas": {
@@ -1228,7 +1323,10 @@
    "porque": "Tutor de Sliver a cada três manas, e peça do combo com o Intruder Alarm do radar.",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Tutor",
+   "papel_por_que": "Busca um Sliver por 3 e rouba Slivers do oponente."
   },
   "Sliver Queen": {
    "notas": {
@@ -1247,7 +1345,9 @@
    "porque": "Fichas sem limite com mana; fecha o jogo com o Intruder Alarm, o Mana Echoes ou o Basal Sliver do radar.",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Cria uma ficha de Sliver por 2, sem limite: a colmeia nunca acaba."
   },
   "Spiteful Sliver": {
    "notas": {
@@ -1262,7 +1362,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sliver de 3. Sliver que sofre dano causa esse dano a um jogador.",
-   "porque": "Bloqueio e limpeza de dano viram dano neles."
+   "porque": "Bloqueio e limpeza de dano viram dano neles.",
+   "papel": "habilita",
+   "papel_por_que": "Sliver que faz cada Sliver ferido devolver o dano a um jogador."
   },
   "Striking Sliver": {
    "notas": {
@@ -1278,7 +1380,9 @@
    "rel": "BAX",
    "faz": "Sliver de 1. Slivers que você controla têm iniciativa.",
    "porque": "O Bonescythe já dá golpe duplo.",
-   "prioridade": 2
+   "prioridade": 2,
+   "papel": "habilita",
+   "papel_por_que": "Sliver de 1 que dá golpe primeiro aos seus Slivers."
   },
   "Synapse Sliver": {
    "notas": {
@@ -1293,7 +1397,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Sliver de 5. Sliver que causa dano de combate a um jogador: o controlador compra.",
-   "porque": "Compra por Sliver que conecta, e a colmeia voa."
+   "porque": "Compra por Sliver que conecta, e a colmeia voa.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (compra ao causar dano)",
+   "papel_por_que": "Cada Sliver que causa dano a jogador compra uma carta."
   },
   "Syphon Sliver": {
    "notas": {
@@ -1309,7 +1416,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sliver de 3. Slivers que você controla têm vínculo com a vida.",
-   "porque": "Vida contra aggro e contra a Mana Confluence."
+   "porque": "Vida contra aggro e contra a Mana Confluence.",
+   "papel": "habilita",
+   "papel_por_que": "Sliver que dá vínculo com a vida aos seus Slivers."
   },
   "Venom Sliver": {
    "notas": {
@@ -1326,7 +1435,9 @@
    "rel": "MED",
    "faz": "Sliver de 2. Slivers que você controla têm toque mortífero.",
    "porque": "Bloqueia qualquer coisa e mata no ataque.",
-   "pacote": "colmeia"
+   "pacote": "colmeia",
+   "papel": "habilita",
+   "papel_por_que": "Sliver de 2 que dá toque mortífero aos seus Slivers."
   },
   "Virulent Sliver": {
    "notas": {
@@ -1344,7 +1455,9 @@
    "porque": "Vitória por veneno; com golpe duplo, dois por Sliver que conecta.",
    "marcas": {
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Sliver de 1 que dá venenoso 1 a todos os Slivers."
   },
   "Descendants' Path": {
    "notas": {
@@ -1362,7 +1475,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 3. Na manutenção, revela o topo; criatura que divide tipo com uma sua sai de graça.",
-   "porque": "Um Sliver de graça por turno, e conjurado: ganha cascata."
+   "porque": "Um Sliver de graça por turno, e conjurado: ganha cascata.",
+   "papel": "multiplica",
+   "papel_por_que": "Conjura de graça o Sliver do topo toda manutenção, e ele ainda cascateia."
   },
   "Kindred Discovery": {
    "notas": {
@@ -1377,7 +1492,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 5. Criatura do tipo escolhido entra ou ataca: compre.",
-   "porque": "Compra por Sliver que entra e que ataca."
+   "porque": "Compra por Sliver que entra e que ataca.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra uma carta a cada Sliver que entra ou ataca."
   },
   "Reflections of Littjara": {
    "notas": {
@@ -1395,7 +1513,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 5. Feitiço do tipo escolhido que você conjura é copiado.",
-   "porque": "Cada Sliver vem com uma cópia em ficha; a cópia não cascateia."
+   "porque": "Cada Sliver vem com uma cópia em ficha; a cópia não cascateia.",
+   "papel": "multiplica",
+   "papel_por_que": "Copia cada mágica de Sliver conjurada: dois Slivers por um."
   },
   "Rhystic Study": {
    "notas": {
@@ -1536,7 +1656,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 4: compre uma por permanente do tipo escolhido.",
-   "porque": "Recarga de cinco ou mais cartas."
+   "porque": "Recarga de cinco ou mais cartas.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra uma carta por Sliver em campo."
   },
   "Farseek": {
    "notas": {
@@ -1585,7 +1708,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 5: cada jogador escolhe um tipo; todas as criaturas desses tipos voltam do cemitério.",
-   "porque": "Traz a colmeia inteira depois da limpeza; os oponentes também escolhem."
+   "porque": "Traz a colmeia inteira depois da limpeza; os oponentes também escolhem.",
+   "papel": "habilita",
+   "papel_por_que": "Devolve do cemitério ao campo todos os Slivers de uma vez."
   }
  },
  "radar": {
@@ -1607,7 +1732,9 @@
    "sai": "Horned Sliver",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Desvira tudo a cada criatura que entra: com Sliver Queen e Slivers de mana, fichas sem fim."
   },
   "Mana Echoes": {
    "notas": {
@@ -1628,7 +1755,10 @@
    "sai": "Striking Sliver",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Cada Sliver que entra gera mana por Sliver em campo."
   },
   "Basal Sliver": {
    "notas": {
@@ -1650,7 +1780,10 @@
    "marcas": {
     "combo": 1,
     "todos": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Sliver que faz todo Sliver virar BB ao ser sacrificado."
   },
   "Training Grounds": {
    "notas": {
@@ -1670,7 +1803,9 @@
    "sai": "Root Sliver",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Barateia em 2 as habilidades ativadas, como as da Sliver Queen e do Overlord."
   },
   "Kindred Dominance": {
    "notas": {
@@ -1706,7 +1841,10 @@
    "veredito": "entra",
    "faz": "Sliver de 6. Slivers que você controla têm \"ao entrar, exile uma criatura de oponente até ele sair\".",
    "porque": "Cada Sliver que entra, e cada cascata, leva uma criatura deles.",
-   "sai": "Quick Sliver"
+   "sai": "Quick Sliver",
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Cada Sliver que entra exila uma criatura do oponente enquanto estiver em campo."
   },
   "Unclaimed Territory": {
    "notas": {},
@@ -1774,7 +1912,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Sliver de 6. Slivers que você controla +3/+3.",
-   "porque": "O maior lorde, e alvo bom de cascata do Morophon."
+   "porque": "O maior lorde, e alvo bom de cascata do Morophon.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (lorde +3/+3)",
+   "papel_por_que": "Sliver que dá +3/+3 aos seus Slivers."
   },
   "Two-Headed Sliver": {
    "notas": {
@@ -1790,7 +1931,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Sliver de 2. Todas as criaturas Sliver têm ameaça.",
-   "porque": "Mais evasão barata."
+   "porque": "Mais evasão barata.",
+   "papel": "habilita",
+   "papel_por_que": "Sliver de 2 que dá ameaça a todos os Slivers."
   },
   "Blur Sliver": {
    "notas": {
@@ -1808,7 +1951,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Sliver de 3. Slivers que você controla têm ímpeto.",
-   "porque": "Segunda peça de ímpeto para o combo do Training Grounds."
+   "porque": "Segunda peça de ímpeto para o combo do Training Grounds.",
+   "papel": "habilita",
+   "papel_por_que": "Sliver que dá ímpeto aos seus Slivers."
   },
   "Pillar of Origins": {
    "notas": {
@@ -1874,7 +2019,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Metamorfo de 3 com Changeling. Escolhe um tipo; conjura criaturas desse tipo do topo.",
-   "porque": "Card advantage; é Sliver e ganha cascata."
+   "porque": "Card advantage; é Sliver e ganha cascata.",
+   "papel": "habilita",
+   "papel_dupla": "Draw (conjura do topo)",
+   "papel_por_que": "Metamorfo, conta como Sliver, e deixa conjurar Slivers do topo do grimório."
   },
   "Coat of Arms": {
    "notas": {
@@ -1891,7 +2039,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Artefato de 5. Cada criatura +1/+1 por outra que divide tipo com ela.",
-   "porque": "Mais uma Sliver Legion, mas vale para os oponentes tribais também."
+   "porque": "Mais uma Sliver Legion, mas vale para os oponentes tribais também.",
+   "papel": "multiplica",
+   "papel_por_que": "Lorde crescente: cada Sliver ganha +1/+1 por outro Sliver em campo."
   },
   "Heartstone": {
    "notas": {
@@ -1910,7 +2060,9 @@
    "porque": "O Training Grounds em artefato: mesma linha da Sliver Queen. Vale para os oponentes também.",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Barateia em 1 as habilidades ativadas, como as da Sliver Queen e do Overlord."
   },
   "Profane Tutor": {
    "notas": {
@@ -1943,7 +2095,9 @@
    "porque": "Com o Morophon (Sliver), o The First Sliver e um sacrificador, cascata infinita. Pede duas cartas de fora. Commander Spellbook.",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Devolve à mão o Sliver lendário que morre, para ser conjurado e cascatear de novo."
   },
   "Ashnod's Altar": {
    "notas": {
@@ -1963,7 +2117,10 @@
    "porque": "Faz o papel do Basal Sliver com a Sliver Queen e o Lavabelly, e é o sacrificador da linha do Yomiji.",
    "marcas": {
     "combo": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Saída de sacrifício que gera CC: com a Sliver Queen, fichas e mortes sem fim."
   },
   "Winged Sliver": {
    "notas": {
@@ -1979,7 +2136,9 @@
    "rel": "MED",
    "veredito": "fora",
    "faz": "Sliver de 2. Todas as criaturas Sliver têm voar.",
-   "porque": "O Galerider faz o mesmo por uma mana, e o Cloudshredder ainda dá ímpeto."
+   "porque": "O Galerider faz o mesmo por uma mana, e o Cloudshredder ainda dá ímpeto.",
+   "papel": "habilita",
+   "papel_por_que": "Sliver de 2 que dá voar a todos os Slivers."
   },
   "Food Chain": {
    "notas": {
@@ -2106,5 +2265,79 @@
    ],
    "texto": "Com manto em todos os Slivers, o Crypt não regenera e o Sliver Overlord não toma Sliver de volta."
   }
- ]
+ ],
+ "avaliadas": {
+  "Jeskai Revelation": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Professor Dellian Fel": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Roaring Furnace": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Moment of Reckoning": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Chandra's Ignition": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa",
+   "papel": "recompensa",
+   "papel_dupla": "Remoção em massa",
+   "papel_por_que": "Um Sliver inchado pelos lordes causa o próprio poder a cada oponente e a cada outra criatura."
+  },
+  "Suspended Sentence": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Pox Plague": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Vilis, Broker of Blood": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Meathook Massacre II": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Mind into Matter": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "multiplica",
+    "por_que": "Dá cascata às mágicas de Sliver: cada Sliver conjurado traz outro de graça. Multiplica o que as 99 fazem, que precisam andar sozinhas."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
