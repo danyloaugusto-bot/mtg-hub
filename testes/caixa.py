@@ -67,7 +67,7 @@ k = enc.get("03. K'rrik", {})
 R.ok("Vilis: K'rrik +%s, saindo %s, com sinergia avaliada" % (cv["krrik_ganho"], cv["krrik_sai"]),
      k.get("g") == cv["krrik_ganho"] and k.get("s") == cv["krrik_sai"] and k.get("a") == 1, k)
 vi = enc.get("01. Vito", {})
-R.ok("Vilis: Vito +%s, sinergia a avaliar" % cv["vito_ganho"], vi.get("g") == cv["vito_ganho"] and vi.get("a") == 0, vi)
+R.ok("Vilis: Vito +%s, sinergia já avaliada (avaliadas do Vito)" % cv["vito_ganho"], vi.get("g") == cv["vito_ganho"] and vi.get("a") == 1, vi)
 R.ok("Vilis: Valgavoth já está", enc.get("03. Valgavoth", {}).get("j") == 1)
 va = next((x for x in v["em_decks"] if x["p"] == "03. Valgavoth"), {})
 R.ok("Vilis: a do Valgavoth é outra impressão (PM20 122p, a da caixa é M20 122)", va.get("imp") == "PM20 122p" and v["copias"][0]["imp"] == "M20 122", (va.get("imp"), v["copias"][0]["imp"]))
@@ -181,7 +181,8 @@ import encaixe
 cad_t = dados.ler_cadastro()
 mg = dados.montar("02. Goblins", avisar=lambda *a: None)
 mg.update(pasta="02. Goblins", painel="Horda em Chamas")
-g0 = encaixe.ganho("Chain Reaction", mg, cad_t)
+mg0 = dict(mg); mg0.pop("_enc", None); mg0["avaliadas"] = {}   # sem a avaliação gravada no Goblins
+g0 = encaixe.ganho("Chain Reaction", mg0, cad_t)
 mg2 = dict(mg); mg2.pop("_enc", None)
 mg2["avaliadas"] = dados.ler_avaliadas({"avaliadas": {"Chain Reaction": {"sin": {"sin2": 2}, "sin_por_que": {"sin2": "teste"}}}})
 g1 = encaixe.ganho("Chain Reaction", mg2, cad_t)
@@ -238,6 +239,24 @@ finally:
             open(q, "w", encoding="utf-8", newline="\n").write(v)
 R.ok("pastas de teste limpas", not [f for f in os.listdir(PF) if f.startswith("zz teste")])
 
+# ---------------------------------------------------------------- tier estimado e o deck hoje (critérios da v3 e quadros do 8×8)
+R.ok("tier estimado: nunca S (S só com avaliação)", caixa._tier_estimado(99, {"S": 20, "A": 12, "B": 8}) == "A"
+     and caixa._tier_estimado(9, {"S": 20, "A": 12, "B": 8}) == "B" and caixa._tier_estimado(1, {"A": 12, "B": 8, "C": 4}) == "C")
+m_hw = next(m for m in encaixe.decks_v3() if m["pasta"] == "03. Heads I win")
+pf = caixa._perfil_deck(m_hw)
+ks_t = [c["k"] for c in dados.regua()["criterios"]]
+fora_pk = sum(c["q"] for c in m_hw["cards"] if not c.get("cmd") and not c.get("land") and not c.get("mdfc"))
+R.ok("perfil do deck: a contagem da v3 é a da saturação, e os quadros do 8×8 não passam das cartas do deck", pf["nc"] == encaixe.contexto(m_hw)["ncrit"]
+     and set(pf["pk"]) <= set(caixa.CRIT_8X8) and all(v[1] <= fora_pk for v in pf["pk"].values()), (pf["pk"], fora_pk))
+cx_t = caixa.montar(avisar=lambda *a: None, rede=False)
+ts = [e["T"] for c in cx_t["cartas"] for e in c["enc"] if e.get("T")]
+R.ok("tier na gaveta: real ou estimado (~), e nenhum estimado é S", ts and all(t in "SABCD" or t in ("~A", "~B", "~C", "~D") for t in ts), sorted(set(ts)))
+
+c0 = next(c for c in cx_t["cartas"] if c.get("tx"))
+mexida = dict(c0, fx=c0["fx"] + " (texto mudado)")
+R.ok("tradução: toda carta da Caixa com texto tem tradução, e texto mudado no Scryfall volta para a fila",
+     not caixa.traducoes_faltando([cx_t]) and list(caixa.traducoes_faltando([{"cartas": [mexida]}])) == [c0["n"]])
+
 # ---------------------------------------------------------------- 3. a página montada (saidas/00. Caixa.html)
 import subprocess, sys
 from playwright.sync_api import sync_playwright
@@ -268,32 +287,65 @@ with sync_playwright() as pw:
     pg.on("pageerror", lambda e: R.erros.append(str(e)))
     pg.goto(comum.url(pag)); pg.wait_for_timeout(800)
     pg.evaluate("localStorage.clear()"); pg.reload(); pg.wait_for_timeout(800)
-    R.ok("uma linha por carta pendente", pg.locator("tr.cx-r").count() == len(pend), (pg.locator("tr.cx-r").count(), len(pend)))
+    ids0 = pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))")
+    par = sum(len({cp["sug"]["P"] for cp in c["copias"]}) for c in pend)
+    R.ok("toda carta pendente aparece, uma linha por prioridade das cópias dela", len(set(ids0)) == len(pend) and len(ids0) == par, (len(set(ids0)), len(pend), len(ids0), par))
     lv = pg.locator('tr.cx-r[data-id="vilis-broker-of-blood"]')
     t = lv.inner_text() if lv.count() else ""
     R.ok("linha do Vilis: S, K'rrik, +24, US$ 9,97", lv.count() == 1 and lv.locator("td.cx-pr").inner_text().strip() == "S" and "K'rrik" in t and "+24" in t and "US$ 9,97" in t, t[:160])
     pg.click('[data-act="ui"][data-k="ver"][data-v="galeria"]'); pg.wait_for_timeout(300)
+    pg.click('[data-act="ui"][data-k="agrupar"][data-v="tipo"]'); pg.wait_for_timeout(300)
     xn = pg.eval_on_selector_all(".cx-cd", "es => es.map(e => [e.getAttribute('data-id'), !!e.querySelector('.cx-xn')])")
     qs = {c["id"]: c["q"] for c in cx_real["cartas"]}
-    R.ok("galeria: ×N só nas cartas de duas cópias ou mais", xn and all(tem == (qs[i] > 1) for i, tem in xn), [x for x in xn if x[1] != (qs[x[0]] > 1)][:3])
-    pg.click('[data-act="ui"][data-k="agrupar"][data-v="tipo"]'); pg.wait_for_timeout(300)
-    hs = [x.strip() for x in pg.eval_on_selector_all(".cx-g-h h2", "es => es.map(e => e.textContent)")]
+    R.ok("galeria por tipo: ×N só nas cartas de duas cópias ou mais", xn and all(tem == (qs[i] > 1) for i, tem in xn), [x for x in xn if x[1] != (qs[x[0]] > 1)][:3])
+    hs = [x.strip() for x in pg.eval_on_selector_all(".cx-g-h h2", "es => es.map(e => e.textContent.replace(/[▾▸]/g, ''))")]
     nomes_t = {"cri": "Criaturas", "ins": "Mágicas instantâneas", "fei": "Feitiços", "art": "Artefatos", "enc": "Encantamentos", "pw": "Planeswalkers", "bat": "Batalhas", "ter": "Terrenos"}
     esperado = [nomes_t[k] for k in ["cri", "ins", "fei", "art", "enc", "pw", "bat", "ter"] if any(c["t"] == k for c in cx_real["cartas"])]
     R.ok("agrupar por tipo: os grupos certos, na ordem do painel", hs == esperado, (hs, esperado))
     cri = sum(1 for c in cx_real["cartas"] if c["t"] == "cri")
-    R.ok("agrupar por tipo: artefato criatura conta como criatura", pg.locator(".cx-g-h", has_text="Criaturas").locator("span").inner_text().startswith(str(cri)), cri)
-    # seletor de tipo, ao lado da busca: só terrenos
+    R.ok("agrupar por tipo: artefato criatura conta como criatura", pg.locator(".cx-g-h", has_text="Criaturas").locator("> span").inner_text().startswith(str(cri)), cri)
+    # tipo: lista suspensa de múltipla escolha, com limpar
     pg.click('[data-act="ui"][data-k="agrupar"][data-v="prioridade"]'); pg.wait_for_timeout(200)
     ter = sum(1 for c in cx_real["cartas"] if c["t"] == "ter")
-    pg.select_option("#ft", "ter"); pg.wait_for_timeout(300)
+    cri = sum(1 for c in cx_real["cartas"] if c["t"] == "cri")
+    pg.click(".cx-dd summary"); pg.wait_for_timeout(150)
+    R.ok("tipo: a lista suspensa abre com a quantidade de cada tipo", pg.is_visible(".cx-dd-p") and str(ter) in pg.inner_text(".cx-dd-p label:has(input[value='ter'])"))
+    pg.check('.cx-dd-p input[value="ter"]'); pg.wait_for_timeout(300)
     vis = pg.eval_on_selector_all(".cx-cd", "es => es.map(e => e.getAttribute('data-id'))")
-    tipos_vis = {c["t"] for c in cx_real["cartas"] if c["id"] in vis}
-    R.ok("seletor de tipo: só os terrenos (%d)" % ter, len(vis) == ter and tipos_vis <= {"ter"}, (len(vis), tipos_vis))
-    R.ok("seletor de tipo: a opção traz a quantidade", ("Terrenos (%d)" % ter) in pg.inner_text("#ft"))
+    R.ok("tipo: só os terrenos (%d)" % ter, len(set(vis)) == ter and {c["t"] for c in cx_real["cartas"] if c["id"] in vis} <= {"ter"}, len(set(vis)))
+    pg.check('.cx-dd-p input[value="cri"]'); pg.wait_for_timeout(300)
+    vis = pg.eval_on_selector_all(".cx-cd", "es => es.map(e => e.getAttribute('data-id'))")
+    R.ok("tipo: dois tipos de uma vez (terrenos e criaturas)", len(set(vis)) == ter + cri and "2 tipos" in pg.inner_text(".cx-dd summary"), (len(set(vis)), ter + cri))
     pg.reload(); pg.wait_for_timeout(800)
-    R.ok("seletor de tipo: a escolha fica guardada no navegador", pg.input_value("#ft") == "ter")
-    pg.select_option("#ft", ""); pg.wait_for_timeout(300)
+    R.ok("tipo: a escolha fica guardada no navegador", pg.evaluate("window.CAIXA.ui.tipos.slice().sort().join()") == "cri,ter")
+    pg.click(".cx-dd summary"); pg.click('[data-act="tipos-limpar"]'); pg.wait_for_timeout(300)
+    R.ok("tipo: limpar volta a todos", pg.evaluate("window.CAIXA.ui.tipos.length") == 0 and len(set(pg.eval_on_selector_all(".cx-cd", "es => es.map(e => e.getAttribute('data-id'))"))) == len(pend))
+    # cores: com agrupar por cor, os sete espaços com os símbolos de mana
+    pg.click('[data-act="ui"][data-k="agrupar"][data-v="cor"]'); pg.wait_for_timeout(300)
+    hs = [x.strip() for x in pg.eval_on_selector_all(".cx-g-h h2", "es => es.map(e => e.textContent.replace(/[▾▸]/g, ''))")]
+
+    def cor(c):
+        k = "".join(x for x in "WUBRG" if x in (c["ident"] or ""))
+        return "C" if not k else "M" if len(k) > 1 else k
+    ordem = [("W", "Branco"), ("U", "Azul"), ("B", "Preto"), ("R", "Vermelho"), ("G", "Verde"), ("M", "Multicolorido"), ("C", "Incolor")]
+    R.ok("cores: os grupos em Branco, Azul, Preto, Vermelho, Verde, Multicolorido, Incolor", hs == [n for k, n in ordem if any(cor(c) == k for c in cx_real["cartas"])], hs)
+    R.ok("cores: sete botões, com o símbolo de mana desenhado", pg.locator('.cx-cores [data-act="cor"]').count() == 7 and pg.locator('.cx-cores [data-act="cor"] svg.cx-mi-W').count() == 1)
+    pg.click('.cx-cores [data-act="cor"][data-v="W"]'); pg.click('.cx-cores [data-act="cor"][data-v="R"]'); pg.wait_for_timeout(300)
+    vis = pg.eval_on_selector_all(".cx-cd", "es => es.map(e => e.getAttribute('data-id'))")
+    esp = [c["id"] for c in cx_real["cartas"] if cor(c) in ("W", "R")]
+    R.ok("cores: branco e vermelho juntos (%d cartas)" % len(esp), sorted(vis) == sorted(esp), (len(vis), len(esp)))
+    pg.click('[data-act="cores-limpar"]'); pg.wait_for_timeout(300)
+    R.ok("cores: limpar volta a todas", pg.locator(".cx-cd").count() == len(pend))
+    # grupos que recolhem
+    pg.click('[data-act="ui"][data-k="ver"][data-v="tabela"]'); pg.click('[data-act="ui"][data-k="agrupar"][data-v="prioridade"]'); pg.wait_for_timeout(300)
+    n0 = pg.locator("tr.cx-r:visible").count()
+    pg.click('[data-act="grupos"][data-v="fechar"]'); pg.wait_for_timeout(300)
+    R.ok("grupos: fechar todos esconde as linhas e deixa os cabeçalhos", pg.locator("tr.cx-r:visible").count() == 0 and pg.locator("tr.grp").count() >= 1)
+    pg.locator("tr.grp .cx-tg").first.click(); pg.wait_for_timeout(300)
+    um = pg.locator("tr.cx-r:visible").count()
+    R.ok("grupos: abrir um grupo pelo cabeçalho", 0 < um < n0, (um, n0))
+    pg.click('[data-act="grupos"][data-v="abrir"]'); pg.wait_for_timeout(300)
+    R.ok("grupos: abrir todos", pg.locator("tr.cx-r:visible").count() == n0)
     # a vista "Para o deck": só as cartas nas cores do comandante, pelo ganho naquele deck
     gob = [c for c in cx_real["cartas"] if any(e["p"] == "02. Goblins" for e in c["enc"])]
     pg.click('[data-act="ui"][data-k="ver"][data-v="tabela"]'); pg.wait_for_timeout(200)
@@ -301,15 +353,64 @@ with sync_playwright() as pw:
     ids = pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))")
     R.ok("Para o deck (Goblins): uma linha por carta nas cores dele (%d)" % len(gob), len(ids) == len(gob), (len(ids), len(gob)))
     R.ok("Para o deck (Goblins): todas na identidade do comandante (R)", all(set(c["ident"]) <= {"R"} for c in cx_real["cartas"] if c["id"] in ids))
-    blocos = [x.split("\n")[0].strip() for x in pg.eval_on_selector_all("tr.grp td", "es => es.map(e => e.childNodes[0].textContent)")]
+    blocos = [x.split("\n")[0].strip() for x in pg.eval_on_selector_all("tr.grp td", "es => es.map(e => e.childNodes[0].textContent.replace(/[▾▸]/g, ''))")]
     R.ok("Para o deck: os blocos na ordem (Entram agora primeiro)", blocos and blocos[0] == "Entram agora"
          and blocos == [b for b in ["Entram agora", "Ganho alto, sinergia a avaliar", "Para avaliar", "Ganho baixo", "Já estão no deck"] if b in blocos], blocos)
-    ent = pg.eval_on_selector_all("tbody tr", "rs => { var out = [], on = false; rs.forEach(function (r) { if (r.classList.contains('grp')) on = r.textContent.indexOf('Entram agora') === 0; else if (on) out.push(r.getAttribute('data-id')); }); return out; }")
-    R.ok("Para o deck (Goblins): entram agora Goblin Chieftain e Sol Ring", set(ent) >= {"goblin-chieftain", "sol-ring"}, ent)
+    ent = pg.eval_on_selector_all("tbody tr", "rs => { var out = [], on = false; rs.forEach(function (r) { if (r.classList.contains('grp')) on = r.textContent.replace(/[▾▸]/g, '').indexOf('Entram agora') === 0; else if (on) out.push(r.getAttribute('data-id')); }); return out; }")
+    R.ok("Para o deck (Goblins): entra agora o Goblin Chieftain (Sol Ring saiu da caixa: Remover)", "goblin-chieftain" in ent and "sol-ring" not in ent, ent)
+    gs = [float(x) for x in pg.eval_on_selector_all("tr.cx-r td.cx-ga", "es => es.map(e => e.getAttribute('data-v') || '-1e9')")]
+    R.ok("Para o deck: o padrão de ordem é o ganho no deck, do maior para o menor, dentro de cada bloco", pg.input_value('select[data-ctl="ord"]') == "padrao"
+         and "Ganho no deck" in pg.inner_text('select[data-ctl="ord"] option[value="padrao"]'))
     pg.evaluate("window.CAIXA.abrir('goblin-chieftain')"); pg.wait_for_timeout(300)
     R.ok("Para o deck: a decisão Deck já vem com o deck escolhido", pg.input_value('#cx-gav-in select[data-cp="deck"][data-i="0"]') == "02. Goblins")
     pg.keyboard.press("Escape"); pg.select_option('select[data-ctl="deck"]', ""); pg.wait_for_timeout(300)
-    R.ok("Para o deck: voltar a todos os decks mostra a caixa inteira", pg.locator("tr.cx-r").count() == len(pend))
+    R.ok("Para o deck: voltar a todos os decks mostra a caixa inteira", len(set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))) == len(pend))
+    # ordenar: o seletor, a seta que inverte e o cabeçalho da tabela
+    def valores_grupo1():
+        return pg.evaluate("""(() => { var out = [], g = 0; document.querySelectorAll('tbody tr').forEach(function (r) { if (r.classList.contains('grp')) g++; else if (g === 1) out.push(+r.querySelector('td.cx-vl').getAttribute('data-v')); }); return out; })()""")
+    pg.select_option('select[data-ctl="ord"]', "valor"); pg.wait_for_timeout(300)
+    v1 = valores_grupo1()
+    R.ok("ordenar por valor: do maior para o menor dentro do grupo", len(v1) > 3 and v1 == sorted(v1, reverse=True), v1[:6])
+    R.ok("ordenar por valor: o cabeçalho Valor mostra a seta", pg.locator('th[aria-sort="descending"] .cx-th[data-v="valor"]').count() == 1)
+    pg.click('[data-act="ord-inv"]'); pg.wait_for_timeout(300)
+    v2 = valores_grupo1()
+    R.ok("ordenar: a seta inverte (do menor para o maior)", v2 == sorted(v2) and pg.locator('th[aria-sort="ascending"] .cx-th[data-v="valor"]').count() == 1, v2[:6])
+    pg.click('.cx-th[data-v="cmc"]'); pg.wait_for_timeout(300)
+    cm = pg.evaluate("""(() => { var out = [], g = 0; document.querySelectorAll('tbody tr').forEach(function (r) { if (r.classList.contains('grp')) g++; else if (g === 1) out.push(+r.querySelector('td.cx-co').getAttribute('data-v')); }); return out; })()""")
+    R.ok("ordenar pelo cabeçalho Custo: custo de mana crescente, terrenos no fim", pg.input_value('select[data-ctl="ord"]') == "cmc" and pg.evaluate("window.CAIXA.ui.inv") is False, cm[:8])
+    pg.reload(); pg.wait_for_timeout(800)
+    R.ok("ordenar: a escolha fica guardada no navegador", pg.input_value('select[data-ctl="ord"]') == "cmc")
+    # sem grupo: uma lista só, uma linha por carta
+    pg.click('[data-act="ui"][data-k="agrupar"][data-v="nenhum"]'); pg.wait_for_timeout(300)
+    R.ok("agrupar: Nenhum dá uma lista só, uma linha por carta", pg.locator("tr.grp").count() == 1 and pg.locator("tr.cx-r").count() == len(pend), (pg.locator("tr.grp").count(), pg.locator("tr.cx-r").count()))
+    # destino de cada cópia: o Echocasting tem a comum no Bulk e a foil na Venda
+    pg.click('[data-act="ui"][data-k="agrupar"][data-v="destino"]'); pg.wait_for_timeout(300)
+    ec = pg.evaluate("""(() => { var out = [], g = ''; document.querySelectorAll('tbody tr').forEach(function (r) { if (r.classList.contains('grp')) g = r.querySelector('.cx-tg').textContent.replace(/[▾▸]/g, ''); else if (r.getAttribute('data-id') === 'echocasting-symposium') out.push([g, r.querySelector('td.cx-vl').getAttribute('data-v')]); }); return out; })()""")
+    R.ok("agrupar por destino é cópia a cópia: Echocasting na Venda (US$ 7,73) e no Bulk (US$ 3,19)", sorted(ec) == [["Bulk", "3.19"], ["Venda", "7.73"]], ec)
+    # faixa de valor: filtro e grupo
+    caras = [c for c in pend if any((cp["usd"] or 0) >= caixa.regua()["capital_usd"] for cp in c["copias"])]
+    pg.click('[data-act="faixa"][data-v="f20"]'); pg.wait_for_timeout(300)
+    vs = [float(x) for x in pg.eval_on_selector_all("tr.cx-r td.cx-vl", "es => es.map(e => e.getAttribute('data-v'))")]
+    ids = pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))")
+    R.ok("faixa US$ 20 ou mais: só as cópias caras (%d cartas)" % len(caras), len(set(ids)) == len(caras) and vs and min(vs) >= caixa.regua()["capital_usd"], (len(set(ids)), len(caras), min(vs) if vs else None))
+    pg.click('[data-act="faixas-limpar"]'); pg.wait_for_timeout(300)
+    pg.click('[data-act="ui"][data-k="agrupar"][data-v="faixa"]'); pg.wait_for_timeout(300)
+    hf = [x.replace("▾", "").replace("▸", "").strip() for x in pg.eval_on_selector_all("tr.grp .cx-tg", "es => es.map(e => e.textContent)")]
+    R.ok("agrupar por valor: das caras para as baratas", hf and hf[0] == "US$ 20,00 ou mais" and hf.index("US$ 5,00 a US$ 20,00") < hf.index("Abaixo de US$ 1,00"), hf)
+    # gaveta: a tradução e o caminho pelas regras, uma caixa por sugestão diferente
+    pg.evaluate("window.CAIXA.abrir('echocasting-symposium')"); pg.wait_for_timeout(300)
+    gv = pg.inner_text("#cx-gav-in")
+    R.ok("gaveta: o que a carta faz, em português, com o aviso de tradução livre", pg.locator("#cx-gav-in .cx-tx").count() == 1 and "O jogador alvo cria uma ficha" in gv and "Tradução livre" in gv)
+    R.ok("gaveta: uma caixa por sugestão (comum no Bulk, foil na Venda)", pg.locator("#cx-gav-in .cx-sug").count() == 2)
+    bl = pg.locator("#cx-gav-in .cx-sug", has_text="Sugestão: Bulk")
+    R.ok("gaveta: o Bulk mostra as cinco regras que não serviram e a que decidiu", bl.locator("li.nao").count() == 5 and bl.locator("li.sim").count() == 1 and "Prioridade C" in bl.inner_text(), bl.inner_text()[:200])
+    R.ok("gaveta: a Venda explica a prioridade B pelo preço", "Prioridade B" in pg.locator("#cx-gav-in .cx-sug", has_text="Sugestão: Venda").inner_text())
+    cab = pg.eval_on_selector_all("#cx-gav-in .cx-enc thead th", "es => es.map(e => e.textContent)")
+    R.ok("gaveta: a tabela dos decks tem Tier e Preenche", "Tier" in cab and any(x.startswith("Preenche") for x in cab), cab)
+    pe = pg.inner_text("#cx-gav-in .cx-enc tbody tr:first-child td.cx-pe")
+    R.ok("gaveta: Preenche mostra o critério, a contagem do deck e a faixa", "de " in pe and any(x in pe for x in ("abaixo", "dentro", "acima")), pe)
+    pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
+    pg.click('[data-act="ui"][data-k="agrupar"][data-v="prioridade"]'); pg.select_option('select[data-ctl="ord"]', "padrao"); pg.wait_for_timeout(300)
     # decisão com o banco de mentira: Bulk numa cópia, gravada e contada
     pg.click('[data-act="ui"][data-k="ver"][data-v="tabela"]'); pg.wait_for_timeout(200)
     pg.evaluate("window.CAIXA.abrir('vilis-broker-of-blood')"); pg.wait_for_timeout(300)
