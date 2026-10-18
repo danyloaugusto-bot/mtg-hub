@@ -34,3 +34,7 @@
 ## Radar, 16/10/2026
 
 - Com o ok do dono, dos potenciais da página relida em 15/10: Wheel of Fate (C/MED, sin2 1, +7,75) e Reforge the Soul (B/MED, sin2 1, +7,75), saindo Razorgrass Ambush. Todas com veredito "avaliar": o placar e o placar com as trocas não mudam. O ganho é o do encaixe depois da sinergia avaliada.
+
+## Regra do dono no cadastro, 17/10/2026
+
+- Dano uma vez em qualquer alvo vale Remoção 1 (regra do dono de 15/10/2026: "uma vez: Fling, Lightning Bolt"). O cadastro tinha Remoção 2 em Lightning Bolt, Goblin Grenade, Massive Raid e Electrodominance; as quatro foram para 1. Placar de 1.020 para 1.016; com as trocas, de 1.036 para 1.032. Controle atualizado.
