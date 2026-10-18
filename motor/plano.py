@@ -76,9 +76,9 @@ def sobram(cont, n, p, hi):
     return max(0, cont[p] - math.floor(hi * n / 100 + 1e-9))
 
 
-def avaliar(cards, cmd_papeis, nomes_cmd=None):
+def avaliar(cards, cmd_papeis, nomes_cmd=None, tribal=False):
     """Mistura, checagens e veredito de uma lista de cartas (as do deck, ou as de um cenário). cmd_papeis: o papel de cada
-    comandante (lista; vazia = sem classificação)."""
+    comandante (lista; vazia = sem classificação). tribal: o deck é da família Tribais (só muda o texto do tamanho do plano)."""
     R = regua()
     k = contagem(cards)
     n, cont, pct = k["n"], k["cont"], k["pct"]
@@ -89,7 +89,10 @@ def avaliar(cards, cmd_papeis, nomes_cmd=None):
     if n < R["plano_minimo"]:
         checks.append(("falha", "Plano com %d cartas: abaixo do mínimo de %d." % (n, R["plano_minimo"])))
     elif n > hi:
-        checks.append(("ok", "Plano com %d cartas. Passa da faixa de %d a %d, como todo tribal: cada corpo da tribo conta como habilitadora." % (n, lo, hi)))
+        if tribal:
+            checks.append(("ok", "Plano com %d cartas. Passa da faixa de %d a %d, como todo tribal: cada corpo da tribo conta como habilitadora." % (n, lo, hi)))
+        else:
+            checks.append(("ok", "Plano com %d cartas, acima da faixa de %d a %d: quase todo o deck tem papel no plano." % (n, lo, hi)))
     elif n < lo:
         checks.append(("aviso", "Plano com %d cartas, abaixo da faixa de %d a %d." % (n, lo, hi)))
     else:
@@ -163,6 +166,15 @@ def avaliar(cards, cmd_papeis, nomes_cmd=None):
 
 
 # ---------------------------------------------------------------- placar e cenários
+
+def e_tribal(pasta):
+    """O deck é da família Tribais no tema_jogo do tema.json."""
+    try:
+        t = json.load(open(os.path.join(dados.DADOS, pasta, "tema.json"), encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    return (t.get("tema_jogo") or {}).get("familia") == "Tribais"
+
 
 def placar(cards, grupos):
     import hub
@@ -294,7 +306,8 @@ def cenarios(pasta, m=None):
     cards, grupos = m["cards"], m["grupos"]
     cmd_p = [c["papel"] for c in m["plano"]["comandante"]]
     nomes_cmd = [c["n"].split(",")[0] for c in cards if c.get("cmd")]
-    hoje = avaliar(cards, cmd_p, nomes_cmd)
+    tribal = e_tribal(pasta)
+    hoje = avaliar(cards, cmd_p, nomes_cmd, tribal)
     p0 = placar(cards, grupos)
     falta = _faltando(hoje, cmd_p)
     sobra = _sobrando(hoje, falta)
@@ -320,7 +333,7 @@ def cenarios(pasta, m=None):
     do_radar = [c for c in radar if c.get("verdict") == "entra" and c["pp"] in falta and c["n"] not in vistos]
 
     def linha(nome, sub, cs, trocas, aviso=None):
-        a = avaliar(cs, cmd_p, nomes_cmd)
+        a = avaliar(cs, cmd_p, nomes_cmd, tribal)
         p = placar(cs, grupos)
         return dict(k=nome, sub=sub, entra=[t["entra"]["n"] for t in trocas], sai=[t["sai"]["n"] for t in trocas], mistura=a["mistura"],
                     veredito=a["veredito"], placar=p, delta=round(p - p0, 2), aviso=aviso)
