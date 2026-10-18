@@ -319,12 +319,33 @@ def em_pastas_hub():
     return out
 
 
+def pastas_hub():
+    """As pastas físicas na aba Pastas: cor, a ficha (subnome, formato, frase, papéis), quantas cartas e cópias a lista tem, a página
+    da pasta (local e publicada) e o saldo dela, que o hub mostra só ao passar o mouse (a única exceção ao "sem preço" no hub)."""
+    import caixa
+    fichas, listas = caixa.ler_fichas_pastas(), dados.ler_pastas()
+    r = caixa.ler_resumo() or {}
+    out = []
+    for n, c in PASTAS:
+        d = dict(n=n, c=c, f=fichas.get(n), q=len(listas.get(n) or {}), cp=sum((listas.get(n) or {}).values()))
+        if d["q"]:
+            d.update(href=quote(caixa.nome_pagina(n) + ".html"), pub=caixa.link_publicado(origem=n), s=(r.get("saldos") or {}).get(n))
+        out.append(d)
+    return out
+
+
+def caixa_resumo_cambio():
+    import caixa
+    return (caixa.ler_resumo() or {}).get("cambio")
+
+
 def resumo_caixa():
     """A Caixa no hub: cartas, cópias e quantas S e A, sem valor (o hub não mostra preço), e o link publicado."""
     import caixa
     r = caixa.ler_resumo()
     if not r or not os.path.isdir(os.path.join(caixa.pasta_caixa(), "listas")):
         return None
+    r = {k: v for k, v in r.items() if k not in ("saldos", "cambio")}   # o saldo de cada lista vai só no cartão da pasta
     return dict(r, href=quote(caixa.NOME + ".html"), pub=caixa.link_publicado())
 
 
@@ -372,12 +393,12 @@ def montar(avisar=print):
         decks.append(d)
 
     H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS), regua=dados.regua_compacta(),
-             pastas=[dict(n=n, c=c) for n, c in PASTAS], em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"),
+             pastas=pastas_hub(), cambio=(caixa_resumo_cambio()), em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"),
              gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None, caixa=resumo_caixa())
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
-    css_fontes, _ = tema.fontes(["Alegreya Sans"])
+    css_fontes, _ = tema.fontes(["Alegreya Sans", "Cinzel"])   # Cinzel: o subnome das pastas (Relicário de Ônix)
     root = tema.raiz_css(pal, [], ["--fd:'Alegreya Sans','Segoe UI',system-ui,sans-serif", "--fb:'Alegreya Sans','Segoe UI',system-ui,sans-serif"])
     cores = "".join(".ms-%s{background:%s}" % (k, v) for k, v in
                     (("W", "#f3e7bf"), ("U", "#a9cdf0"), ("B", "#2b2228"), ("R", "#f0a28c"), ("G", "#9fd0a6")))
