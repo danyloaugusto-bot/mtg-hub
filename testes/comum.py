@@ -107,3 +107,18 @@ def num_br(txt):
 
 def bloquear_rede(pg):
     pg.route("**/*", lambda r: r.abort() if r.request.url.startswith("http") else r.continue_())
+
+
+# Um banco de mentira com a mesma forma do db do claude.ai (hub: lista de compras; Caixa: decisões).
+FAKE_DB = """(function () {
+  var store = {}, subs = [];
+  function snap() { var docs = Object.keys(store).sort().map(function (id) { var v = store[id]; return { id: id, exists: true, data: function () { return v; }, metadata: {} }; });
+    return { docs: docs, size: docs.length, empty: !docs.length, docChanges: function () { return []; }, metadata: {} }; }
+  function avisa() { var s = snap(); subs.forEach(function (f) { setTimeout(function () { f(s); }, 0); }); }
+  var db = { collection: function () { return { doc: function (id) { return {
+      set: function (d) { store[id] = JSON.parse(JSON.stringify(d)); avisa(); return Promise.resolve(); },
+      delete: function () { delete store[id]; avisa(); return Promise.resolve(); } }; },
+    onSnapshot: function (f) { subs.push(f); setTimeout(function () { f(snap()); }, 0); return function () {}; } }; } };
+  window.__store = store;
+  window.claude = { use: function (n) { return Promise.resolve(n === 'db' ? db : n === 'user' ? { canEdit: function () { return Promise.resolve(true); } } : null); } };
+})();"""
