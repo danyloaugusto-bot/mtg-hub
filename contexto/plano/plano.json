@@ -1,0 +1,19 @@
+{
+ "versao": 1,
+ "decidido": null,
+ "_nota": "Régua do Plano do deck (contexto/plano/METODO-PLANO.md). Proposta do Claude em 18/10/2026, a calibrar no piloto e no primeiro lote. Não entra no placar da v3.",
+ "fontes": ["The Command Zone, ep. 658, Commander Deckbuilding Template for the New Era (pelo resumo do commanderdeckmaker.com)", "Munrado, Como montar seu PRIMEIRO DECK DE COMMANDER, 12/10/2026, de 5:08 a 6:30 (pelo resumo enviado pelo dono)"],
+ "nomes": {"habilita": "Habilitadora", "recompensa": "Recompensa", "multiplica": "Multiplicadora"},
+ "plano_faixa": [30, 38],
+ "plano_minimo": 28,
+ "referencia_pct": {"habilita": 40, "recompensa": 35, "multiplica": 25},
+ "faixas_pct": {"habilita": [30, 55], "recompensa": [25, 45], "multiplica": [10, 30]},
+ "multiplica_ate_habilita": true,
+ "comandante": {
+  "recompensa": {"habilita_min_pct": 40, "habilita_sem_teto": true},
+  "habilita": {"resiliencia_min": 8, "habilita_no_99_min": 10, "recompensa_min_pct": 30},
+  "multiplica": {"habilita_min": 12, "recompensa_min": 10}
+ },
+ "excelente_dupla_min_pct": 20,
+ "satisfatorio_tolerancia_cartas": 3
+}
