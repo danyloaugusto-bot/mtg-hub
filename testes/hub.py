@@ -74,18 +74,7 @@ def movimentos_py():
 
 
 # Um banco de mentira com a mesma forma do db do claude.ai: o hub publicado grava a lista de compras nele.
-FAKE_DB = """(function () {
-  var store = {}, subs = [];
-  function snap() { var docs = Object.keys(store).sort().map(function (id) { var v = store[id]; return { id: id, exists: true, data: function () { return v; }, metadata: {} }; });
-    return { docs: docs, size: docs.length, empty: !docs.length, docChanges: function () { return []; }, metadata: {} }; }
-  function avisa() { var s = snap(); subs.forEach(function (f) { setTimeout(function () { f(s); }, 0); }); }
-  var db = { collection: function () { return { doc: function (id) { return {
-      set: function (d) { store[id] = JSON.parse(JSON.stringify(d)); avisa(); return Promise.resolve(); },
-      delete: function () { delete store[id]; avisa(); return Promise.resolve(); } }; },
-    onSnapshot: function (f) { subs.push(f); setTimeout(function () { f(snap()); }, 0); return function () {}; } }; } };
-  window.__store = store;
-  window.claude = { use: function (n) { return Promise.resolve(n === 'db' ? db : n === 'user' ? { canEdit: function () { return Promise.resolve(true); } } : null); } };
-})();"""
+FAKE_DB = comum.FAKE_DB
 
 def funcoes_py(m):
     """As funções da reserva: no deck v3, os dez critérios da régua (vetor s3); no antigo, os agrupamentos (vetor s)."""
@@ -180,6 +169,13 @@ with sync_playwright() as p:
             pg.click('[data-dk="v"][data-k="estante"]'); pg.wait_for_timeout(150)
             R.ok("Decks: volta para a estante com os grupos", pg.eval_on_selector_all(".grupo h2", "e=>e.map(x=>x.textContent.trim())") == ["01. Top", "02. Tribais", "03. Caos", "04. Forfun", "05. Desejo", "06. Compras"])
             pg.click("#t-pastas"); R.ok("aba Pastas com as oito pastas", pg.is_visible("#v-pastas") and pg.locator(".pasta").count() == 8)
+            if H.get("caixa"):
+                C = H["caixa"]
+                R.ok("Caixa: botão na barra, depois de Pastas, abrindo a página da Caixa",
+                     pg.is_visible("#t-caixa") and pg.get_attribute("#t-caixa", "href") == "00.%20Caixa.html", pg.get_attribute("#t-caixa", "href"))
+                txt = pg.inner_text("#v-pastas .cx-res")
+                R.ok("Caixa: resumo na aba Pastas (cartas, cópias, S e A), sem preço",
+                     ("%d cartas" % C["cartas"]) in txt and ("%d de prioridade S" % C["S"]) in txt and "US$" not in txt and "valor" not in txt.lower(), txt)
 
             # ---------------- Dashboard
             pg.click("#t-dash"); pg.wait_for_timeout(200)
