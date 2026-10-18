@@ -699,46 +699,6 @@ def _elegivel(d):
     return d and not d["desejo"] and not d["precon"]
 
 
-def usos_compra(cxs, base=None):
-    """Os usos de Vender para comprar: a lista de compras (o retrato em dados/caixa/compras.json) e as cartas do radar como
-    "entra" (decks reais, fora precon intacto), que o dono não tem em deck, Caixa ou pasta, com o preço de hoje no cache do
-    Scryfall e onde rendem mais (deck, ganho, quem sai). Ordenados pelo ganho."""
-    decks = info_decks()
-    tem = set()
-    for d in decks.values():
-        if not d["desejo"]:
-            tem |= set(d["cartas"])
-    for cx in cxs:
-        tem |= {dados.chave_nome(c["n"]) for c in cx["cartas"]}
-    for v in dados.ler_pastas().values():
-        tem |= set(v)
-    alvo = {}
-    for ch, x in _ler_compras(base).items():
-        if ch not in tem:
-            alvo.setdefault(ch, dict(n=x["n"], de=[]))["de"].append("lista de compras")
-    for p, d in decks.items():
-        if not _elegivel(d):
-            continue
-        for ch, x in d["radar"].items():
-            if x.get("verdict") == "entra" and ch not in tem:
-                alvo.setdefault(ch, dict(n=x["n"], de=[]))["de"].append("radar do " + d["curto"])
-    sc = scryfall._ler()
-    cad = dados.ler_cadastro()
-    ds_v3 = encaixe.decks_v3()
-    out = []
-    for ch, a in alvo.items():
-        k = sc["nomes"].get(a["n"].lower())
-        r = sc["cartas"].get(k) if k else None
-        u = dict(n=a["n"], de=a["de"], usd=_preco(r, "normal") if r else None, data=(r or {}).get("consultado"))
-        melhor = [g for g in encaixe.ranking(a["n"], ds_v3, cad, None, n=None) if not g["ja_no_deck"] and _elegivel(decks.get(g["deck"]))]
-        if melhor:
-            g = melhor[0]
-            u.update(p=g["deck"], g=g["ganho"], s=g["sai"], a=1 if g["avaliada"] else 0)
-        out.append(u)
-    out.sort(key=lambda u: (-(u.get("g") if u.get("g") is not None else -1e9), u["n"]))
-    return out
-
-
 def _ler_compras(base):
     p = os.path.join(pasta_caixa(base), "compras.json")
     try:
@@ -781,6 +741,8 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
     dec = ler_decisoes(base, origem)
     pet = (_ler_marcas().get(origem) or {}) if origem != CAIXA else {}
     trad = ler_traducoes()
+    # pasta que não vende (ficha com "venda": false, como a Preta P): nada dela vai para venda, bulk ou bundles
+    sem_venda = origem != CAIXA and (ler_fichas_pastas().get(origem) or {}).get("venda") is False
     precos_ant = ler_precos().get("copias") or {}
     cmd_do_dono = {}
     for p, d in decks.items():
@@ -930,7 +892,7 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
             card["tx"] = {"pt": t["pt"]}
             if t.get("h") != marca_texto(card["fx"]):
                 card["tx"]["velha"] = 1
-        _sugerir(card, decks, em_desejo, R)
+        _sugerir(card, decks, em_desejo, R, sem_venda)
         card["avaliar"] = _decks_a_avaliar(card, decks)
         card["q"] = len(card["copias"])
         card["valor"] = round(sum(c["usd"] or 0 for c in card["copias"]), 2)
@@ -967,7 +929,7 @@ def _frase_edh(card, pasta, decks):
     return " No EDHREC, %s%% dos decks de %s a jogam." % (fmt(round(t["pct"])), t["n"].split(",")[0])
 
 
-def _sugerir(card, decks, em_desejo, R):
+def _sugerir(card, decks, em_desejo, R, sem_venda=False):
     """Destino, prioridade e porquê de cada cópia, na ordem das regras; um deck usado por uma cópia sai das seguintes."""
     enc = {e["p"]: e for e in card["enc"]}
     em_deck = {x["p"] for x in card["em_decks"]}
@@ -1112,6 +1074,10 @@ def _sugerir(card, decks, em_desejo, R):
                     "posição %s no EDHREC, fora do top %s" % (fmt(card["rank"], 0), fmt(R["bundles_rank_max"], 0)) if card["rank"] else "fora do ranking do EDHREC")])
                 sug = dict(d="bulk", p=None, P="C", regra=6, pq="Sem casa nos seus decks, sem força sozinha e %s." % (
                     "abaixo de %s" % usd(R["venda_usd_min"]) if preco is not None else "sem preço no Scryfall"))
+        if sem_venda and sug["d"] in ("venda", "bulk", "bundles"):
+            tr.append([sug.get("regra") or 0, NOME_DESTINO[sug["d"]], "seria a sugestão, mas esta pasta não vende: por definição, as cartas dela ficam"])
+            sug = dict(d="guardar", p=None, P="C", regra=0, pq="Fica na pasta: nada daqui vai para venda, bulk ou bundles.", pp="C: fica onde está, sem ação.")
+            marcas = [m for m in marcas if m not in ("capital parado", "moeda de troca", "oportunidade")]
         if preco is None:
             marcas.append("sem preço")
         sug["marcas"] = marcas
@@ -1253,7 +1219,7 @@ def pagina(cx=None, avisar=print, modo_img="embutidas", origem=None):
         avisar("aviso: a pasta %s não bate com nenhuma pasta física do hub (hub.PASTAS)" % p)
     D = dict(lido=cx["lido"], regua=R, origens=ors, decks=cx["decks"], crit=crit, crit10=crit10,
              cambio=cambio(avisar=avisar), tarefas=[t for t in tarefas_pendentes() if t["de"] == origem or t.get("pasta") == origem],
-             usos=usos_compra(lista), fichas=ler_fichas_pastas(), gerado=dt_.datetime.now().isoformat(timespec="seconds"),
+             fichas=ler_fichas_pastas(), gerado=dt_.datetime.now().isoformat(timespec="seconds"),
              manabox=[p for p, v in pastas_lista().items() if v["sub"]],
              pastas=[n for n, _ in hub.PASTAS], pastas_com_lista=bool([p for p in dados.ler_pastas() if p != CAIXA]),
              hub_pub=R.get("hub_publicado"), img=_img(todas, avisar) if modo_img == "embutidas" else None)
