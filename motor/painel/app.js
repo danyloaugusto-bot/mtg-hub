@@ -1758,6 +1758,11 @@ function readings(st) {
         'CMC médio de ' + fmt(st.avg) + ', com o pico da curva em ' + peak(st) + '.' + (w && l.alerta ? ' ' + esc(l.alerta) : ''));
     }
   });
+  // banida no Commander (legalidade do Scryfall): o build avisa e a leitura mostra; a decklist não muda sozinha
+  var ban = D.banidas || [], bd = ban.filter(function (b) { return b.onde === 'deck'; }), br = ban.filter(function (b) { return b.onde === 'radar'; });
+  if (ban.length) add('warn', pl(ban.length, 'carta banida', 'cartas banidas') + ' no Commander.',
+    (bd.length ? 'No deck: ' + esc(bd.map(function (b) { return b.n; }).join(', ')) + '. ' : '') +
+    (br.length ? 'No radar: ' + esc(br.map(function (b) { return b.n; }).join(', ')) + '. ' : '') + 'Pela lista oficial do formato, no Scryfall.');
   return r.join('');
 }
 function peak(st) { var m = 0, k = 0; st.curve.forEach(function (c, i) { if (c.n > m) { m = c.n; k = i; } }); return (k === 7 ? '7 ou mais' : k) + ' manas'; }
