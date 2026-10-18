@@ -177,6 +177,9 @@ with sync_playwright() as p:
                 R.ok("Caixa: resumo na aba Pastas (cartas, cópias, S e A), sem preço",
                      ("%d cartas" % C["cartas"]) in txt and ("%d de prioridade S" % C["S"]) in txt and "US$" not in txt and "valor" not in txt.lower(), txt)
             # pasta com ficha (dados/pastas/pastas.json) e com lista (export do ManaBox): subnome, contagem, papéis e o atalho para a Caixa, sem preço
+            # o veredito do Plano do deck na Lista e no Resumo (sem preço)
+            com_pv = [d for d in H["decks"] if (d.get("a") or {}).get("pv")]
+            R.ok("Plano do deck: o hub tem o veredito dos decks classificados", com_pv and all(d["a"]["pv"] in ("excelente", "satisfatorio", "insuficiente") for d in com_pv), [d["pasta"] for d in com_pv])
             fichas = {p["n"]: p for p in H["pastas"] if p.get("f")}
             for nome, p in fichas.items():
                 art = pg.locator(".pasta.pasta-f", has_text=nome).first
