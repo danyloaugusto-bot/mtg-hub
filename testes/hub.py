@@ -176,6 +176,21 @@ with sync_playwright() as p:
                 txt = pg.inner_text("#v-pastas .cx-res")
                 R.ok("Caixa: resumo na aba Pastas (cartas, cópias, S e A), sem preço",
                      ("%d cartas" % C["cartas"]) in txt and ("%d de prioridade S" % C["S"]) in txt and "US$" not in txt and "valor" not in txt.lower(), txt)
+            # pasta com ficha (dados/pastas/pastas.json) e com lista (export do ManaBox): subnome, contagem, papéis e o atalho para a Caixa, sem preço
+            fichas = {p["n"]: p for p in H["pastas"] if p.get("f")}
+            for nome, p in fichas.items():
+                art = pg.locator(".pasta.pasta-f", has_text=nome).first
+                ta = art.inner_text() if art.count() else ""
+                R.ok("Pastas: %s com o subnome (%s), a contagem e os papéis da ficha" % (nome, p["f"]["subnome"]), p["f"]["subnome"] in ta
+                     and (p["q"] == 0 or ("%d carta" % p["q"]) in ta) and art.locator(".p-pa li").count() == len(p["f"].get("papeis") or []), ta[:120])
+                if p["q"] and H.get("caixa"):
+                    R.ok("Pastas: %s abre a página dela" % nome, (art.locator("a.bt-c").get_attribute("href") or "") == ("00. Pasta " + nome + ".html").replace(" ", "%20"))
+                    sal = art.locator(".p-saldo")
+                    R.ok("Pastas: %s mostra o saldo só ao passar o mouse" % nome, sal.count() == 1 and pg.evaluate("getComputedStyle(document.querySelector('.pasta-f .p-saldo')).opacity") == "0")
+                    art.hover(); pg.wait_for_timeout(300)
+                    R.ok("Pastas: com o mouse em cima, o saldo aparece (valor de hoje e variação)", pg.evaluate("getComputedStyle(document.querySelector('.pasta-f .p-saldo')).opacity") == "1" and "US$" in sal.inner_text())
+            fora = pg.evaluate("(() => { var v = document.querySelector('#v-pastas').cloneNode(true); v.querySelectorAll('.p-saldo').forEach(function (x) { x.remove(); }); return v.textContent; })()")
+            R.ok("Pastas: preço só no saldo da pasta, ao passar o mouse; nada mais na aba", "US$" not in fora and "R$" not in fora)
 
             # ---------------- Dashboard
             pg.click("#t-dash"); pg.wait_for_timeout(200)
