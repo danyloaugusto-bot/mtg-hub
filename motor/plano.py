@@ -435,7 +435,10 @@ def dossie(pasta, n_cand=10):
         if g:
             cands.append((g["ganho"], nome, p, g))
     cands.sort(key=lambda x: -x[0])
-    out["candidatos"] = [dict(nome=n, origem=p, ganho=g["ganho"], avaliada=g["avaliada"], texto=texto(n),
+    def tipo(nome):
+        k = sc["nomes"].get(nome.lower())
+        return (sc["cartas"].get(k) or {}).get("type_line", "") if k else ""
+    out["candidatos"] = [dict(nome=n, origem=p, ganho=g["ganho"], avaliada=g["avaliada"], tipo=tipo(n), texto=texto(n),
                               notas=dict(zip(ks[2:], [(cad.get(n) or {}).get("n", {}).get(x, 0) for x in ks[2:]]))) for _, n, p, g in cands[:n_cand]]
     return out
 
@@ -450,8 +453,13 @@ def gravar(arquivo, hoje=None):
     feitos = []
     for pasta, d in novo.items():
         p, av, ind, nl = caixa._ler_av(pasta)
+        # o dossiê usa o nome que está na carta física (Argonath, Pillars of the Kings); o avaliacao.json, às vezes, o oficial (The Ozolith)
+        m = dados.montar(pasta, avisar=lambda *a: None)
+        oficial = {c["n"]: c.get("on") for c in m["cards"] + m["cands"] if c.get("on")}
         for n, x in (d.get("cartas") or {}).items():
-            alvo = (av.get("cartas") or {}).get(n) or (av.get("radar") or {}).get(n)
+            alvo = None
+            for k in (n, oficial.get(n)):
+                alvo = alvo or (av.get("cartas") or {}).get(k) or (av.get("radar") or {}).get(k)
             if alvo is None:
                 raise SystemExit("%s: %s não está no deck nem no radar" % (pasta, n))
             _por(alvo, x, pasta, n)
