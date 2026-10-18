@@ -26,6 +26,7 @@ R.ok("de 6 a 10 agrupamentos", 6 <= len(d["grupos"]) <= 10, len(d["grupos"]))
 R.ok("toda carta com o porquê escrito", all(c["why"].strip() for c in d["cards"] + d["cands"]),
      [c["n"] for c in d["cards"] + d["cands"] if not c["why"].strip()][:3])
 R.ok("toda carta com o que faz", all(c["fx"].strip() for c in d["cards"] + d["cands"]))
+R.ok("plano do deck (opcional): papel válido e com porquê em toda carta que tem papel", all(c.get("pp") in (None,) + dados.PAPEIS and (not c.get("pp") or (c.get("ppw") or "").strip()) for c in d["cards"] + d["cands"]))
 t = dados.ler_json(os.path.join(base, "tema.json"), obrigatorio=False) or {}
 try:
     build.conferir_tema(t)
@@ -90,6 +91,18 @@ try:
     def caro(av):
         next(iter(av["cartas"].values()))["caro_por_desenho"] = "sim"
 
+    def papel(av):   # Plano do deck: papel fora da lista
+        next(iter(av["cartas"].values()))["papel"] = "rainha"
+
+    def papel_sem_porque(av):
+        c = next(iter(av["cartas"].values())); c["papel"] = "habilita"; c.pop("papel_por_que", None)
+
+    def plano_cmd(av):
+        av["plano"] = {"comandante": [{"papel": "habilita"}], "revisado": "2026-10-18"}
+
+    recusa("papel-invalido", papel, "papel")
+    recusa("papel-sem-porque", papel_sem_porque, "papel_por_que")
+    recusa("plano-comandante-sem-porque", plano_cmd, "avaliacao.json, plano")
     recusa("nota-4", nota4, "vale de")
     recusa("pacote-inexistente", pacote, "não é um agrupamento")
     recusa("caro-por-desenho-nao-booleano", caro, "caro_por_desenho")
