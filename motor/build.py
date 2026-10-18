@@ -4,6 +4,7 @@
     python motor/build.py --deck "02. Clavileño"
     python motor/build.py --todos          # todos os decks com avaliação, e o hub no fim
     python motor/build.py --hub            # só o hub
+    python motor/build.py --caixa          # só a Caixa (saidas/00. Caixa.html); --todos monta a Caixa antes do hub
 
 Gera saidas/<pasta>.html e dados/<pasta>/Abrir o painel.html; o hub gera saidas/00. Hub.html e Abrir o Hub.html na raiz.
 Sempre com quebra de linha LF,
@@ -16,7 +17,7 @@ sys.dont_write_bytecode = True
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, MOTOR)
 
-import dados, encaixe, hub, imagens, scryfall, tema  # noqa: E402
+import caixa, dados, encaixe, hub, imagens, scryfall, tema  # noqa: E402
 
 RAIZ = os.path.dirname(MOTOR)
 SAIDAS = os.path.join(RAIZ, "saidas")
@@ -235,6 +236,23 @@ def montar_hub():
     print("%s: %d decks, %d com painel | %.0f KB" % (hub.NOME, len(H["decks"]), prontos, len(html.encode("utf-8")) / 1024))
 
 
+def montar_caixa(modo_img="embutidas"):
+    """A Caixa: página própria, como um painel; avisa acima de aviso_mb e recusa acima de teto_mb (motor/caixa.json)."""
+    R = caixa.regua()
+    if not os.path.isdir(os.path.join(caixa.pasta_caixa(), "listas")):
+        print("%s: sem dados/caixa/listas/, pulada" % caixa.NOME)
+        return
+    html, cx = caixa.pagina(modo_img=modo_img)
+    mb = len(html.encode("utf-8")) / 1048576
+    if mb > R["teto_mb"]:
+        raise dados.ErroDeck("a Caixa ficou com %.1f MB (teto %s MB): aplique decisões (/caixa aplicar) ou divida as listas em lotes" % (mb, R["teto_mb"]))
+    gravar(os.path.join(SAIDAS, caixa.NOME + ".html"), html)
+    gravar(os.path.join(RAIZ, "Abrir a Caixa.html"), caixa.atalho())
+    r = cx["resumo"]
+    print("%s: %d cartas, %d cópias | %.0f KB%s" % (caixa.NOME, r["cartas"], r["copias"], mb * 1024,
+                                                  "  AVISO: passou de %s MB" % R["aviso_mb"] if mb > R["aviso_mb"] else ""))
+
+
 def decks():
     out = []
     for n in sorted(os.listdir(dados.DADOS)):
@@ -250,6 +268,7 @@ def main():
     g.add_argument("--deck", help="nome da pasta do deck, como em dados/")
     g.add_argument("--todos", action="store_true", help="todos os decks de dados/ que já têm avaliação, e o hub no fim")
     g.add_argument("--hub", action="store_true", help="só o hub, saidas/00. Hub.html")
+    g.add_argument("--caixa", action="store_true", help="só a Caixa, saidas/00. Caixa.html")
     ap.add_argument("--atualizar-scryfall", action="store_true", help="consulta o Scryfall de novo, mesmo para cartas no cache")
     ap.add_argument("--imagens", choices=MODOS_IMG, default="embutidas", help="embutidas (padrão): lê cache/img/; externas: tenta o Scryfall ao vivo; nenhuma: sem imagens, nem ao vivo")
     a = ap.parse_args()
@@ -260,6 +279,13 @@ def main():
     erros = 0
     if a.hub:
         montar_hub()
+        sys.exit(0)
+    if a.caixa:
+        try:
+            montar_caixa(a.imagens)
+        except (dados.ErroDeck, scryfall.ErroScryfall) as e:
+            print("%s: ERRO: %s" % (caixa.NOME, e), file=sys.stderr)
+            sys.exit(1)
         sys.exit(0)
     alvos = decks() if a.todos else [a.deck]
     if a.todos:
@@ -274,6 +300,11 @@ def main():
             erros += 1
             print("%s: ERRO: %s" % (pasta, e), file=sys.stderr)
     if a.todos:
+        try:
+            montar_caixa(a.imagens)
+        except (dados.ErroDeck, scryfall.ErroScryfall) as e:
+            erros += 1
+            print("%s: ERRO: %s" % (caixa.NOME, e), file=sys.stderr)
         montar_hub()
     sys.exit(1 if erros else 0)
 
