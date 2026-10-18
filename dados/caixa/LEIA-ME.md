@@ -22,4 +22,4 @@ Não edite nem apague linhas das listas para tirar o que saiu: isso é feito pel
 | `HISTORICO.md` | O que saiu da caixa, decisão a decisão | O `/caixa aplicar` |
 | `link.txt` | O link da Caixa publicada | O `/publicar` |
 
-As pastas físicas (Preta P, Rosa (sell) e as outras) ficam em `dados/pastas/`. Uma pasta com lista aparece na mesma página, em "Lista", com as mesmas decisões: mover para outra pasta, ir ao radar de um deck ou remover.
+As pastas físicas (Preta P, Rosa P e as outras) ficam em `dados/pastas/`. Uma pasta com lista ganha página própria, com as mesmas contas e decisões da Caixa, aberta pelo cartão dela na aba Pastas do hub. A pasta de venda é a Rosa P; a Preta P não vende.

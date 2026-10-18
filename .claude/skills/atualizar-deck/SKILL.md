@@ -51,3 +51,5 @@ Para deck que já tem painel. Uma análise nova é mais uma fonte de ideias e ma
 - Painel e hub foram montados de novo, e os testes do deck e do hub passam.
 - Há uma entrada no `HISTORICO.md` do deck e uma linha no `contexto/ESTADO.md`.
 - Commit `deck: <pasta>, nova análise de fora (fonte X)`.
+
+Plano do deck: toda carta nova no deck ou no radar ganha `papel` (habilita, recompensa, multiplica, ou nenhum para estrutura), `papel_dupla` quando houver e `papel_por_que`, pelo `contexto/plano/METODO-PLANO.md`, se o deck já tem o bloco `plano`. Deck novo sem classificação: rode o `/plano` depois.

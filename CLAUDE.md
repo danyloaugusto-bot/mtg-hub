@@ -61,6 +61,7 @@ Mantenha esta seção atualizada.
 - Cartas do zero no Scryfall: acrescente `--atualizar-scryfall`
 - Testes de um deck: `python testes/todos.py --deck "02. Clavileño"` (contrato, regressão, página publicada, layout e, no Clavileño, a comparação com o painel de origem). Cada um também roda sozinho, com `--deck`.
 - Hub: `python motor/build.py --hub` (grava `saidas/00. Hub.html` e `Abrir o Hub.html` na raiz). Teste: `python testes/hub.py`, que também confere as contas do Dashboard contra o motor e contra cada painel (os painéis precisam estar montados em `saidas/`).
+- Plano do deck: `/plano <pasta> | todos` (`python motor/plano.py --deck "<pasta>"` mostra o veredito e os cenários). Teste: `python testes/plano.py`.
 - Valor de hoje: `/precos [origem]` (`python motor/caixa.py --precos [--origem "Preta P"]`), com a PTAX em `cache/cambio.json`.
 - Caixa: `python motor/build.py --caixa` (grava `saidas/00. Caixa.html`, uma página por pasta com lista, `saidas/00. Pasta <pasta>.html`, e `Abrir a Caixa.html`; `--todos` monta a Caixa antes do hub). A conta sozinha: `python motor/caixa.py`. Teste: `python testes/caixa.py`. O comando do dia a dia é o `/caixa` (e `/caixa aplicar`).
 - Não rode o `build.py` do kit em `contexto/origem/`: ele grava dentro da pasta de origem.

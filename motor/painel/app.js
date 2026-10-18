@@ -1920,6 +1920,7 @@ function renderGeral() {
     '<fieldset class="pn"><legend>Os ' + NUM[NG] + ' agrupamentos</legend><div class="gl">' + groups + '</div>' +
     '<p class="pn-note">O número em destaque conta as cartas com nota 2 ou 3; o que vem depois do sinal de mais, as de nota 1. A faixa tracejada, onde aparece, é a referência usual de Commander, e vale como regra de bolso.</p></fieldset>' +
     '<fieldset class="pn"><legend>Leitura do deck</legend><ul class="read">' + readings(st) + '</ul></fieldset></div>';
+  h += planoPanel();
   h += estrategiaPanel();
 
   h += '<div class="grid g-111">' + coresPanel(st) +
@@ -1935,6 +1936,74 @@ function renderGeral() {
   el.className = 'view' + (ui.first ? ' anim' : '');
   el.innerHTML = h;
   ui.first = false;
+}
+
+/* ============ plano do deck ============ */
+/* habilitadoras, recompensas e multiplicadoras (motor/plano.py; contexto/plano/METODO-PLANO.md). Uma lente ao lado do placar:
+   o veredito nunca entra nele. Os cenários e o placar deles vêm do build, pela mesma conta do placar. */
+var PAPEL = { habilita: 'Habilitadora', recompensa: 'Recompensa', multiplica: 'Multiplicadora' };
+var PAPEIS = { habilita: 'Habilitadoras', recompensa: 'Recompensas', multiplica: 'Multiplicadoras' };
+var PPK = ['habilita', 'recompensa', 'multiplica'];
+var VERP = { excelente: 'Excelente', satisfatorio: 'Satisfatório', insuficiente: 'Insuficiente' };
+function ppB(p) { return '<span class="pp pp-' + p + '">' + PAPEL[p] + '</span>'; }
+function verB(v) { return '<span class="pv pv-' + (v || 'nd') + '">' + (VERP[v] || 'Não classificado') + '</span>'; }
+function mistBar(mx, alto) {
+  var n = mx[0] + mx[1] + mx[2] || 1;
+  return '<div class="pbar' + (alto ? ' alto' : '') + '">' + PPK.map(function (p, i) {
+    return mx[i] ? '<i class="pb-' + p + '" style="flex:' + mx[i] + '">' + (alto ? '<b>' + mx[i] + '</b> ' + fmt(mx[i] / n * 100, 0) + '%' : '') + '</i>' : '';
+  }).join('') + '</div>';
+}
+function planoManchete(P) {
+  var f = P.falta || [], m = P.mistura, n = P.n || 1, ref = P.ref || {}, sobra = [];
+  PPK.forEach(function (p, i) { if (f.indexOf(p) < 0 && m[i] / n * 100 > (ref[p] || 0) + 10) sobra.push(p); });
+  var t = { habilita: 'Habilitadoras', recompensa: 'recompensas', multiplica: 'multiplicadoras' };
+  if (!f.length) return '<b>A mistura está equilibrada.</b> O plano tem corpo, conversão e o que multiplicar.';
+  var cab = (sobra.length ? PAPEIS[sobra[0]] + ' de sobra, ' : '') + (sobra.length ? t[f[0]] : PAPEIS[f[0]]) + ' de menos.';
+  var rab = { recompensa: 'O deck faz o plano acontecer, mas converte pouco em vantagem.', habilita: 'Falta corpo para o plano acontecer.', multiplica: 'O plano roda, mas sem nada que o multiplique.' }[f[0]];
+  return '<b>' + cab.charAt(0).toUpperCase() + cab.slice(1) + '</b> ' + rab;
+}
+function planoPanel() {
+  var P = D.plano; if (!P) return '';
+  if (!P.classificado) return '<fieldset class="pn plano"><legend>Plano do deck</legend><p class="pn-note">Ainda não classificado: habilitadoras, recompensas e multiplicadoras entram com o <code>/plano</code>. O placar não muda.</p></fieldset>';
+  var n = P.n, ref = P.ref, acc = 0, tracos = '';
+  ['habilita', 'recompensa'].forEach(function (p) { acc += ref[p]; tracos += '<i class="pref" style="left:' + acc + '%"></i>'; });
+  var ico = { ok: '✓', aviso: '!', falha: '✗' };
+  var cmd = P.cmd.map(function (c, i) { var t = c.por_que; return '<div class="pcmd">' + ppB(c.papel) + '<p><b>' + esc(P.nomes_cmd[i] || '') + '</b> ' + esc(t.charAt(0).toLowerCase() + t.slice(1)) + '</p></div>'; }).join('');
+  var NOMEC = { hoje: 'Hoje', sem_comprar: 'Sem comprar nada', radar: 'Radar como está', recomendado: 'Recomendado' };
+  var cen = P.cenarios.map(function (x) {
+    var d = x.delta;
+    return '<tr class="pc-' + x.k + (x.aviso ? ' pc-av' : '') + '"><th scope="row">' + NOMEC[x.k] + (x.sub ? '<small>' + esc(x.sub) + '</small>' : '') + '</th>' +
+      '<td>' + (x.entra.length ? esc(lista(x.entra)) : '—') + '</td><td>' + (x.sai.length ? esc(lista(x.sai)) : '—') + (x.aviso ? '<small class="pc-avt">' + esc(x.aviso) + '</small>' : '') + '</td>' +
+      '<td>' + mistBar(x.mistura) + '<small>' + x.mistura.join(' · ') + '</small></td><td>' + verB(x.veredito) + '</td>' +
+      '<td class="num">' + fmtP(x.placar) + (d ? ' <b class="' + (d > 0 ? 'pos' : 'neg') + '">' + (d > 0 ? '+' : '−') + fmtP(Math.abs(d)) + '</b>' : '') + '</td></tr>';
+  }).join('');
+  var trocas = P.trocas.map(function (t) {
+    var org = t.origem + (t.onde && t.onde.length && t.origem.indexOf('mover') === 0 ? '' : '');
+    return '<div class="ptr">' + ppB(t.papel) + '<div><p><b>' + esc(t.entra) + '</b> no lugar de <b>' + esc(t.sai) + '</b> <span class="porg">' + esc(org) + '</span></p>' +
+      '<p class="pfx">' + esc(t.faz) + (t.onde && t.onde.length ? ' Você tem ' + esc(t.entra) + ' no ' + esc(lista(t.onde)) + '.' : '') + '</p></div>' +
+      '<b class="num ' + (t.ganho > 0 ? 'pos' : t.ganho < 0 ? 'neg' : '') + '">' + (t.ganho > 0 ? '+' : t.ganho < 0 ? '−' : '±') + fmtP(Math.abs(t.ganho)) + '</b></div>';
+  }).join('');
+  var notas = (P.notas || []).map(function (x) {
+    return esc(x.corte) + ' também é o corte do ' + esc(x.radar) + ' no radar: se ele entrar, o pacote fica em ' + (x.total_alt > 0 ? '+' : x.total_alt < 0 ? '−' : '') + fmtP(Math.abs(x.total_alt)) + '.';
+  }).join(' ');
+  var cs = deck().filter(function (c) { return c.pp && !c.cmd; });
+  var cols = PPK.map(function (p) {
+    var l = cs.filter(function (c) { return c.pp === p; }).sort(function (a, b) { return (TR[a.tier] - TR[b.tier]) || a.n.localeCompare(b.n); });
+    return '<div><h4 class="ph-' + p + '">' + PAPEIS[p] + ' <small>' + l.length + '</small></h4><ul>' + l.map(function (c) {
+      return '<li>' + tierB(c.tier, true) + ' <button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + '</button>' + (c.ppd ? ' <span class="pdup" title="' + esc(c.ppd) + '">+</span>' : '') + '</li>';
+    }).join('') + '</ul></div>';
+  }).join('');
+  return '<fieldset class="pn plano"><legend>Plano do deck</legend>' +
+    '<div class="pver">' + verB(P.veredito) + '<p>' + planoManchete(P) + '</p></div>' + cmd +
+    '<div class="pbw">' + mistBar(P.mistura, true) + tracos + '</div>' +
+    '<p class="pleg"><b class="ph-habilita">Habilitadoras</b> fazem o plano acontecer · <b class="ph-recompensa">Recompensas</b> transformam o plano em vantagem · <b class="ph-multiplica">Multiplicadoras</b> multiplicam o que já roda. Traços: a referência de ' + ref.habilita + ', ' + ref.recompensa + ' e ' + ref.multiplica + '%.</p>' +
+    '<ul class="pchk">' + P.checks.map(function (k) { return '<li class="pk-' + k.s + '"><i>' + ico[k.s] + '</i><span>' + esc(k.t) + '</span></li>'; }).join('') + '</ul>' +
+    '<h3 class="sub">Mais forte e equilibrado</h3><p class="pn-note">Força é o placar dos seus dez critérios; equilíbrio é o plano. A boa troca melhora os dois.</p>' +
+    '<div class="tw"><table class="tbl pcen"><thead><tr><th scope="col">Cenário</th><th scope="col">Entra</th><th scope="col">Sai</th><th scope="col">Plano <small>hab · rec · mult</small></th><th scope="col">Veredito</th><th scope="col" class="num">Placar</th></tr></thead><tbody>' + cen + '</tbody></table></div>' +
+    (trocas ? '<h3 class="sub">O recomendado, troca a troca</h3><div class="ptrs">' + trocas + '</div>' : '') +
+    (notas ? '<p class="pn-note">' + notas + ' Nenhuma troca muda a decklist sozinha.</p>' : '') +
+    '<details class="pcart"><summary>As ' + n + ' cartas do plano, por papel</summary><div class="pcols">' + cols + '</div>' +
+    '<p class="pn-note">+ dupla função (passe o mouse para ver qual). Fora do plano: terrenos, ramp, compra e remoção sem papel nele.</p></details></fieldset>';
 }
 
 /* ============ estratégia ============ */
@@ -2252,6 +2321,7 @@ function sortVal(c, k) {
   if (k === 'syn') return c.syn == null ? -999 : c.syn;
   if (k === 'tier') return TR[c.tier];
   if (k === 'rel') return RR[c.rel];
+  if (k === 'pp') return c.pp ? PPK.indexOf(c.pp) : 9;
   return gv(c, +k.slice(1));
 }
 function sorter(a, b) {
@@ -2288,13 +2358,13 @@ function tabRows() {
       (imgOn() ? '<span class="thb">' + imgTag(c, 'small', false) + '</span>' : '') + '<span class="t">' + esc(c.n) + '</span>' +
       (c.foil ? '<span class="foil" title="Foil">✦</span>' : '') + (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') + (c.edited ? '<span class="edt" title="Avaliação alterada por você"></span>' : '') +
       '</div></td><td class="dimc num hm">' + c.q + '</td><td class="hm">' + (c.cost ? mana(c.cost) : '<span class="dimc">—</span>') + '</td><td class="num">' + (c.land ? '<span class="dimc">—</span>' : c.cmc) + '</td>' + cells +
-      '<td class="pts num">' + fmtP(pts(c)) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + '</td></tr>';
+      '<td class="pts num">' + fmtP(pts(c)) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + (D.plano && D.plano.classificado ? '</td><td>' + (c.pp ? ppB(c.pp) : '<span class="dimc">—</span>') : '') + '</td></tr>';
   }
   var tot = [], tp = 0, tn = 0, i;
   for (i = 0; i < NG; i++) tot.push(0);
   cs.forEach(function (c) { for (var i = 0; i < NG; i++) tot[i] += gv(c, i) * c.q; tp += pts(c) * c.q; tn += c.q; });
   var h = '<tr class="tot"><td class="c-name">' + (cs.length === deck().length ? 'Total do deck' : 'Total do filtro') + '</td><td class="num hm">' + tn + '</td><td class="hm"></td><td></td>' +
-    tot.map(function (v) { return '<td class="num">' + v + '</td>'; }).join('') + '<td class="num">' + fmtP(tp) + totPl(cs, tp) + '</td>' + (EDH ? '<td></td>' : '') + '<td></td><td></td></tr>';
+    tot.map(function (v) { return '<td class="num">' + v + '</td>'; }).join('') + '<td class="num">' + fmtP(tp) + totPl(cs, tp) + '</td>' + (EDH ? '<td></td>' : '') + '<td></td><td></td>' + (D.plano && D.plano.classificado ? '<td></td>' : '') + '</tr>';
   if (!cs.length) return h + '<tr><td class="c-name" colspan="' + NCOL + '" style="position:static;padding:22px 14px;color:var(--mute);max-width:none">Nenhuma carta com esses filtros. Limpe a busca ou escolha outro agrupamento.</td></tr>';
   if (ui.grouped) {
     TG.forEach(function (g) {
@@ -2340,7 +2410,7 @@ function renderTab0() {
     th('n', 'Carta', 'c-name') + th('q', 'Qtd', 'hm') + '<th scope="col" class="hm">Custo</th>' + th('cmc', 'CMC') +
     G.map(function (g, i) { return th('g' + i, esc(g.ab), 'gh', g.k + ': ' + g.d, '--c:var(--g' + i + ')'); }).join('') +
     th('pts', 'Pts') + (EDH ? th('syn', 'Wiki', '', 'Sinergia no ' + EDH.fonte + (EDH.pagina ? ' para ' + EDH.pagina : '') + ': presença na comunidade, não força') : '') +
-    th('tier', 'Tier') + th('rel', 'Relev.') + '</tr></thead><tbody id="tbody">' + tabRows() + '</tbody></table></div>';
+    th('tier', 'Tier') + th('rel', 'Relev.') + (D.plano && D.plano.classificado ? th('pp', 'Papel', '', 'Papel no Plano do deck') : '') + '</tr></thead><tbody id="tbody">' + tabRows() + '</tbody></table></div>';
   h += '<p class="hint">' + (tc ? 'Notas de 0 a 3 nos ' + NUM[NC] + ' critérios. Pts é o valor da carta: peso do critério × pontos da nota, somado.' :
     'Notas de 0 a 3 em cada agrupamento: 1 é efeito de passagem, 2 é função da carta, 3 é referência do deck. Uma carta pode pontuar em vários.') + (EDH ? ' A coluna Wiki é a sinergia no ' + esc(EDH.fonte) + '.' : '') + ' Toque na linha para ver a carta, o motivo e editar.</p>';
   $('#v-tab').innerHTML = h;
@@ -2428,6 +2498,7 @@ function candCard(c) {
     (imgOn() ? '<div class="cand-img c-' + esc(c.col) + '" data-card="' + id + '" role="button" tabindex="0" aria-label="Abrir ' + esc(c.n) + '">' + fbTile(c) + imgTag(c, 'small', false) + '</div>' : '') +
     '<div class="cand-txt"><div class="cand-h">' + tierB(c.tier) + '<div><h3><button class="linkish" data-card="' + id + '">' + esc(c.n) + '</button></h3><p class="cand-m">' + (c.cost ? mana(c.cost) + ' ' : '') + esc(c.line) + (c.pt ? ', ' + esc(c.pt) : '') + '</p></div>' +
     '<span class="vd vd-' + esc(c.verdict) + '">' + VERD[c.verdict] + '</span></div>' +
+    (c.pp ? '<p class="cand-pp">' + ppB(c.pp) + (D.plano && D.plano.radar && D.plano.radar[c.id] ? ' <small>com a troca do radar, o plano fica ' + verB(D.plano.radar[c.id]) + '</small>' : '') + '</p>' : '') +
     (c.fx ? '<p class="cand-fx' + (c.orig ? ' orig' : '') + '">' + rich(c.fx) + '</p>' : '') + (c.why ? '<p class="cand-why">' + rich(c.why) + '</p>' : '') + '</div></div>' +
     (V3 ? '<div class="gtags">' + gtags3(c) + '<span class="gt" style="--c:var(--gold-rgb)">' + fmtP(pts3(c)) + ' pts · ' + (function (p) { return p.n + 'ª de ' + p.de; })(posicao(c)) + '</span>' :
     '<div class="gtags">' + gtags(c) + '<span class="gt" style="--c:var(--gold-rgb)">' + pts(c) + ' pts</span>') +
@@ -2697,6 +2768,8 @@ function renderDrawer() {
     h += '<p class="dw-pk">No 8×8: <b>' + esc(pkN) + '</b>' + (S.pk[c.id] ? ' (movida por você)' : '') + ' <button class="linkish" data-act="go" data-v="pk">Ver no 8×8</button></p>';
     var ps = c.cmd ? null : posicao(c);
     h += '<details class="dw-8 dw-c3"' + (ui.dwc3 ? ' open' : '') + '><summary><span class="dw-h3">Notas por critério<span class="dw-tot"><b>' + fmtP(pts3(c)) + '</b> pts' + (ps ? ' · ' + ps.n + 'ª de ' + ps.de + (c.inDeck ? '' : ' se entrar') : '') + '</span></span></summary><p class="dw-nota">' + resumoDw() + ' Mudar uma nota aqui é simulação: o placar, o gráfico e a aba Critérios refazem a conta.</p>' + reguaDw() + '<div class="steps">' + steps3 + '</div>' + cadW + '</details>';
+    if (c.pp) h += '<p class="dw-pp">No plano: ' + ppB(c.pp) + (c.ppd ? ' <small>dupla função: ' + esc(c.ppd) + '</small>' : '') + (c.ppw ? '<br><small>' + esc(c.ppw) + '</small>' : '') + '</p>';
+    else if (D.plano && D.plano.classificado && !c.cmd && !c.land) h += '<p class="dw-pp"><small>Fora do plano: estrutura.</small></p>';
     h += encaixeHtml(c);
     h += '<details class="dw-8"' + (ui.dw8 ? ' open' : '') + '><summary>Notas por agrupamento (8×8)</summary><div class="steps">' + steps + '</div></details>';
   } else h += '<h3>Notas por agrupamento</h3><div class="steps">' + steps + '</div>';

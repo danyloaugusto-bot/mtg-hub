@@ -268,7 +268,7 @@ function placarHtml() {
       '<span class="cx-pl-v"><b>' + (CB ? reais(p.t) + ' <small>' + usd(p.t) + '</small>' : usd(p.t)) + '</b>' + deltaTxt(p) + '</span></button>';
   }).join('') + '</div>';
 }
-var CORPASTA = { 'Caixa': '#f5a524', 'Rosa (sell)': '#f28bb8', 'Preta P': '#8a7f96', 'Preta': '#6f6a75', 'Amarela': '#f2c94c', 'Laranja': '#f2994a', 'Rosa': '#f5a3c7', 'Azul': '#4f8fe0', 'Vermelha': '#d9534f' };
+var CORPASTA = { 'Caixa': '#f5a524', 'Rosa P': '#f28bb8', 'Preta P': '#8a7f96', 'Preta': '#6f6a75', 'Amarela': '#f2c94c', 'Laranja': '#f2994a', 'Rosa': '#f5a3c7', 'Azul': '#4f8fe0', 'Vermelha': '#d9534f' };
 function corOrigem(k) { return CORPASTA[k] || '#8a877f'; }
 function tarefasHtml() {
   var t = D.tarefas || [];
