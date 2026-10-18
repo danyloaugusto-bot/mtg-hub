@@ -306,7 +306,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "4/4 atropelar. Ataca todo combate se puder, não pode ser sacrificado e não ataca o dono. Na manutenção de cada jogador, esse jogador ganha o controle dele, o desvira e põe um marcador +1/+1.",
-   "porque": "Roda a mesa atacando todo mundo menos você, e dispara Opulence, Verbosity e Disturbance quando ataca o amaldiçoado, o que quem o controla no turno escolhe."
+   "porque": "Roda a mesa atacando todo mundo menos você, e dispara Opulence, Verbosity e Disturbance quando ataca o amaldiçoado, o que quem o controla no turno escolhe.",
+   "papel": "habilita",
+   "papel_por_que": "Ataca todo combate e nunca o dono: põe a mesa atacando o amaldiçoado e dispara as Maldições de ataque."
   },
   "Archfiend of Depravity": {
    "notas": {
@@ -351,7 +353,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Entra como cópia de qualquer permanente não terreno.",
-   "porque": "Segunda cópia da melhor maldição, ou da melhor permanente da mesa."
+   "porque": "Segunda cópia da melhor maldição, ou da melhor permanente da mesa.",
+   "papel": "multiplica",
+   "papel_por_que": "Entra como cópia de uma Maldição e volta com ela: duas do mesmo efeito girando."
   },
   "Darkstar Augur": {
    "notas": {
@@ -460,7 +464,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "3/1 lampejo. Compras extras dos oponentes vão para você.",
-   "porque": "Fecha o combo com Windfall e rouba as compras que Verbosity e Surveillance dariam aos outros."
+   "porque": "Fecha o combo com Windfall e rouba as compras que Verbosity e Surveillance dariam aos outros.",
+   "papel": "recompensa",
+   "papel_por_que": "Rouba as compras que a Curse of Surveillance dá aos oponentes."
   },
   "Plargg and Nassari": {
    "notas": {
@@ -536,7 +542,9 @@
    "porque": "Saída repetível e instantânea, por custo 0. Recolhe uma maldição no turno do oponente anterior para repassar na sua manutenção.",
    "marcas": {
     "saida": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Saída de sacrifício de 1: manda a Maldição ao cemitério para ela voltar pela Lynde."
   },
   "Crystal Chimes": {
    "notas": {
@@ -552,7 +560,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "3, vira e sacrifica: devolve todos os encantamentos do cemitério para a mão.",
-   "porque": "Seguro para quando a Lynde não está na mesa e as maldições ficam no cemitério."
+   "porque": "Seguro para quando a Lynde não está na mesa e as maldições ficam no cemitério.",
+   "papel": "habilita",
+   "papel_por_que": "Devolve à mão todas as Maldições que ficaram no cemitério."
   },
   "Cursed Mirror": {
    "notas": {
@@ -581,7 +591,9 @@
    "porque": "Saída de 1 mana, uma maldição por rodada.",
    "marcas": {
     "saida": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Destrói uma Maldição sua todo turno, sem custo: ela volta pela Lynde."
   },
   "Midnight Clock": {
    "notas": {
@@ -636,7 +648,9 @@
    "porque": "Saída que também é pedra e compra.",
    "marcas": {
     "saida": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Por 1 de vida, destrói uma Maldição sua para ela voltar; desvira por 5."
   },
   "Talisman of Creativity": {
    "notas": {
@@ -689,7 +703,10 @@
    "porque": "A maldição que mais mata. Nunca em você.",
    "marcas": {
     "evitar": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Maldição que tira uma criatura ou 5 de vida por volta e pode ser repassada pela Lynde."
   },
   "Curse of Bloodletting": {
    "notas": {
@@ -711,7 +728,10 @@
    "porque": "Dobra o dano de todo mundo, o que convida a mesa a bater nele. Dobra a Shaken Faith e o primeiro disparo da Maddening Hex, antes de ela pular de jogador.",
    "marcas": {
     "evitar": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (dobra o dano)",
+   "papel_por_que": "Maldição que gira e dobra o dano no amaldiçoado, inclusive o das outras Maldições."
   },
   "Curse of Disturbance": {
    "notas": {
@@ -730,7 +750,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Quando o amaldiçoado é atacado, você cria um Zumbi 2/2, e cada atacante também.",
-   "porque": "Paga a mesa para atacar um jogador e ergue os seus bloqueadores."
+   "porque": "Paga a mesa para atacar um jogador e ergue os seus bloqueadores.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Maldição que gira)",
+   "papel_por_que": "Cada ataque ao amaldiçoado dá a você um Zumbi 2/2."
   },
   "Curse of Hospitality": {
    "notas": {
@@ -752,7 +775,9 @@
    "porque": "Quem ganha são os atacantes. Você raramente ataca.",
    "marcas": {
     "evitar": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Maldição barata que gira e chama a mesa a atacar o amaldiçoado."
   },
   "Curse of Leeches": {
    "notas": {
@@ -769,7 +794,9 @@
    "rel": "BAX",
    "faz": "Na manutenção do amaldiçoado, ele perde 1 e você ganha 1. À noite vira criatura 4/4.",
    "porque": "A mais fraca das 16. À noite vira a Leeching Lurker, uma criatura; se morrer assim, não era Maldição ao sair da mesa e a Lynde não a devolve.",
-   "prioridade": 8
+   "prioridade": 8,
+   "papel": "habilita",
+   "papel_por_que": "Maldição de 3 que gira e drena 1 por volta."
   },
   "Curse of Misfortunes": {
    "notas": {
@@ -786,7 +813,10 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Na SUA manutenção, busca uma Maldição de nome diferente das que estão no amaldiçoado e a anexa a ele.",
-   "porque": "Em você mesmo, é o motor: busca uma Maldição para você, a Lynde repassa, você compra duas. Todo turno."
+   "porque": "Em você mesmo, é o motor: busca uma Maldição para você, a Lynde repassa, você compra duas. Todo turno.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (Maldição nova toda volta)",
+   "papel_por_que": "Toda manutenção busca e anexa uma Maldição nova: gera combustível sem pagar."
   },
   "Curse of Opulence": {
    "notas": {
@@ -808,7 +838,10 @@
    "porque": "Um de mana, ramp e política. A melhor carta de turno 1 do deck.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Maldição que gira)",
+   "papel_por_que": "Cada ataque ao amaldiçoado dá a você um Gold."
   },
   "Curse of Shaken Faith": {
    "notas": {
@@ -827,7 +860,9 @@
    "porque": "Barata e punitiva contra deck de mágicas.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Maldição de 2 que gira e pune a segunda mágica do turno."
   },
   "Curse of Surveillance": {
    "notas": {
@@ -846,7 +881,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Na manutenção do amaldiçoado, outros jogadores à sua escolha compram cartas igual ao número de Maldições nele.",
-   "porque": "Compra que escala com o empilhamento. Pode ser dividida com um aliado de ocasião."
+   "porque": "Compra que escala com o empilhamento. Pode ser dividida com um aliado de ocasião.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra igual ao número de Maldições no amaldiçoado: rende mais quanto mais o ciclo gira."
   },
   "Curse of Unbinding": {
    "notas": {
@@ -862,7 +900,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Na manutenção do amaldiçoado, ele revela até uma criatura, que entra sob o seu controle; o resto vai ao cemitério.",
-   "porque": "Uma criatura roubada por turno, por 7 manas."
+   "porque": "Uma criatura roubada por turno, por 7 manas.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Maldição que gira)",
+   "papel_por_que": "Toda manutenção do amaldiçoado, uma criatura dele entra sob o seu controle."
   },
   "Curse of Vengeance": {
    "notas": {
@@ -882,7 +923,9 @@
    "porque": "O efeito é lento. O valor é custar 1: conjurada em você e repassada, são duas cartas por uma mana.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Maldição de 1 que gira barata; paga vida e cartas quando o amaldiçoado perde."
   },
   "Curse of Verbosity": {
    "notas": {
@@ -901,7 +944,10 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Quando o amaldiçoado é atacado, você compra, e cada atacante também.",
-   "porque": "Compra e política. Com Notion Thief, as compras dos outros são suas."
+   "porque": "Compra e política. Com Notion Thief, as compras dos outros são suas.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Maldição que gira)",
+   "papel_por_que": "Cada ataque ao amaldiçoado compra uma carta para você."
   },
   "Curse of the Restless Dead": {
    "notas": {
@@ -917,7 +963,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Quando um terreno entra para o amaldiçoado, você cria um Zumbi 2/2 decadente.",
-   "porque": "Em você mesmo rende um Zumbi por terreno. Decadente não bloqueia."
+   "porque": "Em você mesmo rende um Zumbi por terreno. Decadente não bloqueia.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Maldição que gira)",
+   "papel_por_que": "Cada terreno do amaldiçoado dá a você um Zumbi 2/2."
   },
   "Maddening Hex": {
    "notas": {
@@ -936,7 +985,9 @@
    "porque": "Média de 3,5 de dano por mágica não criatura, e circula sozinha. Se for destruída, a Lynde a devolve em você: na sua próxima mágica não criatura você leva o dado, e ela pula para um oponente.",
    "marcas": {
     "evitar": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Maldição que gira e pune mágicas não criatura, pulando de oponente sozinha."
   },
   "Torment of Scarabs": {
    "notas": {
@@ -956,7 +1007,9 @@
    "porque": "Desgaste garantido por 4 manas.",
    "marcas": {
     "evitar": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Maldição que gira e cobra 3 de vida, permanente ou carta toda volta."
   },
   "Trespasser's Curse": {
    "notas": {
@@ -976,7 +1029,9 @@
    "porque": "Dois de mana e mata deck de fichas. Em você, é neutra.",
    "marcas": {
     "barata": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Maldição de 2 que gira e drena 1 a cada criatura do amaldiçoado."
   },
   "Captive Audience": {
    "notas": {
@@ -1007,7 +1062,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Entra como cópia de um encantamento.",
-   "porque": "Segunda Curse of Misfortunes ou segundo Cruel Reality por 3 manas."
+   "porque": "Segunda Curse of Misfortunes ou segundo Cruel Reality por 3 manas.",
+   "papel": "multiplica",
+   "papel_por_que": "Copia a melhor Maldição da mesa, e a cópia também volta pela Lynde."
   },
   "Court of Vantress": {
    "notas": {
@@ -1023,7 +1080,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Monarca. Na manutenção vira cópia de outro encantamento ou artefato; se monarca, cria ficha cópia.",
-   "porque": "Compra pela coroa e copia maldição, mas o deck defende mal a coroa."
+   "porque": "Compra pela coroa e copia maldição, mas o deck defende mal a coroa.",
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Monarca, cria toda manutenção uma ficha cópia de uma Maldição; sem a coroa, vira uma."
   },
   "Estrid's Invocation": {
    "notas": {
@@ -1039,7 +1099,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Cópia de um encantamento seu; na manutenção pode sair e voltar copiando outro.",
-   "porque": "Cópia flexível das suas próprias maldições."
+   "porque": "Cópia flexível das suas próprias maldições.",
+   "papel": "multiplica",
+   "papel_por_que": "Entra como cópia de uma Maldição sua e pode piscar para copiar outra."
   },
   "Extravagant Replication": {
    "notas": {
@@ -1054,7 +1116,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Na manutenção, cria ficha cópia de outra permanente não terreno sua.",
-   "porque": "Uma maldição nova por turno, mas custa 6 e ficha não volta pela Lynde."
+   "porque": "Uma maldição nova por turno, mas custa 6 e ficha não volta pela Lynde.",
+   "papel": "multiplica",
+   "papel_por_que": "Toda manutenção cria uma ficha cópia de uma Maldição sua."
   },
   "Powerbalance": {
    "notas": {},
@@ -1147,7 +1211,10 @@
    "porque": "Sacrifique maldições em vez de descartar: você fica com as cartas e elas voltam para você pela Lynde.",
    "marcas": {
     "saida": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra X e sacrifica Maldições no lugar do descarte: várias voltam pela Lynde."
   },
   "Reality Shift": {
    "notas": {
@@ -1576,7 +1643,10 @@
    "veredito": "entra",
    "sai": "Curse of Leeches",
    "faz": "Maldição 4B. Na manutenção do amaldiçoado, causa dano igual ao número de Maldições nele.",
-   "porque": "O fechamento que o próprio tema oferece: cresce com o empilhamento e dobra com a Curse of Bloodletting. Sai a mais fraca das 16."
+   "porque": "O fechamento que o próprio tema oferece: cresce com o empilhamento e dobra com a Curse of Bloodletting. Sai a mais fraca das 16.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (Maldição que gira)",
+   "papel_por_que": "Dano igual ao número de Maldições no amaldiçoado: rende com o ciclo cheio."
   },
   "Curse of Fool's Wisdom": {
    "notas": {
@@ -1595,7 +1665,9 @@
    "veredito": "entra",
    "sai": "Ensnared by the Mara",
    "faz": "Maldição 4BB. Sempre que o amaldiçoado compra, ele perde 2 e você ganha 2. Madness {3}{B}.",
-   "porque": "A Surveillance e a Verbosity não fazem o amaldiçoado comprar: a Fool's Wisdom rende em outro jogador, como quem ataca o da Verbosity ou o alvo da Surveillance, e cada compra dele custa 2 de vida."
+   "porque": "A Surveillance e a Verbosity não fazem o amaldiçoado comprar: a Fool's Wisdom rende em outro jogador, como quem ataca o da Verbosity ou o alvo da Surveillance, e cada compra dele custa 2 de vida.",
+   "papel": "habilita",
+   "papel_por_que": "Maldição que gira e drena 2 a cada compra do amaldiçoado."
   },
   "Bitterheart Witch": {
    "notas": {
@@ -1616,7 +1688,9 @@
    "veredito": "entra",
    "sai": "Darkstar Augur",
    "faz": "Humana 4B, 1/2 toque mortífero. Ao morrer, busca uma Maldição e a põe na mesa anexada a um jogador.",
-   "porque": "Tutor de Maldição que bloqueia com toque mortífero; a Claws of Gix a sacrifica na hora certa. Sai a compra que cobra vida."
+   "porque": "Tutor de Maldição que bloqueia com toque mortífero; a Claws of Gix a sacrifica na hora certa. Sai a compra que cobra vida.",
+   "papel": "habilita",
+   "papel_por_que": "Ao morrer, busca uma Maldição e a anexa a um jogador."
   },
   "Paradox Haze": {
    "notas": {
@@ -1634,7 +1708,9 @@
    "veredito": "entra",
    "sai": "Powerbalance",
    "faz": "Aura 2U, encantar jogador. Na primeira manutenção do turno do encantado, ele ganha uma manutenção a mais.",
-   "porque": "Em você, a Lynde e a Curse of Misfortunes disparam duas vezes por turno. Não é Maldição: a Lynde não a recicla, e ela tem de ficar em você."
+   "porque": "Em você, a Lynde e a Curse of Misfortunes disparam duas vezes por turno. Não é Maldição: a Lynde não a recicla, e ela tem de ficar em você.",
+   "papel": "multiplica",
+   "papel_por_que": "Na sua mesa, dobra a manutenção: a Lynde repassa duas Maldições e compra quatro."
   },
   "Entity Tracker": {
    "notas": {
@@ -1652,7 +1728,9 @@
    "veredito": "entra",
    "sai": "Protean Thaumaturge",
    "faz": "Humano 2U, 2/3 lampejo. Sempre que um encantamento seu entra, compra uma carta.",
-   "porque": "Toda Maldição que a Lynde devolve entra em você: uma carta por fim de turno, além das duas do repasse."
+   "porque": "Toda Maldição que a Lynde devolve entra em você: uma carta por fim de turno, além das duas do repasse.",
+   "papel": "recompensa",
+   "papel_por_que": "Compra a cada encantamento seu que entra, inclusive a Maldição que volta pela Lynde."
   },
   "Lightning Greaves": {
    "notas": {
@@ -1683,7 +1761,9 @@
    "veredito": "entra",
    "sai": "Evil Twin",
    "faz": "Encantamento 1UU que entra como cópia de qualquer artefato ou encantamento.",
-   "porque": "Segunda Curse of Misfortunes ou segundo Cruel Reality. Cópia do tipo certo, no lugar do clone de criatura."
+   "porque": "Segunda Curse of Misfortunes ou segundo Cruel Reality. Cópia do tipo certo, no lugar do clone de criatura.",
+   "papel": "multiplica",
+   "papel_por_que": "Entra como cópia de uma Maldição e volta com ela."
   },
   "Counterspell": {
    "notas": {
@@ -1717,7 +1797,10 @@
    "veredito": "entra",
    "sai": "Lazav, Dimir Mastermind",
    "faz": "Feitiço 2RR: incita todas as criaturas que você não controla.",
-   "porque": "Uma rodada de trégua garantida, e cada ataque dispara Opulence, Verbosity e Disturbance no amaldiçoado."
+   "porque": "Uma rodada de trégua garantida, e cada ataque dispara Opulence, Verbosity e Disturbance no amaldiçoado.",
+   "papel": "habilita",
+   "papel_dupla": "Proteção (goad em massa)",
+   "papel_por_que": "Manda todas as criaturas atacarem outro jogador e dispara as Maldições de ataque."
   },
   "Curse of the Pierced Heart": {
    "notas": {
@@ -1736,7 +1819,9 @@
    "veredito": "entra",
    "sai": "Keen Duelist",
    "faz": "Maldição 1R. Na manutenção do amaldiçoado, 1 de dano nele ou num planeswalker dele.",
-   "porque": "A quinta maldição de custo 2 ou menos, o ingresso barato do ciclo, e dobra com a Bloodletting. Sai a carta que dá compra a um oponente."
+   "porque": "A quinta maldição de custo 2 ou menos, o ingresso barato do ciclo, e dobra com a Bloodletting. Sai a carta que dá compra a um oponente.",
+   "papel": "habilita",
+   "papel_por_que": "Maldição de 2 que gira e causa 1 por volta."
   },
   "Blood Crypt": {
    "notas": {},
@@ -1778,7 +1863,9 @@
    "veredito": "avaliar",
    "sai": "Extravagant Replication",
    "faz": "4/5 toque mortífero. Você ganha 2 por carta que compra; oponente perde 2 por carta que compra.",
-   "porque": "As suas maldições fazem a mesa comprar, e a Lynde faz você comprar duas por giro."
+   "porque": "As suas maldições fazem a mesa comprar, e a Lynde faz você comprar duas por giro.",
+   "papel": "recompensa",
+   "papel_por_que": "Cada compra da Lynde dá 2 de vida; cada compra que a Surveillance dá aos oponentes tira 2."
   },
   "Curse of Echoes": {
    "notas": {
@@ -1797,7 +1884,9 @@
    "rel": "BAX",
    "veredito": "fora",
    "faz": "Maldição 4U. Quando o amaldiçoado conjura instantânea ou feitiço, cada outro jogador pode copiar.",
-   "porque": "Dá a cópia aos outros dois oponentes também, não só a você."
+   "porque": "Dá a cópia aos outros dois oponentes também, não só a você.",
+   "papel": "habilita",
+   "papel_por_que": "Maldição que gira; o efeito em si dá cópias a todos e pouco rende para você."
   },
   "Rhystic Study": {
    "notas": {
@@ -1827,7 +1916,10 @@
    "veredito": "avaliar",
    "faz": "Demônio 6/6 com voar e atropelar; uma vez por turno conjura encantamento pagando vida em vez de mana; {2}{B}, sacrifica outro encantamento: +X/+0.",
    "porque": "Pôr Maldição em campo pagando vida e sacrificá-la para a Lynde devolvê-la a você alimenta o ciclo, e o corpo 6/6 voador protege e fecha.",
-   "sai": "Hydroelectric Specimen"
+   "sai": "Hydroelectric Specimen",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Sacrifica uma Maldição para ela voltar pela Lynde e conjura encantamento pagando vida."
   }
  },
  "combos": [
@@ -1921,5 +2013,76 @@
    ],
    "texto": "Se a Maddening Hex for destruída, a Lynde a devolve em você: na sua próxima mágica não criatura você leva o dado. Sacrifique-a com a Claws of Gix no turno do vizinho, ou repasse-a antes de conjurar."
   }
- ]
+ ],
+ "avaliadas": {
+  "K'rrik, Son of Yawgmoth": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Lavabrink Floodgates": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Tony Stark": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "The Fire Crystal": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Detective's Phoenix": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Mana Crypt": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "The Ooze": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Savanti Romero, Time's Exile": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Does Machines": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Crossway Troublemakers": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "recompensa",
+    "por_que": "Toda Maldição que cai do campo volta para ela, e cada repasse na manutenção compra duas: recompensa o ciclo. O deck precisa de muitas Maldições e saídas que as mandem ao cemitério."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
