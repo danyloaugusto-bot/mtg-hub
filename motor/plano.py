@@ -438,7 +438,10 @@ def dossie(pasta, n_cand=10):
     def tipo(nome):
         k = sc["nomes"].get(nome.lower())
         return (sc["cartas"].get(k) or {}).get("type_line", "") if k else ""
-    out["candidatos"] = [dict(nome=n, origem=p, ganho=g["ganho"], avaliada=g["avaliada"], tipo=tipo(n), texto=texto(n),
+    def custo(nome):
+        k = sc["nomes"].get(nome.lower())
+        return (sc["cartas"].get(k) or {}).get("mana_cost", "") if k else ""
+    out["candidatos"] = [dict(nome=n, origem=p, ganho=g["ganho"], avaliada=g["avaliada"], tipo=tipo(n), custo=custo(n), texto=texto(n),
                               notas=dict(zip(ks[2:], [(cad.get(n) or {}).get("n", {}).get(x, 0) for x in ks[2:]]))) for _, n, p, g in cands[:n_cand]]
     return out
 
