@@ -84,6 +84,8 @@ R.ok("comandante habilitadora: pede Resiliência com 8 cartas", V(deck(12, 12, 8
 R.ok("comandante multiplicadora: 12 habilitadoras e 10 recompensas nas 99", V(deck(13, 11, 8, dupla=8), "multiplica") == "excelente"
      and V(deck(11, 13, 8, dupla=8), "multiplica") == "insuficiente")
 R.ok("deck sem plano: ainda não classificado", plano.avaliar(deck(14, 12, 8), [])["veredito"] is None)
+T = lambda tribal: plano.avaliar(deck(25, 12, 8), ["recompensa"], tribal=tribal)["checks"][0]["t"]
+R.ok("plano acima da faixa: só fala em tribal quando o deck é tribal", "tribal" in T(True) and "tribal" not in T(False), T(False))
 
 # ---------------------------------------------------------------- a tela: o quadro no painel do Clavileño e num deck sem classificação
 import subprocess
