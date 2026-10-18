@@ -1,6 +1,6 @@
 # Pastas de cartas
 
-Aqui entram as suas pastas físicas de cartas: Rosa (sell), Preta P (a 4x4 das cartas em espera e das pet cards; antes "Preta (esp)"), Preta, Amarela, Laranja, Rosa, Azul e Vermelha.
+Aqui entram as suas pastas físicas de cartas: Rosa P (a pasta de venda; antes "Rosa (sell)"), Preta P (a 4x4 das cartas em espera e das pet cards, que não vende; antes "Preta (esp)"), Preta, Amarela, Laranja, Rosa, Azul e Vermelha.
 
 ## Como pôr uma pasta
 
