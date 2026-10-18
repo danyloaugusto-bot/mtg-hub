@@ -26,7 +26,7 @@ NOME = "00. Hub"
 
 GRUPOS = [("01", "01. Top"), ("02", "02. Tribais"), ("03", "03. Caos"), ("04", "04. Forfun"), ("05", "05. Desejo")]
 # As pastas físicas de cartas do dono. O conteúdo de cada uma entra quando chegarem as listas.
-PASTAS = [("Rosa (sell)", "#f28bb8"), ("Preta P", "#3a3540"), ("Preta", "#2a2a2e"), ("Amarela", "#f2c94c"),
+PASTAS = [("Rosa P", "#f28bb8"), ("Preta P", "#3a3540"), ("Preta", "#2a2a2e"), ("Amarela", "#f2c94c"),
           ("Laranja", "#f2994a"), ("Rosa", "#f5a3c7"), ("Azul", "#4f8fe0"), ("Vermelha", "#d9534f")]
 BASICOS = {"Plains", "Island", "Swamp", "Mountain", "Forest", "Wastes",
            "Snow-Covered Plains", "Snow-Covered Island", "Snow-Covered Swamp", "Snow-Covered Mountain", "Snow-Covered Forest"}
@@ -295,8 +295,12 @@ def resumo_dashboard(pasta, base, m, t, cache, gc=None):
             r = encaixe.ranking(c.get("on", c["n"]), v3s, cad, dict(cmc=c["cmc"], land=c.get("land"), mdfc=c.get("mdfc")), n=3)
             if r:
                 x["en"] = [[g["deck"], g["ganho"], g["sai"], 1 if g["ja_no_deck"] else 0, 1 if g["avaliada"] else 0] for g in r]
+    pv = None   # o veredito do Plano do deck (motor/plano.py); sem classificação, nada
+    if m.get("v3") and m.get("plano"):
+        import plano
+        pv = plano.avaliar(m["cards"], [c["papel"] for c in m["plano"]["comandante"]])["veredito"]
     return dict(
-        painel=t.get("painel") or nome_do_deck(pasta), rev=t.get("rev", 1), feito=m.get("feito", ""), scryfall=m.get("scryfall_data", ""),
+        pv=pv, painel=t.get("painel") or nome_do_deck(pasta), rev=t.get("rev", 1), feito=m.get("feito", ""), scryfall=m.get("scryfall_data", ""),
         hist=ler_historico(base), conf=ler_confronto(base), ident=m["ident"],
         cmd=dict(n=cmd["n"], c=cmd["cmc"], co=cmd.get("cost", "")) if cmd else None,
         grupos=[dict(k=g["k"], n=g.get("curto") or g["nome"], ab=g["ab"], ref=g.get("ref")) for g in m["grupos"]], v3=bool(m.get("v3")),
