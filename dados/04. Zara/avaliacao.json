@@ -324,7 +324,10 @@
    "porque": "Um roubo por turno, de qualquer permanente. Com o Fling ou uma saída de sacrifício, o roubo vira dano.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma uma permanente a cada manutenção, desvirada e com ímpeto: roubo repetível fora da Zara."
   },
   "Clone": {
    "notas": {
@@ -346,7 +349,9 @@
    "porque": "Copiando a emprestada, você fica com ela depois que a original volta.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Copia a criatura roubada, ou qualquer outra, e a cópia fica depois que a original volta."
   },
   "Glasspool Mimic": {
    "notas": {
@@ -366,7 +371,9 @@
    "porque": "A emprestada é sua até a etapa final: a cópia fica. Ou é terreno.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Entra como cópia de uma criatura sua, como a roubada, e a cópia fica."
   },
   "Archmage Emeritus": {
    "notas": {
@@ -488,7 +495,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma de vez uma criatura."
   },
   "Grafted Identity": {
    "notas": {
@@ -512,7 +522,10 @@
     "rouba": 1,
     "fica": 1,
     "conv": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (sacrifica a roubada como custo)",
+   "papel_por_que": "Toma uma criatura de vez, e o custo pode ser a criatura que a Zara trouxe."
   },
   "Curiosity": {
    "notas": {
@@ -556,7 +569,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma uma criatura de vez, virada e atordoada sem o presente."
   },
   "Domestication": {
    "notas": {
@@ -576,7 +592,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma de vez uma criatura de força até 3."
   },
   "Mirrormade": {
    "notas": {
@@ -593,7 +612,9 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 3 que entra como cópia de um artefato ou encantamento em campo.",
-   "porque": "Copiando o Mind Control ou a Grafted Identity, é outro roubo que não mira (regra 303.4f). Ou a melhor peça de um oponente."
+   "porque": "Copiando o Mind Control ou a Grafted Identity, é outro roubo que não mira (regra 303.4f). Ou a melhor peça de um oponente.",
+   "papel": "multiplica",
+   "papel_por_que": "Entra como cópia de uma Aura de roubo, como Mind Control, e toma outra criatura."
   },
   "Propaganda": {
    "notas": {
@@ -640,7 +661,10 @@
     "rouba": 1,
     "fica": 1
    },
-   "prioridade": 8
+   "prioridade": 8,
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma de vez um encantamento de oponente."
   },
   "Dissipation Field": {
    "notas": {
@@ -688,7 +712,9 @@
    "marcas": {
     "izzet": 1
    },
-   "prioridade": 3
+   "prioridade": 3,
+   "papel": "multiplica",
+   "papel_por_que": "Copia Fated Infatuation e Quasiduplicate na roubada: duas cópias que ficam."
   },
   "Mirror Sheen": {
    "notas": {
@@ -868,7 +894,9 @@
    "porque": "Na etapa final, com a devolução na pilha: a emprestada volta, a cópia fica.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Ficha cópia da criatura roubada, que fica quando a original volta ao dono."
   },
   "Fling": {
    "notas": {
@@ -888,7 +916,10 @@
    "porque": "A emprestada vira dano antes de voltar.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Sacrifica a roubada antes de ela voltar e causa dano igual à força dela."
   },
   "Exclude": {
    "notas": {
@@ -960,7 +991,10 @@
    "porque": "No turno do outro, três bloqueadores dele; no seu, três criaturas para sacrificar.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Toma até três criaturas em instantâneo, para bloquear ou alimentar Fling e altares."
   },
   "Kazuul's Fury": {
    "notas": {
@@ -981,7 +1015,10 @@
    "porque": "A emprestada vira dano; ou é terreno.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Sacrifica a roubada e causa dano igual à força dela; o verso é terreno."
   },
   "Flare of Duplication": {
    "notas": {
@@ -1000,7 +1037,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 3, ou grátis sacrificando uma criatura vermelha que não é ficha: copia qualquer instantânea ou feitiço.",
-   "porque": "Copia a mágica de qualquer jogador; uma emprestada vermelha paga o custo."
+   "porque": "Copia a mágica de qualquer jogador; uma emprestada vermelha paga o custo.",
+   "papel": "multiplica",
+   "papel_dupla": "Recompensa (sacrifica a roubada vermelha)",
+   "papel_por_que": "Copia uma mágica de roubo; pode ser paga com a criatura vermelha roubada."
   },
   "Essence Capture": {
    "notas": {
@@ -1053,7 +1093,9 @@
    "porque": "Copiando um Act of Treason ou o Unwilling Recruit, é roubo em dobro; a cópia do Mob Rule toma as mesmas criaturas.",
    "marcas": {
     "izzet": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Copia uma mágica de roubo sua, duas vezes do cemitério."
   },
   "Silundi Vision": {
    "notas": {
@@ -1106,7 +1148,9 @@
    "marcas": {
     "rouba": 1
    },
-   "pacote": "fechamento"
+   "pacote": "fechamento",
+   "papel": "habilita",
+   "papel_por_que": "Toma todas as criaturas de uma faixa de força por um turno, com ímpeto: fecha o jogo."
   },
   "Mass Manipulation": {
    "notas": {
@@ -1127,7 +1171,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção (em massa)",
+   "papel_por_que": "Toma X criaturas e planeswalkers, de vez."
   },
   "Invoke the Winds": {
    "notas": {
@@ -1147,7 +1194,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma de vez um artefato ou criatura."
   },
   "Sakashima's Will": {
    "notas": {
@@ -1168,7 +1218,9 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Toma de vez a criatura que o oponente escolher."
   },
   "Order of Succession": {
    "notas": {
@@ -1187,7 +1239,9 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Toma uma criatura de vez, mas entrega uma sua que o vizinho escolhe (papel fraco)."
   },
   "Act of Treason": {
    "notas": {
@@ -1206,7 +1260,9 @@
    "porque": "Roubo de um turno; com a Fling, vira dano.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Toma uma criatura por um turno, desvirada e com ímpeto: combustível para Fling e altares."
   },
   "Unwilling Recruit": {
    "notas": {
@@ -1225,7 +1281,9 @@
    "porque": "Roubo de um turno que bate forte.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Toma uma criatura por um turno, com +X/+0 e ímpeto."
   },
   "Quasiduplicate": {
    "notas": {
@@ -1244,7 +1302,9 @@
    "porque": "Copia a emprestada antes da etapa final, duas vezes.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Ficha cópia da roubada que fica, e de novo pelo salto do cemitério."
   },
   "Alchemist's Gambit": {
    "notas": {
@@ -1260,7 +1320,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 3: turno extra, e você perde no começo da etapa final dele; pelo custo de clivar (7), sem perder.",
-   "porque": "Mais um ataque da Zara; pelo custo normal, só se vencer no turno. Com a Sundial do radar, vira turno extra de 3 manas."
+   "porque": "Mais um ataque da Zara; pelo custo normal, só se vencer no turno. Com a Sundial do radar, vira turno extra de 3 manas.",
+   "papel": "multiplica",
+   "papel_por_que": "Turno extra: a Zara ataca e rouba mais uma vez."
   },
   "Consuming Tide": {
    "notas": {
@@ -1505,7 +1567,9 @@
    "sai": "Mirror Sheen",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Encerra o turno com a devolução da Zara na pilha: a roubada fica, de forma repetível."
   },
   "Thassa, Deep-Dwelling": {
    "notas": {
@@ -1525,7 +1589,9 @@
    "sai": "Nevinyrral's Disk",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Pisca a roubada na sua etapa final, e ela volta sua, todo turno."
   },
   "Conjurer's Closet": {
    "notas": {
@@ -1545,7 +1611,9 @@
    "sai": "Sphinx of the Second Sun",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Pisca a roubada na sua etapa final, e ela volta sua, todo turno."
   },
   "Goblin Bombardment": {
    "notas": {
@@ -1567,7 +1635,10 @@
    "sai": "Smoke",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Sacrifica a roubada antes de ela voltar: 1 de dano em qualquer alvo."
   },
   "Phyrexian Altar": {
    "notas": {
@@ -1589,7 +1660,10 @@
    "sai": "Leyline of Resonance",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Sacrifica a roubada antes de ela voltar e gera mana de qualquer cor."
   },
   "Helm of the Host": {
    "notas": {
@@ -1608,7 +1682,9 @@
    "veredito": "entra",
    "faz": "Equipamento lendário de 4, equipar {5}. No seu combate, ficha cópia não lendária da equipada, com ímpeto.",
    "porque": "Uma Zara a mais por turno: dois empréstimos por ataque, acumulando. Equipe antes do Clout. Fonte B.",
-   "sai": "Parallel Thoughts"
+   "sai": "Parallel Thoughts",
+   "papel": "multiplica",
+   "papel_por_que": "Cópia não lendária da Zara a cada combate, com ímpeto: mais um ataque e mais um roubo."
   },
   "Wizard's Staff": {
    "notas": {
@@ -1625,7 +1701,9 @@
    "veredito": "entra",
    "faz": "Equipamento de 2; equipar Mago {1}, equipar {3}: proeza, e cada gatilho da equipada dispara uma vez a mais.",
    "porque": "Na Zara, por equipar {3}: duas criaturas por ataque. B a recusou achando que só equipa Mago; o texto tem os dois custos.",
-   "sai": "Goblin Electromancer"
+   "sai": "Goblin Electromancer",
+   "papel": "multiplica",
+   "papel_por_que": "Na Zara, o gatilho de ataque dispara duas vezes: duas criaturas da mão do defensor."
   },
   "Port Razer": {
    "notas": {
@@ -1643,7 +1721,9 @@
    "veredito": "entra",
    "faz": "Orc Pirata 4/4 de 5. Causa dano de combate a um jogador: desvira suas criaturas e há outro combate; não ataca um jogador que já atacou no turno.",
    "porque": "Outro combate é outro ataque da Zara, e as emprestadas desviram. Com o Helm of the Host, combates infinitos (Commander Spellbook 1548-1692). Fontes A e C.",
-   "sai": "Goblin Flectomancer"
+   "sai": "Goblin Flectomancer",
+   "papel": "multiplica",
+   "papel_por_que": "Ao causar dano, desvira tudo e dá outro combate: a Zara ataca outro jogador."
   },
   "Swiftfoot Boots": {
    "notas": {
@@ -1684,7 +1764,10 @@
     "rouba": 1,
     "fica": 1
    },
-   "caro_por_desenho": true
+   "caro_por_desenho": true,
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Toma de vez uma criatura e desvira até cinco terrenos."
   },
   "Agent of Treachery": {
    "notas": {
@@ -1708,7 +1791,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (compra três com permanentes alheias)",
+   "papel_por_que": "Toma de vez uma permanente e compra três a cada turno em que você tem três de outros donos."
   },
   "Ghostly Flicker": {
    "notas": {
@@ -1729,7 +1815,9 @@
    "sai": "Firemind's Research",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Pisca a roubada uma vez, e ela volta sua."
   },
   "Mind Stone": {
    "notas": {
@@ -1795,7 +1883,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Artefato de 2. {2}, vira: copia um gatilho seu.",
-   "porque": "Copia o gatilho da Zara, ou o da Thassa. Fonte B."
+   "porque": "Copia o gatilho da Zara, ou o da Thassa. Fonte B.",
+   "papel": "multiplica",
+   "papel_por_que": "Copia o gatilho de ataque da Zara: mais uma criatura da mão do defensor."
   },
   "Gilded Drake": {
    "notas": {
@@ -1815,7 +1905,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Troca o controle dele por uma criatura de oponente, de vez."
   },
   "Control Magic": {
    "notas": {
@@ -1836,7 +1929,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma de vez uma criatura."
   },
   "Bribery": {
    "notas": {
@@ -1857,7 +1953,9 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Põe em campo, sua, a melhor criatura do grimório de um oponente."
   },
   "Vedalken Shackles": {
    "notas": {
@@ -1877,7 +1975,10 @@
    "porque": "Com 12 Islands, roubo repetível; e serve de saída: troca a emprestada. Banco de B.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma uma criatura enquanto ficar virado, e pode tomar outra quando quiser."
   },
   "Deadeye Navigator": {
    "notas": {
@@ -1896,7 +1997,9 @@
    "porque": "Pareado com a emprestada, você a pisca quando quiser e ela fica. Seis manas. Banco de B.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Pisca a roubada pareada quando quiser, e ela volta sua."
   },
   "Ashnod's Altar": {
    "notas": {
@@ -1917,7 +2020,10 @@
    "porque": "Segunda saída de sacrifício. Banco de B.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Sacrifica a roubada antes de ela voltar e gera {C}{C}."
   },
   "Coercive Recruiter": {
    "notas": {
@@ -1937,7 +2043,9 @@
    "porque": "A Zara é Pirata, mas só dispara quando volta do comando. Fontes C e D.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Toma uma criatura por um turno quando ele ou outro Pirata seu entra, como a Zara."
   },
   "Captivating Crew": {
    "notas": {
@@ -1957,7 +2065,9 @@
    "porque": "Roubo repetível, caro; com o Bombardment, vira dano. Fontes C e D.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Toma uma criatura de oponente por um turno, toda vez que pagar {3}{R}."
   },
   "Zealous Conscripts": {
    "notas": {
@@ -1977,7 +2087,9 @@
    "porque": "Roubo de qualquer permanente por um turno. Fonte D; banco de B.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Ao entrar, toma uma permanente por um turno, desvirada e com ímpeto."
   },
   "Insurrection": {
    "notas": {
@@ -1997,7 +2109,9 @@
    "porque": "O Mob Rule completo, mais caro. Fonte D.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Toma todas as criaturas por um turno, com ímpeto: fecha o jogo."
   },
   "Mass Mutiny": {
    "notas": {
@@ -2017,7 +2131,9 @@
    "porque": "Três roubos por uma carta. Fonte D.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Toma uma criatura de cada oponente por um turno, com ímpeto."
   },
   "Blatant Thievery": {
    "notas": {
@@ -2039,7 +2155,10 @@
    "marcas": {
     "rouba": 1,
     "fica": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma de vez uma permanente de cada oponente."
   },
   "Stolen Strategy": {
    "notas": {
@@ -2056,7 +2175,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Encantamento de 5: na sua manutenção, exila o topo de cada oponente; você pode conjurar essas cartas no turno, com mana de qualquer cor.",
-   "porque": "Jogar com as cartas deles, literalmente; mas cinco manas. Fontes A e C."
+   "porque": "Jogar com as cartas deles, literalmente; mas cinco manas. Fontes A e C.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Toda manutenção, exila o topo de cada oponente e deixa você conjurar essas cartas."
   },
   "Spark Double": {
    "notas": {
@@ -2078,7 +2200,10 @@
    "porque": "Cópia da emprestada, ou uma segunda Zara. Fonte D.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Recompensa (copia a roubada)",
+   "papel_por_que": "Cópia não lendária da Zara: dois gatilhos de roubo por combate."
   },
   "Phyrexian Metamorph": {
    "notas": {
@@ -2100,7 +2225,9 @@
    "porque": "Cópia da emprestada, ou da melhor peça da mesa. Fonte D.",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Entra como cópia de qualquer criatura, como a roubada, e a cópia fica."
   },
   "Breeches, Eager Pillager": {
    "notas": {
@@ -2117,7 +2244,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Goblin Pirata lendário 3/3 de 3 com golpe primeiro. Um Pirata seu ataca: escolha um modo do turno (Tesouro, criatura não bloqueia, exila o topo).",
-   "porque": "A Zara é Pirata: cada ataque dela dá um Tesouro ou tira um bloqueador. Fonte D."
+   "porque": "A Zara é Pirata: cada ataque dela dá um Tesouro ou tira um bloqueador. Fonte D.",
+   "papel": "recompensa",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "A Zara é Pirata: cada ataque dela dá Tesouro, tira um bloqueador ou exila o topo."
   },
   "Kari Zev's Expertise": {
    "notas": {
@@ -2137,7 +2267,10 @@
    "porque": "O Act of Treason com uma mágica de brinde. Fonte D.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Toma uma criatura por um turno e conjura grátis uma mágica de até 2."
   },
   "Relentless Assault": {
    "notas": {
@@ -2154,7 +2287,9 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de 4: desvira quem atacou no turno; outro combate e outra fase principal.",
-   "porque": "Outro ataque da Zara, e as emprestadas atacam de novo. Fonte D; banco de B."
+   "porque": "Outro ataque da Zara, e as emprestadas atacam de novo. Fonte D; banco de B.",
+   "papel": "multiplica",
+   "papel_por_que": "Desvira quem atacou e dá outro combate: a Zara ataca e rouba de novo."
   },
   "Chaos Warp": {
    "notas": {
@@ -2302,7 +2437,10 @@
    "porque": "O roubo cai com uma remoção num 2/2. B recusa.",
    "marcas": {
     "rouba": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Ao entrar, toma uma criatura enquanto ficar em campo."
   },
   "Aboleth Spawn": {
    "notas": {
@@ -2344,7 +2482,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Sereia Pirata lendária 2/2 de 3 com voar. Piratas seus causam dano aos oponentes: um Tesouro por oponente atingido.",
-   "porque": "A Zara é Pirata: cada ataque que conecta paga um Tesouro, e o Malcolm voa junto. Sem a Zara batendo, não faz nada. Potencial do edh.wiki (+44%)."
+   "porque": "A Zara é Pirata: cada ataque que conecta paga um Tesouro, e o Malcolm voa junto. Sem a Zara batendo, não faz nada. Potencial do edh.wiki (+44%).",
+   "papel": "recompensa",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "A Zara é Pirata: cada oponente que ela atinge dá um Tesouro."
   },
   "High Market": {
    "notas": {
@@ -2363,7 +2504,9 @@
    "porque": "Saída de sacrifício na vaga de terreno: a emprestada vai para o cemitério do dono em vez de voltar à mão dele. Não dá cor. Potencial do edh.wiki (+41%).",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Terreno que sacrifica a roubada antes de ela voltar, por 1 de vida (papel fraco)."
   },
   "Thud": {
    "notas": {
@@ -2384,7 +2527,10 @@
    "porque": "O Fling por uma mana, mas só no seu turno, que é quando a emprestada está em campo. Potencial do edh.wiki (+31%).",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Sacrifica a roubada e causa dano igual à força dela."
   },
   "Breeches, Brazen Plunderer": {
    "notas": {
@@ -2400,7 +2546,10 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Goblin Pirata lendário 3/3 de 4 com ameaça. Piratas seus causam dano aos oponentes: exila o topo de cada um atingido; você pode jogá-las no turno, com mana de qualquer cor.",
-   "porque": "A Zara é Pirata: cada ataque que conecta leva também uma carta do grimório de quem apanhou. O Breeches, Eager Pillager, já no radar, faz papel parecido por 3. Potencial do edh.wiki (+41%)."
+   "porque": "A Zara é Pirata: cada ataque que conecta leva também uma carta do grimório de quem apanhou. O Breeches, Eager Pillager, já no radar, faz papel parecido por 3. Potencial do edh.wiki (+41%).",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Quando a Zara ou outro Pirata acerta, exila o topo de cada atingido e você joga essas cartas."
   },
   "Protean Raider": {
    "notas": {
@@ -2423,7 +2572,9 @@
    "porque": "No segundo principal, a emprestada da Zara ainda está em campo: o Raider a copia, e a cópia fica. É o Clone por 3, com a condição que o ataque da Zara já cumpre. Potencial do edh.wiki (+35%).",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Depois do ataque da Zara, entra como cópia de qualquer criatura, como a roubada, e fica."
   }
  },
  "combos": [
@@ -2571,5 +2722,80 @@
    ],
    "texto": "Os dois levam a Zara; o Disk leva também as pedras e as Auras de roubo."
   }
- ]
+ ],
+ "avaliadas": {
+  "Lavabrink Floodgates": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Roaring Furnace": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Tony Stark": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Emeritus of Ideation": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "The Fire Crystal": {
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Prepara o ataque da Zara sem roubar, dando ímpeto a ela (régua, nota 1)."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Chimil, the Inner Sun": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Mana Crypt": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Dragon's Hoard": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Shadow of the Second Sun": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Sea Gate Restoration": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "habilita",
+    "por_que": "A cada ataque, põe em campo uma criatura da mão do defensor: ela é o motor do roubo. Precisa de proteção, ímpeto e de um plano B de roubo nas 99, e de quem converta a roubada antes que ela volte."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
