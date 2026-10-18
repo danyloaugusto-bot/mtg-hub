@@ -331,7 +331,10 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato criatura 1/1, de 3. Quando você criaria uma Clue, uma Food ou um Treasure, cria um de cada.",
-   "porque": "A Food do Michelangelo vira também carta e mana. Mas o Leonardo conta uma vez por turno: ficha a mais no mesmo turno não rende marcador."
+   "porque": "A Food do Michelangelo vira também carta e mana. Mas o Leonardo conta uma vez por turno: ficha a mais no mesmo turno não rende marcador.",
+   "papel": "multiplica",
+   "papel_dupla": "Ramp e Draw",
+   "papel_por_que": "Cada Food, Pista ou Tesouro vira os três: triplica as fichas de artefato do Michelangelo, da April e da Coin."
   },
   "April O'Neil, Live on the Scene": {
    "notas": {
@@ -350,7 +353,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "De 2. Sempre que um Mutant, Ninja ou Turtle seu entra, você investiga (uma Clue). Parceiro (Character select).",
-   "porque": "Quase toda criatura do deck é Mutant, Ninja ou Turtle: cada uma deixa uma Clue, que aciona o Leonardo e vira carta depois."
+   "porque": "Quase toda criatura do deck é Mutant, Ninja ou Turtle: cada uma deixa uma Clue, que aciona o Leonardo e vira carta depois.",
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Cada Mutante, Ninja ou Tartaruga que entra cria uma Pista: ficha que aciona o Leonardo."
   },
   "Baxter, Fly in the Ointment": {
    "notas": {
@@ -368,7 +374,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "De 4. Quando entra ou ataca, suas criaturas com marcador ganham voar até o fim do turno. Cresce a cada carta que você compra.",
-   "porque": "Evasão para o time inteiro, que tem marcador do Leonardo. Lento: só funciona no ataque."
+   "porque": "Evasão para o time inteiro, que tem marcador do Leonardo. Lento: só funciona no ataque.",
+   "papel": "recompensa",
+   "papel_por_que": "Dá voar a quem tem marcador quando entra ou ataca: os marcadores do Leonardo viram evasão."
   },
   "Corpsejack Menace": {
    "notas": {
@@ -387,7 +395,9 @@
    "porque": "O multiplicador principal: cada gatilho do Leonardo vira dois marcadores em cada criatura, quatro com o Michelangelo, Weirdness to 11.",
    "marcas": {
     "multi": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Marcadores +1/+1 nas suas criaturas vêm em dobro (pelo resumo do dossiê; o texto está vazio)."
   },
   "Don & Leo, Problem Solvers": {
    "notas": {
@@ -407,7 +417,10 @@
    "rel": "BAX",
    "faz": "De 5, vigilância. No seu fim de turno, exila até um artefato e até uma criatura suas e as devolve.",
    "porque": "Cinco manas para reaproveitar uma entrada (o Mutagen do Raphael, the Muscle), e a criatura volta sem os marcadores.",
-   "prioridade": 9
+   "prioridade": 9,
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (repete a entrada)",
+   "papel_por_que": "Tartaruga que, no fim do turno, faz piscar um artefato e uma criatura: repete Mutagen e gatilhos de entrada."
   },
   "Don & Raph, Hard Science": {
    "notas": {
@@ -424,7 +437,9 @@
    "rel": "BAX",
    "faz": "De 3, ameaça. Quando ataca, a próxima mágica não-criatura do turno tem afinidade por artefatos.",
    "porque": "O desconto pede muitos artefatos e um ataque antes da mágica. Pouco efeito aqui.",
-   "prioridade": 10
+   "prioridade": 10,
+   "papel": "habilita",
+   "papel_por_que": "Tartaruga com ameaça que aciona as recompensas da tribo; o desconto pouco ajuda o plano (papel fraco)."
   },
   "Donatello, Gadget Master": {
    "notas": {
@@ -444,7 +459,9 @@
    "rel": "BAX",
    "faz": "De 3, com sneak {1}{U}. Dano de combate num jogador: cria uma ficha cópia de um artefato seu.",
    "porque": "Copiar Sol Ring ou Coin of Mastery é bom, mas precisa conectar.",
-   "prioridade": 13
+   "prioridade": 13,
+   "papel": "habilita",
+   "papel_por_que": "Tartaruga que, ao causar dano de combate, cria cópia-ficha de um artefato seu: aciona o Leonardo."
   },
   "Donatello, Way with Machines": {
    "notas": {
@@ -464,7 +481,9 @@
    "rel": "BAX",
    "faz": "De 3, voar. Ganha um marcador +1/+1 sempre que um artefato seu entra.",
    "porque": "Food, Treasure, Clue e Mutagen são artefatos, então ele cresce. Mas cresce sozinho: o deck ganha por largura.",
-   "prioridade": 12
+   "prioridade": 12,
+   "papel": "habilita",
+   "papel_por_que": "Tartaruga voadora que cresce a cada artefato que entra, fichas inclusive (papel fraco)."
   },
   "Donatello, the Brains": {
    "notas": {
@@ -484,7 +503,10 @@
    "rel": "BAX",
    "faz": "De 3. Sempre que você criaria fichas, cria também um Mutagen. Parceiro (Character select).",
    "porque": "Cada Mutagen é um marcador para depois, mas o Leonardo conta uma vez por turno: a ficha extra no mesmo turno não rende gatilho.",
-   "prioridade": 19
+   "prioridade": 19,
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Tartaruga; Mutagen a mais)",
+   "papel_por_que": "Toda criação de fichas vem com um Mutagen a mais: mais fichas e mais marcadores."
   },
   "Genghis Frog": {
    "notas": {
@@ -502,7 +524,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "De 2, atropelar. Quando ele ou outro Mutant seu entra, cria um Mutagen.",
-   "porque": "Quase toda Tartaruga é Mutant: cada uma que entra deixa uma ficha e aciona o Leonardo. Duas manas."
+   "porque": "Quase toda Tartaruga é Mutant: cada uma que entra deixa uma ficha e aciona o Leonardo. Duas manas.",
+   "papel": "habilita",
+   "papel_por_que": "Cada Mutante que entra cria um Mutagen: ficha para o Leonardo e marcador para depois."
   },
   "Heroes in a Half Shell": {
    "notas": {
@@ -522,7 +546,10 @@
    "tier": "A",
    "rel": "INS",
    "faz": "De {W}{U}{B}{R}{G}, com vigilância, ameaça, atropelar e ímpeto. Quando Mutants, Ninjas ou Turtles seus causam dano de combate a um jogador, cada um deles ganha um marcador e você compra.",
-   "porque": "Ataca no turno em que entra, passa por bloqueio e compra a cada combate. Pede as cinco cores."
+   "porque": "Ataca no turno em que entra, passa por bloqueio e compra a cada combate. Pede as cinco cores.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Mutantes, Ninjas e Tartarugas que acertam um jogador ganham marcador e compram carta."
   },
   "Leonardo, Big Brother": {
    "notas": {
@@ -539,7 +566,9 @@
    "rel": "BAX",
    "faz": "De 3, com sneak {W}. Ganha +1/+0 por outra criatura sua.",
    "porque": "Bate forte numa mesa larga, mas é uma criatura só a crescer.",
-   "prioridade": 8
+   "prioridade": 8,
+   "papel": "habilita",
+   "papel_por_que": "Tartaruga que aciona as recompensas da tribo e cresce com o time largo."
   },
   "Leonardo, Cutting Edge": {
    "notas": {
@@ -558,7 +587,9 @@
    "rel": "BAX",
    "faz": "De 2, com sneak {W} e vínculo. Ganha um marcador sempre que você ganha vida.",
    "porque": "Cresce com o vínculo do Leonardo, mas só ele.",
-   "prioridade": 11
+   "prioridade": 11,
+   "papel": "habilita",
+   "papel_por_que": "Tartaruga com vínculo que cresce com ganho de vida (papel fraco)."
   },
   "Leonardo, Leader in Blue": {
    "notas": {
@@ -575,7 +606,9 @@
    "rel": "BAX",
    "faz": "De 1. Com sneak de 5, entra atacando e dá +2/+0 ao time. {1}{W}: iniciativa.",
    "porque": "Uma mana e tema, mas o bônus é de um turno só.",
-   "prioridade": 15
+   "prioridade": 15,
+   "papel": "habilita",
+   "papel_por_que": "Tartaruga de 1 que aciona as recompensas da tribo; com sneak dá +2/+0 ao time."
   },
   "Lita, Little Orphan Amphibian": {
    "notas": {
@@ -594,7 +627,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "De 2. Sempre que outra criatura sua entra, escolhe uma opção ainda não usada no turno: marcador nela, uma Food ou vidência 1.",
-   "porque": "Food quando uma criatura entra, inclusive ficha de criatura: mais uma fonte de gatilho por duas manas."
+   "porque": "Food quando uma criatura entra, inclusive ficha de criatura: mais uma fonte de gatilho por duas manas.",
+   "papel": "habilita",
+   "papel_por_que": "Tartaruga que, a cada criatura que entra, cria uma Food (ficha para o Leonardo) ou cresce."
   },
   "Michelangelo, Mutant BFF": {
    "notas": {
@@ -614,7 +649,10 @@
    "rel": "ALT",
    "faz": "De 4. Suas criaturas com marcador não podem ser bloqueadas por mais de uma. Cria um Mutagen quando entra e quando ataca.",
    "porque": "Evasão para o time inteiro e uma ficha por ataque, antes do dano.",
-   "pacote": "fechamento"
+   "pacote": "fechamento",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (evasão para quem tem marcador)",
+   "papel_por_que": "Cria Mutagen ao entrar e ao atacar; quem tem marcador só é bloqueado por uma criatura."
   },
   "Michelangelo, Weirdness to 11": {
    "notas": {
@@ -636,7 +674,10 @@
    "porque": "Hardened Scales num corpo de duas manas: com o Corpsejack, quatro marcadores por gatilho.",
    "marcas": {
     "multi": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Tartaruga; cria Mutagen)",
+   "papel_por_que": "Marcadores +1/+1 vêm com um a mais: o Leonardo põe dois em cada criatura."
   },
   "Mikey & Don, Party Planners": {
    "notas": {
@@ -657,7 +698,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "De 4, ward 2. Você vê o topo do grimório e pode jogar terrenos e conjurar Mutants, Ninjas e Turtles dele; criatura conjurada assim entra com um marcador a mais.",
-   "porque": "Vantagem de carta temática: o topo vira uma segunda mão para terreno e Tartaruga."
+   "porque": "Vantagem de carta temática: o topo vira uma segunda mão para terreno e Tartaruga.",
+   "papel": "habilita",
+   "papel_dupla": "Draw (joga do topo)",
+   "papel_por_que": "Conjura Mutantes, Ninjas e Tartarugas do topo, com marcador a mais: mantém a tribo entrando."
   },
   "Mikey & Leo, Chaos & Order": {
    "notas": {
@@ -676,7 +720,10 @@
    "tier": "A",
    "rel": "INS",
    "faz": "De 2. Sempre que você põe um marcador numa criatura sua, compra uma carta. Só uma vez por turno.",
-   "porque": "Com o Leonardo disparando em qualquer turno, uma carta por turno de cada jogador. A melhor compra do deck."
+   "porque": "Com o Leonardo disparando em qualquer turno, uma carta por turno de cada jogador. A melhor compra do deck.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Compra uma carta por turno quando você põe marcador numa criatura sua."
   },
   "Mona Lisa, Science Geek": {
    "notas": {
@@ -692,7 +739,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "De 3, alcance. Vira: X manas de uma cor, X é a força dela.",
-   "porque": "Cresce com cada gatilho do Leonardo e vira a maior fonte de mana do deck, de qualquer cor."
+   "porque": "Cresce com cada gatilho do Leonardo e vira a maior fonte de mana do deck, de qualquer cor.",
+   "papel": "recompensa",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Gera mana igual ao poder: os marcadores do Leonardo viram mana (papel fraco)."
   },
   "Mutagen Man, Living Ooze": {
    "notas": {
@@ -711,7 +761,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "De X+2, atropelar. Cria X Mutagens ao entrar. Habilidades de fichas de artefato suas custam {1} a menos.",
-   "porque": "Escala com a mana sobrando, e o Mutagen passa a custar zero para ativar."
+   "porque": "Escala com a mana sobrando, e o Mutagen passa a custar zero para ativar.",
+   "papel": "habilita",
+   "papel_por_que": "Cria X Mutagens de uma vez e barateia a ativação: fichas e marcadores em série."
   },
   "Raph & Leo, Sibling Rivals": {
    "notas": {
@@ -727,7 +779,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "De 3. Quando atacam no primeiro combate do turno, desviram até duas criaturas atacantes e há um combate extra.",
-   "porque": "Combate extra por três manas, com o time já cheio de marcadores."
+   "porque": "Combate extra por três manas, com o time já cheio de marcadores.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (combate extra)",
+   "papel_por_que": "Tartaruga que dá um combate a mais: repete os gatilhos de ataque e de dano."
   },
   "Raphael, Tag Team Tough": {
    "notas": {
@@ -743,7 +798,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "De 6, ameaça. Na primeira vez no turno em que causa dano de combate a um jogador, desvira os atacantes e há um combate extra.",
-   "porque": "Fechamento forte, mas seis manas e precisa conectar."
+   "porque": "Fechamento forte, mas seis manas e precisa conectar.",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (combate extra)",
+   "papel_por_que": "Tartaruga que, ao acertar, desvira os atacantes e dá um combate a mais."
   },
   "Raphael, the Muscle": {
    "notas": {
@@ -763,7 +821,10 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "De 5. Dobra todo dano que criaturas suas com marcador causariam. Cria um Mutagen ao entrar. Parceiro (Character select).",
-   "porque": "O time inteiro tem marcador, então dobra o combate. Dobra também o dano do Casey Jones, do radar, que é criatura com marcador."
+   "porque": "O time inteiro tem marcador, então dobra o combate. Dobra também o dano do Casey Jones, do radar, que é criatura com marcador.",
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Tartaruga; cria Mutagen)",
+   "papel_por_que": "Dobra o dano de quem tem marcador: multiplica o que o Leonardo já pôs."
   },
   "Ray Fillet, Wave Warrior": {
    "notas": {
@@ -782,7 +843,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "De 3, voar e evoluir. Sempre que uma criatura sua com marcador causa dano de combate a um jogador, você compra.",
-   "porque": "Com o time marcado e o WUBRG do Leonardo, compra várias por ataque. Só no seu turno."
+   "porque": "Com o time marcado e o WUBRG do Leonardo, compra várias por ataque. Só no seu turno.",
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Cada criatura com marcador que acerta um jogador compra uma carta."
   },
   "Shredder, Shadow Master": {
    "notas": {
@@ -801,7 +865,10 @@
    "tier": "C",
    "rel": "MED",
    "faz": "De 5. Quando ataca um jogador, cria cópias dele atacando cada outro oponente, sacrificadas no fim do combate. Dano de combate faz o jogador perder metade da vida.",
-   "porque": "As cópias são fichas e acionam o Leonardo no combate. Fechamento temático, mas caro e frágil."
+   "porque": "As cópias são fichas e acionam o Leonardo no combate. Fechamento temático, mas caro e frágil.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (tira metade da vida)",
+   "papel_por_que": "Ao atacar, cria cópias-ficha atacando os outros oponentes: aciona o Leonardo."
   },
   "Super Shredder": {
    "notas": {
@@ -820,7 +887,9 @@
    "rel": "BAX",
    "faz": "De 2, ameaça. Ganha um marcador sempre que outra permanente sai do campo.",
    "porque": "Cada Food, Treasure, Clue ou Mutagen sacrificado vira marcador nele, e cada marcador conta para Mikey & Leo e para o Casey Jones. Sozinho, é só um 2/2 que cresce.",
-   "prioridade": 20
+   "prioridade": 20,
+   "papel": "recompensa",
+   "papel_por_que": "Cresce a cada permanente que sai, como as fichas sacrificadas (papel fraco)."
   },
   "Arcade Cabinet": {
    "notas": {
@@ -837,7 +906,9 @@
    "rel": "BAX",
    "faz": "Artefato de 3. Ao entrar, um marcador em até quatro criaturas. {2}, vira e sacrifica uma ficha: dobra cada tipo de marcador numa criatura.",
    "porque": "Dobrar uma criatura só, num deck que ganha por largura.",
-   "prioridade": 16
+   "prioridade": 16,
+   "papel": "multiplica",
+   "papel_por_que": "Sacrifica uma ficha para dobrar os marcadores de uma criatura; ao entrar, põe marcador em até quatro."
   },
   "Arcane Signet": {
    "notas": {
@@ -879,7 +950,10 @@
    "porque": "O Treasure sai em qualquer turno: uma ficha garantida no turno de um oponente, toda volta.",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Um Tesouro por turno, a qualquer hora: aciona o Leonardo também no turno dos oponentes."
   },
   "Sol Ring": {
    "notas": {
@@ -913,7 +987,10 @@
    "marcas": {
     "alheio": 1,
     "protege": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção (cemitério)",
+   "papel_por_que": "Vira os marcadores de quem sai em Mutagens e cria um por turno ao virar, a qualquer hora."
   },
   "The Ozolith": {
    "notas": {
@@ -932,7 +1009,9 @@
    "porque": "Guarda o investimento contra limpeza, mas devolve tudo numa criatura só.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Guarda os marcadores de quem sai e os devolve no combate: o plano sobrevive à remoção."
   },
   "Turtle Van": {
    "notas": {
@@ -952,7 +1031,9 @@
    "rel": "BAX",
    "faz": "Veículo de 3, tripular 1. Ao atacar, um marcador na criatura que o tripulou; se for Mutant, Ninja ou Turtle, dobra os marcadores dela.",
    "porque": "Uma criatura só, e pede tripular.",
-   "prioridade": 6
+   "prioridade": 6,
+   "papel": "multiplica",
+   "papel_por_que": "Põe marcador em quem tripula e, se for da tribo, dobra os marcadores dela."
   },
   "Endless Foot Assault": {
    "notas": {
@@ -970,7 +1051,9 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 3, com esquadrão {1}{W}. Sempre que você ataca, cria um Ninja 1/1 virado e atacando para cada oponente.",
-   "porque": "Três fichas por ataque, antes dos bloqueadores: o Leonardo põe marcador nelas também."
+   "porque": "Três fichas por ataque, antes dos bloqueadores: o Leonardo põe marcador nelas também.",
+   "papel": "habilita",
+   "papel_por_que": "Cada ataque cria Ninjas atacando, um por oponente: fichas que acionam o Leonardo."
   },
   "High Score": {
    "notas": {
@@ -989,7 +1072,10 @@
    "porque": "Multiplicador e compra na mesma carta.",
    "marcas": {
     "multi": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Marcadores +1/+1 vêm com um a mais; compra se você tem a criatura mais forte."
   },
   "Leader's Talent": {
    "notas": {
@@ -1005,7 +1091,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Classe de 2. Nível 1: marcador numa criatura atacante. Nível 2: ganha 2 de vida quando uma criatura sua com marcador sai. Nível 3: cada mágica sua põe um marcador em cada criatura sua.",
-   "porque": "Marcador fora do Leonardo, mas chegar ao nível 3 custa nove manas no total."
+   "porque": "Marcador fora do Leonardo, mas chegar ao nível 3 custa nove manas no total.",
+   "papel": "habilita",
+   "papel_por_que": "Marcador a cada ataque e, no nível 3, no time inteiro a cada mágica: alimenta as recompensas de marcador."
   },
   "Level Up": {
    "notas": {
@@ -1023,7 +1111,10 @@
    "rel": "BAX",
    "faz": "Aura de 2. Um marcador ao entrar; a criatura dobra os marcadores ao atacar e compra se chegar a força 10.",
    "porque": "Aura numa criatura só: morre junto com ela.",
-   "prioridade": 7
+   "prioridade": 7,
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Dobra os marcadores da criatura encantada a cada ataque e compra com poder 10."
   },
   "Ninja Pizza": {
    "notas": {
@@ -1040,7 +1131,10 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 3. Suas Foods viram: sacrifique, uma mana de qualquer cor. Cria uma Food no começo da sua segunda fase principal.",
-   "porque": "Cada Food vira mana de qualquer cor: fixa as cinco cores com o Michelangelo. A Food dela cai no mesmo turno que a dele."
+   "porque": "Cada Food vira mana de qualquer cor: fixa as cinco cores com o Michelangelo. A Food dela cai no mesmo turno que a dele.",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Uma Food por turno, que também vira mana: ficha garantida para o Leonardo."
   },
   "Rhythm of the Wild": {
    "notas": {
@@ -1057,7 +1151,9 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Encantamento de 3. Suas criaturas não podem ser anuladas. Criaturas não-ficha entram com ímpeto ou com um marcador.",
-   "porque": "O marcador de entrada conta para Mikey & Leo e para os multiplicadores. Não protege nada em campo."
+   "porque": "O marcador de entrada conta para Mikey & Leo e para os multiplicadores. Não protege nada em campo.",
+   "papel": "habilita",
+   "papel_por_que": "Toda criatura que não é ficha entra com marcador (ou ímpeto): alimenta as recompensas de marcador."
   },
   "Trouble in Pairs": {
    "notas": {
@@ -1152,7 +1248,10 @@
    "porque": "Remoção que cria fichas no turno de um oponente.",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Dano em uma criatura de cada oponente e um Mutagen por criatura atingida."
   },
   "The Last Ronin's Technique": {
    "notas": {
@@ -1174,7 +1273,9 @@
    "porque": "Fichas no fim do turno de um oponente, ou três atacantes a mais no seu.",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Cria três Tartarugas-ficha, de instantâneo: tribo e gatilho do Leonardo de uma vez."
   },
   "Turtles Forever": {
    "notas": {
@@ -1384,7 +1485,10 @@
    "rel": "ALT",
    "faz": "Feitiço de 4: devolve à mão do dono toda criatura sem marcador +1/+1.",
    "porque": "Quase unilateral aqui: o seu time tem marcador. Use depois do gatilho do Leonardo, senão as suas fichas novas também vão.",
-   "massa": true
+   "massa": true,
+   "papel": "recompensa",
+   "papel_dupla": "Remoção (em massa)",
+   "papel_por_que": "Devolve à mão toda criatura sem marcador: o time do Leonardo fica e o resto sai."
   },
   "Waves of Aggression": {
    "notas": {
@@ -1395,7 +1499,9 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 5: desvira quem atacou, e depois desta fase há um combate extra e outra fase principal. Retrace (descartando um terreno).",
-   "porque": "Combate extra que volta do cemitério."
+   "porque": "Combate extra que volta do cemitério.",
+   "papel": "multiplica",
+   "papel_por_que": "Combate e fase principal extras, com retrace: repete gatilhos de ataque e de dano."
   },
   "City of Brass": {
    "notas": {
@@ -1731,7 +1837,9 @@
    "sai": "Level Up",
    "marcas": {
     "multi": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Marcadores +1/+1 vêm com um a mais: o Leonardo põe dois em cada criatura."
   },
   "Casey Jones, Back Alley Brute": {
    "notas": {
@@ -1753,7 +1861,10 @@
    "sai": "Leonardo, Big Brother",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (marcador ao atacar)",
+   "papel_por_que": "Cada vez que você põe marcadores, causa esse dano a um oponente."
   },
   "April O'Neil, Human Element": {
    "notas": {
@@ -1774,7 +1885,9 @@
    "sai": "Don & Leo, Problem Solvers",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Mutagen a cada artefato ou mágica de qualquer jogador: ficha para o Leonardo em todo turno."
   },
   "Smothering Tithe": {
    "notas": {
@@ -1795,7 +1908,10 @@
    "sai": "Raphael's Technique",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Tesouros quando os oponentes compram: aciona o Leonardo no turno deles."
   },
   "Swift Demise": {
    "notas": {
@@ -1915,7 +2031,9 @@
    "sai": "Turtle Van",
    "marcas": {
     "multi": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Dobra fichas e marcadores: os dois motores do deck de uma vez."
   },
   "All Will Be One": {
    "notas": {
@@ -1936,7 +2054,9 @@
    "sai": "Arcade Cabinet",
    "marcas": {
     "conv": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Cada marcador posto vira dano num oponente ou numa criatura dele."
   },
   "Branching Evolution": {
    "notas": {
@@ -1956,7 +2076,9 @@
    "sai": "Leonardo, Cutting Edge",
    "marcas": {
     "multi": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Dobra os marcadores +1/+1 que vão para suas criaturas."
   },
   "Kami of Whispered Hopes": {
    "notas": {
@@ -1977,7 +2099,10 @@
    "sai": "Don & Raph, Hard Science",
    "marcas": {
     "multi": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Marcadores vêm com um a mais e gera mana igual ao poder."
   },
   "Mona Lisa, Ever Adaptable": {
    "notas": {
@@ -2000,7 +2125,9 @@
    "sai": "Donatello, Way with Machines",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Mutagen a cada criatura conjurada por qualquer jogador: fichas em todo turno."
   },
   "Splinter, the Mentor": {
    "notas": {
@@ -2024,7 +2151,9 @@
    "sai": "Donatello, Gadget Master",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "Mutante Ninja que cria Mutagen quando uma criatura sua que não é ficha sai."
   },
   "Inspiring Call": {
    "notas": {
@@ -2045,7 +2174,10 @@
    "sai": "Here Comes a New Hero!",
    "marcas": {
     "protege": 1
-   }
+   },
+   "papel": "recompensa",
+   "papel_dupla": "Proteção (indestrutível)",
+   "papel_por_que": "Compra uma carta por criatura com marcador."
   },
   "Flawless Maneuver": {
    "notas": {
@@ -2117,7 +2249,10 @@
    "veredito": "entra",
    "faz": "1/1 de 3. No começo do seu combate, vira cópia de outra criatura sua (mantém o nome e esta habilidade) e ganha um marcador.",
    "porque": "Um segundo Casey Jones, Corpsejack ou Raphael, the Muscle a cada combate.",
-   "sai": "Super Shredder"
+   "sai": "Super Shredder",
+   "papel": "habilita",
+   "papel_dupla": "Multiplicadora (copia uma criatura)",
+   "papel_por_que": "Metamorfo (conta como Tartaruga) que copia uma criatura sua a cada combate e ganha marcador."
   },
   "Raphael, the Nightwatcher": {
    "notas": {
@@ -2135,7 +2270,10 @@
    "veredito": "entra",
    "faz": "2/3 de 4, com sneak {1}{R}{R}. Suas criaturas atacantes têm golpe duplo.",
    "porque": "Com o Raphael, the Muscle, golpe duplo e dano dobrado para o time inteiro, que tem marcador.",
-   "sai": "Ray Fillet, Wave Warrior"
+   "sai": "Ray Fillet, Wave Warrior",
+   "papel": "multiplica",
+   "papel_dupla": "Habilitadora (Tartaruga)",
+   "papel_por_que": "Golpe duplo para os atacantes: dobra o dano e os gatilhos de dano de combate."
   },
   "Birds of Paradise": {
    "notas": {
@@ -2192,7 +2330,10 @@
    "veredito": "entra",
    "faz": "3/2 de 3. Sempre que um terreno seu entra, cria uma Food ou um Treasure.",
    "porque": "Ficha e mana a cada terreno. Com fetch quebrada no fim do turno alheio (Fabled Passage, Prismatic Vista do radar), aciona o Leonardo fora do seu turno.",
-   "sai": "Academy Manufactor"
+   "sai": "Academy Manufactor",
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Food ou Tesouro a cada terreno: ficha que aciona o Leonardo."
   },
   "Noble Hierarch": {
    "notas": {
@@ -2370,7 +2511,9 @@
    "sai": "Shredder, Shadow Master",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_por_que": "X fichas de instantâneo: aciona o Leonardo no turno do oponente."
   },
   "Triumph of the Hordes": {
    "notas": {
@@ -2383,7 +2526,9 @@
    "veredito": "avaliar",
    "faz": "Feitiço de 4: suas criaturas ganham +1/+1, atropelar e infectar até o fim do turno.",
    "porque": "Com a mesa cheia de marcadores, cada criatura dá dez de veneno num ataque. Sugerido pela fonte C.",
-   "sai": "Waves of Aggression"
+   "sai": "Waves of Aggression",
+   "papel": "recompensa",
+   "papel_por_que": "Fecha o jogo: o time largo e com marcadores ganha infectar e atropelar."
   },
   "Cathars' Crusade": {
    "notas": {
@@ -2401,7 +2546,10 @@
    "veredito": "avaliar",
    "faz": "Encantamento de 5. Sempre que uma criatura sua entra, um marcador em cada criatura sua.",
    "porque": "Não tem o limite de uma vez por turno do Leonardo: cada ficha de criatura vira mais uma rodada de marcadores, e de dano com o Casey. Sugerido pela fonte C.",
-   "sai": "Leader's Talent"
+   "sai": "Leader's Talent",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (marcador no time)",
+   "papel_por_que": "Cada criatura que entra, ficha inclusive, põe marcador no time inteiro, sem limite por turno."
   },
   "Rhystic Study": {
    "notas": {
@@ -2435,7 +2583,9 @@
    "sai": "Raphael, Tag Team Tough",
    "marcas": {
     "multi": 1
-   }
+   },
+   "papel": "multiplica",
+   "papel_por_que": "Dobra todos os marcadores que você põe."
   },
   "Parallel Lives": {
    "notas": {
@@ -2451,7 +2601,9 @@
    "rel": "MED",
    "veredito": "fora",
    "faz": "Encantamento de 4. Dobra as fichas que você cria.",
-   "porque": "O Leonardo conta uma vez por turno: ficha a mais no mesmo turno não rende marcador."
+   "porque": "O Leonardo conta uma vez por turno: ficha a mais no mesmo turno não rende marcador.",
+   "papel": "multiplica",
+   "papel_por_que": "Dobra as fichas criadas."
   },
   "Anointed Procession": {
    "notas": {
@@ -2467,7 +2619,9 @@
    "rel": "MED",
    "veredito": "fora",
    "faz": "Encantamento de 4. Dobra as fichas que você cria.",
-   "porque": "Mesmo motivo da Parallel Lives."
+   "porque": "Mesmo motivo da Parallel Lives.",
+   "papel": "multiplica",
+   "papel_por_que": "Dobra as fichas criadas."
   },
   "Craterhoof Behemoth": {
    "notas": {
@@ -2479,7 +2633,9 @@
    "rel": "MED",
    "veredito": "fora",
    "faz": "5/5 ímpeto, de 8. Ao entrar, suas criaturas ganham atropelar e +X/+X, X o número delas.",
-   "porque": "Oito manas. Casey Jones e All Will Be One fecham sem precisar atacar."
+   "porque": "Oito manas. Casey Jones e All Will Be One fecham sem precisar atacar.",
+   "papel": "recompensa",
+   "papel_por_que": "Fecha o jogo com o time largo: +X/+X e atropelar."
   },
   "Splinter, Radical Rat": {
    "notas": {
@@ -2498,7 +2654,9 @@
    "rel": "BAX",
    "veredito": "fora",
    "faz": "2/4 de 3. Habilidades disparadas de Ninjas seus disparam uma vez a mais. {1}{U}: um Ninja fica imbloqueável.",
-   "porque": "Não dobra o Leonardo: o segundo gatilho resolve, mas ele só pode pôr marcadores uma vez por turno. Rende com o Raid do Michelangelo e pouco mais."
+   "porque": "Não dobra o Leonardo: o segundo gatilho resolve, mas ele só pode pôr marcadores uma vez por turno. Rende com o Raid do Michelangelo e pouco mais.",
+   "papel": "multiplica",
+   "papel_por_que": "Gatilhos de Ninjas disparam uma vez a mais."
   },
   "The Cabbage Merchant": {
    "notas": {
@@ -2518,7 +2676,10 @@
    "porque": "Fichas no turno dos oponentes, e cada uma aciona o Leonardo. Carta nova, a de maior sinergia da página (+66%), que tem poucos decks.",
    "marcas": {
     "alheio": 1
-   }
+   },
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Food a cada mágica não criatura dos oponentes: ficha no turno deles."
   }
  },
  "combos": [
@@ -2642,5 +2803,94 @@
    ],
    "texto": "Criatura sem marcador +1/+1 volta para a mão, e ficha que volta some. Conjure depois do gatilho do Leonardo no turno."
   }
- ]
+ ],
+ "avaliadas": {
+  "Jeskai Revelation": {
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Cria duas fichas uma vez: 'cria ficha ou põe marcador uma vez' (1)."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Lavabrink Floodgates": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Professor Dellian Fel": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Eladamri, Korvecdal": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Mind into Matter": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Tony Stark": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "Enduring Vitality": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "K'rrik, Son of Yawgmoth": {
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Marcador só em si mesmo a cada mágica preta: 'ou só em si mesma' (1)."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  },
+  "The Fire Crystal": {
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Ficha cara de ativar, como a Big Apple: 'ficha cara de ativar' (1)."
+   },
+   "em": "2026-10-18",
+   "fonte": "caixa",
+   "papel": "habilita",
+   "papel_por_que": "Cria cópia-ficha de uma criatura por 6 manas, repetível, e dá ímpeto ao time (papel fraco)."
+  },
+  "Mana Crypt": {
+   "sin": {},
+   "sin_por_que": {},
+   "em": "2026-10-18",
+   "fonte": "caixa"
+  }
+ },
+ "plano": {
+  "comandante": [
+   {
+    "papel": "recompensa",
+    "por_que": "Leonardo converte a ficha que entra em marcador no time, uma vez por turno: precisa de muitas habilitadoras que criem fichas, de preferência no turno dos oponentes."
+   },
+   {
+    "papel": "habilita",
+    "por_que": "Michelangelo cria uma Food (ficha para o Leonardo) e põe marcador a cada turno em que você ataca: pede proteção e um plano B nas 99."
+   }
+  ],
+  "revisado": "2026-10-18"
+ }
 }
