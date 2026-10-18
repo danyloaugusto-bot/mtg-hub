@@ -85,6 +85,8 @@ R.ok("comandante multiplicadora: 12 habilitadoras e 10 recompensas nas 99", V(de
      and V(deck(11, 13, 8, dupla=8), "multiplica") == "insuficiente")
 R.ok("deck sem plano: ainda não classificado", plano.avaliar(deck(14, 12, 8), [])["veredito"] is None)
 T = lambda tribal: plano.avaliar(deck(25, 12, 8), ["recompensa"], tribal=tribal)["checks"][0]["t"]
+F = lambda cs, cmd: plano._faltando(plano.avaliar(cs, [cmd]), [cmd])
+R.ok("o que falta segue a checagem do comandante: habilitadora com recompensas abaixo de 30% pede recompensa", "recompensa" in F(deck(12, 9, 10), "habilita") and "recompensa" not in F(deck(12, 9, 10), "recompensa"))
 R.ok("plano acima da faixa: só fala em tribal quando o deck é tribal", "tribal" in T(True) and "tribal" not in T(False), T(False))
 
 # ---------------------------------------------------------------- a tela: o quadro no painel do Clavileño e num deck sem classificação
