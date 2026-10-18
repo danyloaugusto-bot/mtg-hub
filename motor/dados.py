@@ -144,7 +144,7 @@ def pontos_cmc(avg):
     return 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
 
 
-PASTAS_FORA = {"pastas"}   # dados/pastas guarda as pastas de cartas do dono, não é deck
+PASTAS_FORA = {"pastas", "caixa"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py). Não são decks
 
 
 def eh_deck(nome):
@@ -169,10 +169,8 @@ def ler_pastas():
     """
     base = os.path.join(DADOS, "pastas")
     out = {}
-    if not os.path.isdir(base):
-        return out
     pad = re.compile(r"^(\d+)\s*x?\s+(.+?)(?:\s+\([A-Za-z0-9]+\)\s+\S+.*)?\s*$", re.I)
-    for f in sorted(os.listdir(base)):
+    for f in sorted(os.listdir(base)) if os.path.isdir(base) else []:
         if not f.lower().endswith(".txt"):
             continue
         cartas = {}
@@ -186,6 +184,11 @@ def ler_pastas():
                     k = chave_nome(m.group(2))
                     cartas[k] = cartas.get(k, 0) + int(m.group(1))
         out[f[:-4]] = cartas
+    # a Caixa (dados/caixa/listas/) entra como mais uma pasta: "está na Caixa" nos painéis e no hub
+    import caixa
+    na_caixa = caixa.nomes()
+    if na_caixa:
+        out["Caixa"] = na_caixa
     return out
 
 
