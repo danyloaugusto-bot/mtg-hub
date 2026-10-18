@@ -47,6 +47,7 @@ var NOMED = { deck: 'Deck', guardar: 'Guardar', venda: 'Venda', bundles: 'Bundle
 function nomeD(d) { return d === 'guardar' && O.k !== 'Caixa' ? 'Manter' : NOMED[d]; }   // numa pasta, guardar é ficar onde está
 function eCaixa() { return O.k === 'Caixa'; }
 var FICHAS = D.fichas || {};   // a ficha de cada pasta (dados/pastas/pastas.json): subnome, formato, frase, papéis
+function semVenda() { return !eCaixa() && FICHAS[O.k] && FICHAS[O.k].venda === false; }   // a pasta não vende (Preta P)
 function subnome(p) { return FICHAS[p] && FICHAS[p].subnome ? FICHAS[p].subnome : ''; }
 function usarOrigem(k) {
   O = ORS.filter(function (x) { return x.k === k; })[0] || ORS[0]; CARTAS = O.cartas; ui.origem = O.k;
@@ -613,7 +614,7 @@ function copiaHtml(c, cp, i, d) {
   }).join('') + '</select>';
   var bt = function (k, rot) { return '<button class="bt-c' + (dest === k ? ' dec-on' : '') + '" data-act="decidir" data-k="' + k + '" data-id="' + esc(c.id) + '" data-i="' + i + '"' + (pode && !DB.ocupado[key] ? '' : ' disabled') + '>' + rot + '</button>'; };
   return '<div class="cx-cp"><b>Cópia ' + (i + 1) + ' de ' + c.copias.length + '</b><span class="dim">' + esc(cp.imp) + ' · ' + esc(cp.acab) + ' · ' + usd(cp.usd) + '</span>' +
-    bt('deck', 'Deck') + (opc.length ? selDeck : '') + bt('guardar', eCaixa() ? 'Guardar' : 'Mover') + bt('bundles', 'Bundles') + bt('venda', 'Venda') + bt('bulk', 'Bulk') + selPasta +
+    bt('deck', 'Deck') + (opc.length ? selDeck : '') + bt('guardar', eCaixa() ? 'Guardar' : 'Mover') + (semVenda() ? '' : bt('bundles', 'Bundles') + bt('venda', 'Venda') + bt('bulk', 'Bulk')) + selPasta +
     bt('remover', 'Remover') + '<label class="cx-pet"><input type="checkbox" data-cp="pet" data-id="' + esc(c.id) + '" data-i="' + i + '"' + ((d && d.pet) || c.pet ? ' checked' : '') + (pode ? '' : ' disabled') + '> pet card</label>' +
     '<input type="text" data-cp="nota" data-id="' + esc(c.id) + '" data-i="' + i + '" placeholder="anotação (opcional)" value="' + esc((d && d.nota) || '') + '"' + (pode ? '' : ' disabled') + '>' +
     '<small>Sugestão desta cópia: ' + nomeD(s.d) + (s.p ? ' · ' + esc(curto(s.p)) : '') + ' · prioridade ' + s.P + '. ' + esc(s.pq) + (d && d.destino ? ' Decidido em ' + esc(fdata(d.em)) + '.' : '') + '</small></div>';
@@ -679,74 +680,15 @@ function atualizarPrecos() {
     aviso('Daqui a página não consegue falar com o Scryfall' + (PUB ? ' (o claude.ai bloqueia a conexão)' : '') + '. Rode /precos no Claude Code (já copiei): ele atualiza tudo, grava e republica a Caixa.', 10000);
   });
 }
-function fontesVenda() {
-  var out = [];
-  ORS.forEach(function (o) {
-    o.cartas.forEach(function (c) {
-      var dc = decCopias(c, o);
-      c.copias.forEach(function (cp, i) {
-        if (cp.proxy) return;
-        var d = dc[i], m = cp.sug.marcas || [], por = '';
-        if (d && d.destino) { if (d.destino !== 'venda') return; por = 'decisão: Venda'; }
-        else if (cp.sug.d === 'venda') por = 'sugestão: Venda';
-        else if (m.indexOf('capital parado') >= 0) por = 'capital parado';
-        else if (m.indexOf('oportunidade') >= 0) por = 'cara para o que rende';
-        else return;
-        out.push({ c: c, cp: cp, o: o.k, por: por });
-      });
-    });
-  });
-  return out.sort(function (a, b) { return (b.cp.usd || 0) - (a.cp.usd || 0) || a.c.n.localeCompare(b.c.n); });
-}
-function vpcHtml() {
-  var fs = fontesVenda(), fator = R.fator_venda == null ? 1 : R.fator_venda;
-  var bruto = fs.reduce(function (s, x) { return s + (x.cp.usd || 0); }, 0), liq = bruto * fator;
-  var acum = 0, cabem = [], ganho = 0;
-  var us = (D.usos || []).map(function (u) {
-    var cabe = false;
-    if (u.usd != null) { acum += u.usd; cabe = acum <= liq + 1e-9; if (cabe) { cabem.push(u); ganho += u.g || 0; } }
-    return { u: u, acum: u.usd != null ? acum : null, cabe: cabe };
-  });
-  var v = function (x) { return x == null ? '<span class="dim">sem preço</span>' : usd(x) + brl(x); };
-  var topo = '<p class="cx-nt" style="margin-top:0">Preços do Scryfall de hoje (a última atualização, /precos), a mesma régua dos dois lados' +
-    (CB ? '; ≈ R$ pelo dólar ' + (CB.fonte === 'PTAX' ? 'PTAX ' : '') + 'de R$ ' + fmt(CB.v, 4) + (CB.data ? ' (' + fdata(CB.data) + ')' : '') : '') +
-    '. Fator de venda: ' + fmt(fator * 100, 0) + '% do preço (quanto você recebe vendendo ou trocando; em motor/caixa.json). Sem preço fica fora das somas.</p>';
-  var tf = '<table class="tbl cx-vt" data-nosort><thead><tr><th>Carta</th><th>Por quê</th><th class="n">Hoje</th></tr></thead><tbody>' +
-    (fs.map(function (x) {
-      return '<tr><td><button class="cx-nm" data-act="vpc-abrir" data-o="' + esc(x.o) + '" data-id="' + esc(x.c.id) + '">' + esc(x.c.on || x.c.n) + '</button><small>' + esc(x.o === 'Caixa' ? 'Caixa' : 'pasta ' + x.o) + ' · ' + esc(x.cp.imp) + (x.cp.acab !== 'normal' ? ', ' + esc(x.cp.acab) : '') + '</small></td>' +
-        '<td>' + esc(x.por) + '</td><td class="n num">' + v(x.cp.usd) + '</td></tr>';
-    }).join('') || '<tr><td colspan="3" class="dim">Nenhuma cópia marcada para venda.</td></tr>') + '</tbody><tfoot><tr><td colspan="2">Bruto (' + pl(fs.length, 'cópia', 'cópias') + ')</td><td class="n num">' + usd(bruto) + brl(bruto) + '</td></tr>' +
-    '<tr><td colspan="2"><b>Líquido</b> (× ' + fmt(fator * 100, 0) + '%)</td><td class="n num"><b>' + usd(liq) + '</b>' + brl(liq) + '</td></tr></tfoot></table>';
-  var tu = '<table class="tbl cx-vt" data-nosort><thead><tr><th>Carta</th><th>Rende mais em</th><th class="n">Hoje</th><th class="n">Acumulado</th><th class="cx-cb">Cabe no que você tem para vender</th></tr></thead><tbody>' +
-    (us.map(function (x) {
-      var u = x.u;
-      return '<tr' + (x.cabe ? ' class="cx-cabe"' : '') + '><td><b>' + esc(u.n) + '</b><small>' + esc(u.de.join(', ')) + '</small></td>' +
-        '<td>' + (u.p ? esc(curto(u.p)) + ' <b class="' + (u.g > 0 ? 'cx-pos' : 'cx-neg') + '">' + sinal(u.g) + '</b>' + (u.a ? '' : '<span class="cx-ast">*</span>') + '<small>sai ' + esc(u.s || '—') + '</small>' : '<span class="dim">sem cadastro para o encaixe</span>') + '</td>' +
-        '<td class="n num">' + v(u.usd) + '</td><td class="n num">' + (x.acum == null ? '—' : usd(x.acum)) + '</td><td>' + (x.cabe ? '✓ cabe' : u.usd == null ? '<span class="dim">sem preço</span>' : '<span class="dim">passa do líquido</span>') + '</td></tr>';
-    }).join('') || '<tr><td colspan="5" class="dim">Nada na lista de compras nem no radar como "entra" que você ainda não tenha.</td></tr>') + '</tbody></table>';
-  var fecho = '<p class="cx-vfecho">Com o que está marcado para venda (' + (CB ? '≈ ' + reais(liq) : usd(liq)) + '), você compra ' + (cabem.length ? (cabem.length === 1 ? 'esta carta' : 'estas ' + cabem.length + ' cartas') + ', que ' + (cabem.length === 1 ? 'soma ' : 'somam ') + sinal(ganho) + ' nos decks.' : 'nenhuma das cartas da lista: a mais cara do topo passa do líquido.') + '</p>';
-  return '<button class="cx-gav-x" data-act="fechar" aria-label="Fechar">×</button><h2 id="cx-gav-t" class="cx-vh">Vender para comprar</h2>' + topo + fecho +
-    '<div class="cx-vpc"><section><h3 class="sub">Fontes: o que está marcado para venda</h3>' + tf + '</section><section><h3 class="sub">Usos: o que comprar, pelo ganho</h3>' + tu +
-    '<p class="cx-nt">A lista de compras (o retrato do hub) e as cartas do radar como "entra" que você não tem em deck, Caixa ou pasta. Rende mais em: o deck de maior ganho (asterisco: sinergia ainda não avaliada lá, o ganho é piso).</p></section></div>';
-}
-function abrirVpc() {
-  aberta = 'vpc';
-  $('#cx-gav-in').classList.add('cx-larga');
-  $('#cx-gav-in').innerHTML = vpcHtml();
-  $('#cx-gav').hidden = false; document.body.style.overflow = 'hidden';
-  $('#cx-gav-in').focus();
-}
 function abrir(id) {
   var c = CARTAS.filter(function (x) { return x.id === id; })[0]; if (!c) return;
   aberta = id;
-  $('#cx-gav-in').classList.remove('cx-larga');
   $('#cx-gav-in').innerHTML = gaveta(c);
   $('#cx-gav').hidden = false; document.body.style.overflow = 'hidden';
   $('#cx-gav-in').focus();
 }
 function redesenharGaveta() {
   if (!aberta || $('#cx-gav').hidden) return;
-  if (aberta === 'vpc') { var sv = $('#cx-gav-in').scrollTop; $('#cx-gav-in').innerHTML = vpcHtml(); $('#cx-gav-in').scrollTop = sv; return; }
   var id = aberta.split(':')[0], c = CARTAS.filter(function (x) { return x.id === id; })[0];
   if (c) { var st = $('#cx-gav-in').scrollTop; $('#cx-gav-in').innerHTML = gaveta(c); $('#cx-gav-in').scrollTop = st; }
 }
@@ -844,10 +786,8 @@ document.addEventListener('click', function (ev) {
   var act = a.getAttribute('data-act'), id = a.getAttribute('data-id');
   if (act === 'ui') { ui[a.getAttribute('data-k')] = a.getAttribute('data-v'); guardaUI(); render(); }
   else if (act === 'abrir') abrir(id);
-  else if (act === 'vpc') abrirVpc();
   else if (act === 'precos') atualizarPrecos();
   else if (act === 'origem') { usarOrigem(a.getAttribute('data-v')); guardaUI(); render(); }
-  else if (act === 'vpc-abrir') { var oo = a.getAttribute('data-o'); if (oo !== O.k) { usarOrigem(oo); guardaUI(); render(); } abrir(id); }
   else if (act === 'ord-inv') { ui.inv = !ui.inv; guardaUI(); render(); }
   else if (act === 'ord') { var ok = a.getAttribute('data-v'); if (ui.ord === ok) ui.inv = !ui.inv; else { ui.ord = ok; ui.inv = false; } guardaUI(); render(); }
   else if (act === 'tipos-limpar') { ui.tipos = []; ddAberta = false; guardaUI(); render(); }
@@ -908,4 +848,4 @@ usarOrigem(ui.origem || 'Caixa');
 if (PUB && D.hub_pub) $('#cx-hub').href = D.hub_pub;
 render();
 ligarBanco();
-window.CAIXA = { D: D, ui: ui, render: render, abrir: abrir, fontesVenda: fontesVenda, placarDe: placarDe, ORS: ORS };   // para os testes
+window.CAIXA = { D: D, ui: ui, render: render, abrir: abrir, placarDe: placarDe, ORS: ORS };   // para os testes
