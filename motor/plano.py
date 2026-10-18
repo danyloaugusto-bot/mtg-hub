@@ -206,6 +206,12 @@ def _sem_furo(antes, depois):
     return all(not (a >= f[0] > d) for a, d, f in zip(antes, depois, fx))
 
 
+def _pede_protecao(cards, cmd_papeis):
+    """Um comandante é habilitadora e o deck tem menos cartas de Resiliência 2 ou 3 do que a régua pede."""
+    rc = regua()["comandante"].get("habilita") or {}
+    return "habilita" in cmd_papeis and _resil(cards) < rc.get("resiliencia_min", 0)
+
+
 def _faltando(av, cmd_papeis):
     R = regua()
     falta = [p for p in PAPEIS if av["pct"][p] < R["faixas_pct"][p][0]]
@@ -343,6 +349,11 @@ def cenarios(pasta, m=None):
         if c["n"] not in vistos:
             vistos.add(c["n"]); proprias_u.append(c)
     do_radar = [c for c in radar if c.get("verdict") == "entra" and c["pp"] in falta and c["n"] not in vistos]
+    # comandante-habilitadora sem proteção: as "entra" do radar com Resiliência 2 ou 3 também contam, tenham papel ou não
+    if _pede_protecao(cards, cmd_p):
+        i_res = [x["k"] for x in dados.regua()["criterios"]].index("resiliencia")
+        ja = {c["n"] for c in do_radar} | vistos
+        do_radar += [dict(c, q=1) for c in m["cands"] if c.get("verdict") == "entra" and c["n"] not in ja and (c.get("s3") or [0] * 10)[i_res] >= 2]
 
     def linha(nome, sub, cs, trocas, aviso=None):
         a = avaliar(cs, cmd_p, nomes_cmd, tribal)
@@ -378,7 +389,7 @@ def cenarios(pasta, m=None):
         e = t["entra"]
         ch = dados.chave_nome(e["n"])
         org = _origem(e["n"], tem, outros)
-        trocas.append(dict(entra=e["n"], papel=e["pp"], faz=e.get("ppw") or e.get("fx") or "", origem=org,
+        trocas.append(dict(entra=e["n"], papel=e.get("pp"), faz=e.get("ppw") or e.get("fx") or "", origem=org,
                            onde=outros.get(ch) or [], sai=t["sai"]["n"], sai_papel=t["sai"].get("pp"), sai_tier=t["sai"].get("tier"), ganho=t["ganho"]))
     notas = []
     cortes3 = {t["sai"]["id"]: t["sai"]["n"] for t in t3}

@@ -87,6 +87,7 @@ R.ok("deck sem plano: ainda não classificado", plano.avaliar(deck(14, 12, 8), [
 T = lambda tribal: plano.avaliar(deck(25, 12, 8), ["recompensa"], tribal=tribal)["checks"][0]["t"]
 F = lambda cs, cmd: plano._faltando(plano.avaliar(cs, [cmd]), [cmd])
 R.ok("o que falta segue a checagem do comandante: habilitadora com recompensas abaixo de 30% pede recompensa", "recompensa" in F(deck(12, 9, 10), "habilita") and "recompensa" not in F(deck(12, 9, 10), "recompensa"))
+R.ok("comandante-habilitadora com menos de 8 cartas de Resiliência 2+ pede proteção (as do radar contam nos cenários)", plano._pede_protecao(deck(12, 10, 8, res=7), ["habilita"]) and not plano._pede_protecao(deck(12, 10, 8, res=8), ["habilita"]) and not plano._pede_protecao(deck(12, 10, 8), ["recompensa"]))
 R.ok("plano acima da faixa: só fala em tribal quando o deck é tribal", "tribal" in T(True) and "tribal" not in T(False), T(False))
 
 # ---------------------------------------------------------------- a tela: o quadro no painel do Clavileño e num deck sem classificação
