@@ -58,6 +58,7 @@ def _reduzir(k, hoje):
         "printed_name": k.get("printed_name"), "flavor_name": k.get("flavor_name"), "lang": k.get("lang"),
         "game_changer": True if k.get("game_changer") else None, "edhrec_rank": k.get("edhrec_rank"),
         "leg": (k.get("legalities") or {}).get("commander"),   # legal, not_legal, banned ou restricted, no Commander
+        "reprint": k.get("reprint"),   # False = a primeira impressão da carta (Novidades do Grimório); fica no registro
         "consultado": hoje,
     }
     if k.get("card_faces"):
@@ -219,6 +220,86 @@ def _get(url):
                 continue
             raise ErroScryfall("sem resposta do Scryfall (%s)" % e)
     raise ErroScryfall("Scryfall recusou depois de três tentativas")
+
+
+def _frente(nome):
+    return str(nome or "").split(" // ")[0].strip().lower()
+
+
+def recente(nomes, atualizar=False, avisar=print):
+    """A impressão mais recente de cada carta, pelo nome: a busca por nome do Scryfall devolve a impressão mais nova
+    (conferido em 20/10/2026: Sol Ring veio em FRC, de 02/10/2026). É o que as Novidades do Grimório precisam (coleção,
+    data e `reprint`). O registro entra no mesmo cache, mas o ponteiro de nome (`nomes`) não muda: deck que lista a carta
+    sem edição, e o radar, seguem na impressão que já tinham. O ponteiro desta consulta fica em `recentes`, com a mesma
+    validade de 7 dias. Devolve {nome da frente em minúsculas: registro}; nome que o Scryfall não acha fica de fora.
+    Sem rede, vale o que estava guardado, com aviso."""
+    c = _ler()
+    c.setdefault("recentes", {})
+    hoje = datetime.date.today().isoformat()
+    limite = (datetime.date.today() - datetime.timedelta(days=VALIDADE)).isoformat()
+    chaves = list(dict.fromkeys(_frente(n) for n in nomes if n))
+
+    def valido(n):
+        r = c["recentes"].get(n)
+        return bool(r and (r.get("consultado") or "") >= limite and r.get("ch") in c["cartas"])
+
+    faltam = [n for n in chaves if atualizar or not valido(n)]
+    mudou = False
+    try:
+        for i in range(0, len(faltam), 75):
+            lote = faltam[i:i + 75]
+            if i:
+                time.sleep(0.1)
+            resp = _post([{"name": n} for n in lote])
+            for k in resp.get("data", []):
+                ch = _guardar(c, k, hoje)
+                for n in {k["name"].lower(), _frente(k["name"])}:
+                    c["recentes"][n] = {"ch": ch, "consultado": hoje}
+                mudou = True
+            time.sleep(0.1)
+    except ErroScryfall as e:
+        avisar("aviso: %s; a impressão mais recente fica a da última consulta" % e)
+    if mudou:
+        _gravar(c)
+    return {n: c["cartas"][c["recentes"][n]["ch"]] for n in chaves if n in c["recentes"] and c["recentes"][n].get("ch") in c["cartas"]}
+
+
+SETS = "https://api.scryfall.com/sets"
+# os tipos de coleção que contam como lançamento para o Grimório (sem promos, fichas, art series, digitais)
+TIPOS_SET = ("expansion", "core", "commander", "masters", "draft_innovation", "eternal", "starter", "duel_deck", "planechase", "archenemy", "box")
+
+
+def colecoes(atualizar=False, avisar=print):
+    """As coleções do Scryfall (/sets), para a leitura do Grimório: código, nome, data, tipo e quantas cartas; só as de papel
+    dos tipos em TIPOS_SET, com a mesma validade de 7 dias. Devolve {"lista": [...], "consultado": data} ou None."""
+    c = _ler()
+    s = c.get("sets") or {}
+    limite = (datetime.date.today() - datetime.timedelta(days=VALIDADE)).isoformat()
+    if s.get("lista") and not atualizar and (s.get("consultado") or "") >= limite:
+        return s
+    try:
+        lista, url = [], SETS
+        while url:
+            r = _get(url)
+            for k in r.get("data", []):
+                if k.get("digital") or k.get("set_type") not in TIPOS_SET or not k.get("released_at"):
+                    continue
+                lista.append({"code": k["code"], "name": k.get("name"), "released_at": k["released_at"], "set_type": k["set_type"], "card_count": k.get("card_count", 0)})
+            url = r.get("next_page") if r.get("has_more") else None
+            if url:
+                time.sleep(0.1)
+        if not lista:
+            raise ErroScryfall("a lista de coleções voltou vazia")
+        c = _ler()
+        c["sets"] = {"lista": sorted(lista, key=lambda x: x["released_at"]), "consultado": datetime.date.today().isoformat()}
+        _gravar(c)
+        return c["sets"]
+    except ErroScryfall as e:
+        if s.get("lista"):
+            avisar("aviso: %s; as coleções ficam as de %s" % (e, s.get("consultado")))
+            return s
+        avisar("aviso: %s; sem a lista de coleções" % e)
+        return None
 
 
 def game_changers(atualizar=False, avisar=print):
