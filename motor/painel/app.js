@@ -923,12 +923,12 @@ var KIT = (function () {
   var seed = semente(M.pasta);
   function sorte(sd) { if (sd != null) seed = (semente(M.pasta) + sd * 7919) % 233280; seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
   /* filtros comuns, com id prefixado pelo nome do gráfico: brilho largo (5), brilho curto (2) e textura (ruído a .35).
-     O brilho cobre o gráfico inteiro (userSpaceOnUse): pela caixa da peça, uma peça fina e reta cortava o brilho em retângulo. */
+     O brilho cobre uma área folgada em volta do centro (userSpaceOnUse), que vale também dentro de grupo girado: pela caixa da peça, uma peça fina e reta cortava o brilho em retângulo. */
   function defs(ctx, nome) {
     var I = { brilho: ctx.uid(nome + 'Bl'), brilho2: ctx.uid(nome + 'Bc'), textura: ctx.uid(nome + 'Tx') };
     ctx.k = I;
-    return '<filter id="' + I.brilho + '" filterUnits="userSpaceOnUse" x="-58" y="-2" width="576" height="464"><feGaussianBlur stdDeviation="5"/></filter>' +
-      '<filter id="' + I.brilho2 + '" filterUnits="userSpaceOnUse" x="-58" y="-2" width="576" height="464"><feGaussianBlur stdDeviation="2"/></filter>' +
+    return '<filter id="' + I.brilho + '" filterUnits="userSpaceOnUse" x="-700" y="-700" width="1860" height="1860"><feGaussianBlur stdDeviation="5"/></filter>' +
+      '<filter id="' + I.brilho2 + '" filterUnits="userSpaceOnUse" x="-700" y="-700" width="1860" height="1860"><feGaussianBlur stdDeviation="2"/></filter>' +
       '<filter id="' + I.textura + '" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="' + (semente(M.pasta) % 97) + '" result="n"/>' +
       '<feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .35 0" result="t"/><feComposite in="t" in2="SourceGraphic" operator="in" result="tx"/>' +
       '<feBlend in="tx" in2="SourceGraphic" mode="overlay"/></filter>';
@@ -1062,8 +1062,16 @@ function tbChao(y, amp, fase, aberto) {
   for (var x = 0; x < 680; x += 40) d += 'Q' + (x + 20) + ' ' + (y - amp * Math.sin((x + fase) / 57)).toFixed(1) + ' ' + (x + 40) + ' ' + (y + amp * 0.4 * Math.cos((x + fase) / 41)).toFixed(1);
   return aberto ? d : d + 'L680 ' + (y + 70) + 'L0 ' + (y + 70) + 'Z';
 }
+/* tumbas do 02. Zumbis: variação R (Cemitério noturno) do rebranding, escolhida pelo dono em 20/10/2026 */
 function tumbasSvg(st) {
-  var n = NG, back = n > 8 ? 4 : Math.floor(n / 2), max = 1, best = 0, i, H0 = 118, SW = 62, yB = 214, yF = 382;
+  /* 02. Zumbis, rebranding segunda rodada, variação R (realismo). O cemitério aprovado, mesma composição e mesma medida:
+     a lápide sobe da cova em proporção direta à soma (mínimo de 12% da altura); o contorno tracejado é a lápide inteira.
+     Feito como foto noturna: granito de verdade (grão, manchas de tempo, líquen, musgo no pé, lasca e trinca), a cruz e o
+     epitáfio cinzelados, a espessura da laje e a sombra no chão, a terra revolvida onde a pedra rompeu o solo, árvores
+     mortas na névoa e uma lua de sangue (eclipse) atrás da cripta, escura o bastante para o placar ler por cima.
+     Sem cor de critério: o rótulo identifica. A única luz própria é a vela de cemitério, no vidro vermelho, ao pé da
+     lápide mais alta. */
+  var n = NG, back = n > 8 ? 4 : Math.floor(n / 2), max = 1, best = 0, i, H0 = 118, SW = 62, yB = 214, yF = 382, MX = 340;
   for (i = 0; i < n; i++) { max = Math.max(max, st.grp[i].pts); if (st.grp[i].pts > st.grp[best].pts) best = i; }
   if (MAXFIX) max = MAXFIX;
   var esq = Math.ceil(back / 2), dir = back - esq, pos = [];
@@ -1071,49 +1079,176 @@ function tumbasSvg(st) {
   for (i = 0; i < dir; i++) pos.push({ x: dir === 1 ? 540 : 490 + i * (618 - 490) / (dir - 1), y: yB });
   var front = n - back;
   for (i = 0; i < front; i++) pos.push({ x: front === 1 ? 340 : 92 + i * (588 - 92) / (front - 1), y: yF });
-  var o = '<svg class="tumbas-svg" viewBox="0 14 680 436" role="group" aria-label="Cemitério com ' + NUM[n] + ' lápides, uma por agrupamento, e a pontuação total na lua"><defs>' +
-    '<radialGradient id="luar" cx="340" cy="74" r="200" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:rgba(var(--gold2-rgb),.30)"/><stop offset=".45" style="stop-color:rgba(var(--gold2-rgb),.08)"/><stop offset="1" style="stop-color:rgba(var(--gold2-rgb),0)"/></radialGradient>' +
-    '<linearGradient id="pedra" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>' +
-    '<linearGradient id="nevoa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:rgba(var(--bone-rgb,228,220,200),0)"/><stop offset=".6" style="stop-color:rgba(var(--bone-rgb,228,220,200),.10)"/><stop offset="1" style="stop-color:rgba(var(--bone-rgb,228,220,200),0)"/></linearGradient>' +
-    '<filter id="chama" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="6"/></filter>';
-  for (i = 0; i < n; i++) o += '<clipPath id="cova' + i + '"><rect x="' + (pos[i].x - 70) + '" y="' + (pos[i].y - H0 - 40) + '" width="140" height="' + (H0 + 40) + '"/></clipPath>';
-  o += '</defs><rect x="0" y="14" width="680" height="436" fill="url(#luar)"/>';
-  /* a lua com o placar e a cripta embaixo */
-  o += '<circle cx="340" cy="72" r="46" style="fill:rgba(var(--gold2-rgb),.10);stroke:rgba(var(--gold2-rgb),.85)" stroke-width="2"/>' +
-    '<circle cx="340" cy="72" r="54" fill="none" style="stroke:rgba(var(--gold2-rgb),.35)" stroke-width="1" stroke-dasharray="1 7" stroke-linecap="round"/>' +
-    '<text class="ctr-n' + ctrLongo(st) + '" x="340" y="83" text-anchor="middle">' + fmtP(st.total) + '</text><text class="ctr-l" x="340" y="101" text-anchor="middle">pontos</text>' +
-    '<g class="cripta" pointer-events="none" style="fill:rgba(var(--deep-rgb),.92);stroke:rgba(var(--gold-rgb),.55)" stroke-width="1.4" stroke-linejoin="round">' +
-    '<path d="M282 214V146H398V214Z"/><path d="M272 148L340 122L408 148Z"/><path d="M322 214V184A18 18 0 0 1 358 184V214Z" style="fill:rgba(0,0,0,.6)"/>' +
-    '<path d="M340 122V108M333 114H347" fill="none"/><path d="M292 160V206M388 160V206" fill="none" style="stroke:rgba(var(--gold-rgb),.3)"/></g>';
+  function F(v) { return (+v).toFixed(1); }
+  var S = KIT.sorte; S(11);
+  /* três desenhos de lápide (arco, ogiva e ombros), todos com a altura inteira h e a base em y */
+  var TIPO = [0, 1, 2, 0, 2, 1, 0, 2, 1, 0], TOM = ['#5d6163', '#53585a', '#64615c', '#585c60', '#4f5452', '#605e59', '#565b5d', '#5e5e5a', '#525756', '#5a5d5f'];
+  function forma(x, y, h, w, tipo) {
+    var r = w / 2;
+    if (tipo === 1) return 'M' + F(x - r) + ' ' + y + 'L' + F(x - r) + ' ' + F(y - h + r * 1.05) + 'Q' + F(x - r) + ' ' + F(y - h + r * 0.3) + ' ' + x + ' ' + F(y - h) +
+      'Q' + F(x + r) + ' ' + F(y - h + r * 0.3) + ' ' + F(x + r) + ' ' + F(y - h + r * 1.05) + 'L' + F(x + r) + ' ' + y + 'Z';
+    if (tipo === 2) { var a = r * 0.64; return 'M' + F(x - r) + ' ' + y + 'L' + F(x - r) + ' ' + F(y - h + 20) + 'Q' + F(x - r) + ' ' + F(y - h + 13) + ' ' + F(x - r + 6) + ' ' + F(y - h + 13) +
+      'L' + F(x - a) + ' ' + F(y - h + 13) + 'A' + F(a) + ' 13 0 0 1 ' + F(x + a) + ' ' + F(y - h + 13) + 'L' + F(x + r - 6) + ' ' + F(y - h + 13) +
+      'Q' + F(x + r) + ' ' + F(y - h + 13) + ' ' + F(x + r) + ' ' + F(y - h + 20) + 'L' + F(x + r) + ' ' + y + 'Z'; }
+    return 'M' + F(x - r) + ' ' + y + 'L' + F(x - r) + ' ' + F(y - h + r) + 'A' + r + ' ' + r + ' 0 0 1 ' + F(x + r) + ' ' + F(y - h + r) + 'L' + F(x + r) + ' ' + y + 'Z';
+  }
+  var o = '<svg class="tumbas-svg" viewBox="0 14 680 436" role="group" aria-label="Cemitério com ' + NUM[n] + ' lápides, uma por critério, e a pontuação total na lua"><defs>' +
+    /* céu: escuro no alto, a névoa clareando no horizonte; a lua de sangue com o brilho baixo da atmosfera em volta */
+    '<linearGradient id="tbCeu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1015" stop-opacity="0"/><stop offset=".6" stop-color="#1c2328" stop-opacity=".55"/><stop offset="1" stop-color="#2c3336" stop-opacity=".8"/></linearGradient>' +
+    '<radialGradient id="tbCorona" cx="340" cy="72" r="150" gradientUnits="userSpaceOnUse"><stop offset=".28" stop-color="#7a3a2a" stop-opacity=".30"/><stop offset=".5" stop-color="#4a2a26" stop-opacity=".12"/><stop offset="1" stop-color="#2a2226" stop-opacity="0"/></radialGradient>' +
+    '<radialGradient id="tbLua" cx=".34" cy=".3" r=".8"><stop offset="0" stop-color="#93503a"/><stop offset=".4" stop-color="#65301f"/><stop offset=".8" stop-color="#3a1813"/><stop offset="1" stop-color="#26100c"/></radialGradient>' +
+    /* granito: grão escuro e claro, e manchas de tempo em escala maior */
+    '<filter id="tbGr" x="0" y="0" width="100%" height="100%">' +
+    '<feTurbulence type="fractalNoise" baseFrequency="1.25" numOctaves="2" seed="5" result="n"/>' +
+    '<feColorMatrix in="n" type="matrix" values="0 0 0 0 .05  0 0 0 0 .05  0 0 0 0 .06  3 0 0 0 -1.85" result="dk"/>' +
+    '<feColorMatrix in="n" type="matrix" values="0 0 0 0 .86  0 0 0 0 .87  0 0 0 0 .85  -2 0 0 0 .6" result="lt"/>' +
+    '<feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="3" seed="9" result="m"/>' +
+    '<feColorMatrix in="m" type="matrix" values="0 0 0 0 .12  0 0 0 0 .11  0 0 0 0 .08  2.4 0 0 0 -1.05" result="mc"/>' +
+    '<feMerge result="t"><feMergeNode in="mc"/><feMergeNode in="dk"/><feMergeNode in="lt"/></feMerge>' +
+    '<feComposite in="t" in2="SourceGraphic" operator="in" result="ti"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="ti"/></feMerge></filter>' +
+    /* terra: grão grosso */
+    '<filter id="tbTerra" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9 .5" numOctaves="2" seed="3" result="n"/>' +
+    '<feColorMatrix in="n" type="matrix" values="0 0 0 0 .2  0 0 0 0 .22  0 0 0 0 .21  -2 0 0 0 .66" result="lt"/><feComposite in="lt" in2="SourceGraphic" operator="in" result="ti"/>' +
+    '<feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="ti"/></feMerge></filter>' +
+    '<filter id="tbBorra" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="2.4"/></filter>' +
+    '<filter id="tbNevoa" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="9"/></filter>' +
+    /* luz da lua (atrás e no alto): a borda de cima da pedra clareia, o pé escurece; e o lado que olha para a lua */
+    '<linearGradient id="tbV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe6ea" stop-opacity=".16"/><stop offset=".22" stop-color="#fff" stop-opacity=".03"/><stop offset=".62" stop-color="#000" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity=".62"/></linearGradient>' +
+    '<linearGradient id="tbLR" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".42"/><stop offset=".5" stop-color="#000" stop-opacity=".05"/><stop offset=".86" stop-color="#d8e2e8" stop-opacity=".08"/><stop offset="1" stop-color="#d8e2e8" stop-opacity=".24"/></linearGradient>' +
+    '<linearGradient id="tbLL" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".42"/><stop offset=".5" stop-color="#000" stop-opacity=".05"/><stop offset=".86" stop-color="#d8e2e8" stop-opacity=".08"/><stop offset="1" stop-color="#d8e2e8" stop-opacity=".24"/></linearGradient>' +
+    '<linearGradient id="tbEsc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0d0e" stop-opacity=".45"/><stop offset="1" stop-color="#0b0d0e" stop-opacity="0"/></linearGradient>' +
+    '<linearGradient id="tbMusgo" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#26301c" stop-opacity=".9"/><stop offset=".5" stop-color="#3a4628" stop-opacity=".45"/><stop offset="1" stop-color="#3a4628" stop-opacity="0"/></linearGradient>' +
+    '<linearGradient id="tbChao" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#20272a"/><stop offset=".25" stop-color="#151b1e"/><stop offset="1" stop-color="#0c1012"/></linearGradient>' +
+    /* vela de cemitério: a chama e a luz quente que ela joga */
+    '<radialGradient id="tbChama" cx=".5" cy=".7" r=".6"><stop offset="0" stop-color="#fffbe8"/><stop offset=".35" stop-color="#ffd27a"/><stop offset=".75" stop-color="#e8782a"/><stop offset="1" stop-color="#b8401a" stop-opacity="0"/></radialGradient>' +
+    '<radialGradient id="tbVidro" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#ff9a5a"/><stop offset=".45" stop-color="#c8321e"/><stop offset="1" stop-color="#4a0c08"/></radialGradient>';
+  for (i = 0; i < n; i++) {
+    o += '<clipPath id="cova' + i + '"><rect x="' + (pos[i].x - 70) + '" y="' + (pos[i].y - H0 - 40) + '" width="140" height="' + (H0 + 40) + '"/></clipPath>' +
+      '<clipPath id="tbS' + i + '"><path d="' + forma(pos[i].x, pos[i].y, H0, SW, TIPO[i % 10]) + '"/></clipPath>';
+  }
+  o += '</defs><rect x="0" y="14" width="680" height="' + (yB - 14 + 8) + '" fill="url(#tbCeu)"/><rect x="0" y="14" width="680" height="300" fill="url(#tbCorona)"/>';
+  /* árvores mortas na névoa, nas pontas */
+  var galho = function (x, y, a, L, w, prof) {
+    if (prof > 4 || L < 6) return '';
+    var t = a * Math.PI / 180, x2 = x + L * Math.cos(t), y2 = y + L * Math.sin(t), mx = (x + x2) / 2 + (S() - 0.5) * L * 0.3, my = (y + y2) / 2 + (S() - 0.5) * L * 0.2;
+    var s = '<path d="M' + F(x) + ' ' + F(y) + 'Q' + F(mx) + ' ' + F(my) + ' ' + F(x2) + ' ' + F(y2) + '" stroke-width="' + F(w) + '"/>';
+    var k = prof < 1 ? 3 : 2;
+    for (var j = 0; j < k; j++) s += galho(x2, y2, a + (j - (k - 1) / 2) * (28 + S() * 22) + (S() - 0.5) * 14, L * (0.62 + S() * 0.16), w * 0.62, prof + 1);
+    return s;
+  };
+  o += '<g style="fill:none;stroke:#080b0d" stroke-linecap="round" opacity=".9" pointer-events="none">' + galho(18, yB + 4, -84, 66, 7, 0) + galho(664, yB + 4, -97, 58, 6, 0) + '</g>';
+  /* a lua de sangue: mares escuros, poucas crateras, um fiapo de nuvem no alto e outro embaixo do placar */
+  var mar = '';
+  [[326, 58, 15, 10], [356, 64, 11, 8], [344, 90, 13, 6], [318, 82, 7, 9], [366, 86, 6, 5]].forEach(function (m) { mar += '<ellipse cx="' + m[0] + '" cy="' + m[1] + '" rx="' + m[2] + '" ry="' + m[3] + '"/>'; });
+  o += '<circle cx="340" cy="72" r="46" fill="url(#tbLua)"/>' +
+    '<g fill="#1a0806" opacity=".35" filter="url(#tbBorra)">' + mar + '</g>' +
+    '<circle cx="340" cy="72" r="46" fill="#7a3a2a" opacity=".5" filter="url(#tbTerra)" style="mix-blend-mode:multiply"/>' +
+    '<circle cx="340" cy="72" r="45.4" fill="none" stroke="#b0644a" stroke-opacity=".22" stroke-width="1.2"/>' +
+    '<ellipse cx="318" cy="34" rx="60" ry="7" fill="#151b20" opacity=".7" filter="url(#tbNevoa)"/>' +
+    '<ellipse cx="362" cy="118" rx="70" ry="8" fill="#151b20" opacity=".8" filter="url(#tbNevoa)"/>' +
+    '<text class="ctr-n' + ctrLongo(st) + '" x="340" y="83" text-anchor="middle">' + fmtP(st.total) + '</text><text class="ctr-l" x="340" y="101" text-anchor="middle">pontos</text>';
+  /* a cripta: blocos de granito, frontão, pilastras, degrau e o portão de ferro entreaberto; em contraluz */
+  var junta = '';
+  for (var jy = 158; jy < 214; jy += 11) { junta += 'M283 ' + jy + 'H397'; for (var jx = 283 + ((jy / 11) % 2 ? 0 : 14); jx < 397; jx += 28) junta += 'M' + jx + ' ' + jy + 'v11'; }
+  o += '<g class="cripta" pointer-events="none">' +
+    '<path d="M282 214V146H398V214Z" fill="#2c3134" filter="url(#tbGr)"/><path d="M282 214V146H398V214Z" fill="url(#tbV)"/>' +
+    '<path d="' + junta + '" fill="none" stroke="#000" stroke-opacity=".35" stroke-width=".8"/>' +
+    '<path d="M268 150L340 120L412 150Z" fill="#2e3336" filter="url(#tbGr)"/><path d="M268 150L340 120L412 150Z" fill="#000" fill-opacity=".25"/>' +
+    '<path d="M268 150L340 120L412 150" fill="none" stroke="#a7b0b4" stroke-opacity=".35" stroke-width="1.1"/>' +
+    '<path d="M266 150H414V156H266Z" fill="#2c3133"/><path d="M266 150H414" stroke="#9aa2a6" stroke-opacity=".3" stroke-width="1"/>' +
+    '<path d="M286 156H300V214H286ZM380 156H394V214H380Z" fill="#363b3e" filter="url(#tbGr)"/><path d="M286 156H300V214H286ZM380 156H394V214H380Z" fill="url(#tbLR)"/>' +
+    '<path d="M320 214V184A20 20 0 0 1 360 184V214Z" fill="#050607"/>' +
+    '<path d="M322 214V185A18 18 0 0 1 340 167V214Z" fill="none" stroke="#1d2224" stroke-width="2.2"/><path d="M327 214V180M333 214V171" stroke="#22282a" stroke-width="1.6"/>' +
+    '<path d="M322 194H340" stroke="#22282a" stroke-width="1.4"/>' +
+    '<path d="M336 122V105M329.5 111H342.5" fill="none" stroke="#2b3032" stroke-width="3.4" stroke-linecap="square"/><path d="M336 122V105M329.5 111H342.5" fill="none" stroke="#8d969a" stroke-opacity=".4" stroke-width="1" transform="translate(-.8 -.6)"/></g>';
   var fileira = function (de, ate) {
-    var s = '', lb = '';
+    var s = '', lb = '', ch = '';
     for (var i = de; i < ate; i++) {
-      var p = pos[i], v = st.grp[i].pts, fr = Math.max(0, v) / max, h = H0 * Math.max(fr, 0.06), t = TB_TILT[i % 8], topo = i === best;
-      var rot = 'rotate(' + t + ' ' + p.x + ' ' + p.y + ')';
+      var p = pos[i], v = st.grp[i].pts, fr = Math.max(0, v) / max, h = H0 * Math.max(fr, 0.12), t = TB_TILT[i % 8], topo = i === best, tp = TIPO[i % 10];
+      var lado = p.x < MX ? 1 : -1, rot = 'rotate(' + t + ' ' + p.x + ' ' + p.y + ')', full = forma(p.x, p.y, H0, SW, tp), x = p.x, y = p.y, top = y - H0;
+      S(100 + i);
+      /* líquen, trinca, lasca e epitáfio desta pedra (sorteio fixo) */
+      var liq = '';
+      for (var k = 0; k < 4; k++) {
+        var lx = x + (S() - 0.5) * (SW - 10), ly = top + 14 + S() * (H0 - 30);
+        for (var q = 0; q < 7; q++) liq += '<circle cx="' + F(lx + (S() - 0.5) * 10) + '" cy="' + F(ly + (S() - 0.5) * 7) + '" r="' + F(0.6 + S() * 1.6) + '"/>';
+      }
+      var esc2 = '';
+      for (k = 0; k < 5; k++) esc2 += '<rect x="' + F(x + (S() - 0.5) * (SW - 12)) + '" y="' + (top + 2) + '" width="' + F(4 + S() * 7) + '" height="' + F(30 + S() * 50) + '" rx="3"/>';
+      var cx0 = x + (S() > 0.5 ? 1 : -1) * (8 + S() * 14), tr = 'M' + F(cx0) + ' ' + F(top + (tp === 2 ? 2 : 6) + S() * 4);
+      for (k = 1; k < 5; k++) tr += 'L' + F(cx0 + (S() - 0.5) * 9) + ' ' + F(top + 8 + k * (10 + S() * 8));
+      var ep = '';
+      for (k = 0; k < 3; k++) { var ew = (k === 0 ? 30 : 16 + S() * 16) / 2; ep += 'M' + F(x - ew) + ' ' + (top + 70 + k * 8) + 'H' + F(x + ew); }
+      var cruz = 'M' + x + ' ' + (top + 24) + 'V' + (top + 58) + 'M' + (x - 11) + ' ' + (top + 34) + 'H' + (x + 11);
+      var lasca = lado > 0 ? 'M' + F(x - SW / 2) + ' ' + F(top + SW / 2 + 6) + 'l7 -3 1 8 -8 4z' : 'M' + F(x + SW / 2) + ' ' + F(top + SW / 2 + 6) + 'l-7 -3 -1 8 8 4z';
+      var luzVela = '';
+      if (topo) luzVela = '<radialGradient id="tbVl" gradientUnits="userSpaceOnUse" cx="' + (x + 20) + '" cy="' + F(y - 14 - (H0 - h)) + '" r="54"><stop offset="0" stop-color="#ffb060" stop-opacity=".42"/><stop offset=".5" stop-color="#e0702a" stop-opacity=".12"/><stop offset="1" stop-color="#e0702a" stop-opacity="0"/></radialGradient>';
       s += '<g class="lapide' + (topo ? ' topo' : '') + '" style="--i:' + i + '" tabindex="0" role="button" data-act="filter-group" data-g="' + i + '" aria-label="' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos. Abrir no tabelão.">' +
         '<title>' + esc(G[i].k) + ': ' + fmtP(LB(i, v)) + ' pontos, ' + pl(st.grp[i].hard + st.grp[i].soft, 'carta', 'cartas') + '</title>' +
-        '<path class="ghost" d="' + tbPedra(p.x, p.y, H0, SW) + '" transform="' + rot + '" style="fill:rgba(var(--g' + i + '),.05);stroke:rgba(var(--gold-rgb),.38)" stroke-width="1.2" stroke-dasharray="5 5"/>' +
-        (topo ? '<path d="' + tbPedra(p.x, p.y, h, SW) + '" transform="' + rot + '" style="fill:rgba(var(--gold2-rgb),.55)" filter="url(#chama)" pointer-events="none"/>' : '') +
-        '<g clip-path="url(#cova' + i + ')"><g class="sobe" transform="translate(0 ' + (H0 - h).toFixed(1) + ')"><g transform="' + rot + '">' +
-        '<path d="' + tbPedra(p.x, p.y, H0, SW) + '" fill="#2b3036"/>' +
-        '<path class="fill" d="' + tbPedra(p.x, p.y, H0, SW) + '" style="fill:rgba(var(--g' + i + '),.5);stroke:rgba(var(--g' + i + '),.95)" stroke-width="1.4"/>' +
-        '<path d="' + tbPedra(p.x, p.y, H0, SW) + '" fill="url(#pedra)" pointer-events="none"/>' +
-        '<path d="M' + p.x + ' ' + (p.y - H0 + 22) + 'V' + (p.y - H0 + 56) + 'M' + (p.x - 11) + ' ' + (p.y - H0 + 33) + 'H' + (p.x + 11) + '" fill="none" stroke="rgba(0,0,0,.42)" stroke-width="4" stroke-linecap="round" pointer-events="none"/>' +
-        '<path d="M' + (p.x - 18) + ' ' + (p.y - H0 + 72) + 'l9 6 6 -4 8 9" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="1.2" pointer-events="none"/>' +
-        '</g></g></g></g>';
+        '<path class="ghost" d="' + full + '" transform="' + rot + '" style="fill:none;stroke:rgba(var(--bone-rgb,228,220,200),.22)" stroke-width="1.2" stroke-dasharray="4 5"/>' +
+        '<g clip-path="url(#cova' + i + ')"><g class="sobe" transform="translate(0 ' + F(H0 - h) + ')"><g><g transform="' + rot + '">' + luzVela +
+        /* a espessura da laje, do lado oposto à lua */
+        '<path d="' + full + '" fill="#202426" transform="translate(' + (-lado * 4) + ' 1.5)"/>' +
+        '<path class="fill" d="' + full + '" fill="' + TOM[i % 10] + '" filter="url(#tbGr)"/>' +
+        '<g clip-path="url(#tbS' + i + ')" pointer-events="none">' +
+        '<path d="' + full + '" fill="url(#tbV)"/><path d="' + full + '" fill="url(#' + (lado > 0 ? 'tbLR' : 'tbLL') + ')"/>' +
+        '<g fill="url(#tbEsc)" filter="url(#tbBorra)">' + esc2 + '</g>' + '<g fill="#8d9668" opacity=".26">' + liq + '</g>' +
+        '<rect x="' + (x - SW / 2) + '" y="' + (y - 34) + '" width="' + SW + '" height="34" fill="url(#tbMusgo)"/>' +
+        '<path d="' + cruz + '" fill="none" stroke="#0a0c0d" stroke-opacity=".62" stroke-width="4.4" stroke-linecap="round"/>' +
+        '<path d="' + cruz + '" fill="none" stroke="#e6ecef" stroke-opacity=".17" stroke-width="1.1" stroke-linecap="round" transform="translate(.9 1.6)"/>' +
+        '<path d="' + ep + '" fill="none" stroke="#0a0c0d" stroke-opacity=".42" stroke-width="1.7" stroke-linecap="round"/>' +
+        '<path d="' + ep + '" fill="none" stroke="#e6ecef" stroke-opacity=".1" stroke-width=".8" transform="translate(0 1.2)"/>' +
+        '<path d="' + tr + '" fill="none" stroke="#0a0c0d" stroke-opacity=".6" stroke-width=".9" stroke-linejoin="bevel"/>' +
+        '<path d="' + lasca + '" fill="#000" fill-opacity=".3"/>' +
+        (topo ? '<path d="' + full + '" fill="url(#tbVl)"/>' : '') +
+        '</g>' +
+        '<path d="' + full + '" fill="none" stroke="#000" stroke-opacity=".55" stroke-width="1" pointer-events="none"/>' +
+        '</g></g></g></g></g>';
+      /* no chão: a sombra da laje e a terra revolvida onde a pedra rompeu o solo */
+      ch += '<ellipse cx="' + F(x - lado * 3) + '" cy="' + (y + 4) + '" rx="' + (SW / 2 + 9) + '" ry="5" fill="#000" opacity=".55" filter="url(#tbBorra)"/>';
+      S(300 + i);
+      for (k = 0; k < 9; k++) {
+        var tx = x + (S() - 0.5) * (SW + 18), ty = y + 1 + S() * 5, tw = 2.5 + S() * 5, th = 1.6 + S() * 2.6;
+        ch += '<path d="M' + F(tx - tw) + ' ' + F(ty) + 'Q' + F(tx - tw * 0.7) + ' ' + F(ty - th * 1.6) + ' ' + F(tx) + ' ' + F(ty - th * 1.8) + 'Q' + F(tx + tw * 0.8) + ' ' + F(ty - th * 1.4) + ' ' + F(tx + tw) + ' ' + F(ty) + 'Z" fill="#2a2724"/>' +
+          '<path d="M' + F(tx - tw * 0.6) + ' ' + F(ty - th * 1.2) + 'Q' + F(tx) + ' ' + F(ty - th * 2) + ' ' + F(tx + tw * 0.5) + ' ' + F(ty - th * 1.3) + '" fill="none" stroke="#6a6660" stroke-opacity=".5" stroke-width=".8"/>';
+      }
+      if (topo) {
+        /* vela de cemitério no vidro vermelho, ao pé da lápide mais alta: a única luz própria da cena */
+        var vx = x + 20, vy = y + 3;
+        ch += '<ellipse cx="' + vx + '" cy="' + (vy - 8) + '" rx="30" ry="18" fill="#ff9a4a" opacity=".10" filter="url(#tbNevoa)"/>' +
+          '<ellipse cx="' + vx + '" cy="' + (vy + 1) + '" rx="9" ry="2.4" fill="#000" opacity=".6"/>' +
+          '<path d="M' + (vx - 5) + ' ' + vy + 'L' + (vx - 5.6) + ' ' + (vy - 12) + 'H' + (vx + 5.6) + 'L' + (vx + 5) + ' ' + vy + 'Z" fill="url(#tbVidro)"/>' +
+          '<path d="M' + (vx - 5.6) + ' ' + (vy - 12) + 'H' + (vx + 5.6) + 'V' + (vy - 14) + 'H' + (vx - 5.6) + 'Z" fill="#2a2a28"/>' +
+          '<path d="M' + (vx - 3.4) + ' ' + (vy - 10) + 'V' + (vy - 2) + '" stroke="#fff" stroke-opacity=".35" stroke-width=".9"/>' +
+          '<path d="M' + vx + ' ' + (vy - 24) + 'C' + (vx + 2.6) + ' ' + (vy - 19) + ' ' + (vx + 3) + ' ' + (vy - 16) + ' ' + vx + ' ' + (vy - 14) + 'C' + (vx - 3) + ' ' + (vy - 16) + ' ' + (vx - 2.4) + ' ' + (vy - 19) + ' ' + vx + ' ' + (vy - 24) + 'Z" fill="url(#tbChama)"/>';
+      }
       lb += '<text x="' + p.x + '" y="' + (p.y + 24) + '" text-anchor="middle">' + esc(G[i].sh || G[i].k) + '<tspan class="v" x="' + p.x + '" dy="1.12em">' + fmtP(LB(i, v)) + FX(i) + '</tspan></text>';
     }
-    return { s: s, lb: lb };
+    return { s: s, lb: lb, ch: ch };
   };
   var tras = fileira(0, back), frente = fileira(back, n);
-  var chao = function (y, f, a) {
-    return '<path d="' + tbChao(y, 5, f) + '" style="fill:rgba(var(--deep-rgb),' + a + ')" pointer-events="none"/>' +
-      '<path d="' + tbChao(y, 5, f, 1) + '" fill="none" style="stroke:rgba(var(--gold-rgb),.3)" stroke-width="1.2" pointer-events="none"/>';
+  var chao = function (y, f) {
+    var capim = '';
+    S(500 + y);
+    for (var cx = 2; cx < 680; cx += 3 + S() * 4) {
+      var cy = y - 5 * Math.sin((cx + f) / 57) * 0.9 + 1, hh = 2 + S() * 6;
+      capim += 'M' + F(cx) + ' ' + F(cy) + 'q' + F((S() - 0.3) * 2) + ' ' + F(-hh * 0.6) + ' ' + F((S() - 0.4) * 4) + ' ' + F(-hh);
+    }
+    return '<path d="' + tbChao(y, 5, f) + '" fill="url(#tbChao)" pointer-events="none"/>' +
+      '<path d="' + tbChao(y, 5, f) + '" fill="#1a2022" opacity=".6" filter="url(#tbTerra)" pointer-events="none"/>' +
+      '<path d="' + capim + '" fill="none" stroke="#3b4436" stroke-opacity=".75" stroke-width=".9" stroke-linecap="round" pointer-events="none"/>';
   };
-  o += tras.s + chao(yB, 13, .94) + '<rect x="0" y="' + (yB - 26) + '" width="680" height="44" fill="url(#nevoa)" pointer-events="none"/>' + tras.lb +
-    frente.s + chao(yF, 71, .97) + '<rect x="0" y="' + (yF - 30) + '" width="680" height="48" fill="url(#nevoa)" pointer-events="none"/>' + frente.lb + '</svg>';
+  var nevoa = function (y) {
+    S(700 + y);
+    var s = '<g fill="#c9ced0" filter="url(#tbNevoa)" pointer-events="none">';
+    for (var k = 0; k < 6; k++) s += '<ellipse cx="' + F(40 + k * 120 + (S() - 0.5) * 60) + '" cy="' + F(y - 4 + (S() - 0.5) * 8) + '" rx="' + F(70 + S() * 50) + '" ry="' + F(7 + S() * 5) + '" opacity="' + F(0.05 + S() * 0.05) + '"/>';
+    return s + '</g>';
+  };
+  o += tras.s + chao(yB, 13) + tras.ch + nevoa(yB) + tras.lb +
+    frente.s + chao(yF, 71) + frente.ch + nevoa(yF) + frente.lb + '</svg>';
   return o;
 }
+
 /* motivos votados pelo dono (15/10/2026): o desenho vem de motor/painel/motivos/<grafico>.js, que o build põe só no painel
    que o usa (MOTIVO_PAINEL = {defs, stage, group, center}). Aqui fica a moldura: rótulos, placar e o clique em cada agrupamento. */
 function motivoSvg(st, m) {
