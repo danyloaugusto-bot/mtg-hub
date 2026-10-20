@@ -166,7 +166,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         cmd=t.get("comandante_pt") or (cmd["n"] if cmd else ""), curto=curto, artigo=t.get("artigo", "o"),
         lede=t.get("lede", ""), verbos=t.get("verbos") or [], eixo=t.get("eixo"),
         capa=dict(moldura=cap.get("moldura", "retrato"), alt=cap.get("alt", ""), credito=cap.get("credito", "Arte da carta, © Wizards of the Coast"), tem=bool(art_css)),
-        grafico=t.get("grafico", "padrao"), curva=t.get("curva", "ogiva"), chave_antiga=t.get("chave_antiga", ""), modo=t.get("modo", "escuro"),
+        grafico=t.get("grafico", "padrao"), rotulos_curtos=t.get("rotulos_curtos") or None, curva=t.get("curva", "ogiva"), chave_antiga=t.get("chave_antiga", ""), modo=t.get("modo", "escuro"),
         gfonts=gfonts, ident=d["ident"], scryfall=d["scryfall_data"], img_padrao=(modo_img != "nenhuma"),
         regua=dados.regua_compacta(), v3=bool(d.get("v3")),
         sinergias=(t.get("sinergias") or None) if d.get("v3") else None,
