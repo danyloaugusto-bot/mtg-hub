@@ -353,6 +353,17 @@ def resumo_caixa():
     return dict(r, href=quote(caixa.NOME + ".html"), pub=caixa.link_publicado())
 
 
+def resumo_grimorio():
+    """O Grimório no hub: a pílula à direita do Dashboard abre a página própria (saidas/00. Grimório.html) ou o link publicado
+    de dados/grimorio/link.txt; e as contagens da última leitura. None enquanto não houver leitura."""
+    import grimorio
+    if not os.path.exists(os.path.join(grimorio.PASTA, "grimorio.json")):
+        return None
+    lt = grimorio.ler_leitura() or {}
+    ct = lt.get("contagens") or {}
+    return dict(href=quote(grimorio.NOME + ".html"), pub=grimorio.link_publicado(), lido=lt.get("lido"), cartas=ct.get("cartas"), lentes=ct.get("lidas"))
+
+
 def montar(avisar=print):
     import scryfall
     inv = ler_inventario()
@@ -398,7 +409,7 @@ def montar(avisar=print):
 
     H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS), regua=dados.regua_compacta(),
              pastas=pastas_hub(), cambio=(caixa_resumo_cambio()), em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"),
-             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None, caixa=resumo_caixa())
+             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None, caixa=resumo_caixa(), grimorio=resumo_grimorio())
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
