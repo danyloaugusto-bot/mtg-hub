@@ -227,6 +227,9 @@ with sync_playwright() as p:
     cmds = [pg.input_value(t) for t in ("#ofc-aud", "#ofc-cmp", "#ofc-col", "#ofc-capa", "#ofc-bk")]
     R.ok("oficina com a pasta preenchida", all(pasta in c for c in cmds), cmds[0])
     pg.fill("#off-cmp-fora", "Carta de Fora"); pg.select_option("#off-cmp-deck", label=mover["n"]); pg.wait_for_timeout(100)
+    if pg.evaluate("!!window.PAINEL.D.meta.grimorio"):   # depois da primeira leitura do Grimório, a Oficina leva ao 8×8 dele com este deck
+        hr = pg.get_attribute("#of-grim-a", "href") or ""
+        R.ok("oficina: link para o 8×8 do Grimório neste deck", hr == "00.%20Grim%C3%B3rio.html?deck=" + __import__("urllib.parse").parse.quote(pasta, safe="!'()*") + "#8x8", hr)
     R.ok("comparar recebe as duas cartas", pg.input_value("#ofc-cmp") == "/comparar %s | Carta de Fora | %s" % (pasta, mover["n"]), pg.input_value("#ofc-cmp"))
     bk_of = pg.input_value("#ofc-bk")
     R.ok("levar ao projeto leva o backup junto", bk_of.startswith("/importar-backup " + pasta + "\n\n{") and len(json.loads(bk_of.split("\n\n", 1)[1])["swaps"]) == len(entram))

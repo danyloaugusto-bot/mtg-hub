@@ -2852,6 +2852,14 @@ var OF = [
     c: function () { return '/importar-backup ' + M.pasta + '\n\n' + JSON.stringify(S); } }
 ];
 function ofCmd(o) { return o.c(ui.of[o.k] || {}); }
+/* o Grimório (página própria, ao lado do hub): o 8×8 dele com este deck já escolhido; só existe depois da primeira leitura */
+function grimorioOf() {
+  var G = M.grimorio; if (!G) return '';
+  var base = (PUB && G.pub) ? G.pub : G.href, href = base + '?deck=' + encodeURIComponent(M.pasta) + '#8x8';
+  return '<article class="of" id="of-grim"><h3>Ver as melhores cartas para este deck no Grimório</h3><p>' +
+    'Abre o 8×8 do Grimório neste deck: um quadro por pacote, com as cartas boas nas cores dele e se você já tem, tem parada em outro deck ou pasta, ou falta. Só leitura: nada muda aqui.</p>' +
+    '<div class="acts"><a class="btn sm" id="of-grim-a" href="' + esc(href) + '" target="_blank" rel="noopener">Abrir o Grimório neste deck</a></div></article>';
+}
 function renderOfi() {
   var nomes = deckNames();
   var h = '<p class="hint">O painel não tem IA dentro dele. Estes são os pedidos que dá para fazer ao Claude Code sobre este deck: copie o comando e cole no terminal do projeto. A pasta do deck, ' + esc(M.pasta) + ', já vai preenchida.</p><div class="ofi">' + OF.map(function (o) {
@@ -2868,7 +2876,7 @@ function renderOfi() {
     return '<article class="of" id="of-' + o.k + '"><h3>' + esc(o.t) + '</h3><p>' + esc(o.d) + '</p>' + flds +
       '<textarea id="ofc-' + o.k + '" class="' + (o.big ? 'big' : '') + '" readonly rows="' + (o.big ? 5 : 2) + '" aria-label="Comando: ' + esc(o.t) + '">' + esc(ofCmd(o)) + '</textarea>' +
       '<div class="acts"><button class="btn sm" data-act="copy" data-t="ofc-' + o.k + '" data-fid="oc' + o.k + '">Copiar o comando</button>' + note + '</div></article>';
-  }).join('') + '</div>';
+  }).join('') + grimorioOf() + '</div>';
   $('#v-ofi').innerHTML = h;
 }
 

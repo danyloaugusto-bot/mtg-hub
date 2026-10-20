@@ -12,7 +12,90 @@ from playwright.sync_api import sync_playwright
 import comum
 import build, dados
 
-a = comum.argumentos("Layout com 6 a 10 agrupamentos e as duas molduras", lambda ap: ap.add_argument("--fotos", help="pasta para salvar capturas"))
+def _args(ap):
+    ap.add_argument("--fotos", help="pasta para salvar capturas")
+    ap.add_argument("--grimorio", action="store_true", help="em vez de um deck, a página do Grimório (saidas/00. Grimório.html)")
+
+
+a = comum.argumentos("Layout com 6 a 10 agrupamentos e as duas molduras", _args)
+
+# o menor texto visível na tela, fora os símbolos de mana (que são desenho, não texto)
+LETRA_MIN_PAGINA = """() => { var m = null; document.querySelectorAll('body *').forEach(function (e) { if (e.closest('.g-ms, .ms, script, style, [hidden]') || !e.offsetParent) return;
+  var tem = Array.prototype.some.call(e.childNodes, function (n) { return n.nodeType === 3 && n.textContent.trim(); }); if (!tem) return;
+  var f = parseFloat(getComputedStyle(e).fontSize); if (m === null || f < m) m = f; }); return m; }"""
+COLUNAS = """() => { var g = document.querySelector('.g-gal'); if (!g) return null; var xs = {}; Array.prototype.forEach.call(g.children, function (c) { xs[Math.round(c.getBoundingClientRect().left)] = 1; }); return Object.keys(xs).length; }"""
+
+
+def layout_grimorio():
+    """A página do Grimório em 1360 e 375 px: sem rolagem lateral em nenhuma sub-aba, galeria com 6 e 2 colunas, nenhum
+    texto abaixo de 13 px, a gaveta dentro da tela e a pílula do hub."""
+    import subprocess, sys
+    import grimorio
+    R = comum.Relatorio("layout: Grimório")
+    arq = os.path.join(comum.RAIZ, "saidas", grimorio.NOME + ".html")
+    if not a.sem_montar or not os.path.exists(arq):
+        r = subprocess.run([sys.executable, "-B", os.path.join(comum.MOTOR, "build.py"), "--grimorio"], capture_output=True, text=True, encoding="utf-8")
+        if r.returncode:
+            sys.exit("o build do Grimório falhou:\n" + r.stdout + r.stderr)
+    with sync_playwright() as p:
+        b = p.chromium.launch()
+        for w, hh, cols in ((1360, 900, 6), (375, 812, 2)):
+            pg = b.new_page(viewport={"width": w, "height": hh})
+            comum.bloquear_rede(pg)
+            err = []
+            pg.on("pageerror", lambda e: err.append(str(e)))
+            pg.goto(comum.url(arq)); pg.wait_for_function("!!window.GRIMORIO", timeout=30000); pg.wait_for_timeout(400)
+            largos, letras = [], []
+            for t in ("tribos", "cores", "criterios", "8x8", "pontas", "novidades"):
+                pg.click('#g-nav a[data-aba="%s"]' % t); pg.wait_for_timeout(250)
+                sw = pg.evaluate("document.documentElement.scrollWidth")
+                if sw > w + 1:
+                    largos.append("%s=%d" % (t, sw))
+                lm = pg.evaluate(LETRA_MIN_PAGINA)
+                if lm is not None:
+                    letras.append((round(lm, 1), t))
+            pg.evaluate("location.hash = '#tribos=vampiros'"); pg.wait_for_timeout(300)
+            vista = pg.locator('#g-ferr .g-seg[aria-label="Vista"] button', has_text="Galeria")
+            if vista.count():
+                vista.click(); pg.wait_for_timeout(300)
+            n = pg.evaluate(COLUNAS)
+            R.ok("%d px: galeria com %d colunas" % (w, cols), n == cols, n)
+            sw = pg.evaluate("document.documentElement.scrollWidth")
+            if sw > w + 1:
+                largos.append("galeria=%d" % sw)
+            lm = pg.evaluate(LETRA_MIN_PAGINA)
+            if lm is not None:
+                letras.append((round(lm, 1), "galeria"))
+            pg.click("#g-corpo .g-card >> nth=0"); pg.wait_for_timeout(250)
+            gw = pg.evaluate("(() => { var g = document.querySelector('#g-gav'), r = g.getBoundingClientRect(); return [g.scrollWidth - g.clientWidth, Math.round(r.right), Math.round(r.width)]; })()")
+            R.ok("%d px: gaveta aberta dentro da tela, sem rolagem lateral" % w, pg.is_visible("#g-gav") and gw[0] <= 1 and gw[1] <= w + 1 and gw[2] <= w, gw)
+            lm = pg.evaluate(LETRA_MIN_PAGINA)
+            if lm is not None:
+                letras.append((round(lm, 1), "gaveta"))
+            if a.fotos:
+                os.makedirs(a.fotos, exist_ok=True)
+                pg.screenshot(path=os.path.join(a.fotos, "grimorio-gaveta-%d.png" % w))
+            pg.keyboard.press("Escape"); pg.wait_for_timeout(100)
+            vista = pg.locator('#g-ferr .g-seg[aria-label="Vista"] button', has_text="Lista")
+            if vista.count():
+                vista.click(); pg.wait_for_timeout(200)
+            R.ok("%d px: nenhuma sub-aba com rolagem lateral" % w, not largos, ", ".join(largos))
+            R.ok("%d px: nenhum texto abaixo de 13 px" % w, not letras or min(letras)[0] >= 12.95, min(letras) if letras else None)
+            R.ok("%d px: sub-abas na barra fixa, todas visíveis" % w, pg.locator("#g-nav a").count() == 6 and all(pg.locator("#g-nav a").nth(i).is_visible() for i in range(6)))
+            R.ok("%d px: sem erro de página" % w, not err, err[:2])
+            if a.fotos:
+                pg.evaluate("location.hash = '#tribos=vampiros'"); pg.wait_for_timeout(300)
+                pg.screenshot(path=os.path.join(a.fotos, "grimorio-tribos-%d.png" % w), full_page=(w == 375))
+                pg.evaluate("location.hash = '#8x8'"); pg.wait_for_timeout(300)
+                pg.select_option("#g-deck8", "01. Giada"); pg.wait_for_timeout(300)
+                pg.screenshot(path=os.path.join(a.fotos, "grimorio-8x8-%d.png" % w), full_page=(w == 375))
+            pg.close()
+        b.close()
+    R.fim()
+
+
+if a.grimorio:
+    layout_grimorio()
 R = comum.Relatorio("layout: " + a.deck)
 origem = os.path.join(comum.RAIZ, "dados", a.deck)
 tmp = tempfile.mkdtemp(prefix="mtg-layout-")

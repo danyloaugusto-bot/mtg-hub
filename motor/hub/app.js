@@ -2044,6 +2044,8 @@ function filtrar(semIr) {
 $('#v-decks').innerHTML = vistaDecks(); filtrar(true);
 $('#v-pastas').innerHTML = vistaPastas();
 if (H.caixa) { var tc = $('#t-caixa'); tc.hidden = false; if (location.protocol !== 'file:' && H.caixa.pub) tc.href = H.caixa.pub; }
+// o Grimório: a pílula à direita do Dashboard, com o mesmo mecanismo de link da Caixa (local no arquivo, publicado no claude.ai)
+if (H.grimorio) { var tg = $('#t-grim'); tg.hidden = false; tg.href = (location.protocol !== 'file:' && H.grimorio.pub) ? H.grimorio.pub : H.grimorio.href; }
 $('#v-dash').innerHTML = vistaDash();
 $('#foot').innerHTML = '<p>O hub mostra a foto do último build, de ' + esc(H.gerado) + '. O que você edita dentro de um painel fica naquele painel até voltar para o projeto com o <code>/importar-backup</code>, pela aba Oficina.</p>' +
   '<p>Arte das cartas e dos comandantes: © Wizards of the Coast.</p>';
