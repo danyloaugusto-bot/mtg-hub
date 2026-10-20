@@ -3,6 +3,7 @@
 
     python motor/imagens.py --deck "02. Clavileño"
     python motor/imagens.py --todos
+    python motor/imagens.py --grimorio     # o que falta no cache para as cartas do Grimório (dados/grimorio/grimorio.json)
 
 O cache fica em cache/img/<set>-<numero>.jpg (verso com sufixo -verso) e é compartilhado entre decks:
 Sol Ring baixada por um deck já serve para todos os outros. Carta já no cache não é baixada de novo.
@@ -43,14 +44,29 @@ def baixar(url):
             raise dados.ErroDeck("sem acesso ao Scryfall (%s)" % e.reason)
 
 
-def reduzir(bruto, largura=LARGURA):
+def reduzir(bruto, largura=LARGURA, qualidade=QUALIDADE):
     from PIL import Image
     im = Image.open(io.BytesIO(bruto)).convert("RGB")
     if im.width > largura:
         im = im.resize((largura, round(im.height * largura / im.width)), Image.LANCZOS)
     buf = io.BytesIO()
-    im.save(buf, "JPEG", quality=QUALIDADE, optimize=True, progressive=True)
+    im.save(buf, "JPEG", quality=qualidade, optimize=True, progressive=True)
     return buf.getvalue()
+
+
+# o Grimório embute mais cartas que um painel: a galeria dele usa uma redução menor, feita a partir do JPEG de 340 px
+# que já está no cache (o cache continua um só, e nada é baixado de novo por causa disso)
+LARGURA_GRIMORIO = 150
+QUALIDADE_GRIMORIO = 70
+
+
+def miniatura(arquivo, largura=LARGURA_GRIMORIO, qualidade=QUALIDADE_GRIMORIO):
+    """O JPEG menor de uma impressão já em cache/img/ (bytes), ou None se o arquivo não está no cache."""
+    p = os.path.join(CACHE_IMG, arquivo)
+    if not os.path.exists(p):
+        return None
+    with open(p, "rb") as f:
+        return reduzir(f.read(), largura, qualidade)
 
 
 def baixar_faltantes(precisam, avisar=print):
@@ -94,12 +110,29 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--deck", help="pasta do deck")
     g.add_argument("--todos", action="store_true")
+    g.add_argument("--grimorio", action="store_true", help="as cartas do Grimório sem imagem no cache")
     a = ap.parse_args()
     try:
         sys.stdout.reconfigure(encoding="utf-8")
     except Exception:
         pass
     os.makedirs(CACHE_IMG, exist_ok=True)
+
+    if a.grimorio:
+        import grimorio, scryfall
+        G = grimorio.ler_grimorio()
+        if not G:
+            sys.exit("sem dados/grimorio/grimorio.json: rode python motor/grimorio.py --ler")
+        reg = scryfall._ler()["cartas"]
+        precisam = {}
+        for n, c in G["cartas"].items():
+            if c.get("img") and not os.path.exists(os.path.join(CACHE_IMG, c["img"])):
+                r = reg.get(c["img"][:-4].replace("-", "/", 1))
+                if r:
+                    precisam[c["img"]] = (r["id"], "front")
+        baixar_faltantes(precisam)
+        print("pronto.")
+        return
 
     alvos = decks_alvo(["todos"] if a.todos else [a.deck])
     if not alvos:
