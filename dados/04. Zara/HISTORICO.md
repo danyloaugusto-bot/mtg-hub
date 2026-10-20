@@ -25,3 +25,7 @@
 ## Plano do deck, 18/10/2026
 
 - Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Insuficiente; com o recomendado: Excelente. Só o radar e o cadastro mudaram, a lista do deck não.
+
+## Rebranding, 20/10/2026
+
+- Gráfico do herói: lunetas de latão e couro (variação R, escolhida pelo dono).
