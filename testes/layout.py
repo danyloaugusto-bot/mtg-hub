@@ -91,6 +91,10 @@ ABAS = """() => {
   return {cortadas: cortadas, scroll: t.scrollWidth - t.clientWidth, abas_topo: Math.round(r.top), botoes_base: Math.round(a.bottom)};
 }"""
 ROTULOS_FORA = """() => Array.from(document.querySelectorAll('figure.rosa svg text')).filter(t => t.textContent.trim()).map(t => { const r = t.getBoundingClientRect(); return [t.textContent.trim().slice(0, 24), Math.round(r.left), Math.round(r.right)]; }).filter(x => x[1] < -1 || x[2] > innerWidth + 1)"""
+# guia visual (rebranding): o menor texto do gráfico como aparece na tela (tamanho da fonte vezes a escala do SVG)
+LETRA_MIN = """() => { const ts = Array.from(document.querySelectorAll('figure.rosa svg text, figure.rosa svg tspan')).filter(t => t.textContent.trim() && t.getBoundingClientRect().width); return ts.length ? Math.min(...ts.map(t => { const m = t.getScreenCTM(); return parseFloat(getComputedStyle(t).fontSize) * (m ? Math.hypot(m.a, m.b) : 1); })) : null; }"""
+# guia visual: no desktop, o gráfico fica na coluna ao lado do texto do herói, nunca em outra linha
+AO_LADO = """() => { const f = document.querySelector('.hero figure.rosa'), t = document.querySelector('.hero-txt'); if (!f || !t) return null; const a = f.getBoundingClientRect(), b = t.getBoundingClientRect(); return a.top < b.bottom && a.left >= b.right - 5; }"""
 MS_MIN = """() => { const ms = Array.from(document.querySelectorAll('main .view:not([hidden]) .ms')).filter(e => e.offsetParent); return ms.length ? Math.min(...ms.map(e => e.getBoundingClientRect().width)) : null; }"""
 
 VARIANTES = [
@@ -136,6 +140,10 @@ try:
                     R.ok("%s, %d px: abas numa linha própria, sem nada por cima" % (nome, w), ab["abas_topo"] >= ab["botoes_base"] - 1, ab)
                     fora = pg.evaluate(ROTULOS_FORA)
                     R.ok("%s, %d px: rótulos do gráfico dentro da tela" % (nome, w), not fora, fora[:3])
+                lm = pg.evaluate(LETRA_MIN)
+                R.ok("%s, %d px: texto do gráfico com 13px ou mais" % (nome, w), lm is None or lm >= 12.95, round(lm, 1) if lm else lm)
+                if w == 1360 and nome != "larga":
+                    R.ok("%s, %d px: gráfico ao lado do texto do herói" % (nome, w), pg.evaluate(AO_LADO) is not False)
                 R.ok("%s, %d px: símbolo de mana com 12px ou mais" % (nome, w), not ms_min or min(ms_min)[0] >= 11.95, min(ms_min) if ms_min else None)
                 fatias = pg.locator(".rosa .petal, .rosa .wedge, .rosa .lapide").count()
                 pg.click('[data-tab="tab"]'); pg.wait_for_timeout(120)
