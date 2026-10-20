@@ -43,6 +43,7 @@ Na raiz da pasta de um deck ficam só `deck.md`, `decklist.txt`, `capa.*` e o qu
 | `dados/caixa/` | A Caixa: as cartas sem destino. `listas/` (uma por lote, do dono, nunca editadas), `decisoes.json`, `compras.json`, `bundles.txt`, `bulk.txt`, `HISTORICO.md` e o `LEIA-ME.md` com o passo a passo. Não é deck. |
 | `dados/pastas/` | As pastas físicas de cartas do dono: uma subpasta por pasta com o export do ManaBox (do dono, nunca editado; ex.: `Preta P/Pasta Preta.csv`), ou o formato antigo `<pasta>.txt`; a ficha de cada pasta em `pastas.json` (a Preta P é o Relicário de Ônix); as decisões e as marcas de pet card delas; `LEIA-ME.md` com o passo a passo. Não é deck. |
 | `dados/pastas/links.json` | Os links publicados das páginas das pastas (`saidas/00. Pasta <pasta>.html`), que o hub usa no cartão de cada pasta. |
+| `dados/grimorio/` | O Grimório: `lentes.json` (do dono: as lentes e as fontes no EDHREC), `grimorio.json` e `leitura.json` (gerados por `motor/grimorio.py`) e `link.txt`. Não é deck. |
 | `dados/precos/` | `ultimo.json`: o valor de hoje e o anterior de cada impressão da Caixa e das pastas, gravado pelo `/precos`. Não é deck. |
 | `motor/` | O código do painel e os scripts de montagem. Contrato dos dados em `contexto/ARQUITETURA.md`. |
 | `testes/` | Os testes, que recebem o deck por `--deck`, e os números de controle em `testes/controle/`. |
@@ -63,6 +64,7 @@ Mantenha esta seção atualizada.
 - Hub: `python motor/build.py --hub` (grava `saidas/00. Hub.html` e `Abrir o Hub.html` na raiz). Teste: `python testes/hub.py`, que também confere as contas do Dashboard contra o motor e contra cada painel (os painéis precisam estar montados em `saidas/`).
 - Plano do deck: `/plano <pasta> | todos` (`python motor/plano.py --deck "<pasta>"` mostra o veredito e os cenários). Teste: `python testes/plano.py`.
 - Valor de hoje: `/precos [origem]` (`python motor/caixa.py --precos [--origem "Preta P"]`), com a PTAX em `cache/cambio.json`.
+- Grimório: `/grimorio atualizar | classificar | publicar`. A leitura: `python motor/grimorio.py --ler [lente]` (EDHREC e Scryfall); `--status` (sem rede); `--classificar <arquivo.json>` (o dossiê das cartas sem nota; a nota entra pelo cadastro, com a rubrica e o "pode" do dono). Página: `python motor/build.py --grimorio` (`saidas/00. Grimório.html`, atalho `Abrir o Grimório.html`; `--todos` monta antes do hub). Testes: `python testes/grimorio.py` e `python testes/layout.py --grimorio`. Método em `contexto/grimorio/METODO-GRIMORIO.md`, dado e regras em `contexto/ARQUITETURA.md` ("O Grimório"). Sem preço; HTML até 14 MB.
 - Caixa: `python motor/build.py --caixa` (grava `saidas/00. Caixa.html`, uma página por pasta com lista, `saidas/00. Pasta <pasta>.html`, e `Abrir a Caixa.html`; `--todos` monta a Caixa antes do hub). A conta sozinha: `python motor/caixa.py`. Teste: `python testes/caixa.py`. O comando do dia a dia é o `/caixa` (e `/caixa aplicar`).
 - Não rode o `build.py` do kit em `contexto/origem/`: ele grava dentro da pasta de origem.
 
