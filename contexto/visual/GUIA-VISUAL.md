@@ -1,5 +1,7 @@
 # Guia visual dos painéis
 
+**Situação em 18/10/2026:** a Fase 4 da v3 terminou em 15/10 (todo gráfico já tem os 10 critérios) e o rebranding está liberado. O Strefan já foi refeito (Alquimia do Sangue, votação do Markov) e o Markov ganhou os Caixões. Nada do kit de luz foi aplicado ainda, e o protótipo do Storm não entrou. Execução pelo comando `/rebranding <lote>`, em quatro lotes (seção "Processo do rebranding").
+
 Versão 1, 15/10/2026. Vale para o gráfico do herói de cada painel (a "rosa"), para a fonte de título e para o que é dado (tier, números, rótulos). É a régua do **rebranding**, que roda depois da Fase 4 da pontuação v3 (`contexto/pontuacao/PROMPT-CODE.md`), quando todo painel passa a ter os mesmos 10 critérios.
 
 Por que depois do v3: hoje cada deck tem de 8 a 10 agrupamentos com nomes próprios. No v3 serão 10 critérios fixos (Sinergia primária, Sinergia secundária, Resiliência, Recurso, Draw, Amplificador, Remoção, Evasão, Dano direto, Aceleradores). Redesenhar 29 gráficos agora e de novo daqui a duas semanas é pagar duas vezes.
@@ -43,7 +45,7 @@ Acabamento: entrada animada de no máximo 900ms, desligada com `prefers-reduced-
 
 **Rejeitadas** (não repetir):
 
-- Pétalas e rosetas: várias versões antigas, e hoje Humanos, Strefan e Turtle Power!.
+- Pétalas e rosetas: várias versões antigas, e hoje Humanos e Turtle Power! (o Strefan saiu delas em 15/10).
 - Runas "fofinhas" da Tergrid (trocadas por lanternas).
 - Letras pequenas no gráfico (resolvido com `--k`, não voltar).
 - Gráfico em largura total, que empurra o texto para outra linha.
@@ -56,22 +58,23 @@ Gráficos e fontes como estão montados em 15/10/2026, depois da votação dos g
 | Deck | Gráfico | Fonte de título | Veredito | Direção |
 |---|---|---|---|---|
 | 01. Giada | penas e asas | Cormorant Unicase | manter (votado) | só o kit de luz |
+| 01. Markov | caixões (vigília, 15/10) | Cinzel | manter (votado) | só o kit de luz |
 | 01. Vito | cálices (liturgia) | Pirata One | manter (votado) | números na fonte do texto |
 | 02. Clavileño | elos de corrente | Grenze Gotisch | manter (votado) | números na fonte do texto |
 | 02. Dragões | meteoros | Almendra Display | manter | tier na fonte do texto; meteoro mais incandescente |
 | 02. Elfos | galhos e folhas | Fondamento | ajustar | o galho lembra dente-de-leão; casca, nervura e folha de verdade |
 | 02. Evelyn | leque art déco | Limelight | ajustar | dourado e preto, cor só na ponta da lâmina |
 | 02. Goblins | canhões | Rye | manter | tom cômico permitido |
-| 02. Humanos | estandartes | Marcellus SC | **refazer** | hoje é cata-vento de pétalas; estandartes pendurados numa nave de catedral, o comprimento é a soma |
+| 02. Humanos | abside (estandartes sob a abóbada, com vitral) | Marcellus SC | feito em 19/10/2026 | variação B do lote 1 |
 | 02. Kaalia | lâminas (juramento) | New Rocker | manter (votado) | S do tier parece 5: tier na fonte do texto |
 | 02. Lobos | luas | Almendra SC | ajustar | luas parecem bolinhas coloridas; lua prateada com crateras, a fase enche com a soma |
-| 02. Strefan | frascos | Playfair Display SC | **refazer** | frascos em roseta viram pétalas; taças de cristal num brinde, o sangue sobe com a soma |
-| 02. Turtle Power! | cascos | Bangers | **refazer** | cascos em roseta viram pétalas; pizza de 10 fatias, o recheio cresce com a soma (cômico permitido) |
+| 02. Strefan | alquimia (refeito em 15/10) | Playfair Display SC | manter (votado) | já saiu das pétalas; só o kit de luz |
+| 02. Turtle Power! | pizza (caixa no esgoto, fatias mordidas) | Bangers | feito em 19/10/2026 | variação C do lote 1 |
 | 02. Zumbis | tumbas | Metal Mania | manter | aprovado |
 | 03. Heads I win | pilhas de moedas | Creepster | manter (votado) | tom cômico permitido |
 | 03. K'rrik | engrenagens | Tourney | manter | número do placar em contorno: fonte do texto |
 | 03. Lynde | almofada de alfinetes | IM Fell English SC | manter (votado) | só o kit de luz |
-| 03. Master Of Evil | rebites | Oxanium | **refazer** | hoje é pizza genérica; a saia do Dalek, com fileiras de hemisférios que acendem por critério |
+| 03. Master Of Evil | dalek (saia em anel) | Oxanium | feito em 19/10/2026 | variação A do lote 1 |
 | 03. Tergrid | lanternas | Metamorphous | manter (votado) | mais escuro e mais chama |
 | 03. Valgavoth | casa | Cinzel | manter (votado) | só o kit de luz; de longe lê como sol vermelho, então vale reforçar portas e escada |
 | 04. Assassin Creed | torres | Italiana | ajustar | torres pequenas e coloridas demais; torres de vigia em silhueta, salto de fé na mais alta |
@@ -83,9 +86,9 @@ Gráficos e fontes como estão montados em 15/10/2026, depois da votação dos g
 | 05. Braids | tranças | Forum | manter | aprovado |
 | 05. Deadpool | balões | Luckiest Guy | manter | aprovado |
 | 05. Slivers | ovos | Grenze | manter | aprovado |
-| 05. Storm | raios | Bebas Neue | ajustar | aplicar o protótipo (`prototipos/tempestade.js`) |
+| 05. Storm | tempestade | Bebas Neue | feito em 19/10/2026 | variação A do lote 1 (o protótipo aplicado) |
 
-Resumo: 4 para refazer, 6 para ajustar, 19 para manter com o kit de luz. "Votado" quer dizer escolhido pelo dono na votação de 15/10/2026 (`contexto/ESTADO.md`): o conceito não se discute de novo, só o acabamento. As fontes de título passam; o problema é a fonte de título usada em dado (princípio 8).
+Resumo em 18/10: 3 para refazer (Humanos, Turtle Power! e Master Of Evil), 6 para ajustar e 21 para manter com o kit de luz (os 19 de antes, mais Strefan e Markov). "Votado" quer dizer escolhido pelo dono na votação de 15/10/2026 (`contexto/ESTADO.md`): o conceito não se discute de novo, só o acabamento. As fontes de título passam; o problema é a fonte de título usada em dado (princípio 8).
 
 ## Kit técnico para o Code
 
@@ -100,10 +103,16 @@ O protótipo `prototipos/tempestade.js` mostra as peças. O rebranding deve vira
 
 ## Processo do rebranding
 
-1. Esperar a Fase 4 do v3 (gráficos já com os 10 critérios).
-2. Lotes de até 6 decks: (a) os 4 de refazer; (b) os 6 de ajustar; (c) os 19 de manter, só com o kit de luz, em lotes maiores.
-3. Em cada lote: imagem antes e depois de cada deck (desktop e celular), aprovação do dono, implementação, `testes/layout.py` e `testes/todos.py`, e só então o lote seguinte.
-4. Uma sessão por vez no motor. O rebranding não começa com outra sessão mexendo em `motor/`.
+O comando é `/rebranding <lote>` (`.claude/skills/rebranding/SKILL.md`). Quatro lotes, nesta ordem:
+
+| Lote | Decks | O que muda |
+|---|---|---|
+| 1, refazer e régua (**feito em 19/10/2026**) | 05. Storm, 02. Humanos, 02. Turtle Power!, 03. Master Of Evil | desenho novo; o Storm aplica `prototipos/tempestade.js`. O kit de luz compartilhado nasce aqui (`KIT` no `app.js`) |
+| 2, ajustar | 04. Fynn, 02. Lobos, 02. Elfos, 02. Evelyn, 04. Assassin Creed | mesmo conceito, execução nova |
+| 3, kit de luz (votados) | 01. Giada, 01. Vito, 02. Clavileño, 02. Kaalia, 03. Heads I win, 03. Lynde, 03. Tergrid, 03. Valgavoth, 04. Ken, 04. Queen, 04. Zur | só o acabamento |
+| 4, kit de luz (demais) | 01. Markov, 02. Dragões, 02. Goblins, 02. Zumbis, 02. Strefan, 03. K'rrik, 04. Zara, 05. Braids, 05. Deadpool, 05. Slivers | só o acabamento |
+
+Cada lote para duas vezes: (1) protótipo, com 2 ou 3 variações por deck nos lotes 1 e 2 e uma folha de antes e depois nos lotes 3 e 4, para o dono escolher; (2) resultado implementado, em 1360px e 375px, antes de publicar. Uma sessão por vez no motor: o rebranding não começa com outra sessão mexendo em `motor/`.
 
 ## Checklist de aceite (por gráfico)
 
