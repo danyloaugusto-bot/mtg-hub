@@ -1,7 +1,13 @@
+/* Motivo "circulos" do gráfico de pontuação: 04. Zur, rebranding, lote 3, acabamento aprovado pelo dono em 20/10/2026.
+   O build inclui este arquivo só no painel cujo tema.json tem "grafico": "circulos"; a moldura (rótulos, placar, clique) é o motivoSvg do app.js. */
 /* Motivo "circulos" do gráfico de pontuação: 04. Zur (Equilíbrio Encantado), escolhido pelo dono na votação de 15/10/2026.
    Veio do protótipo motivos/zur.js da votação, só com a opção vencedora. O build inclui este arquivo apenas no painel
    cujo tema.json tem "grafico": "circulos"; o motivoSvg do app.js monta a moldura (rótulos, placar, clique em cada agrupamento).
-   Mesma geometria do chartSvg: viewBox -58 -2 576 464, centro 230,230, raio interno 60, externo 184. */
+   Mesma geometria do chartSvg: viewBox -58 -2 576 464, centro 230,230, raio interno 60, externo 184.
+   Rebranding, lote 3, variação K (só o kit de luz, com as runas acendendo): mesmos círculos e mesma composição. O arco ganha
+   brilho largo na cor do critério, corpo com textura, núcleo branco e reflexo; as runas que ele cobre acendem com brilho,
+   cor e fio branco; o disco de cada círculo ganha profundidade e o glifo do círculo cheio acende inteiro.
+   Sem raio(f): a peça cresce em ângulo, não em raio, então a faixa radial da régua não se aplica (como hoje). */
 var MOTIVO_PAINEL = (function () {
   var CX = 230, CY = 230, _uid = 0;
   function pol(r, a) { var t = a * Math.PI / 180; return [CX + r * Math.cos(t), CY + r * Math.sin(t)]; }
@@ -80,18 +86,43 @@ var MOTIVO_PAINEL = (function () {
       default: return pg(4, 16, -90) + pg(4, 16, -45) + ci(3.2);
     }
   }
+  /* kit de luz: filtros comuns, o fundo de cada círculo (profundidade) e o palco */
+  function zrDefsK(ctx, I) {
+    var o = ctx.kit.defs(ctx, 'zr') + zrDefs(ctx, I);
+    I.disco = ctx.uid('zd'); I.palco = ctx.uid('zp');
+    return o + '<radialGradient id="' + I.disco + '" cx=".5" cy=".42" r=".6"><stop offset="0" style="stop-color:rgba(var(--gold-rgb),.13)"/><stop offset=".62" style="stop-color:rgba(var(--deep-rgb),.9)"/>' +
+      '<stop offset=".9" style="stop-color:rgba(var(--deep-rgb),.95)"/><stop offset="1" style="stop-color:rgba(var(--gold-rgb),.16)"/></radialGradient>' +
+      '<radialGradient id="' + I.palco + '" cx="230" cy="230" r="' + (ctx.R + 8) + '" gradientUnits="userSpaceOnUse"><stop offset=".25" style="stop-color:rgba(var(--gold-rgb),.06)"/>' +
+      '<stop offset=".7" style="stop-color:rgba(0,0,0,0)"/><stop offset="1" style="stop-color:rgba(0,0,0,.45)"/></radialGradient>';
+  }
+  /* faixa de arco (preenchida, para a textura do kit pegar inteira): do alto, no sentido horário, até 'lim' graus */
+  function zrFaixa(x, y, r, w, lim) {
+    var a = r + w / 2, b = r - w / 2;
+    function q(rr, g) { var t = g * Math.PI / 180; return f1(x + rr * Math.sin(t)) + ' ' + f1(y - rr * Math.cos(t)); }
+    if (lim >= 359.9) return 'M' + q(a, 0) + 'A' + a + ' ' + a + ' 0 1 1 ' + q(a, 180) + 'A' + a + ' ' + a + ' 0 1 1 ' + q(a, 0) + 'Z' +
+      'M' + q(b, 0) + 'A' + b + ' ' + b + ' 0 1 0 ' + q(b, 180) + 'A' + b + ' ' + b + ' 0 1 0 ' + q(b, 0) + 'Z';
+    var lg = lim > 180 ? 1 : 0;
+    return 'M' + q(a, 0) + 'A' + a + ' ' + a + ' 0 ' + lg + ' 1 ' + q(a, lim) + 'L' + q(b, lim) + 'A' + b + ' ' + b + ' 0 ' + lg + ' 0 ' + q(b, 0) + 'Z';
+  }
+  function zrArco(x, y, r, lim) {
+    if (lim >= 359.9) return 'M' + f1(x) + ' ' + f1(y - r) + 'A' + r + ' ' + r + ' 0 1 1 ' + f1(x) + ' ' + f1(y + r) + 'A' + r + ' ' + r + ' 0 1 1 ' + f1(x) + ' ' + f1(y - r);
+    var t = lim * Math.PI / 180;
+    return 'M' + f1(x) + ' ' + f1(y - r) + 'A' + r + ' ' + r + ' 0 ' + (lim > 180 ? 1 : 0) + ' 1 ' + f1(x + r * Math.sin(t)) + ' ' + f1(y - r * Math.cos(t));
+  }
   MOTIVOS.zur2 = {
     deck: '04. Zur', nome: 'Círculos de encantamento',
     desc: 'Cada agrupamento é um círculo de encantamento, com runas no anel: o arco na cor do agrupamento se fecha a partir do alto, no sentido horário, conforme a pontuação, e as runas que ele cobre acendem. O glifo do meio só acende quando o círculo fecha, e isso só acontece no maior; no centro, o orbe azul do cajado do Zur.',
-    defs: function (ctx) { return zrDefs(ctx, ZR2); },
+    defs: function (ctx) { return zrDefsK(ctx, ZR2); },
     stage: function (ctx) {
-      var R = ctx.R, o = '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--deep-rgb),.62);stroke:rgba(var(--gold-rgb),.45)" stroke-width="1.2"/>' +
+      var I = ZR2, R = ctx.R, o = '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:rgba(var(--deep-rgb),.62);stroke:rgba(var(--gold-rgb),.45)" stroke-width="1.2"/>' +
+        '<circle cx="230" cy="230" r="' + (R + 8) + '" style="fill:url(#' + I.palco + ')"/>' +
+        '<circle cx="230" cy="230" r="' + (R + 6) + '" style="fill:none;stroke:rgba(var(--gold2-rgb),.14)" stroke-width="3" filter="url(#' + ctx.k.brilho2 + ')"/>' +
         '<circle cx="230" cy="230" r="' + (R + 3) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.2)" stroke-width=".6"/>';
       for (var k = 0; k < 120; k++) {
         var a = k * 3, p1 = pol(R + 3, a), p2 = pol(R + (k % 5 ? 5.5 : 8), a);
         o += '<path d="M' + zrXY(p1) + 'L' + zrXY(p2) + '" style="stroke:rgba(var(--gold-rgb),.28)" stroke-width=".6"/>';
       }
-      // o diagrama que liga os oito círculos
+      // o diagrama que liga os círculos
       var v = ctx.groups.map(function (g) { return zrXY(pol(124, g.am)); });
       o += '<path d="M' + v.join('L') + 'Z" style="fill:none;stroke:rgba(var(--gold-rgb),.16)" stroke-width=".8"/>';
       var st = ''; for (var j = 0; j < v.length; j++) st += 'M' + v[j] + 'L' + v[(j + 3) % v.length];
@@ -99,48 +130,75 @@ var MOTIVO_PAINEL = (function () {
       return o;
     },
     group: function (g, ctx) {
-      var I = ZR2, c = pol(124, g.am), x = c[0], y = c[1], ro = 34, ri = 24, rr = 29, cheio = g.frac >= 0.999;
-      var o = '';
-      if (g.top) o += '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + (ro + 12) + '" style="fill:url(#' + I.halo + ')"/>';
+      var I = ZR2, K = ctx.k, c = pol(124, g.am), x = c[0], y = c[1], ro = 34, ri = 24, rr = 29, cheio = g.frac >= 0.999;
+      var lim = Math.max(0, Math.min(1, g.frac)) * 360, o = '';
+      if (g.top) o += '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + (ro + 14) + '" style="fill:url(#' + I.halo + ')"/>';
+      // o disco: fundo escuro com profundidade (claro no meio, aro aceso)
       o += '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + (ro + 2.5) + '" style="fill:rgba(var(--deep-rgb),.85);stroke:rgba(var(--gold-rgb),.3)" stroke-width=".6"/>' +
-        '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + ro + '" style="fill:none;stroke:rgba(var(--gold-rgb),.24)" stroke-width="3"/>' +
+        '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + (ro + 2.5) + '" style="fill:url(#' + I.disco + ')"/>' +
+        '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + ro + '" style="fill:none;stroke:rgba(var(--gold-rgb),.2)" stroke-width="3"/>' +
         '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + ri + '" style="fill:none;stroke:rgba(var(--gold-rgb),.38)" stroke-width=".7"/>';
-      // runas no anel, de pé em relação ao centro do círculo
-      var n = 14, lim = g.frac * 360;
+      // runas no anel, de pé em relação ao centro do círculo: as que o arco cobre acendem (brilho, corpo na cor, núcleo branco)
+      var n = 14, acesas = '', apagadas = '';
       for (var k = 0; k < n; k++) {
-        var a = (k + 0.5) * 360 / n, q = [x + rr * Math.sin(a * Math.PI / 180), y - rr * Math.cos(a * Math.PI / 180)], on = a <= lim;
-        o += '<path transform="translate(' + zrXY(q).replace(' ', ' ') + ') rotate(' + f1(a) + ')" d="' + ZR_RUNAS[(k * 3 + g.i) % ZR_RUNAS.length] + '" style="fill:none;stroke:' + (on ? g.cor : 'rgba(var(--gold-rgb),.3)') + '" stroke-width=".85" stroke-linecap="round" stroke-linejoin="round"/>';
+        var a = (k + 0.5) * 360 / n, q = [x + rr * Math.sin(a * Math.PI / 180), y - rr * Math.cos(a * Math.PI / 180)];
+        var el = '<path transform="translate(' + zrXY(q) + ') rotate(' + f1(a) + ')" d="' + ZR_RUNAS[(k * 3 + g.i) % ZR_RUNAS.length] + '"/>';
+        if (a <= lim) acesas += el; else apagadas += el;
       }
-      // o arco que fecha
-      var arco;
-      if (cheio) arco = '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + ro + '" style="fill:none;stroke:' + g.cor + '" stroke-width="3"/>';
-      else {
+      if (apagadas) o += '<g style="fill:none;stroke:rgba(var(--gold-rgb),.28)" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round">' + apagadas + '</g>';
+      // o arco que fecha, com o kit de luz: brilho largo, corpo na cor com textura, núcleo e reflexo
+      var arco = zrArco(x, y, ro, lim), faixa = zrFaixa(x, y, ro, 3.4, lim), w = g.top ? 1 : 0.8;
+      o += '<g style="mix-blend-mode:screen">';
+      if (lim > 0.5) {
+        o += '<path d="' + arco + '" style="fill:none;stroke:' + g.cor + '" stroke-width="' + (g.top ? 11 : 8) + '" stroke-linecap="round" filter="url(#' + K.brilho + ')" opacity="' + (.5 + .25 * w) + '"/>';
+      }
+      if (acesas) {
+        o += '<g style="fill:none;stroke:' + g.cor + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" filter="url(#' + K.brilho2 + ')" opacity=".95">' + acesas + '</g>' +
+          '<g style="fill:none;stroke:' + g.cor + '" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">' + acesas + '</g>' +
+          '<g style="fill:none;stroke:#fff" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round" opacity=".85">' + acesas + '</g>';
+      }
+      if (lim > 0.5) {
+        o += '<path d="' + faixa + '" fill-rule="evenodd" style="fill:' + g.cor + '" filter="url(#' + K.textura + ')"/>' +
+          '<path d="' + arco + '" style="fill:none;stroke:#fff" stroke-width="1.1" stroke-linecap="round" opacity="' + (g.top ? .9 : .75) + '"/>' +
+          '<path d="' + arco + '" style="fill:none;stroke:#fff" stroke-width="2.6" stroke-linecap="round" opacity=".3" filter="url(#' + K.brilho2 + ')"/>';
+      }
+      if (!cheio) {
+        // a ponta do arco: a centelha que vai fechando o círculo
         var e = [x + ro * Math.sin(lim * Math.PI / 180), y - ro * Math.cos(lim * Math.PI / 180)];
-        arco = '<path d="M' + f1(x) + ' ' + f1(y - ro) + 'A' + ro + ' ' + ro + ' 0 ' + (lim > 180 ? 1 : 0) + ' 1 ' + zrXY(e) + '" style="fill:none;stroke:' + g.cor + '" stroke-width="3" stroke-linecap="round"/>' +
-          '<circle cx="' + f1(e[0]) + '" cy="' + f1(e[1]) + '" r="2.4" style="fill:#fff;stroke:' + g.cor + '" stroke-width="1"/>';
+        o += '<circle cx="' + f1(e[0]) + '" cy="' + f1(e[1]) + '" r="6" style="fill:' + g.rgba(.9) + '" filter="url(#' + K.brilho2 + ')"/>' +
+          '<circle cx="' + f1(e[0]) + '" cy="' + f1(e[1]) + '" r="2.2" style="fill:#fff"/>';
       }
-      o += g.top ? '<g filter="url(#' + I.glow + ')">' + arco + '</g>' : arco;
+      o += '</g>';
       // marcas nos quatro pontos cardeais do anel
       for (var m = 0; m < 4; m++) {
         var pm = [x + (ro + 2.5) * Math.sin(m * Math.PI / 2), y - (ro + 2.5) * Math.cos(m * Math.PI / 2)];
         o += '<circle cx="' + f1(pm[0]) + '" cy="' + f1(pm[1]) + '" r="1.3" style="fill:rgba(var(--gold2-rgb),.7)"/>';
       }
-      // o glifo do meio
+      // o glifo do meio: só acende quando o círculo fecha
       var gl = zrGlifo(g.i, x, y);
       if (cheio) {
-        o += '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + (ri - 1) + '" style="fill:' + g.rgba(0.16) + '"/>' +
-          '<path d="' + gl + '" style="fill:none;stroke:' + g.cor + '" stroke-width="1.4" stroke-linejoin="round" filter="url(#' + I.glow + ')"/>' +
-          '<path d="' + gl + '" style="fill:none;stroke:rgba(255,255,255,.75)" stroke-width=".5" stroke-linejoin="round"/>';
+        var fg = ctx.uid('zf');
+        o += '<radialGradient id="' + fg + '"><stop offset="0" style="stop-color:' + g.rgba(.42) + '"/><stop offset=".6" style="stop-color:' + g.rgba(.14) + '"/><stop offset="1" style="stop-color:' + g.rgba(.04) + '"/></radialGradient>' +
+          '<circle cx="' + f1(x) + '" cy="' + f1(y) + '" r="' + (ri - 1) + '" style="fill:url(#' + fg + ')"/>' +
+          '<g style="mix-blend-mode:screen"><path d="' + gl + '" style="fill:none;stroke:' + g.cor + '" stroke-width="4" stroke-linejoin="round" filter="url(#' + K.brilho + ')" opacity=".8"/>' +
+          '<path d="' + gl + '" style="fill:none;stroke:' + g.cor + '" stroke-width="1.6" stroke-linejoin="round"/>' +
+          '<path d="' + gl + '" style="fill:none;stroke:#fff" stroke-width=".6" stroke-linejoin="round" opacity=".9"/></g>';
       } else {
-        o += '<path d="' + gl + '" style="fill:none;stroke:' + g.rgba(0.32) + '" stroke-width=".9" stroke-linejoin="round"/>';
+        o += '<path d="' + gl + '" style="fill:none;stroke:' + g.rgba(0.3) + '" stroke-width=".9" stroke-linejoin="round"/>';
       }
       return o;
     },
-    center: function (ctx) { return zrCentro(ctx, ZR2); }
+    center: function (ctx) {
+      var K = ctx.k;
+      return '<circle cx="230" cy="230" r="' + (ctx.r0 + 2) + '" style="fill:none;stroke:rgba(var(--gold-rgb),.25)" stroke-width="4" filter="url(#' + K.brilho2 + ')"/>' +
+        zrCentro(ctx, ZR2) +
+        '<g style="mix-blend-mode:screen"><circle cx="230" cy="193" r="9" style="fill:rgba(var(--gold-rgb),.7)" filter="url(#' + K.brilho + ')"/>' +
+        '<circle cx="230" cy="193" r="2.4" style="fill:#fff" opacity=".85" filter="url(#' + K.brilho2 + ')"/></g>';
+    }
   };
 
   // legenda embaixo do gráfico: "Cada <peça><texto> Toque num(a) <peça> para abrir no tabelão."
-  MOTIVOS.zur2.legenda = { peca: "círculo", masc: true, texto: " é um agrupamento: o arco se fecha em proporção à soma das notas, e o glifo do meio só acende no maior." };
+  MOTIVOS.zur2.legenda = { peca: "círculo", masc: true, texto: " é um critério: o arco se fecha em proporção à soma, as runas que ele cobre acendem, e o glifo do meio só acende no círculo cheio." };
 
   return MOTIVOS.zur2;
 })();
