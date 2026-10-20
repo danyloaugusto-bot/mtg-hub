@@ -1,4 +1,6 @@
-/* Motivo "penas" do gráfico de pontuação: 01. Giada (Asas da Esperança), escolhido pelo dono na segunda rodada da votação de 15/10/2026.
+/* Motivo "penas" do gráfico de pontuação: 01. Giada, rebranding (lotes 3 e 4), variação R (Penas sobre veludo) escolhida pelo dono em 20/10/2026.
+   O build inclui este arquivo só no painel cujo tema.json tem "grafico": "penas"; a moldura (rótulos, placar, clique) é o motivoSvg do app.js. */
+/* Protótipo R (rebranding, 2ª rodada) do motivo "penas": 01. Giada (Asas da Esperança), escolhido pelo dono na segunda rodada da votação de 15/10/2026.
    Veio do protótipo motivos/giada2.js da votação, só com a opção vencedora. O build inclui este arquivo apenas no painel
    cujo tema.json tem "grafico": "penas"; o motivoSvg do app.js monta a moldura (rótulos, placar, clique em cada agrupamento).
    Mesma geometria do chartSvg: viewBox -58 -2 576 464, centro 230,230, raio interno 60, externo 184. */
@@ -189,7 +191,7 @@ var MOTIVO_PAINEL = (function () {
       var o = '<linearGradient id="' + id + '" gradientUnits="userSpaceOnUse" x1="' + pt(f.B).replace(' ', '" y1="') + '" x2="' + pt(f.T).replace(' ', '" y2="') + '">' +
         '<stop offset="0" stop-color="' + mix('#0a1230', '#66748f', L(0.05)) + '"/>' +
         '<stop offset="' + (big ? '.2' : '.3') + '" stop-color="' + mix('#33425f', '#e9edf4', L(0.25)) + '"/>' +
-        '<stop offset=".55" stop-color="' + mix('#536482', '#ffffff', L(0.55)) + '"/>' +
+        '<stop offset=".55" stop-color="' + mix('#536482', '#fffaf0', L(0.55)) + '"/>' +
         '<stop offset=".86" stop-color="' + mix('#33425f', '#e2e7f0', L(0.86)) + '"/>' +
         '<stop offset="1" stop-color="' + mix('#26324e', '#c5cede', L(1)) + '"/></linearGradient>';
       o += '<path d="' + f.d + '" fill="url(#' + id + ')" stroke="#070c2a" stroke-opacity=".6" stroke-width=".5"/>';
@@ -197,7 +199,7 @@ var MOTIVO_PAINEL = (function () {
       o += '<path d="' + f.half + '" fill="#22325e" fill-opacity="' + F(0.2 + 0.2 * (1 - Lm)) + '"/>';
       if (f.bV) o += '<path d="' + f.bV + '" fill="none" stroke="#2c3d66" stroke-opacity="' + (big ? '.34' : '.24') + '" stroke-width="' + (big ? '.5' : '.4') + '"/>' +
         '<path d="' + f.bA + '" fill="none" stroke="#fff" stroke-opacity="' + F(0.08 + 0.22 * Lm) + '" stroke-width=".35"/>';
-      o += '<path d="' + f.lead + '" fill="none" style="stroke:var(--gold2)" stroke-opacity="' + F(0.08 + 0.7 * Lm * Lm) + '" stroke-width=".75"/>';
+      o += '<path d="' + f.lead + '" fill="none" stroke="#fff6e4" stroke-opacity="' + F(0.06 + 0.5 * Lm * Lm) + '" stroke-width=".7"/>';
       if (f.splits) o += '<path d="' + f.splits + '" fill="none" stroke="#0b1430" stroke-opacity=".45" stroke-width=".7" stroke-linecap="round"/>';
       if (big) o += '<path d="' + f.spine + '" fill="none" stroke="#fff" stroke-opacity="' + F(0.06 + 0.12 * Lm) + '" stroke-width="2.6" stroke-linejoin="round"/>';
       if (f.rachisL) return o + '<path d="' + f.rachisL + '" fill="none" stroke="#f6f1e2" stroke-opacity="' + F(0.4 + 0.5 * Lm) + '" stroke-width=".6"/>';
@@ -233,9 +235,7 @@ var MOTIVO_PAINEL = (function () {
       o += '<path d="' + dE + '" fill="none" stroke="#02040f" stroke-opacity=".5" stroke-width="6" stroke-linecap="round" filter="url(#' + I.soft + ')" transform="translate(1 3)"/>' +
         '<path d="' + dE + '" fill="none" stroke="#dfe4f1" stroke-width="5" stroke-linecap="round"/>' +
         '<path d="' + dE + '" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" transform="translate(0 -1)"/>' +
-        '<path d="' + dE + '" fill="none" style="stroke:var(--gold2)" stroke-width="1" stroke-linecap="round" transform="translate(0 -2.6)"/>';
-      // reflexos dourados no alto da asa
-      [[0.52, 4.2], [0.7, 6], [0.86, 3.4]].forEach(function (gl) { var p = armAt(gl[0]); o += star4(p[0], p[1] - 3, gl[1], '#fff8e6', true); });
+        '<path d="' + dE + '" fill="none" stroke="#fffaf0" stroke-opacity=".7" stroke-width=".8" stroke-linecap="round" transform="translate(0 -2.4)"/>';
       return o;
     }
 
@@ -249,178 +249,160 @@ var MOTIVO_PAINEL = (function () {
       });
     }
 
+    /* ---------- Giada R: a mesma composição (asas atrás do disco, auréola no alto, penas que saem do medalhão), refeita
+       como objeto: penas brancas de verdade pousadas sobre veludo azul-noite, num aro de ouro batido. A única luz é a da
+       auréola, quente, vinda do alto: as penas fazem sombra para baixo no veludo. A cor do critério é só a linha de seda
+       que amarra o cálamo de cada pena. Sem brilho colorido, sem faísca. */
     function frameDefs(ctx) {
-      I = { uid: ctx.uid, glow: ctx.uid('gaGlow'), soft: ctx.uid('gaSoft'), blur: ctx.uid('gaBlur'), mask: ctx.uid('gaMask'), wing: ctx.uid('gaWing'),
-        aura: ctx.uid('gaAura'), drop: ctx.uid('gaDrop'), disc: ctx.uid('gaDisc'), haloG: ctx.uid('gaHaloG'), haloL: ctx.uid('gaHaloL'), axis: ctx.uid('gaAxis'), med: ctx.uid('gaMed') };
-      var o = '<filter id="' + I.glow + '" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.6" result="b"/>' +
-        '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
-        '<filter id="' + I.soft + '" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2"/></filter>' +
-        '<filter id="' + I.blur + '" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="9"/></filter>' +
-        '<filter id="' + I.aura + '" filterUnits="userSpaceOnUse" x="-58" y="-2" width="576" height="464"><feColorMatrix type="matrix" values="0 0 0 0 .97 0 0 0 0 .9 0 0 0 0 .7 0 0 0 .6 0"/>' +
-        '<feGaussianBlur stdDeviation="7"/></filter>' +
-        '<filter id="' + I.drop + '" x="-10%" y="-10%" width="125%" height="125%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.4"/><feOffset dx="2.6" dy="3.6" result="o"/>' +
-        '<feFlood flood-color="#02040f" flood-opacity=".65"/><feComposite in2="o" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
-
+      I = { uid: ctx.uid, soft: ctx.uid('grSoft'), shadow: ctx.uid('grSh'), mask: ctx.uid('grMask'), wing: ctx.uid('grWing'), drop: ctx.uid('grDrop'),
+        velvet: ctx.uid('grVel'), vel: ctx.uid('grVd'), vig: ctx.uid('grVig'), metal: ctx.uid('grMet'), metalH: ctx.uid('grMetH'), haloL: ctx.uid('grHaloL'),
+        med: ctx.uid('grMed'), fray: ctx.uid('grFray'), clip: ctx.uid('grClip'), groove: ctx.uid('grGroove') };
+      var o = '<filter id="' + I.soft + '" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2"/></filter>' +
+        '<filter id="' + I.shadow + '" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>' +
+        '<filter id="' + I.groove + '" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.2"/></filter>' +
+        '<filter id="' + I.drop + '" x="-10%" y="-10%" width="125%" height="125%"><feGaussianBlur in="SourceAlpha" stdDeviation="2.4"/><feOffset dx="1.4" dy="4" result="o"/>' +
+        '<feFlood flood-color="#02040f" flood-opacity=".65"/><feComposite in2="o" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
+        // borda das penas: as barbas não fecham uma linha lisa
+        '<filter id="' + I.fray + '" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="1" seed="3" result="n"/>' +
+        '<feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/></filter>' +
+        // veludo: fibra fina (ruído alto) só um pouco mais clara que o tecido
+        '<filter id="' + I.velvet + '" filterUnits="userSpaceOnUse" x="30" y="30" width="400" height="400"><feTurbulence type="fractalNoise" baseFrequency="1.1 .9" numOctaves="2" seed="7" result="n"/>' +
+        '<feColorMatrix in="n" type="matrix" values="0 0 0 0 .62  0 0 0 0 .7  0 0 0 0 .95  0 0 0 .9 -.32"/><feComposite in2="SourceAlpha" operator="in"/></filter>';
       // máscara das asas: esmaece atrás de cada rótulo e nas bordas da moldura
-      var fl = ctx.uid('gaF'), gl = ctx.uid('gaE'), gr = ctx.uid('gaE'), gb = ctx.uid('gaE'), gt = ctx.uid('gaE');
+      var fl = ctx.uid('grF'), gl = ctx.uid('grE'), gr = ctx.uid('grE'), gb = ctx.uid('grE'), gt = ctx.uid('grE');
       o += '<filter id="' + fl + '" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="11"/></filter>' +
         '<linearGradient id="' + gl + '" x1="0" y1="0" x2="1" y2="0"><stop offset=".53" stop-color="#000"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>' +
         '<linearGradient id="' + gr + '" x1="1" y1="0" x2="0" y2="0"><stop offset=".53" stop-color="#000"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>' +
         '<linearGradient id="' + gb + '" x1="0" y1="1" x2="0" y2="0"><stop offset=".3" stop-color="#000"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>' +
         '<linearGradient id="' + gt + '" x1="0" y1="0" x2="0" y2="1"><stop offset=".74" stop-color="#000"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>';
-      // a máscara passa das bordas do viewBox, e o preto pleno começa nelas, para não deixar fio de borda
       o += '<mask id="' + I.mask + '" maskUnits="userSpaceOnUse" x="-90" y="-30" width="640" height="522"><rect x="-90" y="-30" width="640" height="522" fill="#fff"/>' +
         '<rect x="-90" y="-30" width="60" height="522" fill="url(#' + gl + ')"/><rect x="490" y="-30" width="60" height="522" fill="url(#' + gr + ')"/>' +
         '<rect x="-90" y="392" width="640" height="100" fill="url(#' + gb + ')"/><rect x="-90" y="-30" width="640" height="38" fill="url(#' + gt + ')"/><g filter="url(#' + fl + ')">';
-
       labelSpots(ctx).forEach(function (b) { o += '<ellipse cx="' + F(b.cx) + '" cy="' + F(b.cy) + '" rx="' + F(b.rx) + '" ry="' + F(b.ry) + '" fill="#000" fill-opacity=".8"/>'; });
-
       o += '</g></mask>';
-      o += '<radialGradient id="' + I.disc + '" gradientUnits="userSpaceOnUse" cx="230" cy="230" r="194">' +
-        '<stop offset="0" style="stop-color:var(--panel)" stop-opacity=".98"/><stop offset=".55" style="stop-color:var(--sheet2)" stop-opacity=".97"/>' +
-        '<stop offset=".86" style="stop-color:var(--deep)" stop-opacity=".94"/><stop offset="1" style="stop-color:var(--deep)" stop-opacity=".84"/></radialGradient>' +
-
-        '<radialGradient id="' + I.haloL + '"><stop offset="0" style="stop-color:var(--gold2)" stop-opacity=".5"/><stop offset=".45" style="stop-color:var(--gold)" stop-opacity=".16"/>' +
+      // veludo azul-noite, mais claro no alto, onde bate a luz da auréola
+      o += '<radialGradient id="' + I.vel + '" gradientUnits="userSpaceOnUse" cx="230" cy="96" r="300"><stop offset="0" stop-color="#2a3a7c"/><stop offset=".38" stop-color="#17225a"/>' +
+        '<stop offset=".72" stop-color="#0c1438"/><stop offset="1" stop-color="#050920"/></radialGradient>' +
+        '<radialGradient id="' + I.vig + '" gradientUnits="userSpaceOnUse" cx="230" cy="230" r="194"><stop offset=".8" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>' +
+        // ouro batido: claro no alto (a auréola), bronze no meio, um reflexo frio embaixo
+        '<linearGradient id="' + I.metal + '" gradientUnits="userSpaceOnUse" x1="0" y1="36" x2="0" y2="424"><stop offset="0" stop-color="#fff2c8"/><stop offset=".14" style="stop-color:var(--gold2)"/>' +
+        '<stop offset=".42" style="stop-color:var(--gold)"/><stop offset=".7" stop-color="#7a5a22"/><stop offset=".88" stop-color="#5a3f14"/><stop offset="1" stop-color="#b8924a"/></linearGradient>' +
+        '<linearGradient id="' + I.metalH + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff4d0"/><stop offset=".3" style="stop-color:var(--gold2)"/>' +
+        '<stop offset=".7" stop-color="#8a6526"/><stop offset="1" stop-color="#4a3410"/></linearGradient>' +
+        '<radialGradient id="' + I.haloL + '"><stop offset="0" style="stop-color:var(--gold2)" stop-opacity=".32"/><stop offset=".5" style="stop-color:var(--gold)" stop-opacity=".08"/>' +
         '<stop offset="1" style="stop-color:var(--gold)" stop-opacity="0"/></radialGradient>' +
-        '<linearGradient id="' + I.haloG + '" x1="0" y1="0" x2="1" y2="0"><stop offset="0" style="stop-color:var(--gold)"/><stop offset=".5" stop-color="#fff6dc"/><stop offset="1" style="stop-color:var(--gold)"/></linearGradient>' +
-        '<linearGradient id="' + I.axis + '" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="0" y2="440"><stop offset="0" style="stop-color:var(--gold2)" stop-opacity="0"/>' +
-        '<stop offset=".08" style="stop-color:var(--gold2)" stop-opacity=".9"/><stop offset=".9" style="stop-color:var(--gold)" stop-opacity=".7"/><stop offset="1" style="stop-color:var(--gold)" stop-opacity="0"/></linearGradient>' +
-        '<radialGradient id="' + I.med + '" cx=".5" cy=".38" r=".7"><stop offset="0" style="stop-color:var(--raise)"/><stop offset=".7" style="stop-color:var(--sheet2)"/><stop offset="1" style="stop-color:var(--deep)"/></radialGradient>';
+        '<radialGradient id="' + I.med + '" cx=".5" cy=".3" r=".75"><stop offset="0" stop-color="#26336e"/><stop offset=".6" stop-color="#121a46"/><stop offset="1" stop-color="#060a24"/></radialGradient>' +
+        '<clipPath id="' + I.clip + '"><circle cx="230" cy="230" r="' + (ctx.R + 8) + '"/></clipPath>';
       return o;
     }
 
+    // a auréola: um aro de ouro em perspectiva, a metade de trás mais escura; a única coisa com luz própria
     function haloAbove() {
-      var cx = 230, cy = 13, rx = 60, ry = 9.5;
-      return '<ellipse cx="' + cx + '" cy="' + (cy + 4) + '" rx="' + (rx * 2.4) + '" ry="' + (ry * 5.4) + '" fill="url(#' + I.haloL + ')"/>' +
-        '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="none" style="stroke:var(--gold2)" stroke-width="7" stroke-opacity=".45" filter="url(#' + I.soft + ')"/>' +
-        '<path d="M' + (cx - rx) + ' ' + cy + 'A' + rx + ' ' + ry + ' 0 0 1 ' + (cx + rx) + ' ' + cy + '" fill="none" style="stroke:var(--gold)" stroke-width="2" stroke-opacity=".85"/>' +
-        '<path d="M' + (cx - rx) + ' ' + cy + 'A' + rx + ' ' + ry + ' 0 0 0 ' + (cx + rx) + ' ' + cy + '" fill="none" stroke="url(#' + I.haloG + ')" stroke-width="3.4" filter="url(#' + I.glow + ')"/>' +
-        '<path d="M' + (cx - rx * 0.6) + ' ' + F(cy + ry * 0.8) + 'A' + rx + ' ' + ry + ' 0 0 0 ' + (cx + rx * 0.6) + ' ' + F(cy + ry * 0.8) + '" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width=".9" stroke-linecap="round"/>' +
-        star4(cx, cy - ry - 1, 7, '#fffaf0', true);
+      var cx = 230, cy = 14, rx = 58, ry = 9;
+      function arc(top, dy) { return 'M' + (cx - rx) + ' ' + (cy + dy) + 'A' + rx + ' ' + ry + ' 0 0 ' + (top ? 1 : 0) + ' ' + (cx + rx) + ' ' + (cy + dy); }
+      return '<ellipse cx="' + cx + '" cy="' + (cy + 6) + '" rx="' + (rx * 2.1) + '" ry="' + (ry * 4.6) + '" fill="url(#' + I.haloL + ')"/>' +
+        '<path d="' + arc(true, 0) + '" fill="none" stroke="#6b4c18" stroke-width="4.4"/>' +
+        '<path d="' + arc(true, -1) + '" fill="none" style="stroke:var(--gold)" stroke-width="1.4"/>' +
+        '<path d="' + arc(false, 3) + '" fill="none" stroke="#02040f" stroke-opacity=".5" stroke-width="4" filter="url(#' + I.soft + ')"/>' +
+        '<path d="' + arc(false, 0) + '" fill="none" stroke="url(#' + I.metalH + ')" stroke-width="4.6"/>' +
+        '<path d="' + arc(false, -1.2) + '" fill="none" stroke="#fff8e4" stroke-opacity=".85" stroke-width=".9"/>';
     }
 
     function frameStage(ctx) {
-      // as duas asas (a esquerda é a direita espelhada), com uma aura dourada difusa por trás
-      var o = '<defs><g id="' + I.wing + '">' + wing() + '</g></defs>', M = 'matrix(-1 0 0 1 460 0)';
-      o += '<g mask="url(#' + I.mask + ')"><g filter="url(#' + I.aura + ')" opacity=".55"><use href="#' + I.wing + '"/><use href="#' + I.wing + '" transform="' + M + '"/></g>' +
-        '<use href="#' + I.wing + '"/><use href="#' + I.wing + '" transform="' + M + '"/></g>';
+      var o = '<defs><g id="' + I.wing + '">' + wing() + '</g></defs>', M = 'matrix(-1 0 0 1 460 0)', R = ctx.R;
+      o += '<g mask="url(#' + I.mask + ')"><use href="#' + I.wing + '"/><use href="#' + I.wing + '" transform="' + M + '"/></g>';
       o += haloAbove();
-      o += '<circle cx="230" cy="230" r="' + (ctx.R + 10) + '" fill="url(#' + I.disc + ')"/>' +
-        '<circle cx="230" cy="230" r="' + (ctx.R + 10) + '" fill="none" style="stroke:var(--gold)" stroke-opacity=".75" stroke-width="1.5"/>' +
-        '<circle cx="230" cy="230" r="' + (ctx.R + 5) + '" fill="none" style="stroke:var(--gold)" stroke-opacity=".28" stroke-width=".7"/>';
-      ctx.groups.forEach(function (g) {   // pequenos cravos dourados no aro, na direção de cada rótulo
-        var p = pol(ctx.R + 10, g.am), a = g.am;
-        o += '<path d="M' + pt(pol(ctx.R + 15, a)) + 'L' + pt(pol(ctx.R + 10, a + 1.6)) + 'L' + pt(pol(ctx.R + 5, a)) + 'L' + pt(pol(ctx.R + 10, a - 1.6)) + 'Z" style="fill:var(--gold2)"/>';
+      // sombra do disco sobre as asas, o veludo, a fibra e a vinheta
+      o += '<circle cx="232" cy="236" r="' + (R + 12) + '" fill="#02040f" fill-opacity=".6" filter="url(#' + I.soft + ')"/>' +
+        '<circle cx="230" cy="230" r="' + (R + 8) + '" fill="url(#' + I.vel + ')"/>' +
+        '<g clip-path="url(#' + I.clip + ')"><rect x="40" y="40" width="380" height="380" fill="#000" filter="url(#' + I.velvet + ')" opacity=".22"/></g>' +
+        '<circle cx="230" cy="230" r="' + (R + 8) + '" fill="url(#' + I.vig + ')"/>';
+      // o aro de ouro faz sombra para dentro, embaixo (a luz vem do alto)
+      o += '<g clip-path="url(#' + I.clip + ')"><circle cx="230" cy="235" r="' + (R + 9) + '" fill="none" stroke="#000" stroke-opacity=".55" stroke-width="7" filter="url(#' + I.soft + ')"/></g>';
+      o += '<circle cx="230" cy="230" r="' + (R + 10.6) + '" fill="none" stroke="#120c02" stroke-width="7"/>' +
+        '<circle cx="230" cy="230" r="' + (R + 10.6) + '" fill="none" stroke="url(#' + I.metal + ')" stroke-width="5.4"/>' +
+        '<circle cx="230" cy="229.3" r="' + (R + 11.6) + '" fill="none" stroke="#fff6dc" stroke-opacity=".5" stroke-width=".6"/>' +
+        '<circle cx="230" cy="230" r="' + (R + 8.4) + '" fill="none" stroke="#2a1c06" stroke-opacity=".8" stroke-width=".7"/>';
+      // marcas cinzeladas no aro, na direção de cada rótulo
+      ctx.groups.forEach(function (g) {
+        o += '<path d="M' + pt(pol(R + 8.4, g.am)) + 'L' + pt(pol(R + 12.8, g.am)) + '" stroke="#3a2808" stroke-width="1.6"/>' +
+          '<path d="M' + pt(pol(R + 8.4, g.am + 0.5)) + 'L' + pt(pol(R + 12.8, g.am + 0.5)) + '" stroke="#fff2c8" stroke-opacity=".55" stroke-width=".6"/>';
       });
       return o;
     }
 
     function medallion(ctx, emblem) {
-      return '<circle cx="230" cy="230" r="' + (ctx.r0 + 2) + '" fill="#000" fill-opacity=".35" filter="url(#' + I.soft + ')"/>' +
-        '<circle cx="230" cy="230" r="' + (ctx.r0 - 5) + '" fill="url(#' + I.med + ')" style="stroke:var(--gold)" stroke-width="1.8"/>' +
-        '<circle cx="230" cy="230" r="' + (ctx.r0 - 9) + '" fill="none" style="stroke:var(--gold)" stroke-opacity=".35" stroke-width=".6"/>' + (emblem || '');
+      var r = ctx.r0 - 5;
+      return '<circle cx="231" cy="234" r="' + (r + 3) + '" fill="#000" fill-opacity=".55" filter="url(#' + I.soft + ')"/>' +
+        '<circle cx="230" cy="230" r="' + (r + 1.6) + '" fill="url(#' + I.metal + ')"/>' +
+        '<circle cx="230" cy="230" r="' + (r - 1.8) + '" fill="url(#' + I.med + ')" stroke="#2a1c06" stroke-width=".8"/>' +
+        '<circle cx="230" cy="229.2" r="' + (r + 1.2) + '" fill="none" stroke="#fff6dc" stroke-opacity=".45" stroke-width=".5"/>' + (emblem || '');
     }
 
-    /* ---------- as penas de dado (dentro do disco) ----------
-       A pena nasce sob o medalhão (raio 50) e a parte visível vai do aro do medalhão (55) até 55 + vmax * frac. */
-    var RIN = 50, VIS0 = 55;
-    function dataGeom(g, vmax, ghost) {
-      var len = (VIS0 - RIN) + vmax * g.frac, w = Math.min(23, 5 + 0.16 * len);
-      return pena(pol(RIN, g.am), g.am, len, w, { lead: 0.42, curv: 0.04, tip: 0.3, tipMax: 11, quill: 0.16, taper: 0.14, rough: 0.05, seed: g.i * 31 + 7,
-        N: ghost ? 18 : 24, lite: ghost ? 2 : 0, q: !!ghost,
-        notch: len > 40 ? [[0.66, 0.4, 1], [0.5, 0.28, -1], [0.82, 0.3, 1]] : [[0.62, 0.35, 1], [0.78, 0.25, -1]], rachis: 1.5 });
+    /* ---------- as penas de dado ----------
+       A pena nasce sob o medalhão (raio 50) e a parte visível vai do aro do medalhão (55) até 55 + VMAX * frac. */
+    var RIN = 50, VIS0 = 55, VMAX = 118, RING = VIS0 + VMAX;
+    function dataGeom(g) {
+      var len = (VIS0 - RIN) + VMAX * Math.max(0.12, g.frac), w = Math.min(23, 5 + 0.16 * len);
+      return pena(pol(RIN, g.am), g.am, len, w, { lead: 0.42, curv: 0.04, tip: 0.3, tipMax: 11, quill: 0.16, taper: 0.14, rough: 0.07, seed: g.i * 31 + 7,
+        N: 26, lite: 0, notch: len > 40 ? [[0.66, 0.4, 1], [0.5, 0.28, -1], [0.82, 0.3, 1]] : [[0.62, 0.35, 1], [0.78, 0.25, -1]], rachis: 1.5 });
     }
     function axisGrad(id, f, stops) {
       return '<linearGradient id="' + id + '" gradientUnits="userSpaceOnUse" x1="' + pt(f.B).replace(' ', '" y1="') + '" x2="' + pt(f.T).replace(' ', '" y2="') + '">' +
         stops.map(function (s) { return '<stop offset="' + s[0] + '" ' + (s[1].charAt(0) === 'v' ? 'style="stop-color:' + s[1] + '"' : 'stop-color="' + s[1] + '"') + '/>'; }).join('') + '</linearGradient>';
     }
-    // a cor do agrupamento: uma gema pequena engastada na base da pena
-    function gem(g) {
-      var a = g.am, c = pol(VIS0 + 6, a);
-      return '<path d="M' + pt(pol(VIS0 + 10.5, a)) + 'L' + pt(pol(VIS0 + 6, a + 3.4)) + 'L' + pt(pol(VIS0 + 1.5, a)) + 'L' + pt(pol(VIS0 + 6, a - 3.4)) + 'Z" style="fill:' + g.cor + ';stroke:var(--gold2)" stroke-width=".7"/>' +
-        '<circle cx="' + F(c[0] - 0.8) + '" cy="' + F(c[1] - 0.9) + '" r=".8" fill="#fff" fill-opacity=".85"/>';
-    }
-    function sparks(f, a) {
-      var T = f.T, ca = Math.cos(a * D), sa = Math.sin(a * D), o = '';
-      [[6, -8, 5], [-8, 9, 3.4], [-26, -11, 2.6]].forEach(function (e) { o += star4(T[0] + ca * e[0] - sa * e[1], T[1] + sa * e[0] + ca * e[1], e[2], '#fffaf0', true); });
+    // a linha de seda que amarra o cálamo, na cor do critério: três voltas e uma ponta solta
+    function linha(g) {
+      var a = g.am, c = Math.cos(a * D), s = Math.sin(a * D), o = '', k;
+      function at(r, off) { return [230 + c * r - s * off, 230 + s * r + c * off]; }
+      for (k = 0; k < 3; k++) {
+        var r = VIS0 + 3.4 + k * 2.1;
+        o += '<path d="M' + pt(at(r + 0.5, -3)) + 'L' + pt(at(r + 0.5, 3)) + '" stroke="#02040f" stroke-opacity=".55" stroke-width="1.9" stroke-linecap="round"/>' +
+          '<path d="M' + pt(at(r, -2.7)) + 'L' + pt(at(r, 2.7)) + '" style="stroke:' + g.cor + '" stroke-width="1.7" stroke-linecap="round"/>' +
+          '<path d="M' + pt(at(r - 0.45, -1.8)) + 'L' + pt(at(r - 0.45, 1.2)) + '" stroke="#fff" stroke-opacity=".35" stroke-width=".5" stroke-linecap="round"/>';
+      }
+      var e0 = at(VIS0 + 7.6, 2.6);
+      o += '<path d="M' + pt(e0) + 'Q' + pt(at(VIS0 + 9, 6.5)) + ' ' + pt(at(VIS0 + 13, 7.2)) + '" fill="none" style="stroke:' + g.cor + '" stroke-width="1.1" stroke-linecap="round" opacity=".9"/>';
       return o;
     }
 
-    /* ---------- opção 3: asas da esperança (penas brancas) ---------- */
-    var VMAX3 = 126;
-
-    /* ---------- opção 4: sol de penas de ouro dentro de um anel de auréola ----------
-       As penas são de ouro polido (lado da luz claro, lado da sombra bronze) e cada uma tem atrás de si um feixe de luz
-       que sai do medalhão; o anel de auréola, por dentro do aro, marca o máximo: a maior pena o toca e faísca. */
-    var VMAX4 = 118, RING4 = 178;
-    MOTIVOS.giada4 = {
-      deck: '01. Giada', nome: 'Sol de penas de ouro',
-      // raio da ponta da pena para uma fração do comprimento (o motivoSvg desenha a faixa da régua com ele, na v3)
-      raio: function (f) { return VIS0 + VMAX4 * f; },
-      desc: 'Sob as mesmas asas e auréola, oito penas de ouro saem do medalhão como raios de um sol, dentro de um anel de auréola. O comprimento de cada pena e a força do feixe de luz atrás dela crescem com a pontuação; a maior toca o anel e faísca.',
-
+    var MOT = {
+      deck: '01. Giada', nome: 'Penas sobre veludo',
+      raio: function (f) { return VIS0 + VMAX * Math.max(0.12, Math.min(1, f)); },
       defs: frameDefs,
       stage: function (ctx) {
-        var o = frameStage(ctx), k;
-        // raios finos de sol, só ambiente (não são dado)
-        var rays = '';
-        for (k = 0; k < 96; k++) {
-          var a = k * 3.75 - 90, r1 = k % 4 === 0 ? 172 : k % 2 ? 128 : 150;
-          rays += 'M' + pt(pol(64, a)) + 'L' + pt(pol(r1, a));
-        }
-        var rg = ctx.uid('gaRay');
-        o += '<radialGradient id="' + rg + '" gradientUnits="userSpaceOnUse" cx="230" cy="230" r="176"><stop offset=".33" style="stop-color:var(--gold2)" stop-opacity=".22"/>' +
-          '<stop offset="1" style="stop-color:var(--gold)" stop-opacity="0"/></radialGradient>' +
-          '<path d="' + rays + '" fill="none" stroke="url(#' + rg + ')" stroke-width=".7"/>';
-        // coroa de luz em volta do medalhão
-        var cg = ctx.uid('gaCor');
-        o += '<radialGradient id="' + cg + '" gradientUnits="userSpaceOnUse" cx="230" cy="230" r="150"><stop offset=".36" style="stop-color:var(--gold2)" stop-opacity=".3"/>' +
-          '<stop offset=".6" style="stop-color:var(--gold)" stop-opacity=".08"/><stop offset="1" style="stop-color:var(--gold)" stop-opacity="0"/></radialGradient>' +
-          '<circle cx="230" cy="230" r="150" fill="url(#' + cg + ')"/>';
-        // o anel de auréola: halo difuso, aro polido (mais claro no alto, onde bate a luz) e filetes
-        var rgr = ctx.uid('gaRing');
-        o += '<linearGradient id="' + rgr + '" gradientUnits="userSpaceOnUse" x1="0" y1="' + (230 - RING4) + '" x2="0" y2="' + (230 + RING4) + '"><stop offset="0" stop-color="#fff6dc"/>' +
-          '<stop offset=".35" style="stop-color:var(--gold2)"/><stop offset="1" style="stop-color:var(--gold)"/></linearGradient>' +
-          '<circle cx="230" cy="230" r="' + RING4 + '" fill="none" style="stroke:var(--gold2)" stroke-width="12" stroke-opacity=".3" filter="url(#' + I.soft + ')"/>' +
-          '<circle cx="230" cy="230" r="' + RING4 + '" fill="none" stroke="url(#' + rgr + ')" stroke-width="3.4" filter="url(#' + I.glow + ')"/>' +
-          '<circle cx="230" cy="230" r="' + (RING4 - 1) + '" fill="none" stroke="#fffaf0" stroke-opacity=".8" stroke-width=".7"/>' +
-          '<circle cx="230" cy="230" r="' + (RING4 - 6) + '" fill="none" style="stroke:var(--gold)" stroke-opacity=".4" stroke-width=".6"/>' +
-          '<circle cx="230" cy="230" r="' + (RING4 + 5) + '" fill="none" style="stroke:var(--gold)" stroke-opacity=".3" stroke-width=".6"/>';
+        var o = frameStage(ctx);
+        // o limite das penas: um filete de ouro embutido no veludo, com o sulco escuro por baixo
+        o += '<circle cx="230" cy="230.8" r="' + RING + '" fill="none" stroke="#02040f" stroke-opacity=".6" stroke-width="1.8" filter="url(#' + I.groove + ')"/>' +
+          '<circle cx="230" cy="230" r="' + RING + '" fill="none" stroke="url(#' + I.metal + ')" stroke-width=".9" stroke-opacity=".8"/>';
         return o;
       },
       group: function (g, ctx) {
-        var f = dataGeom(g, VMAX4), id = ctx.uid('gag'), bm = ctx.uid('gab'), tipR = VIS0 + VMAX4 * g.frac, a = g.am;
-        // feixe de luz atrás da pena
-        var hw = 6 + 5 * g.frac, rEnd = Math.min(RING4, tipR + 22);
-        var o = '<radialGradient id="' + bm + '" gradientUnits="userSpaceOnUse" cx="230" cy="230" r="' + F(rEnd) + '"><stop offset="' + (VIS0 / rEnd).toFixed(3) + '" style="stop-color:var(--gold2)" stop-opacity="' + (0.3 + 0.4 * g.frac).toFixed(2) + '"/>' +
-
-          '<stop offset="1" style="stop-color:var(--gold)" stop-opacity="0"/></radialGradient>' +
-          '<path d="M' + pt(pol(VIS0, a - 2)) + 'L' + pt(pol(rEnd, a - hw)) + 'A' + F(rEnd) + ' ' + F(rEnd) + ' 0 0 1 ' + pt(pol(rEnd, a + hw)) + 'L' + pt(pol(VIS0, a + 2)) + 'Z" fill="url(#' + bm + ')"/>';
-        o += axisGrad(id, f, [[0, '#6e4f1c'], [0.2, 'var(--gold)'], [0.55, 'var(--gold2)'], [0.85, 'var(--gold)'], [1, '#a77a32']]);
-        o += (g.top ? '<path d="' + f.d + '" style="fill:var(--gold2)" fill-opacity=".6" filter="url(#' + I.blur + ')"/>' : '') +
-          '<path d="' + f.d + '" fill="#02040f" fill-opacity=".65" filter="url(#' + I.soft + ')" transform="translate(1.6 2.6)"/>' +
-          '<path d="' + f.down + '" fill="none" style="stroke:var(--gold2)" stroke-opacity=".7" stroke-width=".5"/>' +
-          '<path d="' + f.d + '" fill="url(#' + id + ')" stroke="#3e2a0c" stroke-opacity=".7" stroke-width=".5"/>' +
-          '<path d="' + f.half + '" fill="#5a3a0e" fill-opacity=".38"/>' +
-          '<path d="' + f.halfA + '" fill="#fff4d2" fill-opacity=".22"/>' +
-          '<path d="' + f.bV + '" fill="none" stroke="#4e3410" stroke-opacity=".5" stroke-width=".38"/>' +
-          '<path d="' + f.bA + '" fill="none" stroke="#fff3cf" stroke-opacity=".45" stroke-width=".32"/>' +
-          '<path d="' + f.lead + '" fill="none" stroke="#fff8e6" stroke-opacity=".7" stroke-width=".6"/>' +
-          '<path d="' + f.rachis + '" fill="#fffaf0"/>';
-        o += gem(g);
-        if (g.top) o += sparks(f, a) + star4(pol(RING4, a)[0], pol(RING4, a)[1], 9, '#fffaf0', true);
-        return o;
+        var f = dataGeom(g), id = ctx.uid('grp');
+        var o = axisGrad(id, f, [[0, '#7d859c'], [0.16, '#d9dce4'], [0.42, '#fffcf4'], [0.7, '#fbf8f1'], [0.9, '#e4e3df'], [1, '#bfc3cf']]);
+        // a sombra da pena no veludo: a luz vem do alto
+        o += '<path d="' + f.d + '" fill="#01030c" fill-opacity=".62" filter="url(#' + I.shadow + ')" transform="translate(1.2 5)"/>' +
+          '<path d="' + f.down + '" fill="none" stroke="#e9e8e4" stroke-opacity=".75" stroke-width=".55"/>' +
+          '<g filter="url(#' + I.fray + ')"><path d="' + f.d + '" fill="url(#' + id + ')" stroke="#4a5574" stroke-opacity=".45" stroke-width=".45"/>' +
+          '<path d="' + f.half + '" fill="#3c4a74" fill-opacity=".26"/>' +
+          '<path d="' + f.halfA + '" fill="#fff" fill-opacity=".2"/>' +
+          '<path d="' + f.bV + '" fill="none" stroke="#5f6a88" stroke-opacity=".38" stroke-width=".35"/>' +
+          '<path d="' + f.bA + '" fill="none" stroke="#ffffff" stroke-opacity=".5" stroke-width=".3"/>' +
+          '<path d="' + f.splits + '" fill="none" stroke="#2c3654" stroke-opacity=".55" stroke-width=".7" stroke-linecap="round"/></g>' +
+          '<path d="' + f.lead + '" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".5"/>' +
+          '<path d="' + f.rachis + '" fill="#efe5cc" stroke="#8a7a58" stroke-opacity=".5" stroke-width=".3"/>';
+        return o + linha(g);
       },
       center: function (ctx) {
-        var e = '<circle cx="230" cy="194" r="3.6" fill="#fff6dc"/>', k;
-        for (k = 0; k < 12; k++) { var a = k * 30 - 90, r2 = k % 3 === 0 ? 7.8 : 6.2; e += '<path d="M' + pt([230 + 4.6 * Math.cos(a * D), 194 + 4.6 * Math.sin(a * D)]) + 'L' + pt([230 + r2 * Math.cos(a * D), 194 + r2 * Math.sin(a * D)]) + '" style="stroke:var(--gold2)" stroke-width="1" stroke-linecap="round"/>'; }
-        return medallion(ctx, '<g filter="url(#' + I.glow + ')">' + e + '</g>');
+        // um sol cinzelado no esmalte, sem brilho
+        var e = '<circle cx="230" cy="194" r="3.4" fill="url(#' + I.metal + ')" stroke="#3a2808" stroke-width=".4"/>', k;
+        for (k = 0; k < 12; k++) { var a = k * 30 - 90, r2 = k % 3 === 0 ? 8 : 6.4; e += '<path d="M' + pt([230 + 4.6 * Math.cos(a * D), 194 + 4.6 * Math.sin(a * D)]) + 'L' + pt([230 + r2 * Math.cos(a * D), 194 + r2 * Math.sin(a * D)]) + '" style="stroke:var(--gold)" stroke-width="1" stroke-linecap="round"/>'; }
+        return medallion(ctx, e);
       }
     };
+    MOT.legenda = { peca: "pena", masc: false, texto: " é um critério: o comprimento acompanha os pontos, e o filete de ouro marca o limite." };
+    MOTIVOS.giadaR = MOT;
   })();
 
-  // legenda embaixo do gráfico: "Cada <peça><texto> Toque num(a) <peça> para abrir no tabelão."
-  MOTIVOS.giada4.legenda = { peca: "pena", masc: false, texto: " de ouro é um agrupamento: o comprimento acompanha a soma das notas, e a maior toca a auréola e faísca." };
-
-  return MOTIVOS.giada4;
+  return MOTIVOS.giadaR;
 })();

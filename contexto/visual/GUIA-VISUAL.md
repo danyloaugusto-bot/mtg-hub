@@ -57,38 +57,40 @@ Gráficos e fontes como estão montados em 15/10/2026, depois da votação dos g
 
 | Deck | Gráfico | Fonte de título | Veredito | Direção |
 |---|---|---|---|---|
-| 01. Giada | penas e asas | Cormorant Unicase | manter (votado) | só o kit de luz |
-| 01. Markov | caixões (vigília, 15/10) | Cinzel | manter (votado) | só o kit de luz |
-| 01. Vito | cálices (liturgia) | Pirata One | manter (votado) | números na fonte do texto |
-| 02. Clavileño | elos de corrente | Grenze Gotisch | manter (votado) | números na fonte do texto |
-| 02. Dragões | meteoros | Almendra Display | manter | tier na fonte do texto; meteoro mais incandescente |
-| 02. Elfos | galhos e folhas | Fondamento | ajustar | o galho lembra dente-de-leão; casca, nervura e folha de verdade |
-| 02. Evelyn | leque art déco | Limelight | ajustar | dourado e preto, cor só na ponta da lâmina |
-| 02. Goblins | canhões | Rye | manter | tom cômico permitido |
+| 01. Giada | penas sobre veludo | Cormorant Unicase | feito em 20/10/2026 | variação R escolhida pelo dono |
+| 01. Markov | caixões (vigília, 15/10) | Cinzel | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
+| 01. Vito | cálices de cristal e ouro | Pirata One | feito em 20/10/2026 | variação R escolhida pelo dono |
+| 02. Clavileño | elos de corrente | Grenze Gotisch | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
+| 02. Dragões | meteoros de basalto | Almendra Display | feito em 20/10/2026 | variação R escolhida pelo dono |
+| 02. Elfos | copa (contraluz) | Fondamento | feito em 20/10/2026 | variação C escolhida pelo dono |
+| 02. Evelyn | laca (leque laqueado) | Limelight | feito em 20/10/2026 | variação A escolhida pelo dono |
+| 02. Goblins | canhões | Rye | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
 | 02. Humanos | abside (estandartes sob a abóbada, com vitral) | Marcellus SC | feito em 19/10/2026 | variação B do lote 1 |
-| 02. Kaalia | lâminas (juramento) | New Rocker | manter (votado) | S do tier parece 5: tier na fonte do texto |
-| 02. Lobos | luas | Almendra SC | ajustar | luas parecem bolinhas coloridas; lua prateada com crateras, a fase enche com a soma |
-| 02. Strefan | alquimia (refeito em 15/10) | Playfair Display SC | manter (votado) | já saiu das pétalas; só o kit de luz |
+| 02. Kaalia | lâminas (juramento) | New Rocker | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
+| 02. Lobos | lunar (floresta) | Almendra SC | feito em 20/10/2026 | variação B escolhida pelo dono |
+| 02. Strefan | alquimia (refeito em 15/10) | Playfair Display SC | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
 | 02. Turtle Power! | pizza (caixa no esgoto, fatias mordidas) | Bangers | feito em 19/10/2026 | variação C do lote 1 |
-| 02. Zumbis | tumbas | Metal Mania | manter | aprovado |
-| 03. Heads I win | pilhas de moedas | Creepster | manter (votado) | tom cômico permitido |
-| 03. K'rrik | engrenagens | Tourney | manter | número do placar em contorno: fonte do texto |
-| 03. Lynde | almofada de alfinetes | IM Fell English SC | manter (votado) | só o kit de luz |
+| 02. Zumbis | tumbas, cemitério noturno | Metal Mania | feito em 20/10/2026 | variação R escolhida pelo dono |
+| 03. Heads I win | pilhas na mesa de carteado | Creepster | feito em 20/10/2026 | variação R escolhida pelo dono |
+| 03. K'rrik | engrenagens de aço e sangue | Tourney | feito em 20/10/2026 | variação R escolhida pelo dono |
+| 03. Lynde | almofada de alfinetes | IM Fell English SC | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
 | 03. Master Of Evil | dalek (saia em anel) | Oxanium | feito em 19/10/2026 | variação A do lote 1 |
-| 03. Tergrid | lanternas | Metamorphous | manter (votado) | mais escuro e mais chama |
-| 03. Valgavoth | casa | Cinzel | manter (votado) | só o kit de luz; de longe lê como sol vermelho, então vale reforçar portas e escada |
-| 04. Assassin Creed | torres | Italiana | ajustar | torres pequenas e coloridas demais; torres de vigia em silhueta, salto de fé na mais alta |
-| 04. Fynn | gotas | Uncial Antiqua | ajustar (votado) | o conceito fica, porque foi escolhido na votação. Ressalva: as gotas em pastel puxam para o fofo. Paleta de veneno (verde e preto, cor do critério só no brilho) e presas no topo |
-| 04. Ken | barras de vida (luta) | Teko | manter (votado) | melhor conceito da carteira |
-| 04. Queen | cetros | Cinzel Decorative | manter (votado) | só o kit de luz |
-| 04. Zara | lunetas | Trade Winds | manter | só o kit de luz |
-| 04. Zur | círculos | MedievalSharp | manter (votado) | só o kit de luz, com as runas acendendo |
-| 05. Braids | tranças | Forum | manter | aprovado |
-| 05. Deadpool | balões | Luckiest Guy | manter | aprovado |
-| 05. Slivers | ovos | Grenze | manter | aprovado |
+| 03. Tergrid | lanternas | Metamorphous | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
+| 03. Valgavoth | casa | Cinzel | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
+| 04. Assassin Creed | vigia (olho de águia) | Italiana | feito em 20/10/2026 | variação A escolhida pelo dono |
+| 04. Fynn | veneno (gota de vidro) | Uncial Antiqua | feito em 20/10/2026 | variação D, 2ª rodada escolhida pelo dono |
+| 04. Ken | luta | Teko | feito em 20/10/2026 | variação acabamento aprovado escolhida pelo dono |
+| 04. Queen | cetros | Cinzel Decorative | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
+| 04. Zara | lunetas de latão e couro | Trade Winds | feito em 20/10/2026 | variação R escolhida pelo dono |
+| 04. Zur | circulos | MedievalSharp | feito em 20/10/2026 | variação acabamento aprovado escolhida pelo dono |
+| 05. Braids | tranças, planta de Tolária | Forum | feito em 20/10/2026 | variação C escolhida pelo dono |
+| 05. Deadpool | balões | Luckiest Guy | mantido em 20/10/2026 | o dono preferiu o desenho de hoje |
+| 05. Slivers | ovos de couro | Grenze | feito em 20/10/2026 | variação R escolhida pelo dono |
 | 05. Storm | tempestade | Bebas Neue | feito em 19/10/2026 | variação A do lote 1 (o protótipo aplicado) |
 
 Resumo em 18/10: 3 para refazer (Humanos, Turtle Power! e Master Of Evil), 6 para ajustar e 21 para manter com o kit de luz (os 19 de antes, mais Strefan e Markov). "Votado" quer dizer escolhido pelo dono na votação de 15/10/2026 (`contexto/ESTADO.md`): o conceito não se discute de novo, só o acabamento. As fontes de título passam; o problema é a fonte de título usada em dado (princípio 8).
+
+**Lição de 20/10/2026 (lotes 3 e 4):** a primeira rodada aplicou o mesmo kit de luz (halo na cor do critério, núcleo branco, brilho difuso) em todos os gráficos, e o dono rejeitou: "não precisa ser colorido, só dar mais realismo ou opções mais criativas, não copiar um estilo pra todos". O kit é ferramenta opcional; a cor do critério é opcional; cada deck pede material de verdade ou uma execução criativa própria.
 
 ## Kit técnico para o Code
 
@@ -108,9 +110,9 @@ O comando é `/rebranding <lote>` (`.claude/skills/rebranding/SKILL.md`). Quatro
 | Lote | Decks | O que muda |
 |---|---|---|
 | 1, refazer e régua (**feito em 19/10/2026**) | 05. Storm, 02. Humanos, 02. Turtle Power!, 03. Master Of Evil | desenho novo; o Storm aplica `prototipos/tempestade.js`. O kit de luz compartilhado nasce aqui (`KIT` no `app.js`) |
-| 2, ajustar | 04. Fynn, 02. Lobos, 02. Elfos, 02. Evelyn, 04. Assassin Creed | mesmo conceito, execução nova |
-| 3, kit de luz (votados) | 01. Giada, 01. Vito, 02. Clavileño, 02. Kaalia, 03. Heads I win, 03. Lynde, 03. Tergrid, 03. Valgavoth, 04. Ken, 04. Queen, 04. Zur | só o acabamento |
-| 4, kit de luz (demais) | 01. Markov, 02. Dragões, 02. Goblins, 02. Zumbis, 02. Strefan, 03. K'rrik, 04. Zara, 05. Braids, 05. Deadpool, 05. Slivers | só o acabamento |
+| 2, ajustar (**feito em 20/10/2026**) | 04. Fynn, 02. Lobos, 02. Elfos, 02. Evelyn, 04. Assassin Creed | mesmo conceito, execução nova |
+| 3, kit de luz (votados) (**feito em 20/10/2026**) | 01. Giada, 01. Vito, 02. Clavileño, 02. Kaalia, 03. Heads I win, 03. Lynde, 03. Tergrid, 03. Valgavoth, 04. Ken, 04. Queen, 04. Zur | só o acabamento |
+| 4, kit de luz (demais) (**feito em 20/10/2026**) | 01. Markov, 02. Dragões, 02. Goblins, 02. Zumbis, 02. Strefan, 03. K'rrik, 04. Zara, 05. Braids, 05. Deadpool, 05. Slivers | só o acabamento |
 
 Cada lote para duas vezes: (1) protótipo, com 2 ou 3 variações por deck nos lotes 1 e 2 e uma folha de antes e depois nos lotes 3 e 4, para o dono escolher; (2) resultado implementado, em 1360px e 375px, antes de publicar. Uma sessão por vez no motor: o rebranding não começa com outra sessão mexendo em `motor/`.
 
