@@ -114,4 +114,32 @@ try:
     recusa("leitura-quebrada", leitura, "não existe")
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
+
+# ---------------- o Grimório (dados/grimorio/grimorio.json, contexto/ARQUITETURA.md "O Grimório"), quando já houve leitura
+import grimorio  # noqa: E402
+G = grimorio.ler_grimorio()
+if G:
+    L = grimorio.ler_lentes()
+    ks = {l["k"] for l in L["tema"]} | {l["k"] for l in L["cor"]}
+    R.ok("grimório: versão 1, com a data da leitura, as lentes e as cartas", G.get("versao") == 1 and bool(G.get("lido")) and isinstance(G.get("lentes"), list) and isinstance(G.get("cartas"), dict))
+    R.ok("grimório: toda lente do lentes.json está no grimorio.json, com tipo, lista e o caminho que respondeu ou o motivo",
+         {l["k"] for l in G["lentes"]} == ks and all(l.get("tipo") in ("tema", "cor") and isinstance(l.get("cartas"), list) and bool(l.get("caminho") or l.get("erro")) for l in G["lentes"]),
+         sorted(ks ^ {l["k"] for l in G["lentes"]}))
+    teto = L["teto"]["mais_incluidas"] + L["teto"]["maior_sinergia"]
+    R.ok("grimório: nenhuma lente passa do teto (%d)" % teto, all(len(l["cartas"]) <= teto for l in G["lentes"]), max(len(l["cartas"]) for l in G["lentes"]))
+    R.ok("grimório: toda carta de toda lente tem registro, e toda carta está em alguma lente",
+         all(n in G["cartas"] for l in G["lentes"] for n in l["cartas"]) and all(c.get("lentes") for c in G["cartas"].values()))
+    campos = ("n", "ci", "cost", "cmc", "t", "o", "lentes", "onde", "pastas", "st", "rende", "notas", "nv", "ponta")
+    R.ok("grimório: toda carta com os campos do contrato", all(all(k in c for k in campos) for c in G["cartas"].values()),
+         [n for n, c in G["cartas"].items() if not all(k in c for k in campos)][:3])
+    R.ok("grimório: status só Tenho, Ociosa ou Falta, e nenhuma banida", all(c["st"] in ("tenho", "ociosa", "falta") and c.get("leg") != "banned" for c in G["cartas"].values()))
+    R.ok("grimório: as lentes de cada carta batem com as listas", all(set(c["lentes"]) == {l["k"] for l in G["lentes"] if n in l["cartas"]} for n, c in G["cartas"].items()))
+    fora = set(dados.BASICOS_IDX) | {x for x in L["teto"]["fora_das_lentes_de_tema"] if x.lower() not in ("básicos", "basicos")}
+    R.ok("grimório: básicos, Sol Ring, Arcane Signet e Command Tower fora das lentes de tema", not [n for l in G["lentes"] if l["tipo"] == "tema" for n in l["cartas"] if n in fora])
+    crit = {x["k"] for x in dados.regua()["criterios"]}
+    R.ok("grimório: nota só do cadastro, nos critérios da régua, de 1 a 3", all(c["notas"] is None or (set(c["notas"]) <= crit and all(v in (1, 2, 3) for v in c["notas"].values())) for c in G["cartas"].values()))
+    R.ok("grimório: sem preço no dado", not any(k in c for c in G["cartas"].values() for k in ("usd", "usd_foil", "usd_etched", "preco")))
+    R.ok("grimório: ponta de lança = duas lentes de tema, ou uma e nota 3", all(
+        bool(c["ponta"]) == (len([k for k in c["lentes"] if k in {l["k"] for l in L["tema"]}]) >= 2 or (len([k for k in c["lentes"] if k in {l["k"] for l in L["tema"]}]) == 1 and 3 in (c["notas"] or {}).values()))
+        for c in G["cartas"].values()))
 R.fim()
