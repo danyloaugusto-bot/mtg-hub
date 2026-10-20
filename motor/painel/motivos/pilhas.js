@@ -1,211 +1,158 @@
-/* Motivo "pilhas" do gráfico de pontuação: 03. Heads I win (Moeda Viciada), escolhido pelo dono na votação de 15/10/2026.
-   Veio do protótipo motivos/heads.js da votação, só com a opção vencedora. O build inclui este arquivo apenas no painel
-   cujo tema.json tem "grafico": "pilhas"; o motivoSvg do app.js monta a moldura (rótulos, placar, clique em cada agrupamento).
-   Mesma geometria do chartSvg: viewBox -58 -2 576 464, centro 230,230, raio interno 60, externo 184. */
+/* Motivo "pilhas" do gráfico de pontuação: 03. Heads I win, rebranding (lotes 3 e 4), variação R (Mesa de carteado) escolhida pelo dono em 20/10/2026.
+   O build inclui este arquivo só no painel cujo tema.json tem "grafico": "pilhas"; a moldura (rótulos, placar, clique) é o motivoSvg do app.js. */
+/* 03. Heads I win (Moeda Viciada), rebranding, segunda rodada, variação R (realismo): pilhas de moedas numa mesa de jogo.
+   Mesmo conceito e composição do motivo "pilhas": uma pilha de moedas por critério, em volta do placar, e a moeda do topo
+   da maior salta girando. O que muda é o material: feltro de mesa de carteado sob um lampião (a única luz, no alto do
+   centro), borda de mogno envernizado, moedas de ouro velho com serrilha, aro em relevo e o olho do Okaun cunhado,
+   gastas e um pouco desalinhadas. A sombra de cada pilha cai para fora, longe do lampião. A cor do critério sai das
+   moedas e vira a cinta de papel de banco em volta da base da pilha. A moeda que salta tem rastro de movimento, sem brilho.
+   Dado: o número de moedas é linear (até 11), com mínimo de 12% (uma moeda). */
 var MOTIVO_PAINEL = (function () {
-  var CX = 230, CY = 230, _uid = 0;
-  function pol(r, a) { var t = a * Math.PI / 180; return [CX + r * Math.cos(t), CY + r * Math.sin(t)]; }
-  function P(r, a) { var p = pol(r, a); return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }
-  function f1(n) { return (+n).toFixed(1); }
-  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function uid(p) { return (p || 'u') + (++_uid); }
-  var MOTIVOS = {};
+  var NM = 11, RX = 20, RY = 6.4, T = 5.6, RB = 122;
+  var I = {};
+  function n(v) { return (+v).toFixed(1); }
+  function p(x, y) { return n(x) + ' ' + n(y); }
+  function st(o, c, a) { return '<stop offset="' + o + '" stop-color="' + c + '"' + (a == null ? '' : ' stop-opacity="' + a + '"') + '/>'; }
+  function moedas(f) { return Math.max(1, Math.round(Math.max(0.12, Math.min(1, f)) * NM)); }
+  function rng(seed) { var s = seed % 2147483647; if (s <= 0) s += 2147483646; return function () { s = s * 16807 % 2147483647; return (s - 1) / 2147483646; }; }
 
-  /* Heads I win, Moeda Viciada: cara ou coroa. Okaun e Zndrsplt, os Olhos do Caos e da Sabedoria, jogam moedas;
-     a peça é o Krark's Thumb, o polegar do goblin Krark. Paleta de gibi gosmento: verde-ácido (var(--gold)) sobre ciano (var(--blood)).
-     As moedas são de ouro de verdade (o tema não tem dourado: o "gold" deste deck é o verde-ácido). */
-
-  function hdN(n) { return (+n).toFixed(1); }
-  function hdPt(x, y) { return hdN(x) + ' ' + hdN(y); }
-
-  /* ids dos gradientes deste desenho, únicos por gráfico */
-  function hdDefs(ctx) {
-    var I = ctx.hd = { ouroH: ctx.uid('hdOH'), ouroD: ctx.uid('hdOD'), ouroE: ctx.uid('hdOE'), face: ctx.uid('hdFa'),
-      chao: ctx.uid('hdCh'), glow: ctx.uid('hdGl'), halo: ctx.uid('hdHa'), dots: ctx.uid('hdDo'), fade: ctx.uid('hdFd'), mask: ctx.uid('hdMa'),
-      brilho: ctx.uid('hdBr'), campo: ctx.uid('hdCa'), sombra: ctx.uid('hdSo') };
-    function st(o, c) { return '<stop offset="' + o + '" style="stop-color:' + c + '"/>'; }
-    return '<linearGradient id="' + I.ouroH + '" x1="0" x2="1" y1="0" y2="0">' + st(0, '#5a3f10') + st(.1, '#a8802c') + st(.28, '#fff0bd') + st(.42, '#e8c66a') +
-        st(.7, '#b18630') + st(.9, '#7a5719') + st(1, '#4a330b') + '</linearGradient>' +
-      '<linearGradient id="' + I.ouroD + '" x1="0" y1="0" x2="1" y2="1">' + st(0, '#fff1c2') + st(.35, '#e6c262') + st(.7, '#a77b27') + st(1, '#5e4213') + '</linearGradient>' +
-      '<linearGradient id="' + I.ouroE + '" x1="1" y1="1" x2="0" y2="0">' + st(0, '#fff1c2') + st(.4, '#d9b354') + st(1, '#5e4213') + '</linearGradient>' +
-      '<radialGradient id="' + I.face + '" cx=".36" cy=".3" r=".8">' + st(0, 'rgba(255,255,255,.5)') + st(.45, 'rgba(255,255,255,.06)') + st(1, 'rgba(var(--deep-rgb),.4)') + '</radialGradient>' +
-      '<radialGradient id="' + I.chao + '">' + st(0, 'rgba(var(--deep-rgb),.75)') + st(.6, 'rgba(var(--deep-rgb),.35)') + st(1, 'rgba(var(--deep-rgb),0)') + '</radialGradient>' +
-      '<radialGradient id="' + I.sombra + '">' + st(.78, 'rgba(var(--deep-rgb),.6)') + st(1, 'rgba(var(--deep-rgb),0)') + '</radialGradient>' +
-      '<radialGradient id="' + I.halo + '">' + st(0, 'rgba(var(--gold-rgb),.5)') + st(1, 'rgba(var(--gold-rgb),0)') + '</radialGradient>' +
-      '<radialGradient id="' + I.campo + '" cx=".4" cy=".35" r=".75">' + st(0, '#40381f') + st(1, '#17140b') + '</radialGradient>' +
-      '<linearGradient id="' + I.brilho + '" x1="0" y1="0" x2="1" y2="1">' + st(.3, 'rgba(255,255,255,0)') + st(.46, 'rgba(255,255,255,.5)') + st(.54, 'rgba(255,255,255,.12)') + st(.62, 'rgba(255,255,255,0)') + '</linearGradient>' +
-      '<filter id="' + I.glow + '" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
-      '<pattern id="' + I.dots + '" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="3.5" cy="3.5" r="1.15" style="fill:rgba(var(--blood-rgb),.55)"/></pattern>' +
-      '<radialGradient id="' + I.fade + '" cx="230" cy="230" r="194" gradientUnits="userSpaceOnUse">' + st(.35, '#000') + st(.8, '#666') + st(1, '#fff') + '</radialGradient>' +
-      '<mask id="' + I.mask + '"><circle cx="230" cy="230" r="194" style="fill:url(#' + I.fade + ')"/></mask>';
+  function defs(ctx) {
+    ['lado', 'face', 'campo', 'feltro', 'luz', 'mogno', 'veio', 'trama', 'sb', 'sb2', 'rastro', 'cinta', 'couro', 'ouroS'].forEach(function (k) { I[k] = ctx.uid('hr' + k); });
+    return '<linearGradient id="' + I.lado + '" x1="0" x2="1" y1="0" y2="0">' + st(0, '#3a2706') + st(.08, '#7d5a1c') + st(.24, '#e9cf86') + st(.32, '#fbefc4') + st(.42, '#d2a94e') + st(.7, '#9a7226') + st(.9, '#5e4210') + st(1, '#2e1f05') + '</linearGradient>' +
+      '<linearGradient id="' + I.face + '" x1="0" y1="0" x2="1" y2="1">' + st(0, '#fbeec0') + st(.3, '#e2bf68') + st(.65, '#b28630') + st(1, '#6e4e14') + '</linearGradient>' +
+      '<linearGradient id="' + I.campo + '" x1="0" y1="0" x2="1" y2="1">' + st(0, '#c99e48') + st(.5, '#b48834') + st(1, '#d8b462') + '</linearGradient>' +
+      '<linearGradient id="' + I.ouroS + '" x1="0" y1="0" x2="1" y2="1">' + st(0, '#fbeec0') + st(.5, '#c9a04a') + st(1, '#5e4210') + '</linearGradient>' +
+      // feltro verde-petróleo sob a luz do lampião: claro no meio, escuro na borda
+      '<radialGradient id="' + I.feltro + '" cx="230" cy="215" r="200" gradientUnits="userSpaceOnUse">' + st(0, '#2c5a4c') + st(.45, '#1d4237') + st(.8, '#112922') + st(1, '#08130f') + '</radialGradient>' +
+      '<filter id="' + I.trama + '" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="21" result="n"/>' +
+      '<feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 -.3" result="a"/><feComposite in="a" in2="SourceGraphic" operator="in"/></filter>' +
+      '<linearGradient id="' + I.mogno + '" x1="0" y1="0" x2="1" y2="1">' + st(0, '#7a3a1c') + st(.25, '#4a1e0c') + st(.5, '#2a0f06') + st(.75, '#5a2610') + st(1, '#1c0a04') + '</linearGradient>' +
+      '<filter id="' + I.veio + '" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".012 .22" numOctaves="3" seed="4" result="n"/>' +
+      '<feColorMatrix in="n" type="matrix" values="0 0 0 0 .05  0 0 0 0 .02  0 0 0 0 0  0 0 0 2.4 -1" result="a"/><feComposite in="a" in2="SourceGraphic" operator="in"/></filter>' +
+      '<filter id="' + I.sb + '" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.2"/></filter>' +
+      '<filter id="' + I.sb2 + '" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.1"/></filter>' +
+      '<filter id="' + I.rastro + '" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation=".6 4"/></filter>' +
+      // sombreado de cilindro da cinta de papel: escura nas laterais, clara onde a luz bate
+      '<linearGradient id="' + I.cinta + '" x1="0" x2="1" y1="0" y2="0">' + st(0, '#000', .6) + st(.22, '#fff', .18) + st(.34, '#fff', .3) + st(.6, '#000', .05) + st(1, '#000', .62) + '</linearGradient>' +
+      '<radialGradient id="' + I.couro + '" cx=".42" cy=".36" r=".72">' + st(0, '#2a2620') + st(.7, '#16130f') + st(1, '#0a0806') + '</radialGradient>';
   }
 
-  /* palco: mesa escura com retícula de gibi em ciano, mais forte na borda, e um aro de gosma verde que escorre do alto */
-  function hdStage(ctx) {
-    var I = ctx.hd, R = ctx.R + 10;
-    var o = '<circle cx="230" cy="230" r="' + R + '" style="fill:rgba(var(--deep-rgb),.62);stroke:rgba(var(--blood-rgb),.35)" stroke-width="1.2"/>' +
-      '<circle cx="230" cy="230" r="' + R + '" style="fill:url(#' + I.dots + ')" mask="url(#' + I.mask + ')" opacity=".55"/>';
-    // gosma: um aro verde de borda irregular; na metade de cima ela escorre em pingos que descem por gravidade
-    var ri = [], NB = 120;
-    for (var k = 0; k <= NB; k++) {
-      var aa = k * 2 * Math.PI / NB, up = Math.max(0, -Math.sin(aa)), w = 2.8 + 2.6 * up * up + .45 * Math.sin(aa * 17 + 1) + .3 * Math.sin(aa * 29 + 2);
-      ri.push(hdPt(230 + (R - w) * Math.cos(aa), 230 + (R - w) * Math.sin(aa)));
-    }
-    var gos = '<path d="M' + hdPt(230 + R, 230) + 'A' + R + ' ' + R + ' 0 1 1 ' + hdPt(230 - R, 230) + 'A' + R + ' ' + R + ' 0 1 1 ' + hdPt(230 + R, 230) + 'Z M' + ri.join('L') + 'Z" fill-rule="evenodd" style="fill:rgba(var(--gold-rgb),.82)"/>' +
-      '<path d="M' + ri.slice(64, 112).join('L') + '" style="fill:none;stroke:rgba(255,255,255,.28)" stroke-width=".8"/>';
-    var pingos = [[-156, 9], [-134, 16], [-117, 7], [-99, 21], [-76, 11], [-57, 17], [-36, 8], [-18, 12]];
-    pingos.forEach(function (p) {
-      var a = p[0] * Math.PI / 180, x = 230 + (R - 4) * Math.cos(a), y = 230 + (R - 4) * Math.sin(a), L = p[1], b = 2.1 + L * .05, nk = b * .55;
-      gos += '<path d="M' + hdPt(x - b - 3, y - 1.5) + 'C' + hdPt(x - b, y) + ' ' + hdPt(x - nk, y + 2) + ' ' + hdPt(x - nk, y + L * .55) +
-        'C' + hdPt(x - nk, y + L - b * 1.2) + ' ' + hdPt(x - b, y + L - b * .9) + ' ' + hdPt(x - b, y + L) +
-        'A' + hdN(b) + ' ' + hdN(b) + ' 0 0 0 ' + hdPt(x + b, y + L) +
-        'C' + hdPt(x + b, y + L - b * .9) + ' ' + hdPt(x + nk, y + L - b * 1.2) + ' ' + hdPt(x + nk, y + L * .55) +
-        'C' + hdPt(x + nk, y + 2) + ' ' + hdPt(x + b, y) + ' ' + hdPt(x + b + 3, y - 1.5) + 'Z" style="fill:rgba(var(--gold-rgb),.82)"/>' +
-        '<ellipse cx="' + hdN(x - b * .38) + '" cy="' + hdN(y + L - b * .2) + '" rx="' + hdN(b * .26) + '" ry="' + hdN(b * .4) + '" style="fill:rgba(255,255,255,.5)"/>';
-    });
-    return o + gos;
-  }
-
-  /* lateral de uma moeda em perspectiva (cilindro baixo): y = centro da elipse do topo */
-  function hdLado(cx, y, rx, ry, t, g, I) {
-    var d = 'M' + hdPt(cx - rx, y) + 'L' + hdPt(cx - rx, y + t) + 'A' + rx + ' ' + ry + ' 0 0 0 ' + hdPt(cx + rx, y + t) + 'L' + hdPt(cx + rx, y) +
-      'A' + rx + ' ' + ry + ' 0 0 1 ' + hdPt(cx - rx, y) + 'Z';
-    // ouro tingido pela cor do agrupamento: a mistura "color" troca o matiz e mantém o brilho do metal (cobre, prata, ouro verde...)
-    var o = '<path d="' + d + '" style="fill:url(#' + I.ouroH + ')"/><path d="' + d + '" style="fill:' + g.cor + ';mix-blend-mode:color" opacity=".7"/>';
-    // serrilha: ranhuras verticais que se adensam nas laterais, como numa moeda de verdade
-    var N = 22, ln = '', lt = '';
-    for (var j = 2; j < N - 1; j++) {
-      var th = Math.PI * j / N, x = cx - rx * Math.cos(th), dy = ry * Math.sin(th);
-      ln += 'M' + hdPt(x, y + dy + .6) + 'V' + hdN(y + t + dy - .4);
-      lt += 'M' + hdPt(x + .55, y + dy + .6) + 'V' + hdN(y + t + dy - .4);
-    }
-    o += '<path d="' + ln + '" style="stroke:rgba(var(--deep-rgb),.42)" stroke-width=".55"/><path d="' + lt + '" style="stroke:rgba(255,255,255,.2)" stroke-width=".45"/>';
-    // fresta escura entre uma moeda e a de baixo e o fio de luz da quina de cima
-    o += '<path d="M' + hdPt(cx - rx, y + t) + 'A' + rx + ' ' + ry + ' 0 0 0 ' + hdPt(cx + rx, y + t) + '" style="fill:none;stroke:rgba(var(--deep-rgb),.7)" stroke-width=".9"/>' +
-      '<path d="M' + hdPt(cx - rx + .5, y + .4) + 'A' + rx + ' ' + ry + ' 0 0 0 ' + hdPt(cx + rx - .5, y + .4) + '" style="fill:none;stroke:rgba(255,255,255,.35)" stroke-width=".7"/>';
-    return o;
-  }
-  /* face de cima: aro de ouro e o centro na cor do agrupamento, com um olho cunhado (Okaun, o Olho do Caos) */
-  function hdTopo(cx, y, rx, ry, g, I) {
-    var o = '<ellipse cx="' + hdN(cx) + '" cy="' + hdN(y) + '" rx="' + rx + '" ry="' + ry + '" style="fill:url(#' + I.ouroD + ');stroke:rgba(var(--deep-rgb),.5)" stroke-width=".5"/>';
-    var ix = rx * .8, iy = ry * .8;
-    o += '<ellipse cx="' + hdN(cx) + '" cy="' + hdN(y) + '" rx="' + hdN(ix) + '" ry="' + hdN(iy) + '" style="fill:' + g.cor + '"/>' +
-      '<ellipse cx="' + hdN(cx) + '" cy="' + hdN(y) + '" rx="' + hdN(ix) + '" ry="' + hdN(iy) + '" style="fill:url(#' + I.face + ');stroke:rgba(var(--deep-rgb),.45)" stroke-width=".7"/>';
-    // olho em relevo, achatado pela perspectiva
-    var ew = rx * .42, eh = ry * .34;
-    o += '<path d="M' + hdPt(cx - ew, y) + 'Q' + hdPt(cx, y - eh * 2) + ' ' + hdPt(cx + ew, y) + 'Q' + hdPt(cx, y + eh * 2) + ' ' + hdPt(cx - ew, y) + 'Z" style="fill:rgba(var(--deep-rgb),.22);stroke:rgba(var(--deep-rgb),.5)" stroke-width=".6"/>' +
-      '<ellipse cx="' + hdN(cx) + '" cy="' + hdN(y) + '" rx="' + hdN(ew * .32) + '" ry="' + hdN(eh * .95) + '" style="fill:rgba(var(--deep-rgb),.55)"/>' +
-      '<path d="M' + hdPt(cx - ew * .9, y + .5) + 'Q' + hdPt(cx, y + eh * 2 + .6) + ' ' + hdPt(cx + ew * .9, y + .5) + '" style="fill:none;stroke:rgba(255,255,255,.4)" stroke-width=".5"/>';
+  function stage(ctx) {
+    var o = '<circle cx="232" cy="234" r="200" fill="#000" opacity=".55" filter="url(#' + I.sb + ')"/>';
+    // borda de mogno envernizado, com veio e o friso claro do verniz
+    o += '<circle cx="230" cy="230" r="197" fill="url(#' + I.mogno + ')"/>' +
+      '<circle cx="230" cy="230" r="197" fill="#000" filter="url(#' + I.veio + ')" opacity=".9"/>' +
+      '<path d="M' + p(230 - 194, 230) + 'A194 194 0 0 1 ' + p(230 + 194, 230) + '" fill="none" stroke="#f0c8a0" stroke-opacity=".2" stroke-width="1.2"/>' +
+      '<circle cx="230" cy="230" r="187.5" fill="none" stroke="#120604" stroke-width="2"/>';
+    // o feltro e a trama
+    o += '<circle cx="230" cy="230" r="186.5" fill="url(#' + I.feltro + ')"/>' +
+      '<circle cx="230" cy="230" r="186.5" fill="#000" filter="url(#' + I.trama + ')" opacity=".55"/>' +
+      '<circle cx="230" cy="230" r="186" fill="none" stroke="#000" stroke-opacity=".5" stroke-width="5" filter="url(#' + I.sb2 + ')"/>';
     return o;
   }
 
-  /* crescente afinado nas pontas: arco de movimento */
-  function hdArco(cx, cy, r, a1, a2, w, cor) {
-    function p(rr, a) { var t = a * Math.PI / 180; return hdPt(cx + rr * Math.cos(t), cy + rr * Math.sin(t)); }
-    return '<path d="M' + p(r, a1) + 'A' + r + ' ' + r + ' 0 0 1 ' + p(r, a2) + 'A' + hdN(r * w) + ' ' + hdN(r * w) + ' 0 0 0 ' + p(r, a1) + 'Z" style="fill:' + cor + '"/>';
+  /* lateral de uma moeda (cilindro baixo), com a serrilha e a fresta para a de baixo */
+  function lado(cx, y) {
+    var d = 'M' + p(cx - RX, y) + 'L' + p(cx - RX, y + T) + 'A' + RX + ' ' + RY + ' 0 0 0 ' + p(cx + RX, y + T) + 'L' + p(cx + RX, y) + 'A' + RX + ' ' + RY + ' 0 0 1 ' + p(cx - RX, y) + 'Z';
+    var o = '<path d="' + d + '" fill="url(#' + I.lado + ')"/>', ln = '', lt = '';
+    for (var j = 1; j < 28; j++) {
+      var th = Math.PI * j / 28, x = cx - RX * Math.cos(th), dy = RY * Math.sin(th);
+      ln += 'M' + p(x, y + dy + .5) + 'V' + n(y + T + dy - .5);
+      lt += 'M' + p(x + .45, y + dy + .5) + 'V' + n(y + T + dy - .5);
+    }
+    o += '<path d="' + ln + '" stroke="#2a1a04" stroke-opacity=".45" stroke-width=".45"/><path d="' + lt + '" stroke="#fff6d8" stroke-opacity=".18" stroke-width=".35"/>';
+    o += '<path d="M' + p(cx - RX, y + T) + 'A' + RX + ' ' + RY + ' 0 0 0 ' + p(cx + RX, y + T) + '" fill="none" stroke="#1a1004" stroke-opacity=".85" stroke-width=".9"/>';
+    return o;
   }
-
-  /* a moeda que salta girando: vista quase de lado, inclinada, com arcos de giro e riscos de subida */
-  function hdSalto(x, y, g, I, sx) {
-    var ry = 15.5, rx = 6, t = 4.4, o = '';
-    o += '<circle cx="' + hdN(x) + '" cy="' + hdN(y) + '" r="27" style="fill:url(#' + I.halo + ')"/>';
-    o += '<g transform="translate(' + hdPt(x, y) + ') scale(' + sx + ' 1) rotate(-28)">' +
-      '<path d="M0 ' + (-ry) + 'A' + rx + ' ' + ry + ' 0 0 1 0 ' + ry + 'L' + t + ' ' + ry + 'A' + rx + ' ' + ry + ' 0 0 0 ' + t + ' ' + (-ry) + 'Z" style="fill:url(#' + I.ouroH + ')"/>';
+  /* face de cima: aro em relevo, campo fosco, o olho cunhado com luz do alto à esquerda, e riscos de uso */
+  function face(cx, y, cheia, seed) {
+    var o = '<ellipse cx="' + n(cx) + '" cy="' + n(y) + '" rx="' + RX + '" ry="' + RY + '" fill="url(#' + I.face + ')" stroke="#3a2706" stroke-opacity=".6" stroke-width=".4"/>';
+    if (!cheia) return o;
+    var ix = RX * .82, iy = RY * .82;
+    o += '<ellipse cx="' + n(cx) + '" cy="' + n(y + .25) + '" rx="' + n(ix) + '" ry="' + n(iy) + '" fill="url(#' + I.campo + ')"/>' +
+      '<path d="M' + p(cx - ix, y + .25) + 'A' + n(ix) + ' ' + n(iy) + ' 0 0 1 ' + p(cx + ix, y + .25) + '" fill="none" stroke="#4a330a" stroke-opacity=".7" stroke-width=".6"/>' +
+      '<path d="M' + p(cx - ix, y + .25) + 'A' + n(ix) + ' ' + n(iy) + ' 0 0 0 ' + p(cx + ix, y + .25) + '" fill="none" stroke="#fff3c8" stroke-opacity=".6" stroke-width=".5"/>';
+    // o olho em relevo, achatado pela perspectiva
+    var ew = RX * .44, eh = RY * .36;
+    var olho = 'M' + p(cx - ew, y) + 'Q' + p(cx, y - eh * 2) + ' ' + p(cx + ew, y) + 'Q' + p(cx, y + eh * 2) + ' ' + p(cx - ew, y) + 'Z';
+    o += '<path d="' + olho + '" fill="#d8b25c"/>' +
+      '<path d="M' + p(cx - ew, y) + 'Q' + p(cx, y - eh * 2) + ' ' + p(cx + ew, y) + '" fill="none" stroke="#fff4cc" stroke-opacity=".85" stroke-width=".6"/>' +
+      '<path d="M' + p(cx - ew, y) + 'Q' + p(cx, y + eh * 2) + ' ' + p(cx + ew, y) + '" fill="none" stroke="#4a330a" stroke-opacity=".8" stroke-width=".6"/>' +
+      '<ellipse cx="' + n(cx) + '" cy="' + n(y) + '" rx="' + n(ew * .3) + '" ry="' + n(eh * .95) + '" fill="#9a7226"/>' +
+      '<path d="M' + p(cx - ew * .28, y - eh * .6) + 'A' + n(ew * .3) + ' ' + n(eh * .95) + ' 0 0 1 ' + p(cx + ew * .3, y) + '" fill="none" stroke="#3e2a08" stroke-opacity=".7" stroke-width=".45"/>';
+    var r = rng(seed), sc = '';
+    for (var k = 0; k < 5; k++) { var a = r() * Math.PI * 2, rr = r() * .7, x0 = cx + RX * rr * Math.cos(a), y0 = y + RY * rr * Math.sin(a), l = 2 + r() * 5, b = r() * Math.PI; sc += 'M' + p(x0, y0) + 'l' + p(l * Math.cos(b), l * Math.sin(b) * .32); }
+    o += '<path d="' + sc + '" stroke="#fff8e0" stroke-opacity=".35" stroke-width=".3"/>';
+    return o;
+  }
+  /* cinta de papel de banco na base da pilha, na cor do critério */
+  function cinta(cx, yTop, h, g) {
+    var rx = RX + .7, ry = RY + .25;
+    var d = 'M' + p(cx - rx, yTop) + 'L' + p(cx - rx, yTop + h) + 'A' + rx + ' ' + ry + ' 0 0 0 ' + p(cx + rx, yTop + h) + 'L' + p(cx + rx, yTop) + 'A' + rx + ' ' + ry + ' 0 0 1 ' + p(cx - rx, yTop) + 'Z';
+    return '<path d="' + d + '" style="fill:' + g.cor + '"/><path d="' + d + '" fill="url(#' + I.cinta + ')"/>' +
+      '<path d="M' + p(cx - rx, yTop + h * .5) + 'A' + rx + ' ' + ry + ' 0 0 0 ' + p(cx + rx, yTop + h * .5) + '" fill="none" stroke="#000" stroke-opacity=".25" stroke-width=".5" stroke-dasharray="2 1.4"/>' +
+      '<path d="M' + p(cx - rx, yTop) + 'A' + rx + ' ' + ry + ' 0 0 0 ' + p(cx + rx, yTop) + '" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width=".5"/>' +
+      '<path d="M' + p(cx + 6, yTop + RY * .98) + 'l-.8 ' + n(h) + '" stroke="#000" stroke-opacity=".35" stroke-width=".7"/>';
+  }
+  /* a moeda que salta girando: quase de lado, inclinada, com o rastro borrado de onde veio */
+  function salto(x, y, sx) {
+    var ry = 15, rx = 5.6, t = 4.2, o = '', moeda = '';
+    moeda += '<path d="M0 ' + (-ry) + 'A' + rx + ' ' + ry + ' 0 0 1 0 ' + ry + 'L' + t + ' ' + ry + 'A' + rx + ' ' + ry + ' 0 0 0 ' + t + ' ' + (-ry) + 'Z" fill="url(#' + I.lado + ')"/>';
     var ln = '';
-    for (var j = 2; j < 15; j++) { var th = Math.PI * j / 16, yy = -ry * Math.cos(th), dx = rx * Math.sin(th); ln += 'M' + hdPt(dx + .5, yy) + 'H' + hdN(dx + t - .3); }
-    o += '<path d="' + ln + '" style="stroke:rgba(var(--deep-rgb),.4)" stroke-width=".5"/>' +
-      '<ellipse cx="0" cy="0" rx="' + rx + '" ry="' + ry + '" style="fill:url(#' + I.ouroD + ');stroke:rgba(var(--deep-rgb),.5)" stroke-width=".5"/>' +
-      '<ellipse cx="0" cy="0" rx="' + hdN(rx * .78) + '" ry="' + hdN(ry * .8) + '" style="fill:' + g.cor + '"/>' +
-      '<ellipse cx="0" cy="0" rx="' + hdN(rx * .78) + '" ry="' + hdN(ry * .8) + '" style="fill:url(#' + I.face + ');stroke:rgba(var(--deep-rgb),.4)" stroke-width=".6"/>' +
-      '<path d="M' + hdPt(-rx * .45, -ry * .55) + 'Q' + hdPt(-rx * .7, 0) + ' ' + hdPt(-rx * .45, ry * .55) + '" style="fill:none;stroke:rgba(255,255,255,.55)" stroke-width="1" stroke-linecap="round"/></g>';
-    // arcos de giro, em volta da moeda
-    function m(a) { return sx > 0 ? a : 180 - a; }
-    function arco(r, a1, a2, w, c) { return sx > 0 ? hdArco(x, y, r, a1, a2, w, c) : hdArco(x, y, r, m(a2), m(a1), w, c); }
-    o += arco(22, 196, 252, 1.25, 'rgba(255,255,255,.5)') + arco(22, 16, 72, 1.25, 'rgba(255,255,255,.5)') +
-      arco(26.5, 205, 238, 1.3, 'rgba(255,255,255,.25)') + arco(26.5, 25, 58, 1.3, 'rgba(255,255,255,.25)');
+    for (var j = 2; j < 15; j++) { var th = Math.PI * j / 16, yy = -ry * Math.cos(th), dx = rx * Math.sin(th); ln += 'M' + p(dx + .5, yy) + 'H' + n(dx + t - .3); }
+    moeda += '<path d="' + ln + '" stroke="#2a1a04" stroke-opacity=".4" stroke-width=".45"/>' +
+      '<ellipse cx="0" cy="0" rx="' + rx + '" ry="' + ry + '" fill="url(#' + I.face + ')" stroke="#3a2706" stroke-opacity=".6" stroke-width=".4"/>' +
+      '<ellipse cx="0" cy="0" rx="' + n(rx * .8) + '" ry="' + n(ry * .82) + '" fill="url(#' + I.campo + ')"/>' +
+      '<path d="M' + p(-rx * .2, -ry * .45) + 'Q' + p(-rx * .55, 0) + ' ' + p(-rx * .2, ry * .45) + 'Q' + p(rx * .15, 0) + ' ' + p(-rx * .2, -ry * .45) + 'Z" fill="#d8b25c" stroke="#4a330a" stroke-opacity=".6" stroke-width=".4"/>';
+    var tr = 'translate(' + p(x, y) + ') scale(' + sx + ' 1) rotate(-28)';
+    o += '<g transform="translate(0 9)" opacity=".35" filter="url(#' + I.rastro + ')"><g transform="' + tr + '">' + moeda + '</g></g>';
+    o += '<g transform="' + tr + '">' + moeda + '</g>';
     return o;
   }
 
-  MOTIVOS.heads1 = {
-    deck: '03. Heads I win', nome: 'Pilhas de moedas',
-    desc: 'Cada agrupamento é uma pilha de moedas de pé, de borda serrilhada em ouro tingido na cor do agrupamento; quanto maior a pontuação, mais moedas (até oito). No maior, a moeda do topo salta girando, como num cara ou coroa. No centro, uma moeda com o olho de Okaun e Zndrsplt.',
-    defs: hdDefs,
-    stage: hdStage,
+  return {
+    legenda: { peca: "pilha", masc: false, texto: " é um critério: tem mais moedas quanto maior a soma (até onze), e da mais alta uma moeda salta." },
+    defs: defs,
+    stage: stage,
     group: function (g, ctx) {
-      var I = ctx.hd, rx = 20.5, ry = 6.7, t = 7.2, NM = 8, a = g.am * Math.PI / 180, cs = Math.cos(a), sn = Math.sin(a);
-      // cada pilha tem o seu chão; o desnível entre as fileiras abre espaço para a moeda que salta
+      var a = g.am * Math.PI / 180, cs = Math.cos(a), sn = Math.sin(a);
       var dy = sn < -0.7 ? 41 : sn < 0 ? 18 : sn < 0.7 ? 40 : 37;
-      var n = Math.max(1, Math.round(g.frac * NM));
-      var bx = 230 + 122 * cs, by = 230 + 122 * sn + dy, o = '';
-      o += '<ellipse cx="' + hdN(bx + 4) + '" cy="' + hdN(by + 1.5) + '" rx="' + (rx + 11) + '" ry="' + hdN(ry + 3) + '" style="fill:url(#' + I.chao + ')"/>';
-      if (g.top) o += '<ellipse cx="' + hdN(bx) + '" cy="' + hdN(by - n * t / 2) + '" rx="' + (rx + 20) + '" ry="' + hdN(n * t / 2 + 20) + '" style="fill:url(#' + I.halo + ')"/>';
-      for (var k = 0; k < n; k++) {
-        var j = k === 0 ? 0 : (((g.i * 7 + k * 13) % 5) - 2) * .5, y = by - (k + 1) * t, cx = bx + j;
-        o += hdLado(cx, y, rx, ry, t, g, I);
-        o += hdTopo(cx, y, rx, ry, g, I);
+      var nm = moedas(g.frac), bx = 230 + RB * cs, by = 230 + RB * sn + dy, h = nm * T, o = '';
+      var maxf = Math.max.apply(null, ctx.groups.map(function (x) { return x.frac; })), top = g.frac >= maxf && maxf > 0;
+      // sombra: a luz vem do lampião no alto do centro, então a sombra corre para fora
+      var ang = Math.atan2(by - 222, bx - 230), sl = 10 + h * .45, sxx = bx + Math.cos(ang) * sl * .55, syy = by + Math.sin(ang) * sl * .35 + 1;
+      o += '<ellipse cx="' + n(sxx) + '" cy="' + n(syy) + '" rx="' + n(RX + sl * .45) + '" ry="' + n(RY + 2 + sl * .12) + '" transform="rotate(' + n(ang * 57.3 * .35) + ' ' + p(sxx, syy) + ')" fill="#000" opacity=".55" filter="url(#' + I.sb + ')"/>';
+      o += '<ellipse cx="' + n(bx) + '" cy="' + n(by + .5) + '" rx="' + (RX + 1.5) + '" ry="' + n(RY + 1) + '" fill="#000" opacity=".7" filter="url(#' + I.sb2 + ')"/>';
+      var xs = [];
+      for (var k = 0; k < nm; k++) {
+        var j = k === 0 ? 0 : (((g.i * 7 + k * 13) % 5) - 2) * .45, y = by - (k + 1) * T, cx = bx + j;
+        xs.push(cx);
+        o += lado(cx, y);
+        o += face(cx, y, k === nm - 1, 500 + g.i * 31);
       }
-      if (g.top) {
-        var yt = by - n * t - ry, sx = cs >= 0 ? 1 : -1, jx = bx + sx * 15, jy = yt - 26;
-        o += hdSalto(jx, jy, g, I, sx);
-        o += '<path d="M' + hdPt(bx + sx * 2, yt - 3) + 'l' + hdPt(sx * 2.2, -6) + 'M' + hdPt(bx + sx * 9, yt - 5) + 'l' + hdPt(sx * 2, -5.5) + 'M' + hdPt(bx - sx * 5, yt - 3) + 'l' + hdPt(sx * 1.6, -5) + '" style="stroke:rgba(255,255,255,.4)" stroke-width="1.1" stroke-linecap="round"/>';
+      // a cinta de papel abraça as duas moedas de baixo (ou a única)
+      var nb = Math.min(2, nm);
+      o += cinta(bx, by - nb * T + .6, nb * T - 1.2, g);
+      if (top) {
+        // salta para o lado do centro, onde o feltro está livre (para fora ela bateria na pilha vizinha)
+        var yt = by - h - RY, sx = cs >= 0 ? -1 : 1;
+        o += salto(bx - cs * 30, yt - 10 - Math.max(0, sn) * 4, sx);
       }
       return o;
     },
     center: function (ctx) {
-      var I = ctx.hd;
-      return '<circle cx="230" cy="230" r="' + (ctx.r0 - 5) + '" style="fill:var(--sheet2);stroke:var(--gold)" stroke-width="1.6"/>' +
-        '<circle cx="230" cy="195" r="19" style="fill:url(#' + I.halo + ')"/>' + hdMoedaOlho(230, 195, 9, I);
+      // um porta-copos de couro escuro com pesponto dourado; a ficha cunhada com o olho no alto
+      var o = '<circle cx="231" cy="232.5" r="57" fill="#000" opacity=".6" filter="url(#' + I.sb2 + ')"/>' +
+        '<circle cx="230" cy="230" r="55" fill="url(#' + I.couro + ')"/>' +
+        '<circle cx="230" cy="230" r="55" fill="#fff" filter="url(#' + I.trama + ')" opacity=".25"/>' +
+        '<circle cx="230" cy="230" r="51" fill="none" stroke="#c9a04a" stroke-opacity=".75" stroke-width=".8" stroke-dasharray="2.2 1.8"/>';
+      var x = 230, y = 194, r = 9.5;
+      o += '<circle cx="' + (x + .8) + '" cy="' + (y + 1.2) + '" r="' + r + '" fill="#000" opacity=".6"/>' +
+        '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="url(#' + I.ouroS + ')" stroke="#3a2706" stroke-width=".4"/>' +
+        '<circle cx="' + x + '" cy="' + y + '" r="' + n(r * .78) + '" fill="url(#' + I.campo + ')" stroke="#fff3c8" stroke-opacity=".5" stroke-width=".4"/>' +
+        '<path d="M' + p(x - 5, y) + 'Q' + p(x, y - 4.6) + ' ' + p(x + 5, y) + 'Q' + p(x, y + 4.6) + ' ' + p(x - 5, y) + 'Z" fill="#d8b25c" stroke="#4a330a" stroke-opacity=".7" stroke-width=".45"/>' +
+        '<circle cx="' + x + '" cy="' + y + '" r="1.6" fill="#8a6420"/>';
+      return o;
     }
   };
-
-  /* serrilha de moeda vista de frente: dentes quadrados em volta */
-  function hdDentes(cx, cy, r, h, N) {
-    var d = '', s = 360 / N;
-    for (var j = 0; j < N; j++) {
-      var a = j * s, pts = [[r, a + s * .08], [r, a + s * .5], [r - h, a + s * .62], [r - h, a + s * .96]];
-      pts.forEach(function (p, q) { var t = p[1] * Math.PI / 180; d += (j === 0 && q === 0 ? 'M' : 'L') + hdPt(cx + p[0] * Math.cos(t), cy + p[0] * Math.sin(t)); });
-    }
-    return d + 'Z';
-  }
-  /* pequena moeda de frente com o olho (emblema do centro da opção 1) */
-  function hdMoedaOlho(x, y, r, I) {
-    return '<path d="' + hdDentes(x, y, r, 1, 30) + '" style="fill:url(#' + I.ouroD + ');stroke:rgba(var(--deep-rgb),.5)" stroke-width=".4"/>' +
-      '<circle cx="' + x + '" cy="' + y + '" r="' + hdN(r * .72) + '" style="fill:rgb(var(--gold-rgb));stroke:rgba(var(--deep-rgb),.5)" stroke-width=".5"/>' +
-      '<path d="M' + hdPt(x - r * .55, y) + 'Q' + hdPt(x, y - r * .62) + ' ' + hdPt(x + r * .55, y) + 'Q' + hdPt(x, y + r * .62) + ' ' + hdPt(x - r * .55, y) + 'Z" style="fill:var(--sheet2)"/>' +
-      '<circle cx="' + x + '" cy="' + y + '" r="' + hdN(r * .2) + '" style="fill:rgb(var(--gold-rgb))"/>';
-  }
-
-
-  /* opção 2: uma moeda grande de frente por agrupamento, que se cunha como um relógio, do alto em sentido horário */
-
-  /* estrela de brilho de quatro pontas */
-  function hdBrilho(x, y, s) {
-    return '<path d="M' + hdPt(x, y - s) + 'Q' + hdPt(x + s * .16, y - s * .16) + ' ' + hdPt(x + s, y) + 'Q' + hdPt(x + s * .16, y + s * .16) + ' ' + hdPt(x, y + s) +
-      'Q' + hdPt(x - s * .16, y + s * .16) + ' ' + hdPt(x - s, y) + 'Q' + hdPt(x - s * .16, y - s * .16) + ' ' + hdPt(x, y - s) + 'Z" style="fill:rgba(255,255,255,.92)"/>';
-  }
-
-  /* o Krark's Thumb: polegar de goblin, verde, cortado na base com uma tira de couro, piparoteando uma moedinha */
-  function hdPolegar(x, y, I) {
-    var pele = 'fill:rgb(var(--gold-rgb));stroke:rgba(var(--deep-rgb),.75)';
-    var o = '<g transform="translate(' + hdPt(x - 1, y) + ')">' +
-      // polegar de pé, curvado para trás, com a unha
-      '<path d="M-1.6 0.5C-1.9 -3 -1.4 -6.4 0.4 -8.2C1.6 -9.3 3.4 -9 3.9 -7.4C4.4 -5.6 3.6 -3.4 3.4 -0.5Z" style="' + pele + '" stroke-width=".6"/>' +
-      '<path d="M1.2 -8.4C2.4 -8.9 3.5 -8.4 3.7 -7.1L3.5 -5.4C2.6 -5.2 1.6 -5.5 1 -6.2Z" style="fill:rgba(255,255,255,.6);stroke:rgba(var(--deep-rgb),.5)" stroke-width=".35"/>' +
-      // punho: quatro dedos dobrados de frente
-      '<path d="M-6.2 1.6C-6.4 0 -5.4 -0.6 -3.8 -0.4L3.2 -0.6C5 -0.6 5.8 0.6 5.6 2.4L5.4 6.6C5.3 7.8 4.4 8.4 3.2 8.4H-4C-5.6 8.4 -6.4 7.6 -6.3 6.2Z" style="' + pele + '" stroke-width=".6"/>' +
-      '<path d="M-6.1 2.4H-0.8M-6.2 4.4H-0.6M-6.2 6.4H-0.8" style="stroke:rgba(var(--deep-rgb),.6)" stroke-width=".5"/>' +
-      '<path d="M-0.8 0.2C0 1.5 0 6.5 -0.8 8.2" style="fill:none;stroke:rgba(var(--deep-rgb),.45)" stroke-width=".45"/>' +
-      '<path d="M-5.2 0.6C-4.6 0.1 -3.6 0 -2.6 0.1" style="fill:none;stroke:rgba(255,255,255,.5)" stroke-width=".5"/>' +
-      // punho de ouro onde o polegar foi cortado
-      '<rect x="-5.6" y="8" width="10.6" height="2.6" rx=".7" style="fill:url(#' + I.ouroD + ');stroke:rgba(var(--deep-rgb),.6)" stroke-width=".35"/></g>';
-    // a moedinha piparoteada, de lado
-    o += '<g transform="translate(' + hdPt(x + 8.6, y - 6.2) + ') rotate(-35)"><ellipse rx="1.5" ry="3.6" style="fill:url(#' + I.ouroD + ');stroke:rgba(var(--deep-rgb),.55)" stroke-width=".35"/></g>' +
-      '<path d="M' + hdPt(x + 5.4, y - 9.6) + 'q1.4 -1.6 3.2 -1.4M' + hdPt(x + 11.6, y - 2.6) + 'q.9 -1.6 .5 -3" style="fill:none;stroke:rgba(255,255,255,.45)" stroke-width=".5" stroke-linecap="round"/>';
-    return o;
-  }
-
-  // legenda embaixo do gráfico: "Cada <peça><texto> Toque num(a) <peça> para abrir no tabelão."
-  MOTIVOS.heads1.legenda = { peca: "pilha", masc: false, texto: " é um agrupamento: tem mais moedas quanto maior a soma das notas (até oito), e na mais alta a moeda do topo salta." };
-
-  return MOTIVOS.heads1;
 })();
