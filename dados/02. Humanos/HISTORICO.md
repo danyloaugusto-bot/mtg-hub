@@ -40,3 +40,7 @@
 ## Plano do deck, 18/10/2026
 
 - Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Insuficiente; com o recomendado: Excelente. Só o radar e o cadastro mudaram, a lista do deck não.
+
+## Rebranding, 19/10/2026
+
+- Gráfico novo do herói: `abside` (lote 1 do rebranding, escolhido pelo dono), com o kit de luz do guia visual.

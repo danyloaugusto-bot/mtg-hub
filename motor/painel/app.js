@@ -898,13 +898,74 @@ function xMark(r1, r2, w, op) {
     return '<line x1="' + pol(r1, a).replace(' ', '" y1="') + '" x2="' + pol(r2, a).replace(' ', '" y2="') + '" style="stroke:var(--blood2)" stroke-width="' + w + '" stroke-linecap="round" opacity="' + op + '"/>';
   }).join('');
 }
-function gLabel(i, am, R, v) {
-  var t = am * Math.PI / 180, cs = Math.cos(t), sn = Math.sin(t), lr = R + 28;
-  var x = 230 + lr * cs, y = 230 + lr * sn + (sn < 0 ? -6 : 4);
-  var anc = cs > 0.3 ? 'start' : cs < -0.3 ? 'end' : 'middle';
-  return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + anc + '">' + esc(G[i].sh || G[i].k) +
-    '<tspan class="v" x="' + x.toFixed(1) + '" dy="1.08em">' + fmtP(LB(i, v)) + FX(i) + '</tspan></text>';
-}
+function gLabel(i, am, R, v) { return KIT.rotulo(am, R + 28, G[i].sh || G[i].k, fmtP(LB(i, v)) + FX(i)); }
+/* kit de luz do rebranding (contexto/visual/GUIA-VISUAL.md, "Kit técnico"): uma biblioteca só, usada por todo gráfico.
+   Filtros comuns com id prefixado, geometria, sorteio com semente fixa por deck (nunca Math.random), as camadas de luz
+   (brilho, corpo, núcleo, reflexo), a escala honesta (linear ou por área, mínimo de 12%) e o rótulo único. */
+var KIT = (function () {
+  var CX = 230, CY = 230, D2R = Math.PI / 180;
+  function f(n) { return (+n).toFixed(1); }
+  /* ângulo no sistema da moldura (graus, -90 = topo); o desvio é perpendicular à direção */
+  function pt(a, r, off) { var t = a * D2R, c = Math.cos(t), s = Math.sin(t); off = off || 0; return [CX + r * c - off * s, CY + r * s + off * c]; }
+  function d(pts, fechar) { return 'M' + pts.map(function (p) { return f(p[0]) + ' ' + f(p[1]); }).join('L') + (fechar ? 'Z' : ''); }
+  /* polígono que afina da base (largura w0) até a ponta */
+  function corpo(pts, w0, wFim) {
+    var L = [], Rt = [], n = pts.length, w1 = wFim == null ? 0.4 : wFim;
+    for (var k = 0; k < n; k++) {
+      var p = pts[k], q = pts[Math.min(n - 1, k + 1)], o2 = pts[Math.max(0, k - 1)];
+      var dx = q[0] - o2[0], dy = q[1] - o2[1], m = Math.hypot(dx, dy) || 1, nx = -dy / m, ny = dx / m, w = w0 * (1 - k / Math.max(1, n - 1)) + w1;
+      L.push([p[0] + nx * w, p[1] + ny * w]); Rt.unshift([p[0] - nx * w, p[1] - ny * w]);
+    }
+    return d(L.concat(Rt), true);
+  }
+  /* semente fixa: o nome da pasta do deck vira o número inicial (FNV-1a); sorte(n) reinicia num ponto fixo, sorte() segue */
+  function semente(txt) { var h = 2166136261; txt = String(txt || ''); for (var i = 0; i < txt.length; i++) { h ^= txt.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; } return h % 233280; }
+  var seed = semente(M.pasta);
+  function sorte(sd) { if (sd != null) seed = (semente(M.pasta) + sd * 7919) % 233280; seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+  /* filtros comuns, com id prefixado pelo nome do gráfico: brilho largo (5), brilho curto (2) e textura (ruído a .35).
+     O brilho cobre o gráfico inteiro (userSpaceOnUse): pela caixa da peça, uma peça fina e reta cortava o brilho em retângulo. */
+  function defs(ctx, nome) {
+    var I = { brilho: ctx.uid(nome + 'Bl'), brilho2: ctx.uid(nome + 'Bc'), textura: ctx.uid(nome + 'Tx') };
+    ctx.k = I;
+    return '<filter id="' + I.brilho + '" filterUnits="userSpaceOnUse" x="-58" y="-2" width="576" height="464"><feGaussianBlur stdDeviation="5"/></filter>' +
+      '<filter id="' + I.brilho2 + '" filterUnits="userSpaceOnUse" x="-58" y="-2" width="576" height="464"><feGaussianBlur stdDeviation="2"/></filter>' +
+      '<filter id="' + I.textura + '" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="' + (semente(M.pasta) % 97) + '" result="n"/>' +
+      '<feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .35 0" result="t"/><feComposite in="t" in2="SourceGraphic" operator="in" result="tx"/>' +
+      '<feBlend in="tx" in2="SourceGraphic" mode="overlay"/></filter>';
+  }
+  /* profundidade: gradiente radial do claro ao escuro, na cor dada */
+  function fundo(id, cor, cx, cy, r) {
+    return '<radialGradient id="' + id + '"' + (cx != null ? ' cx="' + f(cx) + '" cy="' + f(cy) + '" r="' + f(r) + '" gradientUnits="userSpaceOnUse"' : ' cx=".38" cy=".32" r=".8"') + '>' +
+      '<stop offset="0" style="stop-color:#fff;stop-opacity:.55"/><stop offset=".35" style="stop-color:' + cor + '"/><stop offset="1" style="stop-color:rgba(0,0,0,.65)"/></radialGradient>';
+  }
+  /* camadas de luz de uma peça acesa: brilho largo, corpo na cor (com textura), núcleo claro e reflexo curto */
+  function luz(ctx, caminho, cor, opt) {
+    opt = opt || {}; var I = ctx.k;
+    return (opt.brilho === false ? '' : '<path d="' + (opt.trilha || caminho) + '" style="fill:none;stroke:' + cor + '" stroke-width="' + (opt.largo || 16) + '" stroke-linecap="round" stroke-linejoin="round" filter="url(#' + I.brilho + ')" opacity=".7"/>') +
+      '<path d="' + caminho + '" style="fill:' + cor + '"' + (opt.textura === false ? '' : ' filter="url(#' + I.textura + ')"') + '/>' +
+      (opt.nucleo ? '<path d="' + opt.nucleo + '" style="fill:#fff" opacity=".9"/>' : '') +
+      (opt.trilha ? '<path d="' + opt.trilha + '" style="fill:none;stroke:#fff" stroke-width="2.4" opacity=".35" filter="url(#' + I.brilho2 + ')"/>' : '');
+  }
+  /* escala honesta: comprimento linear, área pela raiz; toda peça aparece com pelo menos 12% */
+  function comp(fr) { return Math.max(0.12, Math.min(1, fr)); }
+  function area(fr) { return Math.max(0.12, Math.sqrt(Math.max(0, Math.min(1, fr)))); }
+  /* rótulo único: âncora por quadrante, quebra acima de 14 caracteres, rótulo curto opcional (tema.json, rotulos_curtos) */
+  function rotulo(a, r, nome, valor) {
+    var t = a * D2R, cs = Math.cos(t), sn = Math.sin(t), x = CX + r * cs, y = CY + r * sn + (sn < 0 ? -6 : 4);
+    var anc = cs > 0.3 ? 'start' : cs < -0.3 ? 'end' : 'middle', curto = (M.rotulos_curtos || {})[nome];
+    var txt = curto || nome, linhas = [txt];
+    if (txt.length > 14 && txt.indexOf(' ') > 0) {
+      var meio = txt.length / 2, melhor = -1;
+      for (var k = 0; k < txt.length; k++) if (txt[k] === ' ' && (melhor < 0 || Math.abs(k - meio) < Math.abs(melhor - meio))) melhor = k;
+      linhas = [txt.slice(0, melhor), txt.slice(melhor + 1)];
+    }
+    if (linhas.length > 1 && sn < -0.3) y -= 15;
+    return '<text x="' + f(x) + '" y="' + f(y) + '" text-anchor="' + anc + '">' + esc(linhas[0]) +
+      (linhas[1] ? '<tspan x="' + f(x) + '" dy="1.05em">' + esc(linhas[1]) + '</tspan>' : '') +
+      '<tspan class="v" x="' + f(x) + '" dy="1.08em">' + valor + '</tspan></text>';
+  }
+  return { pt: pt, d: d, corpo: corpo, sorte: sorte, defs: defs, fundo: fundo, luz: luz, comp: comp, area: area, rotulo: rotulo, f: f };
+})();
 /* asas do Coro da Alvorada: duas asas abertas, largas, atrás da auréola com o placar. Cada asa tem o braço (do ombro ao
    punho, no alto), três fileiras de coberteiras por cima e as penas de voo embaixo. As oito penas de voo coloridas são os
    agrupamentos, quatro por asa: o comprimento cresce com a raiz quadrada da soma das notas (a área acompanha a soma) e o
@@ -1068,7 +1129,7 @@ function motivoSvg(st, m) {
   function polA(r, a) { var t = a * Math.PI / 180; return [230 + r * Math.cos(t), 230 + r * Math.sin(t)]; }
   var ctx = { NG: NG, step: step, gap: gap, max: max, R: R, r0: r0, CX: 230, CY: 230, total: st.total, groups: groups, pol: polA, esc: esc,
     P: function (r, a) { var p = polA(r, a); return p[0].toFixed(1) + ' ' + p[1].toFixed(1); }, f1: function (n) { return (+n).toFixed(1); },
-    uid: function (p) { return (p || 'u') + 'm' + (++uidN); } };
+    uid: function (p) { return (p || 'u') + 'm' + (++uidN); }, kit: KIT };
   var o = '<svg class="motivo" viewBox="-58 -2 576 464" role="group" aria-label="Gráfico dos ' + NUM[NG] + ' agrupamentos, com a pontuação total no centro"><defs>' + (m.defs ? m.defs(ctx) : '') + '</defs>';
   var faixa = '';
   FAIXA_VIS = false;
