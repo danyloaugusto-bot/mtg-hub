@@ -26,13 +26,14 @@
   </div>
 </header>
 <main id="main">
-  <div class="g-hero">
-    <div>
+  <header class="g-cab">
+    <div class="g-cab-t">
       <h1>Grimório</h1>
-      <p class="g-lede">As melhores cartas para cada lente da sua carteira: tribos e estilos, cores, os dez critérios e o 8×8. Cada carta diz onde já está, onde está parada e em qual deck renderia mais. Sem preço: isso é assunto da Caixa.</p>
+      <p class="g-lede">As melhores cartas de cada lente da carteira: onde já estão, onde rendem e o que falta. Sem preço.</p>
+      <div class="g-leitura" id="g-estado"></div>
     </div>
-    <aside class="g-estado" id="g-estado" aria-label="Estado da leitura"></aside>
-  </div>
+    <div class="g-kpis" id="g-kpis" aria-label="A leitura em números"></div>
+  </header>
   <nav class="g-nav" id="g-nav" aria-label="Lentes do Grimório">
     <a href="#tribos" data-aba="tribos">Tribos e estilos</a>
     <a href="#cores" data-aba="cores">Cores</a>
@@ -42,7 +43,7 @@
     <a href="#novidades" data-aba="novidades">Novidades</a>
   </nav>
   <section id="g-lentes"></section>
-  <section id="g-ferr" class="g-ferr" aria-label="Ferramentas"></section>
+  <section id="g-ferr" class="ctl g-ferr" aria-label="Ferramentas"></section>
   <section id="g-corpo" aria-live="polite"></section>
 </main>
 <div id="g-veu" class="g-veu" hidden></div>
