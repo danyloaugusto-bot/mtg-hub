@@ -225,7 +225,7 @@
 
   // ---------------- lista e galeria
   function tabela(arr, ctx) {
-    var cols = [['#', 'n'], ['Carta', '', 'nome'], ['Custo', 'n', 'custo']];
+    var cols = [['#', 'n'], ['Carta', '', 'nome'], ['Custo', '', 'custo']];
     if (ctx.k) { cols.push(['Inclusão', 'n', 'pop']); if (ctx.tema) cols.push(['Sinergia', 'n', 'sinergia']); }
     cols.push([ctx.crit ? 'Nota' : 'Critérios 2 e 3', 'cr', ctx.crit ? 'nota' : null], ['Onde já está', ''], ['Onde rende', '', 'encaixe'], ['Status', '', 'status'], ['Por quê', 'pq']);
     var oe = ordemEf(ctx);
@@ -240,7 +240,7 @@
       var tds = [
         h('td', { class: 'n num', 'data-v': i + 1 }, [String(i + 1)]),
         h('td', { class: 'nm' }, [h('button', { type: 'button', onclick: function () { gaveta(c); } }, [h('b', {}, [c.n]), h('small', {}, [c.t.replace(' — ', ' · ') + (c.nv && c.set ? ' · ' + c.set : '')])])]),
-        h('td', { class: 'n num', 'data-v': dv(c.cmc == null ? '' : c.cmc) }, [mana(c.cost, c.ci)])
+        h('td', { class: 'num', 'data-v': dv(c.cmc == null ? '' : c.cmc) }, [mana(c.cost, c.ci)])
       ];
       if (ctx.k) {
         tds.push(h('td', { class: 'n num', 'data-v': dv(l && l.inc != null ? Math.round(l.inc * 1000) / 10 : ''), title: l && l.nd != null ? inteiro(l.nd) + ' de ' + inteiro(l.pd) + ' decks' : '' }, [l ? pct(l.inc) : '—']));
