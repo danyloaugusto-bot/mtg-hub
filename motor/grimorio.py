@@ -313,8 +313,9 @@ def ler(lente=None, rede=True, avisar=print):
     L = ler_lentes()
     teto = L["teto"]
     ant = ler_leitura() or {}
-    anterior = ant.get("lido")
     hoje = datetime.date.today().isoformat()
+    # a leitura anterior é a do último dia lido antes de hoje: reler no mesmo dia (uma lente, por exemplo) não a troca
+    anterior = ant.get("lido") if ant.get("lido") != hoje else ant.get("anterior")
     forcar = set()
     if lente:
         alvo = lente.strip().lower()
