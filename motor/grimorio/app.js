@@ -185,8 +185,8 @@
   var CTX = {};   // o contexto da tela (lente, critério e a lista inteira da lente) que a ordem, o cabeçalho da tabela e as contagens usam
 
   // ---------------- ferramentas
-  function seg(rot, itens, atual, fn) {
-    var g = h('div', { class: 'g-seg', role: 'group', 'aria-label': rot });
+  function seg(rot, itens, atual, fn, semRotulo) {
+    var g = h('div', { class: 'seg g-seg', role: 'group', 'aria-label': rot }, [semRotulo ? null : h('span', { class: 'seg-l' }, [rot])]);
     itens.forEach(function (o) {
       g.appendChild(h('button', { type: 'button', class: atual === o[0] ? 'on' : '', 'aria-pressed': atual === o[0] ? 'true' : 'false', 'data-v': o[0], onclick: function () { fn(o[0]); } },
         [o[1], o[2] ? h('span', { class: 'q num', 'data-n': o[0] }, ['']) : null]));
@@ -202,12 +202,11 @@
       var sel = h('select', { id: 'g-ordem', onchange: function () { S.ordem = this.value; S.inv = false; guardar(); desenha(); } });
       ops.forEach(function (o) { sel.appendChild(h('option', { value: o[0] }, [o[1]])); });
       sel.value = ordemEf(ctx);
-      f.appendChild(h('div', { class: 'g-ord' }, [h('label', { for: 'g-ordem' }, ['Ordem', sel]),
+      f.appendChild(h('div', { class: 'seg g-ord' }, [h('label', { for: 'g-ordem', class: 'seg-l' }, ['Ordem']), sel,
         h('button', { type: 'button', class: 'g-inv', id: 'g-inv', 'aria-label': 'Inverter a ordem', title: 'Inverter a ordem', onclick: function () { S.inv = !S.inv; guardar(); desenha(); } }, [seta(ordemEf(ctx))])]));
       f.appendChild(seg('Status', [['todas', 'Todas', 1], ['falta', 'Faltam', 1], ['ociosa', 'Ociosas', 1], ['tenho', 'Tenho', 1]], S.st, function (v) { S.st = v; desenha(); }));
-      if (ctx.agrupa !== false) f.appendChild(h('div', { class: 'g-agr' }, [h('span', { class: 'g-k' }, ['Agrupar']),
-        seg('Agrupar', [['nenhum', 'Nenhum'], ['status', 'Status'], ['tipo', 'Tipo'], ['cor', 'Cor']], S.agrupar, function (v) { S.agrupar = v; guardar(); desenha(); })]));
-      if (ctx.vista !== false) f.appendChild(seg('Vista', [['lista', 'Lista'], ['galeria', 'Galeria']], S.vista[S.aba] || 'lista', function (v) { S.vista[S.aba] = v; guardar(); desenha(); }));
+      if (ctx.agrupa !== false) f.appendChild(h('div', { class: 'g-agr' }, [seg('Agrupar', [['nenhum', 'Nenhum'], ['status', 'Status'], ['tipo', 'Tipo'], ['cor', 'Cor']], S.agrupar, function (v) { S.agrupar = v; guardar(); desenha(); })]));
+      if (ctx.vista !== false) f.appendChild(seg('Vista', [['lista', 'Lista'], ['galeria', 'Galeria']], S.vista[S.aba] || 'lista', function (v) { S.vista[S.aba] = v; guardar(); desenha(); }, true));
     }
     f.appendChild(h('div', { class: 'g-ab', id: 'g-ab' }, [h('button', { type: 'button', class: 'linkish', onclick: function () { abrirTodos(true); } }, ['Abrir todos']), h('button', { type: 'button', class: 'linkish', onclick: function () { abrirTodos(false); } }, ['Fechar todos'])]));
     if (!ctx.minimo) {
@@ -293,8 +292,8 @@
       var fam = h('div', { class: 'g-fam' }, [h('span', { class: 'g-fn' }, [f || 'Lentes'])]);
       fams[f].forEach(function (t) {
         fam.appendChild(h('button', { type: 'button', class: 'g-chip' + (S.lente.tribos === t.k ? ' on' : '') + (t.q ? '' : ' vazia'),
-          title: (t.q ? '' : 'sem leitura · ') + (t.decks.length ? 'decks: ' + t.decks.join(', ') : 'nenhum deck seu usa esta lente'),
-          onclick: function () { S.lente.tribos = t.k; guardar(); desenha(); } }, [t.n, h('span', { class: 'q num' }, [t.q ? String(t.q) : '·'])]));
+          title: (t.q ? t.q + ' cartas · ' : 'sem leitura · ') + (t.decks.length ? 'decks: ' + t.decks.join(', ') : 'nenhum deck seu usa esta lente'),
+          onclick: function () { S.lente.tribos = t.k; guardar(); desenha(); } }, [t.n]));
       });
       box.appendChild(fam);
     });
@@ -306,7 +305,7 @@
     var arr = (D.lentes[t.k] || []).map(function (n) { return cards[n]; });
     CTX = { k: t.k, tema: true, base: arr };
     var w = h('div');
-    w.appendChild(cabLente(t.n, arr.length ? 'EDHREC · ' + t.src + ' · lido ' + t.lido : 'sem leitura', t.decks));
+    w.appendChild(cabLente(t.n, arr.length ? arr.length + ' cartas · EDHREC ' + t.src + ' · lido ' + t.lido : 'sem leitura', t.decks));
     if (!arr.length) {
       w.appendChild(vazio('Esta lente ficou sem leitura.', (t.erro || 'A fonte não respondeu.') + (t.tentados ? ' Caminhos tentados: ' + t.tentados + '.' : '') + ' Confira a fonte em dados/grimorio/lentes.json e rode /grimorio atualizar.'));
       return w;
@@ -322,8 +321,8 @@
       var fam = h('div', { class: 'g-fam' }, [h('span', { class: 'g-fn' }, [g[0]])]);
       D.cores.filter(g[1]).forEach(function (c) {
         fam.appendChild(h('button', { type: 'button', class: 'g-chip' + (S.lente.cores === c.k ? ' on' : '') + (c.q ? '' : ' vazia'),
-          title: (c.q ? '' : 'sem leitura · ') + (c.decks.length ? 'decks: ' + c.decks.join(', ') : 'sem deck nessa identidade'),
-          onclick: function () { S.lente.cores = c.k; guardar(); desenha(); } }, [mana('', c.k === 'C' ? '' : c.k), c.n, h('span', { class: 'q num' }, [c.decks.length ? c.decks.length + (c.decks.length > 1 ? ' decks' : ' deck') : '·'])]));
+          title: (c.q ? c.q + ' cartas · ' : 'sem leitura · ') + (c.decks.length ? 'decks: ' + c.decks.join(', ') : 'sem deck nessa identidade'),
+          onclick: function () { S.lente.cores = c.k; guardar(); desenha(); } }, [mana('', c.k === 'C' ? '' : c.k), c.n]));
       });
       if (fam.children.length > 1) box.appendChild(fam);
     });
@@ -335,7 +334,7 @@
     var arr = (D.lentes[c.k] || []).map(function (n) { return cards[n]; });
     CTX = { k: c.k, base: arr };
     var w = h('div');
-    w.appendChild(cabLente(c.n, arr.length ? 'EDHREC · ' + c.src + ' · lido ' + c.lido + ' · as cartas mais jogadas nessa identidade' : 'sem leitura', c.decks));
+    w.appendChild(cabLente(c.n, arr.length ? arr.length + ' cartas · as mais jogadas nessa identidade · EDHREC ' + c.src + ' · lido ' + c.lido : 'sem leitura', c.decks));
     if (!arr.length) {
       w.appendChild(vazio('Combinação sem leitura.', (c.erro || 'A página de cor não respondeu.') + (c.tentados ? ' Caminhos tentados: ' + c.tentados + '.' : '')));
       return w;
@@ -350,8 +349,8 @@
     D.crit.forEach(function (c) {
       var n = 0; Object.keys(cards).forEach(function (k) { if ((cards[k].notas || {})[c.k] >= 2) n++; });
       fam.appendChild(h('button', { type: 'button', class: 'g-chip' + (S.lente.criterios === c.k ? ' on' : '') + (c.dd ? ' vazia' : ''), disabled: c.dd ? true : null,
-        title: c.dd ? 'as sinergias são do deck: ficam nas lentes de tema' : 'peso ×' + c.w,
-        onclick: function () { if (!c.dd) { S.lente.criterios = c.k; guardar(); desenha(); } } }, [c.n, h('span', { class: 'q num' }, [c.dd ? 'tema' : String(n)])]));
+        title: c.dd ? 'as sinergias são do deck: ficam nas lentes de tema' : n + ' cartas · peso ×' + c.w,
+        onclick: function () { if (!c.dd) { S.lente.criterios = c.k; guardar(); desenha(); } } }, [c.n, c.dd ? h('span', { class: 'q' }, ['tema']) : null]));
     });
     w.appendChild(h('div', { class: 'g-lentes' }, [fam]));
   }
@@ -360,7 +359,7 @@
     if (!c) return vazio('Nenhum critério na régua.');
     var arr = Object.keys(cards).map(function (n) { return cards[n]; }).filter(function (x) { return (x.notas || {})[k] >= 2; });
     var w = h('div');
-    w.appendChild(cabLente(c.n, 'peso ×' + c.w + ' · nota 2 ou 3 no cadastro v3 · a nota é da carta, igual em todo deck · só cartas de alguma lente'));
+    w.appendChild(cabLente(c.n, arr.length + ' cartas · peso ×' + c.w + ' · nota 2 ou 3 no cadastro v3, a mesma em todo deck · só cartas de alguma lente'));
     CTX = { crit: k, base: arr };
     w.appendChild(corpoLista(ordena(filtra(arr), CTX), CTX, 'criterios|' + k));
     return w;
@@ -508,20 +507,27 @@
 
   // ---------------- cabeça, barra e rodapé
   function estado() {
-    var e = $('#g-estado'); e.innerHTML = '';
     var ct = D.contagens || {};
-    e.appendChild(h('div', { class: 'lin' }, [h('span', { class: 'g-k' }, ['Última leitura']), h('span', { class: 'g-v num' }, [data(D.lido)]), h('span', { class: 'g-k' }, ['Fontes']), h('span', { class: 'g-v' }, [(D.fontes || []).join(' · ')])]));
-    var sets = h('div', { class: 'g-sets' });
-    (D.colecoes || []).forEach(function (s) { sets.appendChild(h('span', { class: 'g-set' + (s.atual ? ' atual' : s.fut ? ' fut' : ''), title: s.n }, [s.c + ' · ' + data(s.d).slice(0, 5) + (s.atual ? ' (atual)' : s.fut ? ' · a sair' : '')])); });
-    if (!sets.children.length) sets.appendChild(h('span', { class: 'g-aviso' }, ['sem a lista de coleções']));
-    e.appendChild(h('div', { class: 'lin' }, [h('span', { class: 'g-k' }, ['Coleções']), sets]));
-    e.appendChild(h('div', { class: 'lin' }, [h('span', { class: 'g-k' }, ['Cartas']), h('span', { class: 'g-v num' }, [inteiro(ct.cartas || 0)]), h('span', { class: 'g-k' }, ['Lentes']), h('span', { class: 'g-v num' }, [(ct.lidas || 0) + ' de ' + (ct.lentes || 0)]),
-      h('span', { class: 'g-k' }, ['Sem cadastro']), h('span', { class: 'g-v num' }, [inteiro(ct.sem_cadastro || 0)]),
-      h('span', { class: 'g-k' }, ['Novidades']), D.anterior ? h('span', { class: 'g-st novo' }, [(ct.novidades || 0) + ' desde ' + data(D.anterior)]) : h('span', { class: 'g-aviso' }, ['primeira leitura'])]));
-    var code = h('code', {}, ['/grimorio atualizar']);
-    e.appendChild(h('div', { class: 'g-cmd' }, [h('span', { class: 'g-k' }, ['Atualizar']), code,
-      h('button', { class: 'g-btn sm', type: 'button', id: 'g-copiar', onclick: function () { var b = this; try { navigator.clipboard.writeText('/grimorio atualizar').then(function () { b.textContent = 'Copiado'; setTimeout(function () { b.textContent = 'Copiar'; }, 1500); }); } catch (x) {} } }, ['Copiar']),
-      h('span', { class: 'g-aviso' }, ['no Claude Code; relê EDHREC e Scryfall e remonta esta página'])]));
+    var e = $('#g-estado'); e.innerHTML = '';
+    e.appendChild(h('span', { class: 'g-lt-t' }, ['Leitura de ', h('b', { class: 'num' }, [data(D.lido)])]));
+    e.appendChild(h('span', { class: 'g-lt-f' }, [(D.fontes || []).map(function (f) { return f.replace(/\s*\(.*\)/, ''); }).join(' · ')]));
+    e.appendChild(h('button', { class: 'g-upd', type: 'button', id: 'g-copiar', title: 'Copia o comando para colar no Claude Code: relê o EDHREC e o Scryfall e remonta esta página',
+      onclick: function () { var b = this; try { navigator.clipboard.writeText('/grimorio atualizar').then(function () { b.lastChild.textContent = 'Copiado'; setTimeout(function () { b.lastChild.textContent = '/grimorio atualizar'; }, 1500); }); } catch (x) {} } },
+      [h('span', { class: 'g-upd-i', 'aria-hidden': 'true' }, ['↻']), h('span', {}, ['/grimorio atualizar'])]));
+    // os números, como os KPIs do Dashboard do hub; a última célula é a linha do tempo das coleções
+    var k = $('#g-kpis'); k.innerHTML = '';
+    function kpi(rot, v, sub, cls) { return h('div', { class: 'g-kpi' + (cls ? ' ' + cls : '') }, [h('span', { class: 'g-kpi-l' }, [rot]), h('span', { class: 'g-kpi-v num' }, v), sub ? h('span', { class: 'g-kpi-s' }, [sub]) : null]); }
+    k.appendChild(kpi('Cartas', [inteiro(ct.cartas || 0)], 'conferidas no Scryfall'));
+    k.appendChild(kpi('Lentes lidas', [String(ct.lidas || 0), h('small', {}, ['de ' + (ct.lentes || 0)])], ct.sem_leitura ? ct.sem_leitura + ' sem leitura' : 'todas responderam', ct.sem_leitura ? 'warn' : ''));
+    k.appendChild(kpi('Sem nota', [inteiro(ct.sem_cadastro || 0)], ct.sem_cadastro ? 'esperam a rubrica' : 'cadastro completo', ct.sem_cadastro ? 'warn' : ''));
+    k.appendChild(D.anterior ? kpi('Novidades', [String(ct.novidades || 0)], 'desde ' + data(D.anterior), ct.novidades ? 'novo' : '') : kpi('Novidades', ['—'], 'primeira leitura'));
+    var por = [], idx = {};
+    (D.colecoes || []).forEach(function (c) { var kk = c.d + (c.fut ? 'f' : ''); if (idx[kk] == null) { idx[kk] = por.length; por.push({ d: c.d, cs: [], ns: [], atual: 0, fut: 0 }); } var g = por[idx[kk]]; g.cs.push(c.c); g.ns.push(c.n); if (c.atual) g.atual = 1; if (c.fut) g.fut = 1; });
+    var tl = por.length ? h('ol', { class: 'g-tl', 'aria-label': 'Coleções' }, por.map(function (g) {
+      return h('li', { class: g.atual ? 'atual' : g.fut ? 'fut' : '', title: g.ns.join(' · ') + (g.atual ? ' (a mais recente)' : g.fut ? ' (a sair)' : '') },
+        [h('i', { 'aria-hidden': 'true' }), h('b', {}, [g.cs.join('/')]), h('span', { class: 'num' }, [(g.fut ? 'sai ' : '') + data(g.d).slice(0, 5)])]);
+    })) : h('span', { class: 'g-kpi-s' }, ['sem a lista de coleções']);
+    k.appendChild(h('div', { class: 'g-kpi col' }, [h('span', { class: 'g-kpi-l' }, ['Coleções' + (por.some(function (g) { return g.atual; }) ? ' · a mais recente em destaque, a próxima tracejada' : '')]), tl]));
   }
   function barra() {
     var pub = location.protocol !== 'file:';
