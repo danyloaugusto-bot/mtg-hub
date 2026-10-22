@@ -10,7 +10,7 @@ import build, dados
 a = comum.argumentos("Contrato de dados de um deck")
 R = comum.Relatorio("contrato: " + a.deck)
 pasta = a.deck
-base = os.path.join(comum.RAIZ, "dados", pasta)
+base = dados.pasta_deck(pasta)
 
 try:
     d = dados.montar(pasta, avisar=lambda *x: None)
