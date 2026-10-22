@@ -103,7 +103,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         raise dados.ErroDeck("--imagens '%s'; use %s" % (modo_img, " ou ".join(MODOS_IMG)))
     if base_dados:
         dados.DADOS = base_dados
-    base = os.path.join(dados.DADOS, pasta)
+    base = dados.pasta_deck(pasta)
     d = dados.montar(pasta, atualizar_scryfall=atualizar_scryfall, avisar=avisar)
     t = dados.ler_json(os.path.join(base, "tema.json"), obrigatorio=False) or {}
     if tema_extra:
@@ -216,7 +216,8 @@ def gravar(caminho, texto):
 
 
 def atalho(pasta, painel):
-    alvo = "../../saidas/" + quote(pasta + ".html")
+    rel = os.path.relpath(SAIDAS, dados.pasta_deck(pasta)).replace(os.sep, "/")   # dados/decks/<grupo>/<pasta> -> ../../../../saidas
+    alvo = rel + "/" + quote(pasta + ".html")
     return ('<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>%s</title>\n'
             '<meta http-equiv="refresh" content="0; url=%s">\n</head>\n<body>\n'
             '<p><a href="%s">Abrir o painel %s</a></p>\n</body>\n</html>\n') % (painel, alvo, alvo, painel)
@@ -228,7 +229,7 @@ def montar_deck(pasta, atualizar_scryfall=False, modo_img="embutidas"):
     if mb > 15:
         raise dados.ErroDeck("o HTML ficou com %.1f MB; o teto da página publicada é 16 MiB e o limite do projeto é 15 MB" % mb)
     gravar(os.path.join(SAIDAS, pasta + ".html"), html)
-    gravar(os.path.join(dados.DADOS, pasta, "Abrir o painel.html"), atalho(pasta, r["painel"]))
+    gravar(os.path.join(dados.pasta_deck(pasta), "Abrir o painel.html"), atalho(pasta, r["painel"]))
     print("%s: %s | cartas %d (%d únicas) | radar %d | potenciais %d | %.0f KB%s" % (
         pasta, r["painel"], r["cartas"], r["unicas"], r["radar"], r["potenciais"], r["kb"], "  AVISO: passou de 12 MB" if mb > 12 else ""))
 
@@ -277,7 +278,7 @@ def montar_grimorio():
 
 def decks():
     out = []
-    for n in sorted(os.listdir(dados.DADOS)):
+    for n in dados.pastas_decks():
         if not dados.eh_deck(n):
             continue
         out.append(n)
@@ -319,7 +320,7 @@ def main():
         sys.exit(0)
     alvos = decks() if a.todos else [a.deck]
     if a.todos:
-        sem = [p for p in alvos if not os.path.exists(os.path.join(dados.DADOS, p, "avaliacao.json"))]
+        sem = [p for p in alvos if not os.path.exists(os.path.join(dados.pasta_deck(p), "avaliacao.json"))]
         alvos = [p for p in alvos if p not in sem]
         if sem:
             print("%d pastas ainda sem avaliacao.json, puladas" % len(sem))
