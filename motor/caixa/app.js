@@ -873,7 +873,21 @@ aplicarVivos();   // preços que este navegador já buscou no Scryfall, se mais 
 var hl = /^#lista=(.+)$/.exec(location.hash || '');
 if (hl) { try { ui.origem = decodeURIComponent(hl[1]); } catch (e) { } }
 usarOrigem(ui.origem || 'Caixa');
-if (PUB && D.hub_pub) $('#cx-hub').href = D.hub_pub;
+barra();
 render();
 ligarBanco();
+// a barra do topo, a mesma do hub e do Grimório: Decks, Pastas, Caixa, Dashboard e Grimório. A aberta fica dourada (Caixa, ou Pastas
+// na página de uma pasta). No arquivo local os links vão aos HTML de saidas/; publicada, aos links do claude.ai, com a aba no fim.
+function barra() {
+  var N = D.nav || {}, hub = N.hub || {}, b = PUB && hub.pub ? hub.pub : (hub.href || '00.%20Hub.html');
+  $('#cx-l-decks').href = b + '#decks'; $('#cx-l-pastas').href = b + '#pastas'; $('#cx-l-dash').href = b + '#dashboard';
+  var cx = $('#cx-l-caixa');
+  if (eCaixa()) { cx.setAttribute('aria-current', 'page'); cx.href = '#main'; cx.title = 'Você está na Caixa: volta ao topo'; }
+  else {
+    $('#cx-l-pastas').setAttribute('aria-current', 'page');
+    if (N.caixa) cx.href = PUB && N.caixa.pub ? N.caixa.pub : N.caixa.href;
+  }
+  var g = $('#cx-l-grim'); if (N.grim) { g.hidden = false; g.href = PUB && N.grim.pub ? N.grim.pub : N.grim.href; }
+}
+$('#cx-l-caixa').addEventListener('click', function (ev) { if (this.getAttribute('aria-current')) { ev.preventDefault(); window.scrollTo(0, 0); } });
 window.CAIXA = { D: D, ui: ui, render: render, abrir: abrir, placarDe: placarDe, ORS: ORS };   // para os testes
