@@ -7,7 +7,7 @@ Painéis dos decks de Commander (Magic: The Gathering) do Danylo, um por deck, e
 ## Regras que não se negociam
 
 1. **Um motor só.** Todo código de painel mora em `motor/`. Nunca copie o motor para dentro de um deck nem crie variação por deck. O que muda entre decks é dado e tema.
-2. **Dado de deck mora em `dados/<pasta>/`** e em nenhum outro lugar.
+2. **Dado de deck mora em `dados/decks/<grupo>/<pasta>/`** (por exemplo `dados/decks/02. TRIBAIS/02. Clavileño/`) e em nenhum outro lugar. O motor acha o deck pelo nome da pasta (`dados.pasta_deck`); onde um comando ou documento disser `dados/<pasta>/`, leia `dados/decks/<grupo>/<pasta>/`.
 3. **`contexto/origem/` é somente leitura.** É de onde viemos. Consulte, não edite.
 4. **O que está em `entrada/` é opinião.** Handovers de outras IAs, planilhas e prints são lidos, confrontados com o texto das cartas e registrados em `CONFRONTO.md`. Concordância entre IAs não prova nada.
 5. **Texto de carta nunca sai de memória.** Custo, tipo e texto vêm do Scryfall ou do cache. Se não der para conferir, pare e diga.
@@ -38,7 +38,7 @@ Na raiz da pasta de um deck ficam só `deck.md`, `decklist.txt`, `capa.*` e o qu
 |---|---|
 | `contexto/` | Arquitetura, método de avaliação, paridade, modelos, `ESTADO.md` (o handover vivo), inventário, referências e a origem. Também o `handover-analise-de-decks.md`, que o dono entrega a outras IAs para que analisem um deck neste mesmo método. |
 | `.claude/skills/` | Os comandos do projeto, um por pasta, cada um com seu `SKILL.md`. Cada um declara modelo e esforço. Resumo em `contexto/MODELOS.md`; modelo para criar um novo em `contexto/modelo-de-skill.md`. |
-| `dados/<pasta>/` | Um deck: `deck.md`, `decklist.txt`, `capa.*`, `entrada/`, e o que o motor gera (avaliação, tema, `CONFRONTO.md`, `HISTORICO.md`, `Abrir o painel.html`). |
+| `dados/decks/<grupo>/<pasta>/` | Os decks, agrupados pelo dono em `01. TOP`, `02. TRIBAIS`, `03. CAOS`, `04. FORFUN` e `05. DESEJO` (22/10/2026). Um deck: `deck.md`, `decklist.txt`, `capa.*`, `entrada/`, e o que o motor gera (avaliação, tema, `CONFRONTO.md`, `HISTORICO.md`, `Abrir o painel.html`). |
 | `dados/traducoes.json` | O texto das cartas da Caixa e das pastas em português (tradução livre do Claude, com a marca do texto em inglês traduzido). Só a página da Caixa lê. |
 | `dados/caixa/` | A Caixa: as cartas sem destino. `listas/` (uma por lote, do dono, nunca editadas), `decisoes.json`, `compras.json`, `bundles.txt`, `bulk.txt`, `HISTORICO.md` e o `LEIA-ME.md` com o passo a passo. Não é deck. |
 | `dados/pastas/` | As pastas físicas de cartas do dono: uma subpasta por pasta com o export do ManaBox (do dono, nunca editado; ex.: `Preta P/Pasta Preta.csv`), ou o formato antigo `<pasta>.txt`; a ficha de cada pasta em `pastas.json` (a Preta P é o Relicário de Ônix); as decisões e as marcas de pet card delas; `LEIA-ME.md` com o passo a passo. Não é deck. |
@@ -57,7 +57,7 @@ Na raiz da pasta de um deck ficam só `deck.md`, `decklist.txt`, `capa.*` e o qu
 Mantenha esta seção atualizada.
 
 - Imagens, antes do build (uma vez, depois só o que for novo): `python motor/imagens.py --deck "02. Clavileño"` ou `--todos`. Baixa em `cache/img/`, compartilhado entre decks.
-- Um deck: `python motor/build.py --deck "02. Clavileño"` (grava `saidas/<pasta>.html` e `dados/<pasta>/Abrir o painel.html`). Embute as imagens do cache por padrão; `--imagens externas` tenta o Scryfall ao vivo (sem embutir), `--imagens nenhuma` sobe sem imagem nenhuma, nem ao vivo.
+- Um deck: `python motor/build.py --deck "02. Clavileño"` (grava `saidas/<pasta>.html` e `Abrir o painel.html` na pasta do deck). Embute as imagens do cache por padrão; `--imagens externas` tenta o Scryfall ao vivo (sem embutir), `--imagens nenhuma` sobe sem imagem nenhuma, nem ao vivo.
 - Todos: `python motor/build.py --todos` (pula, com aviso, os decks sem `avaliacao.json`, e remonta o hub no fim)
 - Cartas do zero no Scryfall: acrescente `--atualizar-scryfall`
 - Testes de um deck: `python testes/todos.py --deck "02. Clavileño"` (contrato, regressão, página publicada, layout e, no Clavileño, a comparação com o painel de origem). Cada um também roda sozinho, com `--deck`.
