@@ -367,7 +367,7 @@ def resumo_grimorio():
 def montar(avisar=print):
     import scryfall
     inv = ler_inventario()
-    pastas = [n for n in sorted(os.listdir(dados.DADOS))
+    pastas = [n for n in dados.pastas_decks()
               if dados.eh_deck(n)]
     nomes = list(dict.fromkeys(pastas + sorted(inv)))
     decks = []
@@ -375,7 +375,7 @@ def montar(avisar=print):
     gc = {frente(n) for n in G["nomes"]} if G else None
     cache = scryfall._ler()
     for pasta in nomes:
-        base = os.path.join(dados.DADOS, pasta)
+        base = dados.pasta_deck(pasta)
         r = inv.get(pasta, {})
         grupo = pasta.split(".")[0].strip() if "." in pasta else "05"
         prio = (r.get("prioridade") or "").strip()
