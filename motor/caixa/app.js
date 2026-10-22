@@ -5,10 +5,10 @@ var D = /*__DATA__*/null;
 var R = D.regua, CR = D.crit, DECKS = D.decks, ORS = D.origens;
 var O = ORS[0], CARTAS = O.cartas;   // a origem na tela: a Caixa ou uma pasta (motor/caixa.py, origens)
 var LS = 'mtg-hub:caixa:v1';
-var ui = { ver: 'tabela', agrupar: 'prioridade', ord: 'padrao', inv: false, dec: 'pendentes', tipos: [], cores: [], faixas: [], prios: [], dests: [], fechados: {}, deck: '', origem: '', q: '' };
+var ui = { ver: 'tabela', agrupar: 'prioridade', ord: 'padrao', inv: false, dec: 'pendentes', tipos: [], cores: [], faixas: [], prios: [], dests: [], fechados: {}, deck: '', origem: '', q: '', ent: '' };
 try {
   var g = JSON.parse(localStorage.getItem(LS) || '{}');
-  ['ver', 'agrupar', 'ord', 'dec', 'deck', 'origem'].forEach(function (k) { if (g[k]) ui[k] = g[k]; });
+  ['ver', 'agrupar', 'ord', 'dec', 'deck', 'origem', 'ent'].forEach(function (k) { if (g[k]) ui[k] = g[k]; });
   ui.inv = !!g.inv;
   if (Array.isArray(g.tipos)) ui.tipos = g.tipos; else if (g.tipo) ui.tipos = [g.tipo];   // o seletor antigo guardava um tipo só
   if (Array.isArray(g.cores)) ui.cores = g.cores;
@@ -17,7 +17,7 @@ try {
   if (Array.isArray(g.dests)) ui.dests = g.dests;
   if (g.fechados && typeof g.fechados === 'object') ui.fechados = g.fechados;
 } catch (e) { }
-function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, ord: ui.ord, inv: ui.inv, dec: ui.dec, tipos: ui.tipos, cores: ui.cores, faixas: ui.faixas, prios: ui.prios, dests: ui.dests, fechados: ui.fechados, deck: ui.deck, origem: ui.origem })); } catch (e) { } }
+function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, ord: ui.ord, inv: ui.inv, dec: ui.dec, tipos: ui.tipos, cores: ui.cores, faixas: ui.faixas, prios: ui.prios, dests: ui.dests, fechados: ui.fechados, deck: ui.deck, origem: ui.origem, ent: ui.ent })); } catch (e) { } }
 
 var DB = { db: null, pode: false, docs: {}, erro: '', ocupado: {} };   // docs: {coleção: {id: documento}}
 var PUB = location.protocol !== 'file:';
@@ -111,6 +111,10 @@ function decCopias(c, o) {
   });
   return out;
 }
+/* a data de entrada de cada cópia (cp.ent, AAAA-MM-DD): o filtro Entrada pega os últimos N dias, contando hoje */
+function hojeLocal() { var d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+function diasDesde(ent) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(ent || ''); if (!m) return null; return Math.round((hojeLocal() - new Date(+m[1], +m[2] - 1, +m[3])) / 864e5); }
+function entrouNos(cp, n) { var d = diasDesde(cp.ent); return d != null && d < n; }
 /* as cópias que a lista mostra, pelo filtro de decisão (pendentes, decididas ou todas) */
 function visCopias(c) {
   var dc = decCopias(c), out = [];
@@ -118,6 +122,7 @@ function visCopias(c) {
     var feita = !!(dc[i] && dc[i].destino);
     if (ui.dec !== 'todas' && (ui.dec === 'pendentes') === feita) return;
     if (ui.faixas.length && ui.faixas.indexOf(faixaDe(cp.usd)) < 0) return;
+    if (ui.ent && !entrouNos(cp, +ui.ent)) return;   // entrada: os últimos 3, 7 ou 30 dias
     if (ui.prios.length && ui.prios.indexOf(cp.sug.P) < 0) return;   // prioridade da sugestão (S, A, B, C)
     if (ui.dests.length && ui.dests.indexOf(feita ? dc[i].destino : cp.sug.d) < 0) return;   // destino: o decidido, ou o sugerido
     out.push(i);
@@ -213,6 +218,7 @@ function chaveCopia(c, i) {
   if (ui.agrupar === 'prioridade') return { k: s.P, n: 'Prioridade ' + s.P, o: ORDP.indexOf(s.P) };
   if (ui.agrupar === 'destino') { var dd = feita ? d.destino : s.d; return { k: dd, n: nomeD(dd), o: ORDG.indexOf(dd) }; }
   if (ui.agrupar === 'faixa') { var f = faixaDe(c.copias[i].usd); return { k: f, n: nomeFaixa(f), o: FAIXAS.indexOf(f) }; }
+  if (ui.agrupar === 'entrada') { var e = c.copias[i].ent || ''; return { k: 'e' + e, n: e ? 'Entrou em ' + fdata(e) + (diasDesde(e) === 0 ? ' (hoje)' : '') : 'Sem data de entrada', o: e ? -Number(e.replace(/-/g, '')) : 0 }; }
   var dk = feita ? (d.destino === 'deck' ? d.deck || '' : '') : (s.d === 'deck' && s.p ? s.p : '');
   return { k: 'd' + dk, n: dk ? curto(dk) + (DECKS[dk] ? ' · ' + DECKS[dk].n : '') : 'Sem deck sugerido', o: dk ? 0 : 1 };
 }
@@ -222,7 +228,7 @@ function grupos(L) {
   function add(k, nome, ord, c) { if (!g[k]) { g[k] = { k: k, n: nome, o: ord, cs: [] }; ordem.push(k); } g[k].cs.push(c); }
   L.forEach(function (c) {
     var idx = visCopias(c);
-    if (ui.agrupar === 'prioridade' || ui.agrupar === 'destino' || ui.agrupar === 'deck' || ui.agrupar === 'faixa') {
+    if (ui.agrupar === 'prioridade' || ui.agrupar === 'destino' || ui.agrupar === 'deck' || ui.agrupar === 'faixa' || ui.agrupar === 'entrada') {
       var por = {}, ks = [];
       idx.forEach(function (i) { var k = chaveCopia(c, i); if (!por[k.k]) { por[k.k] = { g: k, idx: [] }; ks.push(k.k); } por[k.k].idx.push(i); });
       ks.forEach(function (k) { add(por[k].g.k, por[k].g.n, por[k].g.o, vista(c, por[k].idx)); });
@@ -356,6 +362,22 @@ function botoesFaixa() {
     return '<button data-act="faixa" data-v="' + k + '" aria-pressed="' + on + '"' + (n[k] ? '' : ' disabled') + ' title="' + pl(n[k] || 0, 'cópia', 'cópias') + (v[k] ? ', ' + usd(v[k]) : '') + '">' + esc(nomeFaixa(k)) + ' <small>' + (n[k] || 0) + '</small></button>';
   }).join('') + (ui.faixas.length ? '<button class="cx-limpa" data-act="faixas-limpar">Limpar</button>' : '') + '</div>';
 }
+/* Entrada: as cópias que entraram nos últimos 3, 7 ou 30 dias, com quantas cópias cada um tem no filtro de decisão atual */
+function botoesEntrada() {
+  var OPS = [['', 'Todas'], ['3', '3 dias'], ['7', '7 dias'], ['30', '30 dias']], n = { '': 0, '3': 0, '7': 0, '30': 0 };
+  CARTAS.forEach(function (c) {
+    var dc = decCopias(c);
+    c.copias.forEach(function (cp, i) {
+      var feita = !!(dc[i] && dc[i].destino);
+      if (ui.dec !== 'todas' && (ui.dec === 'pendentes') === feita) return;
+      n['']++; ['3', '7', '30'].forEach(function (k) { if (entrouNos(cp, +k)) n[k]++; });
+    });
+  });
+  return '<div class="seg cx-ent" role="group" aria-label="Entrada"><span class="seg-l">Entrada</span>' + OPS.map(function (o) {
+    return '<button data-act="ui" data-k="ent" data-v="' + o[0] + '" aria-pressed="' + (ui.ent === o[0]) + '"' + (o[0] && !n[o[0]] ? ' disabled' : '') +
+      ' title="' + pl(n[o[0]], 'cópia', 'cópias') + (o[0] ? ' entraram nos últimos ' + o[0] + ' dias' : '') + '">' + o[1] + ' <small>' + n[o[0]] + '</small></button>';
+  }).join('') + '</div>';
+}
 function seletorOrigem() {
   if (ORS.length < 2) return '';
   return '<label class="cmp-s cx-fo2"><span class="seg-l">Lista</span><select data-ctl="origem" aria-label="Caixa ou pasta"><option value="Caixa"' + (eCaixa() ? ' selected' : '') + '>Caixa (' + ORS[0].cartas.length + ')</option>' +
@@ -363,10 +385,10 @@ function seletorOrigem() {
 }
 function controles() {
   return seletorOrigem() + seletorDeck() + seletorTipo() + seg('Ver', 'ver', [['tabela', 'Tabela'], ['galeria', 'Galeria']]) +
-    (ui.deck ? '' : seg('Agrupar', 'agrupar', [['prioridade', 'Prioridade'], ['tipo', 'Tipo'], ['destino', 'Destino'], ['cor', 'Cor'], ['deck', 'Deck'], ['faixa', 'Valor'], ['nenhum', 'Nenhum']])) +
+    (ui.deck ? '' : seg('Agrupar', 'agrupar', [['prioridade', 'Prioridade'], ['tipo', 'Tipo'], ['destino', 'Destino'], ['cor', 'Cor'], ['deck', 'Deck'], ['faixa', 'Valor'], ['entrada', 'Entrada'], ['nenhum', 'Nenhum']])) +
     seletorOrdem() +
     seg('Decisão', 'dec', [['pendentes', 'Pendentes'], ['decididas', 'Decididas'], ['todas', 'Todas']]) +
-    botoesFaixa() +
+    botoesFaixa() + botoesEntrada() +
     (ui.agrupar === 'cor' && !ui.deck ? botoesCor() : '');
 }
 /* cada grupo recolhe e expande pelo cabeçalho; a escolha fica no navegador, por modo de agrupar */
@@ -550,7 +572,7 @@ function gaveta(c) {
     '<p class="cx-nt">' + (DB.db && DB.pode ? 'Deck: a carta vai ao radar do deck como "avaliar" e sai da lista de compras quando o /caixa aplicar. Guardar e Venda pedem a pasta física. Nada muda na decklist sem o seu pedido.'
       : PUB ? 'Só quem edita a Caixa grava decisões.' : 'Arquivo local: as decisões gravam só na Caixa publicada. Aqui a gaveta é para consulta.') + '</p>';
   return '<button class="cx-gav-x" data-act="fechar" aria-label="Fechar">×</button><div class="cx-gv"><div class="cx-gv-img">' + imgDe(c) +
-    '<p>Impressão da caixa: ' + esc(c.copias.map(function (x) { return x.imp + ', ' + x.acab; }).join('; ')) + '. <a href="https://www.ligamagic.com.br/?view=cards/card&card=' + encodeURIComponent(c.n) + '" target="_blank" rel="noopener noreferrer">Abrir na LigaMagic</a></p>' +
+    '<p>Impressão da caixa: ' + esc(c.copias.map(function (x) { return x.imp + ', ' + x.acab; }).join('; ')) + '. ' + entradaTxt(c) + '<a href="https://www.ligamagic.com.br/?view=cards/card&card=' + encodeURIComponent(c.n) + '" target="_blank" rel="noopener noreferrer">Abrir na LigaMagic</a></p>' +
     (c.fx ? '<p class="dim" style="white-space:pre-line">' + esc(c.fx) + '</p>' : '') + '</div>' +
     '<div><h2 id="cx-gav-t">' + esc(c.on || c.n) + (c.q > 1 ? '<span class="cx-xn">×' + c.q + '</span>' : '') + '</h2>' + (c.on ? '<p class="dim">' + esc(c.n) + '</p>' : '') +
     '<p class="cx-line">' + mana(c.cost) + ' ' + esc(c.line) + (c.pt ? ' ' + esc(c.pt) : '') + (rarDe(c) ? ' · ' + esc(rarDe(c)) : '') + ' · identidade ' + (mana(ordemCor(c.ident).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + '</p>' +
@@ -618,6 +640,12 @@ function copiaHtml(c, cp, i, d) {
     bt('remover', 'Remover') + '<label class="cx-pet"><input type="checkbox" data-cp="pet" data-id="' + esc(c.id) + '" data-i="' + i + '"' + ((d && d.pet) || c.pet ? ' checked' : '') + (pode ? '' : ' disabled') + '> pet card</label>' +
     '<input type="text" data-cp="nota" data-id="' + esc(c.id) + '" data-i="' + i + '" placeholder="anotação (opcional)" value="' + esc((d && d.nota) || '') + '"' + (pode ? '' : ' disabled') + '>' +
     '<small>Sugestão desta cópia: ' + nomeD(s.d) + (s.p ? ' · ' + esc(curto(s.p)) : '') + ' · prioridade ' + s.P + '. ' + esc(s.pq) + (d && d.destino ? ' Decidido em ' + esc(fdata(d.em)) + '.' : '') + '</small></div>';
+}
+/* "Entrou em 22/10/2026 (lista 03. lote 22-10.txt)", uma vez por data e lista das cópias da carta */
+function entradaTxt(c) {
+  var vistos = {}, partes = [];
+  c.copias.forEach(function (x) { var k = (x.ent || '') + '|' + (x.lista || ''); if (vistos[k]) return; vistos[k] = 1; if (x.ent) partes.push(fdata(x.ent) + (x.lista ? ' (lista ' + x.lista + ')' : '')); });
+  return partes.length ? 'Entrou em ' + esc(partes.join('; ')) + '. ' : '';
 }
 function fdata(d) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : '—'; }
 
@@ -767,7 +795,7 @@ function render() {
     (mana(ordemCor(dk.i).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + ', do maior ganho para o menor.' +
     (dk.precon ? ' Precon intacto: a lista não muda, o encaixe é só referência.' : '') + ' Asterisco: o deck nunca avaliou a carta, o ganho é piso (o /caixa avalia a sinergia).</p>' : '';
   $('#cx-lista').innerHTML = lede + (L.length ? (ui.ver === 'tabela' ? tabela(G) : galeria(G)) :
-    '<p class="dim">' + (ui.dec === 'pendentes' ? 'Nenhuma carta pendente' : ui.dec === 'decididas' ? 'Nenhuma carta decidida ainda' : 'Nenhuma carta') + (ui.q ? ' com esse nome' : '') + (ui.tipos.length || ui.faixas.length || ui.prios.length || ui.dests.length || (ui.agrupar === 'cor' && ui.cores.length) ? ' com esses filtros' : '') + '.</p>');
+    '<p class="dim">' + (ui.dec === 'pendentes' ? 'Nenhuma carta pendente' : ui.dec === 'decididas' ? 'Nenhuma carta decidida ainda' : 'Nenhuma carta') + (ui.q ? ' com esse nome' : '') + (ui.tipos.length || ui.faixas.length || ui.prios.length || ui.dests.length || ui.ent || (ui.agrupar === 'cor' && ui.cores.length) ? ' com esses filtros' : '') + '.</p>');
   var rod = '<p class="nota">Força sozinha: o valor da carta pela régua, só com os oito critérios dela, sem sinergia, e a posição no EDHREC. Selos <span class="cx-gc">GC</span> Game Changer e <span class="cx-st">Staple</span> top ' + R.staple_rank_max + ' do EDHREC. Com duas cópias ou mais, o nome ganha <span class="cx-xn">×N</span> e a decisão abre uma linha por cópia. Valor: preço do Scryfall em dólar, pela impressão e pelo acabamento de cada cópia; cópia em outro idioma usa a impressão em inglês como referência.</p>';
   if (r.nao_encontradas.length) rod += '<p class="nota">Não encontradas no Scryfall (fora da conta): ' + r.nao_encontradas.map(function (x) { return esc(x.lista + ', linha ' + x.linha + ': ' + x.orig); }).join(' · ') + '</p>';
   if (r.ilegiveis.length) rod += '<p class="nota">Linhas que não deu para ler: ' + r.ilegiveis.map(function (x) { return esc(x.lista + ', linha ' + x.linha + ': ' + x.orig); }).join(' · ') + '</p>';
