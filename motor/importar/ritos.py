@@ -57,7 +57,7 @@ def carta(a, radar=False):
 def main(kit, pasta):
     annot = carregar(os.path.join(kit, "annot.py"), "annot_ritos")
     edh = carregar(os.path.join(kit, "edh.py"), "edh_ritos")
-    destino = os.path.join(RAIZ, "dados", pasta)
+    destino = os.path.join(RAIZ, "dados", "decks", pasta)   # desde 22/10/2026 os decks moram em dados/decks/
 
     avaliacao = {
         "feito": "07/10/2026",
