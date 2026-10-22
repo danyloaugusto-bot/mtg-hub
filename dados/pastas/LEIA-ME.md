@@ -2,6 +2,16 @@
 
 Aqui entram as suas pastas físicas de cartas: Rosa P (a pasta de venda; antes "Rosa (sell)"), Preta P (a 4x4 das cartas em espera e das pet cards, que não vende; antes "Preta (esp)"), Preta, Amarela, Laranja, Rosa, Azul e Vermelha.
 
+## A Preta P é lista do projeto (desde 22/10/2026)
+
+A Preta P não depende mais do ManaBox. A lista dela é `dados/pastas/Preta P.csv`, no formato do ManaBox, e quem mexe nela é o motor:
+
+- **Carta que chega da Caixa:** na página da Caixa publicada, escolha a pasta Preta P e clique em Guardar. Depois peça `/caixa aplicar`: a carta sai da Caixa e entra no CSV da Preta P, com coleção, número, foil, idioma, condição e selos copiados da lista de onde veio.
+- **Carta que sai da Preta P:** decida na página da Pasta Preta P (Mover, Deck, Remover) e peça `/caixa aplicar`: a linha sai do CSV.
+- Nada de exportar nem de salvar arquivo: as decisões ficam no banco da página e o `/caixa aplicar` grava no projeto; o commit guarda no GitHub.
+
+As outras pastas podem seguir qualquer um dos dois jeitos abaixo.
+
 ## Como pôr uma pasta
 
 1. Crie uma subpasta aqui com o nome exato da pasta física (o mesmo da aba Pastas do hub), por exemplo `dados/pastas/Preta P/`.
