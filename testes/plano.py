@@ -18,7 +18,7 @@ PIL = json.load(open(os.path.join(RAIZ, "contexto", "plano", "piloto-clavileno.j
 CL = "02. Clavileño"
 
 # ---------------------------------------------------------------- o piloto, a partir dos arquivos
-av = json.load(open(os.path.join(RAIZ, "dados", CL, "avaliacao.json"), encoding="utf-8"))
+av = json.load(open(os.path.join(dados.pasta_deck(CL), "avaliacao.json"), encoding="utf-8"))
 papeis = {n: a["papel"] for n, a in av["cartas"].items() if a.get("papel")}
 R.ok("piloto importado: as 44 cartas com o papel do piloto", len(papeis) == 44 and all(papeis.get(c["n"]) == c["papel"] for c in PIL["cartas"]), len(papeis))
 R.ok("piloto: toda carta com papel tem porquê", all((av["cartas"][n].get("papel_por_que") or "").strip() for n in papeis))
@@ -93,9 +93,9 @@ R.ok("plano acima da faixa: só fala em tribal quando o deck é tribal", "tribal
 # ---------------------------------------------------------------- a tela: o quadro no painel do Clavileño e num deck sem classificação
 import subprocess
 from playwright.sync_api import sync_playwright
-SEM = next((p for p in sorted(os.listdir(os.path.join(RAIZ, "dados"))) if p[:2].isdigit() and os.path.exists(os.path.join(RAIZ, "dados", p, "avaliacao.json"))
-            and json.load(open(os.path.join(RAIZ, "dados", p, "avaliacao.json"), encoding="utf-8")).get("versao_pontuacao") == 3
-            and not json.load(open(os.path.join(RAIZ, "dados", p, "avaliacao.json"), encoding="utf-8")).get("plano")), None)   # um deck ainda sem classificação
+SEM = next((p for p in dados.pastas_decks() if p[:2].isdigit() and os.path.exists(os.path.join(dados.pasta_deck(p), "avaliacao.json"))
+            and json.load(open(os.path.join(dados.pasta_deck(p), "avaliacao.json"), encoding="utf-8")).get("versao_pontuacao") == 3
+            and not json.load(open(os.path.join(dados.pasta_deck(p), "avaliacao.json"), encoding="utf-8")).get("plano")), None)   # um deck ainda sem classificação
 for pasta in [CL] + ([SEM] if SEM else []):
     subprocess.run([sys.executable, "-B", os.path.join(RAIZ, "motor", "build.py"), "--deck", pasta], capture_output=True, text=True, encoding="utf-8")
 with sync_playwright() as pw:
