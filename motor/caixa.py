@@ -154,7 +154,8 @@ def ler_csv(caminho):
         out.append(dict(linha=n, orig=sep.join(row), q=q, nome=nome, set=g("set").upper() or None, num=g("num") or None,
                         acab=_acabamento(g("foil"), g("acab")), id=g("id") or None, idioma=(g("idioma") or "en").lower(),
                         cond=g("cond") or None, proxy=_sim(g("proxy")), selos=[v for k, v in SELOS.items() if _sim(g(k))],
-                        rar=RARIDADE.get(g("rar").lower(), g("rar").lower() or None), compra=compra))
+                        rar=RARIDADE.get(g("rar").lower(), g("rar").lower() or None), compra=compra,
+                        ent=(g("added")[:10] if re.match(r"\d{4}-\d{2}-\d{2}", g("added")) else None)))
     return out, ignoradas, ruins
 
 
@@ -177,6 +178,31 @@ def ler_txt(caminho):
     return out, [], ruins
 
 
+def data_do_arquivo(caminho):
+    """A data de entrada de uma lista sem data por carta: a do nome do arquivo ("03. lote 22-10.txt", com o ano do arquivo), senão o
+    dia em que o arquivo entrou no projeto (Git), senão a data do arquivo."""
+    mt = datetime.date.fromtimestamp(os.path.getmtime(caminho))
+    m = re.search(r"(?<!\d)(\d{1,2})[-_.](\d{1,2})(?:[-_.](\d{2,4}))?(?!\d)", os.path.basename(caminho).split(".", 1)[-1])
+    if m:
+        dia, mes = int(m.group(1)), int(m.group(2))
+        ano = int(m.group(3)) if m.group(3) else mt.year
+        ano = ano + 2000 if ano < 100 else ano
+        try:
+            return datetime.date(ano, mes, dia).isoformat()
+        except ValueError:
+            pass
+    try:
+        import subprocess
+        r = subprocess.run(["git", "log", "--diff-filter=A", "--format=%ad", "--date=short", "--", caminho], cwd=dados.RAIZ,
+                           capture_output=True, text=True, timeout=10)
+        d = (r.stdout or "").strip().splitlines()
+        if d:
+            return d[-1]
+    except (OSError, ValueError, subprocess.SubprocessError):
+        pass
+    return mt.isoformat()
+
+
 def _ler_arquivos(caminhos, nome_de):
     """(cópias, resumo) de uma lista de arquivos .csv e .txt somados; nome_de(caminho) é o nome que a tela mostra."""
     copias, resumo = [], []
@@ -189,8 +215,12 @@ def _ler_arquivos(caminhos, nome_de):
         else:
             continue
         arq = nome_de(p)
+        ent = None
         for c in cs:
             c["lista"] = arq
+            if not c.get("ent"):   # sem data por carta (texto, ou CSV sem a coluna Added): a data da lista
+                ent = ent or data_do_arquivo(p)
+                c["ent"] = ent
         for r in ruins:
             r["lista"] = arq
         copias += cs
@@ -207,8 +237,8 @@ def ler_listas(base=None):
 
 def pastas_lista():
     """As pastas com lista: cada subpasta de dados/pastas/ com .csv ou .txt dentro (o export do ManaBox, que é a verdade e o
-    motor nunca edita: {"sub": True}) e o formato antigo dados/pastas/<pasta>.txt ({"sub": False}, que o motor edita ao
-    aplicar). Pasta com os dois soma os dois e segue a regra da subpasta."""
+    motor nunca edita: {"sub": True}) e a lista do projeto, dados/pastas/<pasta>.csv (formato do ManaBox) ou <pasta>.txt
+    ({"sub": False}, que o motor edita ao aplicar). Pasta com os dois soma os dois e segue a regra da subpasta."""
     pf = os.path.join(dados.DADOS, "pastas")
     out = {}
     for f in sorted(os.listdir(pf)) if os.path.isdir(pf) else []:
@@ -219,7 +249,8 @@ def pastas_lista():
                 out.setdefault(f, dict(sub=True, arqs=[]))
                 out[f]["sub"] = True
                 out[f]["arqs"] = arqs + out[f]["arqs"]
-        elif f.lower().endswith(".txt") and os.path.getsize(p) > 0:
+        elif f.lower().endswith((".txt", ".csv")) and os.path.getsize(p) > 0 and f.lower() not in ("decisoes.json",):
+            # lista do projeto: o .txt antigo ou, desde 22/10/2026, o .csv no formato do ManaBox (a Preta P), que o motor edita
             out.setdefault(f[:-4], dict(sub=False, arqs=[]))["arqs"].append(p)
     return out
 
@@ -667,8 +698,8 @@ def info_decks():
     """Cada pasta de deck: grupo, Desejo, precon intacto, comandantes, cartas e radar (pelo nome do Scryfall)."""
     out = {}
     por_pasta = {m["pasta"]: m for m in encaixe.decks_v3()}
-    for pasta in sorted(os.listdir(dados.DADOS)):
-        base = os.path.join(dados.DADOS, pasta)
+    for pasta in dados.pastas_decks():
+        base = dados.pasta_deck(pasta)
         if not (dados.eh_deck(pasta) and os.path.exists(os.path.join(base, "decklist.txt"))):
             continue
         ficha = ""
@@ -776,7 +807,7 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
         var = round((preco - ant["ant"]) / ant["ant"], 3) if preco is not None and ant.get("ant") else None
         for _ in range(c["q"]):
             cp = dict(imp=imp, acab=c["acab"], idioma=c["idioma"], cond=c["cond"], usd=preco,
-                      data=r.get("consultado"), avisos=list(avisos), lista=c["lista"], linha=c["linha"])
+                      data=r.get("consultado"), avisos=list(avisos), lista=c["lista"], linha=c["linha"], ent=c.get("ent"))
             if c.get("proxy"):
                 cp["proxy"] = 1
             for k in ("selos", "rar", "compra"):
@@ -1253,7 +1284,7 @@ def atalho():
 # ---------------------------------------------------------------- o /caixa: avaliar a sinergia e aplicar as decisões
 
 def _ler_av(pasta):
-    p = os.path.join(dados.DADOS, pasta, "avaliacao.json")
+    p = os.path.join(dados.pasta_deck(pasta), "avaliacao.json")
     with open(p, encoding="utf-8") as f:
         bruto = f.read()
     m = re.match(r"\{\n( +)\"", bruto)
@@ -1269,7 +1300,7 @@ def dossie_avaliar(cx, decks_filtro=None):
         # sem escolha: os "decks a avaliar" de cada carta (os três primeiros do encaixe, os radares e o EDHREC)
         alvos = [e["p"] for e in c["enc"] if e["p"] in decks_filtro and not e["a"] and not e["j"] and not e["pre"]] if decks_filtro else c["avaliar"]
         for p in alvos:
-            t = dados.ler_json(os.path.join(dados.DADOS, p, "tema.json"), obrigatorio=False) or {}
+            t = dados.ler_json(os.path.join(dados.pasta_deck(p), "tema.json"), obrigatorio=False) or {}
             sins = (t.get("sinergias") or {})
             d = out.setdefault(p, dict(deck=p, sinergias={k: dict(nome=v.get("nome"), regra=v.get("regra")) for k, v in sins.items() if k in ("sin1", "sin2")}, cartas=[]))
             e = next((x for x in c["enc"] if x["p"] == p), {})
@@ -1359,9 +1390,135 @@ def _linha(nome, imp, acab):
     return "1 %s%s%s" % (nome, (" (%s) %s" % (s_, num)) if s_ and num else "", " *F*" if acab == "foil" else " E" if acab == "etched" else "")
 
 
+def _acab_csv(v):
+    v = (v or "").strip().lower()
+    return "etched" if v == "etched" else "foil" if v in ("foil", "true", "yes", "sim") else "normal"
+
+
+def _ler_csv_cru(arq):
+    """(separador, cabeçalho, linhas) de um CSV, sem interpretar."""
+    with open(arq, encoding="utf-8-sig") as f:
+        bruto = f.read()
+    primeira = bruto.splitlines()[0] if bruto else ""
+    sep = ";" if primeira.count(";") > primeira.count(",") else ","
+    rows = list(csv.reader(io.StringIO(bruto), delimiter=sep))
+    return sep, (rows[0] if rows else []), [r for r in rows[1:] if any(x.strip() for x in r)]
+
+
+def _gravar_csv_cru(arq, sep, cab, linhas):
+    buf = io.StringIO()
+    w = csv.writer(buf, delimiter=sep, lineterminator="\n")
+    w.writerow(cab)
+    w.writerows(linhas)
+    with open(arq, "w", encoding="utf-8", newline="\n") as f:
+        f.write(buf.getvalue())
+
+
+def _col(cab, campo):
+    """O índice da coluna de um campo (COLUNAS) num cabeçalho, ou None."""
+    norm = [_sem_acento(c) for c in cab]
+    for i, c in enumerate(norm):
+        if c in COLUNAS[campo]:
+            return i
+    return None
+
+
+def _linha_de_origem(origem, nome, imp, acab, base=None):
+    """(cabeçalho, linha) do CSV de onde vem uma cópia (lista da Caixa ou da pasta de origem), para a carta chegar ao destino com
+    coleção, número, foil, idioma, condição, selos e o preço do cadastro. None se veio de um .txt ou não achou."""
+    if origem == CAIXA:
+        copias, _ = ler_listas(base)
+        pasta_dir = os.path.join(pasta_caixa(base), "listas")
+        caminho = lambda c: os.path.join(pasta_dir, c["lista"])
+    else:
+        copias, _ = ler_pasta(origem)
+        caminho = lambda c: os.path.join(dados.DADOS, "pastas", c["lista"])
+    alvo = dados.chave_nome(nome)
+    cand = [c for c in copias if dados.chave_nome(c.get("nome") or "") == alvo and c["acab"] == acab and c.get("lista", "").lower().endswith(".csv")
+            and (not imp or _imp(c.get("set"), c.get("num")) == imp)]
+    if not cand:
+        return None
+    c = cand[0]
+    try:
+        _, cab, linhas = _ler_csv_cru(caminho(c))
+        return cab, linhas[c["linha"] - 2]
+    except (OSError, IndexError):
+        return None
+
+
+def _por_na_pasta(pasta, nome, imp, acab, origem, base=None):
+    """Põe uma cópia na lista do projeto da pasta: no dados/pastas/<pasta>.csv, se existe (copiando a linha de onde a carta veio,
+    com quantidade 1), senão no <pasta>.txt."""
+    pasta_fis = os.path.join(dados.DADOS, "pastas")
+    os.makedirs(pasta_fis, exist_ok=True)
+    arq_csv = os.path.join(pasta_fis, pasta + ".csv")
+    if os.path.exists(arq_csv):
+        sep, cab, linhas = _ler_csv_cru(arq_csv)
+        nova = [""] * len(cab)
+        fonte = _linha_de_origem(origem, nome, imp, acab, base)
+        if fonte:
+            fcab, frow = fonte
+            fnorm = [_sem_acento(c) for c in fcab]
+            for i, c in enumerate(cab):
+                if _sem_acento(c) in fnorm:
+                    j = fnorm.index(_sem_acento(c))
+                    nova[i] = frow[j] if j < len(frow) else ""
+        s_, _, num = (imp or "").partition(" ")
+        for campo, v in (("nome", nome), ("set", s_), ("num", num), ("foil", acab)):   # o que a linha de origem não trouxe
+            i = _col(cab, campo)
+            if i is not None and not nova[i]:
+                nova[i] = v
+        i = _col(cab, "q")
+        if i is not None:
+            nova[i] = "1"
+        linhas.append(nova)
+        _gravar_csv_cru(arq_csv, sep, cab, linhas)
+        return arq_csv
+    arq = os.path.join(pasta_fis, pasta + ".txt")
+    with open(arq, "a", encoding="utf-8", newline="\n") as f:
+        f.write(_linha(nome, imp, acab) + "\n")
+    return arq
+
+
+def _tirar_do_csv(arq, nome, imp, acab):
+    """Tira uma cópia de uma lista do projeto em CSV: a linha da mesma impressão e acabamento (ou a primeira do nome), e desconta
+    1 se a quantidade é maior. Devolve True se achou."""
+    try:
+        sep, cab, linhas = _ler_csv_cru(arq)
+    except OSError:
+        return False
+    iq, inome, iset, inum, ifoil = (_col(cab, k) for k in ("q", "nome", "set", "num", "foil"))
+    if inome is None:
+        return False
+    alvo = dados.chave_nome(nome)
+    s_, _, num = (imp or "").partition(" ")
+    g = lambda r, i: r[i].strip() if i is not None and i < len(r) else ""
+    cand = []
+    for k, r in enumerate(linhas):
+        if dados.chave_nome(g(r, inome)) != alvo:
+            continue
+        mesma = g(r, iset).upper() == s_.upper() and g(r, inum) == num and _acab_csv(g(r, ifoil)) == acab
+        cand.append((0 if mesma else 1, k))
+    if not cand:
+        return False
+    _, k = sorted(cand)[0]
+    try:
+        q = int(g(linhas[k], iq) or 1)
+    except ValueError:
+        q = 1
+    if q <= 1:
+        del linhas[k]
+    else:
+        linhas[k][iq] = str(q - 1)
+    _gravar_csv_cru(arq, sep, cab, linhas)
+    return True
+
+
 def _tirar_da_pasta(pasta, nome, imp, acab):
     """Tira uma cópia de dados/pastas/<pasta>.txt: a linha da mesma impressão e acabamento (ou a primeira do nome), e
-    desconta 1 se a linha tem quantidade maior. Devolve True se achou."""
+    desconta 1 se a linha tem quantidade maior. Devolve True se achou. A lista do projeto em CSV (<pasta>.csv) vem primeiro."""
+    if _tirar_do_csv(os.path.join(dados.DADOS, "pastas", pasta + ".csv"), nome, imp, acab):
+        return True
     arq = os.path.join(dados.DADOS, "pastas", pasta + ".txt")
     try:
         with open(arq, encoding="utf-8") as f:
@@ -1430,7 +1587,8 @@ def tarefas_pendentes():
 
 
 def aplicar(base=None, hoje=None, origem=None):
-    """Executa as decisões ainda não aplicadas de uma origem: Guardar e Venda -> dados/pastas/<pasta>.txt; Bundles e Bulk
+    """Executa as decisões ainda não aplicadas de uma origem: Guardar e Venda -> a lista do projeto da pasta (dados/pastas/
+    <pasta>.csv, com a linha de onde a carta veio, ou <pasta>.txt); Bundles e Bulk
     -> dados/caixa/bundles.txt e bulk.txt; Remover -> a cópia só sai. Vinda de uma pasta, a cópia sai também do arquivo
     daquela pasta. Pet card fica marcado em dados/pastas/marcas.json. As de Deck ficam para o /caixa pôr no radar
     (julgamento: notas, tier, quem sai) e marcar com --marcar. Nenhuma decklist muda; as listas da caixa nunca são editadas."""
@@ -1477,12 +1635,11 @@ def aplicar(base=None, hoje=None, origem=None):
                 continue
             if d != "remover":
                 if d in ("guardar", "venda"):
-                    os.makedirs(pasta_fis, exist_ok=True)
-                    arq = os.path.join(pasta_fis, x["pasta"] + ".txt")
+                    # a carta chega à lista do projeto da pasta: no .csv com a linha de onde veio, ou no .txt
+                    _por_na_pasta(x["pasta"], nome, x.get("imp"), x.get("acab", "normal"), origem, base)
                 else:
-                    arq = os.path.join(pasta_caixa(base), d + ".txt")
-                with open(arq, "a", encoding="utf-8", newline="\n") as f:
-                    f.write(_linha(nome, x.get("imp"), x.get("acab", "normal")) + "\n")
+                    with open(os.path.join(pasta_caixa(base), d + ".txt"), "a", encoding="utf-8", newline="\n") as f:
+                        f.write(_linha(nome, x.get("imp"), x.get("acab", "normal")) + "\n")
                 if x.get("pet") and d in ("guardar", "venda"):
                     marcas.setdefault(x["pasta"], {})[dados.chave_nome(nome)] = {"pet": True}
             x["aplicado"] = hoje
