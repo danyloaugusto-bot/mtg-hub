@@ -2860,6 +2860,14 @@ function grimorioOf() {
     'Abre o 8×8 do Grimório neste deck: um quadro por pacote, com as cartas boas nas cores dele e se você já tem, tem parada em outro deck ou pasta, ou falta. Só leitura: nada muda aqui.</p>' +
     '<div class="acts"><a class="btn sm" id="of-grim-a" href="' + esc(href) + '" target="_blank" rel="noopener">Abrir o Grimório neste deck</a></div></article>';
 }
+/* a Consulta (página própria, ao lado do Grimório): uma carta de fora contra todos os decks; só consulta, nada muda aqui */
+function consultaOf() {
+  var C = M.consulta; if (!C) return '';
+  var href = (PUB && C.pub) ? C.pub : C.href;
+  return '<article class="of" id="of-cons"><h3>Consultar uma carta de fora</h3><p>' +
+    'Abre a Consulta: cole o link de uma carta do Scryfall e veja o que ela faz, se é forte sozinha, em qual deck rende e no lugar de quem, e se vale comprar. Só consulta: nada muda aqui.</p>' +
+    '<div class="acts"><a class="btn sm" id="of-cons-a" href="' + esc(href) + '" target="_blank" rel="noopener">Abrir a Consulta</a></div></article>';
+}
 function renderOfi() {
   var nomes = deckNames();
   var h = '<p class="hint">O painel não tem IA dentro dele. Estes são os pedidos que dá para fazer ao Claude Code sobre este deck: copie o comando e cole no terminal do projeto. A pasta do deck, ' + esc(M.pasta) + ', já vai preenchida.</p><div class="ofi">' + OF.map(function (o) {
@@ -2876,7 +2884,7 @@ function renderOfi() {
     return '<article class="of" id="of-' + o.k + '"><h3>' + esc(o.t) + '</h3><p>' + esc(o.d) + '</p>' + flds +
       '<textarea id="ofc-' + o.k + '" class="' + (o.big ? 'big' : '') + '" readonly rows="' + (o.big ? 5 : 2) + '" aria-label="Comando: ' + esc(o.t) + '">' + esc(ofCmd(o)) + '</textarea>' +
       '<div class="acts"><button class="btn sm" data-act="copy" data-t="ofc-' + o.k + '" data-fid="oc' + o.k + '">Copiar o comando</button>' + note + '</div></article>';
-  }).join('') + grimorioOf() + '</div>';
+  }).join('') + grimorioOf() + consultaOf() + '</div>';
   $('#v-ofi').innerHTML = h;
 }
 
