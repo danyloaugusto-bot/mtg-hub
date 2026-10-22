@@ -15,16 +15,24 @@
 <a class="skip" href="#main">Pular para o conteúdo</a>
 <header class="top">
   <div class="top-in">
-    <a class="cx-hub" id="cx-hub" href="00.%20Hub.html">← Hub</a>
+    <nav class="abas-t cx-hubnav" aria-label="Seções do hub">
+      <a id="cx-l-decks" href="00.%20Hub.html#decks">Decks</a>
+      <a id="cx-l-pastas" href="00.%20Hub.html#pastas">Pastas</a>
+      <a id="cx-l-caixa" href="00.%20Caixa.html">Caixa</a>
+      <a id="cx-l-dash" href="00.%20Hub.html#dashboard">Dashboard</a>
+      <a id="cx-l-grim" href="00.%20Grim%C3%B3rio.html" hidden>Grimório</a>
+    </nav>
+    <label class="busca"><span class="sr">Buscar carta</span><input id="q" type="search" placeholder="Buscar carta" autocomplete="off"></label>
+  </div>
+</header>
+<main id="main">
+  <div class="cx-cab">
     <h1 class="cx-tit" id="cx-tit">Caixa</h1>
     <p class="cx-tot num" id="cx-tot"></p>
     <span class="cx-saldo" id="cx-saldo"></span>
     <button class="cx-pbt" data-act="precos" id="cx-pbt">↻ Atualizar preços</button>
     <div class="seg cx-grp" role="group" aria-label="Grupos"><button data-act="grupos" data-v="abrir">Abrir todos</button><button data-act="grupos" data-v="fechar">Fechar todos</button></div>
-    <label class="busca"><span class="sr">Buscar carta</span><input id="q" type="search" placeholder="Buscar carta" autocomplete="off"></label>
   </div>
-</header>
-<main id="main">
   <p class="cx-lede" id="cx-lede">As cartas da caixa, à espera de destino. Para cada uma, o motor cruza onde ela já está, quem pede no radar, em qual deck ela rende mais, a força dela sozinha, o que a comunidade faz com ela e quanto vale. A decisão é sua, cópia a cópia, e fica gravada.</p>
   <div id="cx-aviso"></div>
   <div id="cx-resumo" class="cx-resumo"></div>
