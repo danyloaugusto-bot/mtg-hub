@@ -90,10 +90,10 @@ def decks_alvo(nomes):
     if nomes != ["todos"]:
         return nomes
     out = []
-    for n in sorted(os.listdir(dados.DADOS)):
+    for n in dados.pastas_decks():
         if not dados.eh_deck(n):
             continue
-        if os.path.exists(os.path.join(dados.DADOS, n, "avaliacao.json")):
+        if os.path.exists(os.path.join(dados.pasta_deck(n), "avaliacao.json")):
             out.append(n)
     return out
 
@@ -156,7 +156,7 @@ def main():
 
     # capa de cada deck, se faltar
     for pasta in alvos:
-        base = os.path.join(dados.DADOS, pasta)
+        base = dados.pasta_deck(pasta)
         tem = any(f.lower().startswith("capa.") for f in os.listdir(base))
         if tem:
             continue
