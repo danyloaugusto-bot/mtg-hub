@@ -1,10 +1,13 @@
 /* ---------- Caixa (motor/caixa/): só o que é dela; o resto vem de motor/hub/style.css ---------- */
-.cx-hub{background:#232326;color:var(--bone);text-decoration:none;border-radius:999px;padding:7px 15px;font-weight:800;font-size:15px;white-space:nowrap}
-.cx-hub:hover{box-shadow:0 0 0 1px var(--gold)}
+/* a barra do topo é a do hub (motor/hub/style.css: .abas-t), com a Caixa acesa (ou Pastas, na página de uma pasta); o título, os totais,
+   o saldo e os botões descem para o cabeçalho da página, numa linha abaixo da barra */
+.cx-hubnav{flex-wrap:wrap}
+.cx-cab{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;margin:18px 0 6px}
 .cx-tit{font-weight:800;font-size:30px;color:var(--gold);line-height:1}
 .cx-tot{color:var(--mute);font-size:15.5px}
 .cx-pg .busca{margin-left:auto;flex:1 1 160px;max-width:320px;min-width:150px}
 @media (min-width:1101px){.cx-pg .top-in{flex-wrap:nowrap}.cx-tot{white-space:nowrap}}
+@media (max-width:640px){.cx-pg .busca{flex-basis:100%;max-width:none}}
 .cx-saldo{flex:none;display:inline-flex;align-items:baseline;gap:6px;background:#1b1b1e;border-radius:999px;padding:5px 12px;box-shadow:0 0 0 1px rgba(255,201,107,.25);cursor:help;white-space:nowrap}
 .cx-saldo b{font-weight:800;color:var(--bone);font-size:15px}
 .cx-saldo:empty{display:none}
