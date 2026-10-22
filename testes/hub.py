@@ -47,7 +47,7 @@ def movimentos_py():
     """Cartas do radar (entra ou avaliar) que já estão no deck de outro painel, contadas em Python: sem básicos e sem
     comandante na origem. Devolve {"cartas": n de nomes, "mova": pares (carta, deck que pede) com tier melhor no radar}."""
     TR = {"S": 0, "A": 1, "B": 2, "C": 3, "D": 4}
-    ms = {p: dados.montar(p, avisar=lambda *x: None) for p in [d for d in sorted(os.listdir(dados.DADOS)) if dados.eh_deck(d) and os.path.exists(os.path.join(dados.DADOS, d, "avaliacao.json"))]}
+    ms = {p: dados.montar(p, avisar=lambda *x: None) for p in [d for d in dados.pastas_decks() if dados.eh_deck(d) and os.path.exists(os.path.join(dados.pasta_deck(d), "avaliacao.json"))]}
     bas = set(motor_hub.BASICOS)
     no_deck = {}
     for p, m in ms.items():
