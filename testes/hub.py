@@ -317,9 +317,21 @@ with sync_playwright() as p:
             aba(pg, "resumo")
             R.ok("KPIs do resumo", pg.locator("#d-resumo .kpi").count() >= 5, pg.locator("#d-resumo .kpi").count())
             R.ok("Faça agora: no máximo cinco ações", 1 <= pg.locator("#d-resumo .acoes > li").count() <= 5, pg.locator("#d-resumo .acoes > li").count())
-            R.ok("carteira num relance: um deck por painel", pg.locator("#d-resumo .sd").count() == len(prontos))
-            pg.click("#d-resumo .sd >> nth=3"); pg.wait_for_timeout(300)
-            R.ok("clicar num deck do relance abre a ficha dele", pg.is_visible("#f-3") and pg.evaluate("location.hash") == "#f-3", pg.evaluate("location.hash"))
+            R.ok("matriz deck a deck: uma linha por painel", pg.locator("#d-resumo .rz-t tbody tr").count() == len(prontos))
+            R.ok("gráficos do resumo: onde falta reserva e a mesa contra a carteira", pg.locator("#d-resumo .rz-mesa li").count() >= 1)
+            vis = "document.querySelectorAll('#d-resumo .rz-t tbody tr:not([hidden])').length"
+            pg.click('#d-resumo [data-act="res-f"][data-k="ins"]'); pg.wait_for_timeout(150)
+            n_ins = pg.evaluate(vis)
+            R.ok("filtro da matriz: Plano insuficiente mostra só os insuficientes, com a contagem do botão",
+                 n_ins == pg.locator("#d-resumo .rz-t tbody tr .pv-insuficiente").count() and str(n_ins) in pg.inner_text('#d-resumo [data-act="res-f"][data-k="ins"]'), n_ins)
+            pg.click('#d-resumo [data-act="res-f"][data-k=""]'); pg.wait_for_timeout(150)
+            R.ok("filtro da matriz: Todos volta a mostrar todos", pg.evaluate(vis) == len(prontos))
+            pg.evaluate("document.querySelector('#d-resumo details.todos').open = true"); pg.click('#d-resumo [data-act="att-f"][data-k="3"]'); pg.wait_for_timeout(150)
+            R.ok("avisos: o filtro Alta mostra só os de gravidade alta",
+                 pg.evaluate("[...document.querySelectorAll('#d-resumo .att>li')].every(x => !x.offsetParent || x.dataset.s === '3')"))
+            pg.click('#d-resumo [data-act="att-f"][data-k=""]'); pg.evaluate("document.querySelector('#d-resumo details.todos').open = false")
+            pg.click("#d-resumo .rz-t tbody tr >> nth=3 >> th a"); pg.wait_for_timeout(300)
+            R.ok("clicar num deck da matriz abre a ficha dele", pg.is_visible("#f-3") and pg.evaluate("location.hash") == "#f-3", pg.evaluate("location.hash"))
             R.ok("lista do que pede atenção", pg.locator("#d-resumo .att > li:not(.mais)").count() >= 1)
             # mesa: com um oponente de combo, o ranking aparece com todos os decks e explica o porquê
             aba(pg, "mesa")
