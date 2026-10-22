@@ -6,6 +6,7 @@
     python motor/build.py --hub            # só o hub
     python motor/build.py --caixa          # só a Caixa (saidas/00. Caixa.html); --todos monta a Caixa antes do hub
     python motor/build.py --grimorio       # só o Grimório (saidas/00. Grimório.html); --todos monta o Grimório antes do hub
+    python motor/build.py --consulta       # só a Consulta (saidas/00. Consulta.html); --todos monta a Consulta antes do hub
 
 Gera saidas/<pasta>.html e dados/<pasta>/Abrir o painel.html; o hub gera saidas/00. Hub.html e Abrir o Hub.html na raiz.
 Sempre com quebra de linha LF,
@@ -18,7 +19,7 @@ sys.dont_write_bytecode = True
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, MOTOR)
 
-import caixa, dados, encaixe, grimorio, hub, imagens, plano, scryfall, tema  # noqa: E402
+import caixa, consulta, dados, encaixe, grimorio, hub, imagens, plano, scryfall, tema  # noqa: E402
 
 RAIZ = os.path.dirname(MOTOR)
 SAIDAS = os.path.join(RAIZ, "saidas")
@@ -173,6 +174,8 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         sinergias=(t.get("sinergias") or None) if d.get("v3") else None,
         # a Oficina leva ao 8×8 do Grimório com este deck escolhido (só quando já houve leitura)
         grimorio=dict(href="00.%20Grim%C3%B3rio.html", pub=grimorio.link_publicado()) if os.path.exists(os.path.join(dados.DADOS, "grimorio", "grimorio.json")) else None,
+        # e à Consulta: uma carta de fora contra todos os decks (página própria, ao lado do Grimório)
+        consulta=dict(href="00.%20Consulta.html", pub=consulta.link_publicado()),
     )
     # v3: os dez critérios (aba Critérios e gráfico da página inicial), com a cor da régua; o 8×8 segue com os agrupamentos
     criterios = None
@@ -285,6 +288,14 @@ def decks():
     return out
 
 
+def montar_consulta():
+    """A Consulta: página própria (motor/consulta/), com as consultas registradas em dados/consultas/ que já têm o estudo."""
+    html, r = consulta.pagina()
+    gravar(os.path.join(SAIDAS, consulta.NOME + ".html"), html)
+    gravar(os.path.join(RAIZ, "Abrir a Consulta.html"), consulta.atalho())
+    print("%s: %d consultas com estudo, %d decks | dados %.0f KB sem imagens | %.0f KB" % (consulta.NOME, r["registros"], r["decks"], r["kb_dados"], r["kb"]))
+
+
 def main():
     ap = argparse.ArgumentParser(description="Monta os painéis dos decks.")
     g = ap.add_mutually_exclusive_group(required=True)
@@ -293,6 +304,7 @@ def main():
     g.add_argument("--hub", action="store_true", help="só o hub, saidas/00. Hub.html")
     g.add_argument("--caixa", action="store_true", help="só a Caixa, saidas/00. Caixa.html")
     g.add_argument("--grimorio", action="store_true", help="só o Grimório, saidas/00. Grimório.html")
+    g.add_argument("--consulta", action="store_true", help="só a Consulta, saidas/00. Consulta.html")
     ap.add_argument("--atualizar-scryfall", action="store_true", help="consulta o Scryfall de novo, mesmo para cartas no cache")
     ap.add_argument("--imagens", choices=MODOS_IMG, default="embutidas", help="embutidas (padrão): lê cache/img/; externas: tenta o Scryfall ao vivo; nenhuma: sem imagens, nem ao vivo")
     a = ap.parse_args()
@@ -318,6 +330,13 @@ def main():
             print("00. Grimório: ERRO: %s" % e, file=sys.stderr)
             sys.exit(1)
         sys.exit(0)
+    if a.consulta:
+        try:
+            montar_consulta()
+        except (dados.ErroDeck, scryfall.ErroScryfall, consulta.ErroConsulta) as e:
+            print("%s: ERRO: %s" % (consulta.NOME, e), file=sys.stderr)
+            sys.exit(1)
+        sys.exit(0)
     alvos = decks() if a.todos else [a.deck]
     if a.todos:
         sem = [p for p in alvos if not os.path.exists(os.path.join(dados.pasta_deck(p), "avaliacao.json"))]
@@ -341,6 +360,11 @@ def main():
         except (dados.ErroDeck, scryfall.ErroScryfall) as e:
             erros += 1
             print("00. Grimório: ERRO: %s" % e, file=sys.stderr)
+        try:
+            montar_consulta()
+        except (dados.ErroDeck, scryfall.ErroScryfall, consulta.ErroConsulta) as e:
+            erros += 1
+            print("%s: ERRO: %s" % (consulta.NOME, e), file=sys.stderr)
         montar_hub()
     sys.exit(1 if erros else 0)
 
