@@ -15,6 +15,7 @@ import build, dados
 def _args(ap):
     ap.add_argument("--fotos", help="pasta para salvar capturas")
     ap.add_argument("--grimorio", action="store_true", help="em vez de um deck, a página do Grimório (saidas/00. Grimório.html)")
+    ap.add_argument("--consulta", action="store_true", help="em vez de um deck, a página da Consulta (saidas/00. Consulta.html)")
 
 
 a = comum.argumentos("Layout com 6 a 10 agrupamentos e as duas molduras", _args)
@@ -94,8 +95,55 @@ def layout_grimorio():
     R.fim()
 
 
+def layout_consulta():
+    """A página da Consulta em 1360 e 375 px: sem rolagem lateral, os cinco blocos dos decks na ordem, cartões em 3 e 1 colunas,
+    nenhum texto abaixo de 13 px, a barra do topo numa linha só e a sub-aba das registradas."""
+    import subprocess, sys
+    import consulta
+    R = comum.Relatorio("layout: Consulta")
+    arq = os.path.join(comum.RAIZ, "saidas", consulta.NOME + ".html")
+    if not a.sem_montar or not os.path.exists(arq):
+        r = subprocess.run([sys.executable, "-B", os.path.join(comum.MOTOR, "build.py"), "--consulta"], capture_output=True, text=True, encoding="utf-8")
+        if r.returncode:
+            sys.exit("o build da Consulta falhou:\n" + r.stdout + r.stderr)
+    with sync_playwright() as p:
+        b = p.chromium.launch()
+        for w, hh, cols in ((1360, 900, 3), (375, 812, 1)):
+            pg = b.new_page(viewport={"width": w, "height": hh})
+            comum.bloquear_rede(pg)
+            err = []
+            pg.on("pageerror", lambda e: err.append(str(e)))
+            pg.goto(comum.url(arq)); pg.wait_for_function("!!window.CONSULTA", timeout=30000); pg.wait_for_timeout(300)
+            if not pg.evaluate("CONSULTA.D.registros.length"):
+                R.ok("%d px: sem consulta registrada, a página abre vazia e sem erro" % w, not err, err[:2]); pg.close(); continue
+            sw = pg.evaluate("document.documentElement.scrollWidth")
+            R.ok("%d px: sem rolagem lateral no estudo" % w, sw <= w + 1, sw)
+            R.ok("%d px: os cinco blocos dos decks, na ordem" % w, pg.evaluate("[...document.querySelectorAll('[data-bloco]')].map(b => b.dataset.bloco).join(',')") == "entra,avaliar,fora,sem,cores")
+            n = pg.evaluate("(() => { var g = [...document.querySelectorAll('.cs-grade')].sort((a, b) => b.children.length - a.children.length)[0]; if (!g) return null; var xs = {}; [...g.children].forEach(c => xs[Math.round(c.getBoundingClientRect().left)] = 1); return Math.min(Object.keys(xs).length, g.children.length); })()")
+            maior = pg.evaluate("Math.max(0, ...[...document.querySelectorAll('.cs-grade')].map(g => g.children.length))")
+            R.ok("%d px: cartões dos decks em %d coluna(s)" % (w, cols), n is None or n == min(cols, maior), n)
+            lm = pg.evaluate(LETRA_MIN_PAGINA)
+            R.ok("%d px: nenhum texto abaixo de 13 px" % w, lm is None or lm >= 12.95, lm)
+            linhas = pg.evaluate("new Set([...document.querySelectorAll('.top nav a')].filter(x => !x.hidden && x.offsetWidth).map(x => Math.round(x.getBoundingClientRect().top))).size")
+            R.ok("%d px: a barra do topo numa linha só, com a Consulta acesa" % w, linhas == 1 and pg.get_attribute("#cs-l-cons", "aria-current") == "page", linhas)
+            pg.evaluate("location.hash = '#registradas'"); pg.wait_for_timeout(250)
+            sw = pg.evaluate("document.documentElement.scrollWidth")
+            R.ok("%d px: registradas, uma por consulta com estudo, sem rolagem lateral" % w,
+                 pg.locator(".cs-rc").count() == pg.evaluate("CONSULTA.D.registros.length") and sw <= w + 1, sw)
+            if a.fotos:
+                os.makedirs(a.fotos, exist_ok=True)
+                pg.evaluate("location.hash = '#estudo'"); pg.wait_for_timeout(250)
+                pg.screenshot(path=os.path.join(a.fotos, "consulta-%d.png" % w), full_page=True)
+            R.ok("%d px: sem erro de página" % w, not err, err[:2])
+            pg.close()
+        b.close()
+    R.fim()
+
+
 if a.grimorio:
     layout_grimorio()
+if a.consulta:
+    layout_consulta()
 R = comum.Relatorio("layout: " + a.deck)
 origem = dados.pasta_deck(a.deck)
 tmp = tempfile.mkdtemp(prefix="mtg-layout-")
