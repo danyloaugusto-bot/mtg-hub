@@ -326,7 +326,7 @@ def main():
     a = ap.parse_args()
 
     m = dados.montar(a.deck, avisar=lambda *x: None)
-    av = dados.ler_json(os.path.join(dados.DADOS, a.deck, "avaliacao.json"))
+    av = dados.ler_json(os.path.join(dados.pasta_deck(a.deck), "avaliacao.json"))
     tem_antigo = {ANTIGO[g["k"]] for g in av.get("agrupamentos") or [] if g["k"] in ANTIGO}
     nomes = []
     for c in m["cards"] + m["cands"]:
