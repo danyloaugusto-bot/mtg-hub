@@ -1233,6 +1233,16 @@ def _img(cartas, avisar):
     return out
 
 
+def _nav(R):
+    """Os links da barra do topo (hub, Caixa e Grimório), local e publicado, como o hub e o Grimório fazem."""
+    from urllib.parse import quote
+    import grimorio
+    tem_g = os.path.exists(os.path.join(grimorio.PASTA, "grimorio.json"))
+    return dict(hub=dict(href=quote("00. Hub.html"), pub=R.get("hub_publicado") or None),
+                caixa=dict(href=quote(NOME + ".html"), pub=link_publicado()),
+                grim=dict(href=quote(grimorio.NOME + ".html"), pub=grimorio.link_publicado()) if tem_g else None)
+
+
 def pagina(cx=None, avisar=print, modo_img="embutidas", origem=None):
     """(html, cx) da página de uma lista, a Caixa ou uma pasta (uma página por lista, como um painel por deck), com o CSS do hub
     mais o dela e a ordenação pelo cabeçalho do motor comum."""
@@ -1253,7 +1263,7 @@ def pagina(cx=None, avisar=print, modo_img="embutidas", origem=None):
              fichas=ler_fichas_pastas(), gerado=dt_.datetime.now().isoformat(timespec="seconds"),
              manabox=[p for p, v in pastas_lista().items() if v["sub"]],
              pastas=[n for n, _ in hub.PASTAS], pastas_com_lista=bool([p for p in dados.ler_pastas() if p != CAIXA]),
-             hub_pub=R.get("hub_publicado"), img=_img(todas, avisar) if modo_img == "embutidas" else None)
+             nav=_nav(R), img=_img(todas, avisar) if modo_img == "embutidas" else None)
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
     css_fontes, _ = tema.fontes(["Alegreya Sans", "Cinzel"])   # Cinzel: o subnome das pastas (Relicário de Ônix)
