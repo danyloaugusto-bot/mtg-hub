@@ -1240,7 +1240,14 @@ def _nav(R):
     tem_g = os.path.exists(os.path.join(grimorio.PASTA, "grimorio.json"))
     return dict(hub=dict(href=quote("00. Hub.html"), pub=R.get("hub_publicado") or None),
                 caixa=dict(href=quote(NOME + ".html"), pub=link_publicado()),
-                grim=dict(href=quote(grimorio.NOME + ".html"), pub=grimorio.link_publicado()) if tem_g else None)
+                grim=dict(href=quote(grimorio.NOME + ".html"), pub=grimorio.link_publicado()) if tem_g else None,
+                cons=_link_consulta())
+
+
+def _link_consulta():
+    import consulta
+    from urllib.parse import quote
+    return dict(href=quote(consulta.NOME + ".html"), pub=consulta.link_publicado())
 
 
 def pagina(cx=None, avisar=print, modo_img="embutidas", origem=None):
