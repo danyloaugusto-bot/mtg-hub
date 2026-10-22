@@ -358,6 +358,61 @@ finally:
             open(q, "w", encoding="utf-8", newline="\n").write(v)
 R.ok("pasta do ManaBox de teste limpa", not [f for f in os.listdir(PF) if f.startswith("zz teste")])
 
+# ---------------------------------------------------------------- lista do projeto em CSV (22/10/2026, a Preta P)
+# A pasta deixa de seguir o ManaBox: dados/pastas/<pasta>.csv, no formato do ManaBox, que o motor edita ao aplicar. Carta que
+# chega traz a linha de onde veio (idioma, selos, preço do cadastro); carta que sai some do arquivo, com o cabeçalho intacto.
+PJ = "zz teste PJ"
+csv_pj = os.path.join(PF, PJ + ".csv")
+guarda3 = {q: (open(q, encoding="utf-8").read() if os.path.exists(q) else None) for q in (os.path.join(PF, "decisoes.json"), os.path.join(PF, "marcas.json"), HIST)}
+tmpp = tempfile.mkdtemp()
+try:
+    with open(csv_pj, "w", encoding="utf-8") as f:
+        f.write(CAB + linha_mb("Hero's Downfall", "SLD", "312"))
+    os.makedirs(os.path.join(tmpp, "listas"))
+    with open(os.path.join(tmpp, "listas", "l.csv"), "w", encoding="utf-8") as f:
+        f.write(CAB + linha_mb("Umezawa's Jitte", "PLST", "BOK-163", signed="true", compra="33.00"))
+    pl = caixa.pastas_lista()
+    R.ok("lista do projeto em CSV: lida como pasta que o motor edita (não é ManaBox)", pl.get(PJ, {}).get("sub") is False and PJ in caixa.origens() and not caixa.eh_manabox(PJ))
+    caixa.gravar_decisoes({"versao": 2, "cartas": {"Umezawa's Jitte": {"copias": [{"imp": "PLST BOK-163", "acab": "normal", "destino": "guardar", "pasta": PJ, "em": "2026-10-22", "aplicado": None}]}}}, base=tmpp)
+    caixa.aplicar(base=tmpp)
+    _, cab_pj, rows_pj = caixa._ler_csv_cru(csv_pj)
+    jit = [r for r in rows_pj if r[0] == "Umezawa's Jitte"]
+    R.ok("da Caixa para a lista do projeto: a linha chega com idioma, selo e preço do cadastro, quantidade 1",
+         cab_pj == CAB.strip().split(",") and len(jit) == 1 and jit[0][cab_pj.index("Language")] == "pt" and jit[0][cab_pj.index("Signed")] == "true"
+         and jit[0][cab_pj.index("Purchase price")] == "33.00" and jit[0][cab_pj.index("Quantity")] == "1", jit)
+    R.ok("da Caixa para a lista do projeto: aplicada na hora, sem tarefa de ManaBox",
+         all(x.get("aplicado") and not x.get("tarefa") for x in caixa.ler_decisoes(base=tmpp)["cartas"]["Umezawa's Jitte"]["copias"]))
+    cpj = caixa.montar(avisar=lambda *a: None, rede=False, fonte_edhrec=fonte, origem=PJ)
+    R.ok("a pasta mostra as duas cartas, com o selo da que chegou", cpj["resumo"]["copias"] == 2 and (carta(cpj, "Umezawa's Jitte") or {}).get("copias", [{}])[0].get("selos") == ["assinada"])
+    caixa.gravar_decisoes({"versao": 2, "cartas": {"Hero's Downfall": {"copias": [{"imp": "SLD 312", "acab": "normal", "destino": "remover", "em": "2026-10-22", "aplicado": None}]}}}, origem=PJ)
+    caixa.aplicar(origem=PJ)
+    _, cab2, rows2 = caixa._ler_csv_cru(csv_pj)
+    R.ok("saída da lista do projeto: a linha some e o resto fica como estava", cab2 == cab_pj and [r[0] for r in rows2] == ["Umezawa's Jitte"], [r[0] for r in rows2])
+finally:
+    if os.path.exists(csv_pj):
+        os.remove(csv_pj)
+    shutil.rmtree(tmpp, ignore_errors=True)
+    for q, v in guarda3.items():
+        if v is None:
+            if os.path.exists(q):
+                os.remove(q)
+        else:
+            open(q, "w", encoding="utf-8", newline="\n").write(v)
+R.ok("lista do projeto de teste limpa", not os.path.exists(csv_pj))
+
+# ---------------------------------------------------------------- data de entrada (22/10/2026): Added do ManaBox ou a data da lista
+tmpd = tempfile.mkdtemp()
+try:
+    for nome_, txt_ in (("03. lote 22-10.txt", "1 Sol Ring (M3C) 305\n"), ("04. lote 05-11-2026.txt", "1 Sol Ring (M3C) 305\n")):
+        open(os.path.join(tmpd, nome_), "w", encoding="utf-8").write(txt_)
+    R.ok("data de entrada pelo nome da lista (dd-mm, com o ano do arquivo; dd-mm-aaaa)",
+         caixa.data_do_arquivo(os.path.join(tmpd, "03. lote 22-10.txt")).endswith("-10-22") and caixa.data_do_arquivo(os.path.join(tmpd, "04. lote 05-11-2026.txt")) == "2026-11-05")
+    open(os.path.join(tmpd, "l.csv"), "w", encoding="utf-8").write(CAB + linha_mb("Sol Ring", "M3C", "305"))
+    cs_, _, _ = caixa.ler_csv(os.path.join(tmpd, "l.csv"))
+    R.ok("data de entrada da coluna Added do ManaBox", cs_ and cs_[0].get("ent") == "2026-10-18", cs_[0].get("ent") if cs_ else None)
+finally:
+    shutil.rmtree(tmpd, ignore_errors=True)
+
 # ---------------------------------------------------------------- tier estimado e o deck hoje (critérios da v3 e quadros do 8×8)
 R.ok("tier estimado: nunca S (S só com avaliação)", caixa._tier_estimado(99, {"S": 20, "A": 12, "B": 8}) == "A"
      and caixa._tier_estimado(9, {"S": 20, "A": 12, "B": 8}) == "B" and caixa._tier_estimado(1, {"A": 12, "B": 8, "C": 4}) == "C")
@@ -413,6 +468,20 @@ with sync_playwright() as pw:
     t = lv.inner_text() if lv.count() else ""
     pv = caixa.usd(carta(cx_real, "Vilis, Broker of Blood")["valor"])   # o preço de hoje (muda a cada /precos)
     R.ok("linha do Vilis: S, K'rrik, +24 e o preço de hoje", lv.count() == 1 and lv.locator("td.cx-pr").inner_text().strip() == "S" and "K'rrik" in t and "+24" in t and pv in t, (pv, t[:160]))
+    # Entrada (22/10/2026): as cópias que entraram nos últimos 3 dias, e agrupar pela data de entrada, a mais nova primeiro
+    import datetime as _dt
+    hoje_ = _dt.date.today()
+    recentes = {c["id"] for c in pend if any(cp.get("ent") and (hoje_ - _dt.date.fromisoformat(cp["ent"])).days < 3 for cp in c["copias"])}
+    pg.click('[data-act="ui"][data-k="ent"][data-v="3"]'); pg.wait_for_timeout(300)
+    ids3 = set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))
+    R.ok("Entrada 3 dias: só as cartas com cópia que entrou nos últimos 3 dias", ids3 == recentes, (len(ids3), len(recentes)))
+    pg.click('[data-act="ui"][data-k="ent"][data-v=""]'); pg.wait_for_timeout(200)
+    pg.click('[data-act="ui"][data-k="ver"][data-v="galeria"]'); pg.wait_for_timeout(200)
+    pg.click('[data-act="ui"][data-k="agrupar"][data-v="entrada"]'); pg.wait_for_timeout(300)
+    hs_e = [x.strip() for x in pg.eval_on_selector_all(".cx-g-h h2", "es => es.map(e => e.textContent.replace(/[▾▸]/g, ''))")]
+    datas = sorted({cp["ent"] for c in pend for cp in c["copias"] if cp.get("ent")}, reverse=True)
+    R.ok("Agrupar por entrada: um grupo por data, a mais nova primeiro", hs_e and hs_e[0].startswith("Entrou em " + "/".join(reversed(datas[0].split("-")))) and len(hs_e) == len(datas), hs_e)
+    pg.click('[data-act="ui"][data-k="agrupar"][data-v="prioridade"]'); pg.wait_for_timeout(200)
     pg.click('[data-act="ui"][data-k="ver"][data-v="galeria"]'); pg.wait_for_timeout(300)
     pg.click('[data-act="ui"][data-k="agrupar"][data-v="tipo"]'); pg.wait_for_timeout(300)
     xn = pg.eval_on_selector_all(".cx-cd", "es => es.map(e => [e.getAttribute('data-id'), !!e.querySelector('.cx-xn')])")
@@ -592,7 +661,7 @@ with sync_playwright() as pw:
              and "Relicário de Ônix" in pg.evaluate("document.title"))
         R.ok("Preta P: uma linha por carta e o selo nas banidas", len(set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))) == len(cpp["cartas"])
              and pg.locator("tr.cx-r .cx-sl-ban").count() == sum(1 for c in cpp["cartas"] if c.get("ban") or c.get("ilegal")))
-        R.ok("Preta P: a lista diz que é do ManaBox (decisão vira tarefa)", "export do ManaBox" in pg.inner_text("#cx-lede"))
+        R.ok("Preta P: lista do projeto desde 22/10/2026, sem o aviso de tarefa do ManaBox", "export do ManaBox" not in pg.inner_text("#cx-lede") and not caixa.eh_manabox("Preta P"))
         R.ok("Preta P: o saldo no topo é o da pasta", "pasta Preta P" in (pg.get_attribute("#cx-saldo", "title") or ""))
         R.ok("Preta P não vende: nenhuma sugestão de Venda, Bulk ou Bundles, nem capital parado", all(cp["sug"]["d"] in ("deck", "guardar") and "capital parado" not in cp["sug"]["marcas"]
              for c in cpp["cartas"] for cp in c["copias"]))
