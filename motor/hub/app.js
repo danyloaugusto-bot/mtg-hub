@@ -1874,50 +1874,129 @@ function acoes(att) {
   if (best[0]) L.push({ tipo: 'Trocar', sec: 'trocas', h: '<b>' + esc(best[0].c.n) + ' no ' + esc(best[0].deck.nome) + '</b>' + (best[0].out ? ', no lugar de ' + esc(best[0].out.n) : '') + ': ' + sinalP(best[0].d) + ' pontos de placar. A troca recomendada que mais melhora o deck dela.' });
   return L.slice(0, 5);
 }
-function saude() {
-  return '<div class="sau">' + DK.map(function (d, i) {
-    var A = d.a, al = nAlertas(A.le), cls = al === 0 ? 'ok' : al <= 2 ? 'warn' : 'bad';
-    return '<a class="sd sd-' + cls + '" href="#f-' + i + '"><span class="sd-n">' + esc(d.nome) + '</span>' + cores(A.ident) +
-      '<span class="sd-d"><span class="num" title="Funções sem reserva">' + (A.res.frageis.length ? A.res.frageis.length + ' sem reserva' : '') + '</span><span class="num sd-a" title="Leituras em alerta">' + (al ? al + ' !' : '✓') + '</span></span></a>';
+/* O Resumo (rebranding de 22/10/2026, pedido do dono: mais analítico, estruturado e dinâmico).
+   Em cima, seis indicadores com o hoje e o depois das trocas; no meio, o "Faça agora" e dois gráficos (onde falta reserva e
+   a mesa contra a carteira); embaixo, a matriz deck a deck, com filtro e ordenação pelo cabeçalho. Tudo leva à aba de origem. */
+var resF = '', attF = '';
+var RZ_F = [['', 'Todos'], ['al', '3+ alertas'], ['ins', 'Plano insuficiente'], ['fr', 'Sem reserva']];
+var PV_ORD = { insuficiente: 1, satisfatorio: 2, excelente: 3 };
+function rzPassa(d, f) {
+  var A = d.a;
+  return !f || (f === 'al' && nAlertas(A.le) >= 3) || (f === 'ins' && A.pv === 'insuficiente') || (f === 'fr' && A.res.frageis.length > 0);
+}
+function rzKpi(rot, val, sub, viz, sec) {
+  return '<a class="rz-k kpi" href="#d-' + sec + '"><span class="rz-kl">' + rot + '</span><b class="rz-kv num">' + val + '</b>' + (viz || '') + '<span class="rz-ks">' + sub + '</span></a>';
+}
+/* barra empilhada: [[classe, n]] */
+function rzPilha(partes, tot) {
+  return '<span class="rz-pilha" aria-hidden="true">' + partes.map(function (p) { return p[1] ? '<i class="' + p[0] + '" style="width:' + (p[1] / (tot || 1) * 100).toFixed(2) + '%"></i>' : ''; }).join('') + '</span>';
+}
+function rz1(x) { return Math.round(x * 10) / 10; }
+function rzKpis() {
+  var n = DK.length, v3 = DK.filter(function (d) { return d.a.v3; });
+  var m1 = v3.length ? soma(v3, function (d) { return d.a.st.total; }) / v3.length : 0, m2 = v3.length ? soma(v3, function (d) { return d.a.st2.total; }) / v3.length : 0;
+  var al0 = soma(DK, function (d) { return nAlertas(d.a.le); }), al2 = soma(DK, function (d) { return nAlertas(d.a.le2); }), nLe = soma(DK, function (d) { return d.a.le.length; });
+  var nFr = soma(DK, function (d) { return d.a.res.frageis.length; }), dFr = DK.filter(function (d) { return d.a.res.frageis.length; }).length, nCo = soma(DK, function (d) { return d.a.res.nCortes; });
+  var nTr = soma(DK, function (d) { return d.a.tr.length; }), dTr = DK.filter(function (d) { return d.a.tr.length; }).length;
+  var sobe = DK.slice().sort(function (a, b) { return (b.a.st2.total - b.a.st.total) - (a.a.st2.total - a.a.st.total); })[0];
+  var pv = { excelente: 0, satisfatorio: 0, insuficiente: 0 }, semPv = 0; DK.forEach(function (d) { if (pv[d.a.pv] != null) pv[d.a.pv]++; else semPv++; });
+  var dl = function (a, b, menorMelhor) {
+    var x = rz1(b - a); if (!x) return '<span class="rz-d">sem mudança com as trocas</span>';
+    var bom = menorMelhor ? x < 0 : x > 0;
+    return '<span class="rz-d ' + (bom ? 'pos' : 'neg') + '">' + (x > 0 ? '▲ ' : '▼ ') + numP(Math.abs(x)) + ' com as trocas</span>';
+  };
+  return '<div class="rz-kg">' +
+    (v3.length ? rzKpi('Placar médio', numP(rz1(m1)), (v3.length < n ? v3.length + ' de ' + n + ' decks nos critérios' : 'os ' + n + ' decks nos critérios') + '; vai a ' + numP(rz1(m2)), dl(m1, m2), 'placar') : '') +
+    rzKpi('Leituras em alerta', al0 + ' <small>de ' + nLe + '</small>', 'caem para ' + al2 + ' com as trocas',
+      '<span class="rz-2b" aria-hidden="true"><span><i style="width:' + (al0 / (nLe || 1) * 100).toFixed(1) + '%"></i></span><span class="dep"><i style="width:' + (al2 / (nLe || 1) * 100).toFixed(1) + '%"></i></span></span>', 'fundamentos') +
+    rzKpi('Plano do deck', pv.insuficiente + ' <small>insuficientes</small>', pv.excelente + ' excelentes e ' + pv.satisfatorio + ' satisfatórios' + (semPv ? '; ' + semPv + ' sem plano' : ''),
+      rzPilha([['ex', pv.excelente], ['sa', pv.satisfatorio], ['in', pv.insuficiente]], n), 'fichas') +
+    rzKpi('Funções sem reserva', String(nFr), 'em ' + pl(dFr, 'deck', 'decks') + ' de ' + n + '; ' + pl(nCo, 'corte seguro', 'cortes seguros') + ' nos pacotes com sobra', rzPilha([['in', dFr], ['ok', n - dFr]], n), 'reserva') +
+    rzKpi('Trocas recomendadas', String(nTr), 'em ' + pl(dTr, 'deck', 'decks') + (sobe && sobe.a.st2.total > sobe.a.st.total ? '; quem mais sobe: ' + esc(sobe.nome) + ', ' + sinalP(rz1(sobe.a.st2.total - sobe.a.st.total)) : ''), '', 'trocas') +
+    rzKpi('Sub-utilizadas', String(SUB.length), 'S ou A no radar de outro deck; ' + MOV.n + ' cartas dos radares você já tem', '', 'movimentacoes') +
+    '</div>';
+}
+/* onde falta reserva: quantos decks têm cada função sem reserva */
+function rzReserva() {
+  var por = {};
+  DK.forEach(function (d) { d.a.res.frageis.forEach(function (f) { var x = por[f.g.k] || (por[f.g.k] = { n: f.g.n, ds: [] }); x.ds.push(d.nome); }); });
+  var L = Object.keys(por).map(function (k) { return por[k]; }).sort(function (a, b) { return b.ds.length - a.ds.length; });
+  if (!L.length) return '<p class="hint">Toda função de todo deck tem reserva.</p>';
+  var mx = L[0].ds.length;
+  return '<ul class="rz-bar">' + L.map(function (x) {
+    return '<li title="' + esc(x.n + ': ' + lista(x.ds)) + '"><span class="rz-bn">' + esc(x.n) + '</span><span class="rz-bt"><i style="width:' + (x.ds.length / mx * 100).toFixed(1) + '%"></i></span><b class="num">' + x.ds.length + '</b></li>';
+  }).join('') + '</ul>';
+}
+/* a mesa contra a carteira: por arquétipo, quantos decks vão bem, equilibrado e mal; do mais perigoso ao mais tranquilo */
+function rzMesa() {
+  var L = ARQ.map(function (a) {
+    var b = 0, e = 0, m = 0;
+    DK.forEach(function (d) { var c = d.a.vs[a.k]; if (!c) return; if (c.r === 'forte') b++; else if (c.r === 'fraco') m++; else e++; });
+    return { a: a, b: b, e: e, m: m, t: b + e + m };
+  }).filter(function (x) { return x.t; }).sort(function (x, y) { return (y.m - y.b) - (x.m - x.b); });
+  return '<ul class="rz-mesa">' + L.map(function (x) {
+    var cego = !x.b && x.m * 2 >= x.t;
+    return '<li><span class="rz-bn">' + esc(x.a.n) + (cego ? ' <span class="rz-cego">ponto cego</span>' : '') + '</span>' +
+      rzPilha([['ok', x.b], ['eq', x.e], ['in', x.m]], x.t) +
+      '<span class="rz-mn num" title="vai bem · equilibrado · vai mal"><b class="pos">' + x.b + '</b> · ' + x.e + ' · <b class="neg">' + x.m + '</b></span></li>';
+  }).join('') + '</ul><p class="legenda"><span><i class="lg-ok"></i>vai bem</span><span><i class="lg-eq"></i>equilibrado</span><span><i class="lg-bad"></i>vai mal</span></p>';
+}
+/* a matriz: um deck por linha, com filtro e ordenação pelo cabeçalho (motor/comum/ordenar.js) */
+function rzMatriz() {
+  var v3 = DK.filter(function (d) { return d.a.v3; });
+  var mx = Math.max.apply(null, v3.map(function (d) { return Math.max(d.a.st.total, d.a.st2.total); }).concat([1]));
+  var mn = Math.min.apply(null, v3.map(function (d) { return d.a.st.total; }).concat([mx]));
+  var base = Math.max(0, mn - (mx - mn) * 0.25), esc0 = function (x) { return Math.max(0, Math.min(100, (x - base) / ((mx - base) || 1) * 100)).toFixed(1); };
+  var rows = DK.map(function (d) {
+    var A = d.a, i = idxDK(d), al = nAlertas(A.le), al2 = nAlertas(A.le2), dp = rz1(A.st2.total - A.st.total);
+    var cls = al === 0 ? 'ok' : al <= 2 ? 'warn' : 'bad', bm = 0;
+    var mesa = ARQ.map(function (a) {
+      var c = A.vs[a.k], r = c ? RES[c.r] : null; if (r) bm += r.v;
+      return '<i class="' + (r ? 'm-' + r.c : 'm-na') + '" title="' + esc(a.n) + ': ' + (r ? r.n : 'sem leitura') + '"></i>';
+    }).join('');
+    var f = (al >= 3 ? 'al ' : '') + (A.pv === 'insuficiente' ? 'ins ' : '') + (A.res.frageis.length ? 'fr' : '');
+    return '<tr data-f="' + f.trim() + '"' + (rzPassa(d, resF) ? '' : ' hidden') + '>' +
+      '<th scope="row"><span class="rz-dk"><a href="#f-' + i + '">' + esc(d.nome) + '</a>' + cores(A.ident) + '</span></th>' +
+      '<td class="n" data-v="' + A.st.total + '">' + (A.v3 ? '<span class="rz-pl"><span class="rz-plb"><i class="dep" style="width:' + esc0(A.st2.total) + '%"></i><i style="width:' + esc0(A.st.total) + '%"></i></span><span class="num">' + numP(A.st.total) + '</span></span>'
+        : '<span class="dim num" title="Ainda fora dos critérios: compara só com ele mesmo">' + numP(A.st.total) + '</span>') + '</td>' +
+      '<td class="n num" data-v="' + dp + '">' + (dp ? '<span class="' + (dp > 0 ? 'pos' : 'neg') + '">' + sinalP(dp) + '</span>' : '<span class="dim">0</span>') + '</td>' +
+      '<td data-v="' + (PV_ORD[A.pv] || 0) + '">' + (pvB(A) || '<span class="dim">—</span>') + '</td>' +
+      '<td class="n" data-v="' + al + '"><span class="rz-al rz-' + cls + ' num">' + al + '</span>' + (al2 !== al ? '<span class="dim num"> → ' + al2 + '</span>' : '') + '</td>' +
+      '<td data-v="' + A.res.frageis.length + '">' + (A.res.frageis.length ? '<span class="chips">' + A.res.frageis.map(function (x) { return '<span>' + esc(x.g.n) + '</span>'; }).join('') + '</span>' : '<span class="dim">—</span>') + '</td>' +
+      '<td data-v="' + bm + '"><span class="rz-ms" title="Mesa: vai bem contra ' + ARQ.filter(function (a) { return A.vs[a.k] && A.vs[a.k].r === 'forte'; }).length + ' e mal contra ' + ARQ.filter(function (a) { return A.vs[a.k] && A.vs[a.k].r === 'fraco'; }).length + ' arquétipos">' + mesa + '</span></td></tr>';
+  }).join('');
+  var fb = '<div class="seg rz-f" role="group" aria-label="Filtrar decks">' + RZ_F.map(function (x) {
+    var c = DK.filter(function (d) { return rzPassa(d, x[0]); }).length;
+    return '<button data-act="res-f" data-k="' + x[0] + '" aria-pressed="' + (resF === x[0]) + '">' + x[1] + ' <small class="num">' + c + '</small></button>';
   }).join('') + '</div>';
+  return '<div class="cx larga rz-mx"><div class="rz-h"><h3>A carteira deck a deck</h3>' + fb + '</div>' +
+    '<div class="tw"><table class="tbl rz-t"><thead><tr><th scope="col">Deck</th><th scope="col" class="n">Placar<small>hoje e com as trocas</small></th><th scope="col" class="n">Trocas</th><th scope="col">Plano</th>' +
+    '<th scope="col" class="n">Alertas<small>hoje → trocas</small></th><th scope="col">Sem reserva</th><th scope="col">Mesa<small>' + ARQ.length + ' arquétipos</small></th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+    '<p class="legenda"><span><i class="lg-pl"></i>placar hoje</span><span><i class="lg-pl2"></i>com as trocas</span><span><i class="lg-ok"></i>vai bem</span><span><i class="lg-eq"></i>equilibrado</span><span><i class="lg-bad"></i>vai mal</span></p>' +
+    nota('Clique no nome para abrir a ficha e no cabeçalho para ordenar. A barra do placar começa perto do menor placar da carteira, para a diferença aparecer; o número é o de hoje. Mesa, na ordem: ' + esc(lista(ARQ.map(function (a) { return a.n; }))) + '.') + '</div>';
 }
 function secResumo(att) {
-  var total = H.decks.length, comp = DK.length;
-  var nTr = soma(DK, function (d) { return d.a.tr.length; }), dTr = DK.filter(function (d) { return d.a.tr.length; }).length;
-  var nFr = soma(DK, function (d) { return d.a.res.frageis.length; }), dFr = DK.filter(function (d) { return d.a.res.frageis.length; }).length, nCo = soma(DK, function (d) { return d.a.res.nCortes; });
-  var al0 = soma(DK, function (d) { return nAlertas(d.a.le); }), al2 = soma(DK, function (d) { return nAlertas(d.a.le2); }), nLe = soma(DK, function (d) { return d.a.le.length; });
-  var cego = null;
-  ARQ.forEach(function (a) {
-    var n = 0, bem = 0, mal = 0;
-    DK.forEach(function (d) { var c = d.a.vs[a.k]; if (!c) return; n++; if (c.r === 'forte') bem++; if (c.r === 'fraco') mal++; });
-    if (n && !bem && (!cego || mal > cego.mal)) cego = { a: a, mal: mal, n: n };
-  });
-  var kpi = function (rot, val, sub, extra, sec) { return '<a class="kpi" href="#d-' + sec + '"><span class="kpi-l">' + rot + '</span><b class="kpi-v">' + val + '</b>' + (extra || '') + '<span class="kpi-s">' + sub + '</span></a>'; };
-  var h = '<div class="kpis">' +
-    kpi('Decks com painel', comp + ' <small>de ' + total + '</small>', pct(comp / total) + ' da carteira analisada', '<span class="meter" aria-hidden="true"><i style="width:' + (comp / total * 100).toFixed(1) + '%"></i></span>', 'fichas') +
-    kpi('Funções sem reserva', String(nFr), (nFr ? 'em ' + pl(dFr, 'deck', 'decks') + '; ' : '') + pl(nCo, 'corte seguro', 'cortes seguros') + ' em pacotes com sobra', '', 'reserva') +
-    kpi('Trocas recomendadas', String(nTr), 'em ' + pl(dTr, 'deck', 'decks'), '', 'trocas') +
-    (function () {   // o Plano do deck: quantos já têm veredito e quais estão com plano insuficiente
-      var cl = DK.filter(function (d) { return d.a.pv; }), ins = cl.filter(function (d) { return d.a.pv === 'insuficiente'; });
-      return kpi('Plano do deck', cl.length + ' <small>de ' + DK.length + '</small>', cl.length ? (ins.length ? 'insuficiente: ' + ins.map(function (d) { return esc(d.nome); }).join(', ') : 'nenhum insuficiente') : 'nenhum deck classificado ainda', '', 'fichas');
-    })() +
-    kpi('Sub-utilizadas', String(SUB.length), 'S ou A no radar de um deck e pior onde estão; ' + MOV.n + ' cartas dos radares você já tem', '', 'movimentacoes') +
-    kpi('Leituras em alerta', al0 + ' <small>de ' + nLe + '</small>', 'caem para ' + al2 + ' com as trocas', '', 'fundamentos') +
-    (cego ? kpi('Ponto cego', esc(cego.a.n), 'nenhum deck vai bem; ' + cego.mal + ' de ' + cego.n + ' vão mal', '', 'mesa') : '') +
-    '</div>';
   var tipoC = { Decidir: 'bad', Rebalancear: 'ok', Mover: 'ok', Consertar: 'warn', 'Padrão': 'warn', Trocar: 'info' };
-  var ac = acoes(att);
-  h += '<div class="g2 resumo-g"><div class="cx"><h3>Faça agora</h3><ol class="acoes">' + ac.map(function (x) {
-      return '<li>' + pill(tipoC[x.tipo] || 'info', x.tipo) + '<p>' + x.h + '</p>' + ir(x.sec) + '</li>';
+  var ac = acoes(att), sevN = { 3: 'Alta', 2: 'Média', 1: 'Nota' }, sevC = { 3: 'bad', 2: 'warn', 1: 'info' };
+  var cnt = { 3: 0, 2: 0, 1: 0 }; att.forEach(function (x) { cnt[x.sev]++; });
+  var h = rzKpis() +
+    '<div class="rz-g">' +
+    '<div class="cx rz-faca"><h3>Faça agora</h3><ol class="acoes">' + ac.map(function (x) {
+      return '<li><span class="rz-ti">' + pill(tipoC[x.tipo] || 'info', x.tipo) + '</span><p>' + x.h + '</p>' + ir(x.sec, 'Abrir') + '</li>';
     }).join('') + '</ol>' +
-    '<details class="todos"><summary>Todos os ' + att.length + ' avisos, por gravidade</summary><ul class="att">' + att.map(function (x) {
-      var sevN = { 3: 'Alta', 2: 'Média', 1: 'Nota' }, sevC = { 3: 'bad', 2: 'warn', 1: 'info' };
-      return '<li>' + pill(sevC[x.sev], sevN[x.sev], ico(x.sev)) + '<p>' + x.h + '</p>' + ir(x.sec) + '</li>';
+    '<details class="todos"><summary>Todos os ' + att.length + ' avisos, por gravidade</summary>' +
+    '<div class="seg rz-af" role="group" aria-label="Filtrar avisos">' + [['', 'Todos', att.length], ['3', 'Alta', cnt[3]], ['2', 'Média', cnt[2]], ['1', 'Nota', cnt[1]]].map(function (x) {
+      return '<button data-act="att-f" data-k="' + x[0] + '" aria-pressed="' + (attF === x[0]) + '">' + x[1] + ' <small class="num">' + x[2] + '</small></button>';
+    }).join('') + '</div>' +
+    '<ul class="att"' + (attF ? ' data-f="' + attF + '"' : '') + '>' + att.map(function (x) {
+      return '<li data-s="' + x.sev + '">' + pill(sevC[x.sev], sevN[x.sev], ico(x.sev)) + '<p>' + x.h + '</p>' + ir(x.sec) + '</li>';
     }).join('') + '</ul></details>' +
-    nota('As que mais mudam a carteira hoje: uma decisão de mesa, a troca dentro do deck mais urgente, a melhor movimentação, o maior descompasso de cor, o buraco mais comum e a troca que mais sobe o placar. Tudo sai do último build.') + '</div>' +
-    '<div class="cx"><h3>A carteira num relance</h3>' + saude() +
-      '<p class="legenda"><span><i class="lg-ok"></i>sem alerta</span><span><i class="lg-warn"></i>1 ou 2 alertas</span><span><i class="lg-bad"></i>3 ou mais</span></p>' +
-      nota('Clique num deck para abrir a ficha dele. O placar fica de fora de propósito: só os decks já nos critérios se comparam, e eles estão na seção Placar.') + '</div></div>' +
+    nota('As que mais mudam a carteira hoje: uma decisão de mesa, a troca dentro do deck mais urgente, a melhor movimentação, o maior descompasso de cor, o buraco mais comum e a troca que mais sobe o placar.') + '</div>' +
+    '<div class="rz-lado">' +
+    '<div class="cx"><div class="rz-h"><h3>Onde falta reserva</h3>' + ir('reserva', 'Reserva e sobra') + '</div><p class="rz-sub">Em quantos decks cada função depende de uma carta só. Passe o mouse para ver quais.</p>' + rzReserva() + '</div>' +
+    '<div class="cx"><div class="rz-h"><h3>A mesa contra a carteira</h3>' + ir('mesa', 'Mesa') + '</div><p class="rz-sub">Quantos decks vão bem e mal contra cada arquétipo, do mais perigoso ao mais tranquilo.</p>' + rzMesa() + '</div>' +
+    '</div></div>' +
+    rzMatriz() +
     caixa('Rotina de conferência', '<dl class="rot">' +
     '<div><dt>Antes de jogar</dt><dd>' + ir('mesa', 'Mesa') + ', pela mesa que vai sentar, e a ' + ir('fichas', 'ficha') + ' do deck.</dd></div>' +
     '<div><dt>Antes de comprar</dt><dd>' + ir('movimentacoes', 'Movimentações') + ' (as sub-utilizadas primeiro): a carta pode já estar num deck onde rende menos. Depois, ' + ir('compras', 'Compras') + '.</dd></div>' +
@@ -1926,7 +2005,15 @@ function secResumo(att) {
     '<div><dt>Uma vez por mês</dt><dd>' + ir('auditoria', 'Bastidores') + '. Monte o hub com internet para renovar os Game Changers.</dd></div>' +
     '<div><dt>Deck novo</dt><dd>' + ir('potencial', 'Decks em potencial') + ' e o álbum de cores em ' + ir('carteira', 'Carteira') + '.</dd></div>' +
     '</dl>', 'larga', 'quando olhar cada aba');
-  return secao('resumo', 'A carteira hoje', 'Os ' + comp + ' decks com painel, cruzados. Comece pelo "Faça agora"; o resto está nas abas.', h);
+  return secao('resumo', 'A carteira hoje', 'Os ' + DK.length + ' decks com painel, cruzados. Cada número leva à aba de onde ele vem.', h);
+}
+function rzFiltrar() {
+  document.querySelectorAll('#d-resumo .rz-t tbody tr').forEach(function (tr) { tr.hidden = !!resF && (' ' + tr.dataset.f + ' ').indexOf(' ' + resF + ' ') < 0; });
+  document.querySelectorAll('#d-resumo [data-act="res-f"]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.k === resF)); });
+}
+function rzAvisos() {
+  var ul = document.querySelector('#d-resumo .att'); if (ul) { if (attF) ul.dataset.f = attF; else delete ul.dataset.f; }
+  document.querySelectorAll('#d-resumo [data-act="att-f"]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.k === attF)); });
 }
 
 /* ============ montagem do dashboard ============ */
@@ -2069,6 +2156,8 @@ document.addEventListener('click', function (ev) {
   var act = a.dataset.act, k = a.dataset.k;
   if (act === 'mesa') { var v = (mesa[k] || 0) + (+a.dataset.v); mesa[k] = Math.max(0, Math.min(3, v)); redesenharMesa(); }
   else if (act === 'mesa-limpar') { mesa = {}; redesenharMesa(); }
+  else if (act === 'res-f') { resF = k || ''; rzFiltrar(); }
+  else if (act === 'att-f') { attF = k || ''; rzAvisos(); }
   else if (act === 'mais') { var sc = a.closest('.dsec'); abertos[k] = !abertos[k]; if (sc) redesenharSecao(k, sc.id.slice(2)); }
   else if (act === 'sim-deck') { sim.p = k; sim.sel = simCenario(simDeck().a, 'rec'); redesenharSim(); }
   else if (act === 'sim-cen') { sim.sel = simCenario(simDeck().a, k); redesenharSim(); }
