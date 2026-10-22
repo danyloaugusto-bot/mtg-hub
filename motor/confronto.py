@@ -19,7 +19,7 @@ MOX_API = "https://api2.moxfield.com/v2/decks/all/%s"
 
 
 def pasta_listas(pasta):
-    return os.path.join(dados.DADOS, pasta, "entrada", "listas")
+    return os.path.join(dados.pasta_deck(pasta), "entrada", "listas")
 
 
 def _nome(c):
@@ -126,7 +126,7 @@ def confrontar(pasta, avisar=print):
         avisar("%s: %s cartas, placar %s (o seu: %s); só dela %d, em comum %d, sem cadastro %d" % (
             meta.get("nome"), sum(c["q"] for c in cards), listas[-1]["placar"], meu["placar"], len(so_dele), len(comum), len(sem)))
     out = dict(lido=datetime.date.today().isoformat(), criterios=ks, meu=meu, listas=listas)
-    with open(os.path.join(dados.DADOS, pasta, "confrontos.json"), "w", encoding="utf-8", newline="\n") as f:
+    with open(os.path.join(dados.pasta_deck(pasta), "confrontos.json"), "w", encoding="utf-8", newline="\n") as f:
         f.write(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
     return out
 
