@@ -533,9 +533,9 @@
   function barra() {
     var pub = location.protocol !== 'file:';
     var hub = pub && D.hub.pub ? D.hub.pub : D.hub.href;
-    $('#g-l-decks').href = hub + (pub && D.hub.pub ? '' : '#decks');
-    $('#g-l-pastas').href = hub + (pub && D.hub.pub ? '' : '#pastas');
-    $('#g-l-dash').href = hub + (pub && D.hub.pub ? '' : '#dashboard');
+    $('#g-l-decks').href = hub + '#decks';
+    $('#g-l-pastas').href = hub + '#pastas';
+    $('#g-l-dash').href = hub + '#dashboard';
     var cx = $('#g-l-caixa');
     if (D.caixa) { cx.hidden = false; cx.href = pub && D.caixa.pub ? D.caixa.pub : D.caixa.href; }
   }
