@@ -44,8 +44,8 @@ def pontos_acel(y):
 
 
 v3 = []
-for pasta in sorted(os.listdir(os.path.join(RAIZ, "dados"))):
-    ap = os.path.join(RAIZ, "dados", pasta, "avaliacao.json")
+for pasta in dados.pastas_decks():
+    ap = os.path.join(dados.pasta_deck(pasta), "avaliacao.json")
     if pasta.startswith("_") or not os.path.exists(ap):
         continue
     with open(ap, encoding="utf-8") as f:
@@ -53,7 +53,7 @@ for pasta in sorted(os.listdir(os.path.join(RAIZ, "dados"))):
     if av.get("versao_pontuacao") != 3:
         continue
     v3.append(pasta)
-    with open(os.path.join(RAIZ, "dados", pasta, "tema.json"), encoding="utf-8") as f:
+    with open(os.path.join(dados.pasta_deck(pasta), "tema.json"), encoding="utf-8") as f:
         tm = json.load(f)
     sn = tm.get("sinergias") or {}
     R.ok("%s: as duas sinergias com nome e régua" % pasta, all(str((sn.get(k) or {}).get(c, "")).strip() for k in ("sin1", "sin2") for c in ("nome", "regra")), sn.keys())
@@ -105,7 +105,7 @@ MON = {p_: dados.montar(p_, avisar=lambda *x: None) for p_ in v3}
 
 AVALIADAS = {}   # avaliacao.json, chave "avaliadas": a sinergia avaliada fora do deck e do radar (o /caixa grava), lida do arquivo
 for p_ in v3:
-    with open(os.path.join(RAIZ, "dados", p_, "avaliacao.json"), encoding="utf-8") as f:
+    with open(os.path.join(dados.pasta_deck(p_), "avaliacao.json"), encoding="utf-8") as f:
         AVALIADAS[p_] = {n.split(" // ")[0]: a for n, a in (json.load(f).get("avaliadas") or {}).items() if not n.startswith("_")}
 
 
