@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>Consulta</title>
+<style>
+/*__FONTS__*/
+/*__ROOT__*/
+/*__CSS__*/
+</style>
+</head>
+<body class="cs-pg">
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="top">
+  <div class="top-in">
+    <nav class="abas-t cs-hubnav" aria-label="Seções do hub">
+      <a id="cs-l-decks" href="00.%20Hub.html#decks">Decks</a>
+      <a id="cs-l-pastas" href="00.%20Hub.html#pastas">Pastas</a>
+      <a id="cs-l-caixa" href="00.%20Caixa.html" hidden>Caixa</a>
+      <a id="cs-l-dash" href="00.%20Hub.html#dashboard">Dashboard</a>
+      <a id="cs-l-grim" href="00.%20Grim%C3%B3rio.html" hidden>Grimório</a>
+      <a id="cs-l-cons" aria-current="page" href="#estudo">Consulta</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <header class="cs-cab">
+    <div class="cs-cab-t">
+      <h1>Consulta</h1>
+      <p class="cs-lede">Uma carta de fora contra todos os seus decks: o que ela faz, se é forte sozinha, onde rende e se vale comprar. É só consulta: nada aqui muda deck, radar ou cadastro.</p>
+    </div>
+    <form class="cs-busca" id="cs-busca">
+      <label class="sr" for="cs-q">Link do Scryfall ou nome da carta</label>
+      <input id="cs-q" type="search" placeholder="Cole o link do Scryfall ou o nome em inglês" autocomplete="off">
+      <button type="submit" class="cs-ir">Consultar</button>
+    </form>
+    <div class="cs-modo" id="cs-modo" aria-live="polite"></div>
+  </header>
+  <nav class="cs-sub" aria-label="Partes da Consulta">
+    <a href="#estudo" data-sub="estudo">Estudo</a>
+    <a href="#registradas" data-sub="registradas">Registradas <small class="num" id="cs-nreg"></small></a>
+  </nav>
+  <div id="cs-estudo"></div>
+  <div id="cs-registradas" hidden></div>
+</main>
+<footer class="foot" id="foot"></footer>
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>
