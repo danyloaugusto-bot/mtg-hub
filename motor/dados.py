@@ -144,12 +144,62 @@ def pontos_cmc(avg):
     return 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
 
 
-PASTAS_FORA = {"pastas", "caixa", "precos", "grimorio"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py); dados/precos: o valor de hoje (/precos); dados/grimorio: o Grimório (motor/grimorio.py). Não são decks
+PASTAS_FORA = {"pastas", "caixa", "precos", "grimorio", "decks", "consultas"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py); dados/precos: o valor de hoje (/precos); dados/grimorio: o Grimório (motor/grimorio.py); dados/consultas: a Consulta (motor/consulta.py). Não são decks
+
+
+def _nome_de_deck(nome):
+    return not nome.startswith(("_", ".")) and nome.lower() not in PASTAS_FORA
+
+
+def _tem_deck(caminho):
+    """Uma pasta é de deck quando tem a ficha, a lista ou a avaliação; senão é uma pasta de grupo (dados/decks/02. TRIBAIS)."""
+    return any(os.path.exists(os.path.join(caminho, f)) for f in ("decklist.txt", "deck.md", "avaliacao.json"))
+
+
+_MAPA = {}
+
+
+def _mapa_decks():
+    """{pasta do deck: caminho}. Desde 22/10/2026 os decks moram em dados/decks/<grupo>/<pasta>/ (a pedido do dono); valem também
+    dados/decks/<pasta>/ e o formato antigo dados/<pasta>/, que os testes usam nas pastas temporárias."""
+    m = {}
+    raiz = os.path.join(DADOS, "decks")
+    if os.path.isdir(raiz):
+        for g in sorted(os.listdir(raiz)):
+            gp = os.path.join(raiz, g)
+            if not os.path.isdir(gp) or not _nome_de_deck(g):
+                continue
+            if _tem_deck(gp):
+                m.setdefault(g, gp)
+                continue
+            for n in sorted(os.listdir(gp)):
+                if _nome_de_deck(n) and os.path.isdir(os.path.join(gp, n)):
+                    m.setdefault(n, os.path.join(gp, n))
+    if os.path.isdir(DADOS):
+        for n in sorted(os.listdir(DADOS)):
+            if _nome_de_deck(n) and os.path.isdir(os.path.join(DADOS, n)):
+                m.setdefault(n, os.path.join(DADOS, n))
+    return m
+
+
+def pasta_deck(pasta):
+    """O caminho da pasta de um deck, pelo nome dela ("02. Clavileño"). Deck que não existe: o caminho no formato antigo, para a
+    mensagem de erro dizer onde procurou."""
+    m = _MAPA.get(DADOS)
+    if m is None or pasta not in m:
+        m = _MAPA[DADOS] = _mapa_decks()
+    return m.get(pasta) or os.path.join(DADOS, pasta)
+
+
+def pastas_decks():
+    """Os nomes das pastas de deck, em ordem."""
+    m = _MAPA[DADOS] = _mapa_decks()
+    return sorted(m)
 
 
 def eh_deck(nome):
-    """Pasta de dados/ que é um deck: não começa com _ ou ., e não é uma das pastas reservadas."""
-    return (not nome.startswith(("_", "."))) and nome.lower() not in PASTAS_FORA and os.path.isdir(os.path.join(DADOS, nome))
+    """Pasta de deck: não começa com _ ou ., não é uma das pastas reservadas e existe em dados/decks/ (ou no formato antigo)."""
+    return _nome_de_deck(nome) and os.path.isdir(pasta_deck(nome))
 
 
 BASICOS_IDX = {"Plains", "Island", "Swamp", "Mountain", "Forest", "Wastes",
@@ -178,10 +228,10 @@ def ler_pastas():
 def indice_outros(pasta_atual):
     """Onde cada carta aparece nos outros decks com avaliação (no deck ou no radar), com tier e relevância."""
     out = {}
-    for n in sorted(os.listdir(DADOS)):
+    for n in pastas_decks():
         if n == pasta_atual or not eh_deck(n):
             continue
-        av = ler_json(os.path.join(DADOS, n, "avaliacao.json"), obrigatorio=False)
+        av = ler_json(os.path.join(pasta_deck(n), "avaliacao.json"), obrigatorio=False)
         if not av:
             continue
         nome = n.split(". ", 1)[1] if ". " in n else n
@@ -587,7 +637,7 @@ def conferir_estrategia(e):
 
 # ---------------------------------------------------------------- deck inteiro
 def montar(pasta, atualizar_scryfall=False, avisar=print):
-    base = os.path.join(DADOS, pasta)
+    base = pasta_deck(pasta)
     if not os.path.isdir(base):
         raise ErroDeck("não existe a pasta dados/" + pasta)
     lista = ler_decklist(os.path.join(base, "decklist.txt"))
