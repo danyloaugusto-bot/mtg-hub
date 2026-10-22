@@ -262,7 +262,8 @@
   function galeria(arr) {
     return h('div', { class: 'g-gal' }, arr.map(function (c) {
       return h('button', { class: 'g-card', type: 'button', onclick: function () { gaveta(c); } }, [
-        h('div', { class: 'g-im' }, [c.img ? h('img', { src: c.img, alt: c.n, loading: 'lazy' }) : h('div', { class: 'g-semimg' }, ['sem imagem no cache']), stPill(c), nvPill(c)]),
+        h('div', { class: 'g-im' }, [c.img ? h('img', { src: c.img, alt: c.n, loading: 'lazy' }) : h('div', { class: 'g-semimg' }, ['sem imagem no cache']),
+          S.agrupar === 'status' ? null : stPill(c), nvPill(c)]),   // agrupado por status, o grupo já diz o status: sem selo na carta
         h('div', { class: 'g-tx' }, [h('b', {}, [c.n]), h('span', { class: 'g-ch' }, c.rende && c.rende.length ? chipsRende(c, 2) : chipsOnde(c, 2))])]);
     }));
   }
