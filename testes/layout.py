@@ -97,7 +97,7 @@ def layout_grimorio():
 if a.grimorio:
     layout_grimorio()
 R = comum.Relatorio("layout: " + a.deck)
-origem = os.path.join(comum.RAIZ, "dados", a.deck)
+origem = dados.pasta_deck(a.deck)
 tmp = tempfile.mkdtemp(prefix="mtg-layout-")
 
 
