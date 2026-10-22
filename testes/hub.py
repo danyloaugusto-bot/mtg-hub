@@ -181,6 +181,10 @@ with sync_playwright() as p:
                 pos = pg.evaluate("(() => { var d = document.querySelector('#t-dash').getBoundingClientRect(), g = document.querySelector('#t-grim').getBoundingClientRect(); return {dir: g.left >= d.right - 1, abaixo: g.top >= d.bottom - 1, fora: g.right > innerWidth + 1 || g.width === 0}; })()")
                 R.ok("Grimório: pílula à direita do Dashboard (ou abaixo, no celular), visível, abrindo a página própria",
                      pg.is_visible("#t-grim") and (pos["dir"] or pos["abaixo"]) and not pos["fora"] and pg.get_attribute("#t-grim", "href").endswith("00.%20Grim%C3%B3rio.html"), pos)
+            # a pílula da Consulta: à direita do Grimório, na mesma linha da barra, abrindo a página própria
+            pc = pg.evaluate("(() => { var g = document.querySelector('#t-grim').getBoundingClientRect(), c = document.querySelector('#t-cons').getBoundingClientRect(); return {dir: c.left >= g.right - 1, linha: Math.abs(c.top - g.top) < 2, fora: c.right > innerWidth + 1 || c.width === 0}; })()")
+            R.ok("Consulta: pílula à direita do Grimório, na mesma linha, visível, abrindo a página própria",
+                 pg.is_visible("#t-cons") and pc["dir"] and pc["linha"] and not pc["fora"] and pg.get_attribute("#t-cons", "href").endswith("00.%20Consulta.html"), pc)
             # pasta com ficha (dados/pastas/pastas.json) e com lista (export do ManaBox): subnome, contagem, papéis e o atalho para a Caixa, sem preço
             # o veredito do Plano do deck na Lista e no Resumo (sem preço)
             com_pv = [d for d in H["decks"] if (d.get("a") or {}).get("pv")]
