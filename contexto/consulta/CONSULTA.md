@@ -1,5 +1,7 @@
 # A Consulta: uma carta de fora contra todos os decks
 
+> **Atualização de 22/10/2026, à noite.** O desenho abaixo foi superado pelo pedido `PROMPT-CODE-CONSULTA.md`: a Consulta virou página própria (`saidas/00. Consulta.html`, botão na barra ao lado do Grimório), não uma caixa no Grimório. Decisões do dono no mesmo dia: **é só consulta**, nada grava cadastro, radar ou deck (as oito notas da carta ficam no registro, em `_cadastro`; quem move carta é a Caixa e as pastas); a página **pode mostrar o preço do Scryfall**; quem sai é obrigatório só em `entra` e `avaliar`. Por isso as seções "Fase 2" e "dados/cartas.json, com o pode do dono" ficam como histórico. O estado atual está em `contexto/ARQUITETURA.md`, seção "A Consulta".
+
 Pedido do dono, 22/10/2026: "uma forma de consultar uma carta em específico pra saber em qual deck ela se encaixa melhor, qual tier, critério ou 8×8; uma análise completa dela pra cada um dos meus decks". Exemplo: Salt Vampire (TRK 127), um Vampiro preto, com cinco decks de Vampiros nas cores dela.
 
 ## A resposta curta
