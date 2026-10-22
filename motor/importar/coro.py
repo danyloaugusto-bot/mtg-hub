@@ -78,7 +78,7 @@ def conv_decklist(linhas):
 
 def main(kit, pasta):
     ev = carregar(os.path.join(kit, "dados", "evals.py"), "evals_coro")
-    destino = os.path.join(RAIZ, "dados", pasta)
+    destino = os.path.join(RAIZ, "dados", "decks", pasta)   # desde 22/10/2026 os decks moram em dados/decks/
 
     with open(os.path.join(kit, "dados", "decklist.txt"), encoding="utf-8") as f:
         linhas = conv_decklist(f.readlines())
