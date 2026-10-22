@@ -170,7 +170,7 @@ def avaliar(cards, cmd_papeis, nomes_cmd=None, tribal=False):
 def e_tribal(pasta):
     """O deck é da família Tribais no tema_jogo do tema.json."""
     try:
-        t = json.load(open(os.path.join(dados.DADOS, pasta, "tema.json"), encoding="utf-8"))
+        t = json.load(open(os.path.join(dados.pasta_deck(pasta), "tema.json"), encoding="utf-8"))
     except (OSError, ValueError):
         return False
     return (t.get("tema_jogo") or {}).get("familia") == "Tribais"
@@ -433,7 +433,7 @@ def para_painel(pasta, m):
 def dossie(pasta, n_cand=10):
     import caixa, encaixe, scryfall
     m = dados.montar(pasta, avisar=lambda *a: None)
-    t = dados.ler_json(os.path.join(dados.DADOS, pasta, "tema.json"), obrigatorio=False) or {}
+    t = dados.ler_json(os.path.join(dados.pasta_deck(pasta), "tema.json"), obrigatorio=False) or {}
     sc = scryfall._ler()
     ks = [c["k"] for c in dados.regua()["criterios"]]
 
