@@ -374,6 +374,8 @@ def _ler_cadastro_da_consulta(j, nome, cad):
 def _ler_sinergias(arq, nomes_decks):
     with open(arq, encoding="utf-8") as fh:
         j = json.load(fh)
+    if j.get("_zero_nos_outros"):
+        j = dict(j, **{p: {"sin": {"sin1": 0, "sin2": 0}} for p in nomes_decks if p not in j})
     faltam = [p for p in nomes_decks if p not in j]
     sobram = [p for p in j if p not in nomes_decks and not p.startswith("_")]
     if faltam:
@@ -520,7 +522,7 @@ def _ler_estudo(e, dia, pastas):
             raise ErroConsulta("estudo: %s são de %d a %d frases, nenhuma vazia" % (nome, fr["min"], fr["max"]))
     va = e.get("vacuo") or {}
     grau = (dia.get("forca") or {}).get("grau")
-    if va.get("grau") != grau:
+    if va.get("grau") is not None and va.get("grau") != grau:
         raise ErroConsulta("estudo: o grau no vácuo é %s pela régua (motor/consulta.json), não %r" % (grau, va.get("grau")))
     if not str(va.get("porque") or "").strip():
         raise ErroConsulta("estudo: falta o porquê do grau no vácuo")
@@ -819,6 +821,11 @@ def main():
             mostrar_calculo(calcular(a.carta, a.sinergias, rede=rede))
         elif a.vereditos:
             print("registro:", gravar_vereditos(a.carta, a.vereditos, rede=rede))
+            html, r = pagina(avisar=lambda *x: None)
+            saida = os.path.join(os.path.dirname(MOTOR), "saidas", NOME + ".html")
+            with open(saida, "w", encoding="utf-8", newline=chr(10)) as fh:
+                fh.write(html)
+            print("%s: %d consultas com estudo | %.0f KB" % (NOME, r["registros"], r["kb"]))
         else:
             f = ficha(achar(a.carta, rede=rede, atualizar=a.atualizar))
             print("%s %s · %s · identidade %s · US$ %s" % (f["nome"], f["custo"], f["tipo"], f["ci"] or "incolor", f["usd"] or "-"))
