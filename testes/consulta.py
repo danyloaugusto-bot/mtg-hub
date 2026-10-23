@@ -92,6 +92,7 @@ R.ok("nada fica gravado nos decks: o avaliacao.json não cita a carta", CARTA no
 R.ok("recusa nota fora de 0 a 3", recusa(consulta.calcular, CARTA, grava(dict(zeros, **{nova: {"sin": {"sin1": 4}}})), pasta=TMP) is not None)
 R.ok("recusa nota acima de 0 sem porquê", "porquê" in (recusa(consulta.calcular, CARTA, grava(dict(zeros, **{nova: {"sin": {"sin1": 1}}})), pasta=TMP) or ""))
 falta = {k: v for k, v in zeros.items() if k != nova}
+R.ok("_zero_nos_outros: os decks não citados levam 0 e 0", recusa(consulta.calcular, CARTA, grava(dict(falta, _zero_nos_outros=True)), avisar=lambda *a: None, pasta=tempfile.mkdtemp(prefix="consulta-z-")) is None)
 R.ok("recusa deck nas cores sem sinergia", "faltam" in (recusa(consulta.calcular, CARTA, grava(falta), pasta=TMP) or ""))
 fora = d["fora_da_identidade"][0] if d["fora_da_identidade"] else None
 R.ok("recusa deck fora das cores", fora is None or "fora das cores" in (recusa(consulta.calcular, CARTA, grava(dict(zeros, **{fora: {"sin": {}}})), pasta=TMP) or ""))
@@ -117,6 +118,7 @@ R.ok("recusa fortalezas com menos de três frases", recusa(consulta.gravar_vered
 R.ok("recusa fraquezas com mais de cinco frases", recusa(consulta.gravar_vereditos, CARTA, grava(dict(base, estudo=dict(EST, fraquezas=list("abcdef")))), pasta=TMP) is not None)
 outro = next(g for g in consulta.GRAUS if g != dia["forca"]["grau"])
 R.ok("recusa grau no vácuo diferente da régua", "régua" in (recusa(consulta.gravar_vereditos, CARTA, grava(dict(base, estudo=dict(EST, vacuo={"grau": outro, "porque": "x"}))), pasta=TMP) or ""))
+R.ok("aceita estudo sem o grau: o script põe o da régua", recusa(consulta.gravar_vereditos, CARTA, grava(dict(base, estudo=dict(EST, vacuo={"porque": "x"}))), pasta=TMP) is None)
 R.ok("recusa grau sem porquê", recusa(consulta.gravar_vereditos, CARTA, grava(dict(base, estudo=dict(EST, vacuo={"grau": dia["forca"]["grau"]}))), pasta=TMP) is not None)
 R.ok("recusa armadilha num deck que não existe", recusa(consulta.gravar_vereditos, CARTA, grava(dict(base, estudo=dict(EST, armadilhas={"99. Ninguém": "x"}))), pasta=TMP) is not None)
 consulta.gravar_vereditos(CARTA, grava(dict(base, decks={nova: {"veredito": "avaliar", "porque": "teste", "sai": sai_ok}})), pasta=TMP)
