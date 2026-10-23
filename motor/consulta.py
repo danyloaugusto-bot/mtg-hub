@@ -505,6 +505,7 @@ def gravar_vereditos(texto, arq, rede=False, avisar=print, pasta=None, hoje=None
     dia["vereditos"] = dict(resumo=v["resumo"].strip(), compra=dict(acao=cp["acao"], porque=cp["porque"].strip()),
                             decks={p: {k: x[k] for k in ("veredito", "porque", "sai") if x.get(k)} for p, x in (v.get("decks") or {}).items()})
     dia["estudo"] = estudo
+    dia["gravado"] = datetime.datetime.now().isoformat(timespec="seconds")   # a página abre na consulta mais recente
     return _gravar_registro(f["nome"], reg, pasta)
 
 
@@ -636,8 +637,12 @@ def ler_registros(pasta=None):
         except (OSError, ValueError):
             continue
         if isinstance(reg, dict) and reg.get("carta") and reg.get("consultas") and reg["consultas"][-1].get("estudo"):
-            out.append(reg)
-    out.sort(key=lambda r: (r["consultas"][-1].get("data") or "", r["carta"]["nome"]), reverse=True)
+            u = reg["consultas"][-1]
+            # a ordem: a mais recente primeiro (data, depois a hora em que o estudo foi gravado; sem a hora, a do arquivo)
+            hora = u.get("gravado") or datetime.datetime.fromtimestamp(os.path.getmtime(os.path.join(base, nome))).isoformat(timespec="seconds")
+            out.append((u.get("data") or "", hora, reg))
+    out.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    out = [x[2] for x in out]
     return out
 
 
