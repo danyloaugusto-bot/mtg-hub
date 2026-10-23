@@ -1,6 +1,6 @@
 ---
 name: consulta
-description: "Analisa uma carta de fora (link do Scryfall ou nome) contra todos os decks: força sozinha, sinergia em cada deck, quem sairia, veredito e se vale comprar."
+description: "Analisa uma carta de fora (link do Scryfall ou nome) contra todos os decks: força sozinha, sinergia em cada deck, quem sairia, veredito e se vale comprar. Direto, sem perguntas."
 argument-hint: "<link do Scryfall ou nome da carta em inglês> | importar"
 model: opus
 effort: high
@@ -11,59 +11,56 @@ disable-model-invocation: true
 
 Carta: $ARGUMENTS
 
-A Consulta responde, para uma carta que o dono viu e ainda não tem (é só consulta, decisão do dono de 22/10/2026: não grava cadastro, radar nem deck; quem move carta é a Caixa e as pastas): ela é forte sozinha? Em qual deck entra, no lugar de quem, e quanto ganha? Vale comprar? É a mesma conta da Caixa e do Grimório (encaixe da pontuação v3, régua da Caixa em `motor/caixa.json`); o que muda é o ponto de partida: uma carta só, de fora, contra **todos** os decks nas cores dela. Desenho em `contexto/consulta/CONSULTA.md`.
+O dono cola uma carta e quer a análise pronta, **sem perguntas no meio** (pedido dele, 22/10/2026). É só consulta: nada vai para cadastro, radar ou deck; quem move carta é a Caixa e as pastas. Desenho em `contexto/consulta/CONSULTA.md`; régua em `motor/caixa.json` e `motor/consulta.json`.
 
-Aceita: a página da carta no Scryfall (`scryfall.com/card/<coleção>/<número>/...`), uma busca do Scryfall que dê uma carta só, ou o nome em inglês. Busca com várias cartas: o script lista e para; pergunte qual.
+# Fluxo direto (três comandos, nenhuma parada)
 
-# Arquivos
+1. **Dossiê.** `python motor/consulta.py "$ARGUMENTS" --dossie <tmp>/dossie.json`. Leia o dossiê: a carta (texto do Scryfall, nunca de memória), o cadastro ou o pedido de notas, a força sozinha e, por deck nas cores dela, as duas réguas de sinergia e as `comparaveis`.
+   - Banida ou não legal no Commander (fora de pré-lançamento): diga em uma linha e pare.
+   - Busca do Scryfall com várias cartas: use a de nome exato, se houver; senão, liste e pare.
+   - Consulta anterior: refaça sem perguntar (o registro guarda uma entrada por dia).
+2. **Sinergias e notas.** Grave `<tmp>/sinergias.json` com:
+   - `"_cadastro": {"n": {critério: 1 a 3}, "por_que": "..."}`, só se a carta não tem cadastro, pela RUBRICA (`contexto/pontuacao/RUBRICA.md`, com as regras do dono no fim);
+   - só os decks com alguma sinergia acima de 0: `{pasta: {"sin": {"sin1": n, "sin2": n}, "sin_por_que": {"sin1": "frase citando a régua"}}}`, pela régua do `tema.json` daquele deck, ao pé da letra;
+   - `"_zero_nos_outros": true`, que dá 0 e 0 aos decks não citados.
+   Rode `python motor/consulta.py "$ARGUMENTS" --sinergias <tmp>/sinergias.json`. A tabela mostra o valor, o ganho, quem sai pelo motor, a faixa e o grau no vácuo.
+3. **Vereditos e estudo.** Grave `<tmp>/vereditos.json`: `{"resumo", "compra": {"acao", "porque"}, "decks": {pasta: {"veredito", "porque", "sai"}}, "estudo": {"leitura", "forcas": [...], "fraquezas": [...], "vacuo": {"porque"}, "armadilhas": {pasta: "..."}}}` e rode `python motor/consulta.py "$ARGUMENTS" --vereditos <tmp>/vereditos.json`. O comando grava e já remonta `saidas/00. Consulta.html`.
+   - Veredito para cada deck com sinergia acima de 0 ou ganho a partir de 5: `entra`, `avaliar` ou `fora`, com o porquê. `entra` e `avaliar` pedem `sai`, a carta das `comparaveis` (mesmo papel na curva), não o "sai" do motor, que às vezes é uma MDFC ou uma peça que ninguém cortaria. Compare o valor dela com o da mais fraca do mesmo papel.
+   - Desejo e precon intacto nunca recebem `entra`. Tier S em deck tribal, só carta da tribo.
+   - Estudo, pelo texto do Scryfall: a leitura (o que faz e o que não faz), de três a cinco fortalezas e de três a cinco fraquezas, cada uma ancorada num trecho do texto entre aspas, o porquê do grau (o grau o script põe) e as armadilhas.
+   - Compra: `comprar`, `esperar`, `so-se-sobrar` ou `nao`, pelo ganho (10 é Deck, 5 é Guardar) e pelo preço do Scryfall. Pré-lançamento ou sem preço: `esperar`, e diga para consultar de novo depois do lançamento.
 
-- Lê: `motor/consulta.py` (e por ele o cache do Scryfall e do EDHREC, `dados/cartas.json`, o `tema.json` e o `avaliacao.json` de cada deck, `dados/grimorio/grimorio.json`, `motor/caixa.json`), `contexto/pontuacao/RUBRICA.md`, `dados/consultas/` (consulta anterior da mesma carta).
-- Grava: `dados/consultas/<carta>.json` (pelo script), com as notas da carta, o encaixe, os vereditos, a compra e o estudo; `saidas/00. Consulta.html` (pelo build); `contexto/ESTADO.md` ao fim.
-- Nunca: `dados/cartas.json`, `decklist.txt`, `avaliacao.json` (radar e `avaliadas`); carta fora da identidade do comandante.
+O script recusa o que estiver fora da régua (nota fora de 0 a 3, nota sem porquê, veredito fora da lista, `sai` fora do deck, estudo incompleto, grau diferente da régua): corrija e rode de novo, sem perguntar ao dono.
 
-# Passos
+# A resposta ao dono
 
-1. **Achar.** `python motor/consulta.py "$ARGUMENTS" --dossie <arquivo temporário>.json`. Leia o dossiê inteiro. Avisos: pré-lançamento (preço de pré-venda, sem EDHREC), banida (pare e diga), não legal no Commander (pare e diga).
-2. **Consulta anterior.** Se `anterior` existe, mostre a data e o veredito de antes e pergunte se refaz (preço novo, deck novo, cadastro mudou) ou se basta o que está registrado.
-3. **Notas da carta.** Sem cadastro (`pedido_cadastro`), dê as notas dos oito critérios da carta pela RUBRICA, lendo o texto do dossiê, nunca de memória, com o `por_que` curto e sem citar deck. Confira as regras do dono no fim da RUBRICA (descarte de oponente, evasão, um efeito por critério). Elas vão em `_cadastro` no JSON do passo 4 e ficam só no registro da consulta: `dados/cartas.json` não muda.
-4. **Sinergias.** Para **cada** deck da lista `decks` do dossiê, `sin1` e `sin2` de 0 a 3 pela régua do `tema.json` daquele deck, ao pé da letra, com uma frase de porquê por nota acima de 0, citando o trecho da régua. Deck sem ligação nenhuma leva 0 e 0. Grave `{pasta: {"sin": {...}, "sin_por_que": {...}}, "_cadastro": {"n": {...}, "por_que": "..."}}` num JSON temporário (`_cadastro` só para carta sem cadastro).
-5. **Calcular.** `python motor/consulta.py "$ARGUMENTS" --sinergias <arquivo>.json`. O script recusa nota fora de 0 a 3, nota sem porquê e deck faltando; mostra, por deck, o valor, o ganho, quem sai pelo motor, o tier estimado, a faixa da régua da Caixa e a posição na fila do deck; mostra o grau no vácuo (pela régua de `motor/consulta.json`) e grava a consulta do dia em `dados/consultas/`.
-6. **Julgar e escrever.** Para cada deck com sinergia acima de 0 ou ganho na faixa "guardar" ou acima: veredito `entra`, `avaliar` ou `fora`, com o porquê; `entra` e `avaliar` pedem quem sai na prática (`sai`). E o estudo, pelo texto do Scryfall: a leitura (o que a carta faz de verdade, e o que não faz), de três a cinco fortalezas e de três a cinco fraquezas (cada uma ancorada num trecho do texto), o porquê do grau no vácuo (o grau é o da régua; o script recusa outro) e as armadilhas, por deck. Quem sai **na prática** vem das `comparaveis` do dossiê (a carta do deck com o mesmo papel na curva), não só do "sai" do motor, que é a carta de menor valor do deck inteiro e às vezes é uma MDFC ou uma peça intocável. A pergunta de sempre: a carta é boa, ou é boa neste comandante? Desejo e precon intacto nunca recebem `entra`. Tier S em deck tribal só para carta da tribo.
-7. **Compra.** `comprar`, `esperar`, `so-se-sobrar` ou `nao`, com o porquê, pelo ganho (régua da Caixa: 10 para Deck, 5 para Guardar) e pelo preço em dólar do dossiê. Pré-venda: diga que o preço é de pré-venda e sugira consultar de novo depois do lançamento.
-8. **Mostrar e gravar.** No formato abaixo. Depois grave `{"resumo", "compra": {"acao", "porque"}, "decks": {pasta: {"veredito", "porque", "sai"}}, "estudo": {"leitura", "forcas": [...], "fraquezas": [...], "vacuo": {"grau", "porque"}, "armadilhas": {pasta: "..."}}}` e rode `python motor/consulta.py "$ARGUMENTS" --vereditos <arquivo>.json`.
-9. **Montar a página.** `python motor/build.py --consulta` e `python testes/consulta.py`. A consulta aparece em `saidas/00. Consulta.html` (sub-aba Registradas). Nada vai para radar, deck ou cadastro: se o dono quiser a carta num deck, é outro pedido (`/atualizar-deck`), e mover cópia é com a Caixa e as pastas.
+Curta, nesta ordem:
+
+1. **Veredito em uma linha**: forte, mediana ou fraca; onde rende; compra.
+2. **O que a carta faz de verdade**, e o que ela não faz.
+3. **Força sozinha**: grau no vácuo, valor próprio contra a mediana, EDHREC e Game Changer.
+4. **Tabela** só com os decks que importam: deck, sinergias, valor, ganho, quem sai na prática, veredito. Os sem ligação numa linha.
+5. **Armadilhas.**
+6. **Compra**, com o preço e a data (ou "sem preço ainda").
+7. Uma linha: a consulta está na aba Consulta (local; a publicada muda quando o dono pedir para publicar).
+
+Não termine com pergunta. O registro e a linha do `contexto/ESTADO.md` ficam para o commit com o ok do dono.
 
 # /consulta importar
 
-As consultas feitas ao vivo na página publicada (`saidas/00. Consulta.html`, botão "Pedir o estudo ao Claude") ficam no banco do artefato, coleção `consultas`, marcadas "ao vivo, não registrado".
+As consultas feitas ao vivo na página publicada ficam no banco do artefato, coleção `consultas`.
 
-1. O link da página está em `dados/consultas/link.txt`. Leia a coleção com a ferramenta de banco do artefato (`ArtifactData`, ação `list`, coleção `consultas`) e grave os documentos num JSON temporário (`{"docs": [...]}`).
-2. `python motor/consulta.py --importar-banco <arquivo>.json`: cada documento entra em `dados/consultas/<carta>.json` como consulta **a revisar** (`modo: "ao-vivo"`, `revisar: true`). Nada vai para `dados/cartas.json`.
-3. Para cada carta importada, mostre ao dono: as notas da carta (se vieram do estudo ao vivo, confira pela RUBRICA lendo o texto do registro), as sinergias com o porquê (confira pela régua do `tema.json` de cada deck), os vereditos, a compra e o estudo. Aponte o que você daria diferente.
-4. Com o "pode" do dono para a carta: `python motor/consulta.py --confirmar "<carta>"` (deixa de estar a revisar). Se o dono quiser as notas corrigidas, refaça a carta pelo caminho normal (`/consulta <link>`), que substitui a consulta do dia.
-5. `python motor/build.py --consulta` e `python testes/consulta.py`.
-
-# Formato da resposta
-
-1. **Veredito em uma linha**: forte, mediana ou fraca; onde rende; compra.
-2. **O que a carta faz de verdade**: o texto lido, e o que ele não faz (por exemplo, "o oponente compra outra: não é vantagem de carta").
-3. **Força sozinha**: valor próprio contra a mediana do cadastro, posição nas lentes do Grimório (tribo e cor), EDHREC e Game Changer.
-4. **Tabela por deck**, só os que importam: deck, sinergias, valor, ganho, quem sai na prática, veredito. Os decks com 0 e 0, numa linha só.
-5. **Armadilhas**: o que parece sinergia e não é (exílio não é descarte; Shapeshifter não é Changeling).
-6. **Compra**, com o preço e a data.
+1. O link está em `dados/consultas/link.txt`. Leia a coleção com `ArtifactData` (ação `list`, coleção `consultas`) e grave `{"docs": [...]}` num JSON temporário. Banco vazio: diga em uma linha e pare.
+2. `python motor/consulta.py --importar-banco <arquivo>.json`: entra como **a revisar**.
+3. Mostre, por carta: as notas (confira pela RUBRICA), as sinergias (confira pelas réguas), os vereditos, a compra e o estudo, e o que você daria diferente.
+4. Com o "pode" do dono: `python motor/consulta.py --confirmar "<carta>"`. Para corrigir, refaça pelo fluxo direto.
+5. `python motor/build.py --consulta`.
 
 # Regras
 
-- Texto de carta nunca de memória: vem do dossiê (Scryfall). Sem dossiê, pare e diga.
-- Identidade de cor é inegociável; o script já deixa de fora os decks fora das cores.
+- Texto de carta nunca de memória. Identidade de cor é inegociável (o script já tira os decks fora das cores).
 - Toda nota, veredito e compra tem uma frase de porquê.
-- Diga não: carta que o dono sugeriu e não serve fica `fora`, com o motivo.
-- Preço: o do Scryfall no dia da consulta, no relatório, no registro e na página da Consulta (decisão do dono, 22/10/2026).
+- Diga não: carta que não serve fica `fora`, com o motivo.
+- Preço: o do Scryfall do dia, no relatório, no registro e na página.
+- Nunca grave em `dados/cartas.json`, `decklist.txt` ou `avaliacao.json`.
 - Não pergunte sobre bracket nem sobre cartas de estimação.
-
-# Pronto quando
-
-- `dados/consultas/<carta>.json` tem a consulta de hoje com os vereditos, a compra e o estudo (`python motor/consulta.py --listar` mostra).
-- `saidas/00. Consulta.html` mostra o estudo, e `testes/consulta.py` passa.
-- O dono viu o relatório no formato acima.
-- Uma linha em `contexto/ESTADO.md` e commit `consulta: <carta>`.
