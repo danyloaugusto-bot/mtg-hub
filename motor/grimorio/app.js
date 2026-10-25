@@ -539,6 +539,7 @@
     var cx = $('#g-l-caixa');
     if (D.caixa) { cx.hidden = false; cx.href = pub && D.caixa.pub ? D.caixa.pub : D.caixa.href; }
     if (D.consulta) $('#g-l-cons').href = pub && D.consulta.pub ? D.consulta.pub : D.consulta.href;
+    var cc = $('#g-l-cic'); if (D.ciclos) { cc.hidden = false; cc.href = pub && D.ciclos.pub ? D.ciclos.pub : D.ciclos.href; }
   }
   function rodape() {
     $('#foot').innerHTML = '<p>Leitura de ' + data(D.lido) + '. Cartas, inclusões e sinergias: EDHREC; nome, texto, identidade e impressão: Scryfall; notas: cadastro v3; onde está: decklists, pastas e Caixa; onde rende: encaixe nos dez critérios. Teto por lente: ' + D.teto[0] + ' mais incluídas e ' + D.teto[1] + ' de maior sinergia. Sem preço.</p><p>Arte das cartas: © Wizards of the Coast.</p>';

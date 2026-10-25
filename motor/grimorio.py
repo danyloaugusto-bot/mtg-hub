@@ -622,7 +622,7 @@ def _montar_pagina(G, L, lt, qualidade, teto, memo):
              contagens=ct, temas=temas, cores=cores, crit=crit, decks=G.get("decks") or [], g8=g8, lentes=listas, cards=cards, pontas=pontas,
              hub=dict(href=quote("00. Hub.html"), pub=(caixa.regua().get("hub_publicado") or None)),
              caixa=dict(href=quote(caixa.NOME + ".html"), pub=caixa.link_publicado()) if tem_caixa else None,
-             consulta=_link_consulta(),
+             consulta=_link_consulta(), ciclos=_link_ciclos(),
              teto=list(teto), orcamento=L.get("orcamento_html_mb"), galeria=dict(largura=imagens.LARGURA_GRIMORIO, qualidade=qualidade))
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
@@ -638,6 +638,12 @@ def _montar_pagina(G, L, lt, qualidade, teto, memo):
     html = (ler("grimorio", "template.html").replace("/*__FONTS__*/", css_fontes).replace("/*__ROOT__*/", root)
             .replace("/*__CSS__*/", css).replace("/*__JS__*/", js.replace("</script", "<\\/script")))
     return html, dict(cartas=len(cards), lentes=ct["lidas"])
+
+
+def _link_ciclos():
+    import ciclos
+    from urllib.parse import quote
+    return dict(href=quote(ciclos.NOME + ".html"), pub=ciclos.link_publicado()) if ciclos.ler_lido() else None
 
 
 def _link_consulta():
