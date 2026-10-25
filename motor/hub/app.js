@@ -2135,6 +2135,8 @@ if (H.caixa) { var tc = $('#t-caixa'); tc.hidden = false; if (location.protocol 
 if (H.grimorio) { var tg = $('#t-grim'); tg.hidden = false; tg.href = (location.protocol !== 'file:' && H.grimorio.pub) ? H.grimorio.pub : H.grimorio.href; }
 // a Consulta: uma carta de fora contra todos os decks, à direita do Grimório (local no arquivo, publicada no claude.ai)
 if (H.consulta) { var tq = $('#t-cons'); tq.href = (location.protocol !== 'file:' && H.consulta.pub) ? H.consulta.pub : H.consulta.href; }
+// os Ciclos: as cartas de ciclo de cada coleção, à direita da Consulta (só depois da primeira leitura)
+if (H.ciclos) { var tcc = $('#t-cic'); tcc.hidden = false; tcc.href = (location.protocol !== 'file:' && H.ciclos.pub) ? H.ciclos.pub : H.ciclos.href; }
 $('#v-dash').innerHTML = vistaDash();
 $('#foot').innerHTML = '<p>O hub mostra a foto do último build, de ' + esc(H.gerado) + '. O que você edita dentro de um painel fica naquele painel até voltar para o projeto com o <code>/importar-backup</code>, pela aba Oficina.</p>' +
   '<p>Arte das cartas e dos comandantes: © Wizards of the Coast.</p>';

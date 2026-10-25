@@ -360,6 +360,15 @@ def resumo_consulta():
     return dict(href=quote(consulta.NOME + ".html"), pub=consulta.link_publicado())
 
 
+def resumo_ciclos():
+    """Os Ciclos no hub: a pílula à direita da Consulta abre a página própria (saidas/00. Ciclos.html) ou o link publicado de
+    dados/ciclos/link.txt. None enquanto não houver leitura."""
+    import ciclos
+    if not ciclos.ler_lido():
+        return None
+    return dict(href=quote(ciclos.NOME + ".html"), pub=ciclos.link_publicado())
+
+
 def resumo_grimorio():
     """O Grimório no hub: a pílula à direita do Dashboard abre a página própria (saidas/00. Grimório.html) ou o link publicado
     de dados/grimorio/link.txt; e as contagens da última leitura. None enquanto não houver leitura."""
@@ -416,7 +425,7 @@ def montar(avisar=print):
 
     H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS), regua=dados.regua_compacta(),
              pastas=pastas_hub(), cambio=(caixa_resumo_cambio()), em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"),
-             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None, caixa=resumo_caixa(), grimorio=resumo_grimorio(), consulta=resumo_consulta())
+             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None, caixa=resumo_caixa(), grimorio=resumo_grimorio(), consulta=resumo_consulta(), ciclos=resumo_ciclos())
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
