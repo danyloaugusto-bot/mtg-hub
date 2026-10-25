@@ -59,6 +59,7 @@ def _reduzir(k, hoje):
         "game_changer": True if k.get("game_changer") else None, "edhrec_rank": k.get("edhrec_rank"),
         "leg": (k.get("legalities") or {}).get("commander"),   # legal, not_legal, banned ou restricted, no Commander
         "reprint": k.get("reprint"),   # False = a primeira impressão da carta (Novidades do Grimório); fica no registro
+        "rarity": k.get("rarity"),     # common, uncommon, rare, mythic (os Ciclos)
         "consultado": hoje,
     }
     if k.get("card_faces"):
