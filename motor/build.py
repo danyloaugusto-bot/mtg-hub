@@ -7,6 +7,7 @@
     python motor/build.py --caixa          # só a Caixa (saidas/00. Caixa.html); --todos monta a Caixa antes do hub
     python motor/build.py --grimorio       # só o Grimório (saidas/00. Grimório.html); --todos monta o Grimório antes do hub
     python motor/build.py --consulta       # só a Consulta (saidas/00. Consulta.html); --todos monta a Consulta antes do hub
+    python motor/build.py --ciclos         # só os Ciclos (saidas/00. Ciclos.html); --todos monta os Ciclos antes do hub
 
 Gera saidas/<pasta>.html e dados/<pasta>/Abrir o painel.html; o hub gera saidas/00. Hub.html e Abrir o Hub.html na raiz.
 Sempre com quebra de linha LF,
@@ -19,7 +20,7 @@ sys.dont_write_bytecode = True
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, MOTOR)
 
-import caixa, consulta, dados, encaixe, grimorio, hub, imagens, plano, scryfall, tema  # noqa: E402
+import caixa, ciclos, consulta, dados, encaixe, grimorio, hub, imagens, plano, scryfall, tema  # noqa: E402
 
 RAIZ = os.path.dirname(MOTOR)
 SAIDAS = os.path.join(RAIZ, "saidas")
@@ -296,6 +297,19 @@ def montar_consulta():
     print("%s: %d consultas com estudo, %d decks | dados %.0f KB sem imagens | %.0f KB" % (consulta.NOME, r["registros"], r["decks"], r["kb_dados"], r["kb"]))
 
 
+def montar_ciclos():
+    """Os Ciclos: página própria (motor/ciclos/), a partir de dados/ciclos/ciclos-lido.json (python motor/ciclos.py --ler)."""
+    if not ciclos.ler_lido():
+        print("%s: sem dados/ciclos/ciclos-lido.json (rode python motor/ciclos.py --ler), pulados" % ciclos.NOME)
+        return
+    html, r = ciclos.pagina()
+    gravar(os.path.join(SAIDAS, ciclos.NOME + ".html"), html)
+    gravar(os.path.join(RAIZ, "Abrir os Ciclos.html"), ciclos.atalho())
+    print("%s: %d cartas em %d ciclos de %d coleções | %.0f KB" % (ciclos.NOME, r["cartas"], r["ciclos"], r["colecoes"], r["kb"]))
+    for a in r.get("avisos") or []:
+        print("  aviso: " + a)
+
+
 def main():
     ap = argparse.ArgumentParser(description="Monta os painéis dos decks.")
     g = ap.add_mutually_exclusive_group(required=True)
@@ -305,6 +319,7 @@ def main():
     g.add_argument("--caixa", action="store_true", help="só a Caixa, saidas/00. Caixa.html")
     g.add_argument("--grimorio", action="store_true", help="só o Grimório, saidas/00. Grimório.html")
     g.add_argument("--consulta", action="store_true", help="só a Consulta, saidas/00. Consulta.html")
+    g.add_argument("--ciclos", action="store_true", help="só os Ciclos, saidas/00. Ciclos.html")
     ap.add_argument("--atualizar-scryfall", action="store_true", help="consulta o Scryfall de novo, mesmo para cartas no cache")
     ap.add_argument("--imagens", choices=MODOS_IMG, default="embutidas", help="embutidas (padrão): lê cache/img/; externas: tenta o Scryfall ao vivo; nenhuma: sem imagens, nem ao vivo")
     a = ap.parse_args()
@@ -328,6 +343,13 @@ def main():
             montar_grimorio()
         except (dados.ErroDeck, scryfall.ErroScryfall) as e:
             print("00. Grimório: ERRO: %s" % e, file=sys.stderr)
+            sys.exit(1)
+        sys.exit(0)
+    if a.ciclos:
+        try:
+            montar_ciclos()
+        except (dados.ErroDeck, scryfall.ErroScryfall) as e:
+            print("%s: ERRO: %s" % (ciclos.NOME, e), file=sys.stderr)
             sys.exit(1)
         sys.exit(0)
     if a.consulta:
@@ -365,6 +387,11 @@ def main():
         except (dados.ErroDeck, scryfall.ErroScryfall, consulta.ErroConsulta) as e:
             erros += 1
             print("%s: ERRO: %s" % (consulta.NOME, e), file=sys.stderr)
+        try:
+            montar_ciclos()
+        except (dados.ErroDeck, scryfall.ErroScryfall) as e:
+            erros += 1
+            print("%s: ERRO: %s" % (ciclos.NOME, e), file=sys.stderr)
         montar_hub()
     sys.exit(1 if erros else 0)
 
