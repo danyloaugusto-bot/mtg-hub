@@ -1,0 +1,636 @@
+{
+ "versao": 1,
+ "carta": {
+  "nome": "Bloodline Recollector",
+  "custo": "{1}{B} // {B}",
+  "tipo": "Creature — Vampire Warlock // Instant",
+  "texto": "Bloodline Recollector {1}{B}\nCreature — Vampire Warlock\nAt the beginning of each end step, if three or more creatures died this turn, this creature becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)\n//\nAncestral Craving {B}\nInstant\nTarget player draws three cards and loses 3 life.",
+  "ci": "B",
+  "set": "fra",
+  "num": "49",
+  "link": "https://scryfall.com/card/fra/49",
+  "lancamento": "2026-10-02",
+  "pt": "2/2",
+  "artista": "Cynthia Sheppard",
+  "sid": "4fcc913e-f736-460a-b24b-022fa2e861b9",
+  "cmc": 2.0,
+  "gc": false,
+  "faces": [
+   {
+    "nome": "Bloodline Recollector",
+    "custo": "{1}{B}",
+    "tipo": "Creature — Vampire Warlock",
+    "texto": "At the beginning of each end step, if three or more creatures died this turn, this creature becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)"
+   },
+   {
+    "nome": "Ancestral Craving",
+    "custo": "{B}",
+    "tipo": "Instant",
+    "texto": "Target player draws three cards and loses 3 life."
+   }
+  ]
+ },
+ "consultas": [
+  {
+   "data": "2026-10-24",
+   "usd": "3.96",
+   "usd_foil": "6.86",
+   "rank": 12091,
+   "avisos": [],
+   "cadastro": {
+    "n": {
+     "draw": 2
+    },
+    "por_que": "No fim de cada turno em que três ou mais criaturas morreram, fica preparado: você pode conjurar por {B} uma cópia de Ancestral Craving, em que um jogador compra três e perde 3 de vida.",
+    "fonte": "claude",
+    "revisado": "2026-10-15"
+   },
+   "forca": {
+    "valor_proprio": 6,
+    "mediana": 6,
+    "percentil": 49,
+    "rank": 12091,
+    "gc": false,
+    "grau": "C"
+   },
+   "encaixe": [
+    {
+     "pasta": "02. Strefan",
+     "sin": [
+      2,
+      1
+     ],
+     "sin_por_que": {
+      "sin1": "Vampiro que o Strefan põe da mão em campo atacando, sem gatilho a cada Vampiro que entra (nota 2 da régua).",
+      "sin2": "A cópia de Ancestral Craving faz um jogador por vez perder 3 de vida, inclusive você no seu turno, e só quando está preparada (nota 1 da régua, como Vein Ripper)."
+     },
+     "valor": 15.0,
+     "valor_com_saturacao": 13.5,
+     "ganho": 10.5,
+     "sai": "Gamble",
+     "valor_sai": 3,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "draw"
+     ],
+     "d_cmc": 0.014,
+     "d_acel": 0,
+     "acima_de": 45,
+     "magicas": 70
+    },
+    {
+     "pasta": "03. Master Of Evil",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "A cópia tira 3 de vida de um oponente, mas só preparada, no fim de um turno em que três criaturas morreram: de passagem (nota 1 da régua)."
+     },
+     "valor": 8.5,
+     "valor_com_saturacao": 11.5,
+     "ganho": 10.5,
+     "sai": "The Master, Formed Anew",
+     "valor_sai": 1,
+     "faixa": "deck",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "draw"
+     ],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 24,
+     "magicas": 62
+    },
+    {
+     "pasta": "01. Vito",
+     "sin": [
+      0,
+      1
+     ],
+     "sin_por_que": {
+      "sin2": "Vampiro sem efeito voltado aos outros Vampiros, que conta para os lordes e o Bloodline Keeper (nota 1 da régua)."
+     },
+     "valor": 7.5,
+     "valor_com_saturacao": 10.5,
+     "ganho": 9.5,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "radar",
+      "veredito": "fora",
+      "tier": "C",
+      "sin": [
+       0,
+       1
+      ]
+     },
+     "cobre": [
+      "draw"
+     ],
+     "d_cmc": 0.014,
+     "d_acel": 0,
+     "acima_de": 22,
+     "magicas": 68
+    },
+    {
+     "pasta": "03. K'rrik",
+     "sin": [
+      2,
+      1
+     ],
+     "sin_por_que": {
+      "sin1": "Custo {1}{B}: o K'rrik paga metade do valor de mana com vida, e a cópia de {B} sai toda em vida (nota 2 da régua).",
+      "sin2": "Perda de 3 de vida de um oponente, mas dando três cartas a ele e só quando preparada (nota 1 da régua: perda lenta, dando cartas ao oponente)."
+     },
+     "valor": 15.0,
+     "valor_com_saturacao": 14.25,
+     "ganho": 8.75,
+     "sai": "Ophiomancer",
+     "valor_sai": 5.5,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": -0.015,
+     "d_acel": 0,
+     "acima_de": 39,
+     "magicas": 67
+    },
+    {
+     "pasta": "03. Valgavoth",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Instantânea que tira 3 de vida no turno do oponente uma vez, quando preparada no fim do turno dele, mas dando três cartas a ele (nota 1 da régua, como Rakdos Charm)."
+     },
+     "valor": 8.5,
+     "valor_com_saturacao": 9.75,
+     "ganho": 8.75,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 25,
+     "magicas": 67
+    },
+    {
+     "pasta": "02. Clavileño",
+     "sin": [
+      2,
+      1
+     ],
+     "sin_por_que": {
+      "sin1": "Vampiro comum, que ataca e pode ser abençoado, sem pôr outro Vampiro em campo (nota 2 da régua).",
+      "sin2": "Só rende com a morte (fica preparado quando três criaturas morreram no turno), sem matar nem devolver (nota 1 da régua)."
+     },
+     "valor": 15.0,
+     "valor_com_saturacao": 10.5,
+     "ganho": 8.0,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.014,
+     "d_acel": 0,
+     "acima_de": 43,
+     "magicas": 68
+    },
+    {
+     "pasta": "04. Assassin Creed",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 9.0,
+     "ganho": 8.0,
+     "sai": "Shay Cormac",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "draw"
+     ],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 21,
+     "magicas": 65
+    },
+    {
+     "pasta": "02. Zumbis",
+     "sin": [
+      0,
+      1
+     ],
+     "sin_por_que": {
+      "sin2": "Só rende com a morte (três criaturas mortas no turno a preparam), sem sacrificar nem devolver (nota 1 da régua)."
+     },
+     "valor": 7.5,
+     "valor_com_saturacao": 9.75,
+     "ganho": 7.25,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "guardar",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "draw"
+     ],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 10,
+     "magicas": 66
+    },
+    {
+     "pasta": "03. Tergrid",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 9.0,
+     "ganho": 7.0,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "draw"
+     ],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 16,
+     "magicas": 66
+    },
+    {
+     "pasta": "05. Deadpool",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 9.0,
+     "ganho": 7.0,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "draw"
+     ],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 12,
+     "magicas": 66
+    },
+    {
+     "pasta": "01. Markov",
+     "sin": [
+      2,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Vampiro que dispara a eminência ao ser conjurado, sem efeito próprio voltado aos outros Vampiros (nota 2 da régua)."
+     },
+     "valor": 13.5,
+     "valor_com_saturacao": 9.75,
+     "ganho": 6.75,
+     "sai": "Faithless Looting",
+     "valor_sai": 3,
+     "faixa": "guardar",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 36,
+     "magicas": 67
+    },
+    {
+     "pasta": "05. Slivers",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 9.0,
+     "ganho": 6.0,
+     "sai": "Fierce Guardianship",
+     "valor_sai": 3,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "draw"
+     ],
+     "d_cmc": -0.015,
+     "d_acel": 0,
+     "acima_de": 3,
+     "magicas": 64
+    },
+    {
+     "pasta": "02. Evelyn",
+     "sin": [
+      2,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Vampiro que entra e enche a coleção, sem pôr outro Vampiro em campo (nota 2 da régua)."
+     },
+     "valor": 13.5,
+     "valor_com_saturacao": 6.75,
+     "ganho": 5.75,
+     "sai": "Jwari Disruption",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 45,
+     "magicas": 64
+    },
+    {
+     "pasta": "02. Elfos",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 4.0,
+     "sai": "Khalni Ambush",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": -0.014,
+     "d_acel": 0,
+     "acima_de": 9,
+     "magicas": 70
+    },
+    {
+     "pasta": "02. Kaalia",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 4.0,
+     "sai": "Fatal Push",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 7,
+     "magicas": 65
+    },
+    {
+     "pasta": "04. Zur",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 4.0,
+     "sai": "Judge's Familiar",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 7,
+     "magicas": 66
+    },
+    {
+     "pasta": "03. Lynde",
+     "sin": [
+      0,
+      1
+     ],
+     "sin_por_que": {
+      "sin2": "A cópia pode dar três cartas a outro jogador, presente que não escolhe lado (nota 1 da régua, como Keen Duelist)."
+     },
+     "valor": 7.5,
+     "valor_com_saturacao": 4.5,
+     "ganho": 3.5,
+     "sai": "Hydroelectric Specimen",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": -0.015,
+     "d_acel": 0,
+     "acima_de": 21,
+     "magicas": 67
+    },
+    {
+     "pasta": "02. Turtle Power!",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 3.0,
+     "sai": "Continue?",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 3,
+     "magicas": 64
+    },
+    {
+     "pasta": "04. Queen",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 3.0,
+     "ganho": 2.0,
+     "sai": "Approach of the Second Sun",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": -0.072,
+     "d_acel": 5,
+     "acima_de": 9,
+     "magicas": 68
+    }
+   ],
+   "vereditos": {
+    "resumo": "Carta mediana (grau C): um Vampiro de 2 manas que, depois de um turno com três mortes, compra três por {B}. Rende nos decks de Vampiro que matam criaturas, K'rrik, Strefan, Clavileño e Markov, em trocas de Guardar.",
+    "compra": {
+     "acao": "so-se-sobrar",
+     "porque": "Barata (US$ 3,96 em 24/10/2026; foil US$ 6,86) e boa em quatro decks, mas a melhor troca real, no K'rrik contra o Ophiomancer, fica abaixo dos 10 de ganho que a régua da Caixa pede para Deck. Cabe numa compra maior."
+    },
+    "decks": {
+     "03. K'rrik": {
+      "veredito": "avaliar",
+      "porque": "Sai por {1} e 2 de vida, e a cópia de {B} toda em vida; vale 15 contra 5,5 do Ophiomancer, a mais fraca do mesmo papel. As três mortes dependem dos sacrifícios do deck.",
+      "sai": "Ophiomancer"
+     },
+     "02. Strefan": {
+      "veredito": "avaliar",
+      "porque": "Vampiro que o Strefan põe atacando, e a cópia pode fazer você perder 3 de vida no seu turno para o Sangue. Vale 15 contra 8 da Alesha; o +10,5 do motor é contra o Gamble, que não disputa a vaga.",
+      "sai": "Alesha, Who Laughs at Fate"
+     },
+     "02. Clavileño": {
+      "veredito": "avaliar",
+      "porque": "Vampiro abençoável que rende quando as mortes do deck se juntam. Vale 15 contra 10,5 do Legion Lieutenant, a mais fraca do mesmo papel, mas é um lorde: a troca é para testar, não para fazer de cara.",
+      "sai": "Legion Lieutenant"
+     },
+     "01. Markov": {
+      "veredito": "avaliar",
+      "porque": "Dispara a eminência como Vampiro de 2, e as fichas do Markov morrem muito em combate. Vale 13,5 contra 9,5 do Dusk Legion Sergeant (tier D).",
+      "sai": "Dusk Legion Sergeant"
+     },
+     "02. Evelyn": {
+      "veredito": "fora",
+      "porque": "Enche a coleção como qualquer Vampiro de 2, mas o deck não mata criaturas: as três mortes raramente acontecem, e aí ela é só um 2/2."
+     },
+     "01. Vito": {
+      "veredito": "fora",
+      "porque": "Já está no radar do Vito como fora: a compra não ganha vida, e um Vampiro sem efeito na tribo não dispara o Vito."
+     },
+     "02. Zumbis": {
+      "veredito": "fora",
+      "porque": "Não é Zumbi; vale 7,5, abaixo do Champion of the Perished (8,5), a mais fraca do mesmo papel."
+     },
+     "03. Lynde": {
+      "veredito": "fora",
+      "porque": "Só a cópia como presente de cartas liga ao deck; vale 7,5 e ganha +3,5, abaixo da régua de Guardar."
+     },
+     "03. Master Of Evil": {
+      "veredito": "fora",
+      "porque": "Precon intacto: a lista não muda. A cópia mira 3 de vida num oponente para o Davros, mas só depois de três mortes no turno."
+     },
+     "03. Valgavoth": {
+      "veredito": "fora",
+      "porque": "A cópia no fim do turno do oponente dispara o Valgavoth, mas dá três cartas a ele; vale 8,5 contra 5 do Unstoppable Slasher, e o ganho é do oponente."
+     },
+     "04. Assassin Creed": {
+      "veredito": "fora",
+      "porque": "Sem ligação com os Assassinos; o +8 vem só do Draw abaixo da faixa, e o deck não junta três mortes por turno."
+     },
+     "03. Tergrid": {
+      "veredito": "fora",
+      "porque": "Sem ligação com o roubo da Tergrid; o +7 vem só do Draw abaixo da faixa."
+     },
+     "05. Deadpool": {
+      "veredito": "fora",
+      "porque": "Desejo, e sem ligação com a troca de texto; o +7 vem só do Draw abaixo da faixa."
+     },
+     "05. Slivers": {
+      "veredito": "fora",
+      "porque": "Desejo, e não é Sliver; o +6 vem só do Draw abaixo da faixa."
+     }
+    }
+   },
+   "estudo": {
+    "leitura": "Um Vampiro 2/2 por {1}{B}. No começo de cada etapa final, a sua ou a de um oponente, se três ou mais criaturas morreram naquele turno, ele fica preparado: enquanto estiver preparado, você pode conjurar uma cópia de Ancestral Craving por {B}, uma instantânea em que um jogador alvo compra três cartas e perde 3 de vida. Conjurar a cópia o despreparar. Sem as três mortes no turno, ele é um 2/2 sem efeito.",
+    "forcas": [
+     "“At the beginning of each end step”: confere em todo turno, também no dos oponentes, então uma limpeza ou um combate grande de qualquer jogador o prepara.",
+     "“Target player draws three cards”: três cartas por {B}, numa instantânea.",
+     "“Target player”: dá para mirar um oponente e tirar 3 de vida dele, ou dar as cartas a outro jogador na negociação.",
+     "“Creature — Vampire”: um Vampiro de 2 manas, que conta para as tribos e para os lordes."
+    ],
+    "fraquezas": [
+     "“If three or more creatures died this turn”: sem três mortes no turno, ele é um 2/2 comum.",
+     "“Loses 3 life”: quem compra paga 3 de vida, então mirar a si mesmo custa vida a cada uso.",
+     "“Doing so unprepares it”: cada preparo rende uma cópia só.",
+     "“{1}{B}”: um 2/2 frágil, que muitas vezes morre na mesma limpeza que contaria as três mortes."
+    ],
+    "vacuo": {
+     "grau": "C",
+     "porque": "Uma nota só, Draw 2, pela cópia de Ancestral Craving, que depende de três mortes no turno. Não é Game Changer e está em #12091 no EDHREC; o grau sai do valor próprio, igual à mediana do cadastro."
+    },
+    "armadilhas": {
+     "03. Valgavoth": "A cópia no fim do turno do oponente dispara o Valgavoth, mas dá três cartas a esse oponente: o ganho fica com ele.",
+     "02. Evelyn": "Vampiro que enche a coleção, mas a Evelyn não mata criaturas: as três mortes raramente acontecem, e a compra quase nunca sai.",
+     "03. Master Of Evil": "A cópia pode tirar os 3 de vida que o Davros pede, mas só depois de três mortes no turno, e o precon fica intacto."
+    }
+   },
+   "gravado": "2026-10-24T23:20:14"
+  }
+ ]
+}
