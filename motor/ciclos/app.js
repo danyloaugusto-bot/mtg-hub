@@ -33,6 +33,13 @@
     (kids || []).forEach(function (c) { if (c == null || c === false) return; el.appendChild(typeof c === 'object' ? c : document.createTextNode(String(c))); });
     return el;
   }
+  // a imagem: uma das quatro cartas de uma folha 2×2 em ciclos-img/ (publicada junto com a página); a moldura recorta a carta
+  function imgCarta(c, lazy) {
+    if (!c.sp) return null;
+    var k = c.sp[1];
+    return h('span', { class: 'c-sp' }, [h('img', { src: (D.img_dir || 'ciclos-img') + '/' + c.sp[0], alt: c.n, loading: lazy ? 'lazy' : null, decoding: 'async',
+      style: 'transform:translate(' + (-(k % 2) * 50) + '%,' + (-Math.floor(k / 2) * 50) + '%)' })]);
+  }
   function nomeDeck(p) { var i = p.indexOf('. '); return i > 0 ? p.slice(i + 2) : p; }
   function data(d) { return d ? d.split('-').reverse().join('/') : '—'; }
   function mes(d) { return d && d.length >= 7 ? d.slice(5, 7) + '/' + d.slice(0, 4) : (d || '—'); }
@@ -248,7 +255,7 @@
   function cartaoCarta(c, comVaga) {
     var sub = comVaga ? (c.t || '').split(' — ')[0].split(' // ')[0] : (cicloDe(c).ciclo + ' · ' + (colDe(c).k || ''));
     return h('button', { class: 'c-carta' + (pendente(c) ? ' pend' : ''), type: 'button', onclick: function () { gaveta(c); } }, [
-      h('div', { class: 'g-im' }, [c.img ? h('img', { src: c.img, alt: c.n, loading: 'lazy' }) : h('div', { class: 'g-semimg' }, [c.enc ? 'sem imagem no cache' : 'não encontrada no Scryfall'])]),
+      h('div', { class: 'g-im' }, [c.sp ? imgCarta(c, true) : h('div', { class: 'g-semimg' }, [c.enc ? 'sem imagem no cache' : 'não encontrada no Scryfall'])]),
       h('div', { class: 'g-tx' }, [h('b', {}, [c.n.split(' // ')[0]]), h('small', {}, [sub]),
         h('span', { class: 'g-ch c-selos' }, [grauPill(c), S.agrupar === 'status' ? null : stPill(c), pendPill(c)]),
         h('span', { class: 'g-ch' }, c.rende && c.rende.length ? chipsRende(c, 1) : chipsOnde(c, 1))])]);
@@ -493,7 +500,7 @@
     var ci = cicloDe(c), col = colDe(c);
     g.appendChild(h('div', { class: 'cab' }, [h('h2', {}, [c.n]), h('button', { class: 'x', type: 'button', 'aria-label': 'Fechar', onclick: fechaGaveta }, ['×'])]));
     g.appendChild(h('div', { class: 'corpo' }, [
-      c.img ? h('img', { src: c.img, alt: c.n }) : h('div', { class: 'semimg' }, [c.enc ? 'sem imagem no cache' : 'não encontrada no Scryfall']),
+      c.sp ? imgCarta(c, false) : h('div', { class: 'semimg' }, [c.enc ? 'sem imagem no cache' : 'não encontrada no Scryfall']),
       h('div', {}, [
         h('p', {}, [mana(c.cost, c.ci), ' ', h('span', { class: 'g-aviso' }, [c.t || '—'])]),
         h('p', { style: 'margin-top:8px' }, [stPill(c), ' ', pendPill(c)]),

@@ -13,7 +13,12 @@
 .c-rar.x{background:none;color:var(--dim);box-shadow:inset 0 0 0 1px var(--gl)}
 .c-vagas{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .c-vagas.livre{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-.c-vaga{display:grid;gap:6px;min-width:0}
+.c-vaga{display:grid;gap:8px;min-width:0;align-content:start}   /* start: sem isso a coluna mais baixa esticava as linhas e empurrava o título da cor para baixo */
+/* a carta recortada da folha 2×2: a imagem tem o dobro da largura da moldura e anda meia folha por posição */
+.c-sp{display:block;position:relative;width:100%;aspect-ratio:672/936;overflow:hidden;background:var(--panel2)}
+.c-pg .c-sp img,.c-pg .g-im .c-sp img,.c-pg .g-gav .corpo .c-sp img{position:absolute;left:0;top:0;width:200%;height:auto;max-width:none;aspect-ratio:auto;border-radius:0;object-fit:fill;transform-origin:0 0}
+.c-pg .g-gav .corpo .c-sp{width:150px;border-radius:8px}
+@media (max-width:640px){.c-pg .g-gav .corpo .c-sp{width:110px}}
 .c-vaga-c{display:flex;align-items:center;gap:6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);font-weight:700}
 .c-vaga-c .g-ms{margin:0}
 .c-vazia{border:1px dashed var(--gl);border-radius:10px;width:100%;aspect-ratio:63/88;align-self:start;display:grid;place-items:center;color:var(--dim);font-size:13px;text-align:center;padding:10px}   /* align-self:start: esticada à altura da linha, a proporção alargava a vaga além da coluna */
