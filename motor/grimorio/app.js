@@ -19,6 +19,12 @@
   D.decks.forEach(function (d) { NOME_P[d.p.replace(/^\d+\.\s*/, '')] = d.p; });
 
   function $(s, r) { return (r || document).querySelector(s); }
+  // a imagem: uma das quatro cartas de uma folha 2×2 em grimorio-img/ (publicada junto com a página); a moldura recorta a carta
+  function imgCarta(c, cls, lazy, alt) {
+    var k = c.sp[1];
+    return h('span', { class: 'c-sp' + (cls ? ' ' + cls : '') }, [h('img', { src: (D.img_dir || 'grimorio-img') + '/' + c.sp[0], alt: alt, loading: lazy ? 'lazy' : null, decoding: 'async',
+      style: 'transform:translate(' + (-(k % 2) * 50) + '%,' + (-Math.floor(k / 2) * 50) + '%)' })]);
+  }
   function h(tag, attrs, kids) {
     var el = document.createElement(tag);
     if (attrs) Object.keys(attrs).forEach(function (k) {
@@ -262,7 +268,7 @@
   function galeria(arr) {
     return h('div', { class: 'g-gal' }, arr.map(function (c) {
       return h('button', { class: 'g-card', type: 'button', onclick: function () { gaveta(c); } }, [
-        h('div', { class: 'g-im' }, [c.img ? h('img', { src: c.img, alt: c.n, loading: 'lazy' }) : h('div', { class: 'g-semimg' }, ['sem imagem no cache']),
+        h('div', { class: 'g-im' }, [c.sp ? imgCarta(c, '', true, c.n) : h('div', { class: 'g-semimg' }, ['sem imagem no cache']),
           S.agrupar === 'status' ? null : stPill(c), nvPill(c)]),   // agrupado por status, o grupo já diz o status: sem selo na carta
         h('div', { class: 'g-tx' }, [h('b', {}, [c.n]), h('span', { class: 'g-ch' }, c.rende && c.rende.length ? chipsRende(c, 2) : chipsOnde(c, 2))])]);
     }));
@@ -388,7 +394,7 @@
         var pastas = Object.keys(c.pastas || {});
         var txt = no ? 'já no deck' : outros.length ? 'em ' + outros.slice(0, 2).join(', ') + (outros.length > 2 ? ' +' + (outros.length - 2) : '') + ' · mova ou compre outra cópia' : pastas.length ? 'parada em ' + pastas.map(function (p) { return p === 'Caixa' ? 'Caixa' : 'Pasta ' + p; }).join(', ') : 'não tem';
         ul.appendChild(h('li', {}, [h('button', { type: 'button', onclick: function () { gaveta(c); } }, [
-          c.img ? h('img', { class: 'g-mini', src: c.img, alt: '', loading: 'lazy' }) : h('span', { class: 'g-mini' }),
+          c.sp ? imgCarta(c, 'g-mini', true, '') : h('span', { class: 'g-mini' }),
           h('span', { class: 'nm' }, [h('b', {}, [c.n]), h('small', {}, [txt])]),
           no ? h('span', { class: 'g-st tenho' }, ['No deck']) : outros.length ? h('span', { class: 'g-st ociosa' }, ['Mover']) : pastas.length ? h('span', { class: 'g-st ociosa' }, ['Ociosa']) : h('span', { class: 'g-st falta' }, ['Falta'])])]));
       });
@@ -420,7 +426,7 @@
         var lts = tagsLentes(c);
         Object.keys(c.notas || {}).forEach(function (k) { if (c.notas[k] === 3 && CRIT[k]) lts.push(h('span', { class: 'g-lt cor' }, [CRIT[k].n + ' 3'])); });
         return h('button', { class: 'g-ponta', type: 'button', onclick: function () { gaveta(c); } }, [
-          c.img ? h('img', { src: c.img, alt: '', loading: 'lazy' }) : h('div', { class: 'semimg' }),
+          c.sp ? imgCarta(c, '', true, '') : h('div', { class: 'semimg' }),
           h('div', {}, [h('b', {}, [c.n]), h('div', { class: 'lts' }, lts), h('span', { class: 'g-ch' }, [stPill(c)].concat(chipsOnde(c, 3)).concat(chipsRende(c, 3))), h('p', {}, [c.pq || ''])])]);
       }));
     };
@@ -479,7 +485,7 @@
     v.onclick = fecha;
     g.appendChild(h('div', { class: 'cab' }, [h('h2', {}, [c.n]), h('button', { class: 'x', type: 'button', 'aria-label': 'Fechar', onclick: fecha }, ['×'])]));
     g.appendChild(h('div', { class: 'corpo' }, [
-      c.img ? h('img', { src: c.img, alt: c.n }) : h('div', { class: 'semimg' }, ['sem imagem no cache']),
+      c.sp ? imgCarta(c, '', false, c.n) : h('div', { class: 'semimg' }, ['sem imagem no cache']),
       h('div', {}, [
         h('p', {}, [mana(c.cost, c.ci), ' ', h('span', { class: 'g-aviso' }, [c.t])]),
         h('p', { style: 'margin-top:8px' }, [stPill(c), ' ', nvPill(c, true)]),

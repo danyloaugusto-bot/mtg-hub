@@ -164,6 +164,13 @@ details.g-quadro:not([open])>summary{margin-bottom:0}
 .g-quadro li{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:8px;align-items:center;font-size:14.5px}
 .g-quadro li button{display:contents;cursor:pointer;color:inherit;font:inherit;text-align:left}
 .g-mini{width:42px;aspect-ratio:63/88;border-radius:4px;background:var(--panel2);object-fit:cover;display:block}
+/* a carta recortada da folha 2×2 (Grimório e Ciclos): a imagem tem o dobro da largura da moldura e anda meia folha por posição */
+.c-sp{display:block;position:relative;width:100%;aspect-ratio:672/936;overflow:hidden;background:var(--panel2)}
+.c-sp>img{position:absolute!important;left:0;top:0;width:200%!important;height:auto!important;max-width:none!important;aspect-ratio:auto!important;border-radius:0!important;object-fit:fill!important;transform-origin:0 0}
+.g-mini.c-sp{width:42px;border-radius:4px}
+.g-ponta .c-sp{width:64px;flex:none;border-radius:5px}
+.g-gav .corpo .c-sp{width:150px;border-radius:8px}
+@media (max-width:760px){.g-gav .corpo .c-sp{width:110px}}
 .g-quadro li .nm{min-width:0}
 .g-quadro li .nm b{display:block;font-weight:700}
 .g-quadro li .nm small{color:var(--dim);font-size:13px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
