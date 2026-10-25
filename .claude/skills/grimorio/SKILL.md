@@ -40,6 +40,7 @@ Com `atualizar`: relê todas as lentes (ou só a lente nomeada), recalcula statu
 **publicar**
 
 1. Só com o "pode publicar" do dono. Publique `saidas/00. Grimório.html` como artefato próprio (link em `dados/grimorio/link.txt`), **sem `capabilities`**, e remonte o hub para a pílula apontar ao link publicado.
+2. As imagens não vão dentro do HTML: são folhas de 2×2 cartas no tamanho grande do Scryfall (672 px, `cache/img-grande/`, baixadas pelo `--ler` ou por `python motor/grimorio.py --imagens`), em `saidas/grimorio-img/`, publicadas junto com a página pelo `files` do Artifact (`root: saidas`, caminho `grimorio-img/<folha>.jpg`). Liste antes os arquivos publicados (`action: list`, `scope: files`), mande só as folhas novas, em partes de uns 20 MB (uma de 60 MB caiu na conexão), sempre no mesmo link, e `null` para as que sumiram de `saidas/grimorio-img/`. Folha com `-p` no nome foi feita com a imagem de 340 px: rode `--imagens` e remonte antes. Limites do artefato: 511 arquivos e 256 MB por versão.
 
 # Regras
 
@@ -47,7 +48,7 @@ Com `atualizar`: relê todas as lentes (ou só a lente nomeada), recalcula statu
 - Sem preço no Grimório, no hub e no painel. Sem perguntas sobre bracket ou cartas de estimação.
 - Os dez critérios são do dono e não mudam de conteúdo.
 - Uma sessão por vez no motor: o `atualizar` não roda com outra sessão mexendo em `motor/`.
-- HTML até 14 MB; se passar, o build reduz a galeria e avisa, e você diz ao dono.
+- HTML até 14 MB (as imagens ficam fora dele); se passar, o build reduz o teto por lente e avisa, e você diz ao dono.
 
 # Pronto quando
 
