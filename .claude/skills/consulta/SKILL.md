@@ -51,10 +51,11 @@ Não termine com pergunta. O registro e a linha do `contexto/ESTADO.md` ficam pa
 As consultas feitas ao vivo na página publicada ficam no banco do artefato, coleção `consultas`.
 
 1. O link está em `dados/consultas/link.txt`. Leia a coleção com `ArtifactData` (ação `list`, coleção `consultas`) e grave `{"docs": [...]}` num JSON temporário. Banco vazio: diga em uma linha e pare.
-2. `python motor/consulta.py --importar-banco <arquivo>.json`: entra como **a revisar**.
+2. `python motor/consulta.py --importar-banco <arquivo>.json`: entra como **a revisar**. O mesmo comando lê o documento `_apagadas` (as consultas registradas que o dono apagou na página publicada, com o botão Apagar consulta) e remove o arquivo de cada uma em `dados/consultas/`; diga quais saíram. Uma consulta refeita depois da data da marca fica.
 3. Mostre, por carta: as notas (confira pela RUBRICA), as sinergias (confira pelas réguas), os vereditos, a compra e o estudo, e o que você daria diferente.
 4. Com o "pode" do dono: `python motor/consulta.py --confirmar "<carta>"`. Para corrigir, refaça pelo fluxo direto.
 5. `python motor/build.py --consulta`.
+6. Se algum arquivo saiu: com o "pode publicar", republique a Consulta por cima do link (sem `capabilities`) e só então apague o documento `_apagadas` com `ArtifactData` (ação `delete`, coleção `consultas`, documento `_apagadas`). Antes da republicação, a marca é o que esconde a carta na página publicada.
 
 # Regras
 
