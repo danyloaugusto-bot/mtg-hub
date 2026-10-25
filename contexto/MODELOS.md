@@ -33,6 +33,7 @@ Cada comando em `.claude/skills/` já declara o modelo e o esforço no cabeçalh
 | `/importar-backup <pasta do deck>` | sonnet | medium | Traz para o projeto o que foi editado dentro de um painel. |
 | `/consulta <link do Scryfall ou nome>` | opus | high | Analisa uma carta de fora contra todos os decks nas cores dela: força sozinha, sinergia pela régua de cada deck, encaixe, veredito, compra e o estudo escrito; monta a página da Consulta. |
 | `/consulta importar` | opus | high | Traz do banco da página publicada as consultas feitas ao vivo, confere notas e sinergias pela RUBRICA e pelas réguas, e confirma com o "pode" do dono. |
+| `/ciclos atualizar <coleção> | classificar | ler` | opus | high | A aba Ciclos: pesquisa os ciclos de uma coleção nova e os acrescenta à lista do dono com o "pode"; confere no Scryfall; dá as notas das cartas sem cadastro em lotes; remonta a página. |
 
 ## A regra por trás da tabela
 
