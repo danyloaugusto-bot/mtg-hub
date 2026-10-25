@@ -404,6 +404,32 @@ function guardar(C, e) {
   var doc = { nome: C.nome, link: C.link, data: e.data, modo: 'ao-vivo', carta: C, entrada: e, cadastro_auto: e.cadastro.fonte === 'ao-vivo' };
   try { LIVE.db.collection('consultas').doc(slug(C.nome)).set(JSON.parse(JSON.stringify(doc))).catch(function () { }); } catch (x) { }
 }
+/* apagar uma consulta (só o dono, na página publicada): a ao vivo sai do banco; a registrada no projeto ganha a marca em
+   consultas/_apagadas, some da página e o /consulta importar apaga o arquivo. Dois cliques: Apagar, depois Confirmar. */
+var APAGAR = { alvo: null, erro: null, feitas: {} };
+function marcadas() { var m = LIVE.docs.filter(function (d) { return d && d.id === '_apagadas'; })[0]; return (m && m.apagadas) || {}; }
+function escondida(nome, dataEstudo) { if (APAGAR.feitas[nome]) return true; var m = marcadas()[nome]; return !!m && String(dataEstudo || '') <= String(m); }
+function apagar(n) {
+  if (!LIVE.db || !LIVE.dono) return;
+  var col = LIVE.db.collection('consultas'), ps = [];
+  APAGAR.alvo = null; APAGAR.erro = null; APAGAR.feitas[n] = 1;
+  try {
+    LIVE.docs.forEach(function (d) { if (d && d.id !== '_apagadas' && ((d.carta && d.carta.nome === n) || d.nome === n)) ps.push(col.doc(d.id).delete()); });
+    if (D.registros.some(function (r) { return r.carta.nome === n; })) { var m = Object.assign({}, marcadas()); m[n] = HOJE; ps.push(col.doc('_apagadas').set({ apagadas: m })); }
+  } catch (x) { ps.push(Promise.reject(x)); }
+  Promise.all(ps).then(function () { }, function (er) {
+    delete APAGAR.feitas[n]; APAGAR.erro = 'Não deu para apagar ' + n + ' (' + ((er && (er.code || er.message)) || 'erro') + '). Tente de novo.'; render();
+  });
+  var T = todasRegistradas(); ui.R = T[0] || null; ui.vivo = null;
+  history.replaceState(null, '', '#estudo'); sub(); render();
+}
+function botaoApagar(R) {
+  if (!LIVE.db || !LIVE.dono || !R) return '';
+  var n = esc(R.carta.nome);
+  return APAGAR.alvo === R.carta.nome
+    ? '<span class="cs-apagar-q">Apagar a consulta de ' + n + '? <button type="button" class="cs-apagar sim" data-apagar="' + n + '" data-passo="confirmar">Confirmar</button> <button type="button" class="cs-apagar" data-apagar="' + n + '" data-passo="cancelar">Cancelar</button></span>'
+    : '<button type="button" class="cs-apagar" data-apagar="' + n + '" title="Apaga esta consulta da página (a registrada no projeto sai no próximo /consulta importar)">Apagar consulta</button>';
+}
 function blocoVivo() {
   var V = ui.vivo, C = V.carta, h = '';
   if (V.estado === 'buscando') return '<div class="cx cs-nova"><h3>Buscando a carta no Scryfall…</h3></div>';
@@ -440,7 +466,7 @@ function vazio() {
 function todasRegistradas() {
   var nomes = {}; D.registros.forEach(function (r) { nomes[r.carta.nome] = 1; });
   var vivos = LIVE.docs.filter(function (d) { return d && d.entrada && d.carta && !nomes[d.carta.nome]; }).map(function (d) { return comoRegistro(d.carta, d.entrada); });
-  return D.registros.concat(vivos);
+  return D.registros.concat(vivos).filter(function (r) { return !escondida(r.carta.nome, r.data); });
 }
 function render() {
   var R = ui.R;
@@ -449,6 +475,7 @@ function render() {
     var vivo = R.modo === 'ao-vivo';
     $('#cs-modo').innerHTML = vivo ? '<span class="cs-badge vivo">Ao vivo, não registrado</span> estudo de ' + data(R.data) + ', feito nesta página pelo Claude; o registro oficial sai do /consulta no Claude Code'
       : '<span class="cs-badge reg">Registrada</span> estudo de ' + data(R.data) + ', feito no Claude Code' + (R.datas.length > 1 ? ' · consultada antes em ' + R.datas.slice(0, -1).map(data).join(', ') : '');
+    $('#cs-modo').innerHTML += botaoApagar(R) + (APAGAR.erro ? '<span class="cs-erro">' + esc(APAGAR.erro) + '</span>' : '');
     $('#cs-estudo').innerHTML = '<p class="cs-resumo">' + textoMana((R.vereditos || {}).resumo || '') + '</p>' + blocoCarta(R) + blocoEstudo(R) + blocoDecks(R) + blocoFim(R);
   } else if (ui.vivo) {
     $('#cs-modo').innerHTML = '<span class="cs-badge vivo">Sem estudo</span> ' + (ui.vivo.carta ? 'a carta veio do Scryfall; o estudo ainda não foi feito' : 'esta carta ainda não foi consultada');
@@ -515,6 +542,8 @@ function sub() {
 }
 document.addEventListener('click', function (ev) {
   var o = ev.target.closest('[data-ord]'); if (o) { ui.ord = o.dataset.ord; var y = window.scrollY; if (ui.R) $('#cs-decks').outerHTML = blocoDecks(ui.R); window.scrollTo(0, y); var b = document.querySelector('[data-ord="' + ui.ord + '"]'); if (b) b.focus(); return; }
+  var ap = ev.target.closest('[data-apagar]');
+  if (ap) { var an = ap.dataset.apagar, passo = ap.dataset.passo; if (passo === 'confirmar') apagar(an); else { APAGAR.alvo = passo === 'cancelar' ? null : an; render(); } return; }
   var v = ev.target.closest('[data-vivo]');
   if (v) { var a = v.dataset.vivo; if (a === 'estudar') pedirEstudo(); else if (a === 'parar' && ctl) ctl.abort(); else if (a === 'colar') colar(); return; }
   var c = ev.target.closest('[data-copiar]');
@@ -548,5 +577,5 @@ sub(); render(); ligar();
   if (m) { try { var n = decodeURIComponent(m[1]); $('#cs-q').value = n; history.replaceState(null, '', '#estudo'); consultar(n); } catch (e) { } }
 })();
 window.CONSULTA = { D: D, ganho: ganho, valor: valor, tierEstimado: tierEstimado, grauVacuo: grauVacuo, lerPedido: lerPedido, consultar: consultar,
-  validar: validar, normalizar: normalizar, calcularEntrada: calcularEntrada, prompt: prompt, LIVE: LIVE, ui: ui };   // para os testes
+  validar: validar, normalizar: normalizar, calcularEntrada: calcularEntrada, prompt: prompt, LIVE: LIVE, ui: ui, apagar: apagar, todasRegistradas: todasRegistradas, render: render };   // para os testes
 })();
