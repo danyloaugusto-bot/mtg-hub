@@ -106,6 +106,10 @@ with open(html, encoding="utf-8") as f:
     txt = f.read()
 PRECO = r"US\$|R\$|\"usd\"|usd_foil|\$\s?\d|(?<![Ss]em )preço"   # a palavra só aparece em "sem preço"
 R.ok("sem preço no HTML", not re.search(PRECO, txt), [m.group(0) for m in re.finditer(PRECO, txt)][:3])
+refs = set(re.findall(r'"sp":\["([^"]+)"', txt))
+pasta_img = os.path.join(comum.RAIZ, "saidas", "grimorio-img")
+R.ok("imagens: fora do HTML, e toda folha citada existe em saidas/grimorio-img (menos de 500, o artefato guarda 511 arquivos)",
+     "data:image/jpeg" not in txt and refs and all(os.path.exists(os.path.join(pasta_img, f)) for f in refs) and len(refs) < 500, len(refs))
 R.ok("sem bracket nem estimação", not re.search(r"bracket|estimação", txt, re.I))
 R.ok("as seis sub-abas com endereço no HTML", all(('href="#%s"' % t) in txt for t in ("tribos", "cores", "criterios", "8x8", "pontas", "novidades")))
 sem_leitura = [l for l in G["lentes"] if not l["cartas"]]
@@ -129,6 +133,8 @@ with sync_playwright() as p:
         R.ok("Vampiros: a tabela lista as cartas da lente", n == len(vamp["cartas"]), (n, len(vamp["cartas"])))
         pg.click("#g-corpo .g-tbl tbody tr >> nth=0 >> button"); pg.wait_for_timeout(200)
         R.ok("gaveta da carta: imagem ou aviso, texto, critérios, onde está, onde rende, lentes, links", pg.is_visible("#g-gav") and all(pg.locator("#g-gav h4", has_text=s).count() == 1 for s in ("Texto", "Critérios", "Onde já está", "Onde rende", "Lentes", "Abrir")))
+        gv = pg.eval_on_selector_all("#g-gav .corpo .c-sp img", "e => e.map(x => [x.naturalWidth, Math.round(x.parentElement.getBoundingClientRect().width)])")
+        R.ok("imagens: a gaveta mostra a carta recortada da folha grande", len(gv) == 1 and gv[0][1] in (110, 150), gv)
         pg.keyboard.press("Escape"); pg.wait_for_timeout(100)
         R.ok("Esc fecha a gaveta", pg.is_hidden("#g-gav"))
         pg.click('#g-ferr .g-seg[aria-label="Status"] button >> nth=1'); pg.wait_for_timeout(200)
@@ -139,6 +145,9 @@ with sync_playwright() as p:
         pg.evaluate("location.hash = '#%s=%s'" % ("tribos" if l["tipo"] == "tema" else "cores", l["k"])); pg.wait_for_timeout(300)
         R.ok("lente sem leitura (%s) mostra o estado vazio com o motivo, sem sumir" % l["nome"], pg.locator("#g-corpo .g-vazio").count() == 1 and (l.get("erro") or "")[:20] in pg.inner_text("#g-corpo .g-vazio"))
     pg.goto(comum.url(html) + "?deck=" + "04.%20Queen" + "#8x8"); pg.wait_for_function("!!window.GRIMORIO", timeout=30000); pg.wait_for_timeout(400)
+    pg.wait_for_timeout(1200)
+    mini = pg.eval_on_selector_all("#g-corpo .g-mini.c-sp img", "e => e.filter(x => x.getBoundingClientRect().top < innerHeight).slice(0, 3).map(x => [x.naturalWidth, Math.round(x.parentElement.getBoundingClientRect().width)])")
+    R.ok("imagens: a miniatura do 8×8 vem da folha grande e cabe nos 42 px", mini and all(w > 0 and l == 42 for w, l in mini), mini)
     R.ok("?deck= abre o 8×8 no deck pedido (a ponte da Oficina de cada painel)", pg.input_value("#g-deck8") == "04. Queen" and pg.get_attribute('#g-nav a[data-aba="8x8"]', "aria-current") == "page", pg.input_value("#g-deck8"))
     # com as 45 lentes lidas, o estado vazio é conferido esvaziando uma lente na página (o texto do motivo vem do dado)
     pg.evaluate("window.GRIMORIO.lentes['goblins'] = []; window.GRIMORIO.temas.forEach(function (t) { if (t.k === 'goblins') t.erro = 'teste: nenhum caminho respondeu'; })")
