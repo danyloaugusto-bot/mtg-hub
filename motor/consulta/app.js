@@ -70,6 +70,7 @@ function barra() {
   $('#cs-l-decks').href = b + '#decks'; $('#cs-l-pastas').href = b + '#pastas'; $('#cs-l-dash').href = b + '#dashboard';
   var cx = $('#cs-l-caixa'); if (N.caixa) { cx.hidden = false; cx.href = PUB && N.caixa.pub ? N.caixa.pub : N.caixa.href; }
   var g = $('#cs-l-grim'); if (N.grim) { g.hidden = false; g.href = PUB && N.grim.pub ? N.grim.pub : N.grim.href; }
+  var cc = $('#cs-l-cic'); if (N.cic) { cc.hidden = false; cc.href = PUB && N.cic.pub ? N.cic.pub : N.cic.href; }
 }
 
 /* ============ o estudo registrado ============ */
@@ -541,6 +542,11 @@ function ligar() {
 barra();
 ui.R = D.registros.length ? D.registros[0] : null;
 sub(); render(); ligar();
+// #consultar=<carta>: o botão Consultar dos Ciclos (e de qualquer outra página) chega aqui com a carta já no campo
+(function () {
+  var m = /^#consultar=(.+)$/.exec(location.hash || '');
+  if (m) { try { var n = decodeURIComponent(m[1]); $('#cs-q').value = n; history.replaceState(null, '', '#estudo'); consultar(n); } catch (e) { } }
+})();
 window.CONSULTA = { D: D, ganho: ganho, valor: valor, tierEstimado: tierEstimado, grauVacuo: grauVacuo, lerPedido: lerPedido, consultar: consultar,
   validar: validar, normalizar: normalizar, calcularEntrada: calcularEntrada, prompt: prompt, LIVE: LIVE, ui: ui };   // para os testes
 })();

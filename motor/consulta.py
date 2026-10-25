@@ -714,7 +714,14 @@ def montar(pasta=None, avisar=print):
                 cad={n: [e.get("n", {}).get(k, 0) for k in [c["k"] for c in rp["criterios"]][2:]] for n, e in sorted(cad.items())},
                 nav=dict(hub=dict(href=quote("00. Hub.html"), pub=rc.get("hub_publicado") or None),
                          caixa=dict(href=quote(caixa.NOME + ".html"), pub=caixa.link_publicado()) if os.path.isdir(os.path.join(caixa.pasta_caixa(), "listas")) else None,
-                         grim=dict(href=quote(grimorio.NOME + ".html"), pub=grimorio.link_publicado()) if tem_g else None))
+                         grim=dict(href=quote(grimorio.NOME + ".html"), pub=grimorio.link_publicado()) if tem_g else None,
+                         cic=_link_ciclos()))
+
+
+def _link_ciclos():
+    import ciclos
+    from urllib.parse import quote
+    return dict(href=quote(ciclos.NOME + ".html"), pub=ciclos.link_publicado()) if ciclos.ler_lido() else None
 
 
 def pagina(pasta=None, avisar=print):
