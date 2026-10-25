@@ -54,6 +54,29 @@ def reduzir(bruto, largura=LARGURA, qualidade=QUALIDADE):
     return buf.getvalue()
 
 
+# a versão grande (672 px, a "large" do Scryfall), sem redução, para as páginas que publicam as imagens em arquivos à parte
+# (os Ciclos): cache/img-grande/<set>-<numero>.jpg, separado do cache/img de 340 px que os painéis embutem
+CACHE_GRANDE = os.path.join(RAIZ, "cache", "img-grande")
+
+
+def baixar_grandes(precisam, avisar=print):
+    """precisam: {arquivo: (id do Scryfall, "front" ou "back")}. Baixa a "large" de cada uma que ainda não está em cache/img-grande/."""
+    os.makedirs(CACHE_GRANDE, exist_ok=True)
+    faltam = sorted(f for f in precisam if not os.path.exists(os.path.join(CACHE_GRANDE, f)))
+    avisar("%d impressões | %d já no cache grande | %d para baixar" % (len(precisam), len(precisam) - len(faltam), len(faltam)))
+    for i, arq in enumerate(faltam):
+        sid, face = precisam[arq]
+        bruto = baixar(cdn_url(sid, face).replace(CDN + "normal/", CDN + "large/"))
+        tmp = os.path.join(CACHE_GRANDE, arq + ".tmp")
+        with open(tmp, "wb") as f:
+            f.write(bruto)
+        os.replace(tmp, os.path.join(CACHE_GRANDE, arq))
+        if (i + 1) % 50 == 0 or i + 1 == len(faltam):
+            avisar("  %d/%d" % (i + 1, len(faltam)))
+        time.sleep(0.1)
+    return len(faltam)
+
+
 # o Grimório embute mais cartas que um painel: a galeria dele usa uma redução menor, feita a partir do JPEG de 340 px
 # que já está no cache (o cache continua um só, e nada é baixado de novo por causa disso)
 LARGURA_GRIMORIO = 150
