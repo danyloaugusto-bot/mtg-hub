@@ -137,6 +137,10 @@ with open(html, encoding="utf-8") as f:
     txt = f.read()
 PRECO = r"US\$|R\$|\"usd\"|usd_foil|\$\s?\d|(?<![Ss]em )preço"
 R.ok("sem preço no HTML", not re.search(PRECO, txt), [m.group(0) for m in re.finditer(PRECO, txt)][:3])
+refs = set(re.findall(r'"sp":\["([^"]+)"', txt))
+pasta_img = os.path.join(comum.RAIZ, "saidas", "ciclos-img")
+R.ok("imagens: fora do HTML, e toda folha citada existe em saidas/ciclos-img (menos de 500, o artefato guarda 511 arquivos)",
+     "data:image/jpeg" not in txt and refs and all(os.path.exists(os.path.join(pasta_img, f)) for f in refs) and len(refs) < 500, len(refs))
 R.ok("sem bracket nem estimação", not re.search(r"\bbracket\b|estimação", txt, re.I))   # "square brackets" do texto de cleave não conta
 R.ok("as seis sub-abas com endereço no HTML", all(('href="#%s"' % t) in txt for t in ("ano", "colecao", "cores", "raridade", "decks", "pendencias")))
 mono = next((x for x in G["ciclos"] if x["tipo"] == "Mono" and len(x["cartas"]) == 5 and all(C[n]["encontrada"] for n in x["cartas"])), None)
@@ -159,6 +163,11 @@ with sync_playwright() as p:
         cores = pg.eval_on_selector_all('#c-corpo .c-ciclo[data-ciclo="%s"] .c-vagas > .c-vaga .c-vaga-c' % mono["k"].replace('"', '\\"'), "e => e.map(x => x.textContent.trim().slice(0, 1))")
         R.ok("Coleção: o ciclo mono é uma linha com as cinco cores na ordem W U B R G", linha.count() == 1 and cols == 5 and cores == ["W", "U", "B", "R", "G"], (cols, cores))
         R.ok("cada vaga da linha mostra a carta com imagem, grau e status", linha.locator(".c-carta").count() == 5 and linha.locator(".c-carta .c-grau").count() == 5 and linha.locator(".c-carta .g-st").count() == 5)
+        pg.wait_for_timeout(600)
+        ims = pg.eval_on_selector_all('#c-corpo .c-ciclo[data-ciclo="%s"] .c-sp img' % mono["k"].replace('"', '\\"'), "e => e.map(x => [x.naturalWidth, x.getAttribute('src')])")
+        R.ok("imagens: a folha 2×2 no tamanho grande (1344 px) carrega em cada carta da linha", len(ims) == 5 and all(w == 1344 for w, _ in ims), ims[:2])
+        topos = pg.eval_on_selector_all('#c-corpo .c-ciclo[data-ciclo="%s"] .c-vagas > .c-vaga > .c-vaga-c' % mono["k"].replace('"', '\\"'), "e => e.map(x => Math.round(x.getBoundingClientRect().top))")
+        R.ok("as cinco cores começam na mesma altura", len(set(topos)) == 1, topos)
         pg.click('#c-corpo .c-ciclo[data-ciclo="%s"] .c-carta >> nth=0' % mono["k"].replace('"', '\\"')); pg.wait_for_timeout(250)
         R.ok("gaveta: texto, critérios, onde está, onde rende, cabe em e os botões", pg.is_visible("#g-gav") and all(pg.locator("#g-gav h4", has_text=s).count() == 1 for s in ("Texto", "Critérios", "Onde já está", "Onde rende", "Cabe em", "Abrir")))
         hc = pg.get_attribute("#g-gav a.ouro", "href") or ""
