@@ -184,6 +184,11 @@ def ler(rede=True, avisar=print):
     for c in cartas.values():
         if c.get("img") and not os.path.exists(os.path.join(imagens.CACHE_IMG, c["img"])):
             del c["img"]
+    if rede:
+        try:
+            imagens_grandes(cartas, avisar)
+        except dados.ErroDeck as e:
+            avisar("aviso: imagens grandes: %s" % e)
     G = dict(versao=1, lido=hoje, anterior=anterior, versao_lista=L.get("versao"), ciclos=[ciclos[k] for k in ordem_c], cartas=cartas,
              nao_encontradas=nao, fundidas=fundidas, divergencias=dict(cores=div_c, raridade=div_r))
     status(G, avisar=avisar)
@@ -365,17 +370,82 @@ def csv_excel(avisar=print):
 
 # ---------------------------------------------------------------- a página (motor/ciclos/)
 
-ORCAMENTO_MB = 14   # como o Grimório: acima disso a galeria perde qualidade e largura, em passos, até caber (teto publicado: 16 MiB)
-PASSOS_GALERIA = [(imagens.LARGURA_GRIMORIO, imagens.QUALIDADE_GRIMORIO), (150, 60), (130, 60), (120, 55), (110, 50), (100, 45)]
+ORCAMENTO_MB = 14   # teto do HTML (o publicado vai até 16 MiB); as imagens não entram nele: vão em arquivos à parte
+# as imagens: folhas de 2×2 cartas no tamanho "large" do Scryfall (672×936), por coleção, em saidas/ciclos-img/, publicadas
+# junto com a página (o artefato guarda até 511 arquivos; uma por carta não caberia). O nome da folha vem das cartas que ela
+# tem: folha que não mudou não é refeita nem publicada de novo.
+DIR_IMG = "ciclos-img"
+CARTA_W, CARTA_H, QUALIDADE_FOLHA = 672, 936, 90
 
 
-def _montar_dados(G, largura=imagens.LARGURA_GRIMORIO, qualidade=imagens.QUALIDADE_GRIMORIO):
-    import base64, caixa, consulta
+def imagens_grandes(cartas=None, avisar=print):
+    """Baixa a versão grande (672 px) das cartas que ainda não a têm em cache/img-grande/ (o --ler já chama; --imagens só isto)."""
+    if cartas is None:
+        G = ler_lido()
+        if not G:
+            raise dados.ErroDeck("sem dados/ciclos/ciclos-lido.json: rode --ler")
+        cartas = G["cartas"]
+    cache = scryfall._ler()["cartas"]
+    pre = {}
+    for c in cartas.values():
+        r = cache.get(scryfall._chave(c["set"], c["num"])) if c.get("img") and c.get("set") else None
+        if r and r.get("id"):
+            pre[c["img"]] = (r["id"], "front")
+    return imagens.baixar_grandes(pre, avisar=avisar)
+
+
+def folhas(G, avisar=print):
+    """Monta as folhas que faltam em saidas/ciclos-img/, apaga as que sobraram, e devolve {imagem: [folha, posição 0 a 3]}.
+    Sem a versão grande (cache/img-grande), usa a de 340 px do cache/img, ampliada, e avisa."""
+    import hashlib
+    from PIL import Image
+    pasta = os.path.join(os.path.dirname(MOTOR), "saidas", DIR_IMG)
+    os.makedirs(pasta, exist_ok=True)
+    por_set = {}
+    for c in G["cartas"].values():
+        if c.get("img"):
+            por_set.setdefault((c.get("set") or "x").lower(), set()).add(c["img"])
+    mapa, feitas, usadas, pequenas = {}, 0, set(), 0
+    for st in sorted(por_set):
+        imgs = sorted(por_set[st])
+        for i in range(0, len(imgs), 4):
+            grupo = imgs[i:i + 4]
+            provisoria = any(not os.path.exists(os.path.join(imagens.CACHE_GRANDE, im)) for im in grupo)   # com a de 340 px: refeita quando a grande chegar
+            nome = "%s-%s%s.jpg" % (st, hashlib.sha1(("|".join(grupo) + "|%d|%d" % (CARTA_W, QUALIDADE_FOLHA)).encode()).hexdigest()[:10], "-p" if provisoria else "")
+            usadas.add(nome)
+            for k, im in enumerate(grupo):
+                mapa[im] = [nome, k]
+            alvo = os.path.join(pasta, nome)
+            if os.path.exists(alvo):
+                continue
+            folha = Image.new("RGB", (CARTA_W * 2, CARTA_H * 2), (15, 15, 16))
+            for k, im in enumerate(grupo):
+                orig = os.path.join(imagens.CACHE_GRANDE, im)
+                if not os.path.exists(orig):
+                    orig = os.path.join(imagens.CACHE_IMG, im)
+                    pequenas += 1
+                with Image.open(orig) as x:
+                    folha.paste(x.convert("RGB").resize((CARTA_W, CARTA_H), Image.LANCZOS), ((k % 2) * CARTA_W, (k // 2) * CARTA_H))
+            tmp = alvo + ".tmp"
+            folha.save(tmp, "JPEG", quality=QUALIDADE_FOLHA, optimize=True, progressive=True)
+            os.replace(tmp, alvo)
+            feitas += 1
+    sobras = [f for f in os.listdir(pasta) if f.endswith(".jpg") and f not in usadas]
+    for f in sobras:
+        os.remove(os.path.join(pasta, f))
+    if feitas or sobras:
+        avisar("folhas de imagem: %d feitas, %d apagadas, %d ao todo%s" % (feitas, len(sobras), len(usadas),
+               (" | %d cartas sem a versão grande (rode python motor/ciclos.py --imagens)" % pequenas) if pequenas else ""))
+    return mapa
+
+
+def _montar_dados(G, avisar=print):
+    import caixa, consulta
     from urllib.parse import quote
     cad = dados.ler_cadastro()
     r = dados.regua()
     crit = [dict(k=c["k"], n=c.get("curto") or c["nome"], w=c["peso"], dd=bool(c.get("do_deck"))) for c in r["criterios"]]
-    cards, memo = {}, {}
+    cards, sp = {}, folhas(G, avisar)
     for n, c in G["cartas"].items():
         x = dict(n=n, ci=c["ci"], cost=c["cost"], cmc=(int(c["cmc"]) if float(c["cmc"] or 0).is_integer() else c["cmc"]), t=c["t"], o=c["o"], rank=c.get("rank"),
                  set=(c.get("set") or "").upper(), rel=c.get("rel"), enc=c["encontrada"], vaga=c["vaga"], rar=c.get("rar"), rar_dono=c.get("rar_dono"),
@@ -385,11 +455,8 @@ def _montar_dados(G, largura=imagens.LARGURA_GRIMORIO, qualidade=imagens.QUALIDA
             x["so"] = c["so"]
         if c.get("ciclos_extra"):
             x["ciclos_extra"] = c["ciclos_extra"]
-        if c.get("img"):
-            if c["img"] not in memo:
-                memo[c["img"]] = imagens.miniatura(c["img"], largura, qualidade) or False
-            if memo[c["img"]]:
-                x["img"] = "data:image/jpeg;base64," + base64.b64encode(memo[c["img"]]).decode()
+        if c.get("img") in sp:
+            x["sp"] = sp[c["img"]]
         cards[n] = x
     colecoes = {}
     for ci in G["ciclos"]:
@@ -427,20 +494,17 @@ def pagina(avisar=print):
             return f.read()
     css = ler_arq("hub", "style.css") + chr(10) + ler_arq("grimorio", "style.css") + chr(10) + ler_arq("ciclos", "style.css")
     app, tpl = ler_arq("ciclos", "app.js"), ler_arq("ciclos", "template.html")
-    for i, (largura, qualidade) in enumerate(PASSOS_GALERIA):
-        D = _montar_dados(G, largura, qualidade)
-        js = app.replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
-        html = (tpl.replace("/*__FONTS__*/", css_fontes).replace("/*__ROOT__*/", root)
-                .replace("/*__CSS__*/", css).replace("/*__JS__*/", js.replace("</script", "<\\/script")))
-        kb = len(html.encode("utf-8")) / 1024
-        if kb <= ORCAMENTO_MB * 1024 or i == len(PASSOS_GALERIA) - 1:
-            break
-    avisos = []
-    if (largura, qualidade) != PASSOS_GALERIA[0]:
-        avisos.append("galeria reduzida para %dpx q%d para caber no orçamento de %d MB" % (largura, qualidade, ORCAMENTO_MB))
-    if kb > ORCAMENTO_MB * 1024:
-        avisos.append("acima do orçamento mesmo no último passo: %.0f KB" % kb)
-    return html, dict(cartas=len(D["cards"]), ciclos=len(D["ciclos"]), colecoes=len(D["colecoes"]), kb=kb, galeria=dict(largura=largura, qualidade=qualidade), avisos=avisos)
+    D = _montar_dados(G, avisar)
+    D["img_dir"] = DIR_IMG
+    js = app.replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
+    html = (tpl.replace("/*__FONTS__*/", css_fontes).replace("/*__ROOT__*/", root)
+            .replace("/*__CSS__*/", css).replace("/*__JS__*/", js.replace("</script", "<\\/script")))
+    kb = len(html.encode("utf-8")) / 1024
+    avisos = ["acima do orçamento de %d MB: %.0f KB" % (ORCAMENTO_MB, kb)] if kb > ORCAMENTO_MB * 1024 else []
+    pasta = os.path.join(os.path.dirname(MOTOR), "saidas", DIR_IMG)
+    fs = [f for f in os.listdir(pasta) if f.endswith(".jpg")]
+    mb_img = sum(os.path.getsize(os.path.join(pasta, f)) for f in fs) / 1048576
+    return html, dict(cartas=len(D["cards"]), ciclos=len(D["ciclos"]), colecoes=len(D["colecoes"]), kb=kb, folhas=len(fs), mb_img=mb_img, avisos=avisos)
 
 
 def atalho():
@@ -461,6 +525,7 @@ def main():
     g.add_argument("--conferir", action="store_true", help="no ciclos.json do dono, resolve as linhas 'verificar = SIM' que o Scryfall confirma")
     g.add_argument("--classificar", metavar="ARQUIVO.json", help="grava o dossiê das cartas sem cadastro, para a rubrica")
     g.add_argument("--csv", action="store_true", help="grava dados/ciclos/ciclos.csv para o Excel")
+    g.add_argument("--imagens", action="store_true", help="baixa a versão grande (672 px) das imagens que faltam em cache/img-grande/")
     ap.add_argument("--sem-rede", action="store_true", help="no --ler, só o cache do Scryfall")
     a = ap.parse_args()
     try:
@@ -485,6 +550,8 @@ def main():
             classificar(a.classificar)
         elif a.csv:
             csv_excel()
+        elif a.imagens:
+            imagens_grandes()
     except (dados.ErroDeck, scryfall.ErroScryfall) as e:
         sys.exit("ciclos: %s" % e)
 
