@@ -168,6 +168,14 @@ with sync_playwright() as p:
         R.ok("imagens: a folha 2×2 no tamanho grande (1344 px) carrega em cada carta da linha", len(ims) == 5 and all(w == 1344 for w, _ in ims), ims[:2])
         topos = pg.eval_on_selector_all('#c-corpo .c-ciclo[data-ciclo="%s"] .c-vagas > .c-vaga > .c-vaga-c' % mono["k"].replace('"', '\\"'), "e => e.map(x => Math.round(x.getBoundingClientRect().top))")
         R.ok("as cinco cores começam na mesma altura", len(set(topos)) == 1, topos)
+        multi = next((c for c in G["ciclos"] if c["tipo"] in ("Bicolor", "Tricolor") and len(c["cartas"]) >= 4), None)
+        if multi:
+            pg.evaluate("location.hash = '#colecao=%s'" % multi["codigo"]); pg.wait_for_timeout(500)
+            tp = pg.eval_on_selector_all('#c-corpo .c-ciclo[data-ciclo="%s"] .c-vagas.livre .c-carta' % multi["k"].replace('"', '\\"'), "e => e.map(x => Math.round(x.getBoundingClientRect().top))")
+            linhas = {}
+            for t in tp:
+                linhas.setdefault(min((k for k in linhas if abs(k - t) < 60), default=t), []).append(t)
+            R.ok("ciclo de duas cores: as cartas de cada linha começam na mesma altura", tp and all(len(set(v)) == 1 for v in linhas.values()), tp)
         pg.click('#c-corpo .c-ciclo[data-ciclo="%s"] .c-carta >> nth=0' % mono["k"].replace('"', '\\"')); pg.wait_for_timeout(250)
         R.ok("gaveta: texto, critérios, onde está, onde rende, cabe em e os botões", pg.is_visible("#g-gav") and all(pg.locator("#g-gav h4", has_text=s).count() == 1 for s in ("Texto", "Critérios", "Onde já está", "Onde rende", "Cabe em", "Abrir")))
         hc = pg.get_attribute("#g-gav a.ouro", "href") or ""
