@@ -267,17 +267,17 @@ def montar_caixa(modo_img="embutidas"):
 
 
 def montar_grimorio():
-    """O Grimório: página própria (motor/grimorio/), a partir de dados/grimorio/grimorio.json. O orçamento (lentes.json,
-    14 MB) é aplicado dentro de grimorio.pagina: acima dele, a galeria cai para qualidade 60 e depois o teto por lente, com aviso."""
+    """O Grimório: página própria (motor/grimorio/), a partir de dados/grimorio/grimorio.json; imagens em folhas à parte
+    (saidas/grimorio-img/). O orçamento do HTML (lentes.json, 14 MB) é aplicado em grimorio.pagina: acima dele, o teto por lente cai."""
     if not grimorio.ler_grimorio():
         print("%s: sem dados/grimorio/grimorio.json (rode python motor/grimorio.py --ler), pulado" % grimorio.NOME)
         return
     html, r = grimorio.pagina()
     gravar(os.path.join(SAIDAS, grimorio.NOME + ".html"), html)
     gravar(os.path.join(RAIZ, "Abrir o Grimório.html"), grimorio.atalho())
-    print("%s: %d cartas em %d lentes | galeria %d px, qualidade %d%s | %.0f KB%s" % (
-        grimorio.NOME, r["cartas"], r["lentes"], r["largura"], r["qualidade"], (" | teto %d+%d" % tuple(r["teto"])) if r.get("teto_reduzido") else "",
-        r["kb"], "".join("  AVISO: " + a for a in r["avisos"])))
+    print("%s: %d cartas em %d lentes%s | %.0f KB | imagens: %d folhas, %.0f MB em saidas/%s/%s" % (
+        grimorio.NOME, r["cartas"], r["lentes"], (" | teto %d+%d" % tuple(r["teto"])) if r.get("teto_reduzido") else "",
+        r["kb"], r["folhas"], r["mb_img"], grimorio.DIR_IMG, "".join("  AVISO: " + a for a in r["avisos"])))
 
 
 def decks():
