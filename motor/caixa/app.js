@@ -889,6 +889,7 @@ function barra() {
   }
   var g = $('#cx-l-grim'); if (N.grim) { g.hidden = false; g.href = PUB && N.grim.pub ? N.grim.pub : N.grim.href; }
   if (N.cons) $('#cx-l-cons').href = PUB && N.cons.pub ? N.cons.pub : N.cons.href;
+  var cc = $('#cx-l-cic'); if (N.cic) { cc.hidden = false; cc.href = PUB && N.cic.pub ? N.cic.pub : N.cic.href; }
 }
 $('#cx-l-caixa').addEventListener('click', function (ev) { if (this.getAttribute('aria-current')) { ev.preventDefault(); window.scrollTo(0, 0); } });
 window.CAIXA = { D: D, ui: ui, render: render, abrir: abrir, placarDe: placarDe, ORS: ORS };   // para os testes

@@ -1241,7 +1241,13 @@ def _nav(R):
     return dict(hub=dict(href=quote("00. Hub.html"), pub=R.get("hub_publicado") or None),
                 caixa=dict(href=quote(NOME + ".html"), pub=link_publicado()),
                 grim=dict(href=quote(grimorio.NOME + ".html"), pub=grimorio.link_publicado()) if tem_g else None,
-                cons=_link_consulta())
+                cons=_link_consulta(), cic=_link_ciclos())
+
+
+def _link_ciclos():
+    import ciclos
+    from urllib.parse import quote
+    return dict(href=quote(ciclos.NOME + ".html"), pub=ciclos.link_publicado()) if ciclos.ler_lido() else None
 
 
 def _link_consulta():
