@@ -1,0 +1,73 @@
+/* ---------- Ciclos (motor/ciclos/): só o que é dele; a barra e as fontes vêm de motor/hub/style.css, e as peças (chips, tabela,
+   galeria, gaveta, sanfona, KPIs) de motor/grimorio/style.css ---------- */
+.c-kpis{grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,2.2fr)}
+/* a linha do ciclo: cabeçalho com o nome, o tipo e a raridade; embaixo, as cartas nas colunas W U B R G (ou a grade das multicores) */
+.c-ciclos{display:flex;flex-direction:column;gap:14px}
+.c-ciclo{background:var(--panel);border:1px solid var(--gl);border-radius:14px;padding:12px 14px 14px;display:grid;gap:10px}
+.c-ch{display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap}
+.c-ch h3{font:600 20px/1.1 var(--fd);color:var(--bone);margin:0}
+.c-ch .meta{color:var(--dim);font-size:14px}
+.c-ch .obs{color:var(--mute);font-size:14px;flex-basis:100%}
+.c-rar{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:6px;font:800 13px/1 var(--fb);color:#1a1205;background:#c9c4b8}
+.c-rar.C{background:#8f8b84;color:#15130f}.c-rar.U{background:#b9c7d2;color:#15130f}.c-rar.R{background:#d8b45a}.c-rar.M{background:#e3703a;color:#fff}
+.c-rar.x{background:none;color:var(--dim);box-shadow:inset 0 0 0 1px var(--gl)}
+.c-vagas{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.c-vagas.livre{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.c-vaga{display:grid;gap:6px;min-width:0}
+.c-vaga-c{display:flex;align-items:center;gap:6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);font-weight:700}
+.c-vaga-c .g-ms{margin:0}
+.c-vazia{border:1px dashed var(--gl);border-radius:10px;width:100%;aspect-ratio:63/88;align-self:start;display:grid;place-items:center;color:var(--dim);font-size:13px;text-align:center;padding:10px}   /* align-self:start: esticada à altura da linha, a proporção alargava a vaga além da coluna */
+.c-carta{background:var(--panel2);border:1px solid transparent;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;text-align:left;padding:0;color:inherit;cursor:pointer;font-family:inherit;min-width:0}
+.c-carta:hover{border-color:var(--gold)}
+.c-carta.pend{border-color:rgba(239,182,90,.45)}
+.c-carta .g-im .g-st,.c-carta .g-im .c-grau{display:none}
+.c-selos{align-items:center;gap:5px}
+.c-selos .g-st{font-size:12.5px;font-size:13px;padding:1px 7px}
+.c-carta .g-tx b{font-size:14px;line-height:1.2}
+.c-carta .g-tx small{color:var(--dim);font-size:13px;display:block}
+/* o grau no vácuo (a régua da Consulta): S dourado, A verde, B azul, C neutro, D vermelho */
+.c-grau{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 6px;border-radius:7px;font:800 14px/1 var(--fb);white-space:nowrap}
+.c-grau.S{background:linear-gradient(135deg,#ffd77a,#f5a524);color:#1a1205}.c-grau.A{background:rgba(98,201,173,.22);color:#a4e3d2}
+.c-grau.B{background:rgba(127,176,234,.22);color:#b9d6f7}.c-grau.C{background:rgba(255,255,255,.1);color:var(--bone)}.c-grau.D{background:rgba(240,122,140,.18);color:#ff9fab}
+.c-grau.x{background:none;color:var(--dim);box-shadow:inset 0 0 0 1px var(--gl);font-weight:700;font-size:12.5px;font-size:13px}
+.c-grau.lg{min-width:44px;height:44px;font-size:24px;border-radius:12px}
+/* os selos de pendência */
+.g-st.pend{background:rgba(239,182,90,.16);color:var(--warn)}
+.g-st.nao{background:rgba(240,122,140,.14);color:var(--bad)}
+/* as cores como filtro combinável */
+.c-cores{display:inline-flex;gap:4px;align-items:center;background:#141416;border-radius:12px;padding:4px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.c-cores button{width:30px;height:30px;border-radius:9px;border:0;background:none;display:grid;place-items:center;cursor:pointer;opacity:.45}
+.c-cores button .g-ms{width:22px;height:22px;min-width:22px;font-size:14px;margin:0;border-radius:50%}
+.c-cores button[aria-pressed="true"]{opacity:1;background:rgba(255,255,255,.08)}
+.c-cores button:hover{opacity:1}
+/* a aba dos decks */
+.c-deck{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.c-deck-cab{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap}
+.c-deck-cab .cores{margin-left:0}
+.c-deck-cab b{font:600 22px/1.1 var(--fd);color:var(--bone)}
+.c-deck-cab .g-aviso{flex-basis:100%}
+/* pendências */
+.c-pend{display:grid;gap:14px}
+.c-pend .cx h3{margin-bottom:8px}
+.c-pend ul{margin:0;padding-left:18px;color:var(--mute);font-size:15px;line-height:1.5}
+.c-pend code{font-size:13.5px}
+/* a tabela dos ciclos ganha as colunas de coleção, ciclo e grau */
+.g-tbl td.col{white-space:nowrap;color:var(--mute);font-size:14px}
+.g-tbl td.col b{display:block;color:var(--bone);font-weight:700;font-size:14.5px}
+/* a gaveta: o cartão do ciclo e os decks em que cabe */
+.c-gciclo{display:grid;gap:4px;background:var(--panel2);border-radius:10px;padding:10px 12px;font-size:14.5px;color:var(--mute)}
+.c-gciclo b{color:var(--bone)}
+.c-gvac{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center}
+.c-gvac .b{display:block;height:8px;border-radius:4px;background:rgba(255,255,255,.07);position:relative;overflow:hidden}
+.c-gvac .b i{position:absolute;left:0;top:0;bottom:0;background:var(--gold);border-radius:4px}
+.c-gvac .b em{position:absolute;top:-3px;bottom:-3px;width:2px;background:rgba(255,255,255,.45)}
+.c-gvac small{color:var(--dim);font-size:13px}
+.g-gav .c-acoes{display:flex;gap:8px;flex-wrap:wrap}
+.g-btn.ouro{background:var(--gold);color:#1a1205;border-color:var(--gold)}
+@media (max-width:1180px){.c-vagas{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:420px){.c-pg .g-tl span{display:none}}   /* oito datas não cabem em 375px; o código da coleção basta, a data fica no title */
+@media (max-width:760px){
+  .c-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c-vagas{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.c-vagas.livre{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c-ch h3{font-size:18px}
+}
