@@ -575,6 +575,35 @@ def importar_banco(arq, pasta=None, hoje=None):
     return feitos
 
 
+def apagar_marcadas(arq, pasta=None):
+    """As consultas registradas que o dono apagou na página publicada: o documento "_apagadas" da coleção consultas
+    ({"apagadas": {carta: data}}) vem no mesmo JSON do --importar-banco. Apaga o arquivo de cada carta em dados/consultas/
+    quando o estudo mais recente é da data da marca ou anterior (uma consulta refeita depois fica). Devolve os nomes apagados."""
+    with open(arq, encoding="utf-8") as fh:
+        j = json.load(fh)
+    docs = j.get("docs") if isinstance(j, dict) and isinstance(j.get("docs"), list) else (list(j.values()) if isinstance(j, dict) else j)
+    marcas = {}
+    for d in docs or []:
+        if not isinstance(d, dict):
+            continue
+        x = d.get("data") if isinstance(d.get("data"), dict) else d
+        if d.get("id") == "_apagadas" or isinstance(x.get("apagadas"), dict):
+            marcas.update(x.get("apagadas") or {})
+    base = pasta or PASTA
+    feitos = []
+    for nome, quando in sorted(marcas.items()):
+        reg = anterior(nome, pasta)
+        p = os.path.join(base, arquivo(nome))
+        if not reg or not os.path.exists(p):
+            continue
+        ultima = max((c.get("data") or "" for c in reg.get("consultas") or []), default="")
+        if ultima and str(ultima) > str(quando):
+            continue
+        os.remove(p)
+        feitos.append(nome)
+    return feitos
+
+
 def confirmar(texto_nome, pasta=None, hoje=None):
     """Depois do "pode" do dono no /consulta importar: a consulta ao vivo mais recente da carta deixa de estar a revisar
     (revisar: false, revisado: hoje). As notas continuam só no registro; dados/cartas.json não muda."""
@@ -799,6 +828,8 @@ def main():
         if a.importar_banco:
             nomes = importar_banco(a.importar_banco)
             print("importadas (a revisar): %s" % (", ".join(nomes) or "nenhuma"))
+            fora = apagar_marcadas(a.importar_banco)
+            print("apagadas na página, arquivo removido: %s" % (", ".join(fora) or "nenhuma"))
             return
         if a.confirmar:
             print("registro:", confirmar(a.confirmar))
