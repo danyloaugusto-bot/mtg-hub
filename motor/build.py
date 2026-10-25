@@ -305,7 +305,8 @@ def montar_ciclos():
     html, r = ciclos.pagina()
     gravar(os.path.join(SAIDAS, ciclos.NOME + ".html"), html)
     gravar(os.path.join(RAIZ, "Abrir os Ciclos.html"), ciclos.atalho())
-    print("%s: %d cartas em %d ciclos de %d coleções | %.0f KB" % (ciclos.NOME, r["cartas"], r["ciclos"], r["colecoes"], r["kb"]))
+    print("%s: %d cartas em %d ciclos de %d coleções | %.0f KB | imagens: %d folhas, %.0f MB em saidas/%s/" % (
+        ciclos.NOME, r["cartas"], r["ciclos"], r["colecoes"], r["kb"], r["folhas"], r["mb_img"], ciclos.DIR_IMG))
     for a in r.get("avisos") or []:
         print("  aviso: " + a)
 
