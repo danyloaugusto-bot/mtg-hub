@@ -375,7 +375,6 @@ ORCAMENTO_MB = 14   # teto do HTML (o publicado vai até 16 MiB); as imagens nã
 # junto com a página (o artefato guarda até 511 arquivos; uma por carta não caberia). O nome da folha vem das cartas que ela
 # tem: folha que não mudou não é refeita nem publicada de novo.
 DIR_IMG = "ciclos-img"
-CARTA_W, CARTA_H, QUALIDADE_FOLHA = 672, 936, 90
 
 
 def imagens_grandes(cartas=None, avisar=print):
@@ -395,48 +394,12 @@ def imagens_grandes(cartas=None, avisar=print):
 
 
 def folhas(G, avisar=print):
-    """Monta as folhas que faltam em saidas/ciclos-img/, apaga as que sobraram, e devolve {imagem: [folha, posição 0 a 3]}.
-    Sem a versão grande (cache/img-grande), usa a de 340 px do cache/img, ampliada, e avisa."""
-    import hashlib
-    from PIL import Image
-    pasta = os.path.join(os.path.dirname(MOTOR), "saidas", DIR_IMG)
-    os.makedirs(pasta, exist_ok=True)
-    por_set = {}
+    """As folhas de imagem dos Ciclos em saidas/ciclos-img/ (imagens.folhas), uma série por coleção da impressão."""
+    grupos = {}
     for c in G["cartas"].values():
         if c.get("img"):
-            por_set.setdefault((c.get("set") or "x").lower(), set()).add(c["img"])
-    mapa, feitas, usadas, pequenas = {}, 0, set(), 0
-    for st in sorted(por_set):
-        imgs = sorted(por_set[st])
-        for i in range(0, len(imgs), 4):
-            grupo = imgs[i:i + 4]
-            provisoria = any(not os.path.exists(os.path.join(imagens.CACHE_GRANDE, im)) for im in grupo)   # com a de 340 px: refeita quando a grande chegar
-            nome = "%s-%s%s.jpg" % (st, hashlib.sha1(("|".join(grupo) + "|%d|%d" % (CARTA_W, QUALIDADE_FOLHA)).encode()).hexdigest()[:10], "-p" if provisoria else "")
-            usadas.add(nome)
-            for k, im in enumerate(grupo):
-                mapa[im] = [nome, k]
-            alvo = os.path.join(pasta, nome)
-            if os.path.exists(alvo):
-                continue
-            folha = Image.new("RGB", (CARTA_W * 2, CARTA_H * 2), (15, 15, 16))
-            for k, im in enumerate(grupo):
-                orig = os.path.join(imagens.CACHE_GRANDE, im)
-                if not os.path.exists(orig):
-                    orig = os.path.join(imagens.CACHE_IMG, im)
-                    pequenas += 1
-                with Image.open(orig) as x:
-                    folha.paste(x.convert("RGB").resize((CARTA_W, CARTA_H), Image.LANCZOS), ((k % 2) * CARTA_W, (k // 2) * CARTA_H))
-            tmp = alvo + ".tmp"
-            folha.save(tmp, "JPEG", quality=QUALIDADE_FOLHA, optimize=True, progressive=True)
-            os.replace(tmp, alvo)
-            feitas += 1
-    sobras = [f for f in os.listdir(pasta) if f.endswith(".jpg") and f not in usadas]
-    for f in sobras:
-        os.remove(os.path.join(pasta, f))
-    if feitas or sobras:
-        avisar("folhas de imagem: %d feitas, %d apagadas, %d ao todo%s" % (feitas, len(sobras), len(usadas),
-               (" | %d cartas sem a versão grande (rode python motor/ciclos.py --imagens)" % pequenas) if pequenas else ""))
-    return mapa
+            grupos.setdefault((c.get("set") or "x").lower(), set()).add(c["img"])
+    return imagens.folhas(grupos, os.path.join(os.path.dirname(MOTOR), "saidas", DIR_IMG), avisar, "python motor/ciclos.py --imagens")
 
 
 def _montar_dados(G, avisar=print):
@@ -501,10 +464,8 @@ def pagina(avisar=print):
             .replace("/*__CSS__*/", css).replace("/*__JS__*/", js.replace("</script", "<\\/script")))
     kb = len(html.encode("utf-8")) / 1024
     avisos = ["acima do orçamento de %d MB: %.0f KB" % (ORCAMENTO_MB, kb)] if kb > ORCAMENTO_MB * 1024 else []
-    pasta = os.path.join(os.path.dirname(MOTOR), "saidas", DIR_IMG)
-    fs = [f for f in os.listdir(pasta) if f.endswith(".jpg")]
-    mb_img = sum(os.path.getsize(os.path.join(pasta, f)) for f in fs) / 1048576
-    return html, dict(cartas=len(D["cards"]), ciclos=len(D["ciclos"]), colecoes=len(D["colecoes"]), kb=kb, folhas=len(fs), mb_img=mb_img, avisos=avisos)
+    n_folhas, mb_img = imagens.tamanho_folhas(os.path.join(os.path.dirname(MOTOR), "saidas", DIR_IMG))
+    return html, dict(cartas=len(D["cards"]), ciclos=len(D["ciclos"]), colecoes=len(D["colecoes"]), kb=kb, folhas=n_folhas, mb_img=mb_img, avisos=avisos)
 
 
 def atalho():
