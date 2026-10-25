@@ -47,6 +47,7 @@ Os Ciclos são a página irmã do Grimório e da Consulta (`saidas/00. Ciclos.ht
 - Sem preço na página. Sem perguntas sobre bracket ou cartas de estimação.
 - Lista do dono só muda com o "pode" dele (atualizar) ou pelo `--conferir`, que só resolve o que ele marcou "verificar".
 - Publicar só com o "pode publicar": `saidas/00. Ciclos.html` por cima do link em `dados/ciclos/link.txt`, sem passar `capabilities`.
+- As imagens não vão dentro do HTML: são folhas de 2×2 cartas no tamanho grande do Scryfall (672 px, `cache/img-grande/`, baixadas pelo `--ler` ou por `python motor/ciclos.py --imagens`), em `saidas/ciclos-img/`, publicadas junto com a página pelo `files` do Artifact (`root: saidas`, chave `ciclos-img/<folha>.jpg`). Antes de publicar, liste os arquivos já publicados (`action: list`, `scope: files`) e mande só as folhas novas, com `null` para as que sumiram de `saidas/ciclos-img/`. Limites: até 255 arquivos e 64 MB por publicação (mande em partes, sempre no mesmo link), 511 arquivos e 256 MB por versão. Folha com `-p` no nome foi feita com a imagem de 340 px: rode `--imagens` e remonte antes de publicar.
 
 # Pronto quando
 
