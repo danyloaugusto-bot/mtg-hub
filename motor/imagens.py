@@ -77,6 +77,60 @@ def baixar_grandes(precisam, avisar=print):
     return len(faltam)
 
 
+# folhas de imagem: as páginas grandes (Ciclos, Grimório) publicam as cartas em arquivos à parte, 2×2 cartas por folha no tamanho
+# grande (o artefato guarda até 511 arquivos; uma por carta não caberia). O nome da folha vem das cartas que ela tem: folha que
+# não mudou não é refeita nem publicada de novo; com "-p" no nome, foi feita com a de 340 px e é refeita quando a grande chegar.
+CARTA_W, CARTA_H, QUALIDADE_FOLHA = 672, 936, 90
+
+
+def folhas(grupos, pasta, avisar=print, comando="--imagens"):
+    """grupos: {grupo (a coleção): conjunto de imagens}. Monta em `pasta` as folhas que faltam, apaga as que sobraram e devolve
+    {imagem: [folha, posição 0 a 3]}. Sem a versão grande, usa a de 340 px ampliada e avisa."""
+    import hashlib
+    from PIL import Image
+    os.makedirs(pasta, exist_ok=True)
+    mapa, feitas, usadas, pequenas = {}, 0, set(), 0
+    for st in sorted(grupos):
+        imgs = sorted(grupos[st])
+        for i in range(0, len(imgs), 4):
+            grupo = imgs[i:i + 4]
+            provisoria = any(not os.path.exists(os.path.join(CACHE_GRANDE, im)) for im in grupo)
+            nome = "%s-%s%s.jpg" % (st, hashlib.sha1(("|".join(grupo) + "|%d|%d" % (CARTA_W, QUALIDADE_FOLHA)).encode()).hexdigest()[:10], "-p" if provisoria else "")
+            usadas.add(nome)
+            for k, im in enumerate(grupo):
+                mapa[im] = [nome, k]
+            alvo = os.path.join(pasta, nome)
+            if os.path.exists(alvo):
+                continue
+            folha = Image.new("RGB", (CARTA_W * 2, CARTA_H * 2), (15, 15, 16))
+            for k, im in enumerate(grupo):
+                orig = os.path.join(CACHE_GRANDE, im)
+                if not os.path.exists(orig):
+                    orig = os.path.join(CACHE_IMG, im)
+                    pequenas += 1
+                if not os.path.exists(orig):
+                    continue
+                with Image.open(orig) as x:
+                    folha.paste(x.convert("RGB").resize((CARTA_W, CARTA_H), Image.LANCZOS), ((k % 2) * CARTA_W, (k // 2) * CARTA_H))
+            tmp = alvo + ".tmp"
+            folha.save(tmp, "JPEG", quality=QUALIDADE_FOLHA, optimize=True, progressive=True)
+            os.replace(tmp, alvo)
+            feitas += 1
+    sobras = [f for f in os.listdir(pasta) if f.endswith(".jpg") and f not in usadas]
+    for f in sobras:
+        os.remove(os.path.join(pasta, f))
+    if feitas or sobras:
+        avisar("folhas de imagem: %d feitas, %d apagadas, %d ao todo%s" % (feitas, len(sobras), len(usadas),
+               (" | %d cartas sem a versão grande (rode %s)" % (pequenas, comando)) if pequenas else ""))
+    return mapa
+
+
+def tamanho_folhas(pasta):
+    """(arquivos, MB) das folhas em `pasta`."""
+    fs = [f for f in os.listdir(pasta) if f.endswith(".jpg")] if os.path.isdir(pasta) else []
+    return len(fs), sum(os.path.getsize(os.path.join(pasta, f)) for f in fs) / 1048576
+
+
 # o Grimório embute mais cartas que um painel: a galeria dele usa uma redução menor, feita a partir do JPEG de 340 px
 # que já está no cache (o cache continua um só, e nada é baixado de novo por causa disso)
 LARGURA_GRIMORIO = 150
