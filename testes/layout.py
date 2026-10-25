@@ -16,6 +16,7 @@ def _args(ap):
     ap.add_argument("--fotos", help="pasta para salvar capturas")
     ap.add_argument("--grimorio", action="store_true", help="em vez de um deck, a página do Grimório (saidas/00. Grimório.html)")
     ap.add_argument("--consulta", action="store_true", help="em vez de um deck, a página da Consulta (saidas/00. Consulta.html)")
+    ap.add_argument("--ciclos", action="store_true", help="em vez de um deck, a página dos Ciclos (saidas/00. Ciclos.html)")
 
 
 a = comum.argumentos("Layout com 6 a 10 agrupamentos e as duas molduras", _args)
@@ -140,10 +141,68 @@ def layout_consulta():
     R.fim()
 
 
+def layout_ciclos():
+    """A página dos Ciclos em 1360 e 375 px: sem rolagem lateral em nenhuma sub-aba, a linha do ciclo com 5 colunas (2 no celular),
+    galeria com 6 e 2 colunas, nenhum texto abaixo de 13 px, a gaveta dentro da tela e a barra numa linha só."""
+    import subprocess, sys
+    import ciclos
+    R = comum.Relatorio("layout: Ciclos")
+    arq = os.path.join(comum.RAIZ, "saidas", ciclos.NOME + ".html")
+    if not a.sem_montar or not os.path.exists(arq):
+        r = subprocess.run([sys.executable, "-B", os.path.join(comum.MOTOR, "build.py"), "--ciclos"], capture_output=True, text=True, encoding="utf-8")
+        if r.returncode:
+            sys.exit("o build dos Ciclos falhou:\n" + r.stdout + r.stderr)
+    with sync_playwright() as p:
+        b = p.chromium.launch()
+        for w, hh, cols, gal in ((1360, 900, 5, 6), (375, 812, 2, 2)):
+            pg = b.new_page(viewport={"width": w, "height": hh})
+            comum.bloquear_rede(pg)
+            err = []
+            pg.on("pageerror", lambda e: err.append(str(e)))
+            pg.goto(comum.url(arq)); pg.wait_for_function("!!window.CICLOS", timeout=30000); pg.evaluate("localStorage.clear()"); pg.wait_for_timeout(300)
+            largos, letras = [], []
+            for t in ("ano", "colecao", "cores", "raridade", "decks", "pendencias"):
+                pg.evaluate("location.hash = '#%s'" % t); pg.wait_for_timeout(300)
+                sw = pg.evaluate("document.documentElement.scrollWidth")
+                if sw > w + 1:
+                    largos.append("%s=%d" % (t, sw))
+                lm = pg.evaluate(LETRA_MIN_PAGINA)
+                if lm is not None:
+                    letras.append((round(lm, 1), t))
+            pg.evaluate("location.hash = '#colecao'"); pg.wait_for_timeout(300)
+            n = pg.evaluate("(() => { var g = document.querySelector('#c-corpo .c-ciclo .c-vagas'); if (!g) return null; var xs = {}; Array.prototype.forEach.call(g.children, function (c) { xs[Math.round(c.getBoundingClientRect().left)] = 1; }); return Object.keys(xs).length; })()")
+            R.ok("%d px: a linha do ciclo com %d colunas" % (w, cols), n is None or n == cols, n)
+            pg.locator('#c-ferr .g-seg[aria-label="Vista"] button', has_text="Galeria").click(); pg.wait_for_timeout(300)
+            ng = pg.evaluate("(() => { var g = document.querySelector('#c-corpo .g-gal'); if (!g) return null; var xs = {}; Array.prototype.forEach.call(g.children, function (c) { xs[Math.round(c.getBoundingClientRect().left)] = 1; }); return Object.keys(xs).length; })()")
+            R.ok("%d px: galeria com %d colunas" % (w, gal), ng is None or ng == gal, ng)
+            pg.click("#c-corpo .c-carta >> nth=0"); pg.wait_for_timeout(250)
+            gw = pg.evaluate("(() => { var g = document.querySelector('#g-gav'), r = g.getBoundingClientRect(); return [g.scrollWidth - g.clientWidth, Math.round(r.right), Math.round(r.width)]; })()")
+            R.ok("%d px: gaveta aberta dentro da tela, sem rolagem lateral" % w, pg.is_visible("#g-gav") and gw[0] <= 1 and gw[1] <= w + 1 and gw[2] <= w, gw)
+            lm = pg.evaluate(LETRA_MIN_PAGINA)
+            if lm is not None:
+                letras.append((round(lm, 1), "gaveta"))
+            pg.keyboard.press("Escape"); pg.wait_for_timeout(100)
+            linhas = pg.evaluate("new Set([...document.querySelectorAll('.top nav a')].filter(x => !x.hidden && x.offsetWidth).map(x => Math.round(x.getBoundingClientRect().top))).size")
+            R.ok("%d px: a barra do topo numa linha só, com Ciclos aceso" % w, linhas == 1 and pg.evaluate("document.querySelector('.top nav a[aria-current=page]').textContent") == "Ciclos", linhas)
+            R.ok("%d px: nenhuma sub-aba com rolagem lateral" % w, not largos, ", ".join(largos))
+            R.ok("%d px: nenhum texto abaixo de 13 px" % w, not letras or min(letras)[0] >= 12.95, min(letras) if letras else None)
+            R.ok("%d px: sem erro de página" % w, not err, err[:2])
+            if a.fotos:
+                os.makedirs(a.fotos, exist_ok=True)
+                pg.evaluate("location.hash = '#ano'"); pg.wait_for_timeout(300)
+                pg.screenshot(path=os.path.join(a.fotos, "ciclos-%d.png" % w), full_page=True)
+            pg.evaluate("localStorage.clear()")
+            pg.close()
+        b.close()
+    R.fim()
+
+
 if a.grimorio:
     layout_grimorio()
 if a.consulta:
     layout_consulta()
+if a.ciclos:
+    layout_ciclos()
 R = comum.Relatorio("layout: " + a.deck)
 origem = dados.pasta_deck(a.deck)
 tmp = tempfile.mkdtemp(prefix="mtg-layout-")

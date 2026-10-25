@@ -185,6 +185,10 @@ with sync_playwright() as p:
             pc = pg.evaluate("(() => { var g = document.querySelector('#t-grim').getBoundingClientRect(), c = document.querySelector('#t-cons').getBoundingClientRect(); return {dir: c.left >= g.right - 1, linha: Math.abs(c.top - g.top) < 2, fora: c.right > innerWidth + 1 || c.width === 0}; })()")
             R.ok("Consulta: pílula à direita do Grimório, na mesma linha, visível, abrindo a página própria",
                  pg.is_visible("#t-cons") and pc["dir"] and pc["linha"] and not pc["fora"] and pg.get_attribute("#t-cons", "href").endswith("00.%20Consulta.html"), pc)
+            if H.get("ciclos"):
+                pcc = pg.evaluate("(() => { var c = document.querySelector('#t-cons').getBoundingClientRect(), k = document.querySelector('#t-cic').getBoundingClientRect(); return {dir: k.left >= c.right - 1, linha: Math.abs(k.top - c.top) < 2, fora: k.right > innerWidth + 1 || k.width === 0}; })()")
+                R.ok("Ciclos: pílula à direita da Consulta, na mesma linha, visível, abrindo a página própria",
+                     pg.is_visible("#t-cic") and pcc["dir"] and pcc["linha"] and not pcc["fora"] and pg.get_attribute("#t-cic", "href").endswith("00.%20Ciclos.html"), pcc)
             # pasta com ficha (dados/pastas/pastas.json) e com lista (export do ManaBox): subnome, contagem, papéis e o atalho para a Caixa, sem preço
             # o veredito do Plano do deck na Lista e no Resumo (sem preço)
             com_pv = [d for d in H["decks"] if (d.get("a") or {}).get("pv")]
