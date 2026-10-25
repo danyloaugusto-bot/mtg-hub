@@ -144,7 +144,7 @@ def pontos_cmc(avg):
     return 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
 
 
-PASTAS_FORA = {"pastas", "caixa", "precos", "grimorio", "decks", "consultas"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py); dados/precos: o valor de hoje (/precos); dados/grimorio: o Grimório (motor/grimorio.py); dados/consultas: a Consulta (motor/consulta.py). Não são decks
+PASTAS_FORA = {"pastas", "caixa", "precos", "grimorio", "decks", "consultas", "ciclos"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py); dados/precos: o valor de hoje (/precos); dados/grimorio: o Grimório (motor/grimorio.py); dados/consultas: a Consulta (motor/consulta.py). Não são decks
 
 
 def _nome_de_deck(nome):
