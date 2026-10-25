@@ -222,7 +222,9 @@ FAKE_CLAUDE = """(function () {
   var store = {}, subs = [], respostas = [];
   window.__store = store; window.__respostas = respostas; window.__pedidos = [];
   function snap() { var docs = Object.keys(store).sort().map(function (id) { var v = store[id]; return { id: id, data: function () { return v; } }; }); return { docs: docs }; }
-  var db = { collection: function () { return { doc: function (id) { return { set: function (d) { store[id] = JSON.parse(JSON.stringify(d)); var s = snap(); subs.forEach(function (f) { setTimeout(function () { f(s); }, 0); }); return Promise.resolve(); } }; },
+  function avisa() { var s = snap(); subs.forEach(function (f) { setTimeout(function () { f(s); }, 0); }); }
+  var db = { collection: function () { return { doc: function (id) { return { set: function (d) { store[id] = JSON.parse(JSON.stringify(d)); avisa(); return Promise.resolve(); },
+      delete: function () { delete store[id]; avisa(); return Promise.resolve(); } }; },
     onSnapshot: function (f) { subs.push(f); setTimeout(function () { f(snap()); }, 0); return function () {}; } }; } };
   var sample = function () { return Promise.reject({ code: 'invalid_request', message: 'só json' }); };
   sample.json = function (input, o) { window.__pedidos.push({ tamanho: input.length, tier: o && o.modelTier }); var r = respostas.length ? respostas.shift() : null;
@@ -299,6 +301,22 @@ if sem:
         R.ok("ao vivo: o estudo vai para o banco (coleção consultas), um documento por carta", len(docs) == 1 and docs[0]["modo"] == "ao-vivo" and docs[0]["nome"] == nome_sem and docs[0]["cadastro_auto"] is True)
         pg.evaluate("location.hash = '#registradas'"); pg.wait_for_timeout(300)
         R.ok("ao vivo: aparece nas registradas, marcado 'ao vivo'", pg.locator(".cs-rc").count() == 2 and "ao vivo" in pg.inner_text("#cs-registradas"))
+        # apagar (só o dono): a ao vivo sai do banco; a registrada ganha a marca consultas/_apagadas e some da página
+        abre = lambda n: (pg.evaluate("(n) => { location.hash = '#estudo=' + encodeURIComponent(n); }", n), pg.wait_for_timeout(300))
+        reg_nome = pg.evaluate("CONSULTA.D.registros[0].carta.nome")
+        abre(reg_nome)
+        R.ok("apagar: o dono vê o botão Apagar consulta", pg.locator(".cs-apagar").count() == 1)
+        pg.evaluate("CONSULTA.LIVE.dono = false; CONSULTA.render()")
+        R.ok("apagar: quem não é dono não vê o botão", pg.locator(".cs-apagar").count() == 0)
+        pg.evaluate("CONSULTA.LIVE.dono = true; CONSULTA.render()")
+        pg.click(".cs-apagar"); pg.wait_for_timeout(100)
+        R.ok("apagar: o primeiro clique só pede confirmação", pg.locator(".cs-apagar.sim").count() == 1 and pg.evaluate("Object.keys(window.__store).length") == 1)
+        pg.click(".cs-apagar.sim"); pg.wait_for_timeout(300)
+        st = pg.evaluate("window.__store")
+        R.ok("apagar: a registrada ganha a marca no banco e some da página", bool(((st.get("_apagadas") or {}).get("apagadas") or {}).get(reg_nome))
+             and reg_nome not in pg.evaluate("CONSULTA.todasRegistradas().map(r => r.carta.nome)"))
+        abre(nome_sem); pg.click(".cs-apagar"); pg.wait_for_timeout(100); pg.click(".cs-apagar.sim"); pg.wait_for_timeout(300)
+        R.ok("apagar: a ao vivo sai do banco e da página", pg.evaluate("Object.keys(window.__store)") == ["_apagadas"] and pg.evaluate("CONSULTA.todasRegistradas().length") == 0)
         # duas respostas erradas: a página mostra o erro, não inventa estudo
         pg.evaluate("(r) => { window.__respostas.push(r, r); }", ruim)
         cru2 = dict(cru, name="Outra Carta", collector_number="9999")
@@ -332,4 +350,8 @@ if sem:
     R.ok("confirmar: com o pode, a consulta ao vivo deixa de estar a revisar", ult["revisar"] is False and ult.get("revisado"))
     R.ok("confirmar: recusa carta sem consulta ao vivo a revisar", recusa(consulta.confirmar, nome_sem, pasta=TMP) is not None)
     R.ok("importar: dados/cartas.json não mudou", hashlib.sha1(open(CAD_ARQ, "rb").read()).hexdigest() == antes)
+    R.ok("apagar: marca anterior ao estudo não apaga o arquivo", consulta.apagar_marcadas(grava({"docs": [{"id": "_apagadas", "apagadas": {nome_sem: "2000-01-01"}}]}), pasta=TMP) == []
+         and consulta.anterior(nome_sem, TMP) is not None)
+    R.ok("apagar: o importar remove o arquivo da registrada marcada", consulta.apagar_marcadas(grava({"docs": [{"id": "_apagadas", "data": {"apagadas": {nome_sem: "2999-12-31"}}}]}), pasta=TMP) == [nome_sem]
+         and consulta.anterior(nome_sem, TMP) is None)
 R.fim()
