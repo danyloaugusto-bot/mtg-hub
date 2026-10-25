@@ -390,6 +390,11 @@ def ler(lente=None, rede=True, avisar=print):
     for c in cartas.values():
         if c.get("img") and not os.path.exists(os.path.join(imagens.CACHE_IMG, c["img"])):
             del c["img"]
+    if rede:
+        try:
+            imagens_grandes(avisar, cartas)
+        except dados.ErroDeck as e:
+            avisar("aviso: imagens grandes: %s" % e)
     G = dict(versao=1, lido=hoje, anterior=anterior, lentes=lentes_out, cartas=cartas)
     status(G, L, avisar=avisar)
     leitura = dict(versao=1, lido=hoje, anterior=anterior, fontes=["EDHREC (json.edhrec.com)", "Scryfall", "cadastro v3"],
@@ -575,8 +580,35 @@ def _cortar(G, teto):
     return out
 
 
-def _montar_pagina(G, L, lt, qualidade, teto, memo):
-    import base64
+DIR_IMG = "grimorio-img"   # as folhas de imagem (imagens.folhas), publicadas junto com a página
+
+
+def folhas(G, avisar=print):
+    """As folhas de imagem do Grimório em saidas/grimorio-img/, uma série por coleção da impressão."""
+    grupos = {}
+    for c in G["cartas"].values():
+        if c.get("img"):
+            grupos.setdefault((c.get("set") or "x").lower(), set()).add(c["img"])
+    return imagens.folhas(grupos, os.path.join(os.path.dirname(MOTOR), "saidas", DIR_IMG), avisar, "python motor/grimorio.py --imagens")
+
+
+def imagens_grandes(avisar=print, cartas=None):
+    """Baixa a versão grande (672 px) das cartas do Grimório que ainda não a têm em cache/img-grande/ (o --ler já chama)."""
+    if cartas is None:
+        G = ler_grimorio()
+        if not G:
+            raise dados.ErroDeck("sem dados/grimorio/grimorio.json: rode --ler")
+        cartas = G["cartas"]
+    cache = scryfall._ler()["cartas"]
+    pre = {}
+    for c in cartas.values():
+        r = cache.get(scryfall._chave(c["set"], c["num"])) if c.get("img") and c.get("set") else None
+        if r and r.get("id"):
+            pre[c["img"]] = (r["id"], "front")
+    return imagens.baixar_grandes(pre, avisar=avisar)
+
+
+def _montar_pagina(G, L, lt, teto, sp):
     from urllib.parse import quote
     import caixa, tema
     listas = _cortar(G, teto)
@@ -604,12 +636,8 @@ def _montar_pagina(G, L, lt, qualidade, teto, memo):
                  lk={k: dict(inc=v.get("inc"), syn=v.get("syn"), por=v.get("por"), nd=v.get("nd"), pd=v.get("pd")) for k, v in c["lentes"].items() if n in membro.get(k, ())})
         if c.get("so"):
             x["so"] = c["so"]
-        if c.get("img"):
-            chave = (c["img"], qualidade)
-            if chave not in memo:
-                memo[chave] = imagens.miniatura(c["img"], qualidade=qualidade) or False
-            if memo[chave]:
-                x["img"] = "data:image/jpeg;base64," + base64.b64encode(memo[chave]).decode()
+        if c.get("img") in sp:
+            x["sp"] = sp[c["img"]]
         cards[n] = x
     g8 = {p: dict(quadros=[dict(q, cs=[n for n in q["cs"] if n in universo]) for q in v["quadros"]]) for p, v in (G.get("g8") or {}).items()}
     pontas = [n for n in G.get("pontas") or [] if n in universo]
@@ -623,7 +651,7 @@ def _montar_pagina(G, L, lt, qualidade, teto, memo):
              hub=dict(href=quote("00. Hub.html"), pub=(caixa.regua().get("hub_publicado") or None)),
              caixa=dict(href=quote(caixa.NOME + ".html"), pub=caixa.link_publicado()) if tem_caixa else None,
              consulta=_link_consulta(), ciclos=_link_ciclos(),
-             teto=list(teto), orcamento=L.get("orcamento_html_mb"), galeria=dict(largura=imagens.LARGURA_GRIMORIO, qualidade=qualidade))
+             teto=list(teto), orcamento=L.get("orcamento_html_mb"), img_dir=DIR_IMG)
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
     css_fontes, _ = tema.fontes(["Alegreya Sans", "Cinzel"])   # Cinzel só nos títulos (--fd); o texto e os números na Alegreya Sans (--fb)
@@ -653,8 +681,8 @@ def _link_consulta():
 
 
 def pagina(avisar=print):
-    """A página do Grimório (html, resumo). Orçamento (lentes.json, 14 MB): acima dele, a galeria cai para qualidade 60 e
-    depois o teto por lente, com aviso em cada passo; o grimorio.json não muda."""
+    """A página do Grimório (html, resumo). As imagens vão em folhas à parte (saidas/grimorio-img/), fora do HTML. Orçamento
+    (lentes.json, 14 MB): acima dele, o teto por lente cai, com aviso em cada passo; o grimorio.json não muda."""
     G = ler_grimorio()
     if not G:
         raise dados.ErroDeck("sem dados/grimorio/grimorio.json: rode python motor/grimorio.py --ler")
@@ -662,17 +690,18 @@ def pagina(avisar=print):
     lt = ler_leitura() or {}
     teto0 = [L["teto"]["mais_incluidas"], L["teto"]["maior_sinergia"]]
     orc = L.get("orcamento_html_mb") or 14
-    passos = [(imagens.QUALIDADE_GRIMORIO, teto0), (60, teto0)] + [(60, t) for t in ([30, 15], [25, 12], [20, 10], [15, 8], [10, 5]) if t[0] < teto0[0]]
-    memo, avisos = {}, []
-    for q, teto in passos:
-        html, r = _montar_pagina(G, L, lt, q, teto, memo)
+    passos = [teto0] + [t for t in ([30, 15], [25, 12], [20, 10], [15, 8], [10, 5]) if t[0] < teto0[0]]
+    sp, avisos = folhas(G, avisar), []
+    for teto in passos:
+        html, r = _montar_pagina(G, L, lt, teto, sp)
         mb = len(html.encode("utf-8")) / 1048576
         if mb <= orc:
             break
-        avisos.append("%.1f MB com qualidade %d e teto %d+%d, acima do orçamento de %s MB" % (mb, q, teto[0], teto[1], orc))
+        avisos.append("%.1f MB com teto %d+%d, acima do orçamento de %s MB" % (mb, teto[0], teto[1], orc))
     for a in avisos:
         avisar("aviso: " + a)
-    r.update(avisos=avisos, qualidade=q, largura=imagens.LARGURA_GRIMORIO, teto=teto, teto_reduzido=(teto != teto0), kb=len(html.encode("utf-8")) / 1024)
+    n_folhas, mb_img = imagens.tamanho_folhas(os.path.join(os.path.dirname(MOTOR), "saidas", DIR_IMG))
+    r.update(avisos=avisos, teto=teto, teto_reduzido=(teto != teto0), kb=len(html.encode("utf-8")) / 1024, folhas=n_folhas, mb_img=mb_img)
     return html, r
 
 
@@ -692,6 +721,7 @@ def main():
     g.add_argument("--ler", nargs="?", const="", metavar="LENTE", help="lê o EDHREC e o Scryfall e grava grimorio.json e leitura.json; com uma lente, relê só ela")
     g.add_argument("--status", action="store_true", help="recalcula onde está, status, onde rende, 8×8, pontas e novidades, sem rede")
     g.add_argument("--classificar", metavar="ARQUIVO.json", help="grava o dossiê das cartas sem cadastro, para a rubrica")
+    g.add_argument("--imagens", action="store_true", help="baixa a versão grande (672 px) das imagens que faltam em cache/img-grande/")
     ap.add_argument("--sem-rede", action="store_true", help="no --ler, usa só o cache do EDHREC e do Scryfall")
     a = ap.parse_args()
     try:
@@ -713,8 +743,10 @@ def main():
             ct = G["contagens"]
             print("status: %d cartas | sem cadastro %d | novidades %d | pontas %d | tenho %d, ociosas %d, faltam %d" % (
                 ct["cartas"], ct["sem_cadastro"], ct["novidades"], ct["pontas"], ct["tenho"], ct["ociosa"], ct["falta"]))
-        else:
+        elif a.classificar:
             classificar(a.classificar)
+        elif a.imagens:
+            imagens_grandes()
     except (dados.ErroDeck, scryfall.ErroScryfall) as e:
         print("ERRO: %s" % e, file=sys.stderr)
         sys.exit(1)
