@@ -5,19 +5,19 @@ var D = /*__DATA__*/null;
 var R = D.regua, CR = D.crit, DECKS = D.decks, ORS = D.origens;
 var O = ORS[0], CARTAS = O.cartas;   // a origem na tela: a Caixa ou uma pasta (motor/caixa.py, origens)
 var LS = 'mtg-hub:caixa:v1';
-var ui = { ver: 'tabela', agrupar: 'prioridade', ord: 'padrao', inv: false, dec: 'pendentes', tipos: [], cores: [], faixas: [], prios: [], dests: [], fechados: {}, deck: '', origem: '', q: '', ent: '' };
+var ui = { ver: 'tabela', agrupar: 'prioridade', ord: 'padrao', inv: false, dec: 'pendentes', tipos: [], cores: [], corModo: 'contem', sub: '', faixas: [], prios: [], dests: [], fechados: {}, deck: '', origem: '', q: '', ent: '' };
 try {
   var g = JSON.parse(localStorage.getItem(LS) || '{}');
-  ['ver', 'agrupar', 'ord', 'dec', 'deck', 'origem', 'ent'].forEach(function (k) { if (g[k]) ui[k] = g[k]; });
+  ['ver', 'agrupar', 'ord', 'dec', 'deck', 'origem', 'ent', 'corModo', 'sub'].forEach(function (k) { if (g[k]) ui[k] = g[k]; });
   ui.inv = !!g.inv;
   if (Array.isArray(g.tipos)) ui.tipos = g.tipos; else if (g.tipo) ui.tipos = [g.tipo];   // o seletor antigo guardava um tipo só
-  if (Array.isArray(g.cores)) ui.cores = g.cores;
+  if (Array.isArray(g.cores)) ui.cores = g.cores.filter(function (k) { return 'WUBRGC'.indexOf(k) >= 0; });   // o botão Multicolorido saiu: o modo de cor resolve
   if (Array.isArray(g.faixas)) ui.faixas = g.faixas;
   if (Array.isArray(g.prios)) ui.prios = g.prios;
   if (Array.isArray(g.dests)) ui.dests = g.dests;
   if (g.fechados && typeof g.fechados === 'object') ui.fechados = g.fechados;
 } catch (e) { }
-function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, ord: ui.ord, inv: ui.inv, dec: ui.dec, tipos: ui.tipos, cores: ui.cores, faixas: ui.faixas, prios: ui.prios, dests: ui.dests, fechados: ui.fechados, deck: ui.deck, origem: ui.origem, ent: ui.ent })); } catch (e) { } }
+function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, ord: ui.ord, inv: ui.inv, dec: ui.dec, tipos: ui.tipos, cores: ui.cores, corModo: ui.corModo, sub: ui.sub, faixas: ui.faixas, prios: ui.prios, dests: ui.dests, fechados: ui.fechados, deck: ui.deck, origem: ui.origem, ent: ui.ent })); } catch (e) { } }
 
 var DB = { db: null, pode: false, docs: {}, erro: '', ocupado: {} };   // docs: {coleção: {id: documento}}
 var PUB = location.protocol !== 'file:';
@@ -76,6 +76,24 @@ var NOMEC = { '': 'Incolor', W: 'Mono-branco', U: 'Mono-azul', B: 'Mono-preto', 
   WUB: 'Esper', UBR: 'Grixis', BRG: 'Jund', WRG: 'Naya', WUG: 'Bant', WBG: 'Abzan', WUR: 'Jeskai', UBG: 'Sultai', WBR: 'Mardu', URG: 'Temur',
   UBRG: 'Glint', WBRG: 'Dune', WURG: 'Ink', WUBG: 'Witch', WUBR: 'Yore', WUBRG: 'WUBRG' };
 var CORES = [['W', 'Branco'], ['U', 'Azul'], ['B', 'Preto'], ['R', 'Vermelho'], ['G', 'Verde'], ['M', 'Multicolorido'], ['C', 'Incolor']];
+/* filtro de cor: botões W U B R G e Incolor, combináveis, em três modos. "Contém": a identidade tem alguma das marcadas;
+   "Cabe em": a identidade está toda dentro das marcadas (a carta cabe num comandante dessas cores; incolor cabe sempre);
+   "Exatamente": a identidade é igual às marcadas (Incolor sozinho: só as incolores). */
+var MODOS_COR = [['contem', 'Contém'], ['cabe', 'Cabe em'], ['exata', 'Exatamente']];
+function identSet(c) { return (c.ident || '').split('').filter(function (x) { return 'WUBRG'.indexOf(x) >= 0; }); }
+function passaCor(c) {
+  var id = identSet(c), sel = ui.cores.filter(function (k) { return k !== 'C'; }), comC = ui.cores.indexOf('C') >= 0;
+  var dentro = function (x) { return sel.indexOf(x) >= 0; };
+  if (ui.corModo === 'cabe') return id.every(dentro);
+  if (ui.corModo === 'exata') return id.length === sel.length && id.every(dentro) && (sel.length > 0 || comC);
+  return (comC && !id.length) || id.some(dentro);
+}
+/* subtipos pela linha de tipo (o que vem depois do travessão, em cada face): Vampiro, Equipamento, Aura, Floresta... */
+function subtipos(c) {
+  var out = [];
+  (c.line || '').split(' // ').forEach(function (f) { var p = f.split(' — ')[1]; if (p) p.split(/\s+/).forEach(function (w) { if (w && out.indexOf(w) < 0) out.push(w); }); });
+  return out;
+}
 function corDe(c) { var k = ordemCor(c.ident || ''); return !k ? 'C' : k.length > 1 ? 'M' : k; }
 var SVG = {
   W: '<circle cx="16" cy="16" r="5.2"/><g>' + [0, 45, 90, 135, 180, 225, 270, 315].map(function (a) { return '<path d="M16 3.6l1.9 5.4h-3.8z" transform="rotate(' + a + ' 16 16)"/>'; }).join('') + '</g>',
@@ -154,7 +172,8 @@ function visiveis() {
   return CARTAS.filter(function (c) {
     if (!visCopias(c).length) return false;   // nenhuma cópia passa no filtro de decisão e de faixa de valor
     if (ui.tipos.length && ui.tipos.indexOf(c.t) < 0) return false;
-    if (ui.agrupar === 'cor' && !ui.deck && ui.cores.length && ui.cores.indexOf(corDe(c)) < 0) return false;
+    if (ui.cores.length && !passaCor(c)) return false;
+    if (ui.sub && subtipos(c).indexOf(ui.sub) < 0) return false;
     if (ui.deck && !encDe(c, ui.deck)) return false;   // só as cartas nas cores do comandante (o encaixe só existe nelas)
     if (q && c.n.toLowerCase().indexOf(q) < 0 && (c.on || '').toLowerCase().indexOf(q) < 0) return false;
     return true;
@@ -335,9 +354,20 @@ function seletorTipo() {
       return '<label><input type="checkbox" data-ctl="tipo" value="' + t[0] + '"' + (ui.tipos.indexOf(t[0]) >= 0 ? ' checked' : '') + '> ' + t[1] + ' <span class="dim">' + n[t[0]] + '</span></label>';
     }).join('') + '<button class="bt-c" data-act="tipos-limpar"' + (ui.tipos.length ? '' : ' disabled') + '>Limpar</button></div></details>';
 }
+/* subtipo: lista suspensa com os subtipos da origem e a quantidade de cada um */
+function seletorSub() {
+  var n = {}; CARTAS.forEach(function (c) { subtipos(c).forEach(function (w) { n[w] = (n[w] || 0) + 1; }); });
+  var ks = Object.keys(n).sort(function (a, b) { return n[b] - n[a] || a.localeCompare(b, 'pt'); });
+  if (!ks.length) return '';
+  if (ui.sub && !n[ui.sub]) ui.sub = '';
+  return '<label class="cmp-s cx-sub"><span class="seg-l">Subtipo</span><select data-ctl="sub" aria-label="Subtipo"><option value="">Todos</option>' + ks.map(function (k) {
+    return '<option value="' + esc(k) + '"' + (ui.sub === k ? ' selected' : '') + '>' + esc(k) + ' (' + n[k] + ')</option>'; }).join('') + '</select></label>';
+}
 function botoesCor() {
-  var n = {}; CARTAS.forEach(function (c) { var k = corDe(c); n[k] = (n[k] || 0) + 1; });
-  return '<div class="seg cx-cores" role="group" aria-label="Cores"><span class="seg-l">Cores</span>' + CORES.map(function (x) {
+  var n = {}; CARTAS.forEach(function (c) { var id = identSet(c); if (!id.length) n.C = (n.C || 0) + 1; id.forEach(function (k) { n[k] = (n[k] || 0) + 1; }); });
+  var modo = '<select class="cx-cmodo" data-ctl="cormodo" aria-label="Como filtrar as cores">' + MODOS_COR.map(function (m) {
+    return '<option value="' + m[0] + '"' + (ui.corModo === m[0] ? ' selected' : '') + '>' + m[1] + '</option>'; }).join('') + '</select>';
+  return '<div class="seg cx-cores" role="group" aria-label="Cores"><span class="seg-l">Cores</span>' + modo + CORES.filter(function (x) { return x[0] !== 'M'; }).map(function (x) {
     var on = ui.cores.indexOf(x[0]) >= 0;
     return '<button data-act="cor" data-v="' + x[0] + '" aria-pressed="' + on + '" title="' + x[1] + ' (' + (n[x[0]] || 0) + ')"' + (n[x[0]] ? '' : ' disabled') + '>' + icone(x[0]) + '<span>' + x[1] + '</span></button>';
   }).join('') + (ui.cores.length ? '<button class="cx-limpa" data-act="cores-limpar">Limpar</button>' : '') + '</div>';
@@ -384,12 +414,11 @@ function seletorOrigem() {
     ORS.slice(1).map(function (o) { return '<option value="' + esc(o.k) + '"' + (O.k === o.k ? ' selected' : '') + '>Pasta ' + esc(o.k) + (subnome(o.k) ? ' · ' + esc(subnome(o.k)) : '') + ' (' + o.cartas.length + ')</option>'; }).join('') + '</select></label>';
 }
 function controles() {
-  return seletorOrigem() + seletorDeck() + seletorTipo() + seg('Ver', 'ver', [['tabela', 'Tabela'], ['galeria', 'Galeria']]) +
+  return seletorOrigem() + seletorDeck() + seletorTipo() + seletorSub() + seg('Ver', 'ver', [['tabela', 'Tabela'], ['galeria', 'Galeria']]) +
     (ui.deck ? '' : seg('Agrupar', 'agrupar', [['prioridade', 'Prioridade'], ['tipo', 'Tipo'], ['destino', 'Destino'], ['cor', 'Cor'], ['deck', 'Deck'], ['faixa', 'Valor'], ['entrada', 'Entrada'], ['nenhum', 'Nenhum']])) +
     seletorOrdem() +
     seg('Decisão', 'dec', [['pendentes', 'Pendentes'], ['decididas', 'Decididas'], ['todas', 'Todas']]) +
-    botoesFaixa() + botoesEntrada() +
-    (ui.agrupar === 'cor' && !ui.deck ? botoesCor() : '');
+    botoesFaixa() + botoesEntrada() + botoesCor();
 }
 /* cada grupo recolhe e expande pelo cabeçalho; a escolha fica no navegador, por modo de agrupar */
 function chaveGrupo(gr) { return (ui.deck ? 'deck:' + ui.deck : ui.agrupar) + ':' + gr.k; }
@@ -634,9 +663,10 @@ function copiaHtml(c, cp, i, d) {
   var selPasta = '<select data-cp="pasta" data-id="' + esc(c.id) + '" data-i="' + i + '" aria-label="Pasta física"' + (pode ? '' : ' disabled') + '><option value="">pasta…</option>' + D.pastas.map(function (p) {
     return '<option' + (d && d.pasta === p ? ' selected' : '') + '>' + esc(p) + '</option>';
   }).join('') + '</select>';
-  var bt = function (k, rot) { return '<button class="bt-c' + (dest === k ? ' dec-on' : '') + '" data-act="decidir" data-k="' + k + '" data-id="' + esc(c.id) + '" data-i="' + i + '"' + (pode && !DB.ocupado[key] ? '' : ' disabled') + '>' + rot + '</button>'; };
+  var DICA = { remover: 'Tira a carta da coleção (vendida, trocada, perdida). Não leva a pasta nenhuma: para uma pasta, escolha a pasta ao lado de Guardar.', guardar: 'Guarda na pasta escolhida ao lado (escolher a pasta já grava).' };
+  var bt = function (k, rot) { return '<button class="bt-c' + (dest === k ? ' dec-on' : '') + '" data-act="decidir" data-k="' + k + '" data-id="' + esc(c.id) + '" data-i="' + i + '"' + (DICA[k] ? ' title="' + esc(DICA[k]) + '"' : '') + (pode && !DB.ocupado[key] ? '' : ' disabled') + '>' + rot + '</button>'; };
   return '<div class="cx-cp"><b>Cópia ' + (i + 1) + ' de ' + c.copias.length + '</b><span class="dim">' + esc(cp.imp) + ' · ' + esc(cp.acab) + ' · ' + usd(cp.usd) + '</span>' +
-    bt('deck', 'Deck') + (opc.length ? selDeck : '') + bt('guardar', eCaixa() ? 'Guardar' : 'Mover') + (semVenda() ? '' : bt('bundles', 'Bundles') + bt('venda', 'Venda') + bt('bulk', 'Bulk')) + selPasta +
+    bt('deck', 'Deck') + (opc.length ? selDeck : '') + bt('guardar', eCaixa() ? 'Guardar' : 'Mover') + selPasta + (semVenda() ? '' : bt('venda', 'Venda') + bt('bundles', 'Bundles') + bt('bulk', 'Bulk')) +
     bt('remover', 'Remover') + '<label class="cx-pet"><input type="checkbox" data-cp="pet" data-id="' + esc(c.id) + '" data-i="' + i + '"' + ((d && d.pet) || c.pet ? ' checked' : '') + (pode ? '' : ' disabled') + '> pet card</label>' +
     '<input type="text" data-cp="nota" data-id="' + esc(c.id) + '" data-i="' + i + '" placeholder="anotação (opcional)" value="' + esc((d && d.nota) || '') + '"' + (pode ? '' : ' disabled') + '>' +
     '<small>Sugestão desta cópia: ' + nomeD(s.d) + (s.p ? ' · ' + esc(curto(s.p)) : '') + ' · prioridade ' + s.P + '. ' + esc(s.pq) + (d && d.destino ? ' Decidido em ' + esc(fdata(d.em)) + '.' : '') + '</small></div>';
@@ -795,7 +825,7 @@ function render() {
     (mana(ordemCor(dk.i).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + ', do maior ganho para o menor.' +
     (dk.precon ? ' Precon intacto: a lista não muda, o encaixe é só referência.' : '') + ' Asterisco: o deck nunca avaliou a carta, o ganho é piso (o /caixa avalia a sinergia).</p>' : '';
   $('#cx-lista').innerHTML = lede + (L.length ? (ui.ver === 'tabela' ? tabela(G) : galeria(G)) :
-    '<p class="dim">' + (ui.dec === 'pendentes' ? 'Nenhuma carta pendente' : ui.dec === 'decididas' ? 'Nenhuma carta decidida ainda' : 'Nenhuma carta') + (ui.q ? ' com esse nome' : '') + (ui.tipos.length || ui.faixas.length || ui.prios.length || ui.dests.length || ui.ent || (ui.agrupar === 'cor' && ui.cores.length) ? ' com esses filtros' : '') + '.</p>');
+    '<p class="dim">' + (ui.dec === 'pendentes' ? 'Nenhuma carta pendente' : ui.dec === 'decididas' ? 'Nenhuma carta decidida ainda' : 'Nenhuma carta') + (ui.q ? ' com esse nome' : '') + (ui.tipos.length || ui.sub || ui.faixas.length || ui.prios.length || ui.dests.length || ui.ent || ui.cores.length ? ' com esses filtros' : '') + '.</p>');
   var rod = '<p class="nota">Força sozinha: o valor da carta pela régua, só com os oito critérios dela, sem sinergia, e a posição no EDHREC. Selos <span class="cx-gc">GC</span> Game Changer e <span class="cx-st">Staple</span> top ' + R.staple_rank_max + ' do EDHREC. Com duas cópias ou mais, o nome ganha <span class="cx-xn">×N</span> e a decisão abre uma linha por cópia. Valor: preço do Scryfall em dólar, pela impressão e pelo acabamento de cada cópia; cópia em outro idioma usa a impressão em inglês como referência.</p>';
   if (r.nao_encontradas.length) rod += '<p class="nota">Não encontradas no Scryfall (fora da conta): ' + r.nao_encontradas.map(function (x) { return esc(x.lista + ', linha ' + x.linha + ': ' + x.orig); }).join(' · ') + '</p>';
   if (r.ilegiveis.length) rod += '<p class="nota">Linhas que não deu para ler: ' + r.ilegiveis.map(function (x) { return esc(x.lista + ', linha ' + x.linha + ': ' + x.orig); }).join(' · ') + '</p>';
@@ -840,6 +870,14 @@ document.addEventListener('change', function (ev) {
   if (t.matches && t.matches('select[data-ctl="deck"]')) { ui.deck = t.value; guardaUI(); render(); return; }
   if (t.matches && t.matches('select[data-ctl="ord"]')) { ui.ord = t.value; ui.inv = false; guardaUI(); render(); return; }
   if (t.matches && t.matches('select[data-ctl="origem"]')) { usarOrigem(t.value); guardaUI(); render(); return; }
+  if (t.matches && t.matches('select[data-ctl="cormodo"]')) { ui.corModo = t.value; guardaUI(); render(); return; }
+  if (t.matches && t.matches('select[data-ctl="sub"]')) { ui.sub = t.value; guardaUI(); render(); return; }
+  if (t.matches && t.matches('select[data-cp="pasta"]')) {   // escolher a pasta já é a decisão: Guardar nela (ou Venda, se a cópia já ia para a venda)
+    var cP = CARTAS.filter(function (x) { return x.id === t.getAttribute('data-id'); })[0]; if (!cP || !DB.db || !DB.pode || !t.value) return;
+    var iP = +t.getAttribute('data-i'), dP = decCopias(cP)[iP], cpP = cP.copias[iP], destP = dP && dP.destino === 'venda' ? 'venda' : 'guardar';
+    gravar(cP, iP, { imp: cpP.imp, acab: cpP.acab, destino: destP, deck: null, pasta: t.value, em: hojeISO(), nota: (dP && dP.nota) || '', pet: !!(dP && dP.pet), aplicado: null });
+    aviso(nomeD(destP) + ' na pasta ' + t.value + ': registrado.'); return;
+  }
   if (t.matches && t.matches('input[data-ctl="tipo"]')) {
     ui.tipos = Array.prototype.map.call(document.querySelectorAll('input[data-ctl="tipo"]:checked'), function (x) { return x.value; });
     ddAberta = true; guardaUI(); render(); return;
