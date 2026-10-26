@@ -261,6 +261,42 @@ def ler_fichas_pastas():
     return {k: v for k, v in j.items() if not k.startswith("_") and isinstance(v, dict)}
 
 
+ARQ_FICHARIO = os.path.join(dados.DADOS, "pastas", "fichario.json")
+
+
+def ler_fichario():
+    """dados/pastas/fichario.json: {pasta: {grade: [colunas, linhas], casas: [chave da cópia ou null], em}}, a posição de cada
+    cópia na pasta física, casa a casa, página a página. A chave da cópia é "<id da carta>|<SET número>|<acabamento>|<n>"
+    (n conta as cópias iguais). Quem grava é o --importar-fichario, a partir do banco da página publicada da pasta."""
+    j = dados.ler_json(ARQ_FICHARIO, obrigatorio=False) or {}
+    return {k: v for k, v in j.items() if not k.startswith("_") and isinstance(v, dict)}
+
+
+def importar_fichario(arquivo):
+    """Documentos da coleção "fichario" do banco de uma página de pasta publicada (lista, {"docs": [...]} ou {id: doc}) ->
+    dados/pastas/fichario.json. Cada documento: {pasta, grade, casas, em}. Devolve {pasta: casas ocupadas}."""
+    with open(arquivo, encoding="utf-8") as f:
+        j = json.load(f)
+    docs = j.get("docs") if isinstance(j, dict) and isinstance(j.get("docs"), list) else (list(j.values()) if isinstance(j, dict) else j)
+    atual = dados.ler_json(ARQ_FICHARIO, obrigatorio=False) or {"_nota": "A posição de cada cópia nas pastas físicas (caixa.ler_fichario)."}
+    feitos = {}
+    for d in docs or []:
+        d = d.get("data", d) if isinstance(d, dict) and isinstance(d.get("data"), dict) else d
+        if not isinstance(d, dict) or not d.get("pasta") or not isinstance(d.get("casas"), list):
+            continue
+        g = d.get("grade") or [2, 2]
+        if not (isinstance(g, list) and len(g) == 2 and all(isinstance(x, int) and 1 <= x <= 6 for x in g)):
+            raise dados.ErroDeck("fichário de %s: grade inválida %r" % (d["pasta"], g))
+        casas = [c if isinstance(c, str) and c else None for c in d["casas"]]
+        atual[d["pasta"]] = dict(grade=g, casas=casas, em=d.get("em"))
+        feitos[d["pasta"]] = sum(1 for c in casas if c)
+    tmp = ARQ_FICHARIO + ".tmp"
+    with open(tmp, "w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(atual, ensure_ascii=False, indent=1) + "\n")
+    os.replace(tmp, ARQ_FICHARIO)
+    return feitos
+
+
 def pastas_fora_do_hub():
     """Nomes de pasta com lista que não batem com hub.PASTAS (o nome da subpasta precisa ser o da pasta física)."""
     import hub
@@ -1271,9 +1307,17 @@ def pagina(cx=None, avisar=print, modo_img="embutidas", origem=None):
                 mb=1 if x.get("manabox") else 0) for x in lista]
     for p in pastas_fora_do_hub():
         avisar("aviso: a pasta %s não bate com nenhuma pasta física do hub (hub.PASTAS)" % p)
+    # a data de lançamento de cada impressão (cache do Scryfall), para o fichário ordenar por coleção
+    cache_sf = scryfall._ler().get("cartas") or {}
+    for c in todas:
+        for cp in c.get("copias") or []:
+            st, _, num = (cp.get("imp") or "").partition(" ")
+            r = cache_sf.get(scryfall._chave(st, num)) if st and num else None
+            if r and r.get("released_at"):
+                cp["rel"] = str(r["released_at"])[:10]
     D = dict(lido=cx["lido"], regua=R, origens=ors, decks=cx["decks"], crit=crit, crit10=crit10,
              cambio=cambio(avisar=avisar), tarefas=[t for t in tarefas_pendentes() if t["de"] == origem or t.get("pasta") == origem],
-             fichas=ler_fichas_pastas(), gerado=dt_.datetime.now().isoformat(timespec="seconds"),
+             fichas=ler_fichas_pastas(), fichario=ler_fichario(), gerado=dt_.datetime.now().isoformat(timespec="seconds"),
              manabox=[p for p, v in pastas_lista().items() if v["sub"]],
              pastas=[n for n, _ in hub.PASTAS], pastas_com_lista=bool([p for p in dados.ler_pastas() if p != CAIXA]),
              nav=_nav(R), img=_img(todas, avisar) if modo_img == "embutidas" else None)
@@ -1715,6 +1759,7 @@ def main():
     ap.add_argument("--decks", nargs="*", help="com --avaliar: só estes decks")
     ap.add_argument("--gravar-avaliadas", metavar="ARQUIVO", help="grava as sinergias aprovadas na chave avaliadas dos decks")
     ap.add_argument("--importar-banco", metavar="ARQUIVO", help="traz as decisões do banco da Caixa publicada para decisoes.json")
+    ap.add_argument("--importar-fichario", metavar="ARQUIVO", help="traz a posição das cartas (coleção fichario do banco da pasta publicada) para dados/pastas/fichario.json")
     ap.add_argument("--aplicar", action="store_true", help="executa Guardar, Venda, Bundles e Bulk; lista as de Deck")
     ap.add_argument("--marcar", nargs=3, metavar=("CARTA", "IMPRESSAO", "ACABAMENTO"), help="marca uma cópia de Deck como aplicada")
     ap.add_argument("--traducoes-faltando", metavar="ARQUIVO", help="grava as cartas da Caixa e das pastas que ainda não têm tradução")
@@ -1736,6 +1781,10 @@ def main():
     if a.gravar_avaliadas:
         for p, n in gravar_avaliadas(a.gravar_avaliadas):
             print("avaliada: %s em %s" % (n, p))
+        return
+    if a.importar_fichario:
+        for p_, n_ in importar_fichario(a.importar_fichario).items():
+            print("fichário de %s: %d casas ocupadas, gravado em dados/pastas/fichario.json" % (p_, n_))
         return
     if a.importar_banco:
         print("decisões do banco copiadas (%s): %d cartas" % (a.origem or CAIXA, importar_banco(a.importar_banco, origem=a.origem)))
