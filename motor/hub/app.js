@@ -2,6 +2,8 @@
 'use strict';
 
 var H = /*__DATA__*/null;
+// no hub publicado, o painel de cada deck é o artefato publicado (d.pub): o caminho local (d.href) só funciona no arquivo do computador
+if (location.protocol !== 'file:') H.decks.forEach(function (d) { if (d.pub) d.href = d.pub; });
 window.HUB = H;   /* para os testes; o hub não lê nada daqui */
 
 function $(s, el) { return (el || document).querySelector(s); }
