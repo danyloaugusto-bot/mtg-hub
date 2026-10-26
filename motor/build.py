@@ -272,6 +272,7 @@ def montar_grimorio():
     if not grimorio.ler_grimorio():
         print("%s: sem dados/grimorio/grimorio.json (rode python motor/grimorio.py --ler), pulado" % grimorio.NOME)
         return
+    grimorio.atualizar_status()   # onde cada carta está agora (pastas, Caixa e decks mudam pelo /caixa aplicar)
     html, r = grimorio.pagina()
     gravar(os.path.join(SAIDAS, grimorio.NOME + ".html"), html)
     gravar(os.path.join(RAIZ, "Abrir o Grimório.html"), grimorio.atalho())
@@ -302,6 +303,7 @@ def montar_ciclos():
     if not ciclos.ler_lido():
         print("%s: sem dados/ciclos/ciclos-lido.json (rode python motor/ciclos.py --ler), pulados" % ciclos.NOME)
         return
+    ciclos.atualizar_status()   # onde cada carta está agora (pastas, Caixa e decks mudam pelo /caixa aplicar)
     html, r = ciclos.pagina()
     gravar(os.path.join(SAIDAS, ciclos.NOME + ".html"), html)
     gravar(os.path.join(RAIZ, "Abrir os Ciclos.html"), ciclos.atalho())
