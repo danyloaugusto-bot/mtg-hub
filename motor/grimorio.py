@@ -436,7 +436,7 @@ def status(G, L=None, avisar=print):
     L = L or ler_lentes()
     cad = dados.ler_cadastro()
     temas = {l["k"] for l in L["tema"]}
-    pastas_decks = {(p.split(". ", 1)[1] if ". " in p else p): p for p in sorted(os.listdir(dados.DADOS)) if dados.eh_deck(p)}
+    pastas_decks = {(p.split(". ", 1)[1] if ". " in p else p): p for p in dados.pastas_decks()}   # dados/decks/<grupo>/<pasta> (22/10/2026)
     idx = dados.indice_outros("__grimorio__")
     pastas = dados.ler_pastas()
     decks = encaixe.decks_v3()
@@ -705,6 +705,21 @@ def pagina(avisar=print):
     return html, r
 
 
+def atualizar_status(avisar=lambda *a: None):
+    """Refaz onde cada carta está (decks, radares, pastas, Caixa), status, onde rende, 8×8, pontas e novidades, sem rede, e grava
+    grimorio.json e as contagens do leitura.json. O build chama antes de montar a página: carta movida pelo /caixa aplicar
+    (da Caixa para uma pasta, de uma pasta para um deck) não fica com o lugar antigo."""
+    G = ler_grimorio()
+    if not G:
+        raise dados.ErroDeck("sem dados/grimorio/grimorio.json: rode --ler antes")
+    status(G, avisar=avisar)
+    _gravar_json(os.path.join(PASTA, "grimorio.json"), G)
+    lt = ler_leitura() or {}
+    lt["contagens"] = G["contagens"]
+    _gravar_json(os.path.join(PASTA, "leitura.json"), lt)
+    return G
+
+
 def atalho():
     from urllib.parse import quote
     alvo = "saidas/" + quote(NOME + ".html")
@@ -732,14 +747,7 @@ def main():
         if a.ler is not None:
             ler(a.ler or None, rede=not a.sem_rede)
         elif a.status:
-            G = ler_grimorio()
-            if not G:
-                raise dados.ErroDeck("sem dados/grimorio/grimorio.json: rode --ler antes")
-            status(G)
-            _gravar_json(os.path.join(PASTA, "grimorio.json"), G)
-            lt = ler_leitura() or {}
-            lt["contagens"] = G["contagens"]
-            _gravar_json(os.path.join(PASTA, "leitura.json"), lt)
+            G = atualizar_status()
             ct = G["contagens"]
             print("status: %d cartas | sem cadastro %d | novidades %d | pontas %d | tenho %d, ociosas %d, faltam %d" % (
                 ct["cartas"], ct["sem_cadastro"], ct["novidades"], ct["pontas"], ct["tenho"], ct["ociosa"], ct["falta"]))
