@@ -468,6 +468,17 @@ def pagina(avisar=print):
     return html, dict(cartas=len(D["cards"]), ciclos=len(D["ciclos"]), colecoes=len(D["colecoes"]), kb=kb, folhas=n_folhas, mb_img=mb_img, avisos=avisos)
 
 
+def atualizar_status(avisar=lambda *a: None):
+    """Refaz onde cada carta está, o grau, cabe em e onde rende, sem rede, e grava ciclos-lido.json. O build chama antes de
+    montar a página: carta movida pelo /caixa aplicar não fica com o lugar antigo."""
+    G = ler_lido()
+    if not G:
+        raise dados.ErroDeck("sem dados/ciclos/ciclos-lido.json: rode --ler")
+    status(G, avisar=avisar)
+    _gravar_json(os.path.join(PASTA, "ciclos-lido.json"), G)
+    return G
+
+
 def atalho():
     from urllib.parse import quote
     alvo = "saidas/" + quote(NOME + ".html")
@@ -497,11 +508,7 @@ def main():
         if a.ler:
             ler(rede=not a.sem_rede)
         elif a.status:
-            G = ler_lido()
-            if not G:
-                raise dados.ErroDeck("sem dados/ciclos/ciclos-lido.json: rode --ler")
-            status(G)
-            _gravar_json(os.path.join(PASTA, "ciclos-lido.json"), G)
+            G = atualizar_status()
             ct = G["contagens"]
             print("status: %d cartas | sem cadastro %d | com grau %d | tenho %d, ociosas %d, faltam %d" % (ct["cartas"], ct["sem_cadastro"], ct["com_grau"], ct["tenho"], ct["ociosa"], ct["falta"]))
         elif a.conferir:
