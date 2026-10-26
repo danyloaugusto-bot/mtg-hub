@@ -696,5 +696,53 @@ with sync_playwright() as pw:
         R.ok("Preta P não vende: a gaveta não tem os botões Venda, Bulk e Bundles", pg.locator('#cx-gav-in [data-act="decidir"][data-k="venda"]').count() == 0
              and pg.locator('#cx-gav-in [data-act="decidir"][data-k="guardar"]').count() >= 1)
         pg.keyboard.press("Escape")
+        # o fichário (26/10/2026): a pasta página a página, arrastar, organizar, rascunho e Salvar posições
+        ncop = sum(len(c["copias"]) for c in cpp["cartas"])
+        R.ok("fichário: a opção Fichário ao lado de Tabela e Galeria, só nas pastas", pg.locator('[data-act="ui"][data-k="ver"][data-v="fichario"]').count() == 1)
+        pg.evaluate("localStorage.removeItem('mtg-hub:fichario:v1')")
+        pg.click('[data-act="ui"][data-k="ver"][data-v="fichario"]'); pg.wait_for_timeout(400)
+        ocup = pg.locator(".fx-casa:not(.vazia)").count()
+        R.ok("fichário: uma casa por cópia (%d), páginas de 2×2 aos pares, com uma página livre no fim" % ncop, ocup == ncop and pg.locator(".fx-casa").count() % 8 == 0
+             and pg.locator(".fx-casa").count() >= ncop + 4 and pg.locator(".fx-pag").count() == 2 * pg.locator(".fx-ab").count())
+        t0 = pg.eval_on_selector_all(".fx-casa:not(.vazia)", "e => e.slice(0, 2).map(x => x.title)")
+        pg.locator('.fx-casa[data-casa="0"]').drag_to(pg.locator('.fx-casa[data-casa="1"]')); pg.wait_for_timeout(300)
+        t1 = pg.eval_on_selector_all(".fx-casa:not(.vazia)", "e => e.slice(0, 2).map(x => x.title)")
+        R.ok("fichário: arrastar troca as duas cartas de lugar e vira rascunho", t0[0] == t1[1] and t0[1] == t1[0] and "não salvas" in pg.inner_text(".fx-est"), (t0, t1))
+        pg.click('[data-fx="org"][data-v="valor"]'); pg.wait_for_timeout(300)
+        us = [max([cp.get("usd") or 0 for c in cpp["cartas"] for cp in c["copias"]])]
+        v0 = pg.eval_on_selector_all(".fx-casa:not(.vazia)", "e => e[0].title")
+        R.ok("fichário: Organizar por valor põe a mais cara na primeira casa", caixa.usd(us[0]) in v0, (v0, us))
+        pg.click('[data-fx="desfazer"]'); pg.wait_for_timeout(300)
+        R.ok("fichário: Desfazer volta à arrumação de antes", pg.eval_on_selector_all(".fx-casa:not(.vazia)", "e => e.slice(0, 2).map(x => x.title)") == t1)
+        pg.click('[data-fx="grade"][data-v="3x3"]'); pg.wait_for_timeout(300)
+        R.ok("fichário: página 3×3 tem nove casas", pg.locator(".fx-pag").first.locator(".fx-casa").count() == 9)
+        pg.click('[data-fx="grade"][data-v="2x2"]'); pg.wait_for_timeout(300)
+        pg.click('[data-fx="arrumar"]'); pg.click('.fx-casa[data-casa="0"]'); pg.wait_for_timeout(150)
+        R.ok("fichário: Arrumar ligado, tocar seleciona a carta", pg.locator(".fx-casa.sel").count() == 1)
+        last = pg.locator(".fx-casa").count() - 1
+        pg.click('.fx-casa[data-casa="%d"]' % last); pg.wait_for_timeout(300)
+        R.ok("fichário: tocar numa casa vazia leva a carta para lá", pg.locator('.fx-casa[data-casa="0"]').get_attribute("class").find("vazia") >= 0 and pg.locator('.fx-casa:not(.vazia)').count() == ncop)
+        pg.click('[data-fx="arrumar"]')
+        pg.click('[data-fx="salvar"]'); pg.wait_for_timeout(400)
+        sv = pg.evaluate("window.__fakeDb ? JSON.stringify(window.__fakeDb) : ''")
+        R.ok("fichário: Salvar posições grava, mostra 'Posições salvas' e o comando /caixa fichario", "salvas" in pg.inner_text(".fx-est") and "/caixa fichario Preta P" in pg.inner_text(".fx-cmd"))
+        R.ok("fichário: sem erro de página", not R.erros, R.erros[:2])
     b.close()
+# o importar do fichário: os documentos do banco viram dados/pastas/fichario.json (sem mexer no arquivo de verdade)
+import tempfile as _tf
+_d = _tf.mkdtemp()
+_arq_real = caixa.ARQ_FICHARIO
+caixa.ARQ_FICHARIO = os.path.join(_d, "fichario.json")
+_ent = os.path.join(_d, "banco.json")
+json.dump({"docs": [{"id": "preta-p", "data": {"pasta": "Preta P", "grade": [2, 2], "casas": ["a|X 1|normal|1", None, "b|Y 2|foil|1"], "em": "2026-10-26"}}]}, open(_ent, "w", encoding="utf-8"))
+_r = caixa.importar_fichario(_ent)
+_f = json.load(open(caixa.ARQ_FICHARIO, encoding="utf-8"))
+R.ok("fichário: o importar grava grade e casas, com a casa vazia no lugar", _r == {"Preta P": 2} and _f["Preta P"]["casas"] == ["a|X 1|normal|1", None, "b|Y 2|foil|1"] and _f["Preta P"]["grade"] == [2, 2])
+json.dump([{"pasta": "Preta P", "grade": [9, 9], "casas": []}], open(_ent, "w", encoding="utf-8"))
+try:
+    caixa.importar_fichario(_ent); _rec = False
+except Exception:
+    _rec = True
+R.ok("fichário: o importar recusa grade fora de 1 a 6", _rec)
+caixa.ARQ_FICHARIO = _arq_real
 R.fim()
