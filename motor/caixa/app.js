@@ -46,6 +46,7 @@ function curto(p) { return DECKS[p] ? DECKS[p].c : p; }
 var NOMED = { deck: 'Deck', guardar: 'Guardar', venda: 'Venda', bundles: 'Bundles', bulk: 'Bulk', remover: 'Remover' };
 function nomeD(d) { return d === 'guardar' && O.k !== 'Caixa' ? 'Manter' : NOMED[d]; }   // numa pasta, guardar é ficar onde está
 function eCaixa() { return O.k === 'Caixa'; }
+function verFich() { return ui.ver === 'fichario' && !eCaixa(); }   // a vista Fichário só existe nas pastas
 var FICHAS = D.fichas || {};   // a ficha de cada pasta (dados/pastas/pastas.json): subnome, formato, frase, papéis
 function semVenda() { return !eCaixa() && FICHAS[O.k] && FICHAS[O.k].venda === false; }   // a pasta não vende (Preta P)
 function subnome(p) { return FICHAS[p] && FICHAS[p].subnome ? FICHAS[p].subnome : ''; }
@@ -414,8 +415,8 @@ function seletorOrigem() {
     ORS.slice(1).map(function (o) { return '<option value="' + esc(o.k) + '"' + (O.k === o.k ? ' selected' : '') + '>Pasta ' + esc(o.k) + (subnome(o.k) ? ' · ' + esc(subnome(o.k)) : '') + ' (' + o.cartas.length + ')</option>'; }).join('') + '</select></label>';
 }
 function controles() {
-  return seletorOrigem() + seletorDeck() + seletorTipo() + seletorSub() + seg('Ver', 'ver', [['tabela', 'Tabela'], ['galeria', 'Galeria']]) +
-    (ui.deck ? '' : seg('Agrupar', 'agrupar', [['prioridade', 'Prioridade'], ['tipo', 'Tipo'], ['destino', 'Destino'], ['cor', 'Cor'], ['deck', 'Deck'], ['faixa', 'Valor'], ['entrada', 'Entrada'], ['nenhum', 'Nenhum']])) +
+  return seletorOrigem() + seletorDeck() + seletorTipo() + seletorSub() + seg('Ver', 'ver', [['tabela', 'Tabela'], ['galeria', 'Galeria']].concat(eCaixa() ? [] : [['fichario', 'Fichário']])) +
+    (ui.deck || verFich() ? '' : seg('Agrupar', 'agrupar', [['prioridade', 'Prioridade'], ['tipo', 'Tipo'], ['destino', 'Destino'], ['cor', 'Cor'], ['deck', 'Deck'], ['faixa', 'Valor'], ['entrada', 'Entrada'], ['nenhum', 'Nenhum']])) +
     seletorOrdem() +
     seg('Decisão', 'dec', [['pendentes', 'Pendentes'], ['decididas', 'Decididas'], ['todas', 'Todas']]) +
     botoesFaixa() + botoesEntrada() + botoesCor();
@@ -538,6 +539,142 @@ function galeria(G) {
     }).join('') + '</div>';
   }).join('');
 }
+
+
+/* ---------- fichário: a pasta física, página a página (só nas pastas) ----------
+   Cada cópia ocupa uma casa; as páginas mostram a grade da pasta (2×2 por padrão) aos pares, como o fichário aberto.
+   Mexer (arrastar, ou Arrumar e tocar) é rascunho, guardado neste navegador; "Salvar posições" grava no banco da página
+   publicada (coleção "fichario", um documento por pasta) e o /caixa fichario traz para dados/pastas/fichario.json. */
+var FICH = D.fichario || {};
+var LSF = 'mtg-hub:fichario:v1';
+var FX = { sel: null, arrumar: false, ant: null, drag: null, rasc: {}, msg: '' };
+try { FX.rasc = JSON.parse(localStorage.getItem(LSF) || '{}') || {}; } catch (e) { FX.rasc = {}; }
+function guardaRasc() { try { localStorage.setItem(LSF, JSON.stringify(FX.rasc)); } catch (e) { } }
+var GRADES = [[2, 2], [3, 3], [4, 3]];
+function fxCopias() {   // todas as cópias da pasta, cada uma com a chave estável "<id>|<SET número>|<acabamento>|<n>"
+  var out = [], vistos = {};
+  CARTAS.forEach(function (c) { c.copias.forEach(function (cp, i) { var b = c.id + '|' + cp.imp + '|' + cp.acab; vistos[b] = (vistos[b] || 0) + 1; out.push({ k: b + '|' + vistos[b], c: c, cp: cp }); }); });
+  return out;
+}
+function fxSalvo() { var b = DB.docs.fichario && DB.docs.fichario[slug(O.k)]; return b && b.casas ? b : (FICH[O.k] || null); }
+function fxEstado() {   // o rascunho, se houver; senão o salvo; senão a ordem da lista
+  var r = FX.rasc[O.k], sv = fxSalvo(), base = r || sv;
+  var cs = fxCopias(), por = {}; cs.forEach(function (x) { por[x.k] = x; });
+  var usados = {}, casas = ((base && base.casas) || []).map(function (k) { if (k && por[k] && !usados[k]) { usados[k] = 1; return k; } return null; });
+  var ult = -1; casas.forEach(function (k, i) { if (k) ult = i; });
+  casas = casas.slice(0, ult + 1).concat(cs.filter(function (x) { return !usados[x.k]; }).map(function (x) { return x.k; }));   // as novas entram depois da última ocupada
+  return { grade: (base && base.grade) || (FICHAS[O.k] && FICHAS[O.k].grade) || [2, 2], casas: casas, por: por, rasc: !!r, sv: sv };
+}
+function fxRascunho(grade, casas) {
+  var ult = -1; casas.forEach(function (k, i) { if (k) ult = i; });
+  FX.rasc[O.k] = { grade: grade, casas: casas.slice(0, ult + 1) }; guardaRasc(); FX.msg = '';
+}
+function fxMover(a, b) {
+  if (a === b) return;
+  var E = fxEstado(), cs = E.casas.slice();
+  while (cs.length <= Math.max(a, b)) cs.push(null);
+  var t = cs[a]; cs[a] = cs[b]; cs[b] = t;
+  fxRascunho(E.grade, cs); render();
+}
+function fxOrdenar(modo) {
+  var E = fxEstado(); FX.ant = { grade: E.grade, casas: E.casas.slice(), rasc: FX.rasc[O.k] || null };
+  var cs = fxCopias(), ordem = 'WUBRGMC';
+  var num = function (imp) { var n = parseInt(String(imp || '').split(' ')[1], 10); return isNaN(n) ? 1e9 : n; };
+  cs.sort(function (x, y) {
+    if (modo === 'valor') return ((y.cp.usd || 0) - (x.cp.usd || 0)) || x.c.n.localeCompare(y.c.n);
+    if (modo === 'colecao') return String(x.cp.rel || '9999').localeCompare(String(y.cp.rel || '9999')) || String(x.cp.imp).split(' ')[0].localeCompare(String(y.cp.imp).split(' ')[0]) || num(x.cp.imp) - num(y.cp.imp);
+    if (modo === 'cor') return (ordem.indexOf(corDe(x.c)) - ordem.indexOf(corDe(y.c))) || x.c.n.localeCompare(y.c.n);
+    return x.c.n.localeCompare(y.c.n);
+  });
+  fxRascunho(E.grade, cs.map(function (x) { return x.k; })); render();
+}
+function fxSalvar() {
+  var E = fxEstado();
+  var ult = -1; E.casas.forEach(function (k, i) { if (k) ult = i; });
+  var doc = { pasta: O.k, grade: E.grade, casas: E.casas.slice(0, ult + 1), em: hojeISO() };
+  if (!DB.db) {   // arquivo local: sem banco, as posições vão para a área de transferência, para colar no Claude Code
+    var txt = '/caixa fichario ' + JSON.stringify(doc);
+    try { navigator.clipboard.writeText(txt).then(function () { FX.msg = 'Arquivo local: as posições foram copiadas. Cole no Claude Code para guardar no projeto.'; render(); }, function () { FX.msg = 'Não deu para copiar.'; render(); }); } catch (e) { FX.msg = 'Não deu para copiar.'; render(); }
+    return;
+  }
+  if (!DB.pode) { aviso('Só quem edita esta página salva as posições.'); return; }
+  FX.msg = 'Salvando…'; render();
+  DB.db.collection('fichario').doc(slug(O.k)).set(doc).then(function () {
+    delete FX.rasc[O.k]; guardaRasc(); FX.ant = null; FX.msg = 'salvo'; render();
+  }, function (e) { FX.msg = 'Não gravou (' + ((e && e.code) || 'erro') + '). O rascunho continua neste navegador.'; render(); });
+}
+function fxBarra(E) {
+  var b = function (k, v, rot, on, dica) { return '<button class="bt-c' + (on ? ' dec-on' : '') + '" data-fx="' + k + '" data-v="' + v + '"' + (dica ? ' title="' + esc(dica) + '"' : '') + '>' + rot + '</button>'; };
+  var sv = E.sv, quando = sv && sv.em ? fdata(sv.em) : '';
+  var est = E.rasc ? '<span class="fx-est rasc">Alterações não salvas</span>' : sv ? '<span class="fx-est ok">Posições salvas' + (quando ? ' em ' + esc(quando) : '') + '</span>' : '<span class="fx-est">Ainda sem posições salvas: a ordem é a da lista</span>';
+  var cmd = FX.msg === 'salvo' ? '<div class="fx-cmd"><span>Salvo nesta página. Para guardar no projeto a versão mais atual da pasta, mande no Claude Code:</span><code id="fx-cmd-t">/caixa fichario ' + esc(O.k) + '</code><button class="bt-c" data-fx="copiar" data-v="">Copiar</button></div>'
+    : FX.msg ? '<p class="fx-msg">' + esc(FX.msg) + '</p>' : '';
+  return '<div class="fx-barra">' +
+    '<div class="seg" role="group" aria-label="Casas por página"><span class="seg-l">Página</span>' + GRADES.map(function (g) { return b('grade', g.join('x'), g[0] + '×' + g[1], E.grade[0] === g[0] && E.grade[1] === g[1]); }).join('') + '</div>' +
+    '<div class="seg" role="group" aria-label="Organizar"><span class="seg-l">Organizar por</span>' + b('org', 'valor', 'Valor', false, 'As mais caras nas primeiras páginas') + b('org', 'colecao', 'Coleção', false, 'Pela data de lançamento da impressão') + b('org', 'cor', 'Cor', false) + b('org', 'nome', 'Nome', false) +
+      (FX.ant ? b('desfazer', '', 'Desfazer', false, 'Volta à arrumação de antes do último Organizar') : '') + '</div>' +
+    b('arrumar', '', FX.arrumar ? 'Arrumar: ligado' : 'Arrumar (tocar e mover)', FX.arrumar, 'Ligado: toque numa carta e depois na casa de destino. No computador, também dá para arrastar.') +
+    (E.rasc ? b('descartar', '', 'Descartar', false, 'Volta às posições salvas') : '') +
+    '<button class="bt-c fx-salvar" data-fx="salvar" data-v=""' + (E.rasc || !E.sv ? '' : ' disabled') + '>Salvar posições</button>' + est + '</div>' + cmd;
+}
+function fichario(L) {
+  var E = fxEstado(), vis = {}; L.forEach(function (c) { vis[c.id] = 1; });
+  var porPag = E.grade[0] * E.grade[1], n = Math.max(1, Math.ceil(E.casas.length / porPag)) + 1;   // uma página vazia no fim, para ter onde pôr
+  if (n % 2) n++;
+  var casa = function (idx) {
+    var k = E.casas[idx], x = k && E.por[k];
+    if (!x) return '<div class="fx-casa vazia' + (FX.sel === idx ? ' sel' : '') + '" data-casa="' + idx + '"></div>';
+    var f = x.cp.acab && x.cp.acab !== 'normal' ? '<span class="fx-f">' + esc(x.cp.acab) + '</span>' : '';
+    return '<div class="fx-casa' + (FX.sel === idx ? ' sel' : '') + (vis[x.c.id] ? '' : ' apagada') + '" data-casa="' + idx + '" draggable="true" title="' + esc(x.c.n + ' · ' + x.cp.imp + ' · ' + usd(x.cp.usd)) + '">' + imgDe(x.c) + f + '<span class="fx-v num">' + usd(x.cp.usd) + '</span></div>';
+  };
+  var pag = function (p) {
+    var h = '';
+    for (var i = 0; i < porPag; i++) h += casa(p * porPag + i);
+    return '<div class="fx-pag"><div class="fx-grid" style="grid-template-columns:repeat(' + E.grade[0] + ',minmax(0,1fr))">' + h + '</div><span class="fx-np">página ' + (p + 1) + '</span></div>';
+  };
+  var ab = '';
+  for (var p = 0; p < n; p += 2) ab += '<div class="fx-ab">' + pag(p) + pag(p + 1) + '</div>';
+  var ocup = E.casas.filter(Boolean).length;
+  return fxBarra(E) + '<p class="nota fx-nota">' + pl(ocup, 'cópia', 'cópias') + ' em ' + pl(Math.ceil(Math.max(E.casas.length, 1) / porPag), 'página', 'páginas') + ' de ' + E.grade[0] + '×' + E.grade[1] + '. Arraste uma carta para outra casa (troca de lugar com a que estiver lá), ou ligue Arrumar e toque. Os filtros só apagam as cartas que não passam; nenhuma sai do lugar. Clique numa carta, com Arrumar desligado, para abrir a ficha.</p>' + ab;
+}
+document.addEventListener('click', function (ev) {
+  var bt = ev.target.closest('[data-fx]');
+  if (bt) {
+    var k = bt.getAttribute('data-fx'), v = bt.getAttribute('data-v'), E = fxEstado();
+    if (k === 'grade') { fxRascunho(v.split('x').map(Number), E.casas); render(); }
+    else if (k === 'org') fxOrdenar(v);
+    else if (k === 'desfazer' && FX.ant) { if (FX.ant.rasc) FX.rasc[O.k] = FX.ant.rasc; else delete FX.rasc[O.k]; guardaRasc(); FX.ant = null; render(); }
+    else if (k === 'arrumar') { FX.arrumar = !FX.arrumar; FX.sel = null; render(); }
+    else if (k === 'descartar') { delete FX.rasc[O.k]; guardaRasc(); FX.ant = null; FX.sel = null; FX.msg = ''; render(); }
+    else if (k === 'salvar') fxSalvar();
+    else if (k === 'copiar') { var t = $('#fx-cmd-t').textContent; try { navigator.clipboard.writeText(t).then(function () { bt.textContent = 'Copiado'; }, function () { bt.textContent = 'Selecione e copie'; }); } catch (e) { bt.textContent = 'Selecione e copie'; } }
+    return;
+  }
+  var fc = ev.target.closest('.fx-casa');
+  if (!fc) return;
+  var idx = +fc.getAttribute('data-casa');
+  if (FX.arrumar) {
+    if (FX.sel === null) { if (!fc.classList.contains('vazia')) { FX.sel = idx; render(); } }
+    else { var a = FX.sel; FX.sel = null; if (a === idx) render(); else fxMover(a, idx); }
+    return;
+  }
+  var E2 = fxEstado(), x = E2.por[E2.casas[idx]];
+  if (x) abrir(x.c.id);
+});
+document.addEventListener('dragstart', function (ev) {
+  var fc = ev.target.closest && ev.target.closest('.fx-casa[draggable]'); if (!fc) return;
+  FX.drag = +fc.getAttribute('data-casa');
+  try { ev.dataTransfer.setData('text/plain', String(FX.drag)); ev.dataTransfer.effectAllowed = 'move'; } catch (e) { }
+});
+document.addEventListener('dragover', function (ev) {
+  var fc = ev.target.closest && ev.target.closest('.fx-casa'); if (!fc || FX.drag === null) return;
+  ev.preventDefault(); document.querySelectorAll('.fx-casa.alvo').forEach(function (x) { if (x !== fc) x.classList.remove('alvo'); }); fc.classList.add('alvo');
+});
+document.addEventListener('drop', function (ev) {
+  var fc = ev.target.closest && ev.target.closest('.fx-casa'); if (!fc || FX.drag === null) return;
+  ev.preventDefault(); var a = FX.drag; FX.drag = null; fxMover(a, +fc.getAttribute('data-casa'));
+});
+document.addEventListener('dragend', function () { FX.drag = null; document.querySelectorAll('.fx-casa.alvo').forEach(function (x) { x.classList.remove('alvo'); }); });
 
 /* ---------- gaveta ---------- */
 function gaveta(c) {
@@ -791,6 +928,10 @@ function ligarBanco() {
     if (!DB.db) { render(); return; }
     var u = r[1];
     (u && u.canEdit ? u.canEdit() : Promise.resolve(true)).then(function (p) { DB.pode = p !== false; render(); redesenharGaveta(); }, function () { DB.pode = true; render(); });
+    DB.db.collection('fichario').onSnapshot(function (s) {   // as posições salvas de cada pasta no fichário
+      var m = {}; s.docs.forEach(function (x) { if (x.exists) m[x.id] = x.data(); });
+      DB.docs.fichario = m; if (verFich()) render();
+    }, function () { });
     ORS.forEach(function (o) {   // uma coleção por origem: "decisoes" (Caixa) e "decisoes-<pasta>"
       DB.db.collection(o.col).onSnapshot(function (s) {
         var m = {}; s.docs.forEach(function (x) { if (x.exists) m[x.id] = x.data(); });
@@ -824,7 +965,7 @@ function render() {
   var lede = dk ? '<p class="cx-foco">Para o <b>' + esc(dk.c) + '</b> (' + esc(dk.n) + '): ' + pl(L.length, 'carta', 'cartas') + ' da caixa nas cores do comandante, ' +
     (mana(ordemCor(dk.i).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + ', do maior ganho para o menor.' +
     (dk.precon ? ' Precon intacto: a lista não muda, o encaixe é só referência.' : '') + ' Asterisco: o deck nunca avaliou a carta, o ganho é piso (o /caixa avalia a sinergia).</p>' : '';
-  $('#cx-lista').innerHTML = lede + (L.length ? (ui.ver === 'tabela' ? tabela(G) : galeria(G)) :
+  $('#cx-lista').innerHTML = lede + (verFich() ? fichario(L) : L.length ? (ui.ver === 'galeria' || ui.ver === 'fichario' ? galeria(G) : tabela(G)) :
     '<p class="dim">' + (ui.dec === 'pendentes' ? 'Nenhuma carta pendente' : ui.dec === 'decididas' ? 'Nenhuma carta decidida ainda' : 'Nenhuma carta') + (ui.q ? ' com esse nome' : '') + (ui.tipos.length || ui.sub || ui.faixas.length || ui.prios.length || ui.dests.length || ui.ent || ui.cores.length ? ' com esses filtros' : '') + '.</p>');
   var rod = '<p class="nota">Força sozinha: o valor da carta pela régua, só com os oito critérios dela, sem sinergia, e a posição no EDHREC. Selos <span class="cx-gc">GC</span> Game Changer e <span class="cx-st">Staple</span> top ' + R.staple_rank_max + ' do EDHREC. Com duas cópias ou mais, o nome ganha <span class="cx-xn">×N</span> e a decisão abre uma linha por cópia. Valor: preço do Scryfall em dólar, pela impressão e pelo acabamento de cada cópia; cópia em outro idioma usa a impressão em inglês como referência.</p>';
   if (r.nao_encontradas.length) rod += '<p class="nota">Não encontradas no Scryfall (fora da conta): ' + r.nao_encontradas.map(function (x) { return esc(x.lista + ', linha ' + x.linha + ': ' + x.orig); }).join(' · ') + '</p>';
