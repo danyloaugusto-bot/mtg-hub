@@ -140,7 +140,8 @@ dm = sug("Drannith Magistrate")
 R.ok("regra 3: Game Changer sem deck -> Guardar A, moeda de troca", dm.get("d") == "guardar" and dm.get("P") == "A" and "moeda de troca" in dm.get("marcas", []), dm)
 R.ok("aviso de idioma na cópia em português", any("preço de referência" in a for a in carta(cx, "Drannith Magistrate")["copias"][0]["avisos"]))
 ce = sug("Celestine, the Living Saint")
-R.ok("regra 4: venda B (US$ 5 a 20)", ce.get("d") == "venda" and ce.get("P") == "B", ce)
+vce = carta(cx, "Celestine, the Living Saint")["valor"] or 0   # o preço muda a cada /precos: a faixa segue o preço do dia
+R.ok("regra 4: venda na faixa do preço de hoje (B de US$ 5 a 20, A de 20 para cima: US$ %.2f)" % vce, ce.get("d") == "venda" and ce.get("P") == ("A" if vce >= 20 else "B"), ce)
 cy = sug("Cryptothrall")
 R.ok("regra 4: venda A, capital parado (US$ 20 ou mais)", cy.get("d") == "venda" and cy.get("P") == "A" and "capital parado" in cy.get("marcas", []), cy)
 R.ok("regra 5: bundles C", sug("Callidus Assassin").get("d") == "bundles" and sug("Callidus Assassin").get("P") == "C")
@@ -472,9 +473,13 @@ with sync_playwright() as pw:
     import datetime as _dt
     hoje_ = _dt.date.today()
     recentes = {c["id"] for c in pend if any(cp.get("ent") and (hoje_ - _dt.date.fromisoformat(cp["ent"])).days < 3 for cp in c["copias"])}
-    pg.click('[data-act="ui"][data-k="ent"][data-v="3"]'); pg.wait_for_timeout(300)
-    ids3 = set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))
-    R.ok("Entrada 3 dias: só as cartas com cópia que entrou nos últimos 3 dias", ids3 == recentes, (len(ids3), len(recentes)))
+    b3 = pg.locator('[data-act="ui"][data-k="ent"][data-v="3"]')
+    if b3.is_enabled():
+        b3.click(); pg.wait_for_timeout(300)
+        ids3 = set(pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))"))
+        R.ok("Entrada 3 dias: só as cartas com cópia que entrou nos últimos 3 dias", ids3 == recentes, (len(ids3), len(recentes)))
+    else:   # nenhuma cópia entrou nos últimos 3 dias: o botão fica desligado
+        R.ok("Entrada 3 dias: sem cópia recente, o botão fica desligado", not recentes, len(recentes))
     pg.click('[data-act="ui"][data-k="ent"][data-v=""]'); pg.wait_for_timeout(200)
     pg.click('[data-act="ui"][data-k="ver"][data-v="galeria"]'); pg.wait_for_timeout(200)
     pg.click('[data-act="ui"][data-k="agrupar"][data-v="entrada"]'); pg.wait_for_timeout(300)
@@ -518,13 +523,35 @@ with sync_playwright() as pw:
         return "C" if not k else "M" if len(k) > 1 else k
     ordem = [("W", "Branco"), ("U", "Azul"), ("B", "Preto"), ("R", "Vermelho"), ("G", "Verde"), ("M", "Multicolorido"), ("C", "Incolor")]
     R.ok("cores: os grupos em Branco, Azul, Preto, Vermelho, Verde, Multicolorido, Incolor", hs == [n for k, n in ordem if any(cor(c) == k for c in cx_real["cartas"])], hs)
-    R.ok("cores: sete botões, com o símbolo de mana desenhado", pg.locator('.cx-cores [data-act="cor"]').count() == 7 and pg.locator('.cx-cores [data-act="cor"] svg.cx-mi-W').count() == 1)
+    R.ok("cores: seis botões (W U B R G e Incolor), com o símbolo de mana, e o modo", pg.locator('.cx-cores [data-act="cor"]').count() == 6
+         and pg.locator('.cx-cores [data-act="cor"] svg.cx-mi-W').count() == 1 and pg.locator('.cx-cores select[data-ctl="cormodo"]').count() == 1)
+    base = set(pg.eval_on_selector_all(".cx-cd", "es => es.map(e => e.getAttribute('data-id'))"))
+    por_id = {c["id"]: c for c in cx_real["cartas"]}
+    ident = lambda i: set(x for x in "WUBRG" if x in (por_id[i]["ident"] or ""))
+    vis = lambda: set(pg.eval_on_selector_all(".cx-cd", "es => es.map(e => e.getAttribute('data-id'))"))
     pg.click('.cx-cores [data-act="cor"][data-v="W"]'); pg.click('.cx-cores [data-act="cor"][data-v="R"]'); pg.wait_for_timeout(300)
-    vis = pg.eval_on_selector_all(".cx-cd", "es => es.map(e => e.getAttribute('data-id'))")
-    esp = [c["id"] for c in cx_real["cartas"] if cor(c) in ("W", "R")]
-    R.ok("cores: branco e vermelho juntos (%d cartas)" % len(esp), sorted(vis) == sorted(esp), (len(vis), len(esp)))
+    esp = {i for i in base if ident(i) & {"W", "R"}}
+    R.ok("cores, Contém: branco ou vermelho na identidade (%d cartas)" % len(esp), vis() == esp, (len(vis()), len(esp)))
+    pg.select_option('select[data-ctl="cormodo"]', "cabe"); pg.wait_for_timeout(300)
+    esp = {i for i in base if ident(i) <= {"W", "R"}}
+    R.ok("cores, Cabe em: identidade dentro de branco e vermelho, incolores juntas (%d cartas)" % len(esp), vis() == esp, (len(vis()), len(esp)))
+    pg.select_option('select[data-ctl="cormodo"]', "exata"); pg.wait_for_timeout(300)
+    esp = {i for i in base if ident(i) == {"W", "R"}}
+    R.ok("cores, Exatamente: só as de branco e vermelho (%d cartas)" % len(esp), vis() == esp, (len(vis()), len(esp)))
     pg.click('[data-act="cores-limpar"]'); pg.wait_for_timeout(300)
+    pg.select_option('select[data-ctl="cormodo"]', "contem"); pg.wait_for_timeout(200)
     R.ok("cores: limpar volta a todas", pg.locator(".cx-cd").count() == len(pend))
+    # subtipo: a lista suspensa, pelo que vem depois do travessão na linha de tipo
+    subs = pg.eval_on_selector_all('select[data-ctl="sub"] option', "es => es.map(e => e.value).filter(Boolean)")
+    if subs:
+        sub = subs[0]
+        pg.select_option('select[data-ctl="sub"]', sub); pg.wait_for_timeout(300)
+        def tem(i):
+            return any(sub in (f.split(" — ")[1].split() if " — " in f else []) for f in (por_id[i].get("line") or "").split(" // "))
+        esp = {i for i in base if tem(i)}
+        R.ok("subtipo %s: só as cartas com esse subtipo (%d)" % (sub, len(esp)), esp and vis() == esp, (len(vis()), len(esp)))
+        pg.select_option('select[data-ctl="sub"]', ""); pg.wait_for_timeout(300)
+        R.ok("subtipo: Todos volta a todas", pg.locator(".cx-cd").count() == len(pend))
     # grupos que recolhem
     pg.click('[data-act="ui"][data-k="ver"][data-v="tabela"]'); pg.click('[data-act="ui"][data-k="agrupar"][data-v="prioridade"]'); pg.wait_for_timeout(300)
     n0 = pg.locator("tr.cx-r:visible").count()
