@@ -265,7 +265,7 @@ ARQ_FICHARIO = os.path.join(dados.DADOS, "pastas", "fichario.json")
 
 
 def ler_fichario():
-    """dados/pastas/fichario.json: {pasta: {grade: [colunas, linhas], casas: [chave da cópia ou null], em}}, a posição de cada
+    """dados/pastas/fichario.json: {pasta: {grade: [colunas, linhas], casas: [chave da cópia ou null], paginas, em}}, a posição de cada
     cópia na pasta física, casa a casa, página a página. A chave da cópia é "<id da carta>|<SET número>|<acabamento>|<n>"
     (n conta as cópias iguais). Quem grava é o --importar-fichario, a partir do banco da página publicada da pasta."""
     j = dados.ler_json(ARQ_FICHARIO, obrigatorio=False) or {}
@@ -288,7 +288,8 @@ def importar_fichario(arquivo):
         if not (isinstance(g, list) and len(g) == 2 and all(isinstance(x, int) and 1 <= x <= 6 for x in g)):
             raise dados.ErroDeck("fichário de %s: grade inválida %r" % (d["pasta"], g))
         casas = [c if isinstance(c, str) and c else None for c in d["casas"]]
-        atual[d["pasta"]] = dict(grade=g, casas=casas, em=d.get("em"))
+        pg = d.get("paginas")
+        atual[d["pasta"]] = dict(grade=g, casas=casas, paginas=pg if isinstance(pg, int) and pg > 0 else None, em=d.get("em"))
         feitos[d["pasta"]] = sum(1 for c in casas if c)
     tmp = ARQ_FICHARIO + ".tmp"
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
