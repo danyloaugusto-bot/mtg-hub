@@ -48,3 +48,32 @@ O que saiu da caixa, decisão a decisão (/caixa aplicar).
 - Talisman of Resilience → Guardar (Preta P)
 - War Room → Guardar (Preta P)
 - Waste Not → Guardar (Preta P)
+
+## 29/10/2026
+
+- Accursed Duneyard → Guardar (Preta P)
+- Angel of Destiny → Guardar (Preta P)
+- Cathars' Crusade → Guardar (Preta P)
+- Chandra's Ignition → Guardar (Preta P)
+- Decorum Dissertation → Guardar (Preta P)
+- Eladamri, Korvecdal → Guardar (Preta P)
+- Enduring Courage → Guardar (Preta P)
+- Excalibur, Sword of Eden → Guardar (Preta P)
+- Formidable Speaker → Guardar (Preta P)
+- Goblin Chieftain → Guardar (Preta P)
+- Last One Standing → Guardar (Preta P)
+- Morlun, Devourer of Spiders → Guardar (Preta P)
+- Mutational Advantage → Guardar (Preta P)
+- Olivia, Crimson Bride → Guardar (Preta P)
+- Pox Plague → Guardar (Preta P)
+- Scheming Silvertongue → Guardar (Preta P)
+- Tyvar, Jubilant Brawler → Guardar (Preta P)
+- Unbreakable Formation → Guardar (Preta P)
+- Vilis, Broker of Blood → Guardar (Preta P)
+
+## 29/10/2026
+
+- Enduring Courage → Guardar (Preta P)
+- Enduring Courage → Guardar (Preta P)
+- Enduring Curiosity → Guardar (Preta P)
+- Enduring Tenacity → Guardar (Preta P)
