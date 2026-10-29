@@ -265,7 +265,7 @@ ARQ_FICHARIO = os.path.join(dados.DADOS, "pastas", "fichario.json")
 
 
 def ler_fichario():
-    """dados/pastas/fichario.json: {pasta: {grade: [colunas, linhas], casas: [chave da cópia ou null], paginas, em}}, a posição de cada
+    """dados/pastas/fichario.json: {pasta: {grade: [colunas, linhas], casas: [chave da cópia, lista de chaves (as cópias da mesma carta juntas) ou null], paginas, em}}, a posição de cada
     cópia na pasta física, casa a casa, página a página. A chave da cópia é "<id da carta>|<SET número>|<acabamento>|<n>"
     (n conta as cópias iguais). Quem grava é o --importar-fichario, a partir do banco da página publicada da pasta."""
     j = dados.ler_json(ARQ_FICHARIO, obrigatorio=False) or {}
@@ -290,10 +290,11 @@ def importar_fichario(arquivo):
         g = d.get("grade") or [2, 2]
         if not (isinstance(g, list) and len(g) == 2 and all(isinstance(x, int) and 1 <= x <= 6 for x in g)):
             raise dados.ErroDeck("fichário de %s: grade inválida %r" % (d["pasta"], g))
-        casas = [c if isinstance(c, str) and c else None for c in d["casas"]]
+        # cada casa: a chave de uma cópia, ou a lista das cópias da mesma carta empilhadas na casa (o "×3")
+        casas = [c if isinstance(c, str) and c else ([k for k in c if isinstance(k, str) and k] or None) if isinstance(c, list) else None for c in d["casas"]]
         pg = d.get("paginas")
         atual[d["pasta"]] = dict(grade=g, casas=casas, paginas=pg if isinstance(pg, int) and pg > 0 else None, em=d.get("em"))
-        feitos[d["pasta"]] = sum(1 for c in casas if c)
+        feitos[d["pasta"]] = sum(len(c) if isinstance(c, list) else 1 for c in casas if c)
     tmp = ARQ_FICHARIO + ".tmp"
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         f.write(json.dumps(atual, ensure_ascii=False, indent=1) + "\n")
@@ -1788,7 +1789,7 @@ def main():
         return
     if a.importar_fichario:
         for p_, n_ in importar_fichario(a.importar_fichario).items():
-            print("fichário de %s: %d casas ocupadas, gravado em dados/pastas/fichario.json" % (p_, n_))
+            print("fichário de %s: %d cópias, gravado em dados/pastas/fichario.json" % (p_, n_))
         return
     if a.importar_banco:
         print("decisões do banco copiadas (%s): %d cartas" % (a.origem or CAIXA, importar_banco(a.importar_banco, origem=a.origem)))

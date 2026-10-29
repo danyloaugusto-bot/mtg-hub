@@ -557,14 +557,31 @@ function fxCopias() {   // todas as cópias da pasta, cada uma com a chave está
 }
 function fxSalvo() { var b = DB.docs.fichario && DB.docs.fichario[slug(O.k)]; return b && b.casas ? b : (FICH[O.k] || null); }
 function fxEstado() {   // o rascunho, se houver; senão o salvo; senão a ordem da lista
+  // cada casa é uma pilha: todas as cópias de uma carta ficam juntas, na casa onde a carta aparece primeiro (o "×3" no topo)
   var r = FX.rasc[O.k], sv = fxSalvo(), base = r || sv;
   var cs = fxCopias(), por = {}; cs.forEach(function (x) { por[x.k] = x; });
-  var usados = {}, casas = ((base && base.casas) || []).map(function (k) { if (k && por[k] && !usados[k]) { usados[k] = 1; return k; } return null; });
-  var ult = -1; casas.forEach(function (k, i) { if (k) ult = i; });
-  casas = casas.slice(0, ult + 1).concat(cs.filter(function (x) { return !usados[x.k]; }).map(function (x) { return x.k; }));   // as novas entram depois da última ocupada
+  var usados = {}, onde = {};
+  var casas = ((base && base.casas) || []).map(function (v) {
+    var ks = (Array.isArray(v) ? v : v ? [v] : []).filter(function (k) { if (!por[k] || usados[k]) return false; usados[k] = 1; return true; });
+    return ks;
+  });
+  casas.forEach(function (ks, i) { ks.forEach(function (k) { var id = por[k].c.id; if (onde[id] === undefined) onde[id] = i; }); });
+  var juntas = casas.map(function () { return []; });
+  casas.forEach(function (ks) { ks.forEach(function (k) { juntas[onde[por[k].c.id]].push(k); }); });
+  var ult = -1; juntas.forEach(function (ks, i) { if (ks.length) ult = i; });
+  casas = juntas.slice(0, ult + 1);
+  cs.forEach(function (x) {   // as novas: cópia de carta que já está na pasta vai para a pilha dela; carta nova, depois da última ocupada
+    if (usados[x.k]) return;
+    var i = onde[x.c.id];
+    if (i === undefined) { casas.push([]); i = onde[x.c.id] = casas.length - 1; }
+    casas[i].push(x.k); usados[x.k] = 1;
+  });
+  casas = casas.map(function (ks) { return ks && ks.length ? ks : null; });
   return { grade: (base && base.grade) || (FICHAS[O.k] && FICHAS[O.k].grade) || [2, 2], casas: casas, por: por, rasc: !!r, sv: sv, paginas: (base && base.paginas) || 0 };
 }
+function fxCompacta(casas) { return casas.map(function (ks) { return !ks || !ks.length ? null : ks.length === 1 ? ks[0] : ks.slice(); }); }   // uma cópia: a chave; pilha: a lista
 function fxRascunho(grade, casas, paginas) {   // paginas: quantas páginas a pasta tem, mesmo vazias no fim (+ Página, inserir página)
+  casas = fxCompacta(casas);
   var ult = -1; casas.forEach(function (k, i) { if (k) ult = i; });
   var porPag = grade[0] * grade[1], minimo = Math.ceil((ult + 1) / porPag);
   if (paginas === undefined) { var E0 = FX.rasc[O.k] || fxSalvo(); paginas = (E0 && E0.paginas) || 0; }
@@ -593,7 +610,9 @@ function fxMover(a, b) {
 }
 function fxOrdenar(modo) {
   var E = fxEstado(); FX.ant = { grade: E.grade, casas: E.casas.slice(), rasc: FX.rasc[O.k] || null };
-  var cs = fxCopias(), ordem = 'WUBRGMC';
+  var ordem = 'WUBRGMC', pilhas = {}, cs = [];
+  fxCopias().forEach(function (x) { if (!pilhas[x.c.id]) { pilhas[x.c.id] = []; cs.push({ c: x.c, cp: x.cp, ks: pilhas[x.c.id] }); } pilhas[x.c.id].push(x.k); });
+  cs.forEach(function (x) { var m = 0; x.ks.forEach(function (k) { var cp = E.por[k].cp; if ((cp.usd || 0) > m) { m = cp.usd || 0; x.cp = cp; } }); });   // a pilha vale pela cópia mais cara
   var num = function (imp) { var n = parseInt(String(imp || '').split(' ')[1], 10); return isNaN(n) ? 1e9 : n; };
   cs.sort(function (x, y) {
     if (modo === 'valor') return ((y.cp.usd || 0) - (x.cp.usd || 0)) || x.c.n.localeCompare(y.c.n);
@@ -601,12 +620,12 @@ function fxOrdenar(modo) {
     if (modo === 'cor') return (ordem.indexOf(corDe(x.c)) - ordem.indexOf(corDe(y.c))) || x.c.n.localeCompare(y.c.n);
     return x.c.n.localeCompare(y.c.n);
   });
-  fxRascunho(E.grade, cs.map(function (x) { return x.k; })); render();
+  fxRascunho(E.grade, cs.map(function (x) { return x.ks; })); render();
 }
 function fxSalvar() {
   var E = fxEstado();
   var ult = -1; E.casas.forEach(function (k, i) { if (k) ult = i; });
-  var doc = { pasta: O.k, grade: E.grade, casas: E.casas.slice(0, ult + 1), paginas: fxPaginas(E), em: hojeISO() };
+  var doc = { pasta: O.k, grade: E.grade, casas: fxCompacta(E.casas.slice(0, ult + 1)), paginas: fxPaginas(E), em: hojeISO() };
   if (!DB.db) {   // arquivo local: sem banco, as posições vão para a área de transferência, para colar no Claude Code
     var txt = '/caixa fichario ' + JSON.stringify(doc);
     try { navigator.clipboard.writeText(txt).then(function () { FX.msg = 'Arquivo local: as posições foram copiadas. Cole no Claude Code para guardar no projeto.'; render(); }, function () { FX.msg = 'Não deu para copiar.'; render(); }); } catch (e) { FX.msg = 'Não deu para copiar.'; render(); }
@@ -638,10 +657,13 @@ function fichario(L) {
   var porPag = E.grade[0] * E.grade[1], reais = fxPaginas(E), n = reais;
   if (n % 2) n++;   // o fichário aberto mostra páginas aos pares: a última, se sobrar, aparece como o verso vazio
   var casa = function (idx) {
-    var k = E.casas[idx], x = k && E.por[k];
+    var ks = E.casas[idx], x = ks && E.por[ks[0]];
     if (!x) return '<div class="fx-casa vazia' + (FX.sel === idx ? ' sel' : '') + '" data-casa="' + idx + '"></div>';
-    var f = x.cp.acab && x.cp.acab !== 'normal' ? '<span class="fx-f">' + esc(x.cp.acab) + '</span>' : '';
-    return '<div class="fx-casa' + (FX.sel === idx ? ' sel' : '') + (vis[x.c.id] ? '' : ' apagada') + '" data-casa="' + idx + '" draggable="true" title="' + esc(x.c.n + ' · ' + x.cp.imp + ' · ' + usd(x.cp.usd)) + '">' + imgDe(x.c) + f + '<span class="fx-v num">' + usd(x.cp.usd) + '</span></div>';
+    var cps = ks.map(function (k) { return E.por[k].cp; }), foil = cps.filter(function (cp) { return cp.acab && cp.acab !== 'normal'; })[0];
+    var f = foil ? '<span class="fx-f">' + esc(foil.acab) + '</span>' : '', soma = cps.reduce(function (a, cp) { return a + (cp.usd || 0); }, 0);
+    var tit = x.c.n + (ks.length > 1 ? ' · ' + ks.length + ' cópias' : '') + ' · ' + cps.map(function (cp) { return cp.imp + (cp.acab !== 'normal' ? ' ' + cp.acab : '') + ' ' + usd(cp.usd); }).join(' + ');
+    return '<div class="fx-casa' + (FX.sel === idx ? ' sel' : '') + (vis[x.c.id] ? '' : ' apagada') + '" data-casa="' + idx + '" draggable="true" title="' + esc(tit) + '">' + imgDe(x.c) + f +
+      (ks.length > 1 ? '<span class="fx-xn">×' + ks.length + '</span>' : '') + '<span class="fx-v num">' + usd(soma) + '</span></div>';
   };
   var pag = function (p) {
     var h = '';
@@ -654,9 +676,10 @@ function fichario(L) {
   };
   var ab = '';
   for (var p = 0; p < n; p += 2) ab += '<div class="fx-ab">' + pag(p) + pag(p + 1) + '</div>';
-  var ocup = E.casas.filter(Boolean).length, apag = E.casas.filter(function (k) { return k && E.por[k] && !vis[E.por[k].c.id]; }).length;
+  var ocup = E.casas.filter(Boolean).length, ncop = E.casas.reduce(function (a, ks) { return a + (ks ? ks.length : 0); }, 0);
+  var apag = E.casas.filter(function (ks) { return ks && !vis[E.por[ks[0]].c.id]; }).length;
   var aviso = apag ? '<div class="fx-apag"><span>' + pl(apag, 'carta apagada', 'cartas apagadas') + ' pelos filtros (busca, tipo, subtipo, cor ou deck); nenhuma saiu do lugar.</span><button class="bt-c" data-fx="todas" data-v="">Mostrar todas</button></div>' : '';
-  return fxBarra(E) + aviso + '<p class="nota fx-nota">' + pl(ocup, 'cópia', 'cópias') + ' em ' + pl(reais, 'página', 'páginas') + ' de ' + E.grade[0] + '×' + E.grade[1] + '. Arraste uma carta para outra casa (troca de lugar com a que estiver lá), ou ligue Arrumar e toque. Os filtros só apagam as cartas que não passam; nenhuma sai do lugar. Clique numa carta, com Arrumar desligado, para abrir a ficha.</p>' + ab;
+  return fxBarra(E) + aviso + '<p class="nota fx-nota">' + pl(ncop, 'cópia', 'cópias') + (ncop > ocup ? ' (' + pl(ocup, 'carta', 'cartas') + '; as cópias da mesma carta ficam juntas, com ×N)' : '') + ' em ' + pl(reais, 'página', 'páginas') + ' de ' + E.grade[0] + '×' + E.grade[1] + '. Arraste uma carta para outra casa (troca de lugar com a que estiver lá), ou ligue Arrumar e toque. Os filtros só apagam as cartas que não passam; nenhuma sai do lugar. Clique numa carta, com Arrumar desligado, para abrir a ficha.</p>' + ab;
 }
 document.addEventListener('click', function (ev) {
   var bt = ev.target.closest('[data-fx]');
@@ -683,7 +706,7 @@ document.addEventListener('click', function (ev) {
     else { var a = FX.sel; FX.sel = null; if (a === idx) render(); else fxMover(a, idx); }
     return;
   }
-  var E2 = fxEstado(), x = E2.por[E2.casas[idx]];
+  var E2 = fxEstado(), x = E2.casas[idx] && E2.por[E2.casas[idx][0]];
   if (x) abrir(x.c.id);
 });
 document.addEventListener('dragstart', function (ev) {
