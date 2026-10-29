@@ -277,7 +277,10 @@ def importar_fichario(arquivo):
     dados/pastas/fichario.json. Cada documento: {pasta, grade, casas, em}. Devolve {pasta: casas ocupadas}."""
     with open(arquivo, encoding="utf-8") as f:
         j = json.load(f)
-    docs = j.get("docs") if isinstance(j, dict) and isinstance(j.get("docs"), list) else (list(j.values()) if isinstance(j, dict) else j)
+    if isinstance(j, dict) and "pasta" in j and "casas" in j:   # um documento só: o que a página copia no arquivo local (/caixa fichario {...})
+        docs = [j]
+    else:
+        docs = j.get("docs") if isinstance(j, dict) and isinstance(j.get("docs"), list) else (list(j.values()) if isinstance(j, dict) else j)
     atual = dados.ler_json(ARQ_FICHARIO, obrigatorio=False) or {"_nota": "A posição de cada cópia nas pastas físicas (caixa.ler_fichario)."}
     feitos = {}
     for d in docs or []:
