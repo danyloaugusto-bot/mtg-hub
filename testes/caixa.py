@@ -552,6 +552,14 @@ with sync_playwright() as pw:
         R.ok("subtipo %s: só as cartas com esse subtipo (%d)" % (sub, len(esp)), esp and vis() == esp, (len(vis()), len(esp)))
         pg.select_option('select[data-ctl="sub"]', ""); pg.wait_for_timeout(300)
         R.ok("subtipo: Todos volta a todas", pg.locator(".cx-cd").count() == len(pend))
+    # a busca acha uma carta que um filtro de cor esconde: avisa, e Mostrar limpa os filtros
+    nao_w = next((c for c in pend if c.get("ident") and "W" not in c["ident"]), None)
+    if nao_w:
+        pg.click('.cx-cores [data-act="cor"][data-v="W"]'); pg.fill("#q", nao_w["n"]); pg.wait_for_timeout(400)
+        R.ok("busca: carta escondida pelo filtro de cor (%s) ganha o aviso com Mostrar" % nao_w["n"], pg.locator(".cx-busca-esc").count() == 1 and nao_w["n"] in pg.inner_text(".cx-busca-esc"))
+        pg.click('[data-act="limpar-filtros"]'); pg.wait_for_timeout(400)
+        R.ok("busca: Mostrar limpa os filtros e a carta aparece", pg.locator('.cx-cd[data-id="%s"]' % nao_w["id"]).count() == 1 and pg.locator(".cx-busca-esc").count() == 0)
+        pg.fill("#q", ""); pg.click('[data-act="ui"][data-k="dec"][data-v="pendentes"]'); pg.wait_for_timeout(400)
     # grupos que recolhem
     pg.click('[data-act="ui"][data-k="ver"][data-v="tabela"]'); pg.click('[data-act="ui"][data-k="agrupar"][data-v="prioridade"]'); pg.wait_for_timeout(300)
     n0 = pg.locator("tr.cx-r:visible").count()
@@ -599,11 +607,14 @@ with sync_playwright() as pw:
     # sem grupo: uma lista só, uma linha por carta
     pg.click('[data-act="ui"][data-k="agrupar"][data-v="nenhum"]'); pg.wait_for_timeout(300)
     R.ok("agrupar: Nenhum dá uma lista só, uma linha por carta", pg.locator("tr.grp").count() == 1 and pg.locator("tr.cx-r").count() == len(pend), (pg.locator("tr.grp").count(), pg.locator("tr.cx-r").count()))
-    # destino de cada cópia: o Echocasting tem a comum no Bulk e a foil na Venda
+    # destino de cada cópia: uma carta da Caixa com cópias em destinos diferentes (escolhida no dado; a lista muda com o /caixa aplicar)
     pg.click('[data-act="ui"][data-k="agrupar"][data-v="destino"]'); pg.wait_for_timeout(300)
-    ec = pg.evaluate("""(() => { var out = [], g = ''; document.querySelectorAll('tbody tr').forEach(function (r) { if (r.classList.contains('grp')) g = r.querySelector('.cx-tg').textContent.replace(/[▾▸]/g, ''); else if (r.getAttribute('data-id') === 'echocasting-symposium') out.push([g, r.querySelector('td.cx-vl').getAttribute('data-v')]); }); return out; })()""")
-    esp_ec = sorted([{"venda": "Venda", "bulk": "Bulk"}.get(cp["sug"]["d"], cp["sug"]["d"]), str(cp["usd"])] for cp in carta(cx_real, "Echocasting Symposium")["copias"])
-    R.ok("agrupar por destino é cópia a cópia: Echocasting com a comum e a foil em grupos diferentes, cada uma com o seu preço", sorted(ec) == esp_ec and len({x[0] for x in ec}) == 2, (ec, esp_ec))
+    dd = next((c for c in pend if len({cp["sug"]["d"] for cp in c["copias"]}) >= 2), None)
+    if dd:
+        NOMES_D = {"deck": "Deck", "guardar": "Guardar", "venda": "Venda", "bundles": "Bundles", "bulk": "Bulk"}
+        ec = pg.evaluate("""(i) => { var out = [], g = ''; document.querySelectorAll('tbody tr').forEach(function (r) { if (r.classList.contains('grp')) g = r.querySelector('.cx-tg').textContent.replace(/[▾▸]/g, ''); else if (r.getAttribute('data-id') === i) out.push([g, r.querySelector('td.cx-vl').getAttribute('data-v')]); }); return out; }""", dd["id"])
+        grupos = sorted({x[0] for x in ec}); esp_g = sorted({NOMES_D[cp["sug"]["d"]] for cp in dd["copias"]})
+        R.ok("agrupar por destino é cópia a cópia: %s aparece em %s, cada cópia com o seu preço" % (dd["n"], ", ".join(esp_g)), grupos == esp_g and len(ec) == len(esp_g), (ec, esp_g))
     # faixa de valor: filtro e grupo
     caras = [c for c in pend if any((cp["usd"] or 0) >= caixa.regua()["capital_usd"] for cp in c["copias"])]
     pg.click('[data-act="faixa"][data-v="f20"]'); pg.wait_for_timeout(300)
@@ -615,13 +626,18 @@ with sync_playwright() as pw:
     hf = [x.replace("▾", "").replace("▸", "").strip() for x in pg.eval_on_selector_all("tr.grp .cx-tg", "es => es.map(e => e.textContent)")]
     R.ok("agrupar por valor: das caras para as baratas", hf and hf[0] == "US$ 20,00 ou mais" and hf.index("US$ 5,00 a US$ 20,00") < hf.index("Abaixo de US$ 1,00"), hf)
     # gaveta: a tradução e o caminho pelas regras, uma caixa por sugestão diferente
-    pg.evaluate("window.CAIXA.abrir('echocasting-symposium')"); pg.wait_for_timeout(300)
+    # uma carta da Caixa com cópias em sugestões diferentes (a lista muda com o /caixa aplicar: a carta é escolhida no dado)
+    dupla = next((c for c in cx_real["cartas"] if len({cp["sug"]["d"] for cp in c["copias"]}) >= 2), None)
+    alvo = dupla["id"] if dupla else cx_real["cartas"][0]["id"]
+    pg.evaluate("(i) => window.CAIXA.abrir(i)", alvo); pg.wait_for_timeout(300)
     gv = pg.inner_text("#cx-gav-in")
-    R.ok("gaveta: o que a carta faz, em português, com o aviso de tradução livre", pg.locator("#cx-gav-in .cx-tx").count() == 1 and "O jogador alvo cria uma ficha" in gv and "Tradução livre" in gv)
-    R.ok("gaveta: uma caixa por sugestão (comum no Bulk, foil na Venda)", pg.locator("#cx-gav-in .cx-sug").count() == 2)
-    bl = pg.locator("#cx-gav-in .cx-sug", has_text="Sugestão: Bulk")
-    R.ok("gaveta: o Bulk mostra as cinco regras que não serviram e a que decidiu", bl.locator("li.nao").count() == 5 and bl.locator("li.sim").count() == 1 and "Prioridade C" in bl.inner_text(), bl.inner_text()[:200])
-    R.ok("gaveta: a Venda explica a prioridade B pelo preço", "Prioridade B" in pg.locator("#cx-gav-in .cx-sug", has_text="Sugestão: Venda").inner_text())
+    R.ok("gaveta: o que a carta faz, em português, com o aviso de tradução livre", pg.locator("#cx-gav-in .cx-tx").count() == 1 and "Tradução livre" in gv)
+    if dupla:
+        ds = {cp["sug"]["d"] for cp in dupla["copias"]}
+        caixas = pg.eval_on_selector_all("#cx-gav-in .cx-sug", "e => e.map(x => x.innerText)")
+        R.ok("gaveta: uma caixa por sugestão (%s: %s)" % (dupla["n"], ", ".join(sorted(ds))), len(caixas) == len(ds), len(caixas))
+        R.ok("gaveta: cada sugestão mostra as regras (as que não serviram e a que decidiu) e a prioridade", all("Prioridade" in t for t in caixas)
+             and pg.locator("#cx-gav-in .cx-sug li.sim").count() == len(ds), caixas[:1])
     cab = pg.eval_on_selector_all("#cx-gav-in .cx-enc thead th", "es => es.map(e => e.textContent)")
     R.ok("gaveta: a tabela dos decks tem Tier e Preenche", "Tier" in cab and any(x.startswith("Preenche") for x in cab), cab)
     pe = pg.inner_text("#cx-gav-in .cx-enc tbody tr:first-child td.cx-pe")
@@ -704,8 +720,10 @@ with sync_playwright() as pw:
         # vale com qualquer arrumação salva (dados/pastas/fichario.json): as contas partem do que a página mostra
         ocup = pg.locator(".fx-casa:not(.vazia)").count()
         sv = caixa.ler_fichario().get("Preta P") or {}
-        ult = max([i for i, k in enumerate(sv.get("casas") or []) if k] or [ncop - 1])
-        npag = max(sv.get("paginas") or 0, -(-(ult + 1) // 4), -(-ncop // 4))
+        salvas = [k for k in sv.get("casas") or [] if k]
+        ult = max([i for i, k in enumerate(sv.get("casas") or []) if k] or [-1])
+        casas_n = ult + 1 + max(ncop - len(salvas), 0)   # as cópias novas entram depois da última casa salva
+        npag = max(sv.get("paginas") or 0, -(-casas_n // 4), 1)
         reais = lambda: pg.locator(".fx-pag:not(.fx-verso)").count()
         R.ok("fichário: uma casa por cópia (%d), em %d páginas de 2×2, aos pares" % (ncop, npag), ocup == ncop and reais() == npag
              and pg.locator(".fx-pag").count() == 2 * pg.locator(".fx-ab").count(), (ocup, reais()))
