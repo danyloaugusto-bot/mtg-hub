@@ -986,11 +986,19 @@ function render() {
   $('#cx-resumo').innerHTML = resumo();
   $('#cx-ctl').innerHTML = controles();
   var L = visiveis(), G = grupos(L);
+  // a busca acha cartas que os filtros escondem: avisa, com o botão que limpa os filtros (a carta não some sem explicação)
+  var qb = ui.q.trim().toLowerCase(), escondidas = [];
+  if (qb && !verFich()) {
+    var vistas = {}; L.forEach(function (c) { vistas[c.id] = 1; });
+    escondidas = CARTAS.filter(function (c) { return !vistas[c.id] && (c.n.toLowerCase().indexOf(qb) >= 0 || (c.on || '').toLowerCase().indexOf(qb) >= 0); });
+  }
+  var avisoBusca = escondidas.length ? '<div class="fx-apag cx-busca-esc"><span>' + pl(escondidas.length, 'carta', 'cartas') + ' com "' + esc(ui.q.trim()) + '" ' + (escondidas.length === 1 ? 'escondida' : 'escondidas') +
+    ' pelos filtros (' + esc(escondidas.slice(0, 3).map(function (c) { return c.n; }).join(', ') + (escondidas.length > 3 ? '…' : '')) + ').</span><button class="bt-c" data-act="limpar-filtros">Mostrar</button></div>' : '';
   var dk = ui.deck && DECKS[ui.deck];
   var lede = dk ? '<p class="cx-foco">Para o <b>' + esc(dk.c) + '</b> (' + esc(dk.n) + '): ' + pl(L.length, 'carta', 'cartas') + ' da caixa nas cores do comandante, ' +
     (mana(ordemCor(dk.i).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + ', do maior ganho para o menor.' +
     (dk.precon ? ' Precon intacto: a lista não muda, o encaixe é só referência.' : '') + ' Asterisco: o deck nunca avaliou a carta, o ganho é piso (o /caixa avalia a sinergia).</p>' : '';
-  $('#cx-lista').innerHTML = lede + (verFich() ? fichario(visiveis(true)) : L.length ? (ui.ver === 'galeria' || ui.ver === 'fichario' ? galeria(G) : tabela(G)) :
+  $('#cx-lista').innerHTML = lede + avisoBusca + (verFich() ? fichario(visiveis(true)) : L.length ? (ui.ver === 'galeria' || ui.ver === 'fichario' ? galeria(G) : tabela(G)) :
     '<p class="dim">' + (ui.dec === 'pendentes' ? 'Nenhuma carta pendente' : ui.dec === 'decididas' ? 'Nenhuma carta decidida ainda' : 'Nenhuma carta') + (ui.q ? ' com esse nome' : '') + (ui.tipos.length || ui.sub || ui.faixas.length || ui.prios.length || ui.dests.length || ui.ent || ui.cores.length ? ' com esses filtros' : '') + '.</p>');
   var rod = '<p class="nota">Força sozinha: o valor da carta pela régua, só com os oito critérios dela, sem sinergia, e a posição no EDHREC. Selos <span class="cx-gc">GC</span> Game Changer e <span class="cx-st">Staple</span> top ' + R.staple_rank_max + ' do EDHREC. Com duas cópias ou mais, o nome ganha <span class="cx-xn">×N</span> e a decisão abre uma linha por cópia. Valor: preço do Scryfall em dólar, pela impressão e pelo acabamento de cada cópia; cópia em outro idioma usa a impressão em inglês como referência.</p>';
   if (r.nao_encontradas.length) rod += '<p class="nota">Não encontradas no Scryfall (fora da conta): ' + r.nao_encontradas.map(function (x) { return esc(x.lista + ', linha ' + x.linha + ': ' + x.orig); }).join(' · ') + '</p>';
@@ -1017,6 +1025,7 @@ document.addEventListener('click', function (ev) {
   else if (act === 'tipos-limpar') { ui.tipos = []; ddAberta = false; guardaUI(); render(); }
   else if (act === 'cor') { var k = a.getAttribute('data-v'), i = ui.cores.indexOf(k); if (i >= 0) ui.cores.splice(i, 1); else ui.cores.push(k); guardaUI(); render(); }
   else if (act === 'cores-limpar') { ui.cores = []; guardaUI(); render(); }
+  else if (act === 'limpar-filtros') { ui.tipos = []; ui.cores = []; ui.sub = ''; ui.faixas = []; ui.prios = []; ui.dests = []; ui.ent = ''; ui.deck = ''; ui.dec = 'todas'; guardaUI(); render(); }
   else if (act === 'faixa') { var fk = a.getAttribute('data-v'), fi = ui.faixas.indexOf(fk); if (fi >= 0) ui.faixas.splice(fi, 1); else ui.faixas.push(fk); guardaUI(); render(); }
   else if (act === 'faixas-limpar') { ui.faixas = []; guardaUI(); render(); }
   else if (act === 'prio' || act === 'dest') { var lp = act === 'prio' ? ui.prios : ui.dests, kv = a.getAttribute('data-v'), ix = lp.indexOf(kv); if (ix >= 0) lp.splice(ix, 1); else lp.push(kv); guardaUI(); render(); }
