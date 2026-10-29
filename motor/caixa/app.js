@@ -558,7 +558,12 @@ function fxCopias() {   // todas as cópias da pasta, cada uma com a chave está
 function fxSalvo() { var b = DB.docs.fichario && DB.docs.fichario[slug(O.k)]; return b && b.casas ? b : (FICH[O.k] || null); }
 function fxEstado() {   // o rascunho, se houver; senão o salvo; senão a ordem da lista
   // cada casa é uma pilha: todas as cópias de uma carta ficam juntas, na casa onde a carta aparece primeiro (o "×3" no topo)
-  var r = FX.rasc[O.k], sv = fxSalvo(), base = r || sv;
+  var r = FX.rasc[O.k], sv = fxSalvo();
+  if (r && r.base !== fxAssin(sv)) {   // rascunho feito sobre outra versão salva (a do projeto ou a do banco mudou depois): descartado, com aviso
+    delete FX.rasc[O.k]; guardaRasc(); r = null;
+    FX.msg = 'Um rascunho antigo deste navegador foi descartado: a pasta mostra a versão salva' + (sv && sv.em ? ' de ' + fdata(sv.em) : '') + '.';
+  }
+  var base = r || sv;
   var cs = fxCopias(), por = {}; cs.forEach(function (x) { por[x.k] = x; });
   var usados = {}, onde = {};
   var casas = ((base && base.casas) || []).map(function (v) {
@@ -580,12 +585,19 @@ function fxEstado() {   // o rascunho, se houver; senão o salvo; senão a ordem
   return { grade: (base && base.grade) || (FICHAS[O.k] && FICHAS[O.k].grade) || [2, 2], casas: casas, por: por, rasc: !!r, sv: sv, paginas: (base && base.paginas) || 0 };
 }
 function fxCompacta(casas) { return casas.map(function (ks) { return !ks || !ks.length ? null : ks.length === 1 ? ks[0] : ks.slice(); }); }   // uma cópia: a chave; pilha: a lista
+function fxAssin(sv) {   // a assinatura da versão salva: o rascunho guarda sobre qual versão foi feito
+  if (!sv || !sv.casas) return '';
+  var t = JSON.stringify([sv.grade, sv.casas, sv.paginas || 0]), h = 5381;
+  for (var i = 0; i < t.length; i++) h = ((h * 33) ^ t.charCodeAt(i)) >>> 0;
+  return h.toString(36) + '.' + t.length;
+}
 function fxRascunho(grade, casas, paginas) {   // paginas: quantas páginas a pasta tem, mesmo vazias no fim (+ Página, inserir página)
   casas = fxCompacta(casas);
   var ult = -1; casas.forEach(function (k, i) { if (k) ult = i; });
   var porPag = grade[0] * grade[1], minimo = Math.ceil((ult + 1) / porPag);
   if (paginas === undefined) { var E0 = FX.rasc[O.k] || fxSalvo(); paginas = (E0 && E0.paginas) || 0; }
-  FX.rasc[O.k] = { grade: grade, casas: casas.slice(0, ult + 1), paginas: Math.max(paginas || 0, minimo) }; guardaRasc(); FX.msg = '';
+  var base = FX.rasc[O.k] ? FX.rasc[O.k].base : fxAssin(fxSalvo());
+  FX.rasc[O.k] = { grade: grade, casas: casas.slice(0, ult + 1), paginas: Math.max(paginas || 0, minimo), base: base }; guardaRasc(); FX.msg = '';
 }
 function fxPaginas(E) { var porPag = E.grade[0] * E.grade[1]; return Math.max(E.paginas || 0, Math.ceil(E.casas.length / porPag), 1); }
 function fxInserirPagina(p) {   // uma folha nova antes da página p: as cartas dali para a frente andam uma página
