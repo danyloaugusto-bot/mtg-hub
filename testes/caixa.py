@@ -465,10 +465,15 @@ with sync_playwright() as pw:
     ids0 = pg.eval_on_selector_all("tr.cx-r", "es => es.map(e => e.getAttribute('data-id'))")
     par = sum(len({cp["sug"]["P"] for cp in c["copias"]}) for c in pend)
     R.ok("toda carta pendente aparece, uma linha por prioridade das cópias dela", len(set(ids0)) == len(pend) and len(ids0) == par, (len(set(ids0)), len(pend), len(ids0), par))
-    lv = pg.locator('tr.cx-r[data-id="vilis-broker-of-blood"]')
-    t = lv.inner_text() if lv.count() else ""
-    pv = caixa.usd(carta(cx_real, "Vilis, Broker of Blood")["valor"])   # o preço de hoje (muda a cada /precos)
-    R.ok("linha do Vilis: S, K'rrik, +24 e o preço de hoje", lv.count() == 1 and lv.locator("td.cx-pr").inner_text().strip() == "S" and "K'rrik" in t and "+24" in t and pv in t, (pv, t[:160]))
+    # a linha de uma carta S com Deck sugerido: prioridade, deck, ganho e o preço de hoje (a carta é escolhida no dado; a Vilis foi para a Preta P em 29/10)
+    cs_ = next((c for c in pend if any(cp["sug"]["P"] == "S" and cp["sug"]["d"] == "deck" for cp in c["copias"]) and len({cp["sug"]["P"] for cp in c["copias"]}) == 1), None)
+    if cs_:
+        sg_ = cs_["copias"][0]["sug"]; e_ = next(x for x in cs_["enc"] if x["p"] == sg_["p"])
+        lv = pg.locator('tr.cx-r[data-id="%s"]' % cs_["id"])
+        t = lv.inner_text() if lv.count() else ""
+        pv = caixa.usd(cs_["valor"])   # o preço de hoje (muda a cada /precos)
+        dk_ = cx_real["decks"][sg_["p"]]["c"]
+        R.ok("linha de %s: S, %s, o ganho e o preço de hoje" % (cs_["n"], dk_), lv.count() == 1 and lv.locator("td.cx-pr").inner_text().strip() == "S" and dk_ in t and pv in t, (pv, t[:160]))
     # Entrada (22/10/2026): as cópias que entraram nos últimos 3 dias, e agrupar pela data de entrada, a mais nova primeiro
     import datetime as _dt
     hoje_ = _dt.date.today()
@@ -646,14 +651,15 @@ with sync_playwright() as pw:
     pg.click('[data-act="ui"][data-k="agrupar"][data-v="prioridade"]'); pg.select_option('select[data-ctl="ord"]', "padrao"); pg.wait_for_timeout(300)
     # decisão com o banco de mentira: Bulk numa cópia, gravada e contada
     pg.click('[data-act="ui"][data-k="ver"][data-v="tabela"]'); pg.wait_for_timeout(200)
-    pg.evaluate("window.CAIXA.abrir('vilis-broker-of-blood')"); pg.wait_for_timeout(300)
+    um = next(c for c in pend if len(c["copias"]) == 1)   # uma carta pendente de uma cópia (escolhida no dado; a lista muda com o /caixa aplicar)
+    pg.evaluate("(i) => window.CAIXA.abrir(i)", um["id"]); pg.wait_for_timeout(300)
     pg.click('#cx-gav-in [data-act="decidir"][data-k="bulk"][data-i="0"]'); pg.wait_for_timeout(400)
-    st = pg.evaluate("window.__store['vilis-broker-of-blood']")
-    R.ok("decisão: grava no banco, um documento por carta, cópia a cópia", st and st["copias"][0]["destino"] == "bulk" and st["copias"][0]["imp"] == "M20 122", st)
+    st = pg.evaluate("window.__store['%s']" % um["id"] + "")
+    R.ok("decisão: grava no banco, um documento por carta, cópia a cópia", st and st["copias"][0]["destino"] == "bulk" and st["copias"][0]["imp"] == um["copias"][0]["imp"], st)
     pg.click('#cx-gav-in [data-act="decidir"][data-k="guardar"][data-i="0"]'); pg.wait_for_timeout(300)
-    R.ok("decisão: Guardar sem pasta física não grava e avisa", pg.evaluate("window.__store['vilis-broker-of-blood'].copias[0].destino") == "bulk" and "pasta" in pg.inner_text("#cx-aviso"))
+    R.ok("decisão: Guardar sem pasta física não grava e avisa", pg.evaluate("window.__store['%s']" % um["id"] + ".copias[0].destino") == "bulk" and "pasta" in pg.inner_text("#cx-aviso"))
     pg.keyboard.press("Escape"); pg.wait_for_timeout(200)
-    R.ok("decisão: a carta sai das pendentes", pg.locator('tr.cx-r[data-id="vilis-broker-of-blood"]').count() == 0)
+    R.ok("decisão: a carta sai das pendentes", pg.locator('tr.cx-r[data-id="%s"]' % um["id"]).count() == 0)
     R.ok("sem preço fora da Caixa: a página da Caixa é a única com US$", "US$" in pg.inner_text("#cx-resumo"))
     # placar de valor: a soma de hoje e a variação desde a atualização anterior, por lista
     soma = round(sum(cp["usd"] or 0 for c in cx_real["cartas"] for cp in c["copias"]), 2)
@@ -714,18 +720,20 @@ with sync_playwright() as pw:
         pg.keyboard.press("Escape")
         # o fichário (26/10/2026): a pasta página a página, arrastar, organizar, rascunho e Salvar posições
         ncop = sum(len(c["copias"]) for c in cpp["cartas"])
+        ncar = len(cpp["cartas"])   # as cópias da mesma carta ficam juntas numa casa (a pilha, com ×N)
         R.ok("fichário: a opção Fichário ao lado de Tabela e Galeria, só nas pastas", pg.locator('[data-act="ui"][data-k="ver"][data-v="fichario"]').count() == 1)
         pg.evaluate("localStorage.removeItem('mtg-hub:fichario:v1')")
         pg.click('[data-act="ui"][data-k="ver"][data-v="fichario"]'); pg.wait_for_timeout(400)
         # vale com qualquer arrumação salva (dados/pastas/fichario.json): as contas partem do que a página mostra
         ocup = pg.locator(".fx-casa:not(.vazia)").count()
         sv = caixa.ler_fichario().get("Preta P") or {}
-        salvas = [k for k in sv.get("casas") or [] if k]
+        salvas = {k for v in sv.get("casas") or [] if v for k in (v if isinstance(v, list) else [v])}
+        ids_salvos = {k.split("|")[0] for k in salvas}
         ult = max([i for i, k in enumerate(sv.get("casas") or []) if k] or [-1])
-        casas_n = ult + 1 + max(ncop - len(salvas), 0)   # as cópias novas entram depois da última casa salva
+        casas_n = ult + 1 + sum(1 for c in cpp["cartas"] if c["id"] not in ids_salvos)   # as cartas novas entram depois da última casa salva
         npag = max(sv.get("paginas") or 0, -(-casas_n // 4), 1)
         reais = lambda: pg.locator(".fx-pag:not(.fx-verso)").count()
-        R.ok("fichário: uma casa por cópia (%d), em %d páginas de 2×2, aos pares" % (ncop, npag), ocup == ncop and reais() == npag
+        R.ok("fichário: uma casa por carta (%d cartas, %d cópias), em %d páginas de 2×2, aos pares" % (ncar, ncop, npag), ocup == ncar and reais() == npag
              and pg.locator(".fx-pag").count() == 2 * pg.locator(".fx-ab").count(), (ocup, reais()))
         pg.click('[data-fx="pagina"]'); pg.wait_for_timeout(250)
         R.ok("fichário: + Página põe uma página vazia no fim", reais() == npag + 1)
@@ -762,10 +770,15 @@ with sync_playwright() as pw:
         livre = pg.eval_on_selector_all(".fx-pag:not(.fx-verso) .fx-casa.vazia", "e => +e[e.length - 1].getAttribute('data-casa')")
         pg.click('.fx-casa[data-casa="%d"]' % livre); pg.wait_for_timeout(300)
         R.ok("fichário: tocar numa casa vazia leva a carta para lá", "vazia" in (pg.locator('.fx-casa[data-casa="%d"]' % ia).get_attribute("class") or "")
-             and "vazia" not in (pg.locator('.fx-casa[data-casa="%d"]' % livre).get_attribute("class") or "") and pg.locator('.fx-casa:not(.vazia)').count() == ncop)
+             and "vazia" not in (pg.locator('.fx-casa[data-casa="%d"]' % livre).get_attribute("class") or "") and pg.locator('.fx-casa:not(.vazia)').count() == ncar)
         pg.click('[data-fx="arrumar"]')
         pg.click('[data-fx="salvar"]'); pg.wait_for_timeout(400)
         R.ok("fichário: Salvar posições grava, mostra 'Posições salvas' e o comando /caixa fichario", "salvas" in pg.inner_text(".fx-est") and "/caixa fichario Preta P" in pg.inner_text(".fx-cmd"))
+        multi = next((c for c in cpp["cartas"] if len(c["copias"]) > 1), None)
+        if multi:
+            R.ok("fichário: as %d cópias de %s numa casa só, com ×%d" % (len(multi["copias"]), multi["n"], len(multi["copias"])),
+                 pg.locator('.fx-casa .fx-xn', has_text="×%d" % len(multi["copias"])).count() >= 1
+                 and pg.eval_on_selector_all(".fx-casa:not(.vazia)", "(e, n) => e.filter(x => x.title.indexOf(n + ' ·') === 0).length", multi["n"]) == 1)
         R.ok("fichário: sem erro de página", not R.erros, R.erros[:2])
     b.close()
 # o importar do fichário: os documentos do banco viram dados/pastas/fichario.json (sem mexer no arquivo de verdade)
@@ -778,10 +791,10 @@ json.dump({"docs": [{"id": "preta-p", "data": {"pasta": "Preta P", "grade": [2, 
 _r = caixa.importar_fichario(_ent)
 _f = json.load(open(caixa.ARQ_FICHARIO, encoding="utf-8"))
 R.ok("fichário: o importar grava grade e casas, com a casa vazia no lugar", _r == {"Preta P": 2} and _f["Preta P"]["casas"] == ["a|X 1|normal|1", None, "b|Y 2|foil|1"] and _f["Preta P"]["grade"] == [2, 2])
-json.dump({"pasta": "Rosa P", "grade": [3, 3], "casas": [None, "c|Z 9|normal|1"], "paginas": 4, "em": "2026-10-29"}, open(_ent, "w", encoding="utf-8"))
+json.dump({"pasta": "Rosa P", "grade": [3, 3], "casas": [None, "c|Z 9|normal|1", ["d|Z 1|normal|1", "d|Z 1|normal|2"]], "paginas": 4, "em": "2026-10-29"}, open(_ent, "w", encoding="utf-8"))
 _r = caixa.importar_fichario(_ent)
 _f = json.load(open(caixa.ARQ_FICHARIO, encoding="utf-8"))
-R.ok("fichário: o importar aceita o documento só, como a página copia no arquivo local", _r == {"Rosa P": 1} and _f["Rosa P"]["paginas"] == 4 and "Preta P" in _f)
+R.ok("fichário: o importar aceita o documento só e a pilha de cópias numa casa", _r == {"Rosa P": 3} and _f["Rosa P"]["paginas"] == 4 and _f["Rosa P"]["casas"][2] == ["d|Z 1|normal|1", "d|Z 1|normal|2"] and "Preta P" in _f)
 json.dump([{"pasta": "Preta P", "grade": [9, 9], "casas": []}], open(_ent, "w", encoding="utf-8"))
 try:
     caixa.importar_fichario(_ent); _rec = False
