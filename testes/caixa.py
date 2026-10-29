@@ -779,6 +779,15 @@ with sync_playwright() as pw:
             R.ok("fichário: as %d cópias de %s numa casa só, com ×%d" % (len(multi["copias"]), multi["n"], len(multi["copias"])),
                  pg.locator('.fx-casa .fx-xn', has_text="×%d" % len(multi["copias"])).count() >= 1
                  and pg.eval_on_selector_all(".fx-casa:not(.vazia)", "(e, n) => e.filter(x => x.title.indexOf(n + ' ·') === 0).length", multi["n"]) == 1)
+        # rascunho velho (feito sobre outra versão salva) é descartado com aviso; rascunho sobre a versão atual fica depois de recarregar
+        pg.evaluate("localStorage.setItem('mtg-hub:fichario:v1', JSON.stringify({'Preta P': {grade: [2, 2], casas: [], paginas: 1, base: 'versao-velha'}}))")
+        pg.reload(); pg.wait_for_timeout(900); pg.click('[data-act="ui"][data-k="ver"][data-v="fichario"]'); pg.wait_for_timeout(400)
+        R.ok("fichário: rascunho antigo (de outra versão salva) é descartado, com aviso", "descartado" in pg.inner_text(".fx-msg") and "não salvas" not in pg.inner_text(".fx-est")
+             and pg.evaluate("JSON.parse(localStorage.getItem('mtg-hub:fichario:v1') || '{}')['Preta P'] === undefined"))
+        pg.click('[data-fx="pagina"]'); pg.wait_for_timeout(250)
+        pg.reload(); pg.wait_for_timeout(900); pg.click('[data-act="ui"][data-k="ver"][data-v="fichario"]'); pg.wait_for_timeout(400)
+        R.ok("fichário: rascunho feito sobre a versão atual continua depois de recarregar", "não salvas" in pg.inner_text(".fx-est"))
+        pg.click('[data-fx="descartar"]'); pg.wait_for_timeout(250)
         R.ok("fichário: sem erro de página", not R.erros, R.erros[:2])
     b.close()
 # o importar do fichário: os documentos do banco viram dados/pastas/fichario.json (sem mexer no arquivo de verdade)
