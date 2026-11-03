@@ -1,0 +1,568 @@
+{
+ "versao": 1,
+ "carta": {
+  "nome": "Assimilate the Wounded",
+  "custo": "{2}{B}",
+  "tipo": "Instant",
+  "texto": "For each opponent, assimilate up to one target creature card from that player's graveyard that was put there from the battlefield this turn. (Put it onto the battlefield under your control with a +1/+1 counter. It's a Borg artifact creature and loses all other creature types.)",
+  "ci": "B",
+  "set": "trc",
+  "num": "55",
+  "link": "https://scryfall.com/card/trc/55",
+  "lancamento": "2026-11-13",
+  "pt": null,
+  "artista": "Bryan Sola",
+  "sid": "16cb0526-7623-4d02-97d4-b87021d5efc4",
+  "cmc": 3.0,
+  "gc": false,
+  "faces": null
+ },
+ "consultas": [
+  {
+   "data": "2026-11-03",
+   "usd": null,
+   "usd_foil": null,
+   "rank": 27808,
+   "avisos": [
+    "pré-lançamento: sai em 2026-11-13; o preço é de pré-venda e o EDHREC ainda não tem dado"
+   ],
+   "cadastro": {
+    "n": {
+     "recurso": 2
+    },
+    "por_que": "Recurso 2: \"For each opponent, assimilate up to one target creature card from that player's graveyard\" põe em campo até uma criatura por oponente, de uma vez; seria 3 em massa, mas cai um nível pela condição de a criatura ter morrido \"this turn\". O marcador do assimilar acompanha a recursão e não conta à parte.",
+    "fonte": "consulta",
+    "revisado": "2026-11-03"
+   },
+   "forca": {
+    "valor_proprio": 3,
+    "mediana": 5,
+    "percentil": 25,
+    "rank": null,
+    "gc": false,
+    "grau": "D"
+   },
+   "encaixe": [
+    {
+     "pasta": "02. Evelyn",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 2 de Jogar do exílio: usa carta de oponente uma vez, roubando de vez criaturas do cemitério deles, como o Captivating Vampire rouba. Não é Vampiro."
+     },
+     "valor": 7.5,
+     "valor_com_saturacao": 7.5,
+     "ganho": 6.5,
+     "sai": "Jwari Disruption",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 13,
+     "magicas": 64
+    },
+    {
+     "pasta": "03. Tergrid",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 2 de Do cemitério para o campo: põe em campo criatura de cemitério, uma vez, até uma de cada oponente. Não faz descartar nem sacrificar, então Roubo fica 0."
+     },
+     "valor": 7.5,
+     "valor_com_saturacao": 8.25,
+     "ganho": 6.25,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "sin2"
+     ],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 23,
+     "magicas": 66
+    },
+    {
+     "pasta": "03. Master Of Evil",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Nível 1: põe corpos de criatura artefato em campo (\"It's a Borg artifact creature\"), que só tiram vida no seu turno se tiverem força e evasão."
+     },
+     "valor": 5.5,
+     "valor_com_saturacao": 4.0,
+     "ganho": 3.0,
+     "sai": "The Master, Formed Anew",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.016,
+     "d_acel": 0,
+     "acima_de": 7,
+     "magicas": 62
+    },
+    {
+     "pasta": "02. Kaalia",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Nível 1 de Cargas da Kaalia: traz criaturas do cemitério direto para o campo, sem passar pela mão."
+     },
+     "valor": 5.5,
+     "valor_com_saturacao": 4.0,
+     "ganho": 2.0,
+     "sai": "Fatal Push",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 6,
+     "magicas": 65
+    },
+    {
+     "pasta": "03. Valgavoth",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 3.0,
+     "ganho": 2.0,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.029,
+     "d_acel": 0,
+     "acima_de": 3,
+     "magicas": 67
+    },
+    {
+     "pasta": "02. Elfos",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 3.0,
+     "ganho": 1.0,
+     "sai": "Khalni Ambush",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 1,
+     "magicas": 70
+    },
+    {
+     "pasta": "04. Zur",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 3.0,
+     "ganho": 1.0,
+     "sai": "Judge's Familiar",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 2,
+     "magicas": 66
+    },
+    {
+     "pasta": "02. Turtle Power!",
+     "sin": [
+      0,
+      1
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 1 de Fichas e marcadores: põe marcador uma vez, só nas criaturas assimiladas."
+     },
+     "valor": 4.5,
+     "valor_com_saturacao": 3.75,
+     "ganho": 0.75,
+     "sai": "Continue?",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": -5,
+     "acima_de": 2,
+     "magicas": 64
+    },
+    {
+     "pasta": "01. Vito",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 1.5,
+     "ganho": 0.5,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.029,
+     "d_acel": 0,
+     "acima_de": 3,
+     "magicas": 68
+    },
+    {
+     "pasta": "03. Lynde",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 1.5,
+     "ganho": 0.5,
+     "sai": "Hydroelectric Specimen",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 4,
+     "magicas": 67
+    },
+    {
+     "pasta": "04. Assassin Creed",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 1.5,
+     "ganho": 0.5,
+     "sai": "Shay Cormac",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 5,
+     "magicas": 65
+    },
+    {
+     "pasta": "04. Queen",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 1.5,
+     "ganho": 0.5,
+     "sai": "Approach of the Second Sun",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": -0.058,
+     "d_acel": 5,
+     "acima_de": 2,
+     "magicas": 68
+    },
+    {
+     "pasta": "05. Slivers",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 3.0,
+     "ganho": 0.0,
+     "sai": "Fierce Guardianship",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 0,
+     "magicas": 64
+    },
+    {
+     "pasta": "02. Clavileño",
+     "sin": [
+      0,
+      1
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 1 de Morrer e voltar: devolve criaturas uma vez, só as dos oponentes mortas no turno, e elas voltam sem o tipo Vampiro."
+     },
+     "valor": 4.5,
+     "valor_com_saturacao": 2.25,
+     "ganho": -0.25,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.029,
+     "d_acel": 0,
+     "acima_de": 3,
+     "magicas": 68
+    },
+    {
+     "pasta": "02. Zumbis",
+     "sin": [
+      0,
+      1
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 1 de Sacrifício e recursão: devolve criaturas uma vez, só as dos oponentes mortas no turno; não é a recursão em massa do Living Death."
+     },
+     "valor": 4.5,
+     "valor_com_saturacao": 2.25,
+     "ganho": -0.25,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 1,
+     "magicas": 66
+    },
+    {
+     "pasta": "05. Deadpool",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 1.5,
+     "ganho": -0.5,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 2,
+     "magicas": 66
+    },
+    {
+     "pasta": "01. Markov",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 1.5,
+     "ganho": -1.5,
+     "sai": "Faithless Looting",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.029,
+     "d_acel": 0,
+     "acima_de": 0,
+     "magicas": 67
+    },
+    {
+     "pasta": "02. Strefan",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 3,
+     "valor_com_saturacao": 1.5,
+     "ganho": -1.5,
+     "sai": "Gamble",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.028,
+     "d_acel": 0,
+     "acima_de": 0,
+     "magicas": 70
+    },
+    {
+     "pasta": "03. K'rrik",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Nível 1: o K'rrik paga só o {B} de {2}{B}, um terço do valor de mana, menos da metade; não ganha vida nem drena."
+     },
+     "valor": 5.5,
+     "valor_com_saturacao": 4.0,
+     "ganho": -1.5,
+     "sai": "Ophiomancer",
+     "valor_sai": 5.5,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 0,
+     "magicas": 67
+    }
+   ],
+   "vereditos": {
+    "resumo": "Fraca: uma instantânea de três manas que rouba até uma criatura de cada oponente, mas só das que morreram no turno; depende de uma limpeza ou de uma troca grande no mesmo turno e não ganha vaga em nenhum deck. Compra: esperar o lançamento, sem pressa.",
+    "compra": {
+     "acao": "esperar",
+     "porque": "Pré-lançamento (sai em 13/11/2026), ainda sem preço no Scryfall e sem dado no EDHREC; consultar de novo depois do lançamento. Pelo ganho (no máximo +6,5, faixa Guardar) e sem deck com veredito, não é prioridade."
+    },
+    "decks": {
+     "02. Evelyn": {
+      "veredito": "fora",
+      "porque": "Rouba criaturas de oponente uma vez (2 em Jogar do exílio), mas elas entram sem o tipo Vampiro e só se morreram no turno; o ganho de +6,5 é contra a Jwari Disruption, de outro papel."
+     },
+     "03. Tergrid": {
+      "veredito": "fora",
+      "porque": "Nível 2 de Do cemitério para o campo, mas as criaturas que os oponentes sacrificam vão direto para a Tergrid e não ficam no cemitério; sobra só o que morreu destruído ou em combate no turno, e o ganho de +6,25 não chega a Deck."
+     },
+     "03. Master Of Evil": {
+      "veredito": "fora",
+      "porque": "Precon intacto, e só 1 em Perda de 3 de vida pelos corpos de artefato; ganho de +3."
+     },
+     "02. Kaalia": {
+      "veredito": "fora",
+      "porque": "Só 1 em Cargas da Kaalia, e as criaturas roubadas não são cargas; ganho de +2."
+     },
+     "02. Turtle Power!": {
+      "veredito": "fora",
+      "porque": "Não é Tartaruga e o marcador é uma vez só; ganho de +0,75."
+     },
+     "02. Clavileño": {
+      "veredito": "fora",
+      "porque": "Devolve só criaturas de oponente mortas no turno, sem o tipo Vampiro; ganho negativo."
+     },
+     "02. Zumbis": {
+      "veredito": "fora",
+      "porque": "Devolve só criaturas de oponente, como Borg, sem o tipo Zumbi; ganho negativo."
+     },
+     "03. K'rrik": {
+      "veredito": "fora",
+      "porque": "O K'rrik paga só um terço do custo (nível 1) e ela não drena; ganho negativo."
+     }
+    }
+   },
+   "estudo": {
+    "leitura": "Instantânea de três manas. Para cada oponente, assimila até uma criatura do cemitério daquele jogador que foi para lá do campo neste turno: ela entra sob seu controle com um marcador +1/+1, como criatura artefato Borg sem os outros tipos. Não pega do seu cemitério, não pega criatura que morreu em turnos anteriores nem a que foi descartada ou moída.",
+    "forcas": [
+     "Pode roubar várias de uma vez: \"For each opponent, assimilate up to one target creature card\".",
+     "Velocidade de instantânea, para usar depois de uma limpeza ou de um combate no turno de qualquer um.",
+     "Barata: \"{2}{B}\", e as criaturas chegam maiores, \"with a +1/+1 counter\"."
+    ],
+    "fraquezas": [
+     "Janela curta: só a criatura \"put there from the battlefield this turn\".",
+     "Só dos oponentes: \"from that player's graveyard\", nunca do seu.",
+     "Sem morte no turno, é carta morta na mão.",
+     "Apaga os tipos: a criatura \"loses all other creature types\"."
+    ],
+    "vacuo": {
+     "grau": "D",
+     "porque": "Valor próprio 3 contra mediana 5: só Recurso 2, porque a reanimação em massa cai um nível pela condição de \"this turn\". Sem preço, sem EDHREC (pré-lançamento) e sem Game Changer, o grau sai só do valor."
+    },
+    "armadilhas": {
+     "03. Tergrid": "Concorre com a própria Tergrid: o que os oponentes sacrificam vai para ela antes, e o cemitério fica sem alvo.",
+     "02. Evelyn": "O ponto em Jogar do exílio vem do roubo, mas a criatura entra como Borg, não como Vampiro."
+    }
+   },
+   "gravado": "2026-11-03T02:52:09"
+  }
+ ]
+}
