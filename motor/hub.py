@@ -380,6 +380,27 @@ def resumo_grimorio():
     return dict(href=quote(grimorio.NOME + ".html"), pub=grimorio.link_publicado(), lido=lt.get("lido"), cartas=ct.get("cartas"), lentes=ct.get("lidas"))
 
 
+def tier_s_imagens(cands, out):
+    """Frente (e verso) das cartas Tier S do radar, em data: URI, do cache/img/. Só as que o radar não descarta;
+    sem arquivo no cache, a carta fica sem imagem e a galeria mostra o nome."""
+    import imagens
+    for c in cands:
+        if c.get("tier") != "S" or c.get("verdict") == "fora":
+            continue
+        k = c.get("on") or c["n"]
+        if k in out or not c.get("iset"):
+            continue
+        fa, ve = imagens.precisa(c)
+        uris = []
+        for arq in (fa, ve):
+            cam = os.path.join(imagens.CACHE_IMG, arq) if arq else None
+            if cam and os.path.exists(cam):
+                with open(cam, "rb") as f:
+                    uris.append("data:image/jpeg;base64," + base64.b64encode(f.read()).decode())
+        if uris:
+            out[k] = uris
+
+
 def montar(avisar=print):
     import scryfall
     inv = ler_inventario()
@@ -390,9 +411,11 @@ def montar(avisar=print):
     G = scryfall.game_changers(avisar=avisar)
     gc = {frente(n) for n in G["nomes"]} if G else None
     cache = scryfall._ler()
+    img_s = {}   # Tier S dos radares: a imagem de cada carta, para a galeria de 06. Compras
     for pasta in nomes:
         base = dados.pasta_deck(pasta)
         r = inv.get(pasta, {})
+        m = None
         grupo = pasta.split(".")[0].strip() if "." in pasta else "05"
         prio = (r.get("prioridade") or "").strip()
         d = dict(pasta=pasta, grupo=grupo, nome=nome_do_deck(pasta), cmd=(r.get("comandante") or "").replace(" (confirmar)", ""),
@@ -422,10 +445,12 @@ def montar(avisar=print):
             d["capa"] = capa_reduzida(base) if os.path.isdir(base) else None
             d["ref"] = ler_referencias(base, cache, gc) if os.path.isdir(base) else []
         decks.append(d)
+        if m and grupo != "05":
+            tier_s_imagens(m["cands"], img_s)
 
     H = dict(grupos=[dict(k=k, n=n) for k, n in GRUPOS], decks=decks, basicos=sorted(BASICOS), regua=dados.regua_compacta(),
              pastas=pastas_hub(), cambio=(caixa_resumo_cambio()), em_pastas=em_pastas_hub(), gerado=datetime.date.today().strftime("%d/%m/%Y"),
-             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None, caixa=resumo_caixa(), grimorio=resumo_grimorio(), consulta=resumo_consulta(), ciclos=resumo_ciclos())
+             gc=dict(n=len(G["nomes"]), d=G.get("consultado", "")) if G else None, caixa=resumo_caixa(), grimorio=resumo_grimorio(), consulta=resumo_consulta(), ciclos=resumo_ciclos(), img_s=img_s)
 
     pal = tema.paleta({"fundo": "#0f0f10", "painel": "#1b1b1d", "acento": "#f5a524", "acento_claro": "#ffc96b", "texto": "#f2f0ec",
                        "suave": "#bdbab3", "apagado": "#8a877f", "destaque": "#f5a524", "destaque_claro": "#ffc96b"})
