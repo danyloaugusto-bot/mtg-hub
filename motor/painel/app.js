@@ -3480,7 +3480,10 @@ function footHtml() {
     '<span class="rev">Revisão ' + esc(M.rev) + ' deste painel.</span>';
 }
 $('#footTxt').innerHTML = footHtml();
-if (PUB) { var vh = $('#voltar'); if (vh) vh.hidden = true; }   /* a página publicada não tem o hub ao lado */
+(function () {   /* o "←" leva ao hub: publicado, ao hub publicado; sem o link dele, some (a página publicada não tem o hub ao lado) */
+  var vh = $('#voltar'); if (!vh || !PUB) return;
+  if (M.hub && M.hub.pub) vh.href = M.hub.pub; else vh.hidden = true;
+})();
 /* a gaveta é redesenhada a cada nota: o bloco do 8×8 lembra se estava aberto */
 document.addEventListener('toggle', function (e) {
   var l = e.target.classList; if (!l || !l.contains('dw-8')) return;
