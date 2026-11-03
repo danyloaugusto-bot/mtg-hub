@@ -771,6 +771,78 @@ function boxMesa() {
   }
   return h;
 }
+/* ============ prontos para jogar ============ */
+/* Quanto cada deck está perto da versão mais forte que o radar dele monta (pedido do dono, 03/11/2026), e a mesa justa: os decks de
+   força parecida. O teto é o deck com as trocas "entra" do radar que sobem o placar, cada uma no lugar de quem o radar tira, da que
+   mais sobe para a que menos (a mesma conta do simulador). Fora os decks do grupo Desejo, que não existem na mesa. */
+var PR_DK = DK.filter(function (d) { return d.grupo !== '05'; });
+var PRONTO = null;   // calculado na primeira vez que a seção desenha (o ONDE, de "você já tem", vem mais abaixo no arquivo)
+function prontos() {
+  if (PRONTO) return PRONTO;
+  PRONTO = {};
+  PR_DK.forEach(function (d) {
+  var A = d.a, hoje = A.st.total, efeito = function (sel) { return contas(aplicar(A, sel), A).total; };
+  var cs = A.cands.filter(function (c) { return c.v === 'entra' && c.sa && A.idx[c.sa]; }).map(function (c) { var s1 = {}; s1[c.i] = 1; return { c: c, d: efeito(s1) - hoje }; })
+    .filter(function (x) { return x.d > 0; }).sort(function (a, b) { return b.d - a.d || TR[a.c.T] - TR[b.c.T]; });
+  var sel = {}, saiu = {}, teto = hoje, faltam = [];
+  cs.forEach(function (x) {
+    if (saiu[x.c.sa]) return;
+    sel[x.c.i] = 1; var t = efeito(sel);
+    if (t > teto) { faltam.push({ c: x.c, d: Math.round((t - teto) * 10) / 10 }); teto = t; saiu[x.c.sa] = 1; } else delete sel[x.c.i];
+  });
+  faltam.forEach(function (f) { var k = chave(f.c); f.tem = jaTemFisico(k, A).length > 0 || !!pastaDe(k); });
+  PRONTO[d.pasta] = { d: d, hoje: hoje, teto: teto, p: teto > 0 ? hoje / teto : 1, faltam: faltam };
+  });
+  return PRONTO;
+}
+function prEstado(p) { return p >= 0.98 ? ['ok', 'pronto'] : p >= 0.94 ? ['quase', 'quase pronto'] : ['obra', 'em obras']; }
+var prF = { deck: '', feitas: {} };
+function prRank() {
+  return PR_DK.map(function (d) { return prontos()[d.pasta]; }).sort(function (a, b) { return b.p - a.p || b.hoje - a.hoje || a.d.nome.localeCompare(b.d.nome); });
+}
+function boxJusta() {
+  var R = prRank(); if (!R.length) return '';
+  if (!prontos()[prF.deck]) prF.deck = R[0].d.pasta;
+  var X = prontos()[prF.deck], A = X.d.a, sel = {};
+  X.faltam.forEach(function (f) { if (prF.feitas[f.c.i]) sel[f.c.i] = 1; });
+  var alvo = Object.keys(sel).length ? contas(aplicar(A, sel), A).total : X.hoje;
+  var h = '<div class="ctl"><label class="cmp-s"><span class="seg-l">Vou jogar com</span><select data-pr="deck">' + R.map(function (x) {
+    return '<option value="' + esc(x.d.pasta) + '"' + (x.d.pasta === prF.deck ? ' selected' : '') + '>' + esc(x.d.nome) + '</option>'; }).join('') + '</select></label></div>';
+  if (X.faltam.length) h += '<p class="dim pr-q">Já fez alguma troca do radar? Marque, e a força do deck muda na conta:</p><ul class="pr-tr">' + X.faltam.map(function (f) {
+    return '<li><label><input type="checkbox" data-prx="' + esc(f.c.i) + '"' + (sel[f.c.i] ? ' checked' : '') + '> ' + tierB(f.c.T) + ' <b>' + esc(f.c.n) + '</b> <span class="dim">no lugar de ' + esc(A.idx[f.c.sa].n) + '</span> <span class="num pos">' + sinalP(f.d) + '</span></label></li>'; }).join('') + '</ul>';
+  h += '<div class="sks pr-sks"><div class="sk"><span>Força de ' + esc(A.nome) + '</span><b class="num">' + numP(Math.round(alvo * 10) / 10) + '</b>' + (alvo !== X.hoje ? '<small class="num pos">' + sinalP(Math.round((alvo - X.hoje) * 10) / 10) + '</small>' : '') + '</div>' +
+    '<div class="sk"><span>Pronto</span><b class="num">' + pct(Math.min(1, alvo / X.teto)) + '</b></div></div>';
+  var op = R.filter(function (x) { return x.d.pasta !== prF.deck; }).map(function (x) { return { x: x, dif: (x.hoje - alvo) / alvo }; })
+    .sort(function (a, b) { return Math.abs(a.dif) - Math.abs(b.dif); });
+  var justa = op.filter(function (o) { return Math.abs(o.dif) <= 0.05; });
+  var lista8 = (justa.length >= 3 ? justa : op.slice(0, Math.max(3, justa.length))).slice(0, 8);
+  h += '<ol class="rank pr-op">' + lista8.map(function (o, i) {
+    var e = prEstado(o.x.p), lado = Math.abs(o.dif) <= 0.05 ? 'mesa justa' : o.dif > 0 ? 'mais forte' : 'mais fraco';
+    return '<li class="' + (Math.abs(o.dif) <= 0.05 ? 'lider' : '') + '"><span class="ord num">' + (i + 1) + '</span><div><b>' + deckLink(o.x.d.a) + '</b> <span class="sc num">' + numP(o.x.hoje) + '</span> ' +
+      '<span class="pr-e pr-' + e[0] + '">' + e[1] + '</span><p>' + lado + ' (' + (o.dif >= 0 ? '+' : '−') + pct(Math.abs(o.dif), 1) + ')' + (o.x.faltam.length ? '; faltam ' + pl(o.x.faltam.length, 'troca', 'trocas') + ' para o teto' : '; já no teto') + '.</p></div></li>';
+  }).join('') + '</ol>' + nota('Mesa justa: placar até 5% acima ou abaixo do seu. Os oponentes entram com o deck de hoje. Quando não há três decks nessa faixa, aparecem os mais próximos. Força é o placar dos critérios, comparável entre os decks; não é resultado de partida.');
+  return h;
+}
+function secProntos() {
+  var R = prRank();
+  var rows = R.map(function (x, i) {
+    var e = prEstado(x.p), nS = x.faltam.filter(function (f) { return f.c.T === 'S'; }).length, nTem = x.faltam.filter(function (f) { return f.tem; }).length;
+    return '<tr><td class="n num">' + (i + 1) + 'ª</td><th scope="row">' + deckLink(x.d.a) + ' ' + pvB(x.d.a) + '</th><td class="n num"><b>' + numP(x.hoje) + '</b></td><td class="n num">' + numP(Math.round(x.teto * 10) / 10) + '</td>' +
+      '<td class="pr-b"><span class="pr-bar"><i class="pr-' + e[0] + '" style="width:' + (x.p * 100).toFixed(1) + '%"></i></span><span class="num">' + pct(x.p, 1) + '</span> <span class="pr-e pr-' + e[0] + '">' + e[1] + '</span></td>' +
+      '<td>' + (x.faltam.length ? pl(x.faltam.length, 'troca', 'trocas') + (nS ? ' · ' + nS + ' ' + tierB('S') : '') + (nTem ? ' · <span class="ok-t">' + nTem + ' você já tem</span>' : '') +
+        '<small class="dim">' + esc(lista(x.faltam.slice(0, 3).map(function (f) { return f.c.n; }))) + (x.faltam.length > 3 ? '…' : '') + '</small>' : '<span class="dim">nenhuma: já no teto do radar</span>') + '</td></tr>';
+  }).join('');
+  var nOk = R.filter(function (x) { return x.p >= 0.98; }).length;
+  var h = caixa('Ranking: quem está mais perto da versão final', '<div class="tw"><table class="tbl pr-t"><thead><tr><th scope="col">#</th><th scope="col">Deck</th><th scope="col" class="n">Hoje</th><th scope="col" class="n">Teto</th><th scope="col">Pronto</th><th scope="col">O que falta</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+    nota('Hoje: o placar do deck como está. Teto: o placar com as trocas "entra" do radar que sobem o placar, cada uma no lugar de quem o radar tira. Pronto: hoje ÷ teto (pronto a partir de 98%, quase pronto a partir de 94%). O selo ao lado do nome é o veredito do Plano do deck. "Você já tem": a carta está na Caixa, numa pasta ou em outro deck. ' + pl(nOk, 'deck está pronto', 'decks estão prontos') + ' para jogar; os do grupo Desejo ficam de fora.'), 'larga');
+  h += caixa('Mesa justa: com quem jogar', '<div id="pr-justa">' + boxJusta() + '</div>', 'larga');
+  return secao('prontos', 'Prontos para jogar', 'Quais decks estão mais perto da versão mais forte que o radar deles monta, e quem joga no mesmo nível.', h);
+}
+function redesenharJusta(foco) {
+  var box = $('#pr-justa'); if (!box) return;
+  box.innerHTML = boxJusta();
+  var el = foco ? box.querySelector(foco) : null; if (el) el.focus();
+}
 function secMesa() {
   var head = '<tr><th scope="col">Deck</th>' + ARQ.map(function (a) { return '<th scope="col" class="c">' + esc(a.n) + '</th>'; }).join('') + '<th scope="col" class="c">Saldo</th></tr>';
   var rows = DK.map(function (d) {
@@ -1600,9 +1672,38 @@ function porCor(L) {
   var g = ESPACOS.concat(L.some(function (x) { return x.cor === '?'; }) ? [['?', 'Sem cor no cache']] : []);
   return g.map(function (k) { return { k: k[0], n: k[1], L: L.filter(function (x) { return x.cor === k[0]; }) }; });
 }
+/* Tier S dos radares: as cartas que mudam um deck de patamar, num lugar só (pedido do dono, 03/11/2026). Vem do radar de cada
+   painel, no build: vale no arquivo local e no publicado, sem banco. Fora os decks do grupo Desejo, que não existem na mesa. */
+function listaTierS() {
+  var por = {};
+  RAD.forEach(function (x) {
+    if (x.c.T !== 'S' || (porPasta(x.A.pasta) || {}).grupo === '05') return;
+    var k = chave(x.c), e = por[k] || (por[k] = { n: k, ped: [], cor: corDe(k, x.c.ci, x.c.L) });
+    e.ped.push({ A: x.A, v: x.c.v, sa: x.c.sa ? (x.A.idx[x.c.sa] || {}).n : '' });
+  });
+  return Object.keys(por).map(function (k) {
+    var e = por[k]; e.tem = jaTemFisico(k, null).filter(function (o) { return !e.ped.some(function (p) { return p.A === o.A; }); }); e.pas = pastaDe(k);
+    e.entra = e.ped.some(function (p) { return p.v === 'entra'; });
+    return e;
+  }).sort(function (a, b) { return (a.tem.length || a.pas ? 1 : 0) - (b.tem.length || b.pas ? 1 : 0) || (b.entra ? 1 : 0) - (a.entra ? 1 : 0) || b.ped.length - a.ped.length || a.n.localeCompare(b.n); });
+}
+function blocoTierS() {
+  var L = listaTierS();
+  if (!L.length) return '<p class="vazio-g">Nenhuma carta Tier S no radar dos decks.</p>';
+  var comprar = L.filter(function (x) { return !x.tem.length && !x.pas; }).length;
+  return '<h3 class="cmp-sub">' + tierB('S') + ' Tier S nos radares <span class="dim">' + pl(L.length, 'carta', 'cartas') + ', ' + pl(comprar, 'para comprar ou trocar', 'para comprar ou trocar') + '</span></h3>' +
+    '<div class="cmp7 cmp-s">' + porCor(L).filter(function (g) { return g.L.length; }).map(function (g) {
+      return '<article class="cmp-cor" data-cor="' + g.k + '"><h3>' + simbCor(g.k) + esc(g.n) + '<span class="num">' + g.L.length + '</span></h3><ul>' + g.L.map(function (x) {
+        var ja = x.tem.length ? 'já no ' + lista(x.tem.map(function (o) { return o.A.nome; })) : x.pas ? (x.pas[0].p === 'Caixa' ? 'na Caixa' : 'na pasta ' + x.pas[0].p) : '';
+        return '<li class="' + (ja ? 'cmp-tem' : '') + '"><b>' + esc(x.n) + '</b>' + (ja ? ' ' + pill('ok', ja, '✓') : '') +
+          '<small class="dim">' + x.ped.map(function (p) { return esc(p.A.nome) + (p.v === 'avaliar' ? ' (avaliar)' : '') + (p.sa ? ', no lugar de ' + esc(p.sa) : ''); }).join('; ') + '</small></li>';
+      }).join('') + '</ul></article>';
+    }).join('') + '</div>' +
+    nota('As cartas Tier S do radar de cada deck (entra e avaliar): as que mais mudam o deck de patamar. "No lugar de" é quem sai, pelo radar. Com ✓, você já tem a carta (em outro deck, na Caixa ou numa pasta): mova antes de comprar. Os decks do grupo Desejo ficam de fora. A lista muda sozinha quando o radar muda.');
+}
 /* 06. Compras na estante: o grupo que vem depois dos cinco do aplicativo, com a lista por cor */
 function comprasEstante() {
-  var L = listaCompras(), corpo, res;
+  var L = listaCompras(), corpo, res, nS = listaTierS().length;
   if (!COMP.pronto) { corpo = '<p class="vazio-g">Conectando à lista…</p>'; res = 'conectando'; }
   else if (!COMP.db) { corpo = '<p class="vazio-g">A lista de compras mora no hub publicado: abra o hub pelo link do claude.ai para ver as cartas por cor. Para pôr uma carta na lista, use o botão "+ Compras" no radar, no <a href="#d-radar">Dashboard, aba Compras</a>.</p>'; res = 'só no hub publicado'; }
   else if (COMP.erro) { corpo = '<p class="vazio-g">A lista não respondeu agora (' + esc(COMP.erro) + '). Recarregue a página.</p>'; res = 'sem resposta'; }
@@ -1616,6 +1717,8 @@ function comprasEstante() {
     }).join('') + '</div>' + nota('Cada carta fica no espaço da sua identidade de cor; terreno fica em Terrenos, com qualquer identidade, e a carta com terreno no verso fica na cor da frente. Para marcar, tirar ou copiar a lista, use o <a href="#d-compras">Dashboard, aba Compras</a>.');
   }
   var minis = COMP.db && !COMP.erro && L.length ? '<span class="cmp-m">' + porCor(L).filter(function (g) { return g.L.length; }).map(function (g) { return '<span>' + simbCor(g.k) + g.L.length + '</span>'; }).join('') + '</span>' : '';
+  corpo = blocoTierS() + '<h3 class="cmp-sub">Sua lista de compras <span class="dim">' + esc(res) + '</span></h3>' + corpo;
+  res = nS + ' Tier S · lista: ' + res;
   return '<section class="grupo" data-grupo="06">' + sanfona('g-06', '<h2>06. Compras</h2><span class="g-r">' + res + '</span>', minis, corpo, 'g-sf') + '</section>';
 }
 function redesenharComprasEstante() {
@@ -1628,6 +1731,8 @@ function hojeISO() { var d = new Date(), z = function (n) { return (n < 10 ? '0'
 function funcaoDe(A, c) { var k = pkDe(A, c), i = gix(A, k); return i >= 0 ? A.grupos[i].n : k === 'mana' ? 'Mana' : ''; }
 function naLista(A, c) { var d = COMP.docs[slugC(chave(c))]; return !!(d && (d.pedidos || []).some(function (p) { return p.p === A.pasta; })); }
 function jaTem(k, A) { return (ONDE[k] || []).filter(function (o) { return o.A !== A; }); }
+/* "você já tem" de verdade: fora os decks do grupo Desejo, que não existem fisicamente */
+function jaTemFisico(k, A) { return jaTem(k, A).filter(function (o) { return (porPasta(o.A.pasta) || {}).grupo !== '05'; }); }
 function temTxt(onde) { return onde.map(function (o) { return '<span>' + esc(o.A.nome) + ' ' + tierB(o.c.T) + '</span>'; }).join(''); }
 function secCompras() {
   var L = listaCompras();
@@ -2020,9 +2125,9 @@ function rzAvisos() {
 
 /* ============ montagem do dashboard ============ */
 var DTABS = [['resumo', 'Resumo', ['resumo']], ['fichas', 'Fichas', ['fichas', 'comparar']], ['mov', 'Movimentações', ['movimentacoes', 'compartilhadas']], ['compras', 'Compras', ['compras', 'radar']],
-             ['mesa', 'Mesa', ['mesa']], ['trocas', 'Trocas e reserva', ['trocas', 'reserva', 'placar']], ['mana', 'Fundamentos e mana', ['fundamentos', 'mana']],
+             ['mesa', 'Mesa', ['mesa', 'prontos']], ['trocas', 'Trocas e reserva', ['trocas', 'reserva', 'placar']], ['mana', 'Fundamentos e mana', ['fundamentos', 'mana']],
              ['potencial', 'Decks em potencial', ['potencial']], ['bastidores', 'Bastidores', ['auditoria', 'carteira']]];
-var SEC_HTML = { compras: secCompras, radar: secRadar, fichas: secFichas, comparar: secComparar, movimentacoes: secMov, compartilhadas: secComp, mesa: secMesa, trocas: secTrocas, placar: secPlacar,
+var SEC_HTML = { compras: secCompras, radar: secRadar, fichas: secFichas, comparar: secComparar, movimentacoes: secMov, compartilhadas: secComp, mesa: secMesa, prontos: secProntos, trocas: secTrocas, placar: secPlacar,
                  reserva: secReserva, fundamentos: secFund, mana: secMana, potencial: secPotencial, auditoria: secAudit, carteira: secCarteira };
 function abaDe(sec) { for (var i = 0; i < DTABS.length; i++) if (DTABS[i][2].indexOf(sec) >= 0) return DTABS[i]; return null; }
 function vistaDash() {
@@ -2189,6 +2294,8 @@ document.addEventListener('change', function (ev) {
   if (t.matches && t.matches('select[data-cmp]')) { cmp[t.dataset.cmp] = t.value; redesenharSecao('[data-cmp="' + t.dataset.cmp + '"]', 'comparar'); }
   else if (t.matches && t.matches('select[data-mov]')) { movF.deck = t.value; redesenharSecao('[data-mov="deck"]', 'movimentacoes'); }
   else if (t.matches && t.matches('select[data-rad]')) { radF.deck = t.value; abertos.radar = false; redesenharSecao('[data-rad="deck"]', 'radar'); }
+  else if (t.matches && t.matches('select[data-pr]')) { prF.deck = t.value; prF.feitas = {}; redesenharJusta('select[data-pr]'); }
+  else if (t.matches && t.matches('input[data-prx]')) { if (t.checked) prF.feitas[t.dataset.prx] = 1; else delete prF.feitas[t.dataset.prx]; redesenharJusta('input[data-prx="' + t.dataset.prx + '"]'); }
 });
 document.addEventListener('change', function (ev) {
   var c = ev.target.closest('#v-dash [data-sim]'); if (!c) return;
