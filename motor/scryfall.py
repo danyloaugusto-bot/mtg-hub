@@ -32,9 +32,15 @@ def _ler():
 
 def _gravar(c):
     os.makedirs(os.path.dirname(CACHE), exist_ok=True)
-    tmp = CACHE + ".tmp"
+    tmp = "%s.%d.tmp" % (CACHE, os.getpid())   # um temporário por processo: dois comandos ao mesmo tempo não pisam um no outro
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         json.dump(c, f, ensure_ascii=False, indent=0, sort_keys=True)
+    for i in range(12):   # no Windows o replace falha se outro processo está lendo o cache: tenta de novo
+        try:
+            os.replace(tmp, CACHE)
+            return
+        except PermissionError:
+            time.sleep(0.25 * (i + 1))
     os.replace(tmp, CACHE)
 
 
