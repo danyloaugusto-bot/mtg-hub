@@ -828,10 +828,38 @@ details.mv-dk>summary .cores{margin-left:0}
 .cmp-sub{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:16px;font-weight:800;margin:6px 0 10px}
 .cmp-sub .dim{font-weight:600;font-size:14px}
 .cmp-sub ~ .cmp-sub{margin-top:22px}
-.cmp-s .cmp-tem b{color:var(--mute)}
-.cmp-s{align-items:start}
-.cmp-s li .pill{font-size:12px;white-space:normal;text-align:left}
-.cmp-s li small{overflow-wrap:anywhere;white-space:normal}
+.cmp-ts{align-items:start}
+.cmp-ts .ts-livre .ts-n{color:var(--mute)}
+.cmp-ts li .pill{font-size:12px;white-space:normal;text-align:left}
+.cmp-ts li small{overflow-wrap:anywhere;white-space:normal}
+.ts-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:6px 0 10px}
+.ts-top .cmp-sub{margin:0}
+.ts-seg button{padding:5px 12px;font-size:14px}
+.ts-n{background:none;border:0;padding:0;color:var(--bone);font:800 14px var(--fb);text-align:left;cursor:pointer;text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);text-underline-offset:3px}
+.ts-n:hover,.ts-n:focus-visible{color:var(--gold2);text-decoration-color:currentColor}
+.ts-gal{display:grid;gap:16px}
+.ts-gc h4{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800;margin-bottom:8px}
+.ts-grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.ts-c{display:flex;flex-direction:column;gap:6px;background:#232326;border:0;border-radius:12px;padding:6px 6px 8px;color:var(--bone);text-align:left;cursor:pointer;min-width:0}
+.ts-c:hover,.ts-c:focus-visible{box-shadow:inset 0 0 0 2px var(--gold)}
+.ts-c img{width:100%;aspect-ratio:488/680;object-fit:cover;border-radius:4.75%/3.5%;display:block}
+.ts-c.ts-livre img{opacity:.6}
+.ts-r{display:flex;flex-direction:column;gap:3px;align-items:flex-start;font-size:12.5px;line-height:1.25}
+.ts-r small{color:var(--dim);overflow-wrap:anywhere}
+.ts-r .pill{font-size:12px}
+.ts-sem{display:grid;place-items:center;aspect-ratio:488/680;border-radius:8px;background:#141416;padding:10px;text-align:center;font-weight:800;font-size:13.5px}
+.ts-dlg{border:0;border-radius:16px;padding:0;background:#1b1b1d;color:var(--bone);max-width:min(760px,calc(100vw - 32px));max-height:calc(100vh - 32px);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.ts-dlg::backdrop{background:rgba(0,0,0,.72)}
+.ts-dc{display:flex;flex-wrap:wrap;gap:18px;padding:18px}
+.ts-di{display:flex;gap:10px;flex:1 1 280px;justify-content:center}
+.ts-di img{width:100%;max-width:340px;border-radius:4.75%/3.5%;display:block}
+.ts-dt{flex:1 1 220px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.ts-dt h3{font-size:19px;font-weight:800;display:flex;align-items:center;gap:8px}
+.ts-dt ul{display:grid;gap:6px;font-size:14.5px}
+.ts-dt li small{display:block;font-size:13px}
+.ts-dt .pill{white-space:normal}
+.ts-dt .bt{margin-top:auto}
+@media (max-width:640px){.ts-grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.ts-dc{padding:14px}}
 @media (max-width:640px){.cmp7{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.cmp-cor{padding:10px}}
 
 /* ---------- a Caixa (página própria, motor/caixa/): o link na barra e o resumo na aba Pastas, sem preço ---------- */
