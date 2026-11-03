@@ -825,6 +825,13 @@ details.mv-dk>summary .cores{margin-left:0}
 .cmp-m .ms{width:16px;height:16px;font-size:9px}
 .cl-cor{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800;margin:14px 0 2px}
 .cl-cor .ms{width:18px;height:18px;font-size:10px}
+.cmp-sub{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:16px;font-weight:800;margin:6px 0 10px}
+.cmp-sub .dim{font-weight:600;font-size:14px}
+.cmp-sub ~ .cmp-sub{margin-top:22px}
+.cmp-s .cmp-tem b{color:var(--mute)}
+.cmp-s{align-items:start}
+.cmp-s li .pill{font-size:12px;white-space:normal;text-align:left}
+.cmp-s li small{overflow-wrap:anywhere;white-space:normal}
 @media (max-width:640px){.cmp7{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.cmp-cor{padding:10px}}
 
 /* ---------- a Caixa (página própria, motor/caixa/): o link na barra e o resumo na aba Pastas, sem preço ---------- */
@@ -919,3 +926,17 @@ details.mv-dk>summary .cores{margin-left:0}
   .rz-plb{width:56px}
 }
 @media (max-width:420px){.abas-t,.nav-g{gap:0}.abas-t button,.abas-t a,.cx-link,.dash{padding:0 4px;font-size:13px}}   /* sete pílulas (até Ciclos) numa linha só em 375px */
+
+/* Prontos para jogar (Dashboard, aba Mesa): quanto cada deck está perto do teto do radar, e a mesa justa */
+.pr-b{white-space:nowrap}
+.pr-bar{display:inline-block;width:110px;height:8px;border-radius:5px;background:rgba(255,255,255,.08);vertical-align:middle;margin-right:8px;overflow:hidden}
+.pr-bar i{display:block;height:100%;border-radius:5px}
+.pr-bar i.pr-ok{background:#7fc98a}.pr-bar i.pr-quase{background:var(--gold)}.pr-bar i.pr-obra{background:#d98a6e}
+.pr-e{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 8px;border-radius:9px;margin-left:4px}
+.pr-e.pr-ok{background:rgba(127,201,138,.16);color:#9fe0a8}.pr-e.pr-quase{background:rgba(245,165,36,.15);color:var(--gold)}.pr-e.pr-obra{background:rgba(217,138,110,.15);color:#f0a28c}
+.pr-t td small{display:block;margin-top:2px;font-size:13px}
+.pr-q{margin:12px 0 6px;font-size:14px}
+.pr-tr{display:grid;gap:6px;margin-bottom:12px}
+.pr-tr label{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:14px;cursor:pointer}
+.pr-sks{margin:8px 0 4px}
+@media (max-width:640px){.pr-bar{width:64px}.pr-b{white-space:normal}}
