@@ -1,0 +1,624 @@
+{
+ "versao": 1,
+ "carta": {
+  "nome": "Death Is Irrelevant",
+  "custo": "{6}{B}{B}",
+  "tipo": "Enchantment",
+  "texto": "Artifact creatures you control have indestructible.\nAt the beginning of your end step, assimilate target creature card from a graveyard. (Put it onto the battlefield under your control with a +1/+1 counter. It's a Borg artifact creature and loses all other creature types.)",
+  "ci": "B",
+  "set": "trk",
+  "num": "102",
+  "link": "https://scryfall.com/card/trk/102",
+  "lancamento": "2026-11-13",
+  "pt": null,
+  "artista": "Narendra Bintara Adi",
+  "sid": "408cb5dd-1a79-47a9-98ea-41f3f4502c5e",
+  "cmc": 8.0,
+  "gc": false,
+  "faces": null
+ },
+ "consultas": [
+  {
+   "data": "2026-11-03",
+   "usd": "17.46",
+   "usd_foil": null,
+   "rank": 25607,
+   "avisos": [
+    "pré-lançamento: sai em 2026-11-13; o preço é de pré-venda e o EDHREC ainda não tem dado"
+   ],
+   "cadastro": {
+    "n": {
+     "resiliencia": 2,
+     "recurso": 3
+    },
+    "por_que": "Recurso 3: \"At the beginning of your end step, assimilate target creature card from a graveyard\" põe em campo uma criatura de qualquer cemitério toda volta, efeito grande e repetível; Resiliência 2: \"Artifact creatures you control have indestructible\" protege de forma contínua as criaturas artefato, inclusive as assimiladas, mas não o resto. O marcador do assimilar acompanha a recursão e não conta à parte (um efeito, um critério).",
+    "fonte": "consulta",
+    "revisado": "2026-11-03"
+   },
+   "forca": {
+    "valor_proprio": 9,
+    "mediana": 5,
+    "percentil": 81,
+    "rank": null,
+    "gc": false,
+    "grau": "B"
+   },
+   "encaixe": [
+    {
+     "pasta": "03. Tergrid",
+     "sin": [
+      0,
+      3
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 3 de Do cemitério para o campo: reanima em toda volta (\"At the beginning of your end step, assimilate target creature card from a graveyard\"), como a Sheoldred, Whispering One. Roubo da Tergrid fica 0: não faz oponente descartar nem sacrificar."
+     },
+     "valor": 18.0,
+     "valor_com_saturacao": 19.5,
+     "ganho": 17.5,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "sin2"
+     ],
+     "d_cmc": 0.104,
+     "d_acel": 0,
+     "acima_de": 48,
+     "magicas": 66
+    },
+    {
+     "pasta": "02. Evelyn",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 2 de Jogar do exílio: usa carta de oponente, roubando de vez uma criatura do cemitério dele (\"from a graveyard\"), como o Captivating Vampire rouba; não exila nem conjura, então não é o motor de 3. Coleção fica 0: a criatura entra como Borg, sem o tipo Vampiro."
+     },
+     "valor": 13.5,
+     "valor_com_saturacao": 15.0,
+     "ganho": 14.0,
+     "sai": "Jwari Disruption",
+     "valor_sai": 1,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.092,
+     "d_acel": 0,
+     "acima_de": 45,
+     "magicas": 64
+    },
+    {
+     "pasta": "05. Deadpool",
+     "sin": [
+      2,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Nível 2 de Troca de novo: volta do cemitério, como o Animate Dead, e faz um Deadpool entrar e trocar se ele estiver no cemitério; não é o motor de 3, porque depende de o Deadpool estar lá e não o faz sair de novo."
+     },
+     "valor": 16.5,
+     "valor_com_saturacao": 13.5,
+     "ganho": 11.5,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.104,
+     "d_acel": 0,
+     "acima_de": 55,
+     "magicas": 66
+    },
+    {
+     "pasta": "02. Turtle Power!",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 2 de Fichas e marcadores: marcador repetível, um +1/+1 em cada criatura assimilada a cada fim de turno seu. Não é Tartaruga, e a criatura assimilada perde os outros tipos."
+     },
+     "valor": 13.5,
+     "valor_com_saturacao": 12.75,
+     "ganho": 9.75,
+     "sai": "Continue?",
+     "valor_sai": 3,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.091,
+     "d_acel": -5,
+     "acima_de": 46,
+     "magicas": 64
+    },
+    {
+     "pasta": "04. Zur",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Nível 1 de A busca do Zur: é encantamento, mas de valor 8, que o Zur não busca."
+     },
+     "valor": 11.5,
+     "valor_com_saturacao": 11.5,
+     "ganho": 9.5,
+     "sai": "Judge's Familiar",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.104,
+     "d_acel": 0,
+     "acima_de": 32,
+     "magicas": 66
+    },
+    {
+     "pasta": "02. Elfos",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 10.5,
+     "ganho": 8.5,
+     "sai": "Khalni Ambush",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.07,
+     "d_acel": 0,
+     "acima_de": 17,
+     "magicas": 70
+    },
+    {
+     "pasta": "03. Valgavoth",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 9.0,
+     "ganho": 8.0,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.103,
+     "d_acel": 0,
+     "acima_de": 29,
+     "magicas": 67
+    },
+    {
+     "pasta": "03. Master Of Evil",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Nível 1: põe um corpo de criatura artefato em campo toda volta, que só tira vida no seu turno se tiver força e evasão, ou com Cyberman Patrol e Cybermen Squadron; a indestrutibilidade protege o exército, mas não tira vida."
+     },
+     "valor": 11.5,
+     "valor_com_saturacao": 8.5,
+     "ganho": 7.5,
+     "sai": "The Master, Formed Anew",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.095,
+     "d_acel": 0,
+     "acima_de": 34,
+     "magicas": 62
+    },
+    {
+     "pasta": "02. Zumbis",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 2 de Sacrifício e recursão: recursão repetível, uma criatura a cada fim de turno seu; não sacrifica, então não chega a 3. Zumbis fica 0: a criatura assimilada \"loses all other creature types\" e deixa de ser Zumbi."
+     },
+     "valor": 13.5,
+     "valor_com_saturacao": 9.75,
+     "ganho": 7.25,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.104,
+     "d_acel": -5,
+     "acima_de": 33,
+     "magicas": 66
+    },
+    {
+     "pasta": "02. Kaalia",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Nível 1 de Cargas da Kaalia: traz criaturas do cemitério direto para o campo, sem passar pela mão, como o Entreat the Dead; e elas voltam sem o tipo Anjo, Demônio ou Dragão."
+     },
+     "valor": 11.5,
+     "valor_com_saturacao": 8.5,
+     "ganho": 6.5,
+     "sai": "Fatal Push",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.106,
+     "d_acel": 0,
+     "acima_de": 31,
+     "magicas": 65
+    },
+    {
+     "pasta": "03. Lynde",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 7.5,
+     "ganho": 6.5,
+     "sai": "Hydroelectric Specimen",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.074,
+     "d_acel": 0,
+     "acima_de": 30,
+     "magicas": 67
+    },
+    {
+     "pasta": "04. Assassin Creed",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 7.5,
+     "ganho": 6.5,
+     "sai": "Shay Cormac",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.091,
+     "d_acel": 0,
+     "acima_de": 38,
+     "magicas": 65
+    },
+    {
+     "pasta": "02. Clavileño",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Nível 2 de Morrer e voltar: recursão repetível de criatura, uma a cada fim de turno seu. Vampiros abençoados fica 0: a criatura volta como Borg e perde o tipo Vampiro."
+     },
+     "valor": 13.5,
+     "valor_com_saturacao": 8.25,
+     "ganho": 5.75,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.101,
+     "d_acel": 0,
+     "acima_de": 35,
+     "magicas": 68
+    },
+    {
+     "pasta": "01. Vito",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 6.0,
+     "ganho": 5.0,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.101,
+     "d_acel": 0,
+     "acima_de": 24,
+     "magicas": 68
+    },
+    {
+     "pasta": "04. Queen",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 6.0,
+     "ganho": 5.0,
+     "sai": "Approach of the Second Sun",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.014,
+     "d_acel": 0,
+     "acima_de": 32,
+     "magicas": 68
+    },
+    {
+     "pasta": "02. Strefan",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 7.5,
+     "ganho": 4.5,
+     "sai": "Gamble",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.099,
+     "d_acel": 0,
+     "acima_de": 23,
+     "magicas": 70
+    },
+    {
+     "pasta": "05. Slivers",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 7.5,
+     "ganho": 4.5,
+     "sai": "Fierce Guardianship",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.077,
+     "d_acel": 0,
+     "acima_de": 14,
+     "magicas": 64
+    },
+    {
+     "pasta": "01. Markov",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 9,
+     "valor_com_saturacao": 6.0,
+     "ganho": 3.0,
+     "sai": "Faithless Looting",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.103,
+     "d_acel": 0,
+     "acima_de": 13,
+     "magicas": 67
+    },
+    {
+     "pasta": "03. K'rrik",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Nível 1: o K'rrik paga só os dois {B} de {6}{B}{B}, um quarto do valor de mana."
+     },
+     "valor": 11.5,
+     "valor_com_saturacao": 8.5,
+     "ganho": 3.0,
+     "sai": "Ophiomancer",
+     "valor_sai": 5.5,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.074,
+     "d_acel": 0,
+     "acima_de": 22,
+     "magicas": 67
+    }
+   ],
+   "vereditos": {
+    "resumo": "Mediana: um encantamento de oito manas que reanima uma criatura de qualquer cemitério em todo fim de turno seu e deixa indestrutíveis as suas criaturas artefato; só a Tergrid tem régua para isso, e mesmo lá o custo pede teste. Compra: esperar o lançamento.",
+    "compra": {
+     "acao": "esperar",
+     "porque": "Pré-lançamento (sai em 13/11/2026): os US$ 17,46 são de pré-venda e o EDHREC ainda não tem dado; consultar de novo depois do lançamento. O ganho na Tergrid (+17,5) é de Deck, mas a vaga não está decidida e o preço é alto para uma carta a testar."
+    },
+    "decks": {
+     "03. Tergrid": {
+      "veredito": "avaliar",
+      "porque": "Nível 3 de Do cemitério para o campo (reanima em toda volta, como a Sheoldred, Whispering One), num critério abaixo da faixa (6 cartas para 8 a 15); vale 18 contra 13,5 da Curse of the Cabal, tier D, a outra mágica pesada que não é criatura. Fica em avaliar pelo custo 8 sem efeito imediato, e porque as criaturas que os oponentes sacrificam já vão para a Tergrid, não para o cemitério.",
+      "sai": "Curse of the Cabal"
+     },
+     "02. Evelyn": {
+      "veredito": "fora",
+      "porque": "A criatura volta como Borg e \"loses all other creature types\", então não enche a coleção de Vampiros; o roubo do cemitério do oponente dá 2 em Jogar do exílio, mas num tribal um 8 de mana sem a tribo não ganha vaga, e o ganho de +14 é contra a Jwari Disruption, de outro papel."
+     },
+     "05. Deadpool": {
+      "veredito": "fora",
+      "porque": "Desejo. A volta do cemitério só faz o Deadpool trocar de novo se ele estiver no cemitério, não na zona de comando."
+     },
+     "02. Turtle Power!": {
+      "veredito": "fora",
+      "porque": "Não é Tartaruga e o marcador vai só na criatura assimilada; oito manas para um efeito lateral num deck de cinco cores focado na tribo."
+     },
+     "04. Zur": {
+      "veredito": "fora",
+      "porque": "É encantamento, mas de valor 8, que o Zur não busca (nível 1), e não taxa a mesa."
+     },
+     "02. Elfos": {
+      "veredito": "fora",
+      "porque": "Não é Elfo e a criatura volta como Borg: 0 nas duas sinergias."
+     },
+     "03. Valgavoth": {
+      "veredito": "fora",
+      "porque": "Não tira vida no turno dos oponentes e o Demônio reanimado perde o tipo Demônio: 0 nas duas sinergias."
+     },
+     "03. Master Of Evil": {
+      "veredito": "fora",
+      "porque": "Precon intacto; a indestrutibilidade protege os Daleks, mas a régua só dá 1 pelo corpo de artefato toda volta, e oito manas não ligam o Davros no turno em que entra."
+     },
+     "02. Zumbis": {
+      "veredito": "fora",
+      "porque": "A recursão é repetível (2 em Sacrifício e recursão), mas o Zumbi devolvido perde o tipo Zumbi e não paga mais a Wilhelt; empata em valor (13,5) com o Army of the Damned, que cria Zumbis de verdade."
+     },
+     "02. Kaalia": {
+      "veredito": "fora",
+      "porque": "Só 1 em Cargas da Kaalia (do cemitério ao campo sem passar pela mão) e as cargas voltam sem o tipo Anjo, Demônio ou Dragão; oito manas sem atacar."
+     },
+     "03. Lynde": {
+      "veredito": "fora",
+      "porque": "Não é Maldição nem mexe na política: 0 nas duas sinergias."
+     },
+     "04. Assassin Creed": {
+      "veredito": "fora",
+      "porque": "Não é Assassino e não ajuda a conectar: 0 nas duas sinergias."
+     },
+     "02. Clavileño": {
+      "veredito": "fora",
+      "porque": "A recursão repetível dá 2 em Morrer e voltar, mas o Vampiro devolvido vira Borg e não pode ser abençoado; ganho de +5,75 só."
+     },
+     "01. Vito": {
+      "veredito": "fora",
+      "porque": "Não ganha vida nem devolve Vampiros como Vampiros: 0 nas duas sinergias."
+     },
+     "04. Queen": {
+      "veredito": "fora",
+      "porque": "Não dá a coroa nem segura ataques: 0 nas duas sinergias."
+     },
+     "03. K'rrik": {
+      "veredito": "fora",
+      "porque": "O K'rrik paga só dois de oito de mana (nível 1) e ela não drena; ganho de +3."
+     }
+    }
+   },
+   "estudo": {
+    "leitura": "Encantamento de oito manas. Dá indestrutível às suas criaturas artefato e, no início do seu passo final, assimila uma criatura de qualquer cemitério: ela entra sob seu controle com um marcador +1/+1, como criatura artefato Borg, sem os outros tipos de criatura. Não faz nada no turno em que entra além de um assimilar no fim do turno, não compra, não remove e não protege o que não é artefato.",
+    "forcas": [
+     "Recursão toda volta: \"At the beginning of your end step, assimilate target creature card from a graveyard\".",
+     "Rouba de qualquer cemitério: \"from a graveyard\" inclui os dos oponentes.",
+     "Protege o que traz: \"Artifact creatures you control have indestructible\", e toda criatura assimilada vira \"Borg artifact creature\".",
+     "Cada criatura volta maior: \"with a +1/+1 counter\"."
+    ],
+    "fraquezas": [
+     "Muito cara: \"{6}{B}{B}\" para um encantamento sem efeito imediato.",
+     "Apaga a tribo: a criatura \"loses all other creature types\", o que quebra os decks tribais.",
+     "Indestrutível não segura exílio, -X/-X nem remoção de encantamento: \"Artifact creatures you control have indestructible\" só impede destruição.",
+     "Depende de haver criatura em algum cemitério: \"target creature card from a graveyard\"; sem alvo, a volta passa em branco.",
+     "Gatilho só no seu passo final (\"your end step\"): a criatura não ataca no turno em que volta."
+    ],
+    "vacuo": {
+     "grau": "B",
+     "porque": "Valor próprio 9 contra mediana 5: Recurso 3 pela reanimação toda volta e Resiliência 2 pela indestrutibilidade das criaturas artefato. Sem EDHREC (pré-lançamento) e sem Game Changer, o grau sai só do valor."
+    },
+    "armadilhas": {
+     "03. Tergrid": "As criaturas que os oponentes sacrificam ou descartam vão direto para a Tergrid, não ficam no cemitério; o alimento real da Death Is Irrelevant é o que morre destruído ou em combate, e as suas próprias criaturas.",
+     "02. Zumbis": "O Zumbi assimilado vira Borg: deixa de ser Zumbi para a Wilhelt e para os lordes.",
+     "02. Clavileño": "O Vampiro assimilado perde o tipo e não recebe a bênção.",
+     "02. Evelyn": "O ganho alto vem do roubo de cemitério, mas a criatura não entra como Vampiro e não enche a coleção."
+    }
+   },
+   "gravado": "2026-11-03T02:37:48"
+  }
+ ]
+}
