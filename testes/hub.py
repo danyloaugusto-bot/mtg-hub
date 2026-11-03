@@ -237,9 +237,24 @@ with sync_playwright() as p:
             # Compras: sem banco (arquivo offline) a lista avisa e o radar fica sem botão
             aba(pg, "compras")
             R.ok("Compras: offline, a lista avisa que mora no hub publicado", "mora no hub publicado" in pg.inner_text("#d-compras") and pg.locator('#d-radar [data-act="comp"]').count() == 0)
-            ts = pg.locator('#v-decks .grupo[data-grupo="06"] .cmp-s li')
+            ts = pg.locator('#v-decks .grupo[data-grupo="06"] .cmp-ts li')
             esp_s = {c["n"].split(" // ")[0] for d in prontos if d.get("grupo") != "05" for c in d["a"]["cands"] if c.get("T") == "S" and c.get("v") != "fora"}
             R.ok("06. Compras: o Tier S dos radares aparece offline, por cor, uma linha por carta (%d)" % len(esp_s), ts.count() == len(esp_s), (ts.count(), len(esp_s)))
+            g6 = pg.locator('#v-decks .grupo[data-grupo="06"]')
+            est = g6.locator(".ts-top .cmp-sub").text_content() or ""
+            nums = [int(x) for x in __import__("re").findall(r"(\d+) (?:para comprar|em uso|livre)", est)]
+            R.ok("06. Compras: Tier S separa comprar, em uso e livre, e a soma fecha com o total", len(nums) == 3 and sum(nums) == len(esp_s), (est, len(esp_s)))
+            pg.click('[role=tab][data-vista="decks"]'); pg.wait_for_timeout(200)
+            g6.locator("details").first.evaluate("d => d.open = true"); pg.wait_for_timeout(200)
+            g6.locator('[data-ts="modo"][data-k="gal"]').click(); pg.wait_for_timeout(300)
+            R.ok("06. Compras: a Galeria mostra uma imagem por carta Tier S e esconde a Lista",
+                 g6.locator(".ts-gal .ts-c img").count() == len(esp_s) and g6.locator(".ts-lista").is_hidden(), (g6.locator(".ts-gal .ts-c img").count(), len(esp_s)))
+            g6.locator(".ts-gal .ts-c >> nth=0").click(); pg.wait_for_timeout(200)
+            R.ok("06. Compras: tocar na carta abre a janela com a imagem e o deck que pede", pg.evaluate("document.getElementById('ts-dlg').open") and pg.locator("#ts-dlg .ts-di img").count() >= 1 and pg.locator("#ts-dlg .ts-dt li").count() >= 1)
+            pg.keyboard.press("Escape"); pg.wait_for_timeout(150)
+            R.ok("06. Compras: Esc fecha a janela da carta", not pg.evaluate("document.getElementById('ts-dlg').open"))
+            g6.locator('[data-ts="modo"][data-k="lista"]').click()
+            pg.click('[role=tab][data-vista="dash"]'); pg.wait_for_timeout(200)
             R.ok("06. Compras: offline, o grupo da estante avisa que a lista mora no hub publicado", "mora no hub publicado" in (pg.text_content('#v-decks .grupo[data-grupo="06"]') or ""))
             R.ok("Compras: radar com todos os S e A dos radares", pg.evaluate("window.HUB_DASH.radar") >= pg.locator("#d-radar tbody tr:not(.mais)").count() > 0)
             cp = b.new_page(viewport={"width": 1360, "height": 1000})
@@ -255,7 +270,7 @@ with sync_playwright() as p:
             ci = c0.get("ci")
             cor = "L" if c0.get("L") else "?" if ci is None else "C" if ci == "" else "M" if len(ci) > 1 else ci
             cp.click('#d-radar [data-act="comp"] >> nth=0'); cp.wait_for_timeout(300)
-            R.ok("06. Compras: a carta marcada aparece na estante, no espaço da sua cor (ou em Terrenos)", nome in (cp.text_content('#v-decks .grupo[data-grupo="06"] .cmp7:not(.cmp-s) .cmp-cor[data-cor="%s"]' % cor) or ""), (nome, cor))
+            R.ok("06. Compras: a carta marcada aparece na estante, no espaço da sua cor (ou em Terrenos)", nome in (cp.text_content('#v-decks .grupo[data-grupo="06"] .cmp7:not(.cmp-ts) .cmp-cor[data-cor="%s"]' % cor) or ""), (nome, cor))
             R.ok("Compras: + Compras grava no banco e aparece na lista", len(cp.evaluate("Object.keys(window.__store)")) == 1 and nome in cp.inner_text("#d-compras"), nome)
             R.ok("Compras: o botão vira Na lista", cp.locator('#d-radar [data-act="comp"][aria-pressed="true"]').count() >= 1)
             enc = cp.inner_text('#d-radar tbody tr >> nth=0 >> td[data-l="Rende mais em"]').strip()
