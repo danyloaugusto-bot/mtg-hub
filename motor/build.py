@@ -177,6 +177,8 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         grimorio=dict(href="00.%20Grim%C3%B3rio.html", pub=grimorio.link_publicado()) if os.path.exists(os.path.join(dados.DADOS, "grimorio", "grimorio.json")) else None,
         # e à Consulta: uma carta de fora contra todos os decks (página própria, ao lado do Grimório)
         consulta=dict(href="00.%20Consulta.html", pub=consulta.link_publicado()),
+        # o "←" do topo: o hub local no arquivo, o hub publicado no claude.ai
+        hub=dict(href="00.%20Hub.html", pub=caixa.regua().get("hub_publicado") or None),
     )
     # v3: os dez critérios (aba Critérios e gráfico da página inicial), com a cor da régua; o 8×8 segue com os agrupamentos
     criterios = None
