@@ -1,0 +1,633 @@
+{
+ "versao": 1,
+ "carta": {
+  "nome": "Gul Dukat, Colonial Prefect",
+  "custo": "{4}{B}{B}{B}",
+  "tipo": "Legendary Creature — Cardassian Rogue",
+  "texto": "Menace\nAt the beginning of each end step, each opponent loses life equal to the life that player lost this turn. You gain life equal to the life lost this way. (Damage causes loss of life.)",
+  "ci": "B",
+  "set": "trk",
+  "num": "113",
+  "link": "https://scryfall.com/card/trk/113",
+  "lancamento": "2026-11-13",
+  "pt": "6/6",
+  "artista": "Joel Chaim Holtzman",
+  "sid": "7adc6373-1196-448f-8aee-cee7a890c724",
+  "cmc": 7.0,
+  "gc": false,
+  "faces": null
+ },
+ "consultas": [
+  {
+   "data": "2026-11-03",
+   "usd": "16.01",
+   "usd_foil": null,
+   "rank": 32596,
+   "avisos": [
+    "pré-lançamento: sai em 2026-11-13; o preço é de pré-venda e o EDHREC ainda não tem dado"
+   ],
+   "cadastro": {
+    "n": {
+     "dano": 3,
+     "resiliencia": 2,
+     "evasao": 1
+    },
+    "por_que": "Em cada fim de turno, cada oponente perde de novo toda a vida que perdeu no turno: dobra a perda, em todos, todo turno (Dano Direto 3, como Wound Reflection); você ganha essa mesma vida, ganho repetível que depende da perda dos outros (Resiliência 2); ameaça na própria criatura (Evasão 1).",
+    "fonte": "consulta",
+    "revisado": "2026-11-03"
+   },
+   "forca": {
+    "valor_proprio": 10,
+    "mediana": 5,
+    "percentil": 84,
+    "rank": null,
+    "gc": false,
+    "grau": "B"
+   },
+   "encaixe": [
+    {
+     "pasta": "01. Vito",
+     "sin": [
+      3,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Dobra a perda de vida dos oponentes e devolve em vida o que eles perderam, o que dispara o Vito; nota 3 da régua (dobra, como Bloodletter of Aclazotz, e fecha o laço, como Exquisite Blood)."
+     },
+     "valor": 25.0,
+     "valor_com_saturacao": 22.5,
+     "ganho": 21.5,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.087,
+     "d_acel": 0,
+     "acima_de": 65,
+     "magicas": 68
+    },
+    {
+     "pasta": "03. Master Of Evil",
+     "sin": [
+      3,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "\"each opponent loses life equal to the life that player lost this turn\" no fim do turno: a perda do turno dobra, o mesmo texto da Wound Reflection, nota 3; e ainda é um 6/6 com ameaça."
+     },
+     "valor": 25.0,
+     "valor_com_saturacao": 22.5,
+     "ganho": 21.5,
+     "sai": "The Master, Formed Anew",
+     "valor_sai": 1,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.079,
+     "d_acel": 0,
+     "acima_de": 59,
+     "magicas": 62
+    },
+    {
+     "pasta": "04. Assassin Creed",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Tira vida de cada oponente de forma repetível, dobrando a perda do turno, o que leva a mesa aos 10 da execução; nota 2 da régua (Arbaaz Mir)."
+     },
+     "valor": 14.5,
+     "valor_com_saturacao": 16.5,
+     "ganho": 15.5,
+     "sai": "Shay Cormac",
+     "valor_sai": 1,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.076,
+     "d_acel": 0,
+     "acima_de": 50,
+     "magicas": 65
+    },
+    {
+     "pasta": "02. Turtle Power!",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 15.0,
+     "ganho": 12.0,
+     "sai": "Continue?",
+     "valor_sai": 3,
+     "faixa": "deck",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia",
+      "dano"
+     ],
+     "d_cmc": 0.076,
+     "d_acel": -5,
+     "acima_de": 22,
+     "magicas": 64
+    },
+    {
+     "pasta": "03. Lynde",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 12.0,
+     "ganho": 11.0,
+     "sai": "Hydroelectric Specimen",
+     "valor_sai": 1,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.059,
+     "d_acel": 0,
+     "acima_de": 32,
+     "magicas": 67
+    },
+    {
+     "pasta": "02. Evelyn",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 11.5,
+     "ganho": 10.5,
+     "sai": "Jwari Disruption",
+     "valor_sai": 1,
+     "faixa": "deck",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.077,
+     "d_acel": 0,
+     "acima_de": 26,
+     "magicas": 64
+    },
+    {
+     "pasta": "03. Valgavoth",
+     "sin": [
+      1,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Só faz perder quem já perdeu vida no turno, então não dispara o Valgavoth sozinho: rende com a perda de vida dos oponentes sem causá-la, como Mindcrank; nota 1."
+     },
+     "valor": 12.5,
+     "valor_com_saturacao": 11.25,
+     "ganho": 10.25,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "deck",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.088,
+     "d_acel": 0,
+     "acima_de": 48,
+     "magicas": 67
+    },
+    {
+     "pasta": "02. Elfos",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 12.0,
+     "ganho": 10.0,
+     "sai": "Khalni Ambush",
+     "valor_sai": 2,
+     "faixa": "deck",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.056,
+     "d_acel": 0,
+     "acima_de": 19,
+     "magicas": 70
+    },
+    {
+     "pasta": "02. Zumbis",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 12.0,
+     "ganho": 9.5,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "guardar",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.09,
+     "d_acel": -5,
+     "acima_de": 13,
+     "magicas": 66
+    },
+    {
+     "pasta": "04. Queen",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 10.5,
+     "ganho": 9.5,
+     "sai": "Approach of the Second Sun",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 33,
+     "magicas": 68
+    },
+    {
+     "pasta": "03. K'rrik",
+     "sin": [
+      1,
+      3
+     ],
+     "sin_por_que": {
+      "sin1": "Custo {4}{B}{B}{B}: o K'rrik paga 3 das 7 manas em vida, menos da metade; nota 1.",
+      "sin2": "Dobra a perda de vida dos oponentes e a converte em vida sua (\"each opponent loses life equal to the life that player lost this turn. You gain life equal to the life lost this way\"); nota 3 da régua (dobra, como Bloodletter of Aclazotz; perda vira vida, como Exquisite Blood)."
+     },
+     "valor": 21.5,
+     "valor_com_saturacao": 14.5,
+     "ganho": 9.0,
+     "sai": "Ophiomancer",
+     "valor_sai": 5.5,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.059,
+     "d_acel": 0,
+     "acima_de": 60,
+     "magicas": 67
+    },
+    {
+     "pasta": "03. Tergrid",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 10.5,
+     "ganho": 8.5,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.09,
+     "d_acel": 0,
+     "acima_de": 30,
+     "magicas": 66
+    },
+    {
+     "pasta": "04. Zur",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 10.5,
+     "ganho": 8.5,
+     "sai": "Judge's Familiar",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.09,
+     "d_acel": 0,
+     "acima_de": 28,
+     "magicas": 66
+    },
+    {
+     "pasta": "05. Deadpool",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 10.5,
+     "ganho": 8.5,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.09,
+     "d_acel": 0,
+     "acima_de": 29,
+     "magicas": 66
+    },
+    {
+     "pasta": "05. Slivers",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 11.5,
+     "ganho": 8.5,
+     "sai": "Fierce Guardianship",
+     "valor_sai": 3,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "dano"
+     ],
+     "d_cmc": 0.062,
+     "d_acel": 0,
+     "acima_de": 15,
+     "magicas": 64
+    },
+    {
+     "pasta": "02. Strefan",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Dobra a perda de vida dos oponentes em todo fim de turno, como a Wound Reflection, que a régua de Taças de Sangue põe em 2."
+     },
+     "valor": 14.5,
+     "valor_com_saturacao": 11.25,
+     "ganho": 8.25,
+     "sai": "Gamble",
+     "valor_sai": 3,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "resiliencia"
+     ],
+     "d_cmc": 0.085,
+     "d_acel": 0,
+     "acima_de": 43,
+     "magicas": 70
+    },
+    {
+     "pasta": "02. Clavileño",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 10.5,
+     "ganho": 8.0,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.087,
+     "d_acel": 0,
+     "acima_de": 13,
+     "magicas": 68
+    },
+    {
+     "pasta": "02. Kaalia",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 10.0,
+     "ganho": 8.0,
+     "sai": "Fatal Push",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.091,
+     "d_acel": 0,
+     "acima_de": 29,
+     "magicas": 65
+    },
+    {
+     "pasta": "01. Markov",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 10,
+     "valor_com_saturacao": 10.0,
+     "ganho": 7.0,
+     "sai": "Faithless Looting",
+     "valor_sai": 3,
+     "faixa": "guardar",
+     "tier_estimado": "B",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.088,
+     "d_acel": 0,
+     "acima_de": 17,
+     "magicas": 67
+    }
+   ],
+   "vereditos": {
+    "resumo": "Boa (grau B), uma Wound Reflection num 6/6 com ameaça que ainda devolve a perda em vida; rende de verdade nos decks de dreno: entra no Vito, é a melhor da consulta no Master Of Evil (precon intacto, então avaliar) e é opção no K'rrik. Fora disso, 7 manas com {B}{B}{B} sem sinergia.",
+    "compra": {
+     "acao": "esperar",
+     "porque": "Pré-lançamento (sai em 13/11/2026), pré-venda a US$ 16,01 e EDHREC sem dado; o ganho de Deck no Vito (+21,5) justifica a compra depois que o preço assentar. Consultar de novo depois do lançamento."
+    },
+    "decks": {
+     "01. Vito": {
+      "veredito": "entra",
+      "porque": "Dobra a perda de vida dos oponentes e devolve tudo em vida, e cada ganho dispara o Vito de novo (sin1 3); valor 25 contra 16,5 do K'rrik, a comparável de 7 manas mais fraca e que não converte vida.",
+      "sai": "K'rrik, Son of Yawgmoth"
+     },
+     "03. Master Of Evil": {
+      "veredito": "avaliar",
+      "porque": "Faz exatamente o que a Wound Reflection faz pelo Davros, dobrar a perda do turno (sin1 3), e é um 6/6 com ameaça que já tira 3 sozinho; valor 25 contra 13,5 do The Master, Multiplied. Fica em avaliar porque o deck é precon intacto.",
+      "sai": "The Master, Multiplied"
+     },
+     "03. K'rrik": {
+      "veredito": "avaliar",
+      "porque": "Dobra a perda dos oponentes e devolve a vida que o K'rrik gasta (sin2 3); valor 21,5 contra 7 da Platinum Angel, mas o ganho do motor é +9, abaixo de Deck, e a Georgiou disputa a mesma vaga da Platinum Angel; se ela ficar com a vaga, a troca passa a ser por outra peça de 6 ou 7 manas.",
+      "sai": "Platinum Angel"
+     },
+     "04. Assassin Creed": {
+      "veredito": "fora",
+      "porque": "Dobrar o dano de combate ajuda a levar a mesa aos 10 da execução (sin2 2), mas não é Assassino, custa 7 com {B}{B}{B} num deck de várias cores, e a comparável do mesmo papel, a Eivor, vale 17 contra 14,5."
+     },
+     "02. Strefan": {
+      "veredito": "fora",
+      "porque": "Dobra a perda e gera Sangue (sin2 2), mas não é Vampiro e as comparáveis de 6 manas (Sisters of the Undead, Vein Ripper, Markov Enforcer) valem mais e o Strefan as põe em campo."
+     },
+     "03. Valgavoth": {
+      "veredito": "fora",
+      "porque": "Só dobra quem já perdeu vida no turno, sem disparar o Valgavoth (sin1 1); os 6 a 8 manas do deck são Demônios, que não saem, e o Massacre Wurm vale mais (17,5 contra 12,5)."
+     },
+     "03. Tergrid": {
+      "veredito": "fora",
+      "porque": "Não rouba nem reanima (0/0); os 7 e 8 manas do deck são Archon of Cruelty e Sheoldred, Whispering One, muito acima."
+     },
+     "04. Queen": {
+      "veredito": "fora",
+      "porque": "Não dá a coroa nem segura o ataque (0/0), e os 6 e 7 manas do deck (Archon of Coronation, Champions of Minas Tirith, Skyline Despot) valem 19 ou mais."
+     },
+     "04. Zur": {
+      "veredito": "fora",
+      "porque": "Não é encantamento nem taxa (0/0); fica abaixo das duas criaturas caras do deck (Consecrated Sphinx 13, Sun Titan 14,5)."
+     },
+     "03. Lynde": {
+      "veredito": "fora",
+      "porque": "Não mexe nas Maldições nem em quem ataca quem (0/0); 7 manas com {B}{B}{B} num deck de três cores, e dobrar a perda da mesa põe você como alvo."
+     },
+     "02. Zumbis": {
+      "veredito": "fora",
+      "porque": "Não é Zumbi e não sacrifica nem devolve (0/0); não há vaga de 7 manas no deck e tiraria um Zumbi."
+     },
+     "02. Turtle Power!": {
+      "veredito": "fora",
+      "porque": "Não é Tartaruga e não cria ficha nem marcador (0/0); o ganho do motor sai só do corte de uma carta fraca, não do plano."
+     },
+     "02. Evelyn": {
+      "veredito": "fora",
+      "porque": "Não é Vampiro e não joga do exílio (0/0); tiraria um Vampiro da coleção."
+     },
+     "02. Elfos": {
+      "veredito": "fora",
+      "porque": "Não é Elfo e não desvira (0/0); a Lathril já drena 10 por ativação sem precisar dela."
+     },
+     "02. Clavileño": {
+      "veredito": "fora",
+      "porque": "Não é Vampiro, não recebe a bênção (0/0) e custa 7 num deck que ataca cedo."
+     },
+     "02. Kaalia": {
+      "veredito": "fora",
+      "porque": "Não é Anjo, Demônio nem Dragão: a Kaalia não a põe em campo (0/0)."
+     },
+     "01. Markov": {
+      "veredito": "fora",
+      "porque": "Não é Vampiro nem mexe na horda (0/0); tiraria um Vampiro da eminência do Edgar."
+     },
+     "05. Deadpool": {
+      "veredito": "fora",
+      "porque": "Deck do Desejo, que nunca recebe entra; e não se liga à troca nem ao caos (0/0)."
+     },
+     "05. Slivers": {
+      "veredito": "fora",
+      "porque": "Deck do Desejo, que nunca recebe entra; não é Sliver (0/0)."
+     }
+    }
+   },
+   "estudo": {
+    "leitura": "Criatura lendária 6/6 com ameaça, de 7 manas ({B}{B}{B}). Em cada fim de turno, de qualquer jogador, \"each opponent loses life equal to the life that player lost this turn\" e você ganha a vida perdida assim. Não causa perda sozinha: só repete a que já houve no turno (dano conta). Não tem proteção nem efeito ao entrar.",
+    "forcas": [
+     "Dobra a perda: \"each opponent loses life equal to the life that player lost this turn\", como uma Wound Reflection.",
+     "Em todo turno: \"At the beginning of each end step\" vale também no turno dos oponentes.",
+     "Converte em vida: \"You gain life equal to the life lost this way\" devolve tudo o que a mesa perdeu.",
+     "Ataca sozinho: 6/6 com \"Menace\", e o próprio dano de combate é dobrado no fim do turno.",
+     "Conta dano: \"(Damage causes loss of life.)\" faz o combate de qualquer criatura sua render em dobro."
+    ],
+    "fraquezas": [
+     "Cara e de uma cor só: {4}{B}{B}{B}, 7 manas com três pretas.",
+     "Depende de outra fonte: \"equal to the life that player lost this turn\" é zero se ninguém perdeu vida.",
+     "Sem proteção: nenhum texto de resistência a mágica nem de volta ao morrer.",
+     "Só nos oponentes: \"each opponent\" não aproveita a sua própria perda de vida.",
+     "Alvo da mesa: o efeito em \"each end step\" pede remoção imediata dos oponentes."
+    ],
+    "vacuo": {
+     "grau": "B",
+     "porque": "Dano Direto 3 (dobra a perda de todos, todo turno), Resiliência 2 (ganho repetível) e Evasão 1 (ameaça) somam 10 contra mediana 5: grau B. O texto depende de outra perda no turno, e o custo de 7 manas não entra na conta."
+    },
+    "armadilhas": {
+     "01. Vito": "O gatilho do Vito por esse ganho cai depois do fim de turno já ter começado; a perda que o Vito causa só dobra no fim do próximo turno, se ela ainda estiver em campo.",
+     "03. Master Of Evil": "Ordene os gatilhos do seu fim de turno: o do Gul Dukat resolve antes do Davros conferir os 3 de vida.",
+     "03. K'rrik": "Disputa a vaga da Platinum Angel com a Georgiou; e o {B}{B}{B} pago com vida custa 6 de vida."
+    }
+   },
+   "gravado": "2026-11-03T02:48:45"
+  }
+ ]
+}
