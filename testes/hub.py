@@ -237,6 +237,9 @@ with sync_playwright() as p:
             # Compras: sem banco (arquivo offline) a lista avisa e o radar fica sem botão
             aba(pg, "compras")
             R.ok("Compras: offline, a lista avisa que mora no hub publicado", "mora no hub publicado" in pg.inner_text("#d-compras") and pg.locator('#d-radar [data-act="comp"]').count() == 0)
+            ts = pg.locator('#v-decks .grupo[data-grupo="06"] .cmp-s li')
+            esp_s = {c["n"].split(" // ")[0] for d in prontos if d.get("grupo") != "05" for c in d["a"]["cands"] if c.get("T") == "S" and c.get("v") != "fora"}
+            R.ok("06. Compras: o Tier S dos radares aparece offline, por cor, uma linha por carta (%d)" % len(esp_s), ts.count() == len(esp_s), (ts.count(), len(esp_s)))
             R.ok("06. Compras: offline, o grupo da estante avisa que a lista mora no hub publicado", "mora no hub publicado" in (pg.text_content('#v-decks .grupo[data-grupo="06"]') or ""))
             R.ok("Compras: radar com todos os S e A dos radares", pg.evaluate("window.HUB_DASH.radar") >= pg.locator("#d-radar tbody tr:not(.mais)").count() > 0)
             cp = b.new_page(viewport={"width": 1360, "height": 1000})
@@ -252,7 +255,7 @@ with sync_playwright() as p:
             ci = c0.get("ci")
             cor = "L" if c0.get("L") else "?" if ci is None else "C" if ci == "" else "M" if len(ci) > 1 else ci
             cp.click('#d-radar [data-act="comp"] >> nth=0'); cp.wait_for_timeout(300)
-            R.ok("06. Compras: a carta marcada aparece na estante, no espaço da sua cor (ou em Terrenos)", nome in (cp.text_content('#v-decks .grupo[data-grupo="06"] .cmp-cor[data-cor="%s"]' % cor) or ""), (nome, cor))
+            R.ok("06. Compras: a carta marcada aparece na estante, no espaço da sua cor (ou em Terrenos)", nome in (cp.text_content('#v-decks .grupo[data-grupo="06"] .cmp7:not(.cmp-s) .cmp-cor[data-cor="%s"]' % cor) or ""), (nome, cor))
             R.ok("Compras: + Compras grava no banco e aparece na lista", len(cp.evaluate("Object.keys(window.__store)")) == 1 and nome in cp.inner_text("#d-compras"), nome)
             R.ok("Compras: o botão vira Na lista", cp.locator('#d-radar [data-act="comp"][aria-pressed="true"]').count() >= 1)
             enc = cp.inner_text('#d-radar tbody tr >> nth=0 >> td[data-l="Rende mais em"]').strip()
@@ -354,6 +357,21 @@ with sync_playwright() as p:
             R.ok("mesa: o primeiro é quem vai melhor contra combo", ordem[:1] == melhores[:1], (ordem[:1], melhores))
             pg.click('#d-mesa [data-act="mesa-limpar"]'); pg.wait_for_timeout(100)
             R.ok("mesa: limpar volta ao estado vazio", pg.locator("#mesa .rank").count() == 0)
+            # prontos para jogar: o ranking (fora o grupo Desejo), o teto nunca abaixo de hoje, e a mesa justa muda com as trocas feitas
+            fisicos = [d for d in prontos if d.get("grupo") != "05"]
+            linhas = pg.locator("#d-prontos .pr-t tbody tr")
+            R.ok("prontos: uma linha por deck que existe na mesa (%d, sem os do Desejo)" % len(fisicos), linhas.count() == len(fisicos), linhas.count())
+            pcts = pg.eval_on_selector_all("#d-prontos .pr-t tbody tr td.pr-b > .num", "e=>e.map(x=>parseFloat(x.textContent.replace(',','.')))")
+            R.ok("prontos: do mais pronto para o menos, entre 0 e 100%", pcts == sorted(pcts, reverse=True) and all(0 < x <= 100 for x in pcts), pcts[:5])
+            alvo_pr = next((d for d in fisicos if pg.locator('#d-prontos select[data-pr] option[value="%s"]' % d["pasta"]).count()), None)
+            pg.select_option("#d-prontos select[data-pr]", alvo_pr["pasta"]); pg.wait_for_timeout(150)
+            f0 = pg.inner_text("#pr-justa .pr-sks .sk >> nth=0")
+            R.ok("prontos: a mesa justa lista oponentes, nenhum do Desejo nem o próprio deck",
+                 pg.locator("#pr-justa .pr-op li").count() >= 3 and alvo_pr["nome"] not in pg.eval_on_selector_all("#pr-justa .pr-op li b a", "e=>e.map(x=>x.textContent)")
+                 and not set(pg.eval_on_selector_all("#pr-justa .pr-op li b a", "e=>e.map(x=>x.textContent)")) & {d["nome"] for d in prontos if d.get("grupo") == "05"})
+            if pg.locator("#pr-justa input[data-prx]").count():
+                pg.locator("#pr-justa input[data-prx]").first.check(); pg.wait_for_timeout(150)
+                R.ok("prontos: marcar uma troca feita sobe a força do deck", pg.inner_text("#pr-justa .pr-sks .sk >> nth=0") != f0 and pg.locator("#pr-justa .pr-sks .pos").count() >= 1)
             # simulador: cenários do deck de hoje e das recomendadas
             aba(pg, "trocas")
             alvo = prontos[-1]
