@@ -1681,26 +1681,76 @@ function listaTierS() {
     var k = chave(x.c), e = por[k] || (por[k] = { n: k, ped: [], cor: corDe(k, x.c.ci, x.c.L) });
     e.ped.push({ A: x.A, v: x.c.v, sa: x.c.sa ? (x.A.idx[x.c.sa] || {}).n : '' });
   });
+  var ORD = { comprar: 0, ocupada: 1, livre: 2 };
   return Object.keys(por).map(function (k) {
     var e = por[k]; e.tem = jaTemFisico(k, null).filter(function (o) { return !e.ped.some(function (p) { return p.A === o.A; }); }); e.pas = pastaDe(k);
+    // livre: há cópia parada na Caixa ou numa pasta, é só pegar; ocupada: as cópias estão em outros decks, precisa de mais uma
+    e.est = e.pas ? 'livre' : e.tem.length ? 'ocupada' : 'comprar';
     e.entra = e.ped.some(function (p) { return p.v === 'entra'; });
     return e;
-  }).sort(function (a, b) { return (a.tem.length || a.pas ? 1 : 0) - (b.tem.length || b.pas ? 1 : 0) || (b.entra ? 1 : 0) - (a.entra ? 1 : 0) || b.ped.length - a.ped.length || a.n.localeCompare(b.n); });
+  }).sort(function (a, b) { return ORD[a.est] - ORD[b.est] || (b.entra ? 1 : 0) - (a.entra ? 1 : 0) || b.ped.length - a.ped.length || a.n.localeCompare(b.n); });
 }
+/* Tier S: Lista ou Galeria (pedido do dono, 03/11/2026: ver a carta na loja ou numa troca). As imagens vêm no hub (H.img_s). */
+var TS_GAL = false, TS_L = null;
+function tsOnde(x) { return x.pas ? (x.pas[0].p === 'Caixa' ? 'na Caixa' : 'na pasta ' + x.pas[0].p) : ''; }
+function tsPill(x, curto) {
+  if (x.est === 'livre') return pill('ok', curto ? 'livre' : tsOnde(x) + ': é só pegar', '✓');
+  if (x.est === 'ocupada') return pill('warn', curto ? 'em uso' : 'em uso no ' + lista(x.tem.map(function (o) { return o.A.nome; })) + ': precisa de outra cópia', '!');
+  return curto ? pill('bad', 'comprar', '✕') : '';
+}
+function tsPed(x) { return x.ped.map(function (p) { return esc(p.A.nome) + (p.v === 'avaliar' ? ' (avaliar)' : '') + (p.sa ? ', no lugar de ' + esc(p.sa) : ''); }).join('; '); }
 function blocoTierS() {
-  var L = listaTierS();
+  var L = TS_L = listaTierS();
   if (!L.length) return '<p class="vazio-g">Nenhuma carta Tier S no radar dos decks.</p>';
-  var comprar = L.filter(function (x) { return !x.tem.length && !x.pas; }).length;
-  return '<h3 class="cmp-sub">' + tierB('S') + ' Tier S nos radares <span class="dim">' + pl(L.length, 'carta', 'cartas') + ', ' + pl(comprar, 'para comprar ou trocar', 'para comprar ou trocar') + '</span></h3>' +
-    '<div class="cmp7 cmp-s">' + porCor(L).filter(function (g) { return g.L.length; }).map(function (g) {
-      return '<article class="cmp-cor" data-cor="' + g.k + '"><h3>' + simbCor(g.k) + esc(g.n) + '<span class="num">' + g.L.length + '</span></h3><ul>' + g.L.map(function (x) {
-        var ja = x.tem.length ? 'já no ' + lista(x.tem.map(function (o) { return o.A.nome; })) : x.pas ? (x.pas[0].p === 'Caixa' ? 'na Caixa' : 'na pasta ' + x.pas[0].p) : '';
-        return '<li class="' + (ja ? 'cmp-tem' : '') + '"><b>' + esc(x.n) + '</b>' + (ja ? ' ' + pill('ok', ja, '✓') : '') +
-          '<small class="dim">' + x.ped.map(function (p) { return esc(p.A.nome) + (p.v === 'avaliar' ? ' (avaliar)' : '') + (p.sa ? ', no lugar de ' + esc(p.sa) : ''); }).join('; ') + '</small></li>';
-      }).join('') + '</ul></article>';
-    }).join('') + '</div>' +
-    nota('As cartas Tier S do radar de cada deck (entra e avaliar): as que mais mudam o deck de patamar. "No lugar de" é quem sai, pelo radar. Com ✓, você já tem a carta (em outro deck, na Caixa ou numa pasta): mova antes de comprar. Os decks do grupo Desejo ficam de fora. A lista muda sozinha quando o radar muda.');
+  var n = function (e) { return L.filter(function (x) { return x.est === e; }).length; }, img = H.img_s || {};
+  var G = porCor(L).filter(function (g) { return g.L.length; });
+  var seg = '<div class="seg ts-seg" role="group" aria-label="Ver o Tier S como">' + [['lista', 'Lista'], ['gal', 'Galeria']].map(function (o) {
+    return '<button data-ts="modo" data-k="' + o[0] + '" aria-pressed="' + ((o[0] === 'gal') === TS_GAL) + '">' + o[1] + '</button>';
+  }).join('') + '</div>';
+  var lst = '<div class="cmp7 cmp-ts ts-lista"' + (TS_GAL ? ' hidden' : '') + '>' + G.map(function (g) {
+    return '<article class="cmp-cor" data-cor="' + g.k + '"><h3>' + simbCor(g.k) + esc(g.n) + '<span class="num">' + g.L.length + '</span></h3><ul>' + g.L.map(function (x) {
+      return '<li class="ts-' + x.est + '"><button class="ts-n" data-ts="ver" data-k="' + esc(x.n) + '">' + esc(x.n) + '</button>' + (x.est !== 'comprar' ? ' ' + tsPill(x) : '') +
+        '<small class="dim">' + tsPed(x) + '</small></li>';
+    }).join('') + '</ul></article>';
+  }).join('') + '</div>';
+  var gal = '<div class="ts-gal"' + (TS_GAL ? '' : ' hidden') + '>' + G.map(function (g) {
+    return '<section class="ts-gc" data-cor="' + g.k + '"><h4>' + simbCor(g.k) + esc(g.n) + ' <span class="num dim">' + g.L.length + '</span></h4><div class="ts-grade">' + g.L.map(function (x) {
+      var u = (img[x.n] || [])[0];
+      return '<button class="ts-c ts-' + x.est + '" data-ts="ver" data-k="' + esc(x.n) + '" aria-label="' + esc(x.n) + ', ' + (x.est === 'comprar' ? 'para comprar' : x.est === 'livre' ? 'livre' : 'em uso em outro deck') + '">' +
+        (u ? '<img src="' + u + '" alt="" loading="lazy" decoding="async">' : '<span class="ts-sem">' + esc(x.n) + '</span>') +
+        '<span class="ts-r">' + tsPill(x, true) + '<small>' + esc(lista(x.ped.map(function (p) { return p.A.nome; }))) + '</small></span></button>';
+    }).join('') + '</div></section>';
+  }).join('') + '</div>';
+  return '<div class="ts-top"><h3 class="cmp-sub">' + tierB('S') + ' Tier S nos radares <span class="dim">' + pl(L.length, 'carta', 'cartas') + ': ' +
+    n('comprar') + ' para comprar, ' + n('ocupada') + ' em uso em outro deck, ' + pl(n('livre'), 'livre', 'livres') + '</span></h3>' + seg + '</div>' +
+    lst + gal +
+    nota('As cartas Tier S do radar de cada deck (entra e avaliar): as que mais mudam o deck de patamar. Toque numa carta para vê-la grande. "No lugar de" é quem sai, pelo radar. ' +
+      '<b>Livre</b>: há uma cópia parada na Caixa ou numa pasta, é só pegar. <b>Em uso</b>: suas cópias estão em outros decks; para este, compre mais uma ou escolha qual deck fica com ela. Sem marca: você não tem, é compra. Os decks do grupo Desejo ficam de fora. A lista muda sozinha quando o radar muda.');
 }
+function tsVer(k) {
+  var x = (TS_L || listaTierS()).filter(function (e) { return e.n === k; })[0]; if (!x) return;
+  var d = document.getElementById('ts-dlg');
+  if (!d) {
+    d = document.createElement('dialog'); d.id = 'ts-dlg'; d.className = 'ts-dlg'; document.body.appendChild(d);
+    d.addEventListener('click', function (ev) { if (ev.target === d || ev.target.closest('[data-ts="fechar"]')) d.close(); });
+  }
+  var us = (H.img_s || {})[k] || [];
+  d.setAttribute('aria-label', k);
+  d.innerHTML = '<div class="ts-dc"><div class="ts-di">' + (us.length ? us.map(function (u, i) { return '<img src="' + u + '" alt="' + esc(k) + (i ? ' (verso)' : '') + '">'; }).join('') : '<span class="ts-sem">Sem imagem no cache</span>') + '</div>' +
+    '<div class="ts-dt"><h3>' + tierB('S') + ' ' + esc(k) + '</h3>' + (x.est === 'comprar' ? pill('bad', 'você não tem: é compra', '✕') : tsPill(x)) +
+    '<ul>' + x.ped.map(function (p) { return '<li><b>' + esc(p.A.nome) + '</b>' + (p.v === 'avaliar' ? ' <span class="dim">(avaliar)</span>' : '') + (p.sa ? '<small class="dim">no lugar de ' + esc(p.sa) + '</small>' : '') + '</li>'; }).join('') + '</ul>' +
+    '<button class="bt" data-ts="fechar">Fechar</button></div></div>';
+  if (d.showModal) d.showModal(); else d.setAttribute('open', '');
+}
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest && ev.target.closest('#v-decks [data-ts]'); if (!b) return;
+  if (b.dataset.ts === 'ver') tsVer(b.dataset.k);
+  else if (b.dataset.ts === 'modo') {
+    TS_GAL = b.dataset.k === 'gal'; var g = b.closest('.grupo');
+    g.querySelectorAll('[data-ts="modo"]').forEach(function (x) { x.setAttribute('aria-pressed', String((x.dataset.k === 'gal') === TS_GAL)); });
+    g.querySelector('.ts-lista').hidden = TS_GAL; g.querySelector('.ts-gal').hidden = !TS_GAL;
+  }
+});
 /* 06. Compras na estante: o grupo que vem depois dos cinco do aplicativo, com a lista por cor */
 function comprasEstante() {
   var L = listaCompras(), corpo, res, nS = listaTierS().length;
