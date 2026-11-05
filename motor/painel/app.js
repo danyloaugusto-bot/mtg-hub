@@ -3481,7 +3481,9 @@ function footHtml() {
 }
 $('#footTxt').innerHTML = footHtml();
 (function () {   /* o "←" leva ao hub: publicado, ao hub publicado; sem o link dele, some (a página publicada não tem o hub ao lado) */
-  var vh = $('#voltar'); if (!vh || !PUB) return;
+  var vh = $('#voltar'); if (!vh) return;
+  if (!M.hub) { vh.hidden = true; return; }   // deck avulso (de amigo): não há hub para voltar
+  if (!PUB) return;
   if (M.hub && M.hub.pub) vh.href = M.hub.pub; else vh.hidden = true;
 })();
 /* a gaveta é redesenhada a cada nota: o bloco do 8×8 lembra se estava aberto */
