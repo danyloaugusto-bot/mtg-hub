@@ -1,0 +1,2099 @@
+{
+ "versao_pontuacao": 3,
+ "feito": "05/11/2026",
+ "agrupamentos": [
+  {
+   "k": "ramp",
+   "nome": "Ramp",
+   "ab": "Ramp",
+   "ref": [
+    10,
+    14
+   ],
+   "desc": "Mana além do terreno do turno: criaturas de mana, pedras e auras. Terreno que sempre entra virado vale −1."
+  },
+  {
+   "k": "draw",
+   "nome": "Draw",
+   "ab": "Draw",
+   "ref": [
+    10,
+    12
+   ],
+   "desc": "Compra de cartas, além da que a Helga dá a cada titã."
+  },
+  {
+   "k": "titas",
+   "nome": "Titãs",
+   "ab": "Titãs",
+   "desc": "Criaturas de valor de mana 4 ou mais (ou com {X}) que disparam a Helga e gastam a mana dela."
+  },
+  {
+   "k": "desvirar",
+   "nome": "Desvirar e piscar",
+   "curto": "Desvirar",
+   "ab": "Desv.",
+   "desc": "Desvira a Helga, os terrenos ou as criaturas de mana, ou pisca criaturas para repetir a entrada."
+  },
+  {
+   "k": "copia",
+   "nome": "Cópias",
+   "ab": "Cópia",
+   "desc": "Clones e fichas cópia: um segundo Drake, um segundo titã."
+  },
+  {
+   "k": "tutor",
+   "nome": "Tutores e corrente",
+   "curto": "Tutores",
+   "ab": "Tutor",
+   "desc": "Busca de criatura, corrente de sacrifício (Birthing Pod e companhia) e recursão."
+  },
+  {
+   "k": "interacao",
+   "nome": "Interação",
+   "ab": "Inter.",
+   "ref": [
+    8,
+    12
+   ],
+   "desc": "Remoção, anulação e proteção."
+  },
+  {
+   "k": "fechamento",
+   "nome": "Fechamento",
+   "ab": "Fech.",
+   "desc": "As peças dos combos de mana infinita e o que converte a mana em vitória."
+  }
+ ],
+ "marcadores": {
+  "grande": {
+   "nome": "Titã (dispara a Helga)"
+  },
+  "desvira": {
+   "nome": "Desvira a Helga"
+  },
+  "combo": {
+   "nome": "Peça de combo infinito"
+  }
+ },
+ "leituras": [
+  {
+   "tipo": "terrenos",
+   "min": 35,
+   "alerta": "27 terrenos, mais 2 cartas com terreno no verso: abaixo da faixa de propósito, porque nove peças de mana de 1 (seis criaturas, Sol Ring e duas auras) seguram a abertura. Sem elfo na mão inicial, o deck tropeça: mulligan."
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "ramp",
+   "min": 10,
+   "rotulo": [
+    "peça de ramp dedicada",
+    "peças de ramp dedicadas"
+   ],
+   "passagem": "que aceleram de passagem"
+  },
+  {
+   "tipo": "agrupamento",
+   "g": "draw",
+   "min": 10,
+   "rotulo": [
+    "fonte de compra dedicada",
+    "fontes de compra dedicadas"
+   ],
+   "passagem": "incidentais"
+  },
+  {
+   "tipo": "remocao",
+   "g": "interacao",
+   "massa_max": 3,
+   "massa_ref": [
+    1,
+    3
+   ],
+   "alerta": "Quase nenhuma remoção: Thorn Mammoth, Walking Ballista e Sink into Stupor. Artefato e encantamento de oponente passam livres; o radar sugere Swords to Plowshares, Generous Gift e Cyclonic Rift."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "grande",
+   "min": 25,
+   "listar": false,
+   "rotulo": [
+    "titã que dispara a Helga",
+    "titãs que disparam a Helga"
+   ],
+   "texto": "Criaturas de valor 4 ou mais, ou com {X}: cada uma conjurada compra uma carta e dá um marcador à Helga.",
+   "ok": "A Helga tem combustível."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "desvira",
+   "min": 4,
+   "listar": true,
+   "rotulo": [
+    "carta que desvira a Helga",
+    "cartas que desviram a Helga"
+   ],
+   "texto": "Cada desvirar é mais um X de mana da Helga no mesmo turno.",
+   "ok": "A Helga gera mana mais de uma vez por turno."
+  },
+  {
+   "tipo": "contagem",
+   "marcador": "combo",
+   "min": 6,
+   "listar": true,
+   "rotulo": [
+    "peça de combo infinito",
+    "peças de combo infinito"
+   ],
+   "texto": "Quatro laços de duas cartas, e a Walking Ballista para fechar.",
+   "ok": "Os laços têm redundância."
+  },
+  {
+   "tipo": "curva"
+  }
+ ],
+ "estrategia": {
+  "inicio": {
+   "turnos": "1 a 3",
+   "plano": "Elfo, Birds ou Noble Hierarch no turno 1, Helga no turno 2, e no turno 3 a primeira criatura de 4 com a mana dela: Selvala, Emiel, Inga and Esika ou um clone.",
+   "fortes": [
+    "Nove peças de mana de 1 manam a Helga no turno 2.",
+    "Faeburrow Elder, Kinnan e Captain America dobram a mana desde cedo."
+   ],
+   "fracos": [
+    "27 terrenos: sem elfo na abertura, a Helga atrasa.",
+    "Os elfos morrem para qualquer limpeza pequena."
+   ]
+  },
+  "meio": {
+   "turnos": "4 a 6",
+   "plano": "A Helga cresce a cada titã e paga o próximo sozinha. Captain America, Chakram Retriever ou Formidable Speaker a desviram, e cada titã compra: Bard, Reed Richards e Chulane multiplicam a compra. Os tutores montam a peça que falta.",
+   "fortes": [
+    "Cada titã conjurado vira uma carta e uma mana a mais no turno seguinte.",
+    "Dez tutores (Birthing Pod, Eldritch Evolution, Wargate, Eladamri's Call, Nature's Rhythm e as criaturas que buscam) acham os combos."
+   ],
+   "fracos": [
+    "A Helga é 1/3: morre para qualquer remoção, e o deck tem só Shore Up para protegê-la.",
+    "Pouca resposta a artefato e encantamento de oponente."
+   ]
+  },
+  "fim": {
+   "turnos": "7 em diante",
+   "plano": "Mana infinita por um dos laços (Deadeye ou Emiel com Peregrine Drake, Great Whale ou Palinchron; Felidar Guardian com Restoration Angel e Intruder Alarm; Food Chain com Misthollow Griffin), e a Walking Ballista atira até a mesa cair. O Thorn Mammoth no laço de piscar limpa as criaturas dos oponentes.",
+   "fortes": [
+    "Quatro laços de duas cartas, com piscadoras e desviradores redundantes.",
+    "Jennifer Walters e Glen Elendra protegem o turno do combo."
+   ],
+   "fracos": [
+    "Quase tudo é criatura: uma limpeza no turno errado zera o plano.",
+    "Ódio de cemitério e de entrada (Torpor Orb, Hushbringer) desligam os laços."
+   ]
+  },
+  "contra": [
+   {
+    "tipo": "aggro",
+    "resultado": "equilibrado",
+    "porque": "Muitos corpos grandes para bloquear, mas a Helga e os elfos morrem fácil."
+   },
+   {
+    "tipo": "voltron",
+    "resultado": "fraco",
+    "porque": "Quase nenhuma remoção pontual: só Thorn Mammoth, Ballista e Sink into Stupor respondem ao atacante único."
+   },
+   {
+    "tipo": "combo",
+    "resultado": "equilibrado",
+    "porque": "Glen Elendra e Jennifer Walters seguram uma ou duas mágicas; a corrida é rápida dos dois lados."
+   },
+   {
+    "tipo": "controle",
+    "resultado": "fraco",
+    "porque": "Uma limpeza de criaturas leva a mana, o motor e os combos de uma vez."
+   },
+   {
+    "tipo": "stax",
+    "resultado": "fraco",
+    "porque": "Restrição de criatura ou de efeito ao entrar desliga tanto a mana quanto os laços."
+   },
+   {
+    "tipo": "aristocratas",
+    "resultado": "equilibrado",
+    "porque": "Pouca interação com cemitério, mas o deck compra mais rápido."
+   },
+   {
+    "tipo": "spellslinger",
+    "resultado": "equilibrado",
+    "porque": "Glen Elendra anula duas mágicas; o deck não tem outra anulação."
+   },
+   {
+    "tipo": "ramp",
+    "resultado": "forte",
+    "porque": "A Helga transforma a própria rampa em carta, e os combos chegam antes dos titãs dos outros."
+   }
+  ]
+ },
+ "combos": [
+  {
+   "nome": "Maré dos desviradores",
+   "tipo": "Combo",
+   "pecas": [
+    "Deadeye Navigator",
+    "Peregrine Drake"
+   ],
+   "texto": "Pareados, cada {1}{U} pisca o Drake, que desvira cinco terrenos: três manas a mais por volta, mana infinita e entradas infinitas. O mesmo com Great Whale ou Palinchron (sete terrenos)."
+  },
+  {
+   "nome": "Emiel e os desviradores",
+   "tipo": "Combo",
+   "pecas": [
+    "Emiel the Blessed",
+    "Peregrine Drake"
+   ],
+   "texto": "Por {3}, a Emiel pisca o Drake, que desvira cinco terrenos: duas manas a mais por volta. Com Great Whale ou Palinchron, quatro."
+  },
+  {
+   "nome": "Anjo e Felidar",
+   "tipo": "Combo",
+   "pecas": [
+    "Restoration Angel",
+    "Felidar Guardian"
+   ],
+   "texto": "A Restoration pisca o Felidar, e o Felidar pisca a Restoration: entradas infinitas. Com o Intruder Alarm, cada entrada desvira todas as criaturas: mana infinita das criaturas de mana. Com o Thorn Mammoth, lutas infinitas."
+  },
+  {
+   "nome": "Cadeia e Grifo",
+   "tipo": "Combo",
+   "pecas": [
+    "Food Chain",
+    "Misthollow Griffin"
+   ],
+   "texto": "Exila o Grifo (valor 4) para cinco manas de criatura e o conjura do exílio por quatro: uma mana a mais por volta, mana infinita para criatura. Com a Helga em campo, cada volta compra uma carta e lhe dá um marcador."
+  },
+  {
+   "nome": "Bala da Ballista",
+   "tipo": "Combo",
+   "pecas": [
+    "Walking Ballista",
+    "Deadeye Navigator"
+   ],
+   "texto": "Qualquer mana infinita genérica vira marcadores ({4} cada) e cada marcador vira 1 de dano em qualquer alvo. Com o Food Chain, a mana só paga criatura: conjure a Ballista com X do tamanho da mesa."
+  },
+  {
+   "nome": "Carvalho no laço",
+   "tipo": "Combo",
+   "pecas": [
+    "Deadeye Navigator",
+    "Great Oak Guardian"
+   ],
+   "texto": "Pareados, cada {1}{U} pisca o Guardian, que desvira todas as suas criaturas: com a Faeburrow Elder gerando três manas, uma a mais por volta, mana infinita. A mana da Helga não serve: só paga criatura."
+  },
+  {
+   "nome": "Capitão e Helga",
+   "tipo": "Motor",
+   "pecas": [
+    "Captain America, Living Legend",
+    "Helga, Skittish Seer"
+   ],
+   "texto": "No seu turno, a primeira vez que a Helga vira, desvira: o X dela sai duas vezes. O mesmo vale para cada elfo."
+  },
+  {
+   "nome": "Alarme que trava",
+   "tipo": "Armadilha",
+   "pecas": [
+    "Intruder Alarm"
+   ],
+   "texto": "Sem criatura entrando no turno, nada desvira: nem os elfos nem a Helga. Desça o Alarm só com o laço pronto."
+  }
+ ],
+ "cartas": {
+  "Helga, Skittish Seer": {
+   "notas": {
+    "ramp": 3,
+    "draw": 2,
+    "titas": 1,
+    "fechamento": 1
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "É a comandante: compra, ganha vida e cresce a cada criatura de 4 ou mais conjurada, e gera X mana do tamanho do poder para essas criaturas.",
+    "sin2": "Gera mana sendo criatura, e cada desvirar repete a mana dela."
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Sapa 1/3 de três cores. Ao conjurar criatura de valor de mana 4 ou mais: compra uma carta, ganha 1 de vida e ganha um marcador +1/+1. Vira para gerar X mana de uma cor, X igual ao poder, que só paga criatura de 4 ou mais ou com {X} no custo.",
+   "porque": "É o motor: cada titã conjurado vira carta e um ponto a mais de mana no turno seguinte. Com dois ou três marcadores, ela sozinha paga a próxima criatura grande.",
+   "marcas": {}
+  },
+  "Adarkar Wastes": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor, ou branco ou azul com 1 de dano.",
+   "porque": "Duas cores e entra desvirada."
+  },
+  "Bountiful Promenade": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Verde ou branco; desvirada com dois ou mais oponentes.",
+   "porque": "Na mesa de quatro, é um terreno duplo sem custo."
+  },
+  "Brushland": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor, ou verde ou branco com 1 de dano.",
+   "porque": "Duas cores e entra desvirada."
+  },
+  "Command Tower": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Qualquer cor da identidade da comandante.",
+   "porque": "As três cores, sempre desvirada."
+  },
+  "Dreamroot Cascade": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Verde ou azul; desvirada com dois outros terrenos.",
+   "porque": "Do terceiro terreno em diante, um duplo sem custo."
+  },
+  "Evendo, Waking Haven": {
+   "notas": {
+    "ramp": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Entra virado; gera verde. Com 12 marcadores de carga (virando criaturas para carregar), gera um verde por criatura.",
+   "porque": "Lento: o carregamento pede criaturas viradas, que aqui estão gerando mana. Sempre virado: −1 no Ramp.",
+   "virado": true
+  },
+  "Exotic Orchard": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Gera uma cor que um terreno de oponente poderia gerar.",
+   "porque": "Depende da mesa; nas três cores da Helga, costuma achar ao menos uma."
+  },
+  "Flooded Grove": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor, ou filtra {G/U} em duas manas verde e azul.",
+   "porque": "Arruma o {U}{U} dos desviradores e o {G}{G} dos tutores."
+  },
+  "Forest": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "4 cópias, alvo da Utopia Sprawl."
+  },
+  "Island": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "3 cópias; liga a Glacial Fortress e é alvo do Polluted Delta."
+  },
+  "Plains": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "INS",
+   "faz": "Básico.",
+   "porque": "2 cópias; liga a Glacial Fortress."
+  },
+  "Glacial Fortress": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Branco ou azul; desvirada com Plains ou Island.",
+   "porque": "Seis terrenos com o tipo ligam a fortaleza."
+  },
+  "Hallowed Fountain": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Plains Island; desvirada por 2 de vida.",
+   "porque": "Duas cores, e o Polluted Delta a busca."
+  },
+  "Path of Ancestry": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Entra virado; qualquer cor da identidade. Vidência 1 quando paga criatura que divide tipo com a Helga (Sapo ou Druida).",
+   "porque": "Os Druidas do deck (os elfos, Kinnan, Chulane, Noble Hierarch) ligam a vidência, mas entra sempre virado.",
+   "virado": true
+  },
+  "Polluted Delta": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Paga 1 de vida e se sacrifica: busca uma Island (ou Swamp) para o campo.",
+   "porque": "Busca Island ou a Hallowed Fountain; afina o grimório."
+  },
+  "Sea of Clouds": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Branco ou azul; desvirada com dois ou mais oponentes.",
+   "porque": "Duplo sem custo na mesa de quatro."
+  },
+  "Shifting Woodland": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Verde; desvirada com Forest. Com delírio, vira cópia de uma permanente do cemitério até o fim do turno.",
+   "porque": "O delírio quase não liga num deck de criaturas; na prática, um Forest a mais."
+  },
+  "Sungrass Prairie": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "C",
+   "rel": "MED",
+   "faz": "{1}, virar: verde e branco.",
+   "porque": "Filtro que não gera mana sozinho: atrasa a abertura."
+  },
+  "Temple Garden": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Forest Plains; desvirada por 2 de vida.",
+   "porque": "Duas cores e alvo da Utopia Sprawl."
+  },
+  "Temple of Mystery": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Entra virado; vidência 1; verde ou azul.",
+   "porque": "Sempre virado, e a vidência é pouca.",
+   "virado": true
+  },
+  "Yavimaya Coast": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Incolor, ou verde ou azul com 1 de dano.",
+   "porque": "Duas cores e entra desvirada."
+  },
+  "Avacyn's Pilgrim": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Criatura que gera mana: peça do laço com o Intruder Alarm."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Monge 1/1 de 1 que gera branco.",
+   "porque": "Mana no turno 1 para a Helga no turno 2."
+  },
+  "Elvish Mystic": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Criatura que gera mana: peça do laço com o Intruder Alarm."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo 1/1 de 1 que gera verde.",
+   "porque": "Mana no turno 1 para a Helga no turno 2."
+  },
+  "Fyndhorn Elves": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Criatura que gera mana: peça do laço com o Intruder Alarm."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo 1/1 de 1 que gera verde.",
+   "porque": "Mana no turno 1 para a Helga no turno 2."
+  },
+  "Llanowar Elves": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Criatura que gera mana: peça do laço com o Intruder Alarm."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo 1/1 de 1 que gera verde.",
+   "porque": "Mana no turno 1 para a Helga no turno 2."
+  },
+  "Birds of Paradise": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Criatura que gera mana: peça do laço com o Intruder Alarm."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Pássaro 0/1 voador de 1 que gera qualquer cor (impresso como Paradise Chocobo).",
+   "porque": "Turno 1 que acha as três cores da Helga."
+  },
+  "Noble Hierarch": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Criatura que gera mana: peça do laço com o Intruder Alarm."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "0/1 de 1 com exaltado; gera verde, branco ou azul.",
+   "porque": "As três cores da Helga no turno 1."
+  },
+  "Faeburrow Elder": {
+   "notas": {
+    "ramp": 3
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Criatura que gera mana: peça do laço com o Intruder Alarm."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Treant de 3, com +1/+1 por cor entre suas permanentes; gera uma mana de cada cor entre elas.",
+   "porque": "Com a Helga em campo, gera três manas, uma de cada cor."
+  },
+  "Sol Ring": {
+   "notas": {
+    "ramp": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "INS",
+   "faz": "Artefato de 1 que gera duas incolores.",
+   "porque": "Duas manas a mais no turno 1 ou 2."
+  },
+  "Utopia Sprawl": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura de 1 em Forest: a cada vez que ele gera mana, mais uma da cor escolhida.",
+   "porque": "Cinco alvos (4 Forest e o Temple Garden); morre com o terreno."
+  },
+  "Wild Growth": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Aura de 1 em terreno: a cada vez que ele gera mana, mais um verde.",
+   "porque": "Turno 1 que vale duas manas no turno 2."
+  },
+  "Kinnan, Bonder Prodigy": {
+   "notas": {
+    "ramp": 3,
+    "tutor": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Cada vez que a Helga vira para mana, gera uma mana a mais do mesmo tipo.",
+    "sin2": "Dobra uma mana de cada permanente não-terreno virada para mana."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano Druida 2/2 de 2 (impresso como Seymour Guado). Virar permanente não-terreno para mana gera mais uma do mesmo tipo. Por {5}{G}{U}, olha cinco cartas e põe em campo uma criatura não-Humana.",
+   "porque": "Cada elfo, o Sol Ring e a própria Helga rendem uma mana a mais; a ativação põe titã em campo no fim do jogo."
+  },
+  "Selvala, Eager Trailblazer": {
+   "notas": {
+    "ramp": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que rende a cada criatura conjurada (uma ficha 1/1).",
+    "sin2": "Gera mana sendo criatura."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfa 4/5 de 4 com vigilância. Ao conjurar criatura, cria uma ficha 1/1. Vira para gerar uma mana por poder diferente entre suas criaturas.",
+   "porque": "Dispara a Helga, e com a mesa variada gera três ou quatro manas."
+  },
+  "Inga and Esika": {
+   "notas": {
+    "ramp": 3,
+    "draw": 2,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que compra quando três manas de criatura pagam uma criatura.",
+    "sin2": "Faz de toda criatura uma fonte de mana, peça do laço com o Intruder Alarm."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Deus 4/4 de 4. Suas criaturas têm vigilância e viram para gerar qualquer cor, só para criatura. Ao conjurar criatura paga com três ou mais manas de criatura, compra uma carta.",
+   "porque": "Cada titã vira fonte de mana, e a compra se soma à da Helga."
+  },
+  "Shang-Chi, Master of Kung Fu": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Deixa a Helga e as criaturas de mana virarem no turno em que entram.",
+    "sin2": "Duas manas para habilidades de criatura (os {1}{U} do Deadeye Navigator, o {3} da Emiel)."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Guerreiro 2/2 de 2. Ativa habilidades de criaturas como se tivessem ímpeto. Vira para gerar duas manas de uma cor, só para habilidades de criatura.",
+   "porque": "A Helga gera mana no turno em que desce; a mana dele paga as piscadas dos laços."
+  },
+  "Metamorphosis": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Mana só para criatura, de passagem.",
+    "sin2": "Converte uma criatura em mana para criatura, uma vez."
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Feitiço de 1: sacrifica uma criatura e gera X+1 manas de uma cor (X é o valor dela), só para criatura.",
+   "porque": "Explosão de uma vez; perde uma carta."
+  },
+  "Food Chain": {
+   "notas": {
+    "ramp": 3,
+    "fechamento": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Converte criatura em mana para conjurar criaturas grandes.",
+    "sin2": "Com a Misthollow Griffin, mana infinita para criatura."
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Encantamento de 3: exila uma criatura sua para gerar X+1 manas de uma cor (X é o valor dela), só para conjurar criatura.",
+   "porque": "Peça do combo com a Misthollow Griffin; com a Helga em campo, o laço compra o grimório inteiro.",
+   "marcas": {
+    "combo": 1
+   }
+  },
+  "Captain America, Living Legend": {
+   "notas": {
+    "ramp": 3,
+    "desvirar": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga na primeira vez que ela vira no seu turno: dobra a mana dela.",
+    "sin2": "Desvira, mas não fecha laço."
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Soldado 3/4 de 3 com vigilância. No seu turno, quando uma criatura sua vira pela primeira vez, desvira.",
+   "porque": "A Helga, os elfos, a Faeburrow e a Selvala geram mana duas vezes por turno: dobra o deck.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Chakram Retriever": {
+   "notas": {
+    "ramp": 2,
+    "desvirar": 3,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga a cada mágica conjurada no seu turno.",
+    "sin2": "Desvira uma criatura por mágica."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Cão 2/4 de 5. Ao conjurar mágica no seu turno, desvira a criatura alvo.",
+   "porque": "Cada titã pago com a Helga a desvira, e ela já volta com um marcador a mais.",
+   "marcas": {
+    "desvira": 1,
+    "grande": 1
+   }
+  },
+  "Corridor Monitor": {
+   "notas": {
+    "ramp": 1,
+    "desvirar": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga uma vez, ao entrar.",
+    "sin2": "Desvira uma vez; com o Deadeye, a cada piscada."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Construto 1/4 de 2. Ao entrar, desvira um artefato ou criatura seu.",
+   "porque": "Desvirar a Helga grande é um segundo turno de mana por duas manas.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Cloud of Faeries": {
+   "notas": {
+    "ramp": 1,
+    "desvirar": 2
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Desvira dois terrenos ao entrar: peça de laço com quem pisque por duas manas ou menos."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Fada 1/1 voadora de 2. Ao entrar, desvira até dois terrenos. Reciclagem {2}.",
+   "porque": "Sai de graça e recicla quando não cabe."
+  },
+  "Derevi, Empyrial Tactician": {
+   "notas": {
+    "desvirar": 2,
+    "interacao": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga ao entrar, e de novo a cada dano de combate.",
+    "sin2": "Vira ou desvira uma permanente por gatilho."
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Pássaro 2/3 voador de 3. Ao entrar, e quando uma criatura sua causa dano de combate a um jogador, vira ou desvira uma permanente. A volta da zona de comando só vale quando ela é a comandante.",
+   "porque": "Desvira a Helga uma vez e vira um bloqueador; no 99, perde a melhor linha.",
+   "prioridade": 2,
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Formidable Speaker": {
+   "notas": {
+    "tutor": 2,
+    "desvirar": 2,
+    "ramp": 1
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Por {1}, desvira a Helga toda vez que puder ativar.",
+    "sin2": "Desvira uma permanente por ativação."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elfo Druida 2/4 de 3. Ao entrar, descarta uma carta para buscar uma criatura para a mão. Por {1} e virando, desvira outra permanente.",
+   "porque": "Busca o titã ou a peça de combo, e depois paga {1} para a Helga gerar X de novo.",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Seedborn Muse": {
+   "notas": {
+    "desvirar": 3,
+    "ramp": 2,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga no turno de cada oponente: mana para criaturas com lampejo.",
+    "sin2": "Desvira tudo, sem laço."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Espírito 2/4 de 5. Suas permanentes desviram na etapa de desvirar de cada outro jogador.",
+   "porque": "Com Stunt Double, Restoration Angel, Unagi e High Fae Trickster, a mana da Helga trabalha em todos os turnos.",
+   "marcas": {
+    "desvira": 1,
+    "grande": 1
+   }
+  },
+  "Intruder Alarm": {
+   "notas": {
+    "desvirar": 3,
+    "fechamento": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga a cada criatura que entra.",
+    "sin2": "Com Felidar Guardian e Restoration Angel, cada entrada desvira as criaturas de mana: mana infinita."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Encantamento de 3: criaturas não desviram na etapa de desvirar; quando uma criatura entra, desvira todas as criaturas.",
+   "porque": "Peça que transforma o laço de piscar em mana. Cuidado: trava as suas criaturas também, e é desligado se nenhuma criatura entrar no turno.",
+   "marcas": {
+    "combo": 1,
+    "desvira": 1
+   }
+  },
+  "Chain Stasis": {
+   "notas": {
+    "desvirar": 2,
+    "interacao": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga uma vez por {U}.",
+    "sin2": "Desvira uma criatura uma vez."
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Instantânea de 1: vira ou desvira uma criatura. O controlador dela pode pagar {2}{U} para copiar.",
+   "porque": "Desvirar a Helga grande é barato, mas a carta faz pouco sem ela.",
+   "prioridade": 1
+  },
+  "Shore Up": {
+   "notas": {
+    "interacao": 2,
+    "desvirar": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga e a protege.",
+    "sin2": "Desvira uma criatura uma vez."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 1: criatura sua ganha +1/+1, resistência a magia e desvira.",
+   "porque": "Salva a Helga de remoção e ainda devolve a mana dela."
+  },
+  "Great Oak Guardian": {
+   "notas": {
+    "desvirar": 2,
+    "ramp": 2,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 6 com lampejo que desvira a Helga e as criaturas de mana.",
+    "sin2": "Com o Deadeye, cada piscada desvira todas as suas criaturas."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Árvore 4/5 de 6 com lampejo e alcance. Ao entrar, as criaturas de um jogador ganham +2/+2 e desviram.",
+   "porque": "No fim do turno de um oponente, desvira a Helga e os elfos; no ataque, vira um truque de combate.",
+   "marcas": {
+    "grande": 1,
+    "desvira": 1
+   }
+  },
+  "Deadeye Navigator": {
+   "notas": {
+    "desvirar": 3,
+    "fechamento": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 6.",
+    "sin2": "Com Peregrine Drake, Great Whale ou Palinchron, mana infinita; com Thorn Mammoth, lutas infinitas."
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Espírito 5/5 de 6 com vínculo. Pareado, ele e o par têm '{1}{U}: exila esta criatura e a devolve ao campo'.",
+   "porque": "O centro dos combos: cada desvirador pareado vira mana infinita e entradas infinitas.",
+   "marcas": {
+    "combo": 1,
+    "grande": 1
+   }
+  },
+  "Emiel the Blessed": {
+   "notas": {
+    "desvirar": 3,
+    "fechamento": 2,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que pisca as outras.",
+    "sin2": "Por {3} pisca Peregrine Drake, Great Whale ou Palinchron: mana infinita."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Unicórnio 4/4 de 4. Por {3}, exila outra criatura sua e a devolve. Quando outra criatura sua entra, pode pagar {G/W} para dar um marcador +1/+1.",
+   "porque": "Segunda piscadora do combo, para não depender só do Deadeye.",
+   "marcas": {
+    "combo": 1,
+    "grande": 1
+   }
+  },
+  "Felidar Guardian": {
+   "notas": {
+    "desvirar": 2,
+    "fechamento": 3,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que pisca ao entrar.",
+    "sin2": "Com a Restoration Angel, piscadas infinitas."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Felino 1/4 de 4. Ao entrar, exila outra permanente sua e a devolve.",
+   "porque": "Metade do laço com a Restoration Angel; sozinha, repete um desvirador.",
+   "marcas": {
+    "combo": 1,
+    "grande": 1
+   }
+  },
+  "Restoration Angel": {
+   "notas": {
+    "desvirar": 2,
+    "fechamento": 3,
+    "interacao": 1,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 com lampejo que pisca outra ao entrar.",
+    "sin2": "Com o Felidar Guardian, piscadas infinitas."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Anjo 3/4 voador de 4 com lampejo. Ao entrar, exila uma criatura sua que não seja Anjo e a devolve.",
+   "porque": "Lampejo, salva uma criatura de remoção, e fecha o laço com o Felidar.",
+   "marcas": {
+    "combo": 1,
+    "grande": 1
+   }
+  },
+  "Peregrine Drake": {
+   "notas": {
+    "desvirar": 3,
+    "ramp": 2,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 5 que paga quase toda a si mesma.",
+    "sin2": "Com Deadeye ou Emiel, mana infinita."
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Draco 2/3 voador de 5. Ao entrar, desvira até cinco terrenos.",
+   "porque": "Sai praticamente de graça e é a peça de combo mais barata do deck.",
+   "marcas": {
+    "combo": 1,
+    "grande": 1
+   }
+  },
+  "Great Whale": {
+   "notas": {
+    "desvirar": 3,
+    "ramp": 2,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 7.",
+    "sin2": "Com Deadeye ou Emiel, mana infinita."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Baleia 5/5 de 7. Ao entrar, desvira até sete terrenos.",
+   "porque": "Mesma função do Drake, mais cara de conjurar: com a Helga grande, sai de graça.",
+   "marcas": {
+    "combo": 1,
+    "grande": 1
+   }
+  },
+  "Palinchron": {
+   "notas": {
+    "desvirar": 3,
+    "ramp": 2,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 7.",
+    "sin2": "Com Deadeye ou Emiel, mana infinita."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Ilusão 4/5 voadora de 7. Ao entrar, desvira até sete terrenos. Por {2}{U}{U}, volta à mão.",
+   "porque": "Terceira peça de desvirar; volta à mão se a remoção vier.",
+   "marcas": {
+    "combo": 1,
+    "grande": 1
+   }
+  },
+  "Misthollow Griffin": {
+   "notas": {
+    "fechamento": 2,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que é corpo.",
+    "sin2": "Com o Food Chain, mana infinita para criatura."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Grifo 3/3 voador de 4. Pode ser conjurado do exílio.",
+   "porque": "Sem o Food Chain é um 3/3; com ele, cada volta dispara a Helga e compra uma carta.",
+   "marcas": {
+    "combo": 1,
+    "grande": 1
+   }
+  },
+  "Starfield Vocalist": {
+   "notas": {
+    "desvirar": 2,
+    "titas": 1,
+    "fechamento": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que dobra os gatilhos de entrada.",
+    "sin2": "Dobra os desviradores: o Drake desvira dez terrenos."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Bardo 3/4 de 4. Gatilho de permanente sua causado por permanente entrando dispara uma vez a mais. Dobra {1}{U}.",
+   "porque": "Drake, Whale, Mulldrifter, Keruga e Tishana rendem em dobro.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Altered Ego": {
+   "notas": {
+    "copia": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com {X}: a mana da Helga paga tudo, e o X vira marcadores.",
+    "sin2": "Copia uma criatura uma vez."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Metamorfo de {X}{2}{G}{U} que não pode ser anulado; entra como cópia de qualquer criatura, com X marcadores +1/+1.",
+   "porque": "Copia o melhor titã da mesa, maior, e não se anula.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Phyrexian Metamorph": {
+   "notas": {
+    "copia": 3,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que rende ao entrar como cópia.",
+    "sin2": "Copia uma vez."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Metamorfo artefato de 4 ({U} ou 2 de vida); entra como cópia de artefato ou criatura.",
+   "porque": "Segundo Drake ou segunda Whale; também copia o Sol Ring.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Stunt Double": {
+   "notas": {
+    "copia": 3,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 com lampejo que entra como cópia.",
+    "sin2": "Copia uma vez."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Metamorfo de 4 com lampejo; entra como cópia de qualquer criatura.",
+   "porque": "Com a Seedborn Muse, usa a mana da Helga no turno dos outros.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Bramble Sovereign": {
+   "notas": {
+    "copia": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que rende a cada criatura que entra.",
+    "sin2": "Por {1}{G}, uma ficha cópia de cada criatura que entra: dobra os desviradores."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Dríade 4/4 de 4. Quando outra criatura não-ficha entra, pode pagar {1}{G}: o controlador cria uma ficha cópia dela.",
+   "porque": "Cada titã vira dois; com o Peregrine Drake, a cópia desvira mais cinco terrenos.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Bard, King of Dale": {
+   "notas": {
+    "draw": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 6 que dobra a compra da Helga."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano 3/5 de 6 com alcance e vigilância. Toda compra além da primeira da etapa de compra vira duas. Fichas criadas são dobradas.",
+   "porque": "Cada titã conjurado com a Helga em campo compra duas cartas.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Reed Richards, Smartest Man": {
+   "notas": {
+    "draw": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 6 que multiplica a primeira compra extra do turno."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano 2/4 de 6 com alcance; sem limite de mão. A primeira compra de cada turno fora da etapa de compra vira quatro cartas.",
+   "porque": "O primeiro titã do turno com a Helga compra quatro, inclusive no turno dos oponentes.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Chulane, Teller of Tales": {
+   "notas": {
+    "draw": 3,
+    "ramp": 1,
+    "desvirar": 1,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 5 que compra a cada criatura conjurada.",
+    "sin2": "Devolve criatura à mão para reusar a entrada."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano Druida 2/4 de 5 com vigilância. Ao conjurar criatura, compra e pode pôr um terreno da mão em campo. Por {3}, devolve uma criatura sua à mão.",
+   "porque": "Soma a compra da Helga a cada criatura e devolve o Drake para repetir.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Keruga, the Macrosage": {
+   "notas": {
+    "draw": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 5 que compra ao entrar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Hipopótamo 5/4 de 5. Ao entrar, compra uma carta por permanente sua de valor 3 ou mais.",
+   "porque": "Com seis ou sete titãs em campo, recarrega a mão.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Tishana, Voice of Thunder": {
+   "notas": {
+    "draw": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 7 que compra ao entrar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Tritão */* de 7, do tamanho da mão; sem limite de mão. Ao entrar, compra uma carta por criatura sua.",
+   "porque": "Com os elfos e os titãs, cinco a oito cartas.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Prime Speaker Zegana": {
+   "notas": {
+    "draw": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 6 que compra ao entrar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Tritão 1/1 de 6 que entra com marcadores iguais ao maior poder entre suas outras criaturas, e compra cartas iguais ao poder.",
+   "porque": "Com a Helga ou um titã de poder 6, compra seis.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Torsten, Founder of Benalia": {
+   "notas": {
+    "draw": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 7 que enche a mão ao entrar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Humano 7/7 de 7. Ao entrar, revela sete cartas e põe na mão todas as criaturas e terrenos. Ao morrer, cria sete Soldados 1/1.",
+   "porque": "Num deck de 57 criaturas e 27 terrenos, quatro ou cinco cartas.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Mulldrifter": {
+   "notas": {
+    "draw": 2,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 5 que compra ao entrar."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elemental 2/2 voador de 5. Ao entrar, compra duas. Evocar por {2}{U}.",
+   "porque": "Conjurado inteiro, dispara a Helga e compra três.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Nulldrifter": {
+   "notas": {
+    "draw": 2,
+    "titas": 2,
+    "interacao": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 7 que compra ao ser conjurada."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Eldrazi 4/4 voador de 7 com aniquilador 1. Ao conjurar, compra duas. Evocar por {2}{U}.",
+   "porque": "Compra mesmo evocado; inteiro, é um titã com aniquilador.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Radagast the Brown": {
+   "notas": {
+    "draw": 2,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que rende a cada criatura que entra."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Avatar 2/5 de 4. Quando ele ou outra criatura não-ficha sua entra, olha X cartas (X é o valor dela) e pode pegar uma criatura de tipo que você não controla.",
+   "porque": "Cada titã olha cinco a sete cartas; a restrição de tipo pesa pouco num deck variado.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "The Unagi of Kyoshi Island": {
+   "notas": {
+    "draw": 2,
+    "titas": 2,
+    "interacao": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 5 com lampejo; a compra não depende de entrar."
+   },
+   "tier": "C",
+   "rel": "MED",
+   "faz": "Serpente 5/5 de 5 com lampejo e ward 4. Quando um oponente compra a segunda carta do turno, você compra duas.",
+   "porque": "Depende de a mesa comprar; num grupo sem compra extra, é só um 5/5.",
+   "prioridade": 2,
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "King T'Challa": {
+   "notas": {
+    "draw": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Humano 3/2 de 3 com lampejo. Quando um jogador compra a segunda carta no turno, você compra uma. Por {4}{W}{U}, vira Black Panther: golpe duplo, todo dano a ele prevenido, compra ao causar dano de combate.",
+   "porque": "A Helga já faz você comprar a segunda: a carta rende quase todo turno."
+  },
+  "Generous Patron": {
+   "notas": {
+    "draw": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Pode pôr um marcador na Helga, uma vez."
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "faz": "Elfo 1/4 de 3. Ao entrar, apoio 2. Quando você põe marcador em criatura que não controla, compra uma carta.",
+   "porque": "Comprar exige fortalecer o oponente; é a carta mais fraca do deck.",
+   "prioridade": 1
+  },
+  "Disciple of Freyalise": {
+   "notas": {
+    "draw": 2,
+    "titas": 2,
+    "ramp": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 6 que rende ao entrar."
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Elfa 3/3 de 6: ao entrar, sacrifica outra criatura e ganha vida e compra cartas iguais ao poder dela. No verso, Garden of Freyalise, terreno verde (desvirado por 3 de vida).",
+   "porque": "Sacrificar um titã de poder 5 ou 6 compra cinco ou seis; cedo, vira terreno.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Birthing Pod": {
+   "notas": {
+    "tutor": 3
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Põe criatura em campo sem conjurar: não dispara a Helga."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Artefato de 4 ({G} ou 2 de vida). Por {1}{G/P}, virando e sacrificando uma criatura, busca uma de valor um a mais para o campo. Só como feitiço.",
+   "porque": "A corrente de 1 a 7 está montada: elfo vira Cloud of Faeries, que vira Faeburrow, que vira Felidar, que vira Peregrine Drake, que vira Deadeye."
+  },
+  "Eldritch Evolution": {
+   "notas": {
+    "tutor": 3
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Põe criatura em campo sem conjurar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de 3: sacrifica uma criatura e busca uma de valor até dois a mais para o campo.",
+   "porque": "Um elfo vira peça de combo de 3; um titã de 4 vira o Deadeye."
+  },
+  "Neoform": {
+   "notas": {
+    "tutor": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Põe criatura em campo sem conjurar."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 2: sacrifica uma criatura e busca uma de valor exatamente um a mais, com um marcador a mais.",
+   "porque": "Só sobe um degrau: precisa da criatura certa em campo."
+  },
+  "Wargate": {
+   "notas": {
+    "tutor": 3
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Põe permanente em campo sem conjurar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de {X}{G}{W}{U}: busca uma permanente de valor até X para o campo.",
+   "porque": "Acha o Food Chain, o Intruder Alarm ou qualquer titã."
+  },
+  "Nature's Rhythm": {
+   "notas": {
+    "tutor": 3
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Põe criatura em campo sem conjurar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de {X}{G}{G}: busca criatura de valor até X para o campo. Harmonizar: do cemitério, por {X}{G}{G}{G}{G}, com uma criatura virada reduzindo o custo.",
+   "porque": "Busca duas vezes, a segunda do cemitério, barateada pela Helga virada."
+  },
+  "Eladamri's Call": {
+   "notas": {
+    "tutor": 3
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Traz criatura para a mão, para ser conjurada e disparar a Helga."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: busca uma criatura para a mão (impressa como Lifelong Friendship).",
+   "porque": "Acha qualquer peça no fim do turno do oponente."
+  },
+  "Fierce Empath": {
+   "notas": {
+    "tutor": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Busca criatura de 6 ou mais para a mão."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Elfo 1/1 de 3. Ao entrar, busca uma criatura de valor 6 ou mais para a mão.",
+   "porque": "Acha Deadeye, Great Whale, Palinchron ou Tishana; o Woodland Bellower o busca."
+  },
+  "Earth's Mightiest Heroes": {
+   "notas": {
+    "tutor": 2,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Põe criaturas em campo sem conjurar."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Feitiço de 6. Revela oito cartas e põe uma criatura em campo; com trabalho em equipe (virar criaturas de poder 5 no total), põe todas as criaturas reveladas.",
+   "porque": "Com 57 criaturas, três a cinco entram de uma vez; o resto vai para o cemitério."
+  },
+  "Woodland Bellower": {
+   "notas": {
+    "tutor": 2,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 6 que busca outra ao entrar."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Fera 6/5 de 6. Ao entrar, busca uma criatura verde não lendária de valor até 3 para o campo.",
+   "porque": "Busca Fierce Empath, Formidable Speaker, Eternal Witness ou Faeburrow.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Eternal Witness": {
+   "notas": {
+    "tutor": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Humana 2/1 de 3. Ao entrar, devolve uma carta do cemitério para a mão.",
+   "porque": "Recupera a peça de combo que morreu, ou o tutor usado."
+  },
+  "Radagast of Rhosgobel": {
+   "notas": {
+    "ramp": 2,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Barateia em {2} e dá lampejo à primeira criatura do turno."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Avatar 2/5 de 4. A primeira criatura que você conjura a cada turno custa {2} a menos e pode ser conjurada como se tivesse lampejo.",
+   "porque": "Um titã por turno de cada jogador, com a mana da Helga.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Sowing Mycospawn": {
+   "notas": {
+    "ramp": 2,
+    "interacao": 1,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 que rende ao ser conjurada."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Eldrazi 3/3 de 4. Ao conjurar, busca um terreno para o campo. Com reforço {1}{C}, exila um terreno.",
+   "porque": "Paga com a Helga, vira terreno e carta: rampa sem gastar a mana da mesa.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "High Fae Trickster": {
+   "notas": {
+    "titas": 1,
+    "interacao": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 com lampejo que dá lampejo a tudo."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Fada 4/2 voadora de 4 com lampejo. Você conjura mágicas como se tivessem lampejo.",
+   "porque": "Com a Seedborn Muse, a Helga gera mana e paga titãs no turno dos oponentes.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Glen Elendra Archmage": {
+   "notas": {
+    "interacao": 3,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 4 cujo efeito não depende de entrar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Fada 2/2 voadora de 4. Por {U} e sacrificando-se, anula mágica não-criatura. Persistir.",
+   "porque": "Duas anulações contra limpeza de mesa ou remoção no turno do combo.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Jennifer Walters": {
+   "notas": {
+    "interacao": 2,
+    "fechamento": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Humana 2/3 de 2: oponentes não conjuram mágicas no seu turno. Por {3}{G}{W}{W}, vira She-Hulk 6/6 com alcance e atropelar, que causa dano quando suas criaturas o sofrem.",
+   "porque": "Protege o turno do combo de anulação e remoção instantânea."
+  },
+  "Sink into Stupor": {
+   "notas": {
+    "interacao": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: devolve à mão uma mágica ou permanente não-terreno de oponente. No verso, Soporific Springs, terreno azul.",
+   "porque": "Uma das poucas respostas do deck, e terreno quando falta."
+  },
+  "Thorn Mammoth": {
+   "notas": {
+    "interacao": 3,
+    "titas": 2,
+    "fechamento": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 7 que rende a cada criatura que entra.",
+    "sin2": "Com o laço de piscar, lutas infinitas: limpa as criaturas dos oponentes."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Elefante 6/6 de 7 com atropelar. Quando ele ou outra criatura sua entra, luta com uma criatura de oponente.",
+   "porque": "A principal remoção do deck: cada titã que entra mata uma criatura.",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Walking Ballista": {
+   "notas": {
+    "fechamento": 3,
+    "interacao": 2,
+    "titas": 1
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Criatura com {X}: a mana da Helga paga o X inteiro.",
+    "sin2": "Converte a mana infinita em dano: {4} por marcador, 1 de dano por marcador."
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "Construto 0/0 de {X}{X} que entra com X marcadores. Por {4}, mais um marcador. Remove um marcador: 1 de dano em qualquer alvo.",
+   "porque": "A vitória dos combos de mana, e remoção de criaturas pequenas no meio do jogo.",
+   "marcas": {
+    "combo": 1
+   }
+  }
+ },
+ "radar": {
+  "Swords to Plowshares": {
+   "notas": {
+    "interacao": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 1: exila uma criatura; o controlador ganha vida igual ao poder.",
+   "porque": "O deck tem pouca remoção (Thorn Mammoth, Walking Ballista e Sink into Stupor). Sai a carta mais fraca da lista.",
+   "veredito": "entra",
+   "sai": "Generous Patron"
+  },
+  "Generous Gift": {
+   "notas": {
+    "interacao": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: destrói qualquer permanente; o controlador ganha um Elefante 3/3.",
+   "porque": "Responde a artefato e encantamento, que hoje passam livres.",
+   "veredito": "entra",
+   "sai": "Chain Stasis"
+  },
+  "Cyclonic Rift": {
+   "notas": {
+    "interacao": 3,
+    "fechamento": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: devolve uma permanente não-terreno de oponente. Sobrecarga {6}{U}: todas.",
+   "porque": "Com mana infinita, ou com sete manas de terreno e elfos, limpa a mesa dos oponentes no fim do turno deles; a mana da Helga não paga.",
+   "veredito": "entra",
+   "sai": "Derevi, Empyrial Tactician"
+  },
+  "Heroic Intervention": {
+   "notas": {
+    "interacao": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 2: suas permanentes ganham resistência a magia e indestrutível até o fim do turno.",
+   "porque": "Salva a mesa inteira de uma limpeza; o Shore Up salva uma criatura só.",
+   "veredito": "entra",
+   "sai": "Shore Up"
+  },
+  "Kiora's Follower": {
+   "notas": {
+    "desvirar": 3,
+    "ramp": 2
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Desvira a Helga todo turno, sem custo de mana.",
+    "sin2": "Desvira uma permanente por turno."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Tritão 0/1 de 2. Vira: desvira outra permanente.",
+   "porque": "Desvira a Helga toda rodada; o Corridor Monitor só desvira uma vez.",
+   "veredito": "entra",
+   "sai": "Corridor Monitor",
+   "marcas": {
+    "desvira": 1
+   }
+  },
+  "Finale of Devastation": {
+   "notas": {
+    "tutor": 3,
+    "fechamento": 2
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Põe criatura em campo sem conjurar.",
+    "sin2": "Com mana infinita, X 10 ou mais: o time ganha +X/+X e ímpeto."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de {X}{G}{G}: busca criatura de valor até X no grimório ou no cemitério para o campo. Com X 10 ou mais, suas criaturas ganham +X/+X e ímpeto.",
+   "porque": "Tutor que também é condição de vitória depois da mana infinita; o Neoform só sobe um degrau.",
+   "veredito": "entra",
+   "sai": "Neoform"
+  },
+  "Teferi's Protection": {
+   "notas": {
+    "interacao": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de 3: até o seu próximo turno, sua vida não muda, você tem proteção contra tudo, e suas permanentes saem de fase.",
+   "porque": "A melhor proteção contra limpeza; avaliar porque tira uma carta de compra.",
+   "veredito": "avaliar",
+   "sai": "King T'Challa"
+  },
+  "Beast Within": {
+   "notas": {
+    "interacao": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Instantânea de 3: destrói qualquer permanente; o controlador ganha uma Fera 3/3.",
+   "porque": "Mais uma resposta a qualquer coisa, se o Generous Gift não bastar.",
+   "veredito": "avaliar",
+   "sai": "Metamorphosis"
+  },
+  "Chord of Calling": {
+   "notas": {
+    "tutor": 3
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Põe criatura em campo sem conjurar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Instantânea de {X}{G}{G}{G} com convocar: busca criatura de valor até X para o campo.",
+   "porque": "Os elfos pagam com convocar, e acha a peça no fim do turno do oponente.",
+   "veredito": "avaliar",
+   "sai": "Earth's Mightiest Heroes"
+  },
+  "Green Sun's Zenith": {
+   "notas": {
+    "tutor": 3
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 0
+   },
+   "sin_por_que": {
+    "sin1": "Põe criatura em campo sem conjurar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Feitiço de {X}{G}: busca criatura verde de valor até X para o campo e volta ao grimório.",
+   "porque": "Só acha verde: Seedborn Muse, Thorn Mammoth, Bramble Sovereign, os elfos; as peças azuis ficam de fora.",
+   "veredito": "avaliar",
+   "sai": "Fierce Empath"
+  },
+  "Craterhoof Behemoth": {
+   "notas": {
+    "fechamento": 3,
+    "titas": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Criatura de 8 que rende ao entrar.",
+    "sin2": "Fecha o jogo depois da mana infinita."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Fera 5/5 de 8 com ímpeto. Ao entrar, suas criaturas ganham atropelar e +X/+X, X igual ao número de criaturas suas.",
+   "porque": "Com os elfos e os titãs, um ataque vence; com poder 8, a Helga paga o custo inteiro.",
+   "veredito": "avaliar",
+   "sai": "The Unagi of Kyoshi Island",
+   "marcas": {
+    "grande": 1
+   }
+  },
+  "Gaea's Cradle": {
+   "notas": {
+    "ramp": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Terreno lendário: gera um verde por criatura sua.",
+   "porque": "Num deck de 57 criaturas, quatro a oito manas; troca terreno por terreno.",
+   "veredito": "avaliar",
+   "sai": "Temple of Mystery"
+  },
+  "Biomancer's Familiar": {
+   "notas": {
+    "ramp": 1,
+    "fechamento": 2
+   },
+   "sin": {
+    "sin1": 0,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Piscar com o Deadeye passa a custar {U}: com a Cloud of Faeries, mana infinita."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Mutante 2/2 de 2. Habilidades ativadas de suas criaturas custam {2} a menos, até o mínimo de uma mana.",
+   "porque": "Barateia o Deadeye, a Emiel e o Formidable Speaker; abre mais um laço de mana.",
+   "veredito": "avaliar",
+   "sai": "Shang-Chi, Master of Kung Fu"
+  }
+ }
+}
