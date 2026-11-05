@@ -492,7 +492,15 @@
   }
 
   // ---------------- a gaveta
-  function linkConsulta(c) { var base = (location.protocol !== 'file:' && D.consulta.pub) ? D.consulta.pub : D.consulta.href; return base + '#consultar=' + encodeURIComponent(c.n.split(' // ')[0]); }
+  function publicada() { return location.protocol !== 'file:' && !!D.consulta.pub; }
+  function linkConsulta(c) { var base = publicada() ? D.consulta.pub : D.consulta.href; return base + '#consultar=' + encodeURIComponent(c.n.split(' // ')[0]); }
+  function copiaNome(c) {
+    if (!publicada()) return null;
+    return function () {
+      var b = this, n = c.n.split(' // ')[0];
+      try { navigator.clipboard.writeText(n).then(function () { b.textContent = 'Nome copiado'; setTimeout(function () { b.textContent = 'Consultar'; }, 2500); }, function () { }); } catch (x) { }
+    };
+  }
   function gaveta(c) {
     var g = $('#g-gav'), v = $('#g-veu');
     g.innerHTML = ''; g.hidden = false; v.hidden = false;
@@ -523,9 +531,11 @@
     var cabe = chipsCabe(c, 40);
     g.appendChild(h('section', {}, [h('h4', {}, ['Cabe em (identidade do comandante)']), h('span', { class: 'g-ch' }, cabe.length ? cabe : [h('span', { class: 'g-aviso' }, [c.enc ? 'em nenhum dos seus decks' : 'sem identidade (não encontrada)'])])]));
     g.appendChild(h('section', {}, [h('h4', {}, ['Abrir']), h('div', { class: 'links c-acoes' }, [
-      h('a', { class: 'g-btn sm ouro', href: linkConsulta(c), target: '_blank', rel: 'noopener', title: 'Abre a Consulta com esta carta: o estudo completo, sinergia deck a deck, veredito e compra' }, ['Consultar']),
+      h('a', { class: 'g-btn sm ouro', href: linkConsulta(c), target: '_blank', rel: 'noopener', title: 'Abre a Consulta com esta carta: o estudo completo, sinergia deck a deck, veredito e compra', onclick: copiaNome(c) }, ['Consultar']),
       h('a', { class: 'g-btn sm', href: 'https://scryfall.com/search?q=' + encodeURIComponent('!"' + c.n.split(' // ')[0] + '"'), target: '_blank', rel: 'noopener' }, ['Scryfall']),
-      h('a', { class: 'g-btn sm', href: 'https://edhrec.com/cards/' + c.n.split(' // ')[0].toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-'), target: '_blank', rel: 'noopener' }, ['EDHREC'])])]));
+      h('a', { class: 'g-btn sm', href: 'https://edhrec.com/cards/' + c.n.split(' // ')[0].toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-'), target: '_blank', rel: 'noopener' }, ['EDHREC'])]),
+      // publicada: o site não passa o #consultar= para a Consulta, então o nome vai para a área de transferência
+      publicada() ? h('p', { class: 'g-aviso c-cons-dica' }, ['Na versão publicada, a Consulta abre sem a carta: o toque em Consultar copia o nome ', h('code', { class: 'c-cons-nome' }, [c.n.split(' // ')[0]]), '; cole no campo da Consulta e toque em Consultar de novo.']) : null]));
     g.focus();
   }
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !$('#g-gav').hidden) fechaGaveta(); });
