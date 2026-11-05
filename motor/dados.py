@@ -144,7 +144,7 @@ def pontos_cmc(avg):
     return 0 if avg == 0 else 5 if avg < 2 else 4 if avg < 3 else 3 if avg < 4 else 2 if avg < 5 else 1
 
 
-PASTAS_FORA = {"pastas", "caixa", "precos", "grimorio", "decks", "consultas", "ciclos"}   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py); dados/precos: o valor de hoje (/precos); dados/grimorio: o Grimório (motor/grimorio.py); dados/consultas: a Consulta (motor/consulta.py). Não são decks
+PASTAS_FORA = {"pastas", "caixa", "precos", "grimorio", "decks", "consultas", "ciclos", "avulsos"}   # dados/avulsos: decks de amigos, isolados (ver avulso())   # dados/pastas: as pastas de cartas do dono; dados/caixa: a Caixa (motor/caixa.py); dados/precos: o valor de hoje (/precos); dados/grimorio: o Grimório (motor/grimorio.py); dados/consultas: a Consulta (motor/consulta.py). Não são decks
 
 
 def _nome_de_deck(nome):
@@ -182,9 +182,28 @@ def _mapa_decks():
     return m
 
 
+# Deck avulso (de um amigo, pedido do dono em 05/11/2026): mora em dados/avulsos/<nome>/, fora de dados/decks, e só existe para o
+# motor quando alguém o pede pelo nome (build.py --avulso). Nunca entra em pastas_decks(): hub, Caixa, radar, Grimório, Ciclos,
+# Consulta e Compras não o enxergam, e o painel dele não mostra os outros decks nem as pastas do dono. As notas das cartas que
+# faltam no cadastro único ficam no cartas.json da pasta dele e valem só no build dele.
+_AVULSOS = {}
+
+
+def avulso(nome):
+    """Registra o deck avulso para este processo e devolve o caminho da pasta dele."""
+    _AVULSOS[nome] = os.path.join(DADOS, "avulsos", nome)
+    return _AVULSOS[nome]
+
+
+def eh_avulso(pasta):
+    return pasta in _AVULSOS
+
+
 def pasta_deck(pasta):
     """O caminho da pasta de um deck, pelo nome dela ("02. Clavileño"). Deck que não existe: o caminho no formato antigo, para a
     mensagem de erro dizer onde procurou."""
+    if pasta in _AVULSOS:
+        return _AVULSOS[pasta]
     m = _MAPA.get(DADOS)
     if m is None or pasta not in m:
         m = _MAPA[DADOS] = _mapa_decks()
@@ -655,6 +674,10 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         # leituras; os dez critérios da régua (cadastro único + sinergias do deck) vão para o gráfico do topo, o placar
         # e a aba Critérios. São duas análises separadas, a pedido do dono (15/10/2026).
         cad = ler_cadastro()
+        if eh_avulso(pasta):
+            # o cadastro próprio do avulso completa o único, sem mexer nele; carta que já tem nota no único fica com a de lá
+            loc = ler_json(os.path.join(base, "cartas.json"), obrigatorio=False) or {}
+            cad = dict(loc.get("cartas") or {}, **cad)
         faltam_cad = []
         for sec in ("cartas", "radar"):
             for n, a in (av.get(sec) or {}).items():
@@ -812,9 +835,10 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     estrategia = conferir_estrategia(av.get("estrategia"))
     # onde as cartas deste painel aparecem nos outros decks e nas pastas (foto do último build de cada um)
     minhas = {chave_nome(c.get("on", c["n"])) for c in cards + cands + pool}
-    todos = indice_outros(pasta)
+    # avulso: nada da coleção do dono (outros decks, pastas, Caixa) aparece no painel dele
+    todos = {} if eh_avulso(pasta) else indice_outros(pasta)
     outros = {k: v for k, v in todos.items() if k in minhas}
-    listas = ler_pastas()
+    listas = {} if eh_avulso(pasta) else ler_pastas()
     em_pastas = {}
     for p, cs in listas.items():
         for k, q in cs.items():
