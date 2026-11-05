@@ -8,6 +8,7 @@
     python motor/build.py --grimorio       # só o Grimório (saidas/00. Grimório.html); --todos monta o Grimório antes do hub
     python motor/build.py --consulta       # só a Consulta (saidas/00. Consulta.html); --todos monta a Consulta antes do hub
     python motor/build.py --ciclos         # só os Ciclos (saidas/00. Ciclos.html); --todos monta os Ciclos antes do hub
+    python motor/build.py --avulso "Helga" # deck de amigo, de dados/avulsos/Helga: saidas/avulsos/Helga.html, isolado do resto
 
 Gera saidas/<pasta>.html e dados/<pasta>/Abrir o painel.html; o hub gera saidas/00. Hub.html e Abrir o Hub.html na raiz.
 Sempre com quebra de linha LF,
@@ -106,6 +107,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
     if base_dados:
         dados.DADOS = base_dados
     base = dados.pasta_deck(pasta)
+    iso = dados.eh_avulso(pasta)   # deck avulso (de amigo): sem hub, Grimório, Consulta e encaixe nos decks do dono
     d = dados.montar(pasta, atualizar_scryfall=atualizar_scryfall, avisar=avisar)
     t = dados.ler_json(os.path.join(base, "tema.json"), obrigatorio=False) or {}
     if tema_extra:
@@ -174,11 +176,11 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
         regua=dados.regua_compacta(), v3=bool(d.get("v3")),
         sinergias=(t.get("sinergias") or None) if d.get("v3") else None,
         # a Oficina leva ao 8×8 do Grimório com este deck escolhido (só quando já houve leitura)
-        grimorio=dict(href="00.%20Grim%C3%B3rio.html", pub=grimorio.link_publicado()) if os.path.exists(os.path.join(dados.DADOS, "grimorio", "grimorio.json")) else None,
+        grimorio=dict(href="00.%20Grim%C3%B3rio.html", pub=grimorio.link_publicado()) if not iso and os.path.exists(os.path.join(dados.DADOS, "grimorio", "grimorio.json")) else None,
         # e à Consulta: uma carta de fora contra todos os decks (página própria, ao lado do Grimório)
-        consulta=dict(href="00.%20Consulta.html", pub=consulta.link_publicado()),
+        consulta=None if iso else dict(href="00.%20Consulta.html", pub=consulta.link_publicado()),
         # o "←" do topo: o hub local no arquivo, o hub publicado no claude.ai
-        hub=dict(href="00.%20Hub.html", pub=caixa.regua().get("hub_publicado") or None),
+        hub=None if iso else dict(href="00.%20Hub.html", pub=caixa.regua().get("hub_publicado") or None),
     )
     # v3: os dez critérios (aba Critérios e gráfico da página inicial), com a cor da régua; o 8×8 segue com os agrupamentos
     criterios = None
@@ -192,9 +194,9 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
              confrontos=d.get("confrontos"),   # listas de fora pontuadas na v3 (motor/confronto.py), aba Radar
              outros=d["outros"], em_pastas=d["em_pastas"], pastas_com_lista=d["pastas_com_lista"],
              # v3: onde cada carta do deck e do radar rende mais, em todos os decks v3 (gaveta da carta, caixa "Encaixe")
-             encaixe=encaixe.para_painel(d, pasta, painel) if d.get("v3") else None,
+             encaixe=encaixe.para_painel(d, pasta, painel) if d.get("v3") and not iso else None,
              plano=plano.para_painel(pasta, d),   # o Plano do deck (motor/plano.py): veredito, checagens, cenários e as cartas por papel
-             encaixe_decks=encaixe.decks_info(d, pasta, painel) if d.get("v3") else None)
+             encaixe_decks=encaixe.decks_info(d, pasta, painel) if d.get("v3") and not iso else None)
 
     js = ler("app.js").replace("/*__DATA__*/null", json.dumps(D, ensure_ascii=False, separators=(",", ":")))
     js += chr(10) + ler(os.path.join("..", "comum", "ordenar.js"))   # ordenar tabela pelo cabeçalho (o mesmo do hub)
@@ -221,9 +223,14 @@ def gravar(caminho, texto):
         f.write(texto)
 
 
+def saida_deck(pasta):
+    """saidas/<pasta>.html; o deck avulso vai para saidas/avulsos/<nome>.html, longe dos painéis do dono."""
+    return os.path.join(SAIDAS, "avulsos", pasta + ".html") if dados.eh_avulso(pasta) else os.path.join(SAIDAS, pasta + ".html")
+
+
 def atalho(pasta, painel):
-    rel = os.path.relpath(SAIDAS, dados.pasta_deck(pasta)).replace(os.sep, "/")   # dados/decks/<grupo>/<pasta> -> ../../../../saidas
-    alvo = rel + "/" + quote(pasta + ".html")
+    alvo = os.path.relpath(saida_deck(pasta), dados.pasta_deck(pasta)).replace(os.sep, "/")   # dados/decks/<grupo>/<pasta> -> ../../../../saidas/<pasta>.html
+    alvo = "/".join(quote(x) if x != ".." else x for x in alvo.split("/"))
     return ('<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>%s</title>\n'
             '<meta http-equiv="refresh" content="0; url=%s">\n</head>\n<body>\n'
             '<p><a href="%s">Abrir o painel %s</a></p>\n</body>\n</html>\n') % (painel, alvo, alvo, painel)
@@ -234,7 +241,7 @@ def montar_deck(pasta, atualizar_scryfall=False, modo_img="embutidas"):
     mb = r["kb"] / 1024
     if mb > 15:
         raise dados.ErroDeck("o HTML ficou com %.1f MB; o teto da página publicada é 16 MiB e o limite do projeto é 15 MB" % mb)
-    gravar(os.path.join(SAIDAS, pasta + ".html"), html)
+    gravar(saida_deck(pasta), html)
     gravar(os.path.join(dados.pasta_deck(pasta), "Abrir o painel.html"), atalho(pasta, r["painel"]))
     print("%s: %s | cartas %d (%d únicas) | radar %d | potenciais %d | %.0f KB%s" % (
         pasta, r["painel"], r["cartas"], r["unicas"], r["radar"], r["potenciais"], r["kb"], "  AVISO: passou de 12 MB" if mb > 12 else ""))
@@ -325,6 +332,7 @@ def main():
     g.add_argument("--grimorio", action="store_true", help="só o Grimório, saidas/00. Grimório.html")
     g.add_argument("--consulta", action="store_true", help="só a Consulta, saidas/00. Consulta.html")
     g.add_argument("--ciclos", action="store_true", help="só os Ciclos, saidas/00. Ciclos.html")
+    g.add_argument("--avulso", help="deck avulso de dados/avulsos/<nome> (de amigo): saidas/avulsos/<nome>.html, isolado dos decks do dono")
     ap.add_argument("--atualizar-scryfall", action="store_true", help="consulta o Scryfall de novo, mesmo para cartas no cache")
     ap.add_argument("--imagens", choices=MODOS_IMG, default="embutidas", help="embutidas (padrão): lê cache/img/; externas: tenta o Scryfall ao vivo; nenhuma: sem imagens, nem ao vivo")
     a = ap.parse_args()
@@ -364,7 +372,9 @@ def main():
             print("%s: ERRO: %s" % (consulta.NOME, e), file=sys.stderr)
             sys.exit(1)
         sys.exit(0)
-    alvos = decks() if a.todos else [a.deck]
+    if a.avulso:
+        dados.avulso(a.avulso)
+    alvos = decks() if a.todos else [a.avulso or a.deck]
     if a.todos:
         sem = [p for p in alvos if not os.path.exists(os.path.join(dados.pasta_deck(p), "avaliacao.json"))]
         alvos = [p for p in alvos if p not in sem]
