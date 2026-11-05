@@ -188,6 +188,7 @@ def main():
     g.add_argument("--deck", help="pasta do deck")
     g.add_argument("--todos", action="store_true")
     g.add_argument("--grimorio", action="store_true", help="as cartas do Grimório sem imagem no cache")
+    g.add_argument("--avulso", help="deck avulso de dados/avulsos/<nome> (de amigo)")
     a = ap.parse_args()
     try:
         sys.stdout.reconfigure(encoding="utf-8")
@@ -211,7 +212,9 @@ def main():
         print("pronto.")
         return
 
-    alvos = decks_alvo(["todos"] if a.todos else [a.deck])
+    if a.avulso:
+        dados.avulso(a.avulso)
+    alvos = decks_alvo(["todos"] if a.todos else [a.avulso or a.deck])
     if not alvos:
         sys.exit("nenhum deck com avaliacao.json encontrado")
 
