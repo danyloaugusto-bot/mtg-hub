@@ -331,11 +331,12 @@ def cenarios(pasta, m=None):
     sobra = _sobrando(hoje, falta)
     # o que o dono já tem fora de deck (Caixa e pastas) e onde mais a carta aparece
     tem = {}
-    for p, cs in dados.ler_pastas().items():
+    isolado = dados.eh_avulso(pasta)   # deck avulso (de amigo): a coleção do dono não entra nos cenários
+    for p, cs in ({} if isolado else dados.ler_pastas()).items():
         for ch in cs:
             tem.setdefault(ch, "na Caixa" if p == "Caixa" else "na pasta " + p)
     outros = {}
-    for p, d in caixa.info_decks().items():
+    for p, d in ({} if isolado else caixa.info_decks()).items():
         if p != pasta and not d["desejo"]:
             for ch in d["cartas"]:
                 outros.setdefault(ch, []).append(d["curto"])
