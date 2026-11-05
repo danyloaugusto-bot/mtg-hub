@@ -1,0 +1,584 @@
+{
+ "versao": 1,
+ "carta": {
+  "nome": "Grave Researcher",
+  "custo": "{2}{B} // {B}",
+  "tipo": "Creature — Troll Warlock // Sorcery",
+  "texto": "Grave Researcher {2}{B}\nCreature — Troll Warlock\nAt the beginning of your upkeep, surveil 1. Then if there are three or more creature cards in your graveyard, this creature becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)\n//\nReanimate {B}\nSorcery\nPut target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+  "ci": "B",
+  "set": "sos",
+  "num": "85",
+  "link": "https://scryfall.com/card/sos/85",
+  "lancamento": "2026-04-24",
+  "pt": "3/3",
+  "artista": "Izzy",
+  "sid": "8b1e10e8-ea14-4761-910b-4072e2a18456",
+  "cmc": 3.0,
+  "gc": false,
+  "faces": [
+   {
+    "nome": "Grave Researcher",
+    "custo": "{2}{B}",
+    "tipo": "Creature — Troll Warlock",
+    "texto": "At the beginning of your upkeep, surveil 1. Then if there are three or more creature cards in your graveyard, this creature becomes prepared. (While it's prepared, you may cast a copy of its spell. Doing so unprepares it.)"
+   },
+   {
+    "nome": "Reanimate",
+    "custo": "{B}",
+    "tipo": "Sorcery",
+    "texto": "Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value."
+   }
+  ]
+ },
+ "consultas": [
+  {
+   "data": "2026-11-04",
+   "usd": "1.84",
+   "usd_foil": "2.02",
+   "rank": 2032,
+   "avisos": [],
+   "cadastro": {
+    "n": {
+     "recurso": 3
+    },
+    "por_que": "Prospecta todo turno; o outro lado reanima qualquer criatura de qualquer cemitério.",
+    "fonte": "claude",
+    "revisado": "2026-10-18"
+   },
+   "forca": {
+    "valor_proprio": 6,
+    "mediana": 5,
+    "percentil": 53,
+    "rank": 2032,
+    "gc": false,
+    "grau": "B"
+   },
+   "encaixe": [
+    {
+     "pasta": "05. Deadpool",
+     "sin": [
+      2,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Faz o Deadpool voltar do cemitério e trocar de novo, o caso de 2 da régua, que cita o próprio Reanimate."
+     },
+     "valor": 13.5,
+     "valor_com_saturacao": 10.5,
+     "ganho": 8.5,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "A",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 51,
+     "magicas": 66
+    },
+    {
+     "pasta": "03. Tergrid",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Põe em campo uma criatura de qualquer cemitério, o caso de 2 da régua (como Exhume); pode repetir a cada volta, mas só com três criaturas no seu cemitério, por isso não chega ao 3 de quem reanima em toda volta sem condição."
+     },
+     "valor": 10.5,
+     "valor_com_saturacao": 9.75,
+     "ganho": 7.75,
+     "sai": "Dark Ritual",
+     "valor_sai": 2,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [
+      "sin2"
+     ],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 30,
+     "magicas": 66
+    },
+    {
+     "pasta": "02. Evelyn",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 5.0,
+     "sai": "Jwari Disruption",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 2,
+     "magicas": 64
+    },
+    {
+     "pasta": "03. K'rrik",
+     "sin": [
+      2,
+      0
+     ],
+     "sin_por_que": {
+      "sin1": "Custo repetível só de {B}, o caso de 2 da régua (como Nirkana Revenant e Ghoulcaller Gisa): a cópia do Reanimate, conjurada a cada vez que ela fica preparada, custa {B}, que o K'rrik paga com 2 de vida, e cada cópia é mágica preta que lhe dá um marcador."
+     },
+     "valor": 13.5,
+     "valor_com_saturacao": 10.5,
+     "ganho": 5.0,
+     "sai": "Ophiomancer",
+     "valor_sai": 5.5,
+     "faixa": "guardar",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 27,
+     "magicas": 67
+    },
+    {
+     "pasta": "03. Valgavoth",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 5.0,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "guardar",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.029,
+     "d_acel": 0,
+     "acima_de": 12,
+     "magicas": 67
+    },
+    {
+     "pasta": "02. Elfos",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 4.0,
+     "sai": "Khalni Ambush",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 9,
+     "magicas": 70
+    },
+    {
+     "pasta": "04. Zur",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 4.0,
+     "sai": "Judge's Familiar",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 7,
+     "magicas": 66
+    },
+    {
+     "pasta": "02. Turtle Power!",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 3.0,
+     "sai": "Continue?",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": -5,
+     "acima_de": 3,
+     "magicas": 64
+    },
+    {
+     "pasta": "05. Slivers",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 6.0,
+     "ganho": 3.0,
+     "sai": "Fierce Guardianship",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 3,
+     "magicas": 64
+    },
+    {
+     "pasta": "02. Clavileño",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Recursão repetível de criatura, o caso de 2 da régua (como Bloodghast e Redemption Choir): prepara de novo a cada manutenção com três criaturas no seu cemitério e devolve o abençoado que morreu."
+     },
+     "valor": 10.5,
+     "valor_com_saturacao": 5.25,
+     "ganho": 2.75,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.029,
+     "d_acel": 0,
+     "acima_de": 13,
+     "magicas": 68
+    },
+    {
+     "pasta": "02. Zumbis",
+     "sin": [
+      0,
+      2
+     ],
+     "sin_por_que": {
+      "sin2": "Recursão repetível, o caso de 2 da régua (como Gravecrawler e Zul Ashur): a cada manutenção com três criaturas no seu cemitério ela fica preparada e conjura de novo a cópia do Reanimate."
+     },
+     "valor": 10.5,
+     "valor_com_saturacao": 5.25,
+     "ganho": 2.75,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 2.5,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 13,
+     "magicas": 66
+    },
+    {
+     "pasta": "01. Vito",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 3.0,
+     "ganho": 2.0,
+     "sai": "Malakir Rebirth",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.029,
+     "d_acel": 0,
+     "acima_de": 8,
+     "magicas": 68
+    },
+    {
+     "pasta": "03. Lynde",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 3.0,
+     "ganho": 2.0,
+     "sai": "Hydroelectric Specimen",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.0,
+     "d_acel": 0,
+     "acima_de": 8,
+     "magicas": 67
+    },
+    {
+     "pasta": "03. Master Of Evil",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 3.0,
+     "ganho": 2.0,
+     "sai": "The Master, Formed Anew",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.016,
+     "d_acel": 0,
+     "acima_de": 9,
+     "magicas": 62
+    },
+    {
+     "pasta": "04. Assassin Creed",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 3.0,
+     "ganho": 2.0,
+     "sai": "Shay Cormac",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.015,
+     "d_acel": 0,
+     "acima_de": 21,
+     "magicas": 65
+    },
+    {
+     "pasta": "04. Queen",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 3.0,
+     "ganho": 2.0,
+     "sai": "Approach of the Second Sun",
+     "valor_sai": 1,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": -0.058,
+     "d_acel": 5,
+     "acima_de": 9,
+     "magicas": 68
+    },
+    {
+     "pasta": "02. Kaalia",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 3.0,
+     "ganho": 1.0,
+     "sai": "Fatal Push",
+     "valor_sai": 2,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.03,
+     "d_acel": 0,
+     "acima_de": 7,
+     "magicas": 65
+    },
+    {
+     "pasta": "02. Strefan",
+     "sin": [
+      0,
+      1
+     ],
+     "sin_por_que": {
+      "sin2": "Você perde vida de forma repetível no seu turno, o caso de 1 da régua: cada cópia do Reanimate tira o valor de mana da criatura da sua vida, e o Strefan conta você entre quem perdeu vida."
+     },
+     "valor": 7.5,
+     "valor_com_saturacao": 3.75,
+     "ganho": 0.75,
+     "sai": "Gamble",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "C",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.028,
+     "d_acel": 0,
+     "acima_de": 15,
+     "magicas": 70
+    },
+    {
+     "pasta": "01. Markov",
+     "sin": [
+      0,
+      0
+     ],
+     "sin_por_que": {},
+     "valor": 6,
+     "valor_com_saturacao": 3.0,
+     "ganho": 0.0,
+     "sai": "Faithless Looting",
+     "valor_sai": 3,
+     "faixa": "abaixo",
+     "tier_estimado": "D",
+     "situacao": {
+      "onde": "nova"
+     },
+     "cobre": [],
+     "d_cmc": 0.029,
+     "d_acel": 0,
+     "acima_de": 3,
+     "magicas": 67
+    }
+   ],
+   "vereditos": {
+    "resumo": "Criatura 3/3 de 3 manas que, com três criaturas no seu cemitério, conjura uma cópia do Reanimate a cada manutenção: mediana sozinha (valor 6 contra mediana 5), rende como recursão na Tergrid, no K'rrik e no Zumbis, sempre na faixa de guardar.",
+    "compra": {
+     "acao": "so-se-sobrar",
+     "porque": "O maior ganho em deck físico é +7,75 na Tergrid, faixa de guardar, sem chegar a 10 em nenhum; o preço é baixo, US$ 1,84 no Scryfall em 04/11/2026, então vale pegar se aparecer em troca ou sobrar no pedido."
+    },
+    "decks": {
+     "03. Tergrid": {
+      "veredito": "avaliar",
+      "porque": "Reanima de qualquer cemitério, inclusive a criatura que um oponente descartou e a Tergrid não pegou (Do cemitério para o campo: 2). Ganho +7,75. Sai o Bloodghast, do mesmo papel de recursão na curva baixa, tier C e valor 4,5 contra 10,5; o 'sai' do motor (Dark Ritual) é aceleração, outro papel.",
+      "sai": "Bloodghast"
+     },
+     "03. K'rrik": {
+      "veredito": "avaliar",
+      "porque": "Cada cópia do Reanimate custa {B}, que o K'rrik paga com vida, e é mágica preta que lhe dá marcador (Vida como mana: 2). Ganho +5 contra o motor; contra o Ophiomancer, criatura de 3 do mesmo papel, tier D e valor 5,5, a diferença é de 8. Atenção: o radar já põe a Swiftfoot Boots (entra) no lugar do Ophiomancer; se os dois entrarem, a segunda sai no lugar do Boggart Trawler (valor 8,5).",
+      "sai": "Ophiomancer"
+     },
+     "02. Zumbis": {
+      "veredito": "avaliar",
+      "porque": "Recursão repetível (Sacrifício e recursão: 2): o deck enche o cemitério de Zumbis e ela traz um de volta por turno, mas não é Zumbi (Zumbis: 0). Ganho +2,75 contra o motor, que sugere o Malakir Rebirth, MDFC que só sai por terreno; contra o Mirkwood Bats, que também não é Zumbi, tier B e valor 5,5, a diferença é de 5.",
+      "sai": "Mirkwood Bats"
+     },
+     "02. Clavileño": {
+      "veredito": "fora",
+      "porque": "Recursão repetível (Morrer e voltar: 2), mas não é Vampiro e as comparáveis do mesmo papel são todas Vampiros abençoáveis de valor 10,5 ou mais; o ganho +2,75 vem do corte do Malakir Rebirth, que só sai por terreno."
+     },
+     "02. Strefan": {
+      "veredito": "fora",
+      "porque": "A perda de vida do Reanimate conta de passagem para o Sangue (Taças de Sangue: 1), mas não é Vampiro e o ganho é +0,75: a vaga rende mais com um Vampiro que o Strefan põe atacando."
+     },
+     "02. Evelyn": {
+      "veredito": "fora",
+      "porque": "Não é Vampiro e não joga do exílio (0 e 0); o ganho +5 é só força contra o Jwari Disruption, que é anulação, outro papel. A vaga de criatura rende mais com um Vampiro que enche a coleção."
+     },
+     "03. Valgavoth": {
+      "veredito": "fora",
+      "porque": "Não é Demônio e não tira vida do oponente no turno dele (0 e 0); o Reanimate tira vida de você. O ganho +5 vem do corte do Malakir Rebirth, MDFC que só sai por terreno."
+     },
+     "05. Deadpool": {
+      "veredito": "avaliar",
+      "porque": "Faz o Deadpool voltar do cemitério e trocar de novo, e repete a cada manutenção preparada (Troca de novo: 2), ganho +8,5; mas o deck é do grupo Desejo e não existe na mesa, então nunca entra. Se for montado, sai o Hexing Squelcher, tier B e valor 6.",
+      "sai": "Hexing Squelcher"
+     }
+    }
+   },
+   "estudo": {
+    "leitura": "Criatura 3/3 de {2}{B} com uma mágica presa a ela, o Reanimate de {B}. Na sua manutenção ela faz vidência 1 e, se houver três ou mais cartas de criatura no seu cemitério, fica preparada: enquanto preparada, você pode conjurar uma cópia do Reanimate, o que a despreparada. O Reanimate põe em campo, sob o seu controle, uma criatura de qualquer cemitério, e você perde vida igual ao valor de mana dela. Ela não prepara sem três criaturas no seu cemitério (as do oponente não contam para a condição), não dá ímpeto à criatura e não volta sozinha se morrer.",
+    "forcas": [
+     "\"from a graveyard\": reanima do cemitério de qualquer jogador, então a melhor criatura que morreu na mesa vira sua.",
+     "\"At the beginning of your upkeep\": prepara de novo a cada volta, e a recursão se repete enquanto ela estiver viva.",
+     "\"surveil 1\": a vidência todo turno manda criatura ao cemitério e ajuda a fechar as três da condição.",
+     "\"cast a copy of its spell\": a cópia é conjurada, então conta como mágica preta (K'rrik) e o {B} pode ser pago com vida no K'rrik.",
+     "Corpo 3/3 por 3 manas, que fica em campo e ameaça repetir todo turno, sem gastar carta da mão."
+    ],
+    "fraquezas": [
+     "\"You lose life equal to that card's mana value\": reanimar uma criatura de 7 custa 7 de vida, a cada vez.",
+     "\"three or more creature cards in your graveyard\": a condição olha só o seu cemitério; um exílio de cemitério desliga a carta.",
+     "\"this creature becomes prepared\": é preciso que ela sobreviva até a sua manutenção; morta antes, não reanima nada.",
+     "\"Sorcery\": a cópia só sai na sua fase principal, sem resposta a remoção ou anulação no turno do oponente.",
+     "Troll Warlock: não é de nenhuma tribo dos seus decks, e nos tribais ocupa a vaga de uma criatura da tribo."
+    ],
+    "vacuo": {
+     "grau": "B",
+     "porque": "Valor próprio 6 contra a mediana 5 do cadastro (acima de 53% das cartas), só Recurso 3; EDHREC #2032, não é Game Changer. Aparece em decks de cemitério e de Bruxos (Teval, Meren, Mirko), como recursão repetível."
+    },
+    "armadilhas": {
+     "03. Tergrid": "A Tergrid já põe em campo as permanentes que os oponentes descartam; use o Reanimate no que ela não pegou ou numa criatura sua; e reanimar criatura cara custa vida, que a Tergrid não devolve.",
+     "03. K'rrik": "Vida paga duas vezes: o K'rrik cobra 2 pelo {B} e o Reanimate cobra o valor de mana da criatura. Reanime criatura barata ou de valor muito alto, nunca com a vida baixa.",
+     "02. Zumbis": "A condição pede três criaturas no seu cemitério; com a Wilhelt sacrificando Zumbis, isso fecha cedo, mas um exílio de cemitério desliga a carta inteira.",
+     "05. Deadpool": "O Reanimate traz o Deadpool do cemitério, não do comando: se ele foi para a zona de comando ao morrer, não há o que reanimar."
+    }
+   },
+   "gravado": "2026-11-04T00:58:15"
+  }
+ ]
+}
