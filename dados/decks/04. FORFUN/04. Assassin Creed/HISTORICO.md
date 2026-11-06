@@ -29,3 +29,4 @@
 ## Rebranding, 20/10/2026
 
 - Gráfico do herói: vigia (olho de águia) (variação A, escolhida pelo dono).
+- 05/11/2026: Sol Ring e Arcane Signet no radar passam de entra para fora, por decisão do dono (ele tem as duas pedras guardadas e não vê necessidade de colocá-las).
