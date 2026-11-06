@@ -186,7 +186,7 @@ def montar_html(pasta, base_dados=None, tema_extra=None, atualizar_scryfall=Fals
     criterios = None
     if d.get("v3"):
         criterios = [dict(c, claro=True) if tema.luz(c["cor"]) > .65 else dict(c) for c in d["criterios"]]
-    img = mapa_imagens(d["cards"] + d["cands"]) if modo_img == "embutidas" else None
+    img = mapa_imagens(d["cards"] + d["cands"] + d["pool"]) if modo_img == "embutidas" else None
     D = dict(meta=meta, grupos=[g for g, _ in grupos], criterios=criterios, marcadores=d["marcadores"], leituras=d["leituras"], cores=cores,
              banidas=d.get("banidas") or None,   # banidas no Commander no deck ou no radar: uma linha nas leituras
              tipos=dict(tema.TIPOS, **(t.get("tipos") or {})), cards=d["cards"], cands=d["cands"], pool=d["pool"],
