@@ -44,3 +44,4 @@
 ## Rebranding, 19/10/2026
 
 - Gráfico novo do herói: `abside` (lote 1 do rebranding, escolhido pelo dono), com o kit de luz do guia visual.
+- 05/11/2026: Arcane Signet no radar passa de avaliar para fora, por decisão do dono (ele tem as duas pedras guardadas e não vê necessidade de colocá-las).
