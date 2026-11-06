@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Baixa, uma vez, as imagens das cartas do deck e do radar, e as reduz para embutir nos painéis.
+"""Baixa, uma vez, as imagens das cartas do deck, do radar e dos potenciais, e as reduz para embutir nos painéis.
 
     python motor/imagens.py --deck "02. Clavileño"
     python motor/imagens.py --todos
@@ -226,7 +226,7 @@ def main():
         except dados.ErroDeck as e:
             print("%s: ERRO ao ler os dados: %s" % (pasta, e), file=sys.stderr)
             continue
-        for c in d["cards"] + d["cands"]:
+        for c in d["cards"] + d["cands"] + d["pool"]:   # os potenciais também: a página publicada não busca imagem fora
             fa, ve = precisa(c)
             precisam[fa] = (c["sid"], "front")
             if ve:
