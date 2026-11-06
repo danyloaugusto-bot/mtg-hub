@@ -50,3 +50,4 @@
 ## Rebranding, 20/10/2026
 
 - Gráfico do herói: penas sobre veludo (variação R, escolhida pelo dono).
+- 05/11/2026: Arcane Signet no radar passa de avaliar para fora, por decisão do dono (ele tem as duas pedras guardadas e não vê necessidade de colocá-las).
