@@ -347,7 +347,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "4/4 voar com myriad; compra, cria Treasure ou ganha vida conforme o jogador atingido esteja à frente.",
-   "porque": "Valor genérico que depende de os oponentes estarem à frente e de ela conectar. Não conversa com o Ken.",
+   "porque": "Valor genérico que depende de os oponentes estarem à frente e de ela conectar. Não conversa com o Ken nem com os equipamentos: é a que sobra.",
    "prioridade": 6
   },
   "Bruenor Battlehammer": {
@@ -365,7 +365,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "+2/+0 por equipamento em cada criatura sua; o primeiro equipar do turno custa 0.",
-   "porque": "Sobe o teto do Shoryuken e paga o equipar do Colossus Hammer.",
+   "porque": "Cada equipamento no Ken vira +2 de poder, ou seja, um feitiço mais caro de graça, e o primeiro equipar do turno sai de graça, inclusive o do Colossus Hammer.",
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (primeiro equipar de graça)",
    "papel_por_que": "+2/+0 por Equipamento no Ken: cada peça vira feitiço mais caro no acerto."
@@ -385,7 +385,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "2/2 first strike, vigilância, vínculo; auras e equipamentos custam 1 a menos.",
-   "porque": "Desconto em 19 mágicas do deck. Honesta e trocável.",
+   "porque": "Desconto em 19 mágicas do deck, mas é só 1 de desconto, sem multiplicar nada: honesta e trocável.",
    "papel": "habilita",
    "papel_dupla": "Ramp (barateia Equipamento)",
    "papel_por_que": "Barateia cada Equipamento: o Ken se veste mais cedo."
@@ -405,7 +405,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "2/3. Ao entrar, descarta e compra. Delirium: no primeiro ataque dela no turno, desvira uma criatura e cria um combate extra.",
-   "porque": "Delirium é alcançável aqui. Ela precisa atacar: a partir do segundo combate, não desliga o Raiyuu.",
+   "porque": "Delirium é alcançável aqui, mas o combate extra só vem se ela atacar, e ela tem de esperar o segundo combate para não desligar o Raiyuu. Por isso é substituível.",
    "marcas": {
     "dentro": 1
    },
@@ -471,7 +471,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "6/6; landfall na fase principal cria combate extra; +1/+0 por ataque no turno.",
-   "porque": "Seis manas, e o landfall só cria combate na fase principal: pede guardar o terreno do turno.",
+   "porque": "Seis manas, e o landfall só cria combate na fase principal: pede guardar o terreno do turno e não sai pelo Shoryuken. Pesa mais do que rende.",
    "marcas": {
     "principal": 1
    },
@@ -514,7 +514,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Quando um Samurai ou Warrior seu ataca sozinho, desvira; se for o primeiro combate, cria combate extra.",
-   "porque": "O Ken é Human Warrior. Combate extra todo turno, sem custo, só por atacar sozinho.",
+   "porque": "O Ken é Human Warrior: combate extra todo turno, sem custo, só por atacar sozinho. Com a Karlach, são três combates.",
    "marcas": {
     "dentro": 1
    },
@@ -575,7 +575,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "2/4 com training; Hadoken (4R, desvirar, descartar): causa dano igual ao poder, e compra se sobrar dano numa criatura.",
-   "porque": "Carta de estimação: o Ryu ao lado do Ken. O training pede atacar junto com o Ken e o Hadoken custa 5.",
+   "porque": "Carta de estimação: o Ryu ao lado do Ken, e fica por escolha do dono. Como peça, o training pede atacar junto com o Ken e o Hadoken custa 5.",
    "fora_do_corte": true
   },
   "Arcane Signet": {
@@ -587,7 +587,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Pedra de 2 que gera R ou W.",
-   "porque": "Infraestrutura. O deck tem pouco ramp."
+   "porque": "Pedra de 2 nas duas cores, num deck com só 6 ramps dedicados que paga equipar e recasta o comandante: cada fonte de mana conta."
   },
   "Colossus Hammer": {
    "notas": {
@@ -706,7 +706,7 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Pedra com multikicker; por 2 gera 1 incolor.",
-   "porque": "Ramp. Incolor, num comandante de custo 1RR."
+   "porque": "Ramp num deck que tem pouco, por isso alta sinergia. Mas só gera incolor, num comandante de custo 1RR: paga equipar, não o Ken."
   },
   "Genji Glove": {
    "notas": {
@@ -771,7 +771,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "+2/+0 e indestrutível; equipamentos que entram podem ser anexados de graça; equipar 4.",
-   "porque": "Proteção e economia de mana na mesma carta. Anexa o Colossus Hammer.",
+   "porque": "Indestrutível para o Ken e anexa de graça todo equipamento que entra, inclusive o Colossus Hammer. Proteção e economia de mana na mesma carta.",
    "papel": "habilita",
    "papel_dupla": "Proteção (indestrutível)",
    "papel_por_que": "Anexa de graça cada Equipamento que entra: o Ken se veste sem pagar equipar."
@@ -829,7 +829,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Gera 2 incolores por 1.",
-   "porque": "Infraestrutura."
+   "porque": "Infraestrutura: dois incolores por 1 mana num deck com pouco ramp, que paga equipar todo turno e recasta o Ken."
   },
   "Swiftfoot Boots": {
    "notas": {
@@ -869,7 +869,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "+2/+2, proteção contra vermelho e azul; ao conectar num jogador, 2 de dano e compra 1; equipar 2.",
-   "porque": "Compra e 2 de dano por acerto, mas a proteção contra vermelho desliga meio deck quando está no Ken: caem Embercleave, Two-Handed Axe, Hexplate Wallbreaker e Lizard Blades, e Chandra's Ignition e Seize the Day não o miram. A Sword of Feast and Famine faz o mesmo papel sem o conflito.",
+   "porque": "Compra e 2 de dano por acerto, mas a proteção contra vermelho no Ken derruba Embercleave, Two-Handed Axe, Hexplate Wallbreaker e Lizard Blades, e barra Chandra's Ignition e Seize the Day.",
    "marcas": {
     "pro_vermelho": 1
    },
@@ -887,7 +887,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Pedra de 2 que gera R ou W com 1 de dano.",
-   "porque": "Infraestrutura."
+   "porque": "Infraestrutura: pedra de 2 nas duas cores, num deck que tem pouco ramp e paga equipar todo turno."
   },
   "Trailblazer's Boots": {
    "notas": {
@@ -903,7 +903,7 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Travessia de terreno não básico; equipar 2.",
-   "porque": "Em Commander é quase imbloqueável. Converte combate em dano de comandante.",
+   "porque": "Em Commander é quase imbloqueável: converte combate em dano de comandante. Dá só evasão, sem força nem proteção, por isso fica em B.",
    "marcas": {
     "evasao": 1
    },
@@ -971,7 +971,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "3RR, só como feitiço: desvira suas criaturas e cria combate extra e fase principal.",
-   "porque": "Repetível, e o 'After this main phase' sempre vale: só se ativa como feitiço, numa fase principal. Vira combo com Sword of Feast and Famine, que não está na lista.",
+   "porque": "Combate extra repetível, pagando a cada vez na fase principal: escala com a mana do fim de jogo. Faria combates infinitos com a Sword of Feast and Famine, que não está na lista.",
    "marcas": {
     "principal": 1
    },
@@ -987,7 +987,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Aura: a criatura vira 0/1 indestrutível sem habilidades.",
-   "porque": "Resposta barata a comandante alheio, que não volta para a zona de comando."
+   "porque": "Resposta barata a comandante alheio, que não volta para a zona de comando. Só resolve criatura, por isso fica em B."
   },
   "Fall of the First Civilization": {
    "notas": {
@@ -1018,7 +1018,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Busca um equipamento ao entrar. Nível 2: equipar custa {2} a menos. Nível 3: quando uma criatura sua ataca, até uma criatura alvo a bloqueia se puder.",
-   "porque": "Tutor de 2 manas que depois barateia todo equipar em {2}.",
+   "porque": "Tutor de 2 manas que depois barateia todo equipar em {2}: acha a peça que falta e paga o resto do Voltron.",
    "papel": "habilita",
    "papel_dupla": "Ramp (equipar 2 a menos)",
    "papel_por_que": "Busca um Equipamento e barateia o equipar: o Ken se veste rápido."
@@ -1117,7 +1117,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Auras e equipamentos ganham lampejo; equipamento que entra é anexado de graça.",
-   "porque": "Economiza todo equipar e transforma equipamento de proteção em resposta instantânea.",
+   "porque": "Economiza todo equipar e transforma equipamento de proteção em resposta instantânea. Com o Colossus Hammer, leva o Ken a 14 por 1 mana.",
    "papel": "habilita",
    "papel_por_que": "Anexa de graça cada Equipamento que entra, com lampejo."
   },
@@ -1130,7 +1130,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Embaralha um permanente no grimório do dono.",
-   "porque": "Resposta universal em vermelho."
+   "porque": "Resposta universal em vermelho: tira qualquer permanente por 3 manas. Ao lado do Generous Gift, é a única remoção do deck que pega qualquer tipo de carta."
   },
   "Generous Gift": {
    "notas": {
@@ -1141,7 +1141,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Destrói um permanente; o dono ganha um 3/3.",
-   "porque": "Resposta universal. Infraestrutura."
+   "porque": "Resposta universal por 3 manas: com o Chaos Warp, é a única remoção do deck que tira qualquer tipo de permanente."
   },
   "Great Train Heist": {
    "notas": {
@@ -1206,7 +1206,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Exila uma criatura; o dono busca um básico.",
-   "porque": "Melhor remoção pontual da lista. Tira bloqueador."
+   "porque": "A melhor remoção pontual da lista: 1 mana, instantânea, tira o bloqueador antes do ataque do Ken."
   },
   "Razorgrass Ambush": {
    "notas": {
@@ -1217,7 +1217,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "3 de dano em criatura atacante ou bloqueadora. Verso: terreno que gera {W}; entra desvirado se você pagar 3 de vida.",
-   "porque": "É um terreno com opção. Conta como fonte."
+   "porque": "É um terreno com opção e conta como fonte. A remoção só pega atacante ou bloqueador, por isso fica em C."
   },
   "Risk Factor": {
    "notas": {
@@ -1285,7 +1285,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Compra 2, descarta 2. Flashback.",
-   "porque": "Seleção barata, que o Ken conjura com qualquer dano, e enche o cemitério para Glamdring."
+   "porque": "Seleção barata que o Ken conjura com qualquer dano e que enche o cemitério para a Glamdring. Gira cartas sem ganhar nenhuma, por isso fica em B."
   },
   "Insurrection": {
    "notas": {
@@ -1320,7 +1320,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Com comandante, faz os dois: gera R por carta na mão de um oponente e exila três do topo para jogar no turno.",
-   "porque": "Melhor conjurada antes do combate. Pelo Shoryuken, a mana gerada some no fim da etapa."
+   "porque": "Com o Ken em campo faz os dois modos: muita mana e três cartas no turno, num deck com pouco ramp e pouca compra. Melhor antes do combate: pelo Shoryuken, a mana some."
   },
   "Open the Armory": {
    "notas": {
@@ -1421,7 +1421,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Response: 5 de dano em atacante ou bloqueador. Resurgence: first strike, vigilância e combate extra depois desta fase principal.",
-   "porque": "Duas cartas em uma. A metade de combate extra tem a mesma limitação de fase principal.",
+   "porque": "Duas cartas em uma: remoção de combate barata e combate extra. A metade de combate extra só funciona na fase principal, por isso fica em B.",
    "marcas": {
     "principal": 1
    },
@@ -1443,7 +1443,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Desvira uma criatura; depois desta fase principal, combate extra. Flashback 2R.",
-   "porque": "Dois combates extras numa carta. Sempre na fase principal.",
+   "porque": "Dois combates extras numa carta, com o flashback, sempre na fase principal. É vermelha: não mira o Ken se ele estiver com a Sword of Fire and Ice.",
    "marcas": {
     "principal": 1
    },
@@ -1464,7 +1464,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Cada jogador fica com uma criatura ou planeswalker; ninguém conjura criatura ou planeswalker até o fim do seu próximo turno.",
-   "porque": "Limpa a mesa e garante um turno sem bloqueadores novos.",
+   "porque": "Limpa a mesa e garante um turno sem bloqueadores novos. Mas deixa uma criatura a cada oponente, como Divine Reckoning e Promise of Loyalty, por isso fica em B.",
    "massa": true,
    "papel": "recompensa",
    "papel_dupla": "Remoção (limpeza)",
@@ -1503,7 +1503,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Toma uma criatura até o fim do turno, desvira e dá ímpeto. Verso: terreno que entra virado e gera {R}.",
-   "porque": "É um terreno com opção. Conta como fonte."
+   "porque": "É um terreno com opção e conta como fonte. O feitiço só toma uma criatura por um turno, o que rende pouco num deck em que o Ken ataca sozinho."
   },
   "Waves of Aggression": {
    "notas": {
@@ -1540,7 +1540,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Depois da segunda fase principal do turno, combate extra. Rebound.",
-   "porque": "O combate extra que funciona conjurado pelo Shoryuken: a ruling garante o efeito inteiro se ela resolver antes do fim da segunda fase principal, o que inclui os combates do Raiyuu e da Karlach. O rebound repete no turno seguinte.",
+   "porque": "O combate extra que funciona pelo Shoryuken: resolvendo antes do fim da segunda fase principal, vale inteiro, inclusive com o Raiyuu e a Karlach. O rebound repete no turno seguinte.",
    "marcas": {
     "dentro": 1
    },
@@ -1562,7 +1562,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Entra virado, gera W; 1RRW e sacrificar: busca Aura e Equipamento.",
-   "porque": "Terreno que vira tutor no fim do jogo.",
+   "porque": "Terreno que vira tutor de Aura e Equipamento no fim do jogo. Entra virado e a busca custa 1RRW, por isso fica em B.",
    "virado": true
   },
   "Battlefield Forge": {
@@ -1572,7 +1572,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Gera R ou W com 1 de dano.",
-   "porque": "Dual desvirado."
+   "porque": "Dual desvirado nas duas cores, sem condição; o custo é só 1 de dano por mana colorida. Ao lado da Command Tower, é a fonte dupla mais confiável do deck."
   },
   "Boros Garrison": {
    "notas": {},
@@ -1581,7 +1581,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Entra virado, devolve um terreno, gera RW.",
-   "porque": "Um mana a mais, que compensa entrar virado.",
+   "porque": "Um mana a mais por terreno, o que compensa entrar virado num deck com pouco ramp. Atrasa o turno em que entra, por isso fica em B.",
    "virado": true
   },
   "Command Tower": {
@@ -1591,7 +1591,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Gera R ou W.",
-   "porque": "Infraestrutura."
+   "porque": "Infraestrutura: gera as duas cores do Ken, desvirada e sem condição."
   },
   "Furycalm Snarl": {
    "notas": {},
@@ -1600,7 +1600,7 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Dual que entra desvirado se você revelar Mountain ou Plains.",
-   "porque": "Com 14 básicos, quase sempre desvirado."
+   "porque": "Dual nas duas cores; com 14 básicos, quase sempre entra desvirado. Cumpre bem o papel de terreno."
   },
   "Great Furnace": {
    "notas": {},
@@ -1622,7 +1622,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Gera W; entra virado sem três outras Plains. Se entra desvirado, põe um marcador +1/+1 numa criatura sua.",
-   "porque": "Com 6 Plains, entra virado na maior parte das vezes."
+   "porque": "Com 6 Plains, entra virado na maior parte das vezes, e o marcador +1/+1 no Ken quase nunca acontece."
   },
   "Mines of Moria": {
    "notas": {
@@ -1642,7 +1642,7 @@
    "tier": "B",
    "rel": "INS",
    "faz": "Básico.",
-   "porque": "8 cópias. Ken custa 1RR."
+   "porque": "As 8 cópias seguram o vermelho do Ken, que custa 1RR. Base de mana, sem nada a mais."
   },
   "Nykthos, Shrine to Nyx": {
    "notas": {
@@ -1669,7 +1669,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Gera incolor, ou cor da identidade por 1; o comandante entra com marcadores pelas vezes que foi conjurado.",
-   "porque": "Ajuda o Ken recastado a voltar com poder 5."
+   "porque": "Ajuda o Ken recastado a voltar com poder 5, mas só rende depois que ele morre; no resto, gera incolor ou cobra 1 pela cor."
   },
   "Plains": {
    "notas": {},
@@ -1678,7 +1678,7 @@
    "tier": "B",
    "rel": "INS",
    "faz": "Básico.",
-   "porque": "6 cópias."
+   "porque": "As 6 cópias dão o branco de Path to Exile, Generous Gift e das limpezas. Base de mana, sem nada a mais."
   },
   "Roadside Reliquary": {
    "notas": {
@@ -1689,7 +1689,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Gera incolor; sacrifica para comprar até 2.",
-   "porque": "Aqui quase sempre compra 2."
+   "porque": "Terreno que vira duas cartas no fim; aqui quase sempre compra 2. Gera só incolor, por isso fica em B."
   },
   "Rogue's Passage": {
    "notas": {
@@ -1704,7 +1704,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Por 4, uma criatura fica imbloqueável.",
-   "porque": "Conversor de combate em dano de comandante que não ocupa vaga de mágica.",
+   "porque": "Conversor de combate em dano de comandante que não ocupa vaga de mágica: por 4, o Ken passa por qualquer bloqueio.",
    "marcas": {
     "evasao": 1
    }
@@ -1731,7 +1731,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Por RW, +2/+0, vigilância e ímpeto.",
-   "porque": "Leva o Ken a 6 de poder e dá ímpeto ao recast."
+   "porque": "Leva o Ken a 6 de poder e dá ímpeto ao recast, num terreno: força e pressa sem ocupar vaga de mágica."
   },
   "Sokenzan, Crucible of Defiance": {
    "notas": {},
@@ -1740,7 +1740,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Gera R; channel cria dois 1/1 com ímpeto.",
-   "porque": "Uma Mountain com opção, sem custo."
+   "porque": "Uma Mountain com opção, sem custo: na hora certa vira dois atacantes 1/1 com ímpeto, sem ocupar vaga de mágica."
   },
   "Spinerock Knoll": {
    "notas": {
@@ -1756,7 +1756,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Hideaway; joga a carta escondida se um oponente levou 7 de dano no turno.",
-   "porque": "O Ken equipado causa 7 com facilidade.",
+   "porque": "O Ken equipado causa 7 com facilidade e solta a carta escondida de graça. Entra virado, por isso fica em B.",
    "virado": true
   },
   "Sunhome, Fortress of the Legion": {
@@ -1786,7 +1786,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Dual que entra virado, com scry 1.",
-   "porque": "Lento.",
+   "porque": "Lento: entra virado num deck que quer o Ken cedo, e o scry 1 não compensa. Substituível por terra que entra desvirada.",
    "virado": true
   },
   "Wind-Scarred Crag": {
@@ -1798,7 +1798,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Dual que entra virado, ganha 1 de vida.",
-   "porque": "O pior dual da lista.",
+   "porque": "O pior dual da lista: entra virado e só ganha 1 de vida, sem nada que ajude o Ken.",
    "virado": true
   }
  },
