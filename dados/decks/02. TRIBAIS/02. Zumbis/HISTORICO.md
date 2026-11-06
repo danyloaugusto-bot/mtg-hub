@@ -32,3 +32,4 @@
 
 - Gráfico do herói: tumbas, cemitério noturno (variação R, escolhida pelo dono).
 - 05/11/2026: Saw in Half no radar como avaliar (Zumbis 2, Sacrifício e recursão 2, tier A), no lugar da Withering Torment; a cópia viria da troca com o colega.
+- 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
