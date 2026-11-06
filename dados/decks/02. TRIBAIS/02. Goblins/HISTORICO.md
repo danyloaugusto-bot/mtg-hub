@@ -27,3 +27,4 @@
 
 - Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Insuficiente; com o recomendado: Satisfatório. Só o radar e o cadastro mudaram, a lista do deck não.
 - 05/11/2026: Sol Ring no radar passa de entra para fora, por decisão do dono (ele tem as duas pedras guardadas e não vê necessidade de colocá-las).
+- 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
