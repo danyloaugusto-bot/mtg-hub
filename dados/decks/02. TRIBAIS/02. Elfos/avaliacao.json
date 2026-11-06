@@ -263,7 +263,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Elfa 2/3 de 4 com ameaça. Dano de combate num jogador: esse tanto de Elfos Guerreiros 1/1. {T}, vire dez Elfos desvirados: cada oponente perde 10 e você ganha 10.",
-   "porque": "É a vitória do deck: quatro ativações matam a mesa. Os dez podem ter acabado de entrar (ruling); ela não conta entre eles e precisa estar em campo desde o começo do turno.",
+   "porque": "É a vitória do deck: cada ativação tira 10 de cada oponente, e quatro matam a mesa; os dez podem ter acabado de entrar, mas ela precisa estar em campo desde o começo do turno.",
    "marcas": {
     "dreno": 1
    }
@@ -282,7 +282,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfo de 4. Sempre que você conjura uma criatura, compre.",
-   "porque": "Motor de compra num deck de criaturas.",
+   "porque": "Motor de compra num deck feito de criaturas: cada Elfo conjurado vira uma carta, e ele ainda conta para os dez da Lathril.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
    "papel_por_que": "Elfo que compra a cada criatura conjurada: o deck cheio de Elfos vira carta."
@@ -302,7 +302,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfo de 4. Outros Elfos +1/+1; vira: {G}{G}{G}.",
-   "porque": "Lorde e ramp na mesma carta.",
+   "porque": "Lorde e ramp na mesma carta: {G}{G}{G} por turno e +1/+1 nos Elfos, além de contar para os dez da Lathril.",
    "papel": "multiplica",
    "papel_dupla": "Ramp",
    "papel_por_que": "Lorde +1/+1 dos outros Elfos, e ainda gera três manas."
@@ -321,7 +321,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Fera de 8 com ímpeto. Ao entrar, suas criaturas ganham atropelar e +X/+X, X o número delas.",
-   "porque": "Plano B de combate, por decisão do dono. É a carta mais comum dos decks de Elfos; a vitória daqui é a Lathril.",
+   "porque": "Plano B de combate, por decisão do dono; fica em B porque custa 8, não é Elfo e a vitória do deck vem do dreno da Lathril.",
    "papel": "recompensa",
    "papel_por_que": "Com a mesa cheia de Elfos, +X/+X e atropelar para todos: fecha o jogo no combate."
   },
@@ -339,7 +339,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Elfo de 5. Fabricar 2; ao atacar, os outros atacantes ganham +X/+X.",
-   "porque": "Fichas de Servo, não de Elfo.",
+   "porque": "Conta para os dez, mas as fichas que cria são Servos, não Elfos, e o bônus é de combate, não de dreno; custa 5 para pouco efeito no plano.",
    "prioridade": 8,
    "papel": "habilita",
    "papel_dupla": "Recompensa (soma a força aos atacantes)",
@@ -359,7 +359,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 6: ao entrar, sacrifique outra criatura e compre e ganhe vida igual à força dela. O verso é um terreno.",
-   "porque": "Terreno quando falta, compra quando sobra.",
+   "porque": "Terreno quando falta, compra quando sobra; o lado criatura custa 6 e pede sacrificar outra, por isso não sobe de B.",
    "papel": "habilita",
    "papel_dupla": "Draw",
    "papel_por_que": "Elfo que conta para os dez; ao entrar, sacrifica uma criatura e compra pela força dela."
@@ -378,7 +378,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfa lendária de 4, alcance. Outros Elfos +1/+1; vida por Elfo atacando.",
-   "porque": "Lorde.",
+   "porque": "Lorde que conta para os dez, mas o dreno da Lathril conta Elfos, não força, e o bônus só pesa no combate; cumpre o papel sem subir.",
    "papel": "multiplica",
    "papel_por_que": "Lorde +1/+1 dos outros Elfos; ganha vida por Elfo que ataca."
   },
@@ -400,7 +400,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Elfo de 3. Outros Elfos +1/+1; vira: {G} por Elfo seu.",
-   "porque": "Ramp explosivo; mana infinita com o Umbral Mantle e quatro Elfos, ou com o Staff of Domination e cinco.",
+   "porque": "Ramp explosivo e peça de combo: mana infinita com o Umbral Mantle e quatro Elfos, ou com o Staff of Domination e cinco, o que paga os desviradores da Lathril.",
    "papel": "multiplica",
    "papel_dupla": "Ramp",
    "papel_por_que": "Lorde +1/+1 dos outros Elfos; gera uma mana por Elfo e fecha a mana infinita com o Staff."
@@ -418,7 +418,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 1: {G}.",
-   "porque": "Elfo de mana de turno 1.",
+   "porque": "Elfo de mana de turno 1 que conta para os dez; cumpre bem, mas gera uma mana só e o deck tem Elfos de mana maiores.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Elfo de uma mana que conta para os dez."
@@ -436,7 +436,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 1: {G}.",
-   "porque": "Elfo de mana de turno 1.",
+   "porque": "Segundo Elfo de mana de turno 1, que acelera e conta para os dez; fica em B porque gera uma mana fixa, sem escalar com a mesa.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Elfo de uma mana que conta para os dez."
@@ -455,7 +455,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Elfo de 2. Quando outra criatura sua entra, escolhe um modo não usado no turno: marcador, Treasure virado ou 2 de vida.",
-   "porque": "Pequeno demais.",
+   "porque": "Pequeno demais: conta para os dez, mas cada entrada rende só um marcador, um Treasure virado ou 2 de vida, sem ajudar o dreno.",
    "prioridade": 9,
    "papel": "habilita",
    "papel_dupla": "Ramp",
@@ -475,7 +475,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfa lendária de 3 com primeiro golpe e toque mortífero. Ao conectar, compre, destrua um encantamento ou tire três marcadores.",
-   "porque": "Valor a cada conexão.",
+   "porque": "Golpe primeiro e toque mortífero tornam o bloqueio ruim para a mesa, e cada conexão vira carta ou remoção; ainda conta para os dez.",
    "papel": "habilita",
    "papel_dupla": "Remoção e Draw",
    "papel_por_que": "Elfo que conta para os dez; com golpe primeiro e toque mortífero, compra ou destrói ao causar dano."
@@ -493,7 +493,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo lendário de 3, ameaça. Ao entrar, das cinco do topo, um Elfo, Guerreiro ou Tyvar para a mão.",
-   "porque": "Acha peças.",
+   "porque": "Acha um Elfo ou peça nas cinco do topo e conta para os dez; vale uma carta, uma vez, por isso fica em B.",
    "papel": "habilita",
    "papel_dupla": "Draw",
    "papel_por_que": "Elfo que conta para os dez e, ao entrar, põe outro Elfo na mão."
@@ -512,7 +512,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfo de 3. Outros Elfos +1/+1; {G}, vira: um Elfo Guerreiro 1/1.",
-   "porque": "Lorde e uma ficha por turno.",
+   "porque": "Lorde que cria um Elfo por turno por {G}: um dos três Elfos que aumentam a conta da Lathril em série.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (lorde +1/+1)",
    "papel_por_que": "Cria um Elfo por turno com uma mana."
@@ -530,7 +530,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Elfo de 3, força igual aos Elfos. Vira: dano numa criatura voadora.",
-   "porque": "Anti-voador que não conversa com o plano.",
+   "porque": "Anti-voador que conta para os dez, mas não conversa com o plano: virar para atirar tira um Elfo da ativação da Lathril.",
    "prioridade": 7,
    "papel": "habilita",
    "papel_dupla": "Remoção (voadores)",
@@ -550,7 +550,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Elfa de 3. Suas fichas têm \"vira: {G}\".",
-   "porque": "Ficha com enjoo não vira, e ficha virada para mana não paga a Lathril.",
+   "porque": "Dá mana às fichas, mas ficha com enjoo não vira e ficha virada para mana não paga a Lathril: a mana disputa os mesmos Elfos do dreno.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Elfo que conta para os dez; as fichas de Elfo viram fontes de mana."
@@ -569,7 +569,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfo de 2. Outros Elfos +1/+1; ao conjurar Elfo, pague {G} e compre.",
-   "porque": "Lorde e compra de turno 2.",
+   "porque": "Lorde de turno 2 que transforma cada Elfo conjurado em carta por {G}: compra contínua num deck quase todo de Elfos.",
    "papel": "multiplica",
    "papel_dupla": "Draw",
    "papel_por_que": "Lorde +1/+1 dos outros Elfos; compra a cada mágica de Elfo por uma mana."
@@ -587,7 +587,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfo de 3: {G}{G}{G}.",
-   "porque": "Ramp grande.",
+   "porque": "Três manas fixas num Elfo de 3: põe a Lathril e os Elfos caros em campo cedo e ainda conta para os dez.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Elfo que conta para os dez e gera três manas."
@@ -606,7 +606,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 3. Ao entrar, compre; vira: {G}.",
-   "porque": "Ramp com carta.",
+   "porque": "Ramp com carta, que repõe a si mesmo e conta para os dez; cumpre, mas gera uma mana só, abaixo dos Elfos que escalam com a mesa.",
    "papel": "habilita",
    "papel_dupla": "Draw e Ramp",
    "papel_por_que": "Elfo que conta para os dez, compra ao entrar e gera mana."
@@ -624,7 +624,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfo de 4. Ao conjurar Elfo, um Elfo Guerreiro 1/1.",
-   "porque": "Fábrica de fichas.",
+   "porque": "Fábrica de fichas: cada Elfo conjurado traz outro Elfo, e a conta da Lathril sobe em série, papel que só três Elfos do deck têm.",
    "papel": "habilita",
    "papel_por_que": "Cada mágica de Elfo põe outro Elfo em campo."
   },
@@ -644,7 +644,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfa lendária de 3. Ganha marcador a cada Elfo que entra; vira: {G} igual à força.",
-   "porque": "Ramp que escala; mana infinita com o Umbral Mantle.",
+   "porque": "Ramp que escala com cada Elfo que entra, e com o Umbral Mantle fecha a mana infinita que paga os desviradores da Lathril.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Elfo que cresce a cada Elfo que entra e gera mana pela força; fecha a mana infinita com o Staff."
@@ -662,7 +662,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Elfo de 4. Vire quatro criaturas: destrua artefato ou encantamento.",
-   "porque": "Disputa os Elfos desvirados com a Lathril.",
+   "porque": "Remoção que disputa os Elfos desvirados com a Lathril: cada uso vira quatro criaturas que pagariam a ativação.",
    "prioridade": 11,
    "papel": "habilita",
    "papel_dupla": "Remoção",
@@ -682,7 +682,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 4. Terreno a mais por turno; jogue terrenos do topo.",
-   "porque": "Valor.",
+   "porque": "Terreno a mais por turno e terrenos do topo: valor e ramp, mas não acelera tanto quanto os Elfos de mana nem compra mágica.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Elfo que conta para os dez e joga terrenos a mais do topo."
@@ -701,7 +701,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 4, alcance e toque mortífero. Outra criatura morre: cada oponente perde 1.",
-   "porque": "Dreno passivo: conta no quadro de WinCon do 8×8.",
+   "porque": "Uma das cartas de dreno: cada criatura que morre tira 1 de cada oponente, e conta para os dez; dreno pequeno, por isso fica em B.",
    "marcas": {
     "dreno": 1
    },
@@ -727,7 +727,7 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Elfo de 2: {G} por Elfo em campo.",
-   "porque": "Ramp explosivo e peça de combo com Staff e Mantle.",
+   "porque": "Gera uma mana por Elfo em campo, o que escala rápido, e fecha a mana infinita com o Staff of Domination (mana, compra e dreno) ou o Umbral Mantle.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Elfo que gera uma mana por Elfo em campo; fecha a mana infinita com o Staff ou o Umbral Mantle."
@@ -745,7 +745,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 3. Ao entrar, destrua artefato ou encantamento.",
-   "porque": "Interação no corpo.",
+   "porque": "Interação no corpo de um Elfo que conta para os dez; cumpre a remoção de artefato e encantamento, mas é de uma vez.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
    "papel_por_que": "Elfo que conta para os dez e destrói artefato ou encantamento ao entrar."
@@ -763,7 +763,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Elfo de 5. Na manutenção de cada jogador, ele sacrifica uma criatura não-Elfo.",
-   "porque": "Faz você sacrificar o Seedborn Muse e o Craterhoof.",
+   "porque": "Poupa os seus Elfos, mas faz você sacrificar o Seedborn Muse e o Craterhoof, que não são Elfos; trabalha contra o próprio deck.",
    "prioridade": 6,
    "papel": "habilita",
    "papel_dupla": "Remoção",
@@ -783,7 +783,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Espírito 2/4 de 5. Desvira suas permanentes no desvirar de cada outro jogador.",
-   "porque": "Uma ativação da Lathril em cada turno alheio. Game Changer.",
+   "porque": "Uma ativação da Lathril em cada turno alheio: desvira ela e os Elfos no desvirar de cada oponente, o maior multiplicador do dreno.",
    "marcas": {
     "desvira": 1
    },
@@ -806,7 +806,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Elfo de 2. Vira: desvira uma criatura.",
-   "porque": "Desvira a Lathril; com o Illusionist's Bracers do radar, desvirar infinito.",
+   "porque": "Desvira a Lathril para uma segunda ativação, se houver outros dez Elfos, e conta para os dez; com o Illusionist's Bracers do radar, desvirar infinito.",
    "marcas": {
     "desvira": 1
    },
@@ -827,7 +827,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 3. Ao entrar, um oponente perde vida igual aos seus Elfos.",
-   "porque": "Dreno de alcance.",
+   "porque": "Dreno de alcance pela contagem de Elfos, que fecha jogo sem combate; é de uma vez, por isso fica em B.",
    "marcas": {
     "dreno": 1
    },
@@ -847,7 +847,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 4. Ao entrar, cada oponente perde X (o maior tipo em comum), ou você ganha X.",
-   "porque": "Dreno de alcance.",
+   "porque": "Dreno de alcance para cada oponente, pelo maior grupo de criaturas suas do mesmo tipo; é de uma vez e não aumenta a conta, por isso fica em B.",
    "marcas": {
     "dreno": 1
    },
@@ -867,7 +867,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 4 com atropelar. Ao entrar, os Elfos das quatro do topo para a mão.",
-   "porque": "Recarga.",
+   "porque": "Recarga de Elfos das quatro do topo; cumpre a compra, mas é de uma vez e não põe os Elfos em campo.",
    "papel": "habilita",
    "papel_dupla": "Draw",
    "papel_por_que": "Elfo que conta para os dez e põe na mão os Elfos do topo."
@@ -885,7 +885,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Elfo de 3. Vira: +X/+X numa criatura, X os Elfos em campo.",
-   "porque": "Pump de combate.",
+   "porque": "Pump de combate num deck que vence por dreno, e virar para o pump tira um Elfo da ativação da Lathril.",
    "prioridade": 10,
    "papel": "habilita",
    "papel_dupla": "Recompensa (+X/+X pela contagem de Elfos)",
@@ -908,7 +908,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Elfo de 4: X manas de uma cor, X os Elfos em campo.",
-   "porque": "Ramp e peça de combo.",
+   "porque": "Gera uma mana por Elfo em campo, de qualquer cor, e fecha a mana infinita com o Staff ou o Mantle: ramp e peça de combo.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Elfo que gera uma mana por Elfo em campo, de qualquer cor."
@@ -926,7 +926,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Elfo de 6. Um Elfo Guerreiro 1/1 em toda manutenção; vida quando outro Elfo entra.",
-   "porque": "Quatro fichas por volta numa mesa de quatro.",
+   "porque": "Quatro fichas de Elfo por volta numa mesa de quatro, em série; fica em B porque custa 6 e só rende depois de uma volta.",
    "papel": "habilita",
    "papel_por_que": "Cria um Elfo em cada manutenção, a sua e a dos oponentes."
   },
@@ -939,7 +939,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Instantânea de 2: destrói uma permanente de oponente.",
-   "porque": "Resposta universal."
+   "porque": "Resposta universal por duas manas e instantânea: tira qualquer permanente de oponente, a remoção mais barata e ampla do deck."
   },
   "Bounty of Skemfar": {
    "notas": {
@@ -955,7 +955,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 3: das seis do topo, um terreno para o campo e um Elfo para a mão.",
-   "porque": "Ramp e carta."
+   "porque": "Ramp e carta numa só, achando terreno e Elfo nas seis do topo; feitiço de 3 que pode errar, por isso fica em B."
   },
   "Bridgeworks Battle": {
    "notas": {
@@ -968,7 +968,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 3: +2/+2 e luta. O verso é um terreno.",
-   "porque": "Remoção ou terreno."
+   "porque": "Remoção por luta ou terreno, conforme a mão; flexível, mas a luta depende de ter criatura grande."
   },
   "Casualties of War": {
    "notas": {
@@ -979,7 +979,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 6: destrói até um de cada tipo.",
-   "porque": "Remoção múltipla."
+   "porque": "Remoção múltipla: até cinco permanentes numa carta só; cara, mas resolve várias ameaças de uma vez."
   },
   "Crippling Fear": {
    "notas": {
@@ -994,7 +994,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 4: não-tipo escolhido −3/−3.",
-   "porque": "Limpeza que poupa os Elfos; o Seedborn Muse (2/4) sobrevive.",
+   "porque": "Limpeza que poupa os Elfos e deixa o Seedborn Muse (2/4) vivo; fica em C porque o -3/-3 não mata criatura grande e o deck já tem a Eyeblight Massacre.",
    "massa": true
   },
   "Damnable Pact": {
@@ -1006,7 +1006,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de X+2: um jogador compra X e perde X.",
-   "porque": "O Pact of the Serpent faz melhor aqui.",
+   "porque": "Compra pelo X, mas o Pact of the Serpent faz o mesmo papel melhor aqui, contando os Elfos.",
    "prioridade": 12
   },
   "Elven Ambush": {
@@ -1024,7 +1024,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de 4: um Elfo Guerreiro 1/1 por Elfo seu.",
-   "porque": "No fim do turno anterior ao seu, dobra os Elfos que pagam a Lathril.",
+   "porque": "Instantânea que dobra os Elfos que pagam a Lathril: no fim do turno anterior ao seu, deixa as fichas prontas para mais uma ativação.",
    "papel": "habilita",
    "papel_por_que": "Uma ficha de Elfo por Elfo em campo: dobra a conta para a ativação, na instantânea."
   },
@@ -1041,7 +1041,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 4: um Elfo Guerreiro 1/1 por Elfo seu.",
-   "porque": "Dobra a mesa.",
+   "porque": "Dobra a mesa de Elfos de uma vez, e por ser feitiço de Elfo dispara a Lys Alana; peça direta para chegar aos dez.",
    "papel": "habilita",
    "papel_por_que": "Uma ficha de Elfo por Elfo em campo, e a própria carta é Elfo."
   },
@@ -1058,7 +1058,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 4: não-Elfos −2/−2.",
-   "porque": "Limpeza unilateral.",
+   "porque": "Limpeza unilateral: tira as criaturas pequenas dos oponentes e poupa todos os Elfos, o que mantém a conta da Lathril intacta.",
    "massa": true
   },
   "Feed the Swarm": {
@@ -1070,7 +1070,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 2: destrói criatura ou encantamento de oponente.",
-   "porque": "Remoção barata."
+   "porque": "Remoção barata de criatura ou encantamento; cumpre, mas a perda de vida e o alvo só de oponente a seguram em B."
   },
   "Galadhrim Ambush": {
    "notas": {
@@ -1085,7 +1085,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Instantânea de 4: X fichas (X os atacantes); névoa de não-Elfos.",
-   "porque": "Conta atacantes de qualquer jogador: no ataque de um oponente, um Elfo por atacante e névoa dos não-Elfos.",
+   "porque": "No ataque de um oponente, um Elfo por atacante e névoa dos não-Elfos; útil, mas depende de a mesa atacar.",
    "prioridade": 13,
    "papel": "habilita",
    "papel_dupla": "Proteção (previne o dano de não-Elfos)",
@@ -1104,7 +1104,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 3: X básicos virados, X as suas criaturas viradas.",
-   "porque": "Conta os Elfos de mana virados também."
+   "porque": "Conta os Elfos de mana virados e a Lathril depois do dreno, mas ramp de terreno pesa pouco num deck cheio de Elfos de mana."
   },
   "Khalni Ambush": {
    "notas": {
@@ -1115,7 +1115,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 3: luta. O verso é um terreno.",
-   "porque": "Remoção ou terreno."
+   "porque": "Remoção por luta ou terreno, conforme a mão; flexível, mas depende de criatura grande em campo."
   },
   "Kindred Dominance": {
    "notas": {
@@ -1130,7 +1130,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 7: destrói as criaturas que não são do tipo escolhido.",
-   "porque": "Sete manas, e mata o seu Seedborn Muse.",
+   "porque": "Sete manas, e mata o seu próprio Seedborn Muse; o deck já tem limpezas que poupam os Elfos por bem menos.",
    "massa": true,
    "prioridade": 14
   },
@@ -1143,7 +1143,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 3: dois básicos.",
-   "porque": "Ramp de três num deck de Elfos de mana.",
+   "porque": "Ramp de três num deck que acelera com Elfos de mana: lento perto deles e sem contar para os dez.",
    "prioridade": 15
   },
   "Overrun": {
@@ -1156,7 +1156,7 @@
    "tier": "D",
    "rel": "BAX",
    "faz": "Feitiço de 5: +3/+3 e atropelar.",
-   "porque": "O Elfos comum; o Craterhoof já cobre o plano B.",
+   "porque": "Plano B de combate que o Craterhoof já cobre melhor, num deck que vence pelo dreno da Lathril.",
    "prioridade": 1,
    "papel": "recompensa",
    "papel_por_que": "Com a mesa larga, +3/+3 e atropelar para todos: fecha o jogo no combate."
@@ -1174,7 +1174,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 3: um jogador compra e perde X, X as criaturas dele do tipo escolhido.",
-   "porque": "Compra em massa.",
+   "porque": "Compra em massa pela contagem de Elfos por três manas: com a mesa cheia, recarrega a mão de uma vez.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
    "papel_por_que": "Compra uma carta por Elfo em campo: a mesa larga vira mão cheia."
@@ -1192,7 +1192,7 @@
    "tier": "D",
    "rel": "BAX",
    "faz": "Feitiço de 5: reanima; duas fichas se for Elfo.",
-   "porque": "Lento.",
+   "porque": "Lento: cinco manas para reanimar e duas fichas, num deck que gera Elfos mais barato e mais rápido.",
    "prioridade": 2,
    "papel": "habilita",
    "papel_por_que": "Devolve uma criatura do cemitério e, se for Elfo, cria mais dois Elfos."
@@ -1208,7 +1208,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 1: marcador e indestrutível. O verso é um terreno.",
-   "porque": "Protege a Lathril, ou terreno.",
+   "porque": "Protege a Lathril com indestrutível, a única proteção do deck, ou vira terreno; fica em B porque protege uma criatura só.",
    "marcas": {
     "protege": 1
    }
@@ -1227,7 +1227,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea de 1: desvira suas criaturas.",
-   "porque": "Segunda ativação da Lathril por uma mana.",
+   "porque": "Segunda ativação da Lathril por uma mana: desvira ela e todos os Elfos de uma vez, sem pedir outros dez.",
    "marcas": {
     "desvira": 1
    },
@@ -1243,7 +1243,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 3: destrói criatura ou encantamento; perca 2.",
-   "porque": "Remoção instantânea."
+   "porque": "Remoção instantânea de criatura ou encantamento; cumpre bem, sem nada que a ligue ao plano."
   },
   "Bolas's Citadel": {
    "notas": {
@@ -1260,7 +1260,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Artefato de 6. Jogue do topo pagando vida; sacrifique dez permanentes: 10 em cada oponente.",
-   "porque": "Segunda vitória com fichas; o dreno da Lathril paga a vida. Game Changer.",
+   "porque": "Segunda vitória com as fichas: sacrifica dez permanentes por 10 em cada oponente, e o dreno da Lathril paga a vida das cartas do topo.",
    "marcas": {
     "dreno": 1
    },
@@ -1281,7 +1281,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: mágicas verdes custam {1} a menos.",
-   "porque": "Redutor."
+   "porque": "Redutor de mágicas verdes que acelera o deck todo, mas não gera mana nem conta para os dez; cumpre sem destaque."
   },
   "Lothlórien Blade": {
    "notas": {
@@ -1297,7 +1297,7 @@
    "tier": "D",
    "rel": "BAX",
    "faz": "Equipamento de 3: ao atacar, dano igual à força numa criatura.",
-   "porque": "Lento.",
+   "porque": "Lento: equipamento de 3 que só remove no ataque, num deck que vence sem combate.",
    "prioridade": 3
   },
   "Puppet Strings": {
@@ -1314,7 +1314,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 3. {2}, vira: vire ou desvire uma criatura.",
-   "porque": "Desvira a Lathril.",
+   "porque": "Desvira a Lathril por {2}, uma vez por volta, se houver outros dez Elfos; fica em B porque é uma ativação extra lenta e cara.",
    "marcas": {
     "desvira": 1
    },
@@ -1330,7 +1330,7 @@
    "tier": "A",
    "rel": "MED",
    "faz": "Artefato de 1: {C}{C}.",
-   "porque": "Lathril no turno 2."
+   "porque": "A Lathril no turno 2: a aceleração mais barata do deck, mas os Elfos de mana já fazem esse papel em quantidade."
   },
   "Staff of Domination": {
    "notas": {
@@ -1347,7 +1347,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Artefato de 3. {1}: desvira-se; {3}, vira: desvira uma criatura; {5}, vira: compre.",
-   "porque": "Com um Elfo que gera cinco, mana e compra infinitas; e desvira a Lathril e os Elfos sem fim.",
+   "porque": "Com um Elfo que gera cinco, mana e compra infinitas, e desvira a Lathril e os Elfos sem fim: é a peça que fecha o jogo.",
    "marcas": {
     "desvira": 1
    },
@@ -1368,7 +1368,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Artefato de 3. Verdes custam {1} a menos; cada criatura conjurada dá +2/+2 e atropelar.",
-   "porque": "Combate, não dreno.",
+   "porque": "Barateia as criaturas verdes, mas o bônus é de combate, não de dreno, e não conta para os dez.",
    "prioridade": 16
   },
   "The Great Henge": {
@@ -1382,7 +1382,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Artefato de 9, X a menos. {G}{G} e vida; criatura não-ficha que entra ganha marcador e compra.",
-   "porque": "Valor.",
+   "porque": "Com os Elfos e lordes em campo sai barato, dá mana e vira compra a cada criatura não ficha que entra: o motor de valor do deck.",
    "caro_por_desenho": true
   },
   "Trailblazer's Boots": {
@@ -1394,7 +1394,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Equipamento de 2: deslizar em terreno não-básico.",
-   "porque": "A Lathril já tem ameaça.",
+   "porque": "Evasão que a Lathril já tem com ameaça; não acrescenta nada ao dreno.",
    "prioridade": 4
   },
   "Umbral Mantle": {
@@ -1412,7 +1412,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Equipamento de 3, equipar {0}: {3}, desvirar: +2/+2.",
-   "porque": "Desvira a Lathril; mana infinita com um Elfo que gere quatro ou mais.",
+   "porque": "Desvira a Lathril por {3}, e num Elfo que gere quatro ou mais vira mana infinita, que paga os outros desviradores.",
    "marcas": {
     "desvira": 1
    },
@@ -1430,7 +1430,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Saga de 4: destrói não-terreno, busca Forest, dá toque mortífero.",
-   "porque": "Saga de valor."
+   "porque": "Saga de valor: remoção, um Forest e toque mortífero; cumpre bem, mas é lenta e não se liga aos Elfos."
   },
   "Phyrexian Arena": {
    "notas": {
@@ -1441,7 +1441,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Encantamento de 3: compre e perca 1 por turno.",
-   "porque": "O deck compra por Elfo.",
+   "porque": "Compra uma por turno, mas o deck compra por Elfo com cartas melhores, como o Beast Whisperer e o Pact of the Serpent.",
    "prioridade": 17
   },
   "Primal Vigor": {
@@ -1458,7 +1458,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Encantamento de 5: dobra fichas e marcadores de todos.",
-   "porque": "Dobra as fichas dos oponentes também.",
+   "porque": "Dobra as fichas da Lathril, mas também as dos oponentes; o efeito simétrico a segura em C.",
    "prioridade": 5,
    "papel": "multiplica",
    "papel_por_que": "Dobra as fichas, inclusive as de Elfo: a conta dos dez anda duas vezes mais rápido."
@@ -1473,7 +1473,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 5: dobra força e resistência em cada combate.",
-   "porque": "Lathril maior faz mais fichas.",
+   "porque": "Dobra força e resistência a cada combate, e a Lathril maior faz mais fichas; fica em B porque custa 5 e só rende no combate.",
    "papel": "recompensa",
    "papel_por_que": "Dobra a força do time a cada combate: a mesa larga de Elfos fecha o jogo."
   },
@@ -1487,7 +1487,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Encantamento de 2: toque mortífero; compra quando lendária conecta.",
-   "porque": "Pequeno.",
+   "porque": "Pequeno: toque mortífero só nas criaturas que já estão em campo e compra só quando lendária conecta, sem ligação com o dreno.",
    "prioridade": 18
   },
   "Command Tower": {
@@ -1497,7 +1497,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Mana da identidade.",
-   "porque": "As duas cores desvirado."
+   "porque": "As duas cores desvirado, sem custo; base de mana que cumpre o papel."
   },
   "Darkbore Pathway": {
    "notas": {},
@@ -1506,7 +1506,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{B} ou {G}, uma face.",
-   "porque": "As duas cores desvirado."
+   "porque": "Entra desvirado com a cor escolhida; cumpre a base de mana, mas dá uma cor só depois de jogado."
   },
   "Deathcap Glade": {
    "notas": {},
@@ -1515,7 +1515,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{B} ou {G}; virado sem dois outros terrenos.",
-   "porque": "As duas cores desvirado."
+   "porque": "As duas cores, desvirado a partir do terceiro terreno; cumpre a base de mana."
   },
   "Twilight Mire": {
    "notas": {},
@@ -1524,7 +1524,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{C}, ou filtra {B/G} em duas.",
-   "porque": "As duas cores desvirado."
+   "porque": "Filtra as duas cores e entra desvirado; cumpre a base de mana, mas sozinho só dá incolor."
   },
   "Undergrowth Stadium": {
    "notas": {},
@@ -1533,7 +1533,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{B} ou {G}; desvirado com dois ou mais oponentes.",
-   "porque": "As duas cores desvirado."
+   "porque": "As duas cores desvirado em mesa de quatro; cumpre a base de mana."
   },
   "Secluded Courtyard": {
    "notas": {},
@@ -1546,7 +1546,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{C}, ou qualquer cor para criatura do tipo escolhido.",
-   "porque": "As duas cores desvirado."
+   "porque": "Desvirado, e escolhendo Elfo paga os Elfos em qualquer cor; fora disso só dá incolor."
   },
   "Jungle Hollow": {
    "notas": {
@@ -1557,7 +1557,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado; {B} ou {G}; 1 de vida.",
-   "porque": "Virado.",
+   "porque": "Sempre entra virado, num deck que quer a Lathril cedo; o ganho de 1 vida não compensa.",
    "prioridade": 1,
    "virado": true
   },
@@ -1570,7 +1570,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado; {B} ou {G}; vidência 1.",
-   "porque": "Virado.",
+   "porque": "Sempre entra virado; a vidência 1 não paga o atraso num deck de ritmo rápido.",
    "prioridade": 2,
    "virado": true
   },
@@ -1587,7 +1587,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado; mana da identidade; vidência com Elfo.",
-   "porque": "Virado.",
+   "porque": "Sempre entra virado, e a vidência com Elfo é pouco ganho; um dos cinco terrenos lentos do deck.",
    "prioridade": 3,
    "virado": true
   },
@@ -1601,7 +1601,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Sempre virado; {C}; sacrifique: dois básicos virados.",
-   "porque": "Virado, mas rende dois terrenos.",
+   "porque": "Entra virado, mas rende dois terrenos depois; ramp lento num deck que acelera com Elfos de mana.",
    "virado": true
   },
   "Skemfar Elderhall": {
@@ -1619,7 +1619,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sempre virado; {G}; sacrifique: −2/−2 numa criatura e dois Elfos.",
-   "porque": "Utilitário de fichas.",
+   "porque": "Terreno que vira dois Elfos e um -2/-2 no fim do jogo; fica em B porque entra virado e a ativação é cara.",
    "virado": true
   },
   "Forest": {
@@ -1629,7 +1629,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base."
+   "porque": "Base da cor principal; cumpre o papel, mas o deck tem 29 terrenos e prefere os que dão as duas cores."
   },
   "Swamp": {
    "notas": {},
@@ -1638,7 +1638,7 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base."
+   "porque": "Base da segunda cor; cumpre o papel, num deck de 29 terrenos que prefere os que dão as duas cores."
   }
  },
  "radar": {
