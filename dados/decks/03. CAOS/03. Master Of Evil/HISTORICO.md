@@ -40,3 +40,4 @@
 ## Rebranding, 19/10/2026
 
 - Gráfico novo do herói: `dalek` (lote 1 do rebranding, escolhido pelo dono), com o kit de luz do guia visual.
+- 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
