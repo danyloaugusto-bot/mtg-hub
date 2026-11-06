@@ -31,3 +31,4 @@
 ## Rebranding, 20/10/2026
 
 - Gráfico do herói: tumbas, cemitério noturno (variação R, escolhida pelo dono).
+- 05/11/2026: Saw in Half no radar como avaliar (Zumbis 2, Sacrifício e recursão 2, tier A), no lugar da Withering Torment; a cópia viria da troca com o colega.
