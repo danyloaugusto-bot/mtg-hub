@@ -51,3 +51,4 @@
 
 - Gráfico do herói: penas sobre veludo (variação R, escolhida pelo dono).
 - 05/11/2026: Arcane Signet no radar passa de avaliar para fora, por decisão do dono (ele tem as duas pedras guardadas e não vê necessidade de colocá-las).
+- 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
