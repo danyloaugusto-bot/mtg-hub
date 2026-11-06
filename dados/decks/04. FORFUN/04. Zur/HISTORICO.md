@@ -29,3 +29,4 @@
 ## Rebranding, 20/10/2026
 
 - Gráfico do herói: circulos (variação acabamento aprovado, escolhida pelo dono).
+- 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
