@@ -5,7 +5,7 @@
 - **comandante:** Helga, Skittish Seer
 - **impressão do comandante:** BLB 332, foil
 - **cores:** verde, branco e azul
-- **nome do painel:** Titãs da Lagoa
+- **nome do painel:** Lagoa de Titãs
 
 Deck avulso, pedido do dono em 05/11/2026: uma análise à parte, que não entra no hub, na Caixa, no radar dos decks do dono, no Grimório, nos Ciclos, na Consulta nem nas Compras, e não diz "esta carta está neste deck" em lugar nenhum. Monta com `python motor/build.py --avulso Helga` e sai em `saidas/avulsos/Helga.html`. As notas das cartas sem cadastro ficam em `cartas.json` desta pasta e valem só aqui.
 
