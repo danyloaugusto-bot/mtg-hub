@@ -277,7 +277,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "2/6 com voar e golpe duplo. Quando uma criatura sua causa dano de combate a um jogador, você e ele ganham essa quantidade de vida. No seu passo final, se você tem 15 de vida acima do total inicial, cada jogador que ela atacou no turno perde o jogo.",
-   "porque": "Condição de vitória alternativa: com 55 de vida, quem ela atacou está fora. Todo dano de combate vira ganho de vida e liga os motores de ficha. O oponente também ganha vida, então ela atrapalha a vitória por dano.",
+   "porque": "Fecha o jogo aos 55 de vida, em combo com a Lyra, e todo dano de combate vira vida que liga os motores. O jogador atingido também ganha vida, o que atrasa a vitória por dano.",
    "marcas": {
     "ganho": 1,
     "paga": 1
@@ -523,7 +523,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "4/3 voador. Sempre que você ataca com duas ou mais criaturas, compra uma carta. Quando outro jogador ataca com duas ou mais criaturas e nenhuma ataca você, ele compra uma carta.",
-   "porque": "Uma carta por turno de ataque em corpo de Anjo, e um incentivo para os oponentes baterem uns nos outros.",
+   "porque": "Compra por ataque em corpo de Anjo, mas é um dos três efeitos que pedem duas criaturas atacando, com Chivalric Alliance e Horn of the Mark, e não rende nada aos outros Anjos.",
    "papel": "habilita",
    "papel_dupla": "Draw",
    "papel_por_que": "Corpo de Anjo voador que compra quando você ataca com duas ou mais criaturas."
@@ -821,7 +821,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "3/3 com lampejo e voar. Quando entra ou ataca, escolha qualquer número de criaturas com poderes diferentes entre si: elas ganham golpe duplo até o fim do turno.",
-   "porque": "Os marcadores da Giada deixam cada Anjo com um poder diferente, então o golpe duplo costuma pegar quase a mesa toda. Com lampejo, entra no meio do combate.",
+   "porque": "Os marcadores da Giada deixam os poderes diferentes e o golpe duplo pega quase a mesa toda. Fica no meio porque é um 3/3 de 5 manas que só rende no turno em que entra ou ataca.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (golpe duplo)",
    "papel_por_que": "Anjo com lampejo; os marcadores da Giada deixam os poderes diferentes, e o golpe duplo pega vários."
@@ -862,7 +862,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "5/4 voador por {6}, ou 3/3 pelo custo de protótipo, {1}{W}{W}. No início do combate no seu turno, uma criatura sua ganha voar, vigilância ou vínculo com a vida até o fim do turno.",
-   "porque": "Na prática é um Anjo de 3 manas, embora a curva o conte como 6. O vínculo com a vida no maior atacante do turno liga os motores de vida.",
+   "porque": "Anjo de 3 manas pelo protótipo que dá vínculo com a vida ao maior atacante e liga os motores, mas só a uma criatura por turno, o que a Lyra já faz para todos os Anjos.",
    "marcas": {
     "ganho": 1,
     "alt": 1
@@ -963,7 +963,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço. Escolha dois: destruir todos os artefatos; todos os encantamentos; todas as criaturas de custo 3 ou menos; todas as criaturas de custo 4 ou mais.",
-   "porque": "A remoção em massa mais flexível do deck e a única resposta ampla a artefatos e encantamentos que não exila os seus. Escolhendo custo 3 ou menos, os Anjos grandes ficam.",
+   "porque": "A mais flexível das cinco limpezas e a única resposta ampla a artefatos e encantamentos que não exila os seus. Custa 6, e o modo que poupa os Anjos grandes mata a Giada.",
    "massa": 1
   },
   "Clever Concealment": {
@@ -1099,7 +1099,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea: 3 de dano em uma criatura atacante ou bloqueadora. O verso é um terreno que gera {W} e entra desvirado por 3 de vida.",
-   "porque": "Terreno que entra desvirado quando precisa, com uma remoção modesta de reserva. Conta como fonte de terreno.",
+   "porque": "Vale pela flexibilidade: terreno de branco ou remoção de reserva. Não sobe porque 3 de dano só em atacante ou bloqueador resolve pouco, e o terreno cobra 3 de vida para entrar desvirado.",
    "gera": "W"
   },
   "Sejiri Shelter": {
@@ -1110,7 +1110,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea: uma criatura sua ganha proteção contra a cor que você escolher até o fim do turno. O verso é um terreno que entra virado e gera {W}.",
-   "porque": "Salva a Giada ou um Anjo-chave de uma remoção pontual, ou vira terreno. Conta como fonte de terreno.",
+   "porque": "Salva a Giada ou um Anjo-chave de uma remoção pontual e ainda conta como terreno. Protege uma criatura só e o verso entra virado, por isso fica no meio.",
    "gera": "W"
   },
   "Split Up": {
@@ -1139,7 +1139,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço: cria um Anjo Guerreiro 4/4 com voar e vigilância. Com predizer, você paga {2} para guardá-la e a conjura depois por {X}{X}{W}, criando X Anjos.",
-   "porque": "Um Anjo por 4 manas no aperto, ou três ou quatro no fim do jogo. Cada ficha entra com os marcadores da Giada.",
+   "porque": "No fim do jogo vira vários Anjos que entram com os marcadores da Giada, mas pede mana em duas etapas para isso: no aperto é só um 4/4 por 4 manas.",
    "papel": "habilita",
    "papel_por_que": "Cria um Anjo 4/4, ou X deles com predizer."
   },
@@ -1162,7 +1162,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço. Custa {1} a menos para cada criatura em campo. Destrói todas as criaturas.",
-   "porque": "Em mesa cheia custa 2 ou 3 manas. Com Avacyn em campo ou Flawless Maneuver na mão, só o lado dos oponentes morre.",
+   "porque": "Barata em mesa cheia e unilateral com a Avacyn ou o Flawless Maneuver. Sem um dos dois, leva junto os seus Anjos, o que pesa num deck que vive da própria mesa.",
    "massa": 1,
    "marcas": {
     "alt": 1
@@ -1195,7 +1195,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Equipamento: +1/+1 e vigilância; equipar {1}. Quando a criatura equipada ataca, olhe as seis cartas do topo e pegue uma que compartilhe um tipo de criatura com ela.",
-   "porque": "Em um Anjo, cada ataque busca outro Anjo entre seis cartas. Barato de equipar e de mover."
+   "porque": "Em um Anjo, cada ataque acha outro Anjo entre seis cartas, e equipar custa 1. Fica no meio porque só rende atacando e se liga à tribo de passagem, pelo tipo da criatura equipada."
   },
   "Dowsing Dagger": {
    "notas": {
@@ -1263,7 +1263,7 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Gera {C}{C}.",
-   "porque": "A melhor aceleração do formato."
+   "porque": "Duas manas por uma já no primeiro turno: adianta Herald's Horn, Pearl Medallion e os Anjos de 4 e 5 manas em um turno inteiro."
   },
   "Sword of the Animist": {
    "notas": {
@@ -1274,7 +1274,7 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Equipamento: +1/+1; equipar {2}. Sempre que a criatura equipada ataca, você pode buscar um terreno básico e colocá-lo em campo virado.",
-   "porque": "Ramp de verdade em mono-branco: um terreno a mais por ataque. Busca Planícies da neve, o que aproxima a Emeria, the Sky Ruin e a ativação do Faceless Haven."
+   "porque": "Ramp que mono-branco quase não tem: um terreno a mais por ataque. Busca Planícies da neve, o que aproxima a Emeria, the Sky Ruin e a ativação do Faceless Haven."
   },
   "The Book of Exalted Deeds": {
    "notas": {
@@ -1354,7 +1354,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Sempre que você ataca com duas ou mais criaturas, compra uma carta. Por {2}, descartando uma carta: cria um Cavaleiro 2/2 branco e azul com vigilância.",
-   "porque": "Uma carta por turno de ataque por 2 manas. A segunda habilidade troca os básicos que sobram da Land Tax por corpos.",
+   "porque": "Compra barata nos turnos de ataque e troca os básicos que sobram da Land Tax por corpos, mas divide o papel com Firemane Commando e Horn of the Mark e não rende sem atacar.",
    "prioridade": 7
   },
   "Court of Grace": {
@@ -1385,7 +1385,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Aura: a criatura encantada vira um Inseto artefato 0/1 indestrutível e perde todas as outras habilidades e tipos.",
-   "porque": "Neutraliza um comandante sem mandá-lo de volta à zona de comando. Duas manas."
+   "porque": "Neutraliza um comandante por 2 manas sem mandá-lo à zona de comando, mas só pega criatura e, como Aura, cai com qualquer remoção de encantamento."
   },
   "Land Tax": {
    "notas": {
@@ -1437,7 +1437,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Gera {C}. Por {3}, {T}: compra uma carta, se você controla uma criatura de poder 4 ou mais.",
-   "porque": "Com os marcadores da Giada, o poder 4 aparece cedo. É um dos terrenos que não geram branco.",
+   "porque": "Compra de reserva que os Anjos com marcadores ligam cedo, pelo poder 4. Fica no meio porque gera só incolor num deck de {W}{W} e cobra {3} mais o próprio terreno por carta.",
    "gera": "C"
   },
   "Cavern of Souls": {
@@ -1523,7 +1523,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Gera {C}. Por {2}, {T}: cada jogador compra uma carta.",
-   "porque": "Compra simétrica: ative no fim do turno do oponente anterior a você, para ser o primeiro a usar a carta. Terreno incolor.",
+   "porque": "Compra de reserva num terreno, mas dá carta a todos os oponentes também e gera só incolor: ative no fim do turno de quem joga antes de você.",
    "gera": "C"
   },
   "Minas Tirith": {
@@ -1580,7 +1580,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Entra virado e gera {W}. Quando essa mana paga uma criatura que compartilha um tipo com o comandante, vidência 1.",
-   "porque": "Vidência a cada Anjo conjurado ajuda a achar o próximo. Entrar virado é o preço.",
+   "porque": "Vidência a cada Anjo conjurado ajuda a achar o próximo. Entrar virado é o custo.",
    "virado": 1,
    "gera": "W"
   },
