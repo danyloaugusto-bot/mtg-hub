@@ -34,3 +34,4 @@
 ## Rebranding, 20/10/2026
 
 - Gráfico do herói: meteoros de basalto (variação R, escolhida pelo dono).
+- 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
