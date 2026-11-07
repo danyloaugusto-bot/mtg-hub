@@ -27,3 +27,4 @@
 
 - Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Satisfatório; com o recomendado: Satisfatório. Só o radar e o cadastro mudaram, a lista do deck não.
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
+- 07/11/2026: custo usual ao lado do impresso, pedido do dono: 2 cartas que saem mais baratas neste deck ganharam o valor usual e a frase de como saem: Blood for the Blood God! (5), Markov Baron (0). O CMC impresso, a curva e o placar não mudam.
