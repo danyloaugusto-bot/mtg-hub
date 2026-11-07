@@ -24,7 +24,7 @@ LER = """() => {
     agrupamentos: q('#v-geral .gr').map(g => [g.querySelector('.gr-n').textContent.trim(), g.querySelector('.gr-v').textContent.replace(/\\s+/g, ' ').trim(), g.querySelector('.gr-p').textContent.trim()]),
     tiers: q('#v-geral .score-big ~ .legend > span').map(s => s.textContent.trim()),
     relevancia: q('#v-geral .rel-t tbody tr:not(.tot-r)').map(r => r.querySelector('th').textContent.replace(/\\s+/g, ' ').trim() + ' ' + r.querySelector('td').textContent),
-    fatos: q('#v-geral .facts div').map(d => d.querySelector('dt').textContent + ' ' + d.querySelector('dd').textContent),
+    fatos: q('#v-geral .facts div').map(d => d.querySelector('dt').textContent + ' ' + Array.from(d.querySelector('dd').childNodes).filter(x => !(x.classList && x.classList.contains('cu'))).map(x => x.textContent).join('')),
     curva: q('#v-geral .curve text.n').map(x => x.textContent),
     leituras: q('#v-geral .read li').map(l => l.textContent.replace(/\\s+/g, ' ').trim()),
     tipos: q('#v-geral .bars .bar').slice(0, 12).map(b => b.textContent.replace(/\\s+/g, ' ').trim()),
@@ -115,7 +115,8 @@ TEXTO_CORRIGIDO = {"High-Society Hunter", "Drivnod, Carnage Dominus", "Path of A
 RADAR_NOVO = {"Crossway Troublemakers", "Pact of the Serpent"}
 # s3 e s3w: as notas dos dez critérios e o porquê delas, que a pontuação v3 acrescentou (o kit não tem)
 # pp, ppd e ppw: o papel no Plano do deck, a dupla função e o porquê (18/10/2026; o kit não tem)
-IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain", "s3", "s3w", "pp", "ppd", "ppw"}
+# why: o porquê de cada carta foi revisto a pedido do dono em 06/11/2026; cu e cuc: o custo usual (07/11/2026), que o kit não tem
+IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain", "s3", "s3w", "pp", "ppd", "ppw", "why", "cu", "cuc"}
 dif = []
 for chave in ("cards", "cands"):
     ob = {c["id"]: c for c in O[chave]}
@@ -129,6 +130,8 @@ for chave in ("cards", "cands"):
             if k == "tier" and c["id"] in REGRA_S:
                 continue
             if k in ("fx", "why") and c["n"] in TEXTO_CORRIGIDO:
+                continue
+            if k == "cpd" and c.get("cu") is not None:   # o custo usual liga a mesma marca
                 continue
             if x.get(k) != c.get(k):
                 dif.append("%s: %s: %s antes %r, agora %r" % (chave, c["n"], k, x.get(k), c.get(k)))
