@@ -47,3 +47,4 @@
 
 - Gráfico do herói: luta (variação acabamento aprovado, escolhida pelo dono).
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
+- 07/11/2026: custo usual ao lado do impresso, pedido do dono: 8 cartas que saem mais baratas neste deck ganharam o valor usual e a frase de como saem: Chandra's Ignition (0), Divine Reckoning (0), Insurrection (0), Overpowering Attack (3), Promise of Loyalty (0), Single Combat (0), Slash the Ranks (0), World at War (0). O CMC impresso, a curva e o placar não mudam.
