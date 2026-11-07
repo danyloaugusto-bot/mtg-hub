@@ -31,3 +31,4 @@
 - Gráfico do herói: vigia (olho de águia) (variação A, escolhida pelo dono).
 - 05/11/2026: Sol Ring e Arcane Signet no radar passam de entra para fora, por decisão do dono (ele tem as duas pedras guardadas e não vê necessidade de colocá-las).
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
+- 07/11/2026: custo usual ao lado do impresso, pedido do dono: 9 cartas que saem mais baratas neste deck ganharam o valor usual e a frase de como saem: Roshan, Hidden Magister (2), Arno Dorian (2), Bayek of Siwa (2), Queen Marchesa (2), Layla Hassan (2), Eivor, Wolf-Kissed (2), Chain Assassination (2), Petty Larceny (2), Restart Sequence (2). O CMC impresso, a curva e o placar não mudam.
