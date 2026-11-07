@@ -30,3 +30,4 @@
 
 - Gráfico do herói: circulos (variação acabamento aprovado, escolhida pelo dono).
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
+- 07/11/2026: custo usual ao lado do impresso, pedido do dono: 7 cartas que saem mais baratas neste deck ganharam o valor usual e a frase de como saem: Propaganda (0), Darksteel Mutation (0), Imprisoned in the Moon (0), Act of Authority (0), Minimus Containment (0), Parasitic Impetus (0), Underworld Dreams (0). O CMC impresso, a curva e o placar não mudam.
