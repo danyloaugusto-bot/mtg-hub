@@ -267,6 +267,12 @@ function pips(cost) {
   return n;
 }
 
+/* custo usual (pedido do dono, 07/11/2026): o custo com que a carta costuma sair neste deck (Sephara por {W}, Vanquish the
+   Horde com a mesa cheia, as que saem de graça com o comandante). O impresso continua valendo para a curva e o placar. */
+function temCu(c) { return c.cu != null && !c.land && c.cu < c.cmc; }
+function cuTag(c, longo) {
+  return temCu(c) ? ' <small class="cu" title="' + esc(c.cuc || '') + '">usual ' + c.cu + (longo ? ': ' + esc(c.cuc || '') : '') + '</small>' : '';
+}
 function stats(cs) {
   var st = { n: 0, nonland: 0, cmcSum: 0, curve: [], types: {}, cols: {}, rel: {}, tier: {}, grp: [],
              pip: {}, src: {}, pw: {}, srcC: 0, lands: 0, mdfc: 0, tapped: 0, cri: 0, tribo: 0, wipes: 0, mk: {},
@@ -298,6 +304,7 @@ function stats(cs) {
       st.lands += q; if (c.tapped) st.tapped += q;
     } else {
       st.nonland += q; st.cmcSum += c.cmc * q;
+      st.cmcSumU = (st.cmcSumU || 0) + (temCu(c) ? c.cu : c.cmc) * q; if (temCu(c)) st.nU = (st.nU || 0) + q;
       var b = st.curve[Math.min(c.cmc, 7)];
       b.n += q; b.t[c.t] = (b.t[c.t] || 0) + q; b.c[c.col] = (b.c[c.col] || 0) + q;
       st.cols[c.col] = (st.cols[c.col] || 0) + q;
@@ -320,6 +327,7 @@ function stats(cs) {
     });
   });
   st.avg = st.nonland ? st.cmcSum / st.nonland : 0;
+  st.nU = st.nU || 0; st.avgU = st.nonland ? (st.cmcSumU || 0) / st.nonland : 0;
   var a = st.avg;
   st.cmcPts = (V3 && !RG.pontos_de_cmc_antigos) || a === 0 ? 0 : a < 2 ? 5 : a < 3 ? 4 : a < 4 ? 3 : a < 5 ? 2 : 1;
   st.accX = a ? (V3 ? st.c3[ICA].notas : st.grp[IR].pts) / a : 0;
@@ -1985,7 +1993,8 @@ function heroHtml(st, cmds) {
   var cap = M.capa || {}, art = !!cap.tem, larga = cap.moldura === 'larga';
   var verbos = (M.verbos || []).length ? ' O plano cabe em três verbos: ' + esc(M.verbos.join(', ')) + '.' : '';
   var nome = M.cmd || (cmd ? cmd.n : '');
-  var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) + '</dd></div>' +
+  var facts = '<dl class="facts"><div><dt>cartas</dt><dd>' + st.n + '</dd></div><div><dt>CMC médio</dt><dd>' + fmt(st.avg) +
+    (st.nU && st.avg - st.avgU >= 0.005 ? '<small class="cu" title="Pelo custo usual de ' + st.nU + (st.nU > 1 ? ' cartas' : ' carta') + ' que saem mais baratas neste deck">usual ' + fmt(st.avgU) + '</small>' : '') + '</dd></div>' +
     '<div><dt>' + esc(M.eixo && M.eixo.rotulo ? M.eixo.rotulo : 'criaturas') + '</dt><dd>' + eixoN(st) + '</dd></div><div><dt>fontes de terreno</dt><dd>' + (st.lands + st.mdfc) + '</dd></div>' +
     (st.foils ? '<div><dt>foils</dt><dd>' + st.foils + '</dd></div>' : '') + '</dl>';
   var peca = M.grafico === 'rosacea' ? 'pétala' : M.grafico === 'fios' ? 'lâmina' : M.grafico === 'chamas' ? 'chama' : M.grafico === 'estandartes' ? 'estandarte' : M.grafico === 'alfinetes' ? 'alfinete' : M.grafico === 'rebites' ? 'painel' : M.grafico === 'espinhos' ? 'espinho' : M.grafico === 'presas' ? 'presa' : M.grafico === 'coroa' ? 'ponta' : M.grafico === 'frascos' ? 'frasco' : M.grafico === 'runas' ? 'pedra' : M.grafico === 'cascos' ? 'casco' : M.grafico === 'leque' ? 'raio' : M.grafico === 'luas' ? 'lua' : M.grafico === 'raios' ? 'relâmpago' : M.grafico === 'baloes' ? 'balão' : M.grafico === 'trancas' ? 'trança' : M.grafico === 'folhas' ? 'galho' : M.grafico === 'ovos' ? 'ovo' : M.grafico === 'fendas' ? 'fenda' : M.grafico === 'moedas' ? 'pilha' : M.grafico === 'maos' ? 'mão' : M.grafico === 'engrenagens' ? 'engrenagem' : M.grafico === 'pergaminhos' ? 'pergaminho' : M.grafico === 'lunetas' ? 'luneta' : M.grafico === 'torres' ? 'torre' : M.grafico === 'meteoros' ? 'meteoro' : M.grafico === 'canhoes' ? 'canhão' : M.grafico === 'tumbas' ? 'lápide' : M.grafico === 'asas' && (V3 ? NC : NG) === 8 ? 'pena' : 'fatia';
@@ -2444,7 +2453,7 @@ function jaEm(c) {
   var os = ((D.outros && D.outros[chaveN(c)]) || []).filter(function (o) { return o.w === 'deck'; });
   return !os.length ? '' : '<small class="cv-ja">' + (os.length > 2 ? 'já está em ' + os.length + ' outros decks' : 'já está no ' + esc(lista(os.map(function (o) { return o.d; })))) + '</small>';
 }
-function cvNome(c) { return '<button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + '</button> ' + (c.cost ? mana(c.cost) + ' ' : '') + tierB(c.tier, true); }
+function cvNome(c) { return '<button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + '</button> ' + (c.cost ? mana(c.cost) + cuTag(c) + ' ' : '') + tierB(c.tier, true); }
 function custoPanel(cs, st) {
   var desc = rampDesc(cs), aqui = {}; cs.forEach(function (c) { aqui[c.id] = c; });
   var out = cands().map(E).filter(function (c) { return !c.inDeck && c.verdict !== 'fora'; });
@@ -2465,7 +2474,10 @@ function custoPanel(cs, st) {
   var stR = rec.length ? stats(aplica(rec)) : null, stB = boas.length ? stats(aplica(boas)) : null;
   var h = '<fieldset class="pn cv"><legend>Custo e curva</legend>' +
     '<div class="scx"><table class="cvt"><thead><tr><th></th><th>CMC médio</th><th>CMC somado</th><th>Custo 6+</th><th>Placar</th></tr></thead><tbody>' +
-    linha('Hoje', st) + (stR ? linha('Com as trocas marcadas para entrar', stR, rec.length) : '') +
+    linha('Hoje', st) +
+    (st.nU && st.avg - st.avgU >= 0.005 ? '<tr class="cu-r"><th scope="row">Hoje, pelo custo usual <small>(' + st.nU + ')</small></th><td class="num"><b>' + fmt(st.avgU) + '</b> <small class="cv-ok">−' + fmt(st.avg - st.avgU) + '</small></td>' +
+      '<td class="num">' + Math.round(st.cmcSumU) + '</td><td class="num"><span class="dimc">—</span></td><td class="num"><span class="dimc">—</span></td></tr>' : '') +
+    (stR ? linha('Com as trocas marcadas para entrar', stR, rec.length) : '') +
     (stB ? linha('Só as trocas que baixam o custo sem perder o papel', stB, boas.length) : '') + '</tbody></table></div>';
   function ganhoCel(g) {
     return '<td class="num c-g"><b>−' + g.d + '</b>' + (g.t1 < g.t0 ? '<small>turno ' + g.t1 + ', não ' + g.t0 + '</small>' : '') + (g.papel ? '<small class="cv-ok">mesmo papel</small>' : '') + '</td>';
@@ -2553,7 +2565,7 @@ function tabRows() {
     return '<tr class="row" data-card="' + esc(c.id) + '" tabindex="0"><td class="c-name"><div class="nm c-' + esc(c.col) + '">' +
       (imgOn() ? '<span class="thb">' + imgTag(c, 'small', false) + '</span>' : '') + '<span class="t">' + esc(c.n) + '</span>' +
       (c.foil ? '<span class="foil" title="Foil">✦</span>' : '') + (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') + (c.edited ? '<span class="edt" title="Avaliação alterada por você"></span>' : '') +
-      '</div></td><td class="dimc num hm">' + c.q + '</td><td class="hm">' + (c.cost ? mana(c.cost) : '<span class="dimc">—</span>') + '</td><td class="num">' + (c.land ? '<span class="dimc">—</span>' : c.cmc) + '</td>' + cells +
+      '</div></td><td class="dimc num hm">' + c.q + '</td><td class="hm">' + (c.cost ? mana(c.cost) : '<span class="dimc">—</span>') + '</td><td class="num">' + (c.land ? '<span class="dimc">—</span>' : c.cmc + cuTag(c)) + '</td>' + cells +
       '<td class="pts num">' + fmtP(pts(c)) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + (D.plano && D.plano.classificado ? '</td><td>' + (c.pp ? ppB(c.pp) : '<span class="dimc">—</span>') : '') + '</td></tr>';
   }
   var tot = [], tp = 0, tn = 0, i;
@@ -2951,7 +2963,7 @@ function renderDrawer() {
   var where = c.cand ? (c.inDeck ? 'No deck, vinda do radar' : 'No radar, fora do deck') : (c.inDeck ? '' : 'Fora do deck');
   var h = '<button class="x" data-act="close" aria-label="Fechar">×</button>' +
     '<p class="dw-type">' + esc(c.line) + '</p><h2 id="dw-title">' + esc(c.n) + '</h2>' +
-    '<div class="dw-meta">' + (c.cost ? mana(c.cost) : '') + (c.land ? '' : '<span>CMC ' + c.cmc + '</span>') + (c.pt ? '<span>' + (c.ptl ? c.ptl + ' ' : '') + esc(c.pt) + '</span>' : '') +
+    '<div class="dw-meta">' + (c.cost ? mana(c.cost) : '') + (c.land ? '' : '<span>CMC ' + c.cmc + '</span>') + (temCu(c) ? '<span class="cu">usual ' + c.cu + ': ' + esc(c.cuc || '') + '</span>' : '') + (c.pt ? '<span>' + (c.ptl ? c.ptl + ' ' : '') + esc(c.pt) + '</span>' : '') +
     (c.set ? '<span>' + esc(c.set) + ' ' + esc(c.num) + '</span>' : '') + (c.q > 1 ? '<span>' + c.q + ' cópias</span>' : '') + (c.foil ? '<span><span class="foil">✦</span> foil' + (c.etched ? ' etched' : '') + '</span>' : '') + (where ? '<span>' + where + '</span>' : '') + '</div>';
   if (imgOn()) {
     h += '<div class="dw-art"><div class="dw-card c-' + esc(c.col) + '">' + fbTile(c, back, true) + imgTag(c, 'normal', back) + '</div>' +
