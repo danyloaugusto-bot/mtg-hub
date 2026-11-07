@@ -170,32 +170,32 @@
     "Starnheim Aspirant e Herald of War baixam o custo dos Anjos seguintes."
    ],
    "fracos": [
-    "CMC médio de 3,72 e 14 cartas de 6 manas ou mais: sem a Giada ou um redutor, a mão trava.",
+    "CMC médio de 3,68 e 13 cartas de 6 manas ou mais: sem a Giada ou um redutor, a mão trava.",
     "Só 9 cartas de ramp dedicadas, e várias só servem a Anjos."
    ]
   },
   "meio": {
    "turnos": "5 a 8",
-   "plano": "Crescer: Anjos com marcadores, ganho de vida que vira marcador com Archangel of Thune e Lyra Dawnbringer, e a mesa protegida para a próxima remoção.",
+   "plano": "Crescer na mesa com Anjos e marcadores, e guardar a remoção em massa para o momento em que só a sua mesa sobrevive.",
    "fortes": [
-    "Quatorze peças de proteção, de Teferi's Protection a Avacyn.",
+    "Proteções que valem só para você: Avacyn, Flawless Maneuver, Selfless Spirit, Sephara, o verso da Invasion of Gobakhan, Teferi's Protection e Clever Concealment.",
     "Bishop of Wings transforma cada Anjo que entra em 4 de vida, o que liga Archangel of Thune, Valkyrie Harbinger e The Book of Exalted Deeds."
    ],
    "fracos": [
     "Cinco das doze fontes de compra só compram atacando: depois de uma remoção em massa, a mão demora a encher.",
-    "Só quatro remoções que respondem a um alvo, e nenhuma de 1 mana."
+    "Sem remoção pontual, por escolha: uma ameaça isolada de outro deck espera a próxima remoção em massa."
    ]
   },
   "fim": {
    "turnos": "9 em diante",
-   "plano": "Voar por cima com Anjos grandes e fechar com Akroma's Will, que com a Giada em campo dá os dois modos à mesa toda. A Angel of Destiny vence com 15 de vida acima do total inicial.",
+   "plano": "Limpar a mesa dos outros e atacar sozinho: Vanquish the Horde ou Austere Command com Avacyn, Flawless Maneuver ou o sacrifício do Lightshield Array; Split Up depois do seu ataque; Winds of Abandon com sobrecarga. Depois, os Anjos grandes voam sem bloqueio. A Angel of Destiny e The Book of Exalted Deeds seguem como caminhos alternativos.",
    "fortes": [
-    "Três caminhos: dano no ar, a Angel of Destiny e a trava do The Book of Exalted Deeds.",
-    "Avacyn e Flawless Maneuver protegem a mesa no turno decisivo."
+    "Cinco remoções em massa, e duas já saem só contra os outros: Winds of Abandon com sobrecarga e Split Up depois do ataque.",
+    "Everybody Lives! e Herald of Eternal Dawn impedem que um oponente vença enquanto a mesa se monta."
    ],
    "fracos": [
     "Os finalizadores custam 7 ou mais: Sephara, Serra's Emissary e Bruna.",
-    "Sem remoção barata, a ameaça de outro deck corre solta enquanto o Coro monta."
+    "O Farewell exila: indestrutível não salva, e só Teferi's Protection e Clever Concealment, que tiram as suas permanentes de fase, protegem a sua mesa dele."
    ]
   },
   "contra": [
@@ -207,12 +207,12 @@
    {
     "tipo": "voltron",
     "resultado": "equilibrado",
-    "porque": "Archangel of Tithes e Linvala atrasam o ataque de um comandante, mas há só quatro respostas pontuais."
+    "porque": "Archangel of Tithes e Linvala atrasam o ataque; sem remoção pontual, a resposta ao comandante é a remoção em massa unilateral."
    },
    {
     "tipo": "combo",
     "resultado": "fraco",
-    "porque": "Orim's Chant e Teferi's Protection compram um turno, mas o deck não tem contramágica nem ódio de cemitério."
+    "porque": "Everybody Lives! impede qualquer vitória naquele turno por 2 manas, e Orim's Chant e Teferi's Protection compram outro, mas o deck não tem contramágica nem ódio de cemitério para desmontar o combo."
    },
    {
     "tipo": "controle",
@@ -658,6 +658,29 @@
    "papel_dupla": "Habilitadora (vínculo com a vida aos Anjos)",
    "papel_por_que": "Lorde de Anjos: +1/+1 e vínculo com a vida, que alimenta os gatilhos de ganho de vida."
   },
+  "Lyra, Archangel of Dawn": {
+   "notas": {
+    "buff": 3,
+    "sinergia": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Anjo que melhora os outros Anjos: cada ganho de vida põe +1/+1 em cada Anjo seu.",
+    "sin2": "Converte vida em marcadores, em todos os seus Anjos."
+   },
+   "tier": "S",
+   "rel": "INS",
+   "faz": "3/3 voador. Sempre que você ganha vida, põe um marcador +1/+1 em cada Anjo seu.",
+   "porque": "Anjo de 3 manas que põe um marcador em cada Anjo a cada ganho de vida: com o vínculo da Lyra Dawnbringer e o Bishop of Wings, cada combate vira marcadores em toda a tribo.",
+   "marcas": {
+    "paga": 1
+   },
+   "papel": "recompensa",
+   "papel_por_que": "Cada ganho de vida põe um marcador +1/+1 em cada Anjo seu: converte vida em marcador."
+  },
   "Resplendent Angel": {
    "notas": {
     "tokens": 3,
@@ -845,32 +868,6 @@
    "papel_dupla": "Ramp (redutor de Anjos)",
    "papel_por_que": "Mágicas de Anjo custam {2} a menos: mais Anjos por turno, e cada um entra maior."
   },
-  "Steel Seraph": {
-   "caro_por_desenho": true,
-   "notas": {
-    "buff": 1,
-    "sinergia": 2
-   },
-   "sin": {
-    "sin1": 2,
-    "sin2": 1
-   },
-   "sin_por_que": {
-    "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos.",
-    "sin2": "Pode dar vínculo com a vida a uma criatura por turno: de passagem."
-   },
-   "tier": "B",
-   "rel": "MED",
-   "faz": "5/4 voador por {6}, ou 3/3 pelo custo de protótipo, {1}{W}{W}. No início do combate no seu turno, uma criatura sua ganha voar, vigilância ou vínculo com a vida até o fim do turno.",
-   "porque": "Anjo de 3 manas pelo protótipo que dá vínculo com a vida ao maior atacante e liga os motores, mas só a uma criatura por turno, o que a Lyra já faz para todos os Anjos.",
-   "marcas": {
-    "ganho": 1,
-    "alt": 1
-   },
-   "prioridade": 10,
-   "papel": "habilita",
-   "papel_por_que": "Anjo barato pelo protótipo que dá vínculo com a vida a uma criatura a cada combate."
-  },
   "Valkyrie Harbinger": {
    "notas": {
     "tokens": 3,
@@ -928,11 +925,10 @@
    "sin_por_que": {
     "sin2": "Derrotada, põe +1/+1 em quem atacou: marcador de passagem."
    },
-   "tier": "C",
-   "rel": "BAX",
+   "tier": "B",
+   "rel": "MED",
    "faz": "Batalha. Ao entrar, olhe a mão de um oponente e exile uma carta que não seja terreno; ele ainda pode jogá-la, pagando {2} a mais. Derrotada, vira Lightshield Array: no seu passo final, marcador +1/+1 em cada criatura que atacou no turno; pode ser sacrificada para dar resistência a magia e indestrutível ao seu time.",
-   "porque": "O imposto de {2} atrasa uma carta de um oponente. O verso é bom, mas custa ataques que deviam ir nos jogadores. É a mágica de menor impacto do deck.",
-   "prioridade": 1
+   "porque": "Por 2 manas, atrasa a melhor carta de um oponente; derrotada com um ataque de 3, deixa em campo um sacrifício que torna só as suas criaturas indestrutíveis e com resistência a magia, em resposta à sua remoção em massa ou à de outro."
   },
   "Akroma's Will": {
    "notas": {
@@ -1015,11 +1011,10 @@
     "protecao": 2
    },
    "sin": {},
-   "tier": "C",
-   "rel": "BAX",
+   "tier": "A",
+   "rel": "ALT",
    "faz": "Instantânea: todas as criaturas ganham resistência a magia e indestrutível, e os jogadores ganham resistência a magia, até o fim do turno. Neste turno ninguém perde vida, perde o jogo nem vence o jogo.",
-   "porque": "Cancela uma remoção em massa ou um turno de combo por 2 manas, mas salva também as criaturas dos oponentes. É a mais fraca das proteções do deck.",
-   "prioridade": 2
+   "porque": "Por 2 manas, em resposta, ninguém vence nem perde neste turno e nenhuma criatura morre destruída: é a resposta mais barata do deck a um combo ou à remoção em massa de um oponente. Salva também a mesa deles, então não deixa a sua remoção em massa unilateral, e no seu turno de ataque impede que você tire vida."
   },
   "Farewell": {
    "notas": {
@@ -1088,7 +1083,7 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Instantânea: o jogador alvo não pode conjurar mágicas neste turno. Com reforço {W}, criaturas não podem atacar neste turno.",
-   "porque": "Garante que o seu turno decisivo resolva sem resposta, ou cancela o turno de um oponente. Não desenvolve a mesa nem se repõe: das proteções do deck, é a de uso mais estreito.",
+   "porque": "Cala só o jogador alvo: numa mesa de quatro, os outros dois ainda respondem à sua remoção em massa. Com reforço, ninguém ataca no turno, o que pesa pouco num deck que aceita ser atacado.",
    "prioridade": 6
   },
   "Razorgrass Ambush": {
@@ -1118,12 +1113,11 @@
     "removal": 2
    },
    "sin": {},
-   "tier": "C",
-   "rel": "BAX",
+   "tier": "B",
+   "rel": "MED",
    "faz": "Feitiço. Escolha um: destruir todas as criaturas viradas, ou destruir todas as desviradas.",
-   "porque": "Três manas por uma remoção em massa que depende de como a mesa está virada. Depois de um ataque seu com vigilância pode ser unilateral, mas é a menos confiável das cinco.",
-   "massa": 1,
-   "prioridade": 3
+   "porque": "Atacando sem vigilância e escolhendo as desviradas na segunda fase principal, mata as criaturas dos oponentes e poupa os seus atacantes: é a remoção em massa mais barata do deck. Leva junto as suas criaturas com vigilância e as que não atacaram.",
+   "massa": 1
   },
   "Starnheim Unleashed": {
    "notas": {
@@ -1239,11 +1233,10 @@
    "sin_por_que": {
     "sin1": "Pega uma criatura entre as cinco do topo, e no deck quase todas são Anjos, mas o efeito não é voltado a eles."
    },
-   "tier": "C",
-   "rel": "BAX",
+   "tier": "B",
+   "rel": "MED",
    "faz": "Sempre que duas ou mais criaturas suas atacam um jogador, olhe as cinco cartas do topo e pegue uma criatura.",
-   "porque": "Vantagem de carta por 2 manas, mas exige duas criaturas no mesmo jogador. É o terceiro efeito de compra por ataque do deck, depois de Chivalric Alliance e Firemane Commando, e o mais exigente.",
-   "prioridade": 4
+   "porque": "Com 30 criaturas no deck, cada ataque de duas ou mais acha uma entre as cinco do topo em 84% das vezes, e os Anjos voadores atacam com facilidade. Não rende com a mesa vazia, no começo ou depois de uma remoção em massa."
   },
   "Pearl Medallion": {
    "notas": {
@@ -1669,31 +1662,6 @@
   }
  },
  "radar": {
-  "Lyra, Archangel of Dawn": {
-   "notas": {
-    "buff": 3,
-    "sinergia": 3
-   },
-   "sin": {
-    "sin1": 3,
-    "sin2": 3
-   },
-   "sin_por_que": {
-    "sin1": "Anjo que melhora os outros Anjos: cada ganho de vida põe +1/+1 em cada Anjo seu.",
-    "sin2": "Converte vida em marcadores, em todos os seus Anjos."
-   },
-   "tier": "S",
-   "rel": "INS",
-   "veredito": "entra",
-   "sai": "Invasion of Gobakhan",
-   "faz": "3/3 voador. Sempre que você ganha vida, põe um marcador +1/+1 em cada Anjo seu.",
-   "porque": "Saiu em Reality Fracture, em 2 de outubro. É um Archangel of Thune de 3 manas para a tribo, e é Anjo: recebe a mana e os marcadores da Giada. Convive com a Lyra Dawnbringer, que tem outro nome.",
-   "marcas": {
-    "paga": 1
-   },
-   "papel": "recompensa",
-   "papel_por_que": "Cada ganho de vida põe um marcador +1/+1 em cada Anjo seu: converte vida em marcador."
-  },
   "Urza's Incubator": {
    "notas": {
     "ramp": 3,
@@ -1707,8 +1675,8 @@
    },
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
-   "sai": "Everybody Lives!",
+   "veredito": "avaliar",
+   "sai": "Orim's Chant",
    "faz": "Escolha um tipo de criatura. Mágicas de criatura desse tipo custam {2} a menos.",
    "porque": "Segundo Starnheim Aspirant, em artefato: com a Giada, um Anjo de 5 manas pede só dois terrenos. O desconto vale para todos os jogadores, o que só importa contra outro deck de Anjos.",
    "papel": "habilita",
@@ -1722,10 +1690,9 @@
    "sin": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
-   "sai": "Orim's Chant",
+   "veredito": "fora",
    "faz": "Instantânea: exila uma criatura. O controlador ganha vida igual ao poder dela.",
-   "porque": "A remoção pontual mais eficiente do jogo, e o deck não tem nenhuma de 1 mana. Exílio resolve comandantes indestrutíveis e recursivos."
+   "porque": "Fica de fora por decisão do dono (07/11/2026): o plano é remoção em massa com proteção só para os seus Anjos, sem remoção pontual."
   },
   "The Mind Stone": {
    "notas": {
@@ -1736,8 +1703,8 @@
    "sin": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
-   "sai": "Horn of the Mark",
+   "veredito": "avaliar",
+   "sai": "The Immortal Sun",
    "faz": "Indestrutível. {T}: gera {W}. Por {5}{W}, {T}, fica ativa de vez: a partir daí, no seu passo final você exila outra permanente sua que não seja terreno e a devolve ao campo.",
    "porque": "Pedra de 2 manas que gera branco, faixa em que o deck só tem o Sol Ring. No fim do jogo, piscar um Anjo por turno refaz os marcadores da Giada com a mesa cheia e redispara o Bishop of Wings. É a carta de Marvel Super Heroes, não a Mind Stone incolor."
   },
@@ -1780,10 +1747,10 @@
    },
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "avaliar",
    "sai": "Split Up",
    "faz": "Feitiço com convocar. Para cada jogador, você escolhe uma criatura dele. Depois, cada jogador sacrifica todas as suas outras criaturas que não compartilhem um tipo com a escolhida.",
-   "porque": "Você escolhe um Anjo seu e a criatura mais isolada de cada oponente: a tribo fica, o resto vai embora, e sacrifício ignora indestrutível. Escolhendo um Anjo Clérigo, como a Righteous Valkyrie, até Bishop of Wings, Selfless Spirit e Starnheim Aspirant ficam. Fraca contra outros decks tribais.",
+   "porque": "Você escolhe um Anjo seu e a criatura mais isolada de cada oponente: a tribo fica, o resto vai embora, e sacrifício ignora indestrutível. Custa 6, e o dono só troca o Split Up por algo mais barato; a convocação ajuda com a mesa cheia. Fraca contra outros decks tribais.",
    "massa": 1
   },
   "Ob Nixilis, the Ascended": {
@@ -2057,6 +2024,31 @@
    "papel": "habilita",
    "papel_dupla": "Remoção (limpeza)",
    "papel_por_que": "Anjo 4/5 que destrói todas as criaturas viradas ao entrar."
+  },
+  "Steel Seraph": {
+   "notas": {
+    "buff": 1,
+    "sinergia": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos.",
+    "sin2": "Pode dar vínculo com a vida a uma criatura por turno: de passagem."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "5/4 voador por {6}, ou 3/3 pelo custo de protótipo, {1}{W}{W}. No início do combate no seu turno, uma criatura sua ganha voar, vigilância ou vínculo com a vida até o fim do turno.",
+   "porque": "Saiu do deck em 07/11/2026, por decisão do dono, para a Lyra, Archangel of Dawn entrar; foi para a Caixa. Dá vínculo a uma criatura por combate, o que a Lyra Dawnbringer já faz para todos os Anjos.",
+   "marcas": {
+    "ganho": 1,
+    "alt": 1
+   },
+   "papel": "habilita",
+   "papel_por_que": "Anjo barato pelo protótipo que dá vínculo com a vida a uma criatura a cada combate.",
+   "veredito": "fora"
   }
  },
  "combos": [
