@@ -91,6 +91,9 @@ try:
     def caro(av):
         next(iter(av["cartas"].values()))["caro_por_desenho"] = "sim"
 
+    def custo_usual(av):   # custo usual sem a frase de como sai
+        next(iter(av["cartas"].values()))["custo_usual"] = {"cmc": 1}
+
     def papel(av):   # Plano do deck: papel fora da lista
         next(iter(av["cartas"].values()))["papel"] = "rainha"
 
@@ -106,6 +109,7 @@ try:
     recusa("nota-4", nota4, "vale de")
     recusa("pacote-inexistente", pacote, "não é um agrupamento")
     recusa("caro-por-desenho-nao-booleano", caro, "caro_por_desenho")
+    recusa("custo-usual-sem-como", custo_usual, "custo_usual")
     recusa("carta-sem-avaliacao", sem_avaliacao, "sem avaliação")
     recusa("onze-agrupamentos", onze, "de 6 a 10")
     recusa("marca-nao-declarada", marca, "não está declarada")
