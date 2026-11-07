@@ -473,6 +473,12 @@ def conferir_avaliacao(av, quem, grupos, marcadores, radar=False):
         raise ErroDeck("%s: pacote %r não é um agrupamento do deck (nem 'mana' ou 'sem')" % (quem, av["pacote"]))
     if av.get("caro_por_desenho") is not None and not isinstance(av["caro_por_desenho"], bool):
         raise ErroDeck("%s: 'caro_por_desenho' é true ou false" % quem)
+    # custo usual (pedido do dono, 07/11/2026): o custo com que a carta costuma sair neste deck, ao lado do impresso
+    cu = av.get("custo_usual")
+    if cu is not None:
+        if (not isinstance(cu, dict) or not isinstance(cu.get("cmc"), int) or isinstance(cu.get("cmc"), bool)
+                or cu["cmc"] < 0 or not str(cu.get("como") or "").strip()):
+            raise ErroDeck("%s: 'custo_usual' é {\"cmc\": inteiro de 0 para cima, \"como\": frase}" % quem)
     for k in (av.get("marcas") or {}):
         if k not in marcadores:
             raise ErroDeck("%s: marca '%s' não está declarada em 'marcadores'" % (quem, k))
@@ -561,8 +567,11 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
             d["nocut"] = 1
         if av.get("pacote"):
             d["pk0"] = av["pacote"]
-        if av.get("caro_por_desenho"):
+        if av.get("caro_por_desenho") or av.get("custo_usual"):
             d["cpd"] = 1
+        if av.get("custo_usual"):
+            d["cu"] = av["custo_usual"]["cmc"]
+            d["cuc"] = av["custo_usual"]["como"]
         if av.get("gera"):
             d["prod"] = av["gera"]
     if mk:
