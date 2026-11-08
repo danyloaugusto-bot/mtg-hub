@@ -42,3 +42,4 @@
 - Papéis classificados (habilitadora, recompensa, multiplicadora); veredito hoje: Excelente; com o recomendado: Excelente. Só o radar e o cadastro mudaram, a lista do deck não.
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
 - 07/11/2026: custo usual ao lado do impresso, pedido do dono: 10 cartas que saem mais baratas neste deck ganharam o valor usual e a frase de como saem: Champion of Dusk (0), High-Society Hunter (0), Malakir Bloodwitch (0), Markov Baron (1), Markov Enforcer (0), Olivia's Attendants (0), Queen's Bay Paladin (0), Vein Ripper (0), Blasphemous Act (1), Bloodsoaked Insight (2). O CMC impresso, a curva e o placar não mudam.
+- 08/11/2026: porquê de Kindred Dominance citava Vampires' Vengeance, nome do Scryfall; agora cita Mysterious Blood Illness, o nome impresso da carta do deck (o teste de regressão pegou). Só o texto mudou.
