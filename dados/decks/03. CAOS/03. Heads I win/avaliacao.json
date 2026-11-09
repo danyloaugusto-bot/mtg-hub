@@ -246,7 +246,80 @@
     "resultado": "forte",
     "porque": "O Okaun de 24 chega antes da criatura grande deles."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "O precon de moedas do Secret Lair: a mesa conhece o Okaun que dobra e o Zndrsplt que compra, e sabe que o Krark's Thumb aparece em 84% das partidas até o turno 6. Antes dos comandantes o deck é silencioso, quase sem criaturas; no turno em que os dois descem com bota, a mesa inteira olha para o combate. O Frenetic Efreet e a Chance Encounter são combo conhecido: remoção certa assim que entram.",
+   "postura": "Silenciosa até os comandantes com bota: pedras, o Thumb pelos tutores e a Tavern Scoundrel, sem anunciar nada. O deck não é de meio de jogo: é assumir no turno certo. Com o Thumb, os dois comandantes e uma proteção na mão (Invert Polarity; Deflecting Swat, do radar), feche: o Okaun de 24 com a Whispersilk Cloak ou o Rogue's Passage mata um oponente por combate, e a Chandra's Ignition mata a mesa. Enquanto isso, política simples: você só compra, quem assusta é o Okaun.",
+   "sinais": [
+    {
+     "carta": "Krark's Thumb",
+     "porque": "A carta principal, e todo mundo sabe: com ele, três moedas em quatro saem a favor."
+    },
+    {
+     "carta": "Frenetic Efreet",
+     "porque": "Moedas sem limite por {0}: com o Okaun, a Scoundrel ou a Chance Encounter é combo, e a mesa o remove ao entrar."
+    },
+    {
+     "carta": "Chance Encounter",
+     "porque": "Dez vitórias e você vence na manutenção: a mesa conta os marcadores."
+    },
+    {
+     "carta": "Rhystic Study",
+     "porque": "Uma carta a cada mágica que não pagam: o motor que a mesa aprende a remover cedo."
+    },
+    {
+     "carta": "Niv-Mizzet, Parun",
+     "porque": "Com o Zndrsplt, cada vitória vira dano; com a Curiosity, laço: anuncia o fechamento."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Frenetic Efreet",
+     "porque": "Só desce no turno em que combina, com proteção na mão: fora disso é alvo certo."
+    },
+    {
+     "carta": "Chandra's Ignition",
+     "porque": "Depois do Okaun dobrado, na primeira fase principal: a mesa inteira de uma vez."
+    },
+    {
+     "carta": "Temur Battle Rage",
+     "porque": "Golpe duplo e atropelar no Okaun dobrado, em resposta ao bloqueio."
+    },
+    {
+     "carta": "Stitch in Time",
+     "porque": "Turno extra a 75% com o Thumb: depois de montar a mesa, não antes."
+    },
+    {
+     "carta": "Cyclonic Rift",
+     "porque": "Com sobrecarga, abre o caminho do Okaun no turno do fechamento."
+    }
+   ],
+   "ponto_de_falha": "O Okaun ou o Zndrsplt com o início de combate na pilha: remoção em resposta desfaz o turno (contra controle, o deck vai mal). O Krark's Thumb, que Academy Ruins e Buried Ruin recompram, e o Frenetic Efreet, com só 33% de presença até o turno 6. E os comandantes custam cinco cada: o segundo imposto mata o plano, e taxa de mana trava os artefatos. Quem quer parar o deck remove o Thumb e mata o Okaun em resposta ao primeiro combate.",
+   "respostas": [
+    {
+     "carta": "Chaos Warp",
+     "para": "Qualquer permanente, em velocidade instantânea: a peça que trava o combo ou o motor de compra alheio."
+    },
+    {
+     "carta": "Cyclonic Rift",
+     "para": "Os bloqueadores no turno do Okaun, ou a permanente que incomoda, por duas manas."
+    },
+    {
+     "carta": "Invert Polarity",
+     "para": "A remoção no Okaun ou a anulação do Efreet: vencendo, a mágica é sua; perdendo, ela some."
+    },
+    {
+     "carta": "Muddle the Mixture",
+     "para": "Anula a remoção no turno do combo; fora dele, transmuta e acha o Thumb."
+    },
+    {
+     "carta": "Mizzium Mortars",
+     "para": "A mesa de fichas que bloqueia, com sobrecarga, sem tocar nos comandantes."
+    }
+   ],
+   "limpezas": "Quatro: Chandra's Ignition e Mizzium Mortars com sobrecarga só atingem os outros, a Cyclonic Rift devolve tudo deles, e o Blasphemous Act é simétrico e mata os seus comandantes. Cumpre a regra do dono de 3 a 4, três delas de um lado só. Boa quando você está atrás e sem comandante na mesa; a simétrica, só antes de baixá-los ou com o Okaun acima de 13.",
+   "alvo": "O Okaun dobrado mata um oponente por combate: o alvo é quem tem a resposta na mão (mana azul ou branca aberta, remoção instantânea) ou quem está mais perto de vencer, não quem tem menos vida. Com a Chandra's Ignition, ou o Kediss, Emberclaw Familiar do radar, a mesa inteira de uma vez."
+  }
  },
  "cartas": {
   "Okaun, Eye of Chaos": {
@@ -1922,10 +1995,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "fora",
    "faz": "Instantânea de 3, de graça com comandante: muda o alvo de uma mágica ou habilidade.",
-   "porque": "Proteção de verdade, e de graça. Nas três fontes. Sai o Ponder: na pontuação v3 as duas empatam, e a proteção pesa mais no turno do combo.",
-   "sai": "Ponder",
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela.",
    "marcas": {
     "protege": 1
    }
@@ -2193,9 +2265,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "Artefato de 1: {C}{C}{C}; não desvira sozinho.",
-   "porque": "Aceleração. Game Changer. Fonte A."
+   "porque": "Fica de fora por decisão do dono (09/11/2026): staple genérica, forte em qualquer deck e sem sinergia própria com este; não estava fora do radar, foi deixada de fora para o deck não ficar igual aos outros."
   },
   "Ancient Tomb": {
    "notas": {
@@ -2481,6 +2553,52 @@
    "veredito": "fora",
    "faz": "Equipamento de 3: +2/+2 e proteção contra azul e vermelho; dano de combate: 2 de dano e compra.",
    "porque": "A proteção contra azul e vermelho impede mirar o Okaun com Temur Battle Rage e Seize the Day. B recusa."
+  },
+  "Otawara, Soaring City": {
+   "notas": {
+    "removal": 2,
+    "evasao": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno lendário. Gera {U}. Canalizar, por {3}{U} e descartando-o: devolve à mão um artefato, criatura, encantamento ou planeswalker alvo; custa {1} a menos por criatura lendária que você controla.",
+   "porque": "Fonte de azul desvirada que vira resposta: com os dois comandantes em campo, por {1}{U} devolve o bloqueador antes do ataque do Okaun ou a peça que trava o combo, sem gastar vaga de mágica. Sai a Tolaria West, que entra sempre virada e só busca carta de valor 0.",
+   "sai": "Tolaria West",
+   "papel_dupla": "Interação (devolve à mão)",
+   "papel_por_que": "Terreno que devolve uma permanente alvo em resposta."
+  },
+  "Spire of Industry": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Gera {C}. Virando e pagando 1 de vida, uma mana de qualquer cor, se você controla um artefato.",
+   "porque": "O deck é cheio de artefatos (Krark's Thumb, pedras, equipamentos): o terreno dá azul ou vermelho desvirado quase sempre. Sai a Myriad Landscape, que entra virada e busca entre só doze básicos.",
+   "sai": "Myriad Landscape",
+   "papel_dupla": "Mana (as duas cores)",
+   "papel_por_que": "Terreno de qualquer cor com artefato em campo."
+  },
+  "Fiery Islet": {
+   "notas": {
+    "draw": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Virando e pagando 1 de vida, gera {U} ou {R}. Por {1}, virando e sacrificando-o, compra uma carta.",
+   "porque": "Dual desvirada a 1 de vida que, no fim do jogo, vira uma carta; no lugar da Desolate Lighthouse, incolor e com um filtro de três manas. Fica como avaliar porque o Zndrsplt já compra muito e o dano por uso soma com o do Shivan Reef. Você tem uma cópia no Master Of Evil, que é deck montado.",
+   "sai": "Desolate Lighthouse",
+   "papel_dupla": "Mana (dual) e draw",
+   "papel_por_que": "Dual que compra uma carta quando não precisa mais de mana."
   }
  },
  "combos": [
