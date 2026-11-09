@@ -741,7 +741,7 @@ def info_decks():
     por_pasta = {m["pasta"]: m for m in encaixe.decks_v3()}
     for pasta in dados.pastas_decks():
         base = dados.pasta_deck(pasta)
-        if not (dados.eh_deck(pasta) and os.path.exists(os.path.join(base, "decklist.txt"))):
+        if not (dados.eh_deck(pasta) and os.path.exists(os.path.join(base, "decklist.txt"))) or dados.eh_desejo(pasta):   # Desejo: fora (dono, 09/11/2026)
             continue
         ficha = ""
         try:
@@ -1171,7 +1171,7 @@ def _nao_radar(card, v, em_deck, usados, decks, nome_deck):
         elif x["p"] in usados:
             m = "a cópia anterior já vai para lá"
         elif not _elegivel(decks.get(x["p"])):
-            m = "é deck Desejo ou precon intacto, que não recebe carta"
+            m = "é precon intacto, que não recebe carta"
         else:
             continue
         pq.append("o radar do %s a tem como %s, mas %s" % (nome_deck(x["p"]), v, m))
@@ -1182,7 +1182,6 @@ def _nao_guardar(card, em_deck, em_deck_real, em_desejo, usados, decks, nome_dec
     """Por que a carta não ficou para guardar: as cinco condições da regra 3, uma a uma."""
     partes = [_nao_radar(card, "avaliar", em_deck, usados, decks, nome_deck)]
     partes.append("nenhum ganho avaliado entre %s e %s" % (fmt(R["guardar_ganho_min"]), fmt(R["deck_ganho_min"])))
-    partes.append("não está na lista nem no radar de um deck Desejo" if not em_desejo else "o deck Desejo já recebeu a cópia anterior")
     if card.get("edh") is None:
         partes.append("sem a página dela no EDHREC")
     else:
