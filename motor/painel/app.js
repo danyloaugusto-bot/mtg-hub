@@ -2809,17 +2809,62 @@ function confrontoSection() {
     return '<fieldset class="pn cf"><legend>Contra outras listas</legend>' +
       '<p class="hint">' + esc(nome) + (L.url ? ' (<a href="' + esc(L.url) + '" target="_blank" rel="noopener noreferrer">' + esc(L.fonte || 'lista') + '</a>)' : '') + (L.atualizada ? ', atualizada em ' + esc(fdate(L.atualizada)) : '') +
       ', ' + L.cartas + ' cartas. Pontuada pela régua e pelas sinergias deste deck, lida em ' + esc(fdate(CF.lido)) + '. Para reler: <code>/confrontar ' + esc(M.pasta) + '</code>.</p>' +
-      topo + '<h3 class="sub">Critério a critério</h3>' + crit +
-      '<h3 class="sub">Cartas dela que você não tem (' + sd.length + ')</h3>' + dele + resto + '</fieldset>';
+      topo + '<details class="cf-blk"><summary>Critério a critério</summary>' + crit + '</details>' +
+      '<details class="cf-blk"><summary>Cartas dela que você não tem (' + sd.length + ')</summary>' + dele + '</details>' + resto + '</fieldset>';
   }).join('');
 }
+/* ordenar e filtrar o radar (09/11/2026, pedido do dono): a ordem padrão é veredito e pontos; as outras não mudam nada além da tela */
+function radOrdens() {
+  var o = [{ k: '', n: 'Veredito, depois pontos' }, { k: 'pts', n: V3 ? 'Pontos nos critérios' : 'Pontos' }, { k: 'ganho', n: 'Ganho no placar com a troca' },
+    { k: 'tier', n: 'Tier' }, { k: 'cmc', n: 'Custo de mana, menor primeiro' }, { k: 'cmcd', n: 'Custo de mana, maior primeiro' }, { k: 'n', n: 'Nome' }];
+  CR.forEach(function (g, i) { o.push({ k: 'c' + i, n: 'Critério: ' + (g.sh || g.k) }); });
+  G.forEach(function (g, i) { o.push({ k: 'g' + i, n: '8×8: ' + (g.sh || g.k) }); });
+  return o;
+}
+function radGanho(c) { var al = c.sai ? byId(c.sai) : null, d = al ? deltaTroca(c, al) : null; return d == null ? -1e9 : d; }
+function pacoteDe(c) { var k = S.pk[c.id] || c.pk0; if (k) return gi(k); var b = 0, bi = -1; (c.s || []).slice(0, NG).forEach(function (v, i) { if (v > b) { b = v; bi = i; } }); return bi; }
+function radSort(a, b) {
+  var k = ui.rs || '', vo = { entra: 0, avaliar: 1, fora: 2 };
+  var pd = function (x) { return V3 ? pts3(x) : pts(x); };
+  var r = 0;
+  if (k === 'pts') r = pd(b) - pd(a);
+  else if (k === 'ganho') r = radGanho(b) - radGanho(a);
+  else if (k === 'tier') r = TR[a.tier] - TR[b.tier] || pd(b) - pd(a);
+  else if (k === 'cmc') r = (a.cmc || 0) - (b.cmc || 0);
+  else if (k === 'cmcd') r = (b.cmc || 0) - (a.cmc || 0);
+  else if (k === 'n') r = a.n.localeCompare(b.n);
+  else if (k.charAt(0) === 'c') { var i = +k.slice(1); r = ((b.s3 || [])[i] || 0) - ((a.s3 || [])[i] || 0); }
+  else if (k.charAt(0) === 'g') { var j = +k.slice(1); r = ((b.s || [])[j] || 0) - ((a.s || [])[j] || 0); }
+  return r || (vo[a.verdict] - vo[b.verdict]) || pd(b) - pd(a) || TR[a.tier] - TR[b.tier] || a.n.localeCompare(b.n);
+}
+function radFiltro(c) {
+  if (ui.rv && c.verdict !== ui.rv && !(ui.rv === 'deck' && c.inDeck)) return false;
+  if (ui.rc && c.col !== ui.rc) return false;
+  if (ui.rt && GROUP_OF[c.t] !== ui.rt && c.g !== ui.rt) return false;
+  if (ui.rg !== undefined && ui.rg !== '' && pacoteDe(c) !== +ui.rg) return false;
+  return true;
+}
+function radCtl(lista) {
+  var cores = {}, tipos = {};
+  lista.forEach(function (c) { cores[c.col] = 1; tipos[GROUP_OF[c.t] || c.g] = 1; });
+  function sel(act, rot, val, ops) { return '<label>' + rot + '<select class="inp" data-act="' + act + '">' + ops.map(function (o) { return '<option value="' + esc(o.k) + '"' + (String(val || '') === String(o.k) ? ' selected' : '') + '>' + esc(o.n) + '</option>'; }).join('') + '</select></label>'; }
+  return '<div class="rad-ctl">' +
+    sel('rs', 'Ordenar por', ui.rs, radOrdens()) +
+    sel('rv', 'Veredito', ui.rv, [{ k: '', n: 'Entra e avaliar' }, { k: 'entra', n: 'Só entra' }, { k: 'avaliar', n: 'Só avaliar' }]) +
+    sel('rc', 'Cor', ui.rc, [{ k: '', n: 'Todas' }].concat(COLS.filter(function (c) { return cores[c.k]; }).map(function (c) { return { k: c.k, n: c.n }; }))) +
+    sel('rt', 'Tipo', ui.rt, [{ k: '', n: 'Todos' }].concat(TG.filter(function (g) { return tipos[g.k]; }).map(function (g) { return { k: g.k, n: g.n }; }))) +
+    sel('rg', 'Pacote 8×8', ui.rg, [{ k: '', n: 'Todos' }].concat(G.map(function (g, i) { return { k: String(i), n: g.sh || g.k }; }))) +
+    '</div>';
+}
 function renderRadar() {
-  var vo = { entra: 0, avaliar: 1, fora: 2 };
-  var all = cands().map(E).sort(function (a, b) { return (vo[a.verdict] - vo[b.verdict]) || (V3 ? (pts3(b) - pts3(a)) || (TR[a.tier] - TR[b.tier]) : (TR[a.tier] - TR[b.tier]) || (pts(b) - pts(a))) || a.n.localeCompare(b.n); });
-  var main = all.filter(function (c) { return c.verdict !== 'fora' || c.inDeck; }), no = all.filter(function (c) { return c.verdict === 'fora' && !c.inDeck; });
+  var all = cands().map(E).sort(radSort);
+  var main0 = all.filter(function (c) { return c.verdict !== 'fora' || c.inDeck; }), no = all.filter(function (c) { return c.verdict === 'fora' && !c.inDeck; });
+  var main = main0.filter(radFiltro);
   var h = '<p class="hint">Cartas fora do deck que valem acompanhar. Ao colocar uma no deck você escolhe quem sai, e todos os gráficos passam a refletir a troca. Quem você deixa de fora desce para a lista abaixo, com a nota e o motivo guardados. A pergunta de sempre: a carta é boa, ou é boa ' + (artigo() === 'a' ? 'na' : 'no') + ' ' + esc(M.curto || 'comandante') + '?</p>';
-  h += confrontoSection();
+  h += radCtl(main0);
+  h += '<p class="pn-note rad-n">' + (main.length === main0.length ? main.length + ' cartas no radar' : main.length + ' de ' + main0.length + ' cartas, pelo filtro') + '.</p>';
   h += '<div class="cands">' + main.map(candCard).join('') + '</div>';
+  if (!main.length) h += '<p class="pn-note">Nenhuma carta com esse filtro.</p>';
   if (no.length) {
     h += '<fieldset class="pn"><legend>Avaliadas, ficam de fora</legend><ul class="fora">' + no.map(function (c) {
       return '<li>' + tierB(c.tier, true) + '<div><button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + '</button>' + (c.syn != null && EDH ? ' <span class="hint">' + esc(EDH.fonte) + ' ' + synTxt(c.syn) + '</span>' : '') +
@@ -2842,6 +2887,8 @@ function renderRadar() {
       return '<li>' + chip(c, { tier: true, pts: true }) + '<span class="hint" style="flex:1;min-width:160px">' + esc(c.why) + '</span><button class="btn ghost sm" data-act="restore" data-id="' + esc(c.id) + '">Devolver ao deck</button></li>';
     }).join('') + '</ul></fieldset>';
   }
+  /* as listas de fora vêm depois das cartas do radar (09/11/2026): antes ficavam no topo e empurravam o radar para baixo */
+  h += confrontoSection();
   h += poolSection();
   h += '<fieldset class="pn"><legend>Adicionar carta ao radar</legend><p class="hint">Saiu coleção nova ou achou uma carta antiga? Registre aqui, dê as notas e compare com a fila de corte.' + (PUB ? '' : ' Com internet, a imagem vem sozinha pelo nome em inglês.') + '</p><div class="form">' +
     '<label>Nome<input class="inp" id="nc-n" type="text" autocomplete="off"></label>' +
@@ -3408,6 +3455,7 @@ document.addEventListener('change', function (ev) {
   if (t.dataset && t.dataset.of) { ofField(t); return; }
   if (!a) return;
   if (a === 'ft') { ui.ft = t.value; render(); }
+  else if (a === 'rs' || a === 'rv' || a === 'rc' || a === 'rt' || a === 'rg') { ui[a] = t.value; render(); var f = $('[data-act="' + a + '"]'); if (f) f.focus(); }
   else if (a === 'fr') { ui.fr = t.value; render(); }
   else if (a === 'grouped') { ui.grouped = t.checked; render(); }
   else if (a === 'tier-lands') { ui.tierLands = t.checked; render(); }
