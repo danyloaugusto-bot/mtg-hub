@@ -399,7 +399,7 @@ function showPeek(el) {
 /* ============ fichas ============ */
 function chip(c, o) {
   o = o || {};
-  return '<div class="chip c-' + esc(c.col) + '" role="button" tabindex="0" draggable="true" data-card="' + esc(c.id) + '" title="' + esc(c.n + ' — ' + c.line) + '">' +
+  return '<div class="chip c-' + esc(c.col) + '" role="button" tabindex="0" draggable="true" data-card="' + esc(c.id) + '" title="' + esc(nomeTit(c) + ' — ' + c.line) + '">' +
     '<span class="nm">' + esc(c.n) + (c.q > 1 ? ' ×' + c.q : '') + '</span>' +
     (c.foil ? '<span class="foil" title="Foil">✦</span>' : '') +
     (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') +
@@ -411,12 +411,16 @@ function chip(c, o) {
     '</div>';
 }
 function tile(c) {
-  return '<div class="chip tile c-' + esc(c.col) + '" role="button" tabindex="0" draggable="true" data-card="' + esc(c.id) + '" title="' + esc(c.n + ' — ' + c.line) + '">' +
+  return '<div class="chip tile c-' + esc(c.col) + '" role="button" tabindex="0" draggable="true" data-card="' + esc(c.id) + '" title="' + esc(nomeTit(c) + ' — ' + c.line) + '">' +
     '<span class="tile-i">' + fbTile(c) + imgTag(c, 'small', false) + '<span class="tile-b">' + (c.q > 1 ? '<span class="tile-q">×' + c.q + '</span>' : '') +
     (c.foil ? '<span class="foil" title="Foil">✦</span>' : '') + (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') +
     (c.edited ? '<span class="edt" title="Avaliação alterada por você"></span>' : '') + '<span class="p">' + pts(c) + '</span></span></span>' +
     '<span class="tile-n">' + esc(c.n) + '</span></div>';
 }
+// carta com nome impresso (Secret Lair, Universes Beyond): o nome físico em destaque e o do Scryfall menor, ao lado
+function temOn(c) { return !!(c.on && c.on !== c.n); }
+function onTag(c) { return temOn(c) ? '<small class="on" title="Nome no Scryfall">' + esc(c.on) + '</small>' : ''; }
+function nomeTit(c) { return c.n + (temOn(c) ? ' (' + c.on + ')' : ''); }
 function tierB(t, sm) { return '<span class="tb' + (sm ? ' sm' : '') + ' t' + t + '">' + t + '</span>'; }
 function relB(r) { return '<span class="rb rb-' + r + '">' + RELS[RR[r]].l + '</span>'; }
 
@@ -2563,7 +2567,7 @@ function tabRows() {
     var cells = '';
     for (var i = 0; i < NG; i++) cells += scCell(gv(c, i), i);
     return '<tr class="row" data-card="' + esc(c.id) + '" tabindex="0"><td class="c-name"><div class="nm c-' + esc(c.col) + '">' +
-      (imgOn() ? '<span class="thb">' + imgTag(c, 'small', false) + '</span>' : '') + '<span class="t">' + esc(c.n) + '</span>' +
+      (imgOn() ? '<span class="thb">' + imgTag(c, 'small', false) + '</span>' : '') + '<span class="t">' + esc(c.n) + onTag(c) + '</span>' +
       (c.foil ? '<span class="foil" title="Foil">✦</span>' : '') + (c.pet ? '<span class="pet" title="PetCard">♥</span>' : '') + (c.edited ? '<span class="edt" title="Avaliação alterada por você"></span>' : '') +
       '</div></td><td class="dimc num hm">' + c.q + '</td><td class="hm">' + (c.cost ? mana(c.cost) : '<span class="dimc">—</span>') + '</td><td class="num">' + (c.land ? '<span class="dimc">—</span>' : c.cmc + cuTag(c)) + '</td>' + cells +
       '<td class="pts num">' + fmtP(pts(c)) + '</td>' + (EDH ? '<td class="num syn' + (c.syn == null ? ' dimc' : '') + '">' + synTxt(c.syn) + '</td>' : '') + '<td>' + tierB(c.tier, true) + '</td><td>' + relB(c.rel) + (D.plano && D.plano.classificado ? '</td><td>' + (c.pp ? ppB(c.pp) : '<span class="dimc">—</span>') : '') + '</td></tr>';
@@ -2704,7 +2708,7 @@ function candCard(c) {
   var cv = gn ? ganhoTxt(gn, alvo) : (alvo && !c.land && !alvo.land && (custoX(c) || custoX(alvo)) ? 'Custo variável (X): fica fora da conta de mana' : '');
   return '<article class="cand' + (c.inDeck ? ' in' : '') + '" id="cand-' + id + '"><div class="cand-top' + (imgOn() ? ' wi' : '') + '">' +
     (imgOn() ? '<div class="cand-img c-' + esc(c.col) + '" data-card="' + id + '" role="button" tabindex="0" aria-label="Abrir ' + esc(c.n) + '">' + fbTile(c) + imgTag(c, 'small', false) + '</div>' : '') +
-    '<div class="cand-txt"><div class="cand-h">' + tierB(c.tier) + '<div><h3><button class="linkish" data-card="' + id + '">' + esc(c.n) + '</button></h3><p class="cand-m">' + (c.cost ? mana(c.cost) + ' ' : '') + esc(c.line) + (c.pt ? ', ' + esc(c.pt) : '') + '</p></div>' +
+    '<div class="cand-txt"><div class="cand-h">' + tierB(c.tier) + '<div><h3><button class="linkish" data-card="' + id + '">' + esc(c.n) + '</button>' + onTag(c) + '</h3><p class="cand-m">' + (c.cost ? mana(c.cost) + ' ' : '') + esc(c.line) + (c.pt ? ', ' + esc(c.pt) : '') + '</p></div>' +
     '<span class="vd vd-' + esc(c.verdict) + '">' + VERD[c.verdict] + '</span></div>' +
     (c.pp ? '<p class="cand-pp">' + ppB(c.pp) + (D.plano && D.plano.radar && D.plano.radar[c.id] ? ' <small>com a troca do radar, o plano fica ' + verB(D.plano.radar[c.id]) + '</small>' : '') + '</p>' : '') +
     (c.fx ? '<p class="cand-fx' + (c.orig ? ' orig' : '') + '">' + rich(c.fx) + '</p>' : '') + (c.why ? '<p class="cand-why">' + rich(c.why) + '</p>' : '') + '</div></div>' +
@@ -2962,7 +2966,7 @@ function renderDrawer() {
   var back = !!(ui.face && c.dfc && c.back);
   var where = c.cand ? (c.inDeck ? 'No deck, vinda do radar' : 'No radar, fora do deck') : (c.inDeck ? '' : 'Fora do deck');
   var h = '<button class="x" data-act="close" aria-label="Fechar">×</button>' +
-    '<p class="dw-type">' + esc(c.line) + '</p><h2 id="dw-title">' + esc(c.n) + '</h2>' +
+    '<p class="dw-type">' + esc(c.line) + '</p><h2 id="dw-title">' + esc(c.n) + '</h2>' + (temOn(c) ? '<p class="dw-on">No Scryfall: <b>' + esc(c.on) + '</b></p>' : '') +
     '<div class="dw-meta">' + (c.cost ? mana(c.cost) : '') + (c.land ? '' : '<span>CMC ' + c.cmc + '</span>') + (temCu(c) ? '<span class="cu">usual ' + c.cu + ': ' + esc(c.cuc || '') + '</span>' : '') + (c.pt ? '<span>' + (c.ptl ? c.ptl + ' ' : '') + esc(c.pt) + '</span>' : '') +
     (c.set ? '<span>' + esc(c.set) + ' ' + esc(c.num) + '</span>' : '') + (c.q > 1 ? '<span>' + c.q + ' cópias</span>' : '') + (c.foil ? '<span><span class="foil">✦</span> foil' + (c.etched ? ' etched' : '') + '</span>' : '') + (where ? '<span>' + where + '</span>' : '') + '</div>';
   if (imgOn()) {
@@ -3038,7 +3042,7 @@ function cmpHtml(aId, bId) {
   if (!a) return '';
   function col(c, cls, lab) {
     return '<div class="cmp-col"><p class="cmp-lab ' + cls + '">' + lab + '</p>' + (imgOn() ? '<div class="cmp-img c-' + esc(c.col) + '">' + fbTile(c, false, true) + imgTag(c, 'normal', false) + '</div>' : '') +
-      '<h3>' + esc(c.n) + '</h3><p class="cand-m">' + (c.cost ? mana(c.cost) + ' ' : '') + esc(c.line) + (c.pt ? ', ' + esc(c.pt) : '') + '</p><p class="cmp-why">' + rich(c.why || c.fx || '') + '</p></div>';
+      '<h3>' + esc(c.n) + onTag(c) + '</h3><p class="cand-m">' + (c.cost ? mana(c.cost) + ' ' : '') + esc(c.line) + (c.pt ? ', ' + esc(c.pt) : '') + '</p><p class="cmp-why">' + rich(c.why || c.fx || '') + '</p></div>';
   }
   function row(lab, va, vb, na, nb, better) {
     var wa = '', wb = '';
