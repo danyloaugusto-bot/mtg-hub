@@ -156,6 +156,37 @@ def dossie(pasta):
             for x in e["contra"]:
                 L.append("- **Contra %s:** %s. %s" % (x.get("tipo"), RESULTADO.get(x.get("resultado"), x.get("resultado")), frase(x.get("porque"))))
             L.append("")
+        ms = e.get("mesa")
+        if ms:
+            # nome impresso, quando a carta tem um (as chaves do bloco são os nomes do Scryfall)
+            imp = {c.get("on") or c["n"]: c["n"] for c in cards + m["cands"]}
+            L.append("### Na mesa: avaliação de ameaças")
+            L.append("")
+            L.append("Como este deck é lido pelos outros jogadores e como o dono joga a política da mesa (material de threat assessment, 08/11/2026).")
+            L.append("")
+            L.append("Como a mesa te lê: %s" % frase(ms["leitura"]))
+            L.append("")
+            L.append("Postura: %s" % frase(ms["postura"]))
+            L.append("")
+            if ms.get("sinais"):
+                L.append("Sinais, as cartas que te marcam como a ameaça quando descem:")
+                L.extend("- **%s**: %s" % (imp.get(x["carta"], x["carta"]), frase(x["porque"])) for x in ms["sinais"])
+                L.append("")
+            if ms.get("guardar"):
+                L.append("O que fica na mão até a hora certa:")
+                L.extend("- **%s**: %s" % (imp.get(x["carta"], x["carta"]), frase(x["porque"])) for x in ms["guardar"])
+                L.append("")
+            L.append("Ponto de falha, o que um oponente precisa tirar para te parar: %s" % frase(ms["ponto_de_falha"]))
+            L.append("")
+            if ms.get("respostas"):
+                L.append("Respostas a guardar, e para quê:")
+                L.extend("- **%s**: %s" % (imp.get(x["carta"], x["carta"]), frase(x["para"])) for x in ms["respostas"])
+                L.append("")
+            L.append("As suas limpezas: %s" % frase(ms["limpezas"]))
+            L.append("")
+            if ms.get("alvo"):
+                L.append("Quem atacar: %s" % frase(ms["alvo"]))
+                L.append("")
 
     if m.get("combos"):
         L.append("## Combos e linhas de jogo")
@@ -234,7 +265,36 @@ def instrucoes(pasta, tema, nomes_cmd):
         "== Infográfico ==\n"
         "Português do Brasil. Uma página com: o plano do deck em uma frase, o comandante, as três fases da partida (turnos e "
         "objetivo de cada uma), os combos principais com as peças, as cartas tier S e contra quem o deck vai bem e vai mal. "
-        "Sem preço.\n" % (curto, nomes_cmd, curto, curto))
+        "Sem preço.\n\n"
+        "== Chat do notebook (configurar) ==\n"
+        "Você é um analista de Commander (Magic: The Gathering) que conhece este deck pelo dossiê. Responda em português do "
+        "Brasil, direto e curto, para o dono do deck, que é um jogador experiente. Use os termos do jogo como ele usa (lord, "
+        "buff, ramp, draw, wipe, tier). Baseie tudo no dossiê: não invente texto de carta nem cite carta que não esteja nele. "
+        "Respeite as decisões do dono registradas no dossiê e não sugira desfazê-las. Não fale de preço. Quando sugerir uma "
+        "troca, diga o que entra, o que sai e por quê.\n\n"
+        "== Roteiro de perguntas (cole uma por vez no chat) ==\n"
+        "1. Resuma o plano do deck %s em três frases e diga em que fase da partida ele vence.\n"
+        "2. Quais cartas fazem a mesa me ver como a ameaça quando descem, e qual postura o dossiê recomenda quando isso acontece?\n"
+        "3. O que um oponente precisa tirar da mesa para me parar? Como protejo isso sem gastar recurso à toa?\n"
+        "4. Que cartas devo segurar na mão até a hora certa, e qual é a hora certa de cada uma?\n"
+        "5. Para que servem as minhas remoções guardadas: em que alvo gasto cada uma, e em qual não gasto?\n"
+        "6. Quando as minhas limpezas de mesa me favorecem e quando me prejudicam?\n"
+        "7. Quem eu ataco em cada fase: o jogador com menos vida ou o que tem mais recursos? Justifique pelo dossiê.\n"
+        "8. Contra que arquétipos o deck vai mal e o que fazer nessas partidas?\n"
+        "9. Das trocas do radar, quais mais aumentam a força do deck e quais são só tema?\n"
+        "10. Monte um checklist de turno para este deck: três perguntas antes de atacar e três antes de gastar uma remoção.\n\n"
+        "== Comparativo antes x depois (quando o notebook tiver duas versões do dossiê como fontes) ==\n"
+        "Mantenha as duas versões como fontes separadas, com a data no nome (por exemplo \"v1, 08/11\" e \"v2, 09/11\"), e cole no "
+        "campo de personalização:\n"
+        "- Infográfico: Português do Brasil. Uma página em duas colunas, \"antes\" e \"depois\", comparando as duas versões do "
+        "dossiê do deck %s: o que mudou no plano e nas três fases da partida, quais cartas entraram ou saíram do radar e quem "
+        "sai no lugar, o que mudou nos terrenos, o que mudou nas limpezas e na postura na mesa, e o que ficou igual. Destaque "
+        "cada diferença com a data da versão. Sem preço.\n"
+        "- Resumo em áudio: Fale em português do Brasil, para o dono do deck, jogador experiente de Commander, com os termos do "
+        "jogo como ele usa. Compare a versão antiga e a nova do dossiê do deck %s: comece pelo que mudou no plano e na postura "
+        "na mesa, depois as trocas do radar (o que entra, o que sai e por quê), os terrenos, as limpezas, e termine com o que "
+        "não mudou e por quê. Cite sempre de qual versão vem cada informação. Não invente carta nem texto de carta; não fale de preço.\n"
+        % (curto, nomes_cmd, curto, curto, curto, curto, curto))
 
 
 def gravar(pasta):
