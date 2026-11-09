@@ -268,7 +268,84 @@
     "resultado": "equilibrado",
     "porque": "Ramp desenvolve mais rápido que o atrito do deck, mas a Curse of the Restless Dead e a Opulence cobram dos terrenos e ataques deles."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Deck de maldições: a mesa vê encantamentos nos jogadores e uma comandante que compra duas por turno, e a leitura muda com a maldição: as que pagam a mesa (Curse of Opulence, Curse of Verbosity, Curse of Disturbance) fazem você parecer aliado; as de dano (Curse of Bloodletting, Torment of Scarabs, Cruel Reality) marcam você. O deck compra muito e mata devagar: vira alvo antes de fechar, e é isso que a postura precisa evitar.",
+   "postura": "Conciliadora por natureza, a neutra da mesa: Propaganda e Kazuul erguem a cerca, as maldições políticas vão no líder para a mesa bater nele, e você compra enquanto os outros brigam. Assumir só no fim: empilhar as de dano (Bloodletting primeiro, depois Maddening Hex, Torment of Scarabs e Cruel Reality) no mais forte, com a mesa concordando, e nunca em quem já está morrendo. O deck é lento: ser o líder visível é perder.",
+   "sinais": [
+    {
+     "carta": "Curse of Misfortunes",
+     "porque": "Em você, um tutor e uma maldição nova toda manutenção: o motor que a mesa aprende a remover."
+    },
+    {
+     "carta": "Notion Thief",
+     "porque": "Com Windfall, esvazia a mão dos três: desce com lampejo, mas a mesa lembra."
+    },
+    {
+     "carta": "Cruel Reality",
+     "porque": "Sacrifício ou 5 de vida por turno: o amaldiçoado vira inimigo na hora."
+    },
+    {
+     "carta": "Curse of Surveillance",
+     "porque": "Cartas para quem você escolher a cada manutenção: a mesa vê você distribuindo o jogo."
+    },
+    {
+     "carta": "Paradox Haze",
+     "porque": "Duas manutenções: a Lynde e a Misfortunes dobram, e todo mundo percebe."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Cruel Reality",
+     "porque": "Sete manas: só quando a mesa do oponente é o problema e você tem a cerca de pé."
+    },
+    {
+     "carta": "Windfall",
+     "porque": "Com o Notion Thief na mesa: antes disso, enche a mão dos outros."
+    },
+    {
+     "carta": "Chaos Warp",
+     "porque": "A única resposta universal: para a permanente que vence o jogo alheio, não para a primeira ameaça."
+    },
+    {
+     "carta": "Cyclonic Rift",
+     "porque": "Com sobrecarga, no turno em que a mesa deles ameaça fechar; as maldições ficam."
+    },
+    {
+     "carta": "Read the Runes",
+     "porque": "Instantânea no turno do oponente anterior: compra e recolhe as maldições para a Lynde repassar."
+    }
+   ],
+   "ponto_de_falha": "A Lynde, com uma proteção só na lista (Malakir Rebirth; Lightning Greaves e Counterspell no radar), e o relógio lento: combo alheio fecha antes do desgaste. Exílio e devolução para a mão não passam pelo cemitério: a Lynde não salva a maldição. Quem quer parar o deck exila a Lynde e joga rápido, ou vira a mesa contra você na rodada em que uma maldição política fica em você.",
+   "respostas": [
+    {
+     "carta": "Chaos Warp",
+     "para": "A permanente que vence o jogo alheio ou que desmonta o ciclo, de qualquer tipo, em velocidade instantânea."
+    },
+    {
+     "carta": "Feed the Swarm",
+     "para": "O encantamento alheio que trava você (a única resposta preta a encantamento) ou a criatura que ameaça a Lynde."
+    },
+    {
+     "carta": "Reality Shift",
+     "para": "Exílio por duas manas na criatura que mata, sem volta pelo cemitério."
+    },
+    {
+     "carta": "Cyclonic Rift",
+     "para": "A mesa deles inteira no turno decisivo; as maldições são auras em jogador e ficam."
+    },
+    {
+     "carta": "Counterspell",
+     "para": "A única anulação possível, no radar: para a mágica que fecha o combo alheio, não para a compra."
+    },
+    {
+     "carta": "Archfiend of Depravity",
+     "para": "Limpeza recorrente de um lado só: com o Cruel Reality no mesmo jogador, a mesa dele some."
+    }
+   ],
+   "limpezas": "Cinco: Blasphemous Act, Chain Reaction e Last One Standing são simétricas, mas o deck quase não tem criaturas, então saem quase de um lado só (a Lynde morre, as maldições ficam e seguem drenando); Cyclonic Rift com sobrecarga e Archfiend of Depravity só atingem os outros. Cumpre a regra do dono de 3 a 4, com folga. Boa quando a mesa de alguém cresceu e a Lynde está fora da mesa ou protegida; ruim no turno seguinte ao giro, quando você precisa dela na manutenção.",
+   "alvo": "Você quase não ataca: o alvo é onde as maldições vão. As políticas (Opulence, Verbosity, Disturbance) no líder, para a mesa bater nele e pagar você; as de dano empilhadas no mais forte, nunca em quem já está morrendo, porque cada jogador eliminado devolve as maldições para você e o ciclo recomeça. O Alexios, Deimos of Kosmos escolhe quem apanha."
+  }
  },
  "cartas": {
   "Lynde, Cheerful Tormentor": {
@@ -1744,10 +1821,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
-   "sai": "Plargg and Nassari",
+   "veredito": "fora",
    "faz": "Equipamento de equipar {0}: ímpeto e shroud.",
-   "porque": "A Lynde não vira alvo de remoção, e as habilidades dela não miram nada. Proteção da Lynde de 1 para 2."
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela."
   },
   "Mirrormade": {
    "notas": {
@@ -1924,6 +2000,63 @@
    "papel": "habilita",
    "papel_dupla": "Ramp",
    "papel_por_que": "Sacrifica uma Maldição para ela voltar pela Lynde e conjura encantamento pagando vida."
+  },
+  "Otawara, Soaring City": {
+   "notas": {
+    "removal": 2,
+    "defesa": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno lendário. Gera {U}. Canalizar, por {3}{U} e descartando-o: devolve à mão um artefato, criatura, encantamento ou planeswalker alvo; custa {1} a menos por criatura lendária que você controla.",
+   "porque": "Fonte de azul desvirada que vira resposta: com a Lynde em campo, por {2}{U} devolve a criatura que vem para cima de você ou a permanente que trava o ciclo, sem gastar vaga de mágica. Sai o Unknown Shores, o pior conserto de cor da lista.",
+   "sai": "Unknown Shores",
+   "papel_dupla": "Interação (devolve à mão)",
+   "papel_por_que": "Terreno que devolve uma permanente alvo em resposta."
+  },
+  "Dragonskull Summit": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Entra virado a menos que você controle um Swamp ou uma Mountain. Gera {B} ou {R}.",
+   "porque": "Dual que entra desvirada com um Pântano ou Montanha em campo, inclusive a Xander's Lounge e o Blood Crypt do radar. Você já tem (Caixa). Sai a Surtland Frostpyre, que entra sempre virada e cuja limpeza pequena custa cinco manas.",
+   "sai": "Surtland Frostpyre",
+   "papel_dupla": "Mana (dual)",
+   "papel_por_que": "Dual desvirada: estrutura de mana."
+  },
+  "Shipwreck Marsh": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Entra virado a menos que você controle dois ou mais outros terrenos. Gera {U} ou {B}.",
+   "porque": "Dual desvirada do terceiro terreno em diante, no lugar do Mortuary Mire, que entra sempre virado e só devolve a Lynde ao topo quando ela foi ao cemitério. Você já tem (Caixa).",
+   "sai": "Mortuary Mire",
+   "papel_dupla": "Mana (dual)",
+   "papel_por_que": "Dual desvirada: estrutura de mana."
+  },
+  "Maze of Ith": {
+   "notas": {
+    "defesa": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Virando, desvira uma criatura atacante alvo e previne todo o dano de combate que ela causaria e sofreria neste turno. Não gera mana.",
+   "porque": "A fortaleza que o deck pede: todo turno, o maior atacante que vem para você não causa dano, sem gastar mágica nem mana, enquanto as maldições giram. Fica como avaliar porque não gera mana: a base cai de 36 para 35 fontes, no limite da referência, por isso sai o Dreadship Reef, incolor no uso normal. Você tem uma cópia na Queen, que é deck montado.",
+   "sai": "Dreadship Reef",
+   "papel_dupla": "Defesa (anula um atacante por turno)",
+   "papel_por_que": "Terreno que neutraliza o maior atacante contra você a cada turno."
   }
  },
  "combos": [
