@@ -236,7 +236,76 @@
     "resultado": "forte",
     "porque": "A criatura grande deles é o melhor alvo de troca."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Deck de caos e goad: a mesa te lê como quem põe todo mundo para brigar, e isso é bom, até a troca do Deadpool. Quando ele troca a caixa de texto com a melhor criatura de alguém, esse jogador fica com a perda de 3 por manutenção e vira seu inimigo pessoal: a troca escolhe quem te odeia. Os motores que uma mesa experiente remove cedo são Necropotence, The One Ring, Sheoldred, the Apocalypse e Opposition Agent; Kardur e Alexios anunciam que ninguém vai conseguir atacar você.",
+   "postura": "Conciliadora e teatral: o caos funciona quando você não é o alvo, então o goad (Kardur, Alexios, Xantcha) aponta para o líder da mesa, e a troca do Deadpool cai na criatura do jogador que já é a ameaça: a mesa agradece e você fica com a habilidade. Assumir só na janela de fechar: Terror of the Peaks com as fichas de Deadpool, Twinflame com Dualcaster Mage, ou Insurrection e Warp World do radar. Enquanto isso, nunca seja o jogador com mais recursos à vista.",
+   "sinais": [
+    {
+     "carta": "Necropotence",
+     "porque": "Compra quantas cartas quiser por vida: a mesa reage no turno seguinte."
+    },
+    {
+     "carta": "The One Ring",
+     "porque": "Compra crescente e um turno de proteção: alvo de qualquer remoção de artefato."
+    },
+    {
+     "carta": "Sheoldred, the Apocalypse",
+     "porque": "Cada compra deles custa 2 de vida: incomoda a mesa inteira de uma vez."
+    },
+    {
+     "carta": "Kardur, Doomscourge",
+     "porque": "A mesa inteira ataca outro jogador: todos sabem quem mandou."
+    },
+    {
+     "carta": "Helm of the Host",
+     "porque": "Um Deadpool novo por combate: a troca vira motor, e a mesa calcula as perdas de 3."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Worldgorger Dragon",
+     "porque": "O combo com Animate Dead só com a mana e a proteção prontas: se interrompem, você fica sem mesa."
+    },
+    {
+     "carta": "Twinflame",
+     "porque": "Fichas infinitas com o Dualcaster Mage: na mão até o turno de fechar."
+    },
+    {
+     "carta": "Saw in Half",
+     "porque": "Carta pet: duas trocas num instante, em resposta à remoção do Deadpool ou no fim do turno de alguém."
+    },
+    {
+     "carta": "Deflecting Swat",
+     "porque": "A remoção no Deadpool ou a mágica que fecha o jogo alheio: de graça com ele em campo."
+    }
+   ],
+   "ponto_de_falha": "Os motores de retroca (Helm of the Host, Conjurer's Closet, The Master, Multiplied, Blade of Selves): sem eles o Deadpool troca uma vez e vira um 5/3 que custa 3 de vida por turno. O cemitério é o segundo ponto: Worldgorger Dragon, Animate Dead, Reanimate e Necromancy morrem para ódio de cemitério. E as 3 vidas por manutenção enquanto a troca não aconteceu: quem te apressa no início te mata com a sua própria conta.",
+   "respostas": [
+    {
+     "carta": "Deadly Rollick",
+     "para": "Carta pet: exila a criatura que fecha o jogo de alguém, de graça com o Deadpool em campo."
+    },
+    {
+     "carta": "Chaos Warp",
+     "para": "A permanente que trava o deck, encantamento ou artefato, que preto e vermelho não destroem de outro jeito."
+    },
+    {
+     "carta": "Terminate",
+     "para": "A criatura que vai matar alguém no turno, não a maior da mesa."
+    },
+    {
+     "carta": "Rakdos Charm",
+     "para": "O cemitério de um reanimator, os artefatos de quem passou de você, ou a mesa de fichas de quem combou."
+    },
+    {
+     "carta": "Pyroblast",
+     "para": "A contramágica azul no seu turno grande."
+    }
+   ],
+   "limpezas": "Três, duas delas de estimação: Blasphemous Act (quase sempre por {R} numa mesa de caos), Damnation e Vandalblast (com sobrecarga, só os artefatos deles: unilateral). A Mutinous Massacre do radar destrói metade e rouba a outra metade por um turno. Boa quando a troca do Deadpool já aconteceu e a sua mesa é pequena, ou quando Mayhem Devil e Terror of the Peaks fazem cada morte doer; ruim quando as fichas de Deadpool são o seu fechamento. Pela regra do dono (3 a 4 por deck), a conta está feita; por isso a Mutinous Massacre não sai mais no lugar da Damnation.",
+   "alvo": "Você quase não ataca: o goad escolhe quem ataca quem. A troca do Deadpool é o seu ataque: mire a criatura do líder, porque o dono dela paga as 3 vidas por turno e a mesa inteira ganha com isso. Xantcha vai para o jogador mais forte, e Alexios para quem tem menos bloqueadores."
+  }
  },
  "cartas": {
   "Deadpool, Trading Card": {
@@ -1810,8 +1879,8 @@
    "rel": "MED",
    "veredito": "entra",
    "faz": "Feitiço de 5. Escolha par ou ímpar: destrói as criaturas de custo do tipo escolhido, ganha o controle das outras até o fim do turno, com ímpeto.",
-   "porque": "Limpeza que ainda rouba o resto.",
-   "sai": "Damnation",
+   "porque": "Limpeza que ainda rouba o resto. Pela regra do dono (3 a 4 limpezas por deck, 09/11/2026), não sai mais no lugar da Damnation: sai a Necromancy, a terceira reanimação do combo do Worldgorger, que não é caos.",
+   "sai": "Necromancy",
    "marcas": {
     "caotica": 1
    },
@@ -2390,6 +2459,42 @@
    "porque": "Não copia o Deadpool, que é lendário, mas copia as cópias não lendárias do Helm of the Host e da Delina, e cada uma troca de novo.",
    "papel": "multiplica",
    "papel_por_que": "Só copia a cópia não lendária do Deadpool que outra carta criou, como a do Helm of the Host."
+  },
+  "Sanctum of Eternity": {
+   "notas": {
+    "troca": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Faz um Deadpool novo entrar e trocar, por ativação a cada vez: por {2}, no seu turno, devolve o Deadpool à mão para ser conjurado de novo, sem a taxa da zona de comando."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Raucous Theater",
+   "faz": "Gera {C}. Por {2} e virando, devolve um comandante seu do campo à sua mão; só no seu turno.",
+   "porque": "Uma troca nova a cada turno, num terreno: devolve o Deadpool à mão por {2}, você o conjura de novo por {2}{B}{R} sem a taxa do comandante, e ele entra trocando de texto com a melhor criatura da mesa. Entra desvirado; 15% dos decks do Deadpool no EDHREC, a maior sinergia entre os terrenos da página. Sai o Raucous Theater, o único terreno da lista que sempre entra virado.",
+   "marcas": {
+    "retroca": 1
+   },
+   "papel": "habilita",
+   "papel_por_que": "Devolve o Deadpool à mão no seu turno: ele entra de novo e troca de novo."
+  },
+  "Cabal Coffers": {
+   "notas": {
+    "ramp": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Por {2} e virando, gera {B} para cada Pântano seu.",
+   "porque": "Com o Urborg, Tomb of Yawgmoth, que já está na lista, todo terreno é Pântano: no turno 6 o Coffers gera seis ou mais manas pretas, o que paga a taxa do Deadpool, o equipar do Helm of the Host e o Conjurer's Closet no mesmo turno. Entra desvirado. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de um Pântano.",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Terreno de estrutura que, com o Urborg, paga as retrocas caras."
   }
  },
  "combos": [
