@@ -244,7 +244,80 @@
     "resultado": "forte",
     "porque": "Chega primeiro: com CMC médio perto de 3, ataca antes de o oponente baixar as ameaças de 7 manas."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Tribal de Vampiros com sacrifício: a mesa vê fichas pequenas e Demônios 4/3 e demora a perceber que cada morte vira carta. O que a faz reagir são os motores: Skullclamp com as fichas, Black Market Connections, Phyrexian Altar e, acima de tudo, o Vito com o Hunger of the Ancient One (Exquisite Blood) ou o Bloodthirsty Conqueror à vista.",
+   "postura": "Conciliadora: o deck vive de atacar todo turno, então ataque com um abençoado de cada vez, em quem tem mais recursos, e deixe a mesa olhar quem baixou o motor grande. Assumir quando o laço do Vito estiver a uma carta (Diabolic Intent na mão) ou quando Teysa, Drivnod ou o Roaming Throne dobrarem os gatilhos: fechar em dois turnos.",
+   "sinais": [
+    {
+     "carta": "Skullclamp",
+     "porque": "Cada ficha 1/1 vira duas cartas por uma mana: a mesa entende o motor na segunda ativação."
+    },
+    {
+     "carta": "Black Market Connections",
+     "porque": "Mana, carta e corpo todo turno: motor de valor que a mesa aprende a remover cedo."
+    },
+    {
+     "carta": "Phyrexian Altar",
+     "porque": "Sacrifício grátis que vira mana: com a Elenda, a mesa vê o combo chegando."
+    },
+    {
+     "carta": "Vito, Thorn of the Dusk Rose",
+     "porque": "Todo mundo conhece o laço: quando desce, vira alvo e a mesa guarda remoção para a outra metade."
+    },
+    {
+     "carta": "Teysa Karlov",
+     "porque": "Dobra cada morte: duas cartas e dois Demônios por abençoado, e a mesa reage."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Exquisite Blood",
+     "porque": "Hunger of the Ancient One: metade do laço. Só desce quando o Vito já está em campo e for a hora de fechar."
+    },
+    {
+     "carta": "Bloodthirsty Conqueror",
+     "porque": "A mesma metade, com corpo e gatilho obrigatório: fica na mão até a decisão de fechar."
+    },
+    {
+     "carta": "Diabolic Intent",
+     "porque": "Busca a metade que falta no turno de fechar, pagando com uma ficha."
+    },
+    {
+     "carta": "Valkyrie's Call",
+     "porque": "Depois da limpeza alheia, não antes: é a reconstrução, e cada Vampiro passa a morrer duas vezes."
+    },
+    {
+     "carta": "Agadeem's Awakening",
+     "porque": "A reconstrução em massa; terreno só quando falta mana de verdade."
+    }
+   ],
+   "ponto_de_falha": "O Clavileño em campo e o ataque todo turno: sem ele, as mortes rendem só pelo Blood Artist e pela Meathook, os dois conversores de morte em dano. Imposto por ataque e travas de criatura desligam o deck. Remoção pontual no Clavileño é o que a mesa deve fazer; a Malakir Rebirth e o Plaza of Heroes (radar) respondem a isso.",
+   "respostas": [
+    {
+     "carta": "Archenemy's Charm",
+     "para": "Exílio instantâneo: a peça de combo ou o comandante voltron, não a criatura grande."
+    },
+    {
+     "carta": "Generous Gift",
+     "para": "O encantamento-motor ou o artefato que trava o deck (Rhystic Study, Smothering Tithe, Rule of Law)."
+    },
+    {
+     "carta": "Rite of Oblivion",
+     "para": "Exílio pago com ficha, e volta: gaste no motor, repita no fechamento."
+    },
+    {
+     "carta": "Ruthless Lawbringer",
+     "para": "Remoção em corpo de Vampiro: o motor de compra do oponente."
+    },
+    {
+     "carta": "Toxic Deluge",
+     "para": "O reset, quando a mesa deles ficou maior que a sua: Bloodghast, o Caixão do Edgar e a Valkyrie's Call reconstroem."
+    }
+   ],
+   "limpezas": "Seis, mais do que o deck quer: Olivia's Wrath só do lado deles, a melhor; Damn com sobrecarga, Toxic Deluge, The Meathook Massacre (que fica drenando) e Austere Command simétricas, mas cada morte sua é carta (Clavileño), dreno (Blood Artist, Meathook) e fichas (Elenda); Split Up depende de quem está virado e sai no radar pela Swords to Plowshares. Boa quase sempre, porque o deck reconstrói melhor; ruim quando a Elenda ou o Keeper já viraram o jogo e a mesa deles está vazia. Pela regra do dono (3 a 4), a Austere Command é a próxima a sair se precisar de vaga.",
+   "alvo": "Bloqueio é bem-vindo: o Clavileño quer que o abençoado morra. Ataque com um abençoado por vez em quem tem mais recursos, e guarde os outros para defender. Remoção vai em quem segura o motor de compra ou a limpeza, não em quem tem menos vida; com o Vito em campo, o dreno mira o mais forte."
+  }
  },
  "cartas": {
   "Clavileño, First of the Blessed": {
@@ -2359,6 +2432,75 @@
    "faz": "Feitiço: escolha um tipo de criatura; o jogador alvo compra X cartas e perde X de vida, onde X é o número de criaturas dele desse tipo.",
    "porque": "Escolhendo Vampiro, recarrega a mão por 3 manas numa mesa cheia de Vampiros. Fraco com a mesa vazia e custa vida.",
    "sai": "Malakir Rebirth"
+  },
+  "Three Tree City": {
+   "notas": {
+    "ramp": 3,
+    "sinergia": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Terreno que se liga aos Vampiros só de passagem: paga pelo tipo, uma mana por Vampiro."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Desolate Mire",
+   "faz": "Terreno lendário. Ao entrar, escolha um tipo de criatura. Gera {C}; por {2} e virando, gera uma mana da cor escolhida para cada criatura sua do tipo escolhido.",
+   "porque": "Com Vampiro escolhido e as fichas da Elenda, do Keeper e do Mavren Fein, vira seis, oito manas pretas num terreno: o ramp que falta ao deck (8 cartas, abaixo da faixa de 10 a 12), para os motores de 4 e 5 e para a Valkyrie's Call. Entra desvirado. Sai o Desolate Mire, que não gera mana sozinho.",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Terreno que gera uma mana por Vampiro: a mesa vira mana."
+  },
+  "Plaza of Heroes": {
+   "notas": {
+    "ramp": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Shineshadow Snarl",
+   "faz": "Gera {C}; ou uma mana de qualquer cor, só para mágica lendária; ou uma mana de qualquer cor entre as das permanentes lendárias suas. Por {3}, virando e exilando-o, uma criatura lendária alvo ganha hexproof e indestrutível até o fim do turno.",
+   "porque": "O deck tem doze lendas (Clavileño, Elenda, Carmen, Baron Bertram, Bartolomé, Edgar, Ojer Taq, Teysa, Drivnod, Yahenni, Vito, Sorin): o Plaza paga qualquer uma em qualquer cor e, com uma em campo, dá as duas cores sem condição. Por {3}, salva o Clavileño da remoção pontual, que é o jeito de parar o deck. Sai o Shineshadow Snarl, que pede básico na mão para entrar desvirado.",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Terreno que dá hexproof e indestrutível a uma lenda em resposta à remoção."
+  },
+  "Takenuma, Abandoned Mire": {
+   "notas": {
+    "recursao": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Devolve uma criatura do cemitério uma vez, descartando-se: de passagem."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Path of Ancestry",
+   "faz": "Terreno lendário. Gera {B}. Canalizar, por {3}{B} e descartando-o: tritura três e devolve uma criatura ou planeswalker do cemitério à mão; custa {1} a menos por criatura lendária sua.",
+   "porque": "Gera {B} desvirado e, tarde, vira recursão: devolve a Elenda ou o Bloodline Keeper por {2}{B} com o Clavileño em campo, e o triturar ainda alimenta Bloodghast e Agadeem. Sai o Path of Ancestry, que entra virado num deck com dezenove fontes das duas cores.",
+   "papel_dupla": "Recursão",
+   "papel_por_que": "Terreno que, descartado, devolve uma criatura do cemitério à mão."
+  },
+  "Eiganjo, Seat of the Empire": {
+   "notas": {
+    "removal": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Fetid Heath",
+   "faz": "Terreno lendário. Gera {W}. Canalizar, por {2}{W} e descartando-o: causa 4 de dano a uma criatura atacando ou bloqueando; custa {1} a menos por criatura lendária sua.",
+   "porque": "Remoção instantânea num terreno, por {1}{W} com o Clavileño em campo: mata o comandante que te ataca ou o bloqueador do abençoado, sem ocupar vaga de mágica. Fica como avaliar no lugar do Fetid Heath, filtro que sozinho gera só incolor.",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Terreno que, descartado, dá 4 de dano a uma criatura em combate."
   }
  },
  "combos": [
