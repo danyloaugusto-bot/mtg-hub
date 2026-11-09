@@ -35,10 +35,10 @@ ban = [n for n in G["cartas"] if (por_nome.get(n.lower()) or {}).get("leg") == "
 R.ok("nenhuma carta banida no Commander", not ban, ban[:5])
 R.ok("toda carta com nome oficial, identidade e tipo do Scryfall", all(c["n"] == n and c["ci"] == dados.ordem_cores("".join((por_nome.get(n.lower()) or {}).get("color_identity") or [])) and c["t"] for n, c in G["cartas"].items()))
 
-# ---------------- 2. onde já está, contra as decklists e as pastas
+# ---------------- 2. onde já está, contra as decklists e as pastas (sem os decks Desejo, que não existem: dono, 09/11/2026)
 decklists = {}
 for p in dados.pastas_decks():
-    if dados.eh_deck(p) and os.path.exists(os.path.join(dados.pasta_deck(p), "decklist.txt")) and os.path.exists(os.path.join(dados.pasta_deck(p), "avaliacao.json")):
+    if dados.eh_deck(p) and not dados.eh_desejo(p) and os.path.exists(os.path.join(dados.pasta_deck(p), "decklist.txt")) and os.path.exists(os.path.join(dados.pasta_deck(p), "avaliacao.json")):
         decklists[p] = {dados.chave_nome(e["name"]) for e in dados.ler_decklist(os.path.join(dados.pasta_deck(p), "decklist.txt"))}
 pastas = dados.ler_pastas()
 amostra = sorted(G["cartas"], key=lambda n: (G["cartas"][n].get("rank") or 10 ** 9, n))[:60]
