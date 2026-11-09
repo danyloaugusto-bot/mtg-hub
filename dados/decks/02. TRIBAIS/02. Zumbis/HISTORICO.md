@@ -35,3 +35,5 @@
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
 - 07/11/2026: custo usual ao lado do impresso, pedido do dono: 2 cartas que saem mais baratas neste deck ganharam o valor usual e a frase de como saem: Baleful Mastery (2), Funeral Room // Awakening Hall (3). O CMC impresso, a curva e o placar não mudam.
 - 08/11/2026: nome duplo, pedido do dono: o painel mostra o nome impresso da carta física em destaque e o nome do Scryfall menor, logo abaixo (na gaveta, "No Scryfall: …"); os textos citam a carta como "Impresso (Scryfall)", 1 texto (estratégia).
+
+- 09/11/2026: bloco "Na mesa" na estratégia e revisão de terrenos: Phyrexian Tower, Unholy Grotto e Drowned Catacomb como entra (saem Dimir Aqueduct, Mortuary Mire e Temple of Deceit) e Field of the Dead como avaliar (sai o Path of Ancestry); terrenos sempre virados de 7 para 2 com o radar. Noxious Ghoul de avaliar para entra, no lugar da Living Death, pela regra do dono de 3 a 4 limpezas. Unholy Grotto no cadastro. A lista não mudou.
