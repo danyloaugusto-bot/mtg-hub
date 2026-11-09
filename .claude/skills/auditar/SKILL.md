@@ -16,3 +16,5 @@ A pontuação é a v3 (`contexto/pontuacao/RUBRICA.md`, com as regras do dono no
 Inclua na discussão, pela `contexto/pontuacao/RUBRICA.md`: as notas do cadastro único das cartas deste deck que destoam da régua ou de cartas parecidas no cadastro (um efeito, um critério; faz duas vezes; as regras do dono no fim da RUBRICA); as notas de sinergia (`sin1`, `sin2`) que não seguem a regra escrita no `tema.json`; e se as sinergias ainda descrevem o plano do deck. Diga também o que o texto oficial desmente nos textos `faz` e `porque`.
 
 Plano do deck: toda carta nova no deck ou no radar ganha `papel` (habilita, recompensa, multiplica, ou nenhum para estrutura), `papel_dupla` quando houver e `papel_por_que`, pelo `contexto/plano/METODO-PLANO.md`, se o deck já tem o bloco `plano`. Deck novo sem classificação: rode o `/plano` depois.
+
+Estratégias do dono: antes de decidir, leia os digests de `contexto/estrategias/` (avaliação de ameaças, staples e efeito manada, e os próximos temas). Staple genérica não entra no radar por ser forte; só quando o deck tem buraco no critério ou no pacote que ela preenche, e respeitando a identidade de cor.
