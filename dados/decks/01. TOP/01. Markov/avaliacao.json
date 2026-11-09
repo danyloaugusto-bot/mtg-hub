@@ -216,7 +216,76 @@
     "resultado": "equilibrado",
     "porque": "A horda pressiona antes das bombas deles, mas um bloqueador grande segura a investida sem Cover of Darkness ou Shared Animosity."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Horda de Vampiros e fichas em três cores: a mesa vê corpos em quantidade, a ameaça visível de prioridade baixa, e demora a ligar que a eminência trabalha da zona de comando mesmo sem o Edgar. O que a faz reagir são os motores de compra (Necropotence, Skullclamp com as fichas, Welcoming Vampire, Pact of the Serpent) e a Anointed Procession dobrando tudo.",
+   "postura": "Conciliadora enquanto a horda cresce: Vampiro barato todo turno parece pouco, e o Edgar não precisa descer cedo. Deixe a mesa olhar quem baixou o motor grande. Assumir quando houver Shared Animosity, Akroma's Will ou Mirror Entity na mão com a horda de pé: um ataque fecha, antes da limpeza alheia. O laço Vito + Conqueror é reserva para mesa travada.",
+   "sinais": [
+    {
+     "carta": "Necropotence",
+     "porque": "Compra quantas cartas a vida permitir: a mesa reage no turno seguinte."
+    },
+    {
+     "carta": "Skullclamp",
+     "porque": "Cada ficha 1/1 vira duas cartas por uma mana: na segunda ativação a mesa entende o motor."
+    },
+    {
+     "carta": "Anointed Procession",
+     "porque": "Dobra as fichas da eminência: a mesa faz a conta da horda e vira contra você."
+    },
+    {
+     "carta": "Edgar Markov",
+     "porque": "Desce com ímpeto e coroa a horda no mesmo ataque: é a jogada que muda o alvo da mesa."
+    },
+    {
+     "carta": "Shared Animosity",
+     "porque": "Quando desce, todo mundo sabe que o próximo ataque mata: remoção certa."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Akroma's Will",
+     "porque": "Só no turno letal, ou em resposta à limpeza: com o Edgar em campo, os dois modos de uma vez."
+    },
+    {
+     "carta": "Teferi's Protection",
+     "porque": "A única saída contra Toxic Deluge alheio e exílio em massa: não gasta em remoção pequena."
+    },
+    {
+     "carta": "Shared Animosity",
+     "porque": "Desce no turno do ataque, não antes: na mesa, é alvo imediato."
+    },
+    {
+     "carta": "Bloodthirsty Conqueror",
+     "porque": "Metade do laço com o Vito: fica na mão até a decisão de fechar por combo."
+    }
+   ],
+   "ponto_de_falha": "A horda, não o Edgar: a eminência rende da zona de comando, mas uma limpeza −X/−X ou um exílio em massa leva as fichas e a coroação acumulada, e a reconstrução depende de Elenda, Lich-Knights' Conquest e do Edgar, Charmed Groom. Sem pedras, por decisão do dono, a mana também é ponto fraco: oito terrenos virados hoje. Quem quiser secar a horda remove Welcoming Vampire e Skullclamp.",
+   "respostas": [
+    {
+     "carta": "Anguished Unmaking",
+     "para": "A peça de combo ou o motor (um Rhystic Study, uma Smothering Tithe), não a maior criatura."
+    },
+    {
+     "carta": "Rite of Oblivion",
+     "para": "Exílio pago com uma ficha, e volta do cemitério: gaste no motor, repita no fechamento."
+    },
+    {
+     "carta": "Ruthless Lawbringer",
+     "para": "Remoção em corpo de Vampiro: o motor de compra do oponente, e ainda dispara a eminência."
+    },
+    {
+     "carta": "Chaos Warp",
+     "para": "A última resposta a encantamento ou artefato em vermelho: guarde para o que fecha o jogo."
+    },
+    {
+     "carta": "Toxic Deluge",
+     "para": "O reset, quando a mesa deles ficou maior que a sua; Cordial Vampire e Cruel Celebrant tiram valor das mortes."
+    }
+   ],
+   "limpezas": "Quatro: Olivia's Wrath e Ruinous Ultimatum só do lado deles, as melhores do deck, com a horda intacta para atacar em seguida; Damn com sobrecarga e Toxic Deluge simétricas, com Cordial Vampire, Blood Artist e Cruel Celebrant tirando valor de cada morte. Boa quando a horda é maior que a mesa deles (Wrath, Ultimatum) ou quando a mesa deles ficou maior (Deluge). Crippling Fear, no radar, é a quinta, de um lado só. Contra a limpeza alheia, só Teferi's Protection e Akroma's Will.",
+   "alvo": "Quem tem o motor de compra ou o bloqueador grande que segura a horda, não quem tem menos vida. Com o Sanctum Seeker do radar, cada ataque drena a mesa inteira e o alvo vira só a escolha dos bloqueios. O Preacher of the Schism quer atacar quem tem mais vida; o Florian compra pelo total de vida perdido no turno."
+  }
  },
  "cartas": {
   "Edgar Markov": {
@@ -2217,6 +2286,61 @@
    "papel": "recompensa",
    "papel_dupla": "Draw",
    "papel_por_que": "Com a bênção da cidade, que a horda dá cedo, compra e drena toda manutenção."
+  },
+  "Plaza of Heroes": {
+   "notas": {
+    "ramp": 1,
+    "protecao": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Windbrisk Heights",
+   "faz": "Gera {C}; ou uma mana de qualquer cor, só para mágica lendária; ou uma mana de qualquer cor entre as das permanentes lendárias suas. Por {3}, virando e exilando-o, uma criatura lendária alvo ganha hexproof e indestrutível até o fim do turno.",
+   "porque": "Paga o Edgar em qualquer cor, porque ele é lendário, e com ele ou outra lenda em campo (Elenda, Olivia Voldaren, Florian, Baron Bertram, Yahenni) vira fonte das três cores sem custo de vida; por {3}, salva o Edgar ou a Elenda de uma remoção. Sai o Windbrisk Heights, que entra virado e esconde uma carta ao acaso.",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Terreno que dá hexproof e indestrutível a uma lenda em resposta à remoção."
+  },
+  "Sulfurous Springs": {
+   "notas": {
+    "ramp": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Temple of Malice",
+   "faz": "Gera {C}; ou {B} ou {R}, com 1 de dano em você.",
+   "porque": "Preto ou vermelho sempre desvirado, o mesmo par do Temple of Malice, que sai por entrar virado; o 1 de dano as fichas com vínculo repõem. Num deck sem pedras, terreno desvirado no turno 1 vale um Vampiro a mais."
+  },
+  "Battlefield Forge": {
+   "notas": {
+    "ramp": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Temple of Triumph",
+   "faz": "Gera {C}; ou {R} ou {W}, com 1 de dano em você.",
+   "porque": "Vermelho ou branco sempre desvirado, no lugar do Temple of Triumph, o templo do par menos usado e sempre virado; o 1 de dano as fichas com vínculo repõem."
+  },
+  "Vault of Champions": {
+   "notas": {
+    "ramp": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Crystal Grotto",
+   "faz": "Entra virado a menos que você tenha dois ou mais oponentes. Gera {W} ou {B}.",
+   "porque": "Na mesa de quatro entra sempre desvirado com o par que a lista mais pede, no lugar do Crystal Grotto, que gera incolor ou cobra {1} pela cor."
   }
  },
  "combos": [
