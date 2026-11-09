@@ -273,7 +273,80 @@
     "resultado": "forte",
     "porque": "Ramp demora para interagir, e a Land Tax dispara contra quem tem mais terrenos."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Voltron de comandante com combates extras: ameaça visível desde o turno 3, porque o Ken desce com Lightning Greaves ou Swiftfoot Boots e começa a bater sozinho. A mesa lê pelo que vê nele: cada Equipamento é um alarme, e o Raiyuu com o Karlach (três combates) é o momento em que todos param de olhar para o resto da mesa. Voltron protegido é a ameaça nº 8 da hierarquia: assusta, mas mata um jogador por vez.",
+   "postura": "Assumir, por desenho: voltron não se esconde, e os 21 de comandante vão num jogador só. A conciliação possível é a escolha do alvo e a conversa: bater primeiro em quem pode remover o Ken (controle, exílio, limpeza), dizer em voz alta que o dano vai num jogador por vez e deixar a mesa brigar pelo resto. Com a mesa cheia de remoção aberta, segure o Equipamento caro na mão e ataque só com proteção.",
+   "sinais": [
+    {
+     "carta": "Raiyuu, Storm's Edge",
+     "porque": "Combate extra sem custo quando o Ken ataca sozinho: é o primeiro alvo de remoção depois do próprio Ken."
+    },
+    {
+     "carta": "Genji Glove",
+     "porque": "Golpe duplo e segundo combate: quatro Shoryukens por turno, e a mesa faz a conta do dano."
+    },
+    {
+     "carta": "Glamdring",
+     "porque": "Um segundo feitiço de graça a cada acerto: a mesa vê a mão esvaziar em cima dela."
+    },
+    {
+     "carta": "Embercleave",
+     "porque": "Desce de surpresa no combate, com atropelar e golpe duplo: depois dela, ninguém deixa o Ken sem bloqueio."
+    },
+    {
+     "carta": "Aggravated Assault",
+     "porque": "Com a Sword of Feast and Famine do radar, combates infinitos: a mesa conhece o laço e remove a primeira peça que vir."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Chandra's Ignition",
+     "porque": "Só com o Ken grande e a mesa cheia: limpa a mesa e acerta cada oponente com a força dele, de graça pelo Shoryuken."
+    },
+    {
+     "carta": "World at War",
+     "porque": "Conjurado de graça no combate, cria outro combate; da mão, volta no turno seguinte pelo rebound. Espere o turno em que fecha."
+    },
+    {
+     "carta": "Jeska's Will",
+     "porque": "Mana e cartas para o turno do ataque triplo, não antes: na mão, é o combustível do turno decisivo."
+    },
+    {
+     "carta": "Darksteel Plate",
+     "porque": "Indestrutível para a limpeza que vem: guarde para o turno em que a mesa ameaça limpar, em vez de descer cedo e pedir remoção de artefato."
+    }
+   ],
+   "ponto_de_falha": "O próprio Ken: resistência 2, qualquer bloqueador de poder 2 o mata sem o golpe primeiro pago, e cada remoção custa o imposto de comando e o equipar já gasto. Depois dele, o ódio a artefato (um Vandalblast desmonta a mesa inteira) e a mão vazia: oito fontes de compra, três delas só quando ele conecta. Quem quiser parar o deck remove o Ken em resposta ao equipar, ou segura um bloqueador com toque mortífero.",
+   "respostas": [
+    {
+     "carta": "Chaos Warp",
+     "para": "A permanente que trava o plano: imposto de ataque, ódio a artefato, o bloqueador que o Ken não passa."
+    },
+    {
+     "carta": "Generous Gift",
+     "para": "O mesmo, a qualquer alvo; o Elefante que o oponente ganha não segura o Ken com evasão."
+    },
+    {
+     "carta": "Path to Exile",
+     "para": "O bloqueador com toque mortífero, ou a criatura que fecha o jogo de outro jogador, no turno dele."
+    },
+    {
+     "carta": "Darksteel Mutation",
+     "para": "O comandante que é o plano inteiro do oponente: fica em campo sem voltar ao comando."
+    },
+    {
+     "carta": "Lightning Bolt",
+     "para": "Carta de estimação: o bloqueador pequeno no caminho do Ken, ou os últimos 3 de vida de quem está nos 21."
+    },
+    {
+     "carta": "Deflecting Swat",
+     "para": "Do radar: devolve a remoção mirada no Ken para outro alvo, de graça com ele em campo."
+    }
+   ],
+   "limpezas": "Seis, e quatro poupam o Ken: Divine Reckoning, Single Combat e Promise of Loyalty deixam cada jogador com uma criatura, Slash the Ranks poupa os comandantes, e Chandra's Ignition é unilateral e ainda acerta cada oponente. Saem de graça pelo Shoryuken quando o Ken acerta com força 4 ou 5. A hora boa é no meio do combate, depois do primeiro acerto, para abrir os combates seguintes. A ruim é só a Fall of the First Civilization, que destrói os seus Equipamentos e sai no radar.",
+   "alvo": "Um jogador por vez até os 21, e o primeiro é quem pode remover o Ken ou limpar a mesa, não quem tem menos vida. Com três combates, o Ken pode bater em três jogadores no mesmo turno, e o Kediss do radar leva cada acerto aos outros dois. Não ataque quem está fora da disputa só porque está aberto: o Shoryuken rende igual em qualquer alvo, então escolha o que importa."
+  }
  },
  "cartas": {
   "Aisha of Sparks and Smoke": {
@@ -2150,6 +2223,75 @@
    "sai": "Razorgrass Ambush",
    "faz": "Feitiço: todos descartam a mão e compram sete. Milagre {1}{R}.",
    "porque": "Reabastece a mão que o Shoryuken esvazia, e com o milagre custa 2; é simétrica, e de valor 5 pede um acerto alto para sair de graça."
+  },
+  "Plaza of Heroes": {
+   "notas": {
+    "eq_protecao": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Veste o Ken de passagem, sem ser Equipamento: terreno que dá proteção a ele, como Slayers' Stronghold e Rogue's Passage na régua (resistência a magia e indestrutível por um turno, uma vez)."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Opal Palace",
+   "faz": "Gera {C}; ou uma mana de qualquer cor, só para conjurar mágica lendária; ou uma mana de uma cor entre as permanentes lendárias que você controla. Por {3}, virando e exilando este terreno: uma criatura lendária alvo ganha resistência a magia e indestrutível até o fim do turno.",
+   "porque": "Paga o Ken, o Raiyuu e o Karlach em qualquer cor e, uma vez, salva o Ken da remoção ou da limpeza sem gastar carta da mão: a proteção fora de Equipamento que o deck pede. Sai o Opal Palace, que só rende marcadores depois que o Ken já morreu.",
+   "papel_dupla": "Proteção do Ken",
+   "papel_por_que": "Terreno que dá ao Ken resistência a magia e indestrutível em resposta à remoção."
+  },
+  "Inventors' Fair": {
+   "notas": {
+    "draw": 2,
+    "eq_especial": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Busca Equipamento: é função da carta no plano, como Open the Armory e Steelshaper's Gift na régua, com a condição de três artefatos que o deck sempre cumpre."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Scavenger Grounds",
+   "faz": "Terreno lendário. Na sua manutenção, se você controla três ou mais artefatos, ganha 1 de vida. Gera {C}. Por {4}, virando e sacrificando-o: busca um artefato no grimório, revela e põe na mão; só com três ou mais artefatos.",
+   "porque": "Um tutor de Equipamento numa vaga de terreno: busca a Embercleave, a Genji Glove ou a Glamdring quando o Ken já está vestido, e o deck tem artefatos de sobra para a condição. Sai o Scavenger Grounds, ódio a cemitério que o plano não usa.",
+   "papel_dupla": "Tutor de Equipamento",
+   "papel_por_que": "Terreno que busca um artefato: acha o Equipamento certo para o Ken."
+  },
+  "Eiganjo, Seat of the Empire": {
+   "notas": {
+    "removal": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Wind-Scarred Crag",
+   "faz": "Terreno lendário. Gera {W}. Canalizar, por {2}{W} e descartando-o: causa 4 de dano a uma criatura atacando ou bloqueando. Custa {1} a menos por criatura lendária que você controla.",
+   "porque": "Mata o bloqueador que seguraria o Ken, no meio do combate, e com o Ken e mais um lendário em campo custa só {W}: responde ao receio do dono de ver o Ken bloqueado sem gastar vaga de mágica. Entra desvirada no lugar da Wind-Scarred Crag, que entra virada por 1 de vida.",
+   "papel_dupla": "Remoção (bloqueador)",
+   "papel_por_que": "Terreno que tira do caminho o bloqueador do Ken."
+  },
+  "War Room": {
+   "notas": {
+    "draw": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Roadside Reliquary",
+   "faz": "Gera {C}. Por {3}, virando e pagando vida igual ao número de cores do seu comandante (2 aqui): compra uma carta.",
+   "porque": "Compra repetível que não depende de o Ken conectar, a lacuna que a leitura do deck aponta; incolor por incolor, no lugar do Roadside Reliquary, que se sacrifica por uma ou duas cartas. Você já tem (Caixa e Preta P).",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Terreno que compra todo turno com mana sobrando."
   }
  },
  "combos": [
