@@ -116,6 +116,12 @@ try:
     recusa("tier-invalido", tier, "tier")
     recusa("sai-fora-do-deck", sai, "não está no deck")
     recusa("leitura-quebrada", leitura, "não existe")
+    # "Na mesa" (08/11/2026): os quatro textos são obrigatórios e toda carta citada precisa estar no deck ou no radar
+    MESA_OK = dict(leitura="x", postura="x", ponto_de_falha="x", limpezas="x")
+    recusa("mesa-sem-leitura", lambda av: av.setdefault("estrategia", {}).__setitem__("mesa", dict(MESA_OK, leitura="")), "falta 'leitura'")
+    recusa("mesa-carta-fora", lambda av: av.setdefault("estrategia", {}).__setitem__("mesa", dict(MESA_OK, sinais=[dict(carta="Carta Inventada", porque="x")])),
+           "não está no deck nem no radar")
+    recusa("mesa-campo-desconhecido", lambda av: av.setdefault("estrategia", {}).__setitem__("mesa", dict(MESA_OK, blefe="x")), "campo desconhecido")
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 
