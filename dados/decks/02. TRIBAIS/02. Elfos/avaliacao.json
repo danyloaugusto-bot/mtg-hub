@@ -243,7 +243,80 @@
     "resultado": "forte",
     "porque": "Os Elfos de mana são mais rápidos que o ramp de terreno."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Elfos de mana e fichas: a mesa vê um 'Elfos comum' até a Lathril drenar 10 de cada um; depois, cada ativação é alarme. Os sinais que chegam antes: Priest of Titania e Elvish Archdruid gerando sete manas no turno 3, o Seedborn Muse, o Staff of Domination (todo mundo sabe o que ele faz) e a Lathril com dez Elfos desvirados ao lado.",
+   "postura": "Conciliadora até ter dez Elfos e um desvirador na mão: rampar e encher a mesa parece inofensivo. Assumir no turno em que a Lathril ativa: a partir daí não há como esconder, então feche em uma volta (Vitalize, Seeker of Skybreak, Seedborn Muse, Elven Ambush no fim do turno anterior) antes que a limpeza venha. Bolas's Citadel e Craterhoof são o plano B quando o dreno trava.",
+   "sinais": [
+    {
+     "carta": "Priest of Titania",
+     "porque": "Uma mana por Elfo: no turno 3 já são cinco ou seis, e a mesa vê a explosão chegando."
+    },
+    {
+     "carta": "Elvish Archdruid",
+     "porque": "Lorde e mana por Elfo, e peça de mana infinita com o Umbral Mantle: remoção certa."
+    },
+    {
+     "carta": "Seedborn Muse",
+     "porque": "Uma ativação da Lathril em cada turno alheio: a mesa entende que o relógio é dela."
+    },
+    {
+     "carta": "Staff of Domination",
+     "porque": "Mana, compra e dreno infinitos com um Elfo que gere cinco: quando desce, a mesa tem um turno para responder."
+    },
+    {
+     "carta": "Lathril, Blade of the Elves",
+     "porque": "Com dez Elfos desvirados ao lado, cada um na mesa faz a conta dos 10."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Vitalize",
+     "porque": "A segunda ativação por uma mana: só na volta em que fecha, ou para desvirar os Elfos como bloqueadores quando a mesa ataca."
+    },
+    {
+     "carta": "Elven Ambush",
+     "porque": "Instantânea: no fim do turno de quem joga antes de você, a salvo das limpezas de feitiço."
+    },
+    {
+     "carta": "Heroic Intervention",
+     "porque": "Do radar: a resposta à limpeza, com mana aberta sempre que a mesa estiver cheia."
+    },
+    {
+     "carta": "Staff of Domination",
+     "porque": "Peça de combo: desce quando a mana infinita estiver a uma carta, não antes."
+    },
+    {
+     "carta": "Craterhoof Behemoth",
+     "porque": "Plano B, por decisão do dono: só com a mesa pronta e o dreno travado."
+    }
+   ],
+   "ponto_de_falha": "A Lathril em campo desde o começo do turno e dez Elfos desvirados: uma limpeza alheia leva a mesa inteira, e o deck é fraco para reconstruir (Elven Ambush; Prowess of the Fair no radar). Imposto por criatura e travas de ativação travam o turno grande. Proteção: só a Revitalizing Repast hoje; Heroic Intervention, Selfless Safewright e Talon Gates of Madara (radar) são prioridade, porque a Lathril é a vitória.",
+   "respostas": [
+    {
+     "carta": "Assassin's Trophy",
+     "para": "O motor de compra ou a peça de combo do oponente, por duas manas em velocidade instantânea; não a criatura grande."
+    },
+    {
+     "carta": "Casualties of War",
+     "para": "Quando a mesa inteira tem ameaças: até cinco permanentes numa carta."
+    },
+    {
+     "carta": "Glissa Sunslayer",
+     "para": "Remoção repetível no combate: o encantamento ou artefato que trava o deck."
+    },
+    {
+     "carta": "Reclamation Sage",
+     "para": "O Rhystic Study, a Smothering Tithe ou a Rule of Law, num corpo que ainda conta para os dez."
+    },
+    {
+     "carta": "Withering Torment",
+     "para": "Instantânea: a peça que entra no turno de fechar."
+    }
+   ],
+   "limpezas": "Três hoje, todas poupando os Elfos: Eyeblight Massacre (−2/−2 nos não-Elfos), Crippling Fear (−3/−3) e Kindred Dominance (destrói os não-Elfos, por sete). O radar tirava duas (Heroic Intervention e High Perfect Morcant) e deixaria uma; pela regra do dono (3 a 4, unilaterais), a Kindred Dominance fica (o Morcant sai no lugar do Kodama's Reach) e o Massacre Wurm entra como avaliar. Boa sempre que a mesa deles tem bloqueadores ou fichas: os Elfos ficam de pé para a Lathril. Nenhuma limpa a sua mesa: contra a limpeza alheia, só proteção.",
+   "alvo": "O dreno não escolhe: a Lathril tira 10 de cada oponente. O ataque, sim: a Lathril com ameaça (e medo, pelo Shizo do radar) bate em quem tem menos bloqueadores, para criar Elfos pelo dano. Remoção vai em quem segura a limpeza ou o motor de compra, não em quem tem menos vida."
+  }
  },
  "cartas": {
   "Lathril, Blade of the Elves": {
@@ -1709,8 +1782,8 @@
    "rel": "INS",
    "veredito": "entra",
    "faz": "Elfo lendário de 4. Ele ou outro Elfo seu entra: cada oponente põe um marcador −1/−1 numa criatura dele. Vire três Elfos: proliferar.",
-   "porque": "A interação com as entradas que o dono pediu: cada Elfo que entra, ficha ou não, põe um marcador −1/−1 numa criatura de cada oponente, à escolha dele. Mata fichas e criaturas pequenas. Fonte B.",
-   "sai": "Kindred Dominance",
+   "porque": "A interação com as entradas que o dono pediu: cada Elfo que entra, ficha ou não, põe um marcador −1/−1 numa criatura de cada oponente, à escolha dele. Mata fichas e criaturas pequenas. Fonte B. Sai o Kodama's Reach, não a Kindred Dominance: pela regra do dono (08/11/2026): 3 a 4 limpezas por deck, de preferência unilaterais, a Dominance fica.",
+   "sai": "Kodama's Reach",
    "papel": "recompensa",
    "papel_dupla": "Remoção (−1/−1 a cada Elfo que entra)",
    "papel_por_que": "Cada Elfo que entra põe um marcador −1/−1 numa criatura de cada oponente."
@@ -2245,9 +2318,9 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "Equipamento de 2: resistência a magia e ímpeto.",
-   "porque": "Protege a Lathril e a faz ativar no turno. Fonte A.",
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela.",
    "marcas": {
     "protege": 1
    }
@@ -2264,9 +2337,9 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
-   "porque": "Mesma função das Boots. Fonte C.",
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela.",
    "marcas": {
     "protege": 1
    }
@@ -2711,6 +2784,93 @@
    "papel": "habilita",
    "papel_dupla": "Draw e Ramp",
    "papel_por_que": "Elfo que conjura criaturas do topo e põe criatura em campo de graça."
+  },
+  "Talon Gates of Madara": {
+   "notas": {
+    "untap": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "marcas": {
+    "protege": 1
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Secluded Courtyard",
+   "faz": "Ao entrar, até uma criatura alvo sai de fase. Gera {C}, ou uma mana de qualquer cor por {1}. Por {4}, você o põe da mão em campo, a qualquer momento.",
+   "porque": "Proteção num terreno: por {4}, sai da mão e tira a Lathril de fase em resposta à remoção ou à limpeza, o que o deck quase não tem (só a Revitalizing Repast). Também tira de fase o atacante de um oponente, e por {1} dá qualquer cor. Sai o Secluded Courtyard, que paga os Elfos em qualquer cor, o que a base de duas cores já faz.",
+   "papel_dupla": "Proteção (sai de fase)",
+   "papel_por_que": "Terreno que tira a Lathril de fase em resposta a uma remoção."
+  },
+  "Mutavault": {
+   "notas": {
+    "wincon": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Animado, é de todos os tipos e conta para os dez da Lathril, como Elfo comum."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Gera {C}. Por {1}, vira uma criatura 2/2 de todos os tipos de criatura até o fim do turno. Continua sendo terreno.",
+   "porque": "Por {1}, vira um Elfo 2/2 e conta como o décimo Elfo desvirado da Lathril (virar outra criatura como custo não depende de enjoo de invocação), e escapa das limpezas de feitiço como terreno. Gera só incolor. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de uma Floresta.",
+   "papel_dupla": "Elfo de reserva",
+   "papel_por_que": "Terreno que vira Elfo por {1} e paga a ativação da Lathril."
+  },
+  "Shizo, Death's Storehouse": {
+   "notas": {
+    "tokens": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Mexe num Elfo só, a Lathril, como alvo: de passagem."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno lendário. Gera {B}. Por {B} e virando, uma criatura lendária alvo ganha medo até o fim do turno (só pode ser bloqueada por criaturas artefato ou pretas).",
+   "porque": "Dá medo à Lathril, que já tem ameaça, por {B}: ela conecta e cria Elfos pelo dano, o jeito de aumentar a conta sem gastar carta. Gera {B} como um Pântano. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de um Pântano.",
+   "papel_dupla": "Evasão da Lathril",
+   "papel_por_que": "Terreno que dá medo à Lathril para o dano de combate virar Elfos."
+  },
+  "Boseiju, Who Endures": {
+   "notas": {
+    "removal": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno lendário. Gera {G}. Canalizar, por {1}{G} e descartando-o: destrói um artefato, encantamento ou terreno não básico de um oponente, que pode buscar um terreno com tipo básico; custa {1} a menos por criatura lendária sua.",
+   "porque": "Remoção de artefato, encantamento ou terreno não básico num terreno, por {G} com a Lathril em campo: a resposta ao Rhystic Study ou à Rule of Law sem ocupar vaga de mágica. Gera {G} como uma Floresta. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de uma Floresta.",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Terreno que, descartado, destrói artefato, encantamento ou terreno não básico."
+  },
+  "Massacre Wurm": {
+   "notas": {
+    "removal": 2,
+    "wincon": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "marcas": {
+    "dreno": 1
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Overrun",
+   "faz": "Criatura 6/5 de {3}{B}{B}{B}. Ao entrar, as criaturas dos oponentes ganham −2/−2 até o fim do turno. Sempre que uma criatura de um oponente morre, ele perde 2 de vida.",
+   "porque": "Limpeza de um lado só, como a regra do dono (08/11/2026): 3 a 4 limpezas por deck, de preferência unilaterais: os Elfos ficam, as fichas e os corpos pequenos deles morrem e cada morte tira 2. Não é Elfo e custa seis. Fica como avaliar no lugar do Overrun, o plano de combate que o Craterhoof já cobre.",
+   "papel_dupla": "Remoção em massa",
+   "papel_por_que": "Limpa o lado deles poupando os Elfos, e drena a cada morte."
   }
  },
  "combos": [
