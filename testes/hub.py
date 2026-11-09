@@ -47,7 +47,7 @@ def movimentos_py():
     """Cartas do radar (entra ou avaliar) que já estão no deck de outro painel, contadas em Python: sem básicos e sem
     comandante na origem. Devolve {"cartas": n de nomes, "mova": pares (carta, deck que pede) com tier melhor no radar}."""
     TR = {"S": 0, "A": 1, "B": 2, "C": 3, "D": 4}
-    ms = {p: dados.montar(p, avisar=lambda *x: None) for p in [d for d in dados.pastas_decks() if dados.eh_deck(d) and os.path.exists(os.path.join(dados.pasta_deck(d), "avaliacao.json"))]}
+    ms = {p: dados.montar(p, avisar=lambda *x: None) for p in [d for d in dados.pastas_decks() if dados.eh_deck(d) and not dados.eh_desejo(d) and os.path.exists(os.path.join(dados.pasta_deck(d), "avaliacao.json"))]}   # sem Desejo (dono, 09/11/2026)
     bas = set(motor_hub.BASICOS)
     no_deck = {}
     for p, m in ms.items():
@@ -228,6 +228,8 @@ with sync_playwright() as p:
                  pg.locator("#d-movimentacoes .cx h3:text('Potenciais que você já tem')").count() == 1)
             R.ok("Dashboard: o radar contra as pastas",
                  pg.locator("#d-compartilhadas .cx h3:text('O radar contra as pastas')").count() == 1)
+            # o Dashboard e toda comparação ficam sem os decks do grupo Desejo, que não existem fisicamente (dono, 09/11/2026)
+            todos_prontos, prontos = prontos, [d for d in prontos if d.get("grupo") != "05"]
             dash = {x["pasta"]: x for x in pg.evaluate("window.HUB_DASH.decks")}
             mv_js, mv_py = pg.evaluate("window.HUB_DASH.mov"), movimentos_py()
             R.ok("Movimentações: cartas do radar que você já tem, iguais à conta em Python", mv_js["cartas"] == mv_py["cartas"], (mv_js["cartas"], mv_py["cartas"]))
@@ -293,16 +295,16 @@ with sync_playwright() as p:
             else:
                 R.ok("lista de Game Changers no cache (rode o build com internet)", False)
             aba(pg, "fichas")
-            R.ok("Fichas: uma por deck com painel", pg.locator(".fi").count() == len(prontos), pg.locator(".fi").count())
-            pg.click('[data-act="ficha-g"][data-k="05"]'); pg.wait_for_timeout(150)
-            R.ok("Fichas: filtro de grupo", pg.locator(".fi").count() == sum(1 for d in prontos if d["grupo"] == "05"))
+            R.ok("Fichas: uma por deck com painel, fora os do Desejo", pg.locator(".fi").count() == len(prontos), pg.locator(".fi").count())
+            pg.click('[data-act="ficha-g"][data-k="02"]'); pg.wait_for_timeout(150)
+            R.ok("Fichas: filtro de grupo", pg.locator(".fi").count() == sum(1 for d in prontos if d["grupo"] == "02"))
             pg.click('[data-act="ficha-g"][data-k=""]'); pg.wait_for_timeout(150)
             pg.select_option('select[data-cmp="b"]', prontos[0]["pasta"]); pg.wait_for_timeout(150)
             R.ok("Comparar: trocar o deck redesenha", prontos[0]["nome"] in pg.inner_text("#d-comparar .cx h3 >> nth=0"))
             aba(pg, "potencial")
-            R.ok("Decks em potencial: um cartão por deck sem painel", pg.locator(".pot").count() == len(H["decks"]) - len(prontos), pg.locator(".pot").count())
+            R.ok("Decks em potencial: um cartão por deck sem painel", pg.locator(".pot").count() == len(H["decks"]) - len(todos_prontos), pg.locator(".pot").count())
             aba(pg, "trocas")
-            R.ok("Dashboard cobre todos os decks com painel", sorted(dash) == sorted(d["pasta"] for d in prontos), sorted(dash))
+            R.ok("Dashboard cobre todos os decks com painel, fora os do Desejo", sorted(dash) == sorted(d["pasta"] for d in prontos), sorted(dash))
             for d in prontos:
                 x = dash.get(d["pasta"], {})
                 R.ok("%s: placar do Dashboard igual ao do motor" % d["pasta"], x.get("placar") == d["placar"], (x.get("placar"), d["placar"]))
