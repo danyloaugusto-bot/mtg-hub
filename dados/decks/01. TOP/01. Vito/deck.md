@@ -13,13 +13,19 @@ O primeiro deck do dono e o favorito.
 
 ## O plano em uma frase
 
-Descer o Vito cedo, transformar cada ponto de vida ganho em vida perdida de um oponente escolhido, e fechar com um dreno grande quando a mana permitir. O laço com Exquisite Blood fica como plano B: o dono não gosta de ganhar por ele, mas não o recusa quando a janela é inevitável.
+Tribal de Vampiros em mono-preto, com os melhores Vampiros de vínculo e dreno: baixar muitos Vampiros baratos, consolidar a mesa e ganhar drenando e batendo, com o Vito transformando cada ponto de vida ganho em vida perdida de um oponente escolhido. O laço com Exquisite Blood fica como plano B: o dono não gosta de ganhar por ele, mas não o recusa quando a janela é inevitável.
+
+**Decisão do dono (08/11/2026):** quanto mais Vampiros mono-pretos de vínculo e dreno, mais dentro do tema; não precisa ser o mais rápido nem o mais forte, mas as cartas mais fortes do preto também cabem, por ser o deck favorito. A proteção do Vito não é prioridade: o deck se espalha em Vampiros. Os tutores ficam, para buscar a resposta certa na hora certa (limpeza, compra ou fechamento). A Necrodominance fica: o exílio no lugar do cemitério, que corta gatilhos de morte como os do Blood Artist, vale a mão sempre cheia de respostas.
 
 ## As três fases, como o dono descreveu
 
-- **Início:** começar rápido e descer o Vito.
-- **Meio:** focar no mais forte, mostrar força, buscar aliados.
-- **Fim:** fechar.
+Em 08/11/2026:
+
+- **Início:** baixar muitos Vampiros pequenos e montar uma mesa completa, sem precisar proteger o Vito com tudo.
+- **Meio:** consolidar, fazer política e alianças.
+- **Fim:** ganhar drenando e batendo com os Vampiros, de forma sistêmica e controlando a mesa do seu jeito, não necessariamente com combo.
+
+Antes (09/10/2026): começar rápido e descer o Vito; focar no mais forte, mostrar força, buscar aliados; fechar.
 
 ## Agrupamentos deste deck
 
