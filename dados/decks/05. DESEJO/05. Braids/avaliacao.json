@@ -234,7 +234,72 @@
     "resultado": "fraco",
     "porque": "A Braids põe a criatura grande deles de graça também."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Group hug: a mesa gosta de você enquanto a Braids, o Howling Mine e o Kami of the Crescent Moon dão presentes a todos. A leitura vira quando aparece a assimetria: Consecrated Sphinx e Jin-Gitaxias transformam a carta deles em vantagem só sua, e Rhystic Study, Mystic Remora e The One Ring são os motores de compra que uma mesa experiente remove cedo. Enquanto só a Braids estiver em campo, você é o jogador mais simpático da mesa.",
+   "postura": "Conciliadora por desenho: deixar a mesa brigar, dar os presentes e guardar a conversão. A Braids põe de graça o que você quiser, mas também o que eles quiserem: escolha a hora de descer o Consecrated Sphinx (quando a mesa já está comprando) e assuma a ameaça só com o fechamento pronto, Blightsteel Colossus, Stormtide Leviathan com Archetype of Imagination ou Hullbreaker Horror com Sol Ring. Daí em diante, feche em dois turnos: a mesa que você alimentou tem respostas na mão.",
+   "sinais": [
+    {
+     "carta": "Consecrated Sphinx",
+     "porque": "Duas cartas para você a cada carta deles: é o momento em que o hug vira ameaça aos olhos da mesa."
+    },
+    {
+     "carta": "Jin-Gitaxias, Core Augur",
+     "porque": "Eles descartam a mão no fim do turno deles: ninguém deixa em campo."
+    },
+    {
+     "carta": "Rhystic Study",
+     "porque": "O motor de compra que toda mesa aprende a remover primeiro."
+    },
+    {
+     "carta": "The One Ring",
+     "porque": "Compra crescente e um turno de proteção: alvo de qualquer remoção de artefato."
+    },
+    {
+     "carta": "Omniscience",
+     "porque": "Em campo, todo mundo sabe o que vem depois; só desce para fechar."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Blightsteel Colossus",
+     "porque": "De graça com a Braids: desce na manutenção em que vai atacar, não antes."
+    },
+    {
+     "carta": "Show and Tell",
+     "porque": "Põe o seu grande de graça, mas também o deles: só quando o melhor da mesa está na sua mão."
+    },
+    {
+     "carta": "Force of Will",
+     "porque": "Para a mágica que vence o jogo de alguém ou que mata a Braids; não para a primeira ameaça."
+    },
+    {
+     "carta": "Omniscience",
+     "porque": "Fechamento: fica na mão até a mesa estar sem contramágica aberta."
+    }
+   ],
+   "ponto_de_falha": "A Braids: comandante-habilitadora, sem ela as cartas de oito a doze manas ficam presas na mão. Depois, as pedras de mana: contra stax e destruição de artefato o deck é fraco. Quem quiser parar o deck remove a Braids e trava os artefatos; é para isso que existem Lightning Greaves, Kira, Great Glass-Spinner e as contramágicas de uma mana.",
+   "respostas": [
+    {
+     "carta": "Mana Drain",
+     "para": "A mágica que vence o jogo de um oponente, e a mana vai para o seu grande no turno seguinte."
+    },
+    {
+     "carta": "Swan Song",
+     "para": "O combo alheio em instantânea, feitiço ou encantamento; o 2/2 que eles ganham não importa quando o jogo acabaria."
+    },
+    {
+     "carta": "Pongify",
+     "para": "A criatura grande que a Braids deu a um oponente: vira um 3/3 por uma mana."
+    },
+    {
+     "carta": "Cyclonic Rift",
+     "para": "O reset com sobrecarga, no fim do turno de quem joga antes de você, para a Braids repor os seus de graça."
+    }
+   ],
+   "limpezas": "Uma limpeza de verdade: Cyclonic Rift, unilateral com sobrecarga. Portal to Phyrexia (cada oponente sacrifica três) e Hullbreaker Horror (devolve uma permanente a cada mágica sua) fazem o papel; no radar, Scourge of Fleets e Kederekt Leviathan devolvem a mesa deles à mão. Boa quando a Braids vai repor os seus grandes de graça na manutenção seguinte; ruim quando a mesa deles é só o que você mesmo deu, que é a conta do group hug. Pela regra do dono (3 a 4 por deck, de preferência unilaterais), a Whelming Wave entra no radar: devolve todas as criaturas, menos os seus Leviatãs e Krakens.",
+   "alvo": "Num group hug você quase não ataca: o alvo é quem converte melhor os seus presentes, mais cartas na mão e mais mana aberta. Com Stormtide Leviathan em campo só você ataca, e com Archetype of Imagination ninguém bloqueia; aí a ordem é fechar no jogador que tem resposta na mão, não no de menos vida."
+  }
  },
  "cartas": {
   "Braids, Conjurer Adept": {
@@ -2104,6 +2169,79 @@
    "veredito": "fora",
    "faz": "Mago de 2. Ao entrar, olhe o topo X (X a sua devoção ao azul); se X for maior ou igual ao grimório, vence.",
    "porque": "Combo de vitória, Game Changer. O deck já tem o Hullbreaker e o Blightsteel; fica de fora pelo tom."
+  },
+  "Inventors' Fair": {
+   "notas": {
+    "draw": 1,
+    "braids": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Liga-se à Braids de passagem: busca o artefato que ela põe de graça, como o Fabricate."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Rogue's Passage",
+   "faz": "Terreno lendário. Gera {C}. Na sua manutenção, com três ou mais artefatos, você ganha 1 de vida. Por {4}, virando e sacrificando-o, busca um artefato para a mão; só com três ou mais artefatos.",
+   "porque": "Com 23 artefatos na lista, a condição liga no turno 3, e o terreno vira um Fabricate que não gasta a vaga de mágica: busca o Gilded Lotus, o Portal to Phyrexia ou o Blightsteel Colossus para a Braids pôr de graça. Entra desvirado. Sai o Rogue's Passage: com o Archetype of Imagination e a Stormtide Leviathan, o deck já ataca sem bloqueio.",
+   "papel_dupla": "Tutor de artefato",
+   "papel_por_que": "Terreno de estrutura que busca o artefato que a Braids põe de graça."
+  },
+  "Talon Gates of Madara": {
+   "notas": {
+    "protecao": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Mystic Sanctuary",
+   "faz": "Terreno (Portão). Ao entrar, até uma criatura alvo sai de fase. Gera {C}, ou uma mana de qualquer cor por {1}. Por {4}, você o põe da mão em campo, a qualquer momento.",
+   "porque": "A proteção que a comandante-habilitadora pede: por {4}, em resposta à remoção, tira a Braids de fase, e ela volta na sua próxima manutenção para pôr o grande de graça; também tira de fase o atacante que a Braids deu a um oponente. Entra desvirado. Sai a Mystic Sanctuary, que entra virada antes da quarta Island e só devolve uma mágica ao topo.",
+   "marcas": {
+    "protege": 1
+   },
+   "papel_dupla": "Proteção (sai de fase)",
+   "papel_por_que": "Terreno de estrutura que tira a Braids de fase em resposta a uma remoção."
+  },
+  "Castle Vantress": {
+   "notas": {
+    "draw": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno de azul; entra virado a menos que você controle uma Island. Gera {U}. Por {2}{U}{U} e virando, vidência 2.",
+   "porque": "Uma Island a mais que não custa nada: com 22 Islands, entra desvirado desde o turno 2, e no fim do turno dos outros a vidência 2 arruma o topo para a compra do Howling Mine e do Kami achar o artefato ou a criatura que a Braids põe de graça. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de uma das 22 Islands.",
+   "papel_dupla": "Draw (vidência)",
+   "papel_por_que": "Terreno de estrutura que arruma o topo para a compra do group hug."
+  },
+  "Whelming Wave": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Simétrico que rende quase só para você: devolve todas as criaturas, menos Krakens, Leviatãs, Polvos e Serpentes, e os seus grandes são a Stormtide Leviathan e o Hullbreaker Horror (e, no radar, Scourge of Fleets e Kederekt Leviathan)."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Preordain",
+   "massa": true,
+   "faz": "Feitiço de {2}{U}{U}: devolve todas as criaturas às mãos dos donos, exceto Krakens, Leviatãs, Polvos e Serpentes.",
+   "porque": "A limpeza que falta pela regra do dono (3 a 4 por deck, de preferência unilaterais): por quatro manas devolve a mesa inteira, menos a sua Stormtide Leviathan e o seu Hullbreaker Horror, e o que voltou para a sua mão a Braids repõe de graça na manutenção seguinte. Sai o Preordain, a mais fraca das seleções de uma mana.",
+   "papel_dupla": "Remoção em massa",
+   "papel_por_que": "Limpeza que poupa os Leviatãs e Krakens do deck."
   }
  },
  "combos": [
