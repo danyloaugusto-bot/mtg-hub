@@ -273,7 +273,80 @@
     "resultado": "forte",
     "porque": "O time chega grande antes da criatura gigante deles, e Wave Goodbye a devolve."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Tribal de cinco cores que cresce por marcadores: a mesa vê um time largo de Tartarugas ficando grande a cada turno, a ameaça mais visível e menos prioritária da hierarquia. O que assusta quem sabe ler é o Leonardo com um multiplicador, Humongous Fungus (Corpsejack Menace) ou High Score, e o Heroes in a Half Shell: aí o crescimento deixa de ser linear. A resposta natural da mesa é a limpeza, e é onde o deck é fraco: pouca proteção e quatro limpezas próprias que levam o time junto.",
+   "postura": "Conciliadora até ter proteção na mão (Saved by the Shell, Continue?, The Ooze em campo) e um multiplicador na mesa: o Michelangelo precisa atacar para criar a Food, então ataque cedo quem está sem bloqueador, espalhe o dano e não desça o segundo multiplicador antes de poder usá-lo. Assumir quando o time estiver marcado e Raph & Leo ou Raphael, the Muscle estiverem à mão: fechar em um ou dois combates, porque cada turno a mais é uma chance de limpeza alheia.",
+   "sinais": [
+    {
+     "carta": "Corpsejack Menace",
+     "porque": "Dobra cada gatilho do Leonardo em cada criatura: é a carta que a mesa remove primeiro."
+    },
+    {
+     "carta": "High Score",
+     "porque": "Multiplicador e compra todo turno: motor visível na mesa."
+    },
+    {
+     "carta": "Heroes in a Half Shell",
+     "porque": "Vigilância, ameaça, atropelar e ímpeto, e compra a cada Tartaruga que acerta: anuncia o fechamento."
+    },
+    {
+     "carta": "Mikey & Leo, Chaos & Order",
+     "porque": "Uma carta por turno de cada jogador com o Leonardo: a mesa percebe a mão crescendo."
+    },
+    {
+     "carta": "Smothering Tithe",
+     "porque": "Treasure na compra de cada oponente: a mesa inteira paga a sua mana e o Leonardo dispara em todo turno."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Saved by the Shell",
+     "porque": "Uma mana com Tartaruga em campo: resposta à remoção no Leonardo; não gaste só para crescer uma criatura."
+    },
+    {
+     "carta": "Continue?",
+     "porque": "Depois da limpeza, até quatro criaturas voltam: segure duas manas quando a mesa deles tiver mana aberta."
+    },
+    {
+     "carta": "Wave Goodbye",
+     "porque": "A sua limpeza quase unilateral: conjure depois do gatilho do Leonardo, com a mesa deles cheia."
+    },
+    {
+     "carta": "The Last Ronin's Technique",
+     "porque": "Três fichas no fim do turno de um oponente: um gatilho do Leonardo fora do seu turno, quando a mesa menos espera."
+    },
+    {
+     "carta": "Shellshock",
+     "porque": "Remoção instantânea no turno deles que ainda cria fichas: espere a criatura certa de cada oponente."
+    }
+   ],
+   "ponto_de_falha": "O Leonardo (recompensa) e o Michelangelo (habilitadora): sem o primeiro, as fichas são só fichas; sem o segundo, falta a Food de todo turno. E a mesa inteira numa limpeza: os marcadores somem com as criaturas, e só The Ooze, The Ozolith e Continue? recuperam parte. Quem quer parar o deck remove o Leonardo (quatro manas mais o imposto, em cinco cores) e limpa a mesa antes do multiplicador; a base de cinco cores com quatro terrenos sempre virados é o outro ponto fraco.",
+   "respostas": [
+    {
+     "carta": "Assassin's Trophy",
+     "para": "Qualquer permanente por duas manas, em velocidade instantânea: o motor de compra ou de mana do oponente, ou a peça de combo, não a maior criatura."
+    },
+    {
+     "carta": "Shellshock",
+     "para": "No turno de cada oponente, a criatura que mais incomoda em cada mesa, e cada uma vira um Mutagen."
+    },
+    {
+     "carta": "Wave Goodbye",
+     "para": "A mesa deles inteira na mão quando a sua tem marcador: antes do ataque que fecha."
+    },
+    {
+     "carta": "Double Jump // Flying Kick",
+     "para": "A criatura grande que bloqueia o time: o Flying Kick usa a força de uma Tartaruga marcada."
+    },
+    {
+     "carta": "Shredder's Technique",
+     "para": "O encantamento-motor do oponente, por uma mana com sneak no turno do ataque."
+    }
+   ],
+   "limpezas": "Cinco: Wave Goodbye é quase unilateral, porque o seu time tem marcador; Supreme Verdict, Vanquish the Horde, Game Over e Blasphemous Act levam o seu time junto, e o radar as troca por Swift Demise, Cyclonic Rift, Swords to Plowshares e Ooze Spill. Depois das trocas ficam três, todas de um lado só: Wave Goodbye, Swift Demise e Cyclonic Rift, dentro da regra do dono de 3 a 4, de preferência unilaterais. Boa quando a mesa deles cresceu mais que a sua ou quando você ainda não baixou o Leonardo; a simétrica só quando você está muito atrás e tem The Ooze, The Ozolith ou Continue? para recuperar.",
+   "alvo": "No começo, quem não tem bloqueador: o Michelangelo precisa atacar para criar a Food, e o dano espalhado atrai menos ódio. Com o time marcado e evasão (Michelangelo, Mutant BFF; Baxter, Fly in the Ointment; o {W}{U}{B}{R}{G} do Leonardo), o alvo é quem tem mais cartas e mana, não quem tem menos vida; o Shredder, Shadow Master bate nos três ao mesmo tempo."
+  }
  },
  "cartas": {
   "Leonardo, the Balance": {
@@ -2522,9 +2595,9 @@
    "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
-   "porque": "Protege o Leonardo da remoção pontual desde a entrada. O manto também bloqueia o seu Saved by the Shell. Sugerido pela fonte C.",
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela.",
    "marcas": {
     "protege": 1
    }
@@ -2740,6 +2813,123 @@
    "papel": "recompensa",
    "papel_dupla": "habilita",
    "papel_por_que": "Cada acerto de Ninjas vira um Tesouro, que é ficha e aciona o Leonardo."
+  },
+  "Plaza of Heroes": {
+   "notas": {
+    "ramp": 1,
+    "protecao": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Gera {C}; ou uma mana de qualquer cor, só para mágica lendária; ou uma mana de qualquer cor entre as permanentes lendárias que você controla. Por {3}, virando e exilando-o, uma criatura lendária alvo ganha resistência a magia e indestrutível até o fim do turno.",
+   "porque": "Quase toda criatura do deck é lendária, então o terreno dá qualquer cor desvirado para elas, e guarda a proteção que o Leonardo não tem: por três manas, em resposta à remoção ou à limpeza, ele fica com resistência a magia e indestrutível. Sai a Reliquary Tower, incolor num deck de cinco cores em que a mão raramente passa de sete.",
+   "sai": "Reliquary Tower",
+   "marcas": {
+    "protege": 1
+   },
+   "papel_dupla": "Proteção (do Leonardo)",
+   "papel_por_que": "Terreno que dá cor às lendárias e salva o Leonardo uma vez."
+  },
+  "Cavern of Souls": {
+   "notas": {
+    "ramp": 1,
+    "protecao": 1,
+    "tartarugas": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Liga-se à tribo pelo tipo, sem ser da tribo: escolhendo Mutant, a mana colorida serve a quase toda criatura do deck, como o Path of Ancestry e o Turtle Lair."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Ao entrar, escolha um tipo de criatura. Gera {C}; ou uma mana de qualquer cor, só para mágica de criatura do tipo escolhido, e essa mágica não pode ser anulada.",
+   "porque": "Escolhendo Mutant, dá qualquer cor desvirado para as Tartarugas, a Mona Lisa, o Baxter e o Mutagen Man, e nenhuma delas pode ser anulada. Sai o Grand Coliseum, que entra sempre virado e dói a cada mana de cor. Você tem cópias na Giada e no Clavileño, que são decks montados.",
+   "sai": "Grand Coliseum",
+   "papel_dupla": "Proteção (não pode ser anulada)",
+   "papel_por_que": "Terreno que dá cor à tribo e tira as Tartarugas do alcance de anulação."
+  },
+  "Gavony Township": {
+   "notas": {
+    "marcadores": 2,
+    "fechamento": 1
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Marcador em várias criaturas, repetível: por {2}{G}{W}, um +1/+1 em cada criatura sua, toda volta."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Gera {C}. Por {2}{G}{W} e virando, põe um marcador +1/+1 em cada criatura sua.",
+   "porque": "Um gatilho do Leonardo a mais por turno, pago em mana e sem depender de ficha: com Corpsejack, High Score e Mikey & Leo, cada ativação vira dois marcadores por criatura e uma carta; com o Casey Jones do radar, vira dano. Entra desvirado. Sai o Path of Ancestry, que entra sempre virado e só dá vidência.",
+   "sai": "Path of Ancestry",
+   "papel_dupla": "Marcadores (no time, repetível)",
+   "papel_por_que": "Terreno que põe marcador em todo o time a cada turno."
+  },
+  "Karn's Bastion": {
+   "notas": {
+    "marcadores": 2
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Prolifera de forma repetível: por {4} e virando, um marcador a mais em cada criatura marcada, toda volta."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Gera {C}. Por {4} e virando, prolifera.",
+   "porque": "Com o time inteiro marcado, proliferar é um marcador a mais em cada criatura por turno, em velocidade instantânea, e dispara Mikey & Leo e o Casey Jones do radar; sem o Leonardo na mesa, mantém os marcadores crescendo. Entra desvirado. Sai o Hidden Hideout, que entra sempre virado. Você tem uma cópia no Fynn, que é deck montado.",
+   "sai": "Hidden Hideout",
+   "papel_dupla": "Marcadores (prolifera)",
+   "papel_por_que": "Terreno que prolifera os marcadores do time toda volta."
+  },
+  "Spire of Industry": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Gera {C}. Virando e pagando 1 de vida, uma mana de qualquer cor, se você controla um artefato.",
+   "porque": "Food, Treasure, Clue e Mutagen são artefatos, além de Sol Ring, Signet, Lantern e Coin of Mastery: o deck quase sempre tem um, e o terreno dá qualquer cor desvirado desde o turno 1. Sai o Ash Barrens, que só dá incolor ou custa uma mana para virar básico.",
+   "sai": "Ash Barrens",
+   "papel_dupla": "Mana (qualquer cor)",
+   "papel_por_que": "Terreno de qualquer cor num deck de cinco cores cheio de fichas de artefato."
+  },
+  "Mirrex": {
+   "notas": {
+    "ramp": 1,
+    "fichas": 2
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Ficha cara de ativar, como a Big Apple, 3 a.m.: por {3} e virando, uma ficha de artefato que aciona o Leonardo, em qualquer turno."
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Gera {C}; no turno em que entrou, uma mana de qualquer cor. Por {3} e virando, cria uma ficha de Ácaro Phyrexiano 1/1, artefato e criatura, com tóxico 1 e que não pode bloquear.",
+   "porque": "Faz o que a Big Apple promete, melhor: entra desvirado, dá qualquer cor no turno em que entra e cria a ficha por três manas, no fim do turno de um oponente, para o Leonardo disparar fora do seu turno. Sai a Big Apple, 3 a.m., que entra sempre virada e cobra cinco pela ficha.",
+   "sai": "Big Apple, 3 a.m.",
+   "marcas": {
+    "alheio": 1
+   },
+   "papel_dupla": "Ficha (no turno dos oponentes)",
+   "papel_por_que": "Terreno que cria uma ficha por ativação, em qualquer turno."
   }
  },
  "combos": [
