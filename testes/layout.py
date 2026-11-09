@@ -125,6 +125,17 @@ def layout_consulta():
             R.ok("%d px: cartões dos decks em %d coluna(s)" % (w, cols), n is None or n == min(cols, maior), n)
             lm = pg.evaluate(LETRA_MIN_PAGINA)
             R.ok("%d px: nenhum texto abaixo de 13 px" % w, lm is None or lm >= 12.95, lm)
+            # a barra de ganho: o preenchimento cabe no trilho, e o número do ganho fica numa linha.
+            # Pega regra de outra página herdada por nome de classe (o .deck dos cartões virou um bloco em 09/11/2026).
+            fora_trilho = pg.evaluate("""[...document.querySelectorAll('.cs-gt')].filter(t => t.offsetParent).flatMap(t => {
+                var r = t.getBoundingClientRect();
+                return [...t.querySelectorAll('i')].map(i => i.getBoundingClientRect())
+                  .filter(q => q.top < r.top - 1 || q.bottom > r.bottom + 1 || q.left < r.left - 1 || q.right > r.right + 1)
+                  .map(q => Math.round(q.width) + 'x' + Math.round(q.height));
+            })""")
+            R.ok("%d px: a barra de ganho cabe no trilho" % w, not fora_trilho, fora_trilho[:3])
+            gv = pg.evaluate("Math.max(0, ...[...document.querySelectorAll('.cs-gv')].filter(x => x.offsetParent).map(x => x.getBoundingClientRect().height))")
+            R.ok("%d px: o número do ganho numa linha, sem caixa" % w, gv <= 32, gv)
             linhas = pg.evaluate("new Set([...document.querySelectorAll('.top nav a')].filter(x => !x.hidden && x.offsetWidth).map(x => Math.round(x.getBoundingClientRect().top))).size")
             R.ok("%d px: a barra do topo numa linha só, com a Consulta acesa" % w, linhas == 1 and pg.get_attribute("#cs-l-cons", "aria-current") == "page", linhas)
             pg.evaluate("location.hash = '#registradas'"); pg.wait_for_timeout(250)
@@ -170,7 +181,7 @@ def layout_ciclos():
                 if lm is not None:
                     letras.append((round(lm, 1), t))
             pg.evaluate("location.hash = '#colecao'"); pg.wait_for_timeout(300)
-            n = pg.evaluate("(() => { var g = document.querySelector('#c-corpo .c-ciclo .c-vagas'); if (!g) return null; var xs = {}; Array.prototype.forEach.call(g.children, function (c) { xs[Math.round(c.getBoundingClientRect().left)] = 1; }); return Object.keys(xs).length; })()")
+            n = pg.evaluate("(() => { var g = document.querySelector('#c-corpo .c-ciclo .c-vagas:not(.livre)'); if (!g) return null; var xs = {}; Array.prototype.forEach.call(g.children, function (c) { xs[Math.round(c.getBoundingClientRect().left)] = 1; }); return Object.keys(xs).length; })()")
             R.ok("%d px: a linha do ciclo com %d colunas" % (w, cols), n is None or n == cols, n)
             pg.locator('#c-ferr .g-seg[aria-label="Vista"] button', has_text="Galeria").click(); pg.wait_for_timeout(300)
             ng = pg.evaluate("(() => { var g = document.querySelector('#c-corpo .g-gal'); if (!g) return null; var xs = {}; Array.prototype.forEach.call(g.children, function (c) { xs[Math.round(c.getBoundingClientRect().left)] = 1; }); return Object.keys(xs).length; })()")
