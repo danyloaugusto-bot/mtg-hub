@@ -230,7 +230,84 @@
     "resultado": "forte",
     "porque": "Fecha antes das criaturas grandes."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Mono-preto de tutores com dezenove criaturas: silencioso até o K'rrik, e depois a mesa vê a sua vida cair a cada mágica e tende a achar que você está perdendo. É a leitura errada que o deck quer: vida baixa não é ameaça, e o laço do Exquisite Blood fecha de qualquer total. O que marca o deck são os tutores com mana aberta, o Font of Agonies acumulando marcadores, o Aetherflux Reservoir (todos contam até 50) e as duas metades do laço quando a primeira desce.",
+   "postura": "Silenciosa e conciliadora: deixe a mesa te ler como o jogador de vida baixa, pague em vida só o que o turno pede e guarde as metades do laço na mão. O deck é de motor e combo: a janela é tudo. Assumir quando as duas peças estão na mão com a proteção (Swiftfoot Boots e Malakir Rebirth, do radar) e a mesa gastou as respostas, ou quando a Cabal Stronghold e o Crypt Ghast pagam um Exsanguinate que fecha.",
+   "sinais": [
+    {
+     "carta": "Exquisite Blood",
+     "porque": "A metade do laço que todo mundo conhece: na mesa, é remoção certa de encantamento."
+    },
+    {
+     "carta": "Sanguine Bond",
+     "porque": "A outra metade: com qualquer ganho de vida, a mesa entende o relógio."
+    },
+    {
+     "carta": "Aetherflux Reservoir",
+     "porque": "Todo mundo conta até 50: cada mágica sua passa a ser olhada."
+    },
+    {
+     "carta": "Font of Agonies",
+     "porque": "Cada {B} pago com vida vira dois marcadores: a mesa vê a remoção se acumulando."
+    },
+    {
+     "carta": "Bolas's Citadel",
+     "porque": "Jogar do topo pagando vida, com o K'rrik devolvendo a vida: a mesa reage no turno seguinte."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Exquisite Blood",
+     "porque": "Só desce junto com a outra metade, ou no fim do turno de quem não tem resposta."
+    },
+    {
+     "carta": "Sanguine Bond",
+     "porque": "Idem: na mesa sozinho, avisa o laço e come uma remoção."
+    },
+    {
+     "carta": "Aetherflux Reservoir",
+     "porque": "Com 51 de vida ou com o Exquisite Blood; antes disso é um artefato de quatro que atrai remoção."
+    },
+    {
+     "carta": "Exsanguinate",
+     "porque": "O fechamento de mesa: espere a mana grande da Cabal Stronghold e do Crypt Ghast."
+    },
+    {
+     "carta": "Vampiric Tutor",
+     "porque": "Instantânea de graça com o K'rrik: busca a peça no fim do turno do último oponente com mana aberta."
+    }
+   ],
+   "ponto_de_falha": "O K'rrik, habilitador sem proteção na lista (Swiftfoot Boots e Malakir Rebirth no radar), e a própria vida: abaixo de 15, pague em mana; com menos de 2, ele não paga mais nada (regra 119.4). Remoção de encantamento desmonta o laço, e taxa de mana genérica trava o que a vida não paga. Quem quer parar o deck mata o K'rrik em resposta ao Dark Ritual e ataca quando você se paga até 10.",
+   "respostas": [
+    {
+     "carta": "Deadly Rollick",
+     "para": "De graça com o K'rrik em campo: exila a criatura que vence o jogo alheio, até indestrutível."
+    },
+    {
+     "carta": "Consuming Corruption",
+     "para": "Remoção que devolve vida: use quando precisar das duas coisas."
+    },
+    {
+     "carta": "Baleful Mastery",
+     "para": "Exílio para o comandante ou planeswalker que é o plano inteiro do oponente."
+    },
+    {
+     "carta": "Withering Torment",
+     "para": "O encantamento-motor alheio, ou o ódio de cemitério que corta o Reanimate."
+    },
+    {
+     "carta": "Feed the Swarm",
+     "para": "Encantamento ou criatura por {1} e 2 de vida: a peça de combo que não é criatura."
+    },
+    {
+     "carta": "Font of Agonies",
+     "para": "Guarde os marcadores para a ameaça real, não para o primeiro corpo grande."
+    }
+   ],
+   "limpezas": "Seis hoje: Toxic Deluge, Shadows' Verdict, Ritual of Soot e Crippling Fear poupam o K'rrik; Damnation e Mutilate o matam e saem no radar (Snuff Out e Infernal Grasp). Ficam quatro, dentro da regra do dono de 3 a 4, e o Reiver Demon do radar é a unilateral: destrói o que não é preto nem artefato, e todas as criaturas da lista são pretas. Boa quando a mesa larga alheia vem para cima e o K'rrik grande sobrevive (Deluge com X abaixo da resistência dele); ruim no turno em que você precisa da mana e da vida para o laço.",
+   "alvo": "O deck quase não ataca: o K'rrik com vínculo bate em quem não tem bloqueador, para repor a vida que paga. O dreno vai para a mesa toda (Gray Merchant of Asphodel, Exsanguinate); o alvo político é quem tem remoção de encantamento ou anulação na mão, e o Exsanguinate final pode ir maior em quem já está baixo."
+  }
  },
  "cartas": {
   "K'rrik, Son of Yawgmoth": {
@@ -1793,10 +1870,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "fora",
    "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
-   "porque": "A proteção que o K'rrik não tinha. Fontes B e C.",
-   "sai": "Ophiomancer"
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela."
   },
   "Sensei's Divining Top": {
    "notas": {
@@ -1892,7 +1968,8 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno lendário: {C}; {2}, vira: mana de uma cor igual à sua devoção a ela.",
-   "porque": "Mana grande num deck de 91 símbolos pretos. Fonte B."
+   "porque": "Mana grande num deck de 91 símbolos pretos: com o K'rrik e três permanentes pretas já rende mais do que custa. Segue como avaliar, disputando a vaga da Bojuka Bog com o Deserted Temple. Fonte B.",
+   "sai": "Bojuka Bog"
   },
   "Night's Whisper": {
    "notas": {
@@ -2108,9 +2185,10 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "entra",
    "faz": "Instantânea de 2: muda o alvo de uma mágica de alvo único; você perde vida igual ao valor dela.",
-   "porque": "Proteção do K'rrik e do laço em resposta. Fonte C."
+   "porque": "Proteção do K'rrik e do laço em resposta, por {1} e 2 de vida com ele em campo: desvia a remoção no comandante ou a mágica de alvo único que desmonta o laço. Passa a entra (09/11/2026): o K'rrik é o ponto de falha do deck e a lista não tem proteção. Sai a Liliana, Heretical Healer, lenta num deck com pouca morte de criatura. Fonte C.",
+   "sai": "Liliana, Heretical Healer"
   },
   "Emeritus of Woe": {
    "notas": {
@@ -2468,6 +2546,55 @@
    "papel": "habilita",
    "papel_dupla": "Recursão",
    "papel_por_que": "Vínculo para o time: cada ataque devolve a vida que o K'rrik gasta."
+  },
+  "Castle Locthwain": {
+   "notas": {
+    "draw": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Habilidade repetível de {1}{B}{B}: o K'rrik paga os dois {B} com 4 de vida, dois terços do custo, toda vez."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Entra virado a menos que você controle um Swamp. Gera {B}. Por {1}{B}{B} e virando, compra uma carta e perde vida igual ao número de cartas na sua mão.",
+   "porque": "Compra repetível num terreno: com o K'rrik, {1} e 4 de vida por carta, a qualquer momento, e a perda pelo tamanho da mão é pequena quando você joga tudo cedo. Entra desvirado com os 25 Swamps. Sai o Mutavault, incolor e sem ligação com o plano de vida e laço. Você tem cópias no Vito, no Clavileño e no Strefan, que são decks montados.",
+   "sai": "Mutavault",
+   "papel_dupla": "Draw (repetível, pago em vida)",
+   "papel_por_que": "Terreno que compra uma carta por turno pagando os {B} com vida."
+  },
+  "Witch's Cottage": {
+   "notas": {
+    "tutor": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Pântano: gera {B}. Entra virado a menos que você controle três ou mais outros Swamps. Se entrar desvirado, você pode pôr uma criatura alvo do seu cemitério no topo do seu grimório.",
+   "porque": "É um Swamp: conta para a Consuming Corruption, a Tendrils, o Crypt Ghast e a Cabal Stronghold, dispara o Dread Presence ao entrar e ainda devolve o Vilis ou o Valgavoth ao topo para a próxima compra. Com 25 Swamps, entra quase sempre desvirado. Sai a Myriad Landscape, que entra virada e custa mana para virar dois Swamps. Você tem cópias no Vito e no Clavileño, que são decks montados.",
+   "sai": "Myriad Landscape",
+   "papel_dupla": "Recursão (ao topo) e Swamp",
+   "papel_por_que": "Pântano que devolve uma criatura ao topo ao entrar."
+  },
+  "Deserted Temple": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Gera {C}. Por {1} e virando, desvira um terreno alvo.",
+   "porque": "Desvira a Cabal Coffers do radar, a Nykthos ou a Cabal Stronghold: com Urborg, a Coffers desvirada rende de novo tudo o que gerou, e o X do Exsanguinate dobra. Você já tem (Caixa). Fica como avaliar porque só rende com os terrenos de mana grande em campo e dá só incolor; no lugar da Bojuka Bog, que entra sempre virada e cujo ódio de cemitério o Boggart Trawler e a Erebos's Intervention já fazem.",
+   "sai": "Bojuka Bog",
+   "papel_dupla": "Ramp (desvira Coffers e Nykthos)",
+   "papel_por_que": "Terreno que desvira um terreno de mana grande."
   }
  },
  "combos": [
