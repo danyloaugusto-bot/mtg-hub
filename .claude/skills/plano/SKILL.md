@@ -47,3 +47,5 @@ Com `todos`: lotes de 5 decks, na ordem dos grupos (01 a 05), pulando os que já
 - O deck tem o quadro Plano do deck na Visão geral, com veredito, cenários e as cartas por papel.
 - `testes/plano.py` e a bateria do deck passam.
 - `contexto/ESTADO.md` tem a linha do lote, com o veredito de cada deck.
+
+Estratégias do dono: antes de decidir, leia os digests de `contexto/estrategias/` (avaliação de ameaças, staples e efeito manada, e os próximos temas). Staple genérica não entra no radar por ser forte; só quando o deck tem buraco no critério ou no pacote que ela preenche, e respeitando a identidade de cor.
