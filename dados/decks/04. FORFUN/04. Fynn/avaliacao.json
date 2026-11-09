@@ -258,7 +258,80 @@
     "resultado": "forte",
     "porque": "O ramp chega ao que é grande quando os venenos já estão na mesa, e toque mortífero mata o que é grande."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Aggro de veneno em mono-verde: criaturas de 1/1 com toque mortífero e um comandante de 2 manas. A mesa subestima no começo (corpos minúsculos) e entra em pânico no primeiro veneno espalhado nos três: veneno ignora vida e ganho de vida, e a mesa sabe que proliferar não para. É o deck que mais rápido vira o alvo, e o que menos aguenta ser.",
+   "postura": "Assumir desde o turno 2, como o dono disse: não tem como fugir de ser aggro. O que dá para administrar é a ordem: espalhe o primeiro veneno nos três oponentes antes de concentrar (proliferar só age em quem já tem), não bata três turnos seguidos no mesmo jogador sem fechar, e guarde a Snakeskin Veil e a Collective Resistance para a limpeza que vai vir. Política: o veneno não mata ninguém de surpresa, então ofereça ritmo (bater em quem está à frente) em troca de não ser o alvo.",
+   "sinais": [
+    {
+     "carta": "Fynn, the Fangbearer",
+     "porque": "Dois venenos por conexão de toque mortífero: a mesa calcula cinco golpes."
+    },
+    {
+     "carta": "Hornet Queen",
+     "porque": "Cinco voadores com toque mortífero: dez venenos num jogador se todos conectarem."
+    },
+    {
+     "carta": "Bloated Contaminator",
+     "porque": "Tóxico, atropelar e proliferar a cada golpe: o relógio acelera."
+    },
+    {
+     "carta": "Contagion Engine",
+     "porque": "Dois proliferar por turno sem atacar: a mesa vê o fim chegar sem combate."
+    },
+    {
+     "carta": "Karn's Bastion",
+     "porque": "Proliferar num terreno: a mesa sabe que o veneno sobe mesmo depois de uma limpeza."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Snakeskin Veil",
+     "porque": "Uma mana aberta: salva o Fynn ou a criatura-chave da remoção pontual."
+    },
+    {
+     "carta": "Horrid Vigor",
+     "porque": "Toque mortífero e proteção no mesmo turno: vira um bloqueio ou salva um atacante."
+    },
+    {
+     "carta": "Collective Resistance",
+     "porque": "Três modos: artefato, encantamento ou resistência a magia e indestrutível numa criatura. Guarde para a peça que trava o ataque ou para salvar o Fynn."
+    },
+    {
+     "carta": "End-Raze Forerunners",
+     "porque": "O atropelar para o time: só no turno em que mata."
+    },
+    {
+     "carta": "Quietus Spike",
+     "porque": "Metade da vida e dois venenos no mesmo golpe: equipe quando a conexão estiver garantida."
+    }
+   ],
+   "ponto_de_falha": "A limpeza de mesa: criaturas de 1/1 morrem para qualquer −1/−1 ou dano em massa, e a única proteção em massa está no radar (Heroic Intervention). Quem quiser parar o deck não precisa mirar o Fynn (ele custa 2 e volta): basta limpar a mesa uma vez e bloquear com toque mortífero do outro lado. O segundo ponto é a compra: sem o Endless Atlas ou o Tome of Legends, o deck joga do topo.",
+   "respostas": [
+    {
+     "carta": "Beast Within",
+     "para": "Qualquer permanente: o motor de compra do oponente ou a peça que trava o ataque."
+    },
+    {
+     "carta": "Bushwhack",
+     "para": "Luta com uma criatura de toque mortífero: mata qualquer criatura por uma mana."
+    },
+    {
+     "carta": "Pick Your Poison",
+     "para": "O artefato, o encantamento ou o voador que segura a Hornet Queen."
+    },
+    {
+     "carta": "Cankerbloom",
+     "para": "Artefato, encantamento ou proliferar: três respostas numa criatura de 2."
+    },
+    {
+     "carta": "Ezuri's Predation",
+     "para": "A limpeza unilateral do deck, de oito manas: uma fera 4/4 lutando com cada criatura deles, e as suas ficam."
+    }
+   ],
+   "limpezas": "Uma, a Ezuri's Predation, e ela é unilateral: as feras lutam com as criaturas dos oponentes e as suas ficam. Custa oito manas, então é fechamento de jogo longo. O verde não tem outra limpeza que poupe criaturas de 1/1 (Windstorm, Skyreaping e a Silklash Spider matam a Hornet Queen), por isso a régua do dono de 3 a 4 limpezas não fecha aqui: a resposta do deck à mesa larga alheia é o toque mortífero no bloqueio, e à limpeza alheia é a Heroic Intervention do radar.",
+   "alvo": "Espalhe o primeiro veneno nos três e depois concentre em quem pode fechar o jogo antes de você, não em quem tem menos vida: veneno não olha a vida. Com a Hornet Queen na mesa, o alvo é quem não tem bloqueador voador."
+  }
  },
  "cartas": {
   "Fynn, the Fangbearer": {
@@ -1657,6 +1730,79 @@
    "porque": "Não tem toque mortífero, ao contrário do que diz o Grok, e o deck tem poucas mágicas de alvo.",
    "papel": "habilita",
    "papel_por_que": "Toxic 1: envenena sozinho e dá veneno quando suas criaturas são alvo (papel fraco)."
+  },
+  "Access Tunnel": {
+   "notas": {
+    "buff": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Dá evasão a uma criatura só, sem dar toque mortífero, como o Rogue's Passage."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno. Gera {C}. Por {3}, virando: uma criatura alvo com poder 3 ou menos não pode ser bloqueada neste turno.",
+   "porque": "Todas as criaturas com toque mortífero do deck têm poder 3 ou menos: por três manas, uma delas conecta e o Fynn dá dois venenos, garantidos, uma mana mais barato que o Rogue's Passage do radar. Entra desvirado, no lugar da Myriad Landscape, que entra virada e busca dois básicos num deck de 30 Florestas. Os jogadores do Fynn no EDHREC a usam em metade das listas.",
+   "sai": "Myriad Landscape",
+   "papel_dupla": "Conexão",
+   "papel_por_que": "Terreno que faz uma criatura com toque mortífero conectar."
+  },
+  "Inkmoth Nexus": {
+   "notas": {
+    "sinergia": 2,
+    "buff": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Vira uma criatura que envenena sozinha, com infectar e voar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno. Gera {C}. Por {1}: vira uma criatura artefato 1/1 Phyrexiano Blinkmoth com voar e infectar até o fim do turno; continua sendo terreno.",
+   "porque": "Um veneno voador que sobrevive a toda limpeza de criaturas, porque fica terreno: cada golpe dele põe um veneno que o Karn's Bastion e a Contagion Engine proliferam. No lugar da Blighted Woodland, que custa cinco manas para buscar dois básicos virados.",
+   "sai": "Blighted Woodland",
+   "papel_dupla": "Veneno (infectar)",
+   "papel_por_que": "Terreno que vira um atacante voador com infectar."
+  },
+  "Mirrex": {
+   "notas": {
+    "sinergia": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Cria fichas com tóxico 1, que envenenam sozinhas; uma por vez e por três manas, de passagem."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno. Gera {C}; ou uma mana de qualquer cor, só no turno em que entrou. Por {3}, virando: cria uma ficha 1/1 Phyrexian Mite artefato com tóxico 1 e que não pode bloquear.",
+   "porque": "Com mana sobrando, uma criatura com tóxico por turno, que espalha o primeiro veneno e dá alvo ao proliferar; sem toque mortífero, não dispara o Fynn. No lugar do Throne of the High City, cujo monarca de cinco manas a mesa toma de volta num deck de corpos pequenos.",
+   "sai": "Throne of the High City",
+   "papel_dupla": "Veneno (fichas com tóxico)",
+   "papel_por_que": "Terreno que cria atacantes com tóxico."
+  },
+  "Boseiju, Who Endures": {
+   "notas": {
+    "removal": 1,
+    "dupla": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Terreno lendário. Gera {G}. Canalizar, {1}{G} e descartá-lo: destrói um artefato, encantamento ou terreno não básico de um oponente, que pode buscar um terreno com tipo básico; custa {1} a menos por criatura lendária sua.",
+   "porque": "Uma Floresta que, quando precisa, é remoção de artefato ou encantamento por {G} com o Fynn em campo: dupla função numa vaga de terreno, sem perder a fonte verde. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico.",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Floresta que vira remoção de artefato ou encantamento."
   }
  },
  "combos": [
