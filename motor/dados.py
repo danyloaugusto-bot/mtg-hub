@@ -224,6 +224,19 @@ def eh_deck(nome):
     return _nome_de_deck(nome) and os.path.isdir(pasta_deck(nome))
 
 
+def eh_desejo(pasta):
+    """Deck do grupo 05. Desejo (ou com situação Desejo na ficha): não existe fisicamente. Decisão do dono (09/11/2026): fica fora
+    de toda comparação, de "onde a carta está" e de todo destino sugerido para carta da Caixa, das pastas ou da Consulta."""
+    if str(pasta).startswith("05"):
+        return True
+    try:
+        with open(os.path.join(pasta_deck(pasta), "deck.md"), encoding="utf-8") as f:
+            m = re.search(r"\*\*situação:\*\*\s*(.+)", f.read())
+    except OSError:
+        return False
+    return bool(m and "desejo" in m.group(1).lower())
+
+
 BASICOS_IDX = {"Plains", "Island", "Swamp", "Mountain", "Forest", "Wastes",
                 "Snow-Covered Plains", "Snow-Covered Island", "Snow-Covered Swamp", "Snow-Covered Mountain", "Snow-Covered Forest"}
 
@@ -251,7 +264,7 @@ def indice_outros(pasta_atual):
     """Onde cada carta aparece nos outros decks com avaliação (no deck ou no radar), com tier e relevância."""
     out = {}
     for n in pastas_decks():
-        if n == pasta_atual or not eh_deck(n):
+        if n == pasta_atual or not eh_deck(n) or eh_desejo(n):   # deck Desejo não existe: a carta não "está" nele
             continue
         av = ler_json(os.path.join(pasta_deck(n), "avaliacao.json"), obrigatorio=False)
         if not av:
@@ -571,6 +584,8 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
             d["pri"] = av["prioridade"]
         if av.get("fora_do_corte"):
             d["nocut"] = 1
+        if av.get("fica"):   # o dono decidiu que fica (texto do motivo): fora da fila de corte e das Isoladas, sem virar estimação
+            d["fica"] = 1
         if av.get("pacote"):
             d["pk0"] = av["pacote"]
         if av.get("caro_por_desenho") or av.get("custo_usual"):
