@@ -53,4 +53,16 @@ Cada comando em `.claude/skills/` já declara o modelo e o esforço no cabeçalh
 
 - Etapa repetida que já deu certo três vezes (por exemplo, `/novo-deck` em decks parecidos): experimente `sonnet` em `high` em um deck e compare as cartas S e BAX com o que o `opus` daria. Se a sua revisão não mudar, desça.
 
+## Aviso de troca
+
+Regra do dono (09/11/2026, no `CLAUDE.md`): o modelo da sessão avisa quando a tarefa pede outro modelo, na primeira linha da resposta, com o motivo. Os gatilhos:
+
+| Tarefa | Indicado | Por quê |
+|---|---|---|
+| Aplicar a tier list a um deck inteiro, com regras conferidas carta a carta | fable (ou opus `xhigh`) | São 99 julgamentos com regra e texto; um erro vira fila de corte errada |
+| Auditar tiers ou notas que outro modelo deu (`/auditar`, confronto de handovers) | fable, se a avaliação foi do opus; opus, se foi do fable | Quem confere não deve ser quem fez |
+| Combo ou interação com regra delicada (zonas, objeto novo, gatilho retardado) | fable | Onde os handovers antigos mais erraram |
+| Desenhar ou revisar o método (rubrica, tier list, contrato de dados) | opus `high`; fable se for mudar o que os 30 decks herdam | Julgamento com efeito em cascata |
+| Script, build, testes, publicar, mover pasta | sonnet ou haiku | Tem teste objetivo; o modelo forte não melhora o resultado |
+
 Para trocar na mão: `/model <nome>` e `/effort <nível>`. Se uma etapa se estender por várias mensagens, confirme no cabeçalho da sessão que o modelo e o esforço continuam os indicados.
