@@ -125,7 +125,7 @@ function blocoEstudo(R) {
 }
 function barraGanho(g) {
   var lo = -5, hi = 15, p = function (x) { return (Math.max(lo, Math.min(hi, x)) - lo) / (hi - lo) * 100; };
-  var cls = g >= D.regua.deck ? 'deck' : g >= D.regua.guardar ? 'guardar' : g > 0 ? 'abaixo' : 'neg';
+  var cls = g >= D.regua.deck ? 'g-deck' : g >= D.regua.guardar ? 'g-guardar' : g > 0 ? 'g-abaixo' : 'g-neg';
   var a = Math.min(p(0), p(g)), b = Math.max(p(0), p(g));
   return '<div class="cs-gb" title="Ganho no placar do deck, se ela entrasse no lugar de quem sai pelo motor">' +
     '<span class="cs-gt"><i class="' + cls + '" style="left:' + a.toFixed(1) + '%;width:' + (b - a).toFixed(1) + '%"></i>' +
