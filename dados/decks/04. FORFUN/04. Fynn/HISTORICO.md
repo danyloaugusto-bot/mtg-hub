@@ -37,3 +37,4 @@
 
 - Gráfico do herói: veneno (gota de vidro) (variação D, 2ª rodada, escolhida pelo dono).
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
+- 09/11/2026: bloco "Na mesa" (avaliação de ameaças: aggro que assume no turno 2, espalha o veneno antes de concentrar; a limpeza alheia é o ponto de falha). Terrenos: Access Tunnel e Inkmoth Nexus (entra, no lugar de Myriad Landscape e Blighted Woodland), Mirrex (avaliar, no lugar do Throne of the High City) e Boseiju, Who Endures (avaliar, no lugar de uma Forest): terreno virado de 1 para 0. Limpezas: 1 (Ezuri's Predation, unilateral); o verde não tem outra que poupe criaturas de 1/1. A lista não muda.
