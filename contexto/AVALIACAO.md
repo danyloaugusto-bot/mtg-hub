@@ -34,7 +34,7 @@ Terreno que sempre entra virado leva −1 em Ramp. PetCard, que só o dono marca
 
 Uma staple genérica pode ser S e MÉD ao mesmo tempo. Uma carta de estimação pode ser C e INS.
 
-**Tier S em deck tribal (regra do dono, 15/10/2026):** num deck da família Tribais, só carta da tribo pode ser S; a carta de fora da tribo, por mais forte que seja (Sol Ring, Skullclamp, Teferi's Protection), vai no máximo a A. O comandante é exceção. A relevância não muda com isso: uma staple pode seguir INS.
+**Tier S não depende do tipo da carta (dono, 09/11/2026).** A regra de 15/10/2026 que limitava o S, nos tribais, às cartas da tribo foi retirada. O que segura uma staple genérica fora do S é o critério (ela não define a conta do deck), não o tipo. As cartas rebaixadas por aquela regra continuam como estão até a migração para o método novo de tier list, em discussão em `dados/estratégias/tier list/`.
 
 ## Placar do deck
 
@@ -52,7 +52,7 @@ Cartas de fora, cada uma com veredito (entra, avaliar, fica de fora), motivo e q
 
 ## Referências usuais de Commander, como regra de bolso
 
-35 a 37 fontes de terreno; 10 a 12 de ramp; 10 a 12 de compra; 8 a 12 remoções, com 3 a 5 em massa. Ajuste ao plano do deck e diga quando estiver se afastando de propósito.
+33 a 35 fontes de terreno, contando as MDFC e os terrenos que se sacrificam para buscar outro (cota do dono, 09/11/2026); 10 a 12 de ramp; 10 a 12 de compra; 8 a 12 remoções, com 3 a 5 em massa. Ajuste ao plano do deck e diga quando estiver se afastando de propósito.
 
 ## Fontes e o peso de cada uma
 
