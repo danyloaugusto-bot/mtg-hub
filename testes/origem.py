@@ -45,6 +45,10 @@ with sync_playwright() as p:
     b.close()
 
 o, n = lido["origem"], lido["novo"]
+# a cota de terrenos passou a 33 a 35 (regra do dono, 09/11/2026): a referência da leitura de terrenos muda por desenho
+def _sem_ref(xs):
+    return [re.sub(r"\s*[Rr]eferência[^.]*\.?", "", x) if "fontes de terreno" in x else x for x in xs]
+o["leituras"], n["leituras"] = _sem_ref(o["leituras"]), _sem_ref(n["leituras"])
 # os dois D, o do painel de origem e o do motor (a regra do tier S, abaixo, usa os dois)
 with open(a.origem, encoding="utf-8") as f:
     O = json.loads(re.search(r"var D = (\{.*?\});\n", f.read(), re.S).group(1))
@@ -115,6 +119,8 @@ TEXTO_CORRIGIDO = {"High-Society Hunter", "Drivnod, Carnage Dominus", "Path of A
 RADAR_NOVO = {"Crossway Troublemakers", "Pact of the Serpent",
               # terrenos levados ao radar na revisão de terrenos de 09/11/2026 (pedido do dono)
               "Three Tree City", "Plaza of Heroes", "Takenuma, Abandoned Mire", "Eiganjo, Seat of the Empire"}
+# staples que saíram do radar pela regra do dono (09/11/2026): só entram com buraco no critério ou no pacote
+STAPLE_FORA = {"Swords to Plowshares"}
 # s3 e s3w: as notas dos dez critérios e o porquê delas, que a pontuação v3 acrescentou (o kit não tem)
 # pp, ppd e ppw: o papel no Plano do deck, a dupla função e o porquê (18/10/2026; o kit não tem)
 # why: o porquê de cada carta foi revisto a pedido do dono em 06/11/2026; cu e cuc: o custo usual (07/11/2026), que o kit não tem
@@ -130,6 +136,8 @@ for chave in ("cards", "cands"):
             dif.append("%s: %s só no motor" % (chave, c["n"])); continue
         for k in sorted((set(x) | set(c)) - IGNORA):
             if k == "tier" and c["id"] in REGRA_S:
+                continue
+            if k in ("sai", "verdict") and c["n"] in STAPLE_FORA:
                 continue
             if k in ("fx", "why") and c["n"] in TEXTO_CORRIGIDO:
                 continue
