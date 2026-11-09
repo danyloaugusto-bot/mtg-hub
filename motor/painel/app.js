@@ -337,7 +337,7 @@ function stats(cs) {
   return st;
 }
 function cutQueue(cs, lands) {
-  return cs.filter(function (c) { return !c.cmd && !c.pet && !c.nocut && (!!c.land === !!lands); }).sort(function (a, b) {
+  return cs.filter(function (c) { return !c.cmd && !c.pet && !c.nocut && !c.fica && (!!c.land === !!lands); }).sort(function (a, b) {
     return cutCmp(a, b);
   });
 }
@@ -1924,12 +1924,12 @@ function readings(st) {
   (D.leituras || []).forEach(function (l) {
     var i, g, w, n, x, parts;
     if (l.tipo === 'terrenos') {
-      var src = st.lands + st.mdfc, rf = l.ref || [35, 37];
-      w = src < (l.min == null ? 35 : l.min);
+      var src = st.lands + st.mdfc, rf = l.ref || [33, 35];
+      w = src < (l.min == null ? 33 : l.min);
       add(w ? 'warn' : 'ok', pl(src, 'fonte de terreno', 'fontes de terreno') + '.',
         st.lands + ' terrenos' + (st.mdfc ? ' e ' + pl(st.mdfc, 'carta dupla com terreno no verso', 'cartas duplas com terreno no verso') : '') +
         '. A referência usual é de ' + rf[0] + ' a ' + rf[1] + (w ? '; com CMC médio de ' + fmt(st.avg) + ', a base está no limite.' : '.') +
-        (st.tapped ? ' ' + pl(st.tapped, 'terreno entra sempre virado', 'terrenos entram sempre virados') + '.' : ''));
+        (st.tapped ? ' ' + pl(st.tapped, 'terreno entra sempre virado', 'terrenos entram sempre virados') + '.' : '') + (l.nota ? ' ' + esc(l.nota) : ''));
     } else if (l.tipo === 'agrupamento') {
       i = gi(l.g); g = st.grp[i]; w = g.hard < l.min;
       add(w ? 'warn' : 'ok', pl(g.hard, esc(l.rotulo[0]), esc(l.rotulo[1])) + '.',
@@ -2857,9 +2857,9 @@ function radCtl(lista) {
     '</div>';
 }
 /* Isoladas no tema (09/11/2026, regra do dono): carta do deck com pouca sinergia (as duas somadas até 1), que não é tier S ou A,
-   comandante, terreno, MDFC, de estimação nem fora do corte. Candidata a sair, sobretudo se rende mais em outro deck. */
+   comandante, terreno, MDFC, de estimação, fora do corte nem marcada como fica pelo dono. Candidata a sair, sobretudo se rende mais em outro deck. */
 function isolada(c) {
-  if (c.cmd || c.land || c.mdfc || c.nocut || c.pet || (IPET >= 0 && (c.s[IPET] || 0) > 0) || c.tier === 'S' || c.tier === 'A') return false;
+  if (c.cmd || c.land || c.mdfc || c.nocut || c.fica || c.pet || (IPET >= 0 && (c.s[IPET] || 0) > 0) || c.tier === 'S' || c.tier === 'A') return false;
   var s3 = c.s3 || []; return V3 && ((s3[0] || 0) + (s3[1] || 0)) <= 1;
 }
 function isoladasSection() {
@@ -3066,7 +3066,7 @@ function renderDrawer() {
       '<p class="dw-cred" data-imgnote>' + (imgFailN && !imgOk ? imgNoteHtml() : '') + '</p></div>';
   }
   h += (c.fx ? '<p class="dw-fx' + (c.orig ? ' orig' : '') + '">' + rich(c.fx) + '</p>' : '') + (c.why ? '<p class="dw-why">' + rich(c.why) + '</p>' : '') +
-    (c.nocut ? '<p class="dw-back">Fica fora da fila de corte: candidata a carta de estimação.</p>' : '') +
+    (c.nocut ? '<p class="dw-back">Fica fora da fila de corte: candidata a carta de estimação.</p>' : '') + (c.fica ? '<p class="dw-back">Fica por decisão do dono: fora da fila de corte e das sugestões de saída.</p>' : '') +
     (c.back ? '<p class="dw-back">Outra face: ' + esc(c.back.n) + ', ' + esc(c.back.line.toLowerCase()) + '.</p>' : '');
   if (EDH && !c.custom && !c.cmd) h += '<p class="dw-syn">' + synB(c.syn) + (c.syn != null ? 'de sinergia' + (EDH.pagina ? ' nos decks de ' + esc(EDH.pagina) : '') + ', segundo o ' + esc(EDH.fonte) + '. Mede presença, não força.' : 'Não aparece na página' + (EDH.pagina ? ' de ' + esc(EDH.pagina) : '') + ' no ' + esc(EDH.fonte) + '.') + '</p>';
   if (!c.cmd && !c.custom) h += outrosHtml(c);
