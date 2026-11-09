@@ -67,7 +67,7 @@ def contexto(m):
     ncrit = [sum(c["q"] for c in m["cards"] if c["s3"][i] >= minimo) for i in range(len(ks))]
     mult = [sat["abaixo"] if ncrit[i] < faixa[i][0] else sat["acima"] if ncrit[i] > faixa[i][1] else sat["dentro"] for i in range(len(ks))]
     def menor(lados):
-        cs = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and _lados(c) & lados and c["q"] == 1]
+        cs = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and not c.get("fica") and _lados(c) & lados and c["q"] == 1]
         return min(cs, key=lambda c: (valor(c["s3"]), c["n"])) if cs else None
     ia = ks.index("aceleradores")
     nl = [c for c in m["cards"] if not c.get("land")]
@@ -130,11 +130,13 @@ def ranking(nome, decks, cad, carta=None, n=5):
 
 
 def decks_v3():
-    """Os decks da pasta de dados atual que estão na pontuação v3, montados uma vez por execução."""
+    """Os decks da pasta de dados atual que estão na pontuação v3, montados uma vez por execução. Sem os decks Desejo."""
     base = dados.DADOS
     if base not in _DECKS:
         out = []
         for pasta in dados.pastas_decks():
+            if dados.eh_desejo(pasta):   # deck Desejo não existe: nunca é destino de carta (dono, 09/11/2026)
+                continue
             ap = os.path.join(dados.pasta_deck(pasta), "avaliacao.json")
             if not os.path.exists(ap):
                 continue
