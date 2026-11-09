@@ -112,7 +112,9 @@ for chave in ("cards", "cands", "combos"):
 # textos que o texto oficial desmentia, corrigidos com autorização do dono (15/10/2026): o que a carta faz (fx) ou o porquê (why)
 TEXTO_CORRIGIDO = {"High-Society Hunter", "Drivnod, Carnage Dominus", "Path of Ancestry", "Black Market Connections"}
 # cartas levadas ao radar depois do kit, com o ok do dono (16/10/2026, dos potenciais da página relida): o kit não as tem
-RADAR_NOVO = {"Crossway Troublemakers", "Pact of the Serpent"}
+RADAR_NOVO = {"Crossway Troublemakers", "Pact of the Serpent",
+              # terrenos levados ao radar na revisão de terrenos de 09/11/2026 (pedido do dono)
+              "Three Tree City", "Plaza of Heroes", "Takenuma, Abandoned Mire", "Eiganjo, Seat of the Empire"}
 # s3 e s3w: as notas dos dez critérios e o porquê delas, que a pontuação v3 acrescentou (o kit não tem)
 # pp, ppd e ppw: o papel no Plano do deck, a dupla função e o porquê (18/10/2026; o kit não tem)
 # why: o porquê de cada carta foi revisto a pedido do dono em 06/11/2026; cu e cuc: o custo usual (07/11/2026), que o kit não tem
