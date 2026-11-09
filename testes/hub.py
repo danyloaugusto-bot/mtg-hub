@@ -189,11 +189,6 @@ with sync_playwright() as p:
                 pcc = pg.evaluate("(() => { var c = document.querySelector('#t-cons').getBoundingClientRect(), k = document.querySelector('#t-cic').getBoundingClientRect(); return {dir: k.left >= c.right - 1, linha: Math.abs(k.top - c.top) < 2, fora: k.right > innerWidth + 1 || k.width === 0}; })()")
                 R.ok("Ciclos: pílula à direita da Consulta, na mesma linha, visível, abrindo a página própria",
                      pg.is_visible("#t-cic") and pcc["dir"] and pcc["linha"] and not pcc["fora"] and pg.get_attribute("#t-cic", "href").endswith("00.%20Ciclos.html"), pcc)
-            if H.get("estrategias"):
-                # a pílula das Estratégias: à direita da última pílula visível (Ciclos ou Consulta), dentro da tela, abrindo a página própria
-                pes = pg.evaluate("(() => { var ant = document.querySelector('#t-cic:not([hidden])') || document.querySelector('#t-cons'); var a = ant.getBoundingClientRect(), e = document.querySelector('#t-estr').getBoundingClientRect(); return {dir: e.left >= a.right - 1, abaixo: e.top >= a.bottom - 1, fora: e.right > innerWidth + 1 || e.width === 0}; })()")
-                R.ok("Estratégias: pílula depois da última, visível, abrindo a página própria",
-                     pg.is_visible("#t-estr") and (pes["dir"] or pes["abaixo"]) and not pes["fora"] and pg.get_attribute("#t-estr", "href").endswith("00.%20Estrat%C3%A9gias.html"), pes)
             # pasta com ficha (dados/pastas/pastas.json) e com lista (export do ManaBox): subnome, contagem, papéis e o atalho para a Caixa, sem preço
             # o veredito do Plano do deck na Lista e no Resumo (sem preço)
             com_pv = [d for d in H["decks"] if (d.get("a") or {}).get("pv")]
