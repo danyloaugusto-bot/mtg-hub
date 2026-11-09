@@ -875,7 +875,7 @@ function secMesa() {
 function iCrit(k) { for (var i = 0; i < NC; i++) if (RG.criterios[i].k === k) return i; return -1; }
 function dedicadas(A, g, c3) { if (A.v3) { var j = iCrit(c3); return j < 0 ? null : A.st.c3[j].hard; } var i = gix(A, g); return i < 0 ? null : A.st.grp[i].hard; }
 var FUND = [
-  { k: 'fontes', n: 'Fontes de terreno', ref: [35, 37], max: 40, min0: 28, v: function (A) { return A.st.lands + A.st.mdfc; }, le: 'terrenos' },
+  { k: 'fontes', n: 'Fontes de terreno', ref: [33, 35], max: 40, min0: 28, v: function (A) { return A.st.lands + A.st.mdfc; }, le: 'terrenos' },
   { k: 'ramp', n: 'Ramp dedicado', ref: [10, 12], max: 16, v: function (A) { return dedicadas(A, 'ramp', 'aceleradores'); }, le: 'agrupamento:ramp', g: 'ramp', c3: 'aceleradores' },
   { k: 'draw', n: 'Compra dedicada', ref: [10, 12], max: 18, v: function (A) { return dedicadas(A, 'draw', 'draw'); }, le: 'agrupamento:draw', g: 'draw', c3: 'draw' },
   { k: 'rem', n: 'Remoção', ref: [8, 12], max: 20, v: function (A) { return dedicadas(A, 'removal', 'remocao'); }, le: 'remocao', g: 'removal', c3: 'remocao' },
@@ -2294,8 +2294,6 @@ if (H.grimorio) { var tg = $('#t-grim'); tg.hidden = false; tg.href = (location.
 if (H.consulta) { var tq = $('#t-cons'); tq.href = (location.protocol !== 'file:' && H.consulta.pub) ? H.consulta.pub : H.consulta.href; }
 // os Ciclos: as cartas de ciclo de cada coleção, à direita da Consulta (só depois da primeira leitura)
 if (H.ciclos) { var tcc = $('#t-cic'); tcc.hidden = false; tcc.href = (location.protocol !== 'file:' && H.ciclos.pub) ? H.ciclos.pub : H.ciclos.href; }
-// as Estratégias: o material de estratégia do dono, lido e resumido, e o bloco "Na mesa" dos decks (09/11/2026)
-if (H.estrategias) { var tes = $('#t-estr'); tes.hidden = false; tes.href = (location.protocol !== 'file:' && H.estrategias.pub) ? H.estrategias.pub : H.estrategias.href; }
 $('#v-dash').innerHTML = vistaDash();
 $('#foot').innerHTML = '<p>O hub mostra a foto do último build, de ' + esc(H.gerado) + '. O que você edita dentro de um painel fica naquele painel até voltar para o projeto com o <code>/importar-backup</code>, pela aba Oficina.</p>' +
   '<p>Arte das cartas e dos comandantes: © Wizards of the Coast.</p>';
