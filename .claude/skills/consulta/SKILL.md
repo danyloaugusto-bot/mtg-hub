@@ -65,3 +65,5 @@ As consultas feitas ao vivo na página publicada ficam no banco do artefato, col
 - Preço: o do Scryfall do dia, no relatório, no registro e na página.
 - Nunca grave em `dados/cartas.json`, `decklist.txt` ou `avaliacao.json`.
 - Não pergunte sobre bracket nem sobre cartas de estimação.
+
+Estratégias do dono: antes de decidir, leia os digests de `contexto/estrategias/` (avaliação de ameaças, staples e efeito manada, e os próximos temas). Staple genérica não entra no radar por ser forte; só quando o deck tem buraco no critério ou no pacote que ela preenche, e respeitando a identidade de cor.
