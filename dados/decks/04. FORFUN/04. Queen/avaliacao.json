@@ -277,7 +277,80 @@
     "resultado": "equilibrado",
     "porque": "Smothering Tithe pune a compra deles e a remoção responde ao que é grande; o fim lento dá tempo a eles."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Fortaleza de encantamentos com monarca: a mesa vê as taxas e a coroa, e o que incomoda é a compra dobrada todo turno, não os corpos. Pillow fort fica no fim da hierarquia de ameaças, mas o monarca é motor de compra: a mesa tenta tomar a coroa com voadores e fichas, e reage de verdade quando The One Ring ou a Smothering Tithe descem.",
+   "postura": "Conciliadora por desenho, e nos três primeiros turnos de propósito: pedra, Esper Sentinel, Kambal, Ghostly Prison, nada que pareça ameaça. A política é verificável: a coroa vai para quem me bater e a taxa vale para todos, então o melhor negócio da mesa é bater em outro. Assumir só no fim, quando Ruinous Ultimatum, Forth Eorlingas! ou a segunda Approach of the Second Sun fecham em uma volta.",
+   "sinais": [
+    {
+     "carta": "The One Ring",
+     "porque": "Compra crescente e um turno de proteção: a mesa reage no turno seguinte, e é o primeiro alvo de quem sabe ler motor."
+    },
+    {
+     "carta": "Smothering Tithe",
+     "porque": "Um Tesouro a cada compra alheia: a mesa inteira paga a sua fortaleza, e todos percebem na segunda rodada."
+    },
+    {
+     "carta": "Court of Grace",
+     "porque": "Um Anjo por turno com a coroa: a mesa percebe que a coroa virou exército."
+    },
+    {
+     "carta": "Sphere of Safety",
+     "porque": "Com a taxa em 5 ou 6 por criatura, ninguém mais ataca você, e a mesa sabe que precisa remover o encantamento, não a criatura."
+    },
+    {
+     "carta": "Assemble the Legion",
+     "porque": "Cresce sozinho todo turno: fechamento visível, que pede resposta cedo."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Ruinous Ultimatum",
+     "porque": "Sete manas em três cores: só desce com a mesa dos outros cheia e a sua intacta; é o turno de assumir."
+    },
+    {
+     "carta": "Approach of the Second Sun",
+     "porque": "A primeira conjuração anuncia a vitória: só quando a coroa e The One Ring trouxerem a segunda em duas voltas."
+    },
+    {
+     "carta": "Forth Eorlingas!",
+     "porque": "X grande com os Tesouros da Tithe: fecha por combate e devolve a coroa no mesmo turno."
+    },
+    {
+     "carta": "Teferi's Protection",
+     "porque": "Do radar: a única resposta a uma limpeza de encantamentos; não gaste num ataque pequeno."
+    }
+   ],
+   "ponto_de_falha": "Os dezoito encantamentos sem proteção: um Farewell ou um Austere Command do outro lado derruba a fortaleza inteira, e o deck é lento para reconstruir. Depois, a cor: três cores com cinco básicos e terrenos lentos. A Marchesa não é o ponto fraco: com vinte fontes de coroa, perdê-la é passageiro, e o Assassino com ímpeto a retoma.",
+   "respostas": [
+    {
+     "carta": "Swords to Plowshares",
+     "para": "O voador ou o atacante evasivo que rouba a coroa, no turno dele."
+    },
+    {
+     "carta": "Anguished Unmaking",
+     "para": "O motor de compra ou de mana do oponente que mais cresce, não a maior criatura."
+    },
+    {
+     "carta": "Vindicate",
+     "para": "A permanente que ignora a taxa: goad, roubo, o encantamento que trava você."
+    },
+    {
+     "carta": "Council's Judgment",
+     "para": "A peça de combo ou o comandante com resistência a magia, porque não mira."
+    },
+    {
+     "carta": "Darksteel Mutation",
+     "para": "O comandante que é o plano inteiro do oponente."
+    },
+    {
+     "carta": "Chaos Warp",
+     "para": "Qualquer permanente que as outras não alcançam, inclusive uma sua em apuros."
+    }
+   ],
+   "limpezas": "Seis: Ruinous Ultimatum é unilateral e fecha o jogo; Blasphemous Act costuma custar 1 e não toca encantamentos, o que para uma fortaleza é quase unilateral; Path of Peril limpa as fichas que roubam a coroa. Austere Command no modo de encantamentos, Feast of Succession e Blasphemous Edict levam a sua mesa também: use-as só quando a sua perda for menor que a deles. Quem reconstrói melhor é você, com duas compras por turno.",
+   "alvo": "Quem tem a coroa ou pode tomá-la (voadores, ímpeto, ameaça), e depois o motor. Os Assassinos com toque mortífero e ímpeto retomam a coroa no mesmo turno; Nelly Borca e o Disrupt Decorum do radar apontam a mesa para outro jogador. Não ataque por vingança: a coroa muda de mão toda rodada, e a avaliação também."
+  }
  },
  "cartas": {
   "Queen Marchesa": {
@@ -2001,8 +2074,8 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terra: R ou W, desvirada com dois ou mais oponentes.",
-   "porque": "Dual sem custo em mesa de quatro, no lugar do Marsh quase sempre virado.",
-   "sai": "Smoldering Marsh"
+   "porque": "Dual de vermelho e branco sem custo na mesa de quatro, no lugar do Elegant Parlor, que entra sempre virado; o Smoldering Marsh, que ela tirava antes, sai para a Blood Crypt.",
+   "sai": "Elegant Parlor"
   },
   "Farewell": {
    "notas": {
@@ -2119,6 +2192,51 @@
    "porque": "A compra do monarca no seu fim de turno é a segunda: dreno de 1 em cada oponente por volta, mais ódio de cemitério; no lugar do Royal Assassin, troca um matador de atacante por um dreno.",
    "papel": "recompensa",
    "papel_por_que": "A compra do monarca no seu fim de turno drena 1 de cada oponente."
+  },
+  "Blood Crypt": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Smoldering Marsh",
+   "faz": "Terreno — Pântano Montanha. Gera {B} ou {R}. Ao entrar, você pode pagar 2 de vida; se não pagar, entra virado.",
+   "porque": "As mesmas duas cores do Smoldering Marsh, mas desvirada quando você quer (o Marsh pede dois básicos, e o deck tem cinco), e com o tipo Pântano para revelar ao Shineshadow Snarl. Terra por terra, como Godless Shrine e Sacred Foundry no radar."
+  },
+  "Kor Haven": {
+   "notas": {
+    "fortaleza": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Tira do combate um atacante a cada volta, como Maze of Ith e Royal Assassin na régua: previne todo o dano de combate da criatura atacante alvo."
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Hive of the Eye Tyrant",
+   "faz": "Terreno lendário. Gera {C}. Por {1}{W} e virando: previne todo o dano de combate que a criatura atacante alvo causaria neste turno.",
+   "porque": "O segundo Maze of Ith, e este gera mana: a cada volta, o atacante que pagou a taxa não leva a coroa. Sai o Hive of the Eye Tyrant, que entra virado depois do segundo terreno e só vira atacante por {3}{B}.",
+   "papel_dupla": "Fortaleza",
+   "papel_por_que": "Terreno que anula um atacante por turno: a coroa fica."
+  },
+  "Ancient Tomb": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Rogue's Passage",
+   "faz": "Gera {C}{C} e causa 2 de dano a você.",
+   "porque": "Duas manas num terreno: Ghostly Prison no turno 2 e a Marchesa no 3 sem pedra na mão, a lacuna de mana que a leitura do deck aponta. Fica como avaliar porque o dano é constante num deck que quer vida para segurar a coroa; sai um incolor por outro, o Rogue's Passage, que só retoma a coroa pagando {4}.",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Terreno que gera duas manas e adianta a fortaleza um turno."
   }
  },
  "combos": [
