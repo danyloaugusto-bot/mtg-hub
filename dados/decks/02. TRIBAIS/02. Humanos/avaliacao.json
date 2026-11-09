@@ -262,7 +262,84 @@
     "resultado": "forte",
     "porque": "Land Tax, Weathered Wayfarer e Verge Rangers rendem contra quem tem mais terrenos, e a mesa larga chega antes."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Mesa larga de Humanos 3/3 com vigilância e vínculo: pela hierarquia é a ameaça visível de prioridade baixa, e o papel de \"estou só juntando gente\" cola. O que de fato chama a mesa são os motores pagos pelos outros, Smothering Tithe e Trouble in Pairs, e o Horn of Gondor dobrando a mesa.",
+   "postura": "Conciliadora até ter quatro Humanos na mesa e uma proteção na mão (Flawless Maneuver, Teferi's Protection, Selfless Spirit): até lá, desenvolver sem revelar o fechamento. Assumir quando Mirror Entity, True Conviction ou Paladin Class no nível 3 fecham em um ou dois ataques: a mesa de 3/3 sem evasão não ganha corrida longa, então o ataque decisivo vem com Voice of Victory fechando a janela de resposta.",
+   "sinais": [
+    {
+     "carta": "Smothering Tithe",
+     "porque": "Um tesouro a cada compra dos outros: a mesa inteira paga a sua mana e percebe na segunda rodada."
+    },
+    {
+     "carta": "Trouble in Pairs",
+     "porque": "Compra passiva que pune quem joga mais: alvo certo de remoção de encantamento."
+    },
+    {
+     "carta": "Horn of Gondor",
+     "porque": "Cada ativação dobra a mesa de Humanos: com quatro Humanos, a mesa entende que a próxima volta é letal."
+    },
+    {
+     "carta": "Mirror Entity",
+     "porque": "Todo mundo sabe que ele transforma a mesa em X/X: a mesa guarda remoção para ele."
+    },
+    {
+     "carta": "Greymond, Avacyn's Stalwart",
+     "porque": "Com quatro Humanos, a mesa de 1/1 vira 3/3 com vínculo: é o momento em que você passa a ser alvo."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Flawless Maneuver",
+     "porque": "De graça com o Greymond: em resposta à limpeza deles ou à sua Vanquish the Horde."
+    },
+    {
+     "carta": "Teferi's Protection",
+     "porque": "A única que salva artefatos e encantamentos: guarde para a Hour of Revelation, sua ou deles."
+    },
+    {
+     "carta": "Call the Coppercoats",
+     "porque": "No fim do turno do oponente: liga o Greymond e ataca no seu, sem dar uma volta de resposta."
+    },
+    {
+     "carta": "Mirror Entity",
+     "porque": "O fechamento: desce no turno em que a mana faz a mesa letal, não antes."
+    },
+    {
+     "carta": "Akroma's Will",
+     "porque": "Voo e golpe duplo para a mesa inteira, protegida: só no turno que mata."
+    }
+   ],
+   "ponto_de_falha": "O Greymond, multiplicador: sem ele a mesa volta a ser de 1/1, e a segunda volta do comando custa 6. E a mão depois de uma limpeza alheia: cinco das doze compras só compram atacando. Quem quiser parar o deck remove o Greymond, espera a proteção ser gasta e limpa a mesa. Mother of Runes, Commander's Plate e Caduceus, Staff of Hermes cobrem o comandante; a proteção em massa cobre a mesa.",
+   "respostas": [
+    {
+     "carta": "Get Lost",
+     "para": "O motor de compra ou de mana do oponente que mais cresce, não a maior criatura."
+    },
+    {
+     "carta": "Stroke of Midnight",
+     "para": "Qualquer permanente não terreno: a peça de combo ou a trava (Propaganda, Ghostly Prison alheia)."
+    },
+    {
+     "carta": "Bounty Agent",
+     "para": "O comandante lendário que é o plano inteiro do oponente."
+    },
+    {
+     "carta": "Loran of the Third Path",
+     "para": "O artefato ou encantamento que gera vantagem repetida."
+    },
+    {
+     "carta": "Giant Killer",
+     "para": "A criatura de poder 4 ou mais que segura o ataque largo."
+    },
+    {
+     "carta": "Final Showdown",
+     "para": "Limpeza instantânea: com o modo de indestrutível o Greymond sobrevive; no turno em que a mesa deles ataca."
+    }
+   ],
+   "limpezas": "Sete hoje, acima da faixa, e quase todas contra o próprio time: Final Showdown (poupa o Greymond pelo modo de indestrutível), Austere Command, Vanquish the Horde, Dusk // Dawn, Hour of Revelation, Magus of the Disk e Ondu Inversion. O radar tira Magus, Dusk e Hour: ficam quatro, e a unilateralidade vem da proteção em resposta (Flawless Maneuver, Selfless Spirit, Spectacular Spider-Man, Teferi's Protection), que é como o dono quer as limpezas. Boa quando a proteção está na mão e a mesa deles passou da sua; ruim quando você é quem tem mais mesa e menos compra para refazer.",
+   "alvo": "O motor, não a vida: dez 3/3 sem evasão param numa mesa de bloqueadores, então o ataque largo vai em quem tem menos bloqueadores e mais cartas. Ghostly Prison e Baird fazem os outros se atacarem; com Mirror Entity ou golpe duplo, o alvo é quem fecha primeiro."
+  }
  },
  "cartas": {
   "Greymond, Avacyn's Stalwart": {
@@ -1900,9 +1977,9 @@
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
-   "sai": "Temple of the False God",
+   "sai": "Path of Ancestry",
    "faz": "Terreno. Escolha um tipo: gera incolor, ou mana de qualquer cor só para criaturas do tipo, que não podem ser anuladas.",
-   "porque": "Humanos que não se anulam, terreno por terreno."
+   "porque": "Humanos que não se anulam, terreno por terreno, e entra desvirado. Sai o Path of Ancestry, que entra virado: a vidência de 26 Humanos não paga o turno perdido quando o deck quer três Humanos na mesa no turno 4."
   },
   "Arcane Signet": {
    "notas": {
@@ -2156,6 +2233,77 @@
    "porque": "Recarga repetível que cresce com a mesa larga de fichas e Humanos, quando a mão já esvaziou; sai Hopeful Initiate, cuja remoção depende de marcadores que o deck mal fornece.",
    "papel": "recompensa",
    "papel_por_que": "Troca a mão por uma carta para cada criatura em campo."
+  },
+  "Three Tree City": {
+   "notas": {
+    "ramp": 3,
+    "sinergia": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Terreno que escolhe o tipo: liga-se aos Humanos de passagem, como Cavern of Souls e Path of Ancestry."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Temple of the False God",
+   "faz": "Terreno lendário. Ao entrar, escolha um tipo de criatura. Gera {C}; por {2} e virando, gera uma mana da cor escolhida para cada criatura sua do tipo escolhido.",
+   "porque": "Com Humano escolhido e a mesa cheia, vira seis, oito manas brancas num terreno desvirado: paga o Horn of Gondor, o Castle Ardenvale e o flashback de Visions of Glory no mesmo turno. Sai o Temple of the False God, incolor e inútil antes do quinto terreno.",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Terreno que gera uma mana por Humano: a mesa vira mana."
+  },
+  "Abandoned Air Temple": {
+   "notas": {
+    "buff": 3
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Marcador +1/+1 em todas as suas criaturas, repetível a cada turno: bônus contínuo para o time."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Tyrite Sanctum",
+   "faz": "Entra desvirado se você controla um terreno básico. Gera {W}. Por {3}{W}, virando, põe um marcador +1/+1 em cada criatura sua.",
+   "porque": "Com 23 Planícies entra desvirado, e em todo turno com mana sobrando põe um marcador em cada Humano e ficha: os marcadores sobrevivem à saída do Greymond e ainda ligam a remoção da Hopeful Initiate. Sai o Tyrite Sanctum, que gasta seis manas em dois turnos para proteger o Greymond, papel que Mother of Runes e Commander's Plate já fazem.",
+   "papel_dupla": "Buff (marcador em todas)",
+   "papel_por_que": "Terreno que põe um marcador +1/+1 em cada criatura sua, todo turno."
+  },
+  "Eiganjo, Seat of the Empire": {
+   "notas": {
+    "removal": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno lendário: gera {W}. Canalizar, por {2}{W} e descartando-o: causa 4 de dano a uma criatura atacando ou bloqueando; custa {1} a menos por criatura lendária sua.",
+   "porque": "Remoção que é terreno quando falta terreno: com o Greymond em campo, por {1}{W}, tira o bloqueador grande que segura o ataque largo ou o atacante que vem para cima. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: no lugar de uma Plains.",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Terreno que, descartado, causa 4 de dano a um atacante ou bloqueador."
+  },
+  "Emeria, the Sky Ruin": {
+   "notas": {
+    "draw": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Devolve criatura do cemitério ao campo sem citar Humanos, como Court of Ardenvale e Dusk // Dawn: de passagem."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Entra virado. No início da sua manutenção, se você controla sete ou mais Planícies, pode devolver uma criatura do seu cemitério ao campo. Gera {W}.",
+   "porque": "Resolve a fraqueza que o deck declara: reconstruir depois de uma limpeza. Com 23 Planícies, a partir do turno 7 volta um Humano por manutenção, de graça. Entra virado, por isso fica como avaliar: é o único terreno lento que vale a vaga, no lugar de uma Plains, dentro do teto de três ou quatro virados. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico.",
+   "papel_dupla": "Recursão",
+   "papel_por_que": "Terreno que devolve uma criatura do cemitério toda manutenção, com sete Planícies."
   }
  },
  "combos": [
