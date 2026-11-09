@@ -122,14 +122,14 @@
   {
    "tipo": "contagem",
    "marcador": "protege",
-   "min": 4,
+   "min": 2,
    "listar": true,
    "rotulo": [
     "proteção do Vito",
     "proteções do Vito"
    ],
-   "alerta": "O maior buraco do deck: o plano passa pelo Vito, e só duas cartas o protegem.",
-   "ok": "O Vito tem proteção."
+   "alerta": "Nenhuma carta protege o Vito: com ele fora, o deck segue com os outros Vampiros, mas perde o conversor.",
+   "ok": "Pouca proteção, por escolha do dono (08/11/2026): o deck se espalha em Vampiros e não depende só do Vito."
   },
   {
    "tipo": "contagem",
@@ -168,38 +168,38 @@
  "estrategia": {
   "inicio": {
    "turnos": "1 a 3",
-   "plano": "Vito no turno 3, no 2 com Sol Ring ou Ancient Tomb, ou no 1 com Dark Ritual. O que decide o começo é ter uma fonte de ganho de vida ao lado dele: Vampire of the Dire Moon, Indulgent Aristocrat, Gifted Aetherborn, Nullpriest, Creeping Bloodsucker ou a Shadowspear.",
+   "plano": "Baixar muitos Vampiros baratos com vínculo ou dreno e montar a mesa, com ou sem o Vito: Vampire of the Dire Moon e Indulgent Aristocrat no 1; Gifted Aetherborn, Creeping Bloodsucker, Nullpriest e Blood Artist no 2; Markov Baron, Qarsi Revenant, Nighthawk Scavenger, Captivating Vampire e Preacher of the Schism no 3. O Vito desce quando houver ganho de vida ao lado, sem proteção dedicada.",
    "fortes": [
-    "Três cartas adiantam o Vito: Sol Ring e Ancient Tomb para o turno 2, Dark Ritual para o 1. Jet Medallion e Arcane Signet ajudam no 3.",
-    "Seis fontes de ganho de até duas manas."
+    "Treze Vampiros de até três manas, oito deles com vínculo.",
+    "Sol Ring, Ancient Tomb e Dark Ritual adiantam a mesa um turno."
    ],
    "fracos": [
-    "O Vito é um 1/3 que morre para qualquer remoção, e só duas cartas o protegem.",
-    "Em metade dos jogos ele entra sem ganho de vida ao lado."
+    "Corpos pequenos: uma limpeza cedo leva a mesa inteira.",
+    "O Vito é um 1/3 que morre para qualquer remoção; por escolha do dono, só a Imp's Mischief e a Malakir Rebirth o protegem, e o deck segue com os outros Vampiros."
    ]
   },
   "meio": {
    "turnos": "4 a 7",
-   "plano": "Necropotence e Black Market compram; Creeping Bloodsucker e os vínculos disparam o Vito todo turno, sempre no jogador mais forte. Preacher of the Schism compra batendo nele, e Consuming Corruption remove e drena. É o meio de jogo que o dono descreveu: focar no mais forte e mostrar força.",
+   "plano": "Consolidar e fazer política. Captivating Vampire e Markov Baron fortalecem a tribo, o Bloodline Keeper cria um Vampiro voador por turno, e Necropotence, Necrodominance e Black Market Connections enchem a mão de respostas. O alvo do Vito é escolhido a cada gatilho: quem ataca você vira alvo, e quem se alia fica de fora. Os tutores buscam a resposta do momento: limpeza, compra ou fechamento.",
    "fortes": [
-    "O alvo do Vito é escolhido a cada gatilho: é a moeda política para buscar aliados.",
-    "Cinco tutores buscam a peça que resolve o estado do jogo, não só o combo."
+    "O alvo do Vito é escolhido a cada gatilho: é a moeda política para fazer alianças.",
+    "Cinco tutores e quatro motores de compra (Necropotence, Necrodominance, Black Market Connections e Bolas's Citadel): a mão não fica vazia."
    ],
    "fracos": [
-    "A mesa inteira olha para o Vito, e ele é o único conversor barato além da Enduring Tenacity.",
-    "Necrodominance atrapalha dez cartas se for jogada junto delas; Blood Artist, Vein Ripper e Meathook seguem só com as mortes dos oponentes."
+    "Com a Necrodominance em campo, nada vai ao cemitério: Blood Artist, Vein Ripper e a Meathook só disparam com as mortes dos oponentes. Escolha do dono: a mão cheia vale mais.",
+    "O deck paga muita vida com Necropotence, Citadel e tutores: o vínculo da tribo é o que repõe."
    ]
   },
   "fim": {
    "turnos": "8 em diante",
-   "plano": "Coffers com Urborg, Crypt Ghast, Extraplanar Lens e Nykthos pagam um Exsanguinate grande: cada um perde X e o alvo do Vito perde 3X a mais. Blood Tribute, Sorin Markov e Hatred derrubam um jogador cada. O laço com Exquisite Blood fica de reserva.",
+   "plano": "Ganhar drenando e batendo. Por {3}{B}{B}, o Vito dá vínculo ao time inteiro, e cada criatura que causa dano é um gatilho próprio, com alvo próprio. Gray Merchant, Malakir Bloodwitch e Exsanguinate drenam a mesa inteira; o Bloodletter of Aclazotz dobra a perda no seu turno; Coffers, Urborg, Crypt Ghast, Extraplanar Lens e Nykthos pagam o X. O laço com Exquisite Blood fica como plano B.",
    "fortes": [
-    "Sete fechamentos limpos, com o Bloodletter dobrando tudo no seu turno.",
+    "Fechamentos sem combo: o ataque com vínculo, os drenos de mesa (Gray Merchant, Malakir Bloodwitch, Exsanguinate, Torment of Hailfire) e os golpes num jogador (Blood Tribute, Sorin Markov, Hatred).",
     "Cinco fontes de mana grande para o X."
    ],
    "fracos": [
-    "O deck limpo mata um jogador por vez, e dá três turnos à mesa para reagir.",
-    "Exquisite Blood e Conqueror ficam presos na mão: com o Vito em campo, encerram o jogo na hora."
+    "O ataque pede a mesa de pé: depois de uma limpeza dos oponentes, o fechamento volta a depender dos drenos.",
+    "Exquisite Blood e Conqueror, com o Vito em campo, encerram o jogo na hora: se o dono não quer o laço, ficam na mão."
    ]
   },
   "contra": [
@@ -531,10 +531,10 @@
     "sin1": "Vínculo com a vida num corpo 1/1: ganho só em combate.",
     "sin2": "Vampiro que põe um marcador +1/+1 em cada Vampiro seu a cada ativação."
    },
-   "tier": "C",
-   "rel": "BAX",
+   "tier": "B",
+   "rel": "MED",
    "faz": "1/1 vínculo, de 1. {2} e sacrifica uma criatura: marcador +1/+1 em cada Vampiro.",
-   "porque": "Vínculo de turno 1 e uma das três saídas de sacrifício. A habilidade é cara para o que entrega.",
+   "porque": "Vampiro de turno 1 com vínculo, o começo que o dono quer. A habilidade é cara, mas cada sacrifício põe um marcador em todos os Vampiros: rende mais quanto maior a mesa.",
    "marcas": {
     "vinculo": 1
    },
@@ -705,10 +705,10 @@
     "sin1": "Vínculo com a vida num corpo 2/1: ganho só em combate.",
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "2/1 vínculo e ameaça. Com o reforço de {3}{B}, devolve uma criatura do cemitério ao campo.",
-   "porque": "Vínculo cedo ou reanimação de seis manas tarde. Nenhuma metade é forte.",
+   "porque": "Vampiro de 2 com vínculo e ameaça, o começo que o dono quer; mais tarde, com o reforço, traz de volta uma criatura do cemitério.",
    "marcas": {
     "vinculo": 1
    },
@@ -823,10 +823,10 @@
     "sin1": "Vínculo com a vida num corpo 1/1: ganho só em combate.",
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "1/1 toque mortífero e vínculo, de 1.",
-   "porque": "Vínculo de turno 1 que segura atacante grande. Ganha 1 por vez.",
+   "porque": "Vampiro de turno 1 com vínculo e toque mortífero, o começo que o dono quer: segura atacante grande e dispara o Vito a cada dano.",
    "marcas": {
     "vinculo": 1
    },
@@ -1442,10 +1442,10 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Pula a compra. No fim do turno, paga vida e compra o mesmo tanto. Mão máxima de cinco. Suas cartas que iriam ao cemitério são exiladas.",
-   "porque": "Compra forte, mas atrapalha dez cartas da lista: desliga Tenacity, Rebirth e Agadeem, deixa Blood Artist e Vein Ripper só com as mortes dos oponentes, e briga com a Necropotence.",
+   "porque": "Compra forte, que fica por decisão do dono (08/11/2026): mão cheia de respostas vale mais que as mortes no cemitério. Em campo, nada vai ao cemitério: Blood Artist, Vein Ripper e a Meathook só disparam com as mortes dos oponentes.",
    "prioridade": 6
   },
   "Necropotence": {
@@ -1626,9 +1626,9 @@
    },
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "avaliar",
    "faz": "Encantamento de 5: sempre que você ganha vida, um oponente alvo perde o mesmo tanto.",
-   "porque": "O texto do Vito dois manas mais barato que o Bloodlord, e sobrevive às quatro limpezas da lista.",
+   "porque": "O texto do Vito dois manas mais barato que o Bloodlord, e sobrevive às limpezas. Passou de entra a avaliar por decisão do dono (08/11/2026): o espaço vai para Vampiros, e o Bloodlord é Vampiro com o mesmo texto.",
    "sai": "Defiant Bloodlord",
    "papel": "recompensa",
    "papel_por_que": "Outro Vito: cada ganho de vida vira perda de um oponente."
@@ -1639,10 +1639,10 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "avaliar",
    "faz": "Equipamento: hexproof e pressa. Equipar 1.",
-   "porque": "A proteção que o Vito não tem, sem barrar as suas mágicas nele (Hatred, Malakir Rebirth).",
-   "sai": "Mindcrank"
+   "porque": "Por decisão do dono (08/11/2026), proteger o Vito não é prioridade: o deck se espalha em Vampiros. Fica como avaliar no lugar da Imp's Mischief, que protege uma vez; a bota protege sempre e dá pressa ao Vampiro que acabou de descer.",
+   "sai": "Imp's Mischief"
   },
   "Scheming Silvertongue": {
    "notas": {
@@ -1662,7 +1662,7 @@
    "rel": "MED",
    "veredito": "entra",
    "faz": "Vampiro 1/3 voar e vínculo, de 2. Se você ganhou 2 ou mais no turno, prepara uma cópia de Sign in Blood.",
-   "porque": "Vínculo com evasão e uma compra que o deck liga quase todo turno.",
+   "porque": "Vínculo com evasão e uma compra que o deck liga quase todo turno. Você já tem (Caixa e Preta P). Sai o Sanguine Spy, Vampiro por Vampiro.",
    "sai": "Sanguine Spy",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (vínculo)",
@@ -1686,8 +1686,8 @@
    "rel": "MED",
    "veredito": "entra",
    "faz": "Vampiro 2/2 de 2. Ao atacar, dá toque mortífero a uma criatura; se ela causar dano a um jogador, prepara uma cópia de Exsanguinate.",
-   "porque": "Uma segunda cópia da carta de estimação do dono. E sai a Necrodominance, que atrapalha dez cartas.",
-   "sai": "Necrodominance",
+   "porque": "Vampiro de 2 que guarda uma cópia do Exsanguinate, carta de estimação do dono: quando a criatura que ganhou toque mortífero causa dano a um jogador, ele fica preparado. Casa com o fechamento pelo ataque. Sai a Henrika, Vampiro de 4 com três efeitos pequenos.",
+   "sai": "Henrika Domnathi",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ganho do total)",
    "papel_por_que": "Com dano de combate, prepara um Exsanguinate, e o ganho volta pelo Vito."
@@ -1704,10 +1704,9 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "5/4 ameaça. No fim do seu turno, cada oponente perde a vida que você ganhou no turno.",
-   "porque": "Converte ganho em perda para a mesa toda, sem fechar laço. Não é Vampiro.",
-   "sai": "Throne of Eldraine",
+   "porque": "Fica de fora pela escolha do dono por Vampiros (08/11/2026): o Epicure of Blood e o Sanctum Seeker drenam a mesa com corpo da tribo.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (vida por dano de combate)",
    "papel_por_que": "No fim do turno, cada oponente perde a vida que você ganhou: outro Vito, em massa."
@@ -1718,10 +1717,9 @@
    "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "Equipamento: pressa e shroud. Equipar 0.",
-   "porque": "Segunda proteção. O shroud também barra o seu Hatred: tire a bota antes.",
-   "sai": "Blasphemous Edict"
+   "porque": "Fica de fora por decisão do dono (08/11/2026): proteger o Vito não é prioridade, e o manto barra o Hatred e a Malakir Rebirth nele."
   },
   "Vampire Nighthawk": {
    "notas": {
@@ -1738,10 +1736,10 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "entra",
    "faz": "Vampiro 2/3 voar, toque mortífero e vínculo, de 3.",
-   "porque": "Vínculo com evasão, a 66% das listas. Não é corpo o que mais falta.",
-   "sai": "Vampire of the Dire Moon",
+   "porque": "Mais um Vampiro barato com vínculo, como o dono quer: voa, segura com toque mortífero e dispara o Vito a cada dano. Sai a Blasphemous Edict, a quarta limpeza, que leva a sua mesa junto.",
+   "sai": "Blasphemous Edict",
    "papel": "habilita",
    "papel_por_que": "Voador com vínculo: cada dano que ele causa dispara o Vito."
   },
@@ -1760,10 +1758,9 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "Vampiro 3/3 voar. Ganha 3 quando uma criatura de oponente morre ou quando um oponente descarta.",
-   "porque": "Cada morte nas limpezas vira 3 de vida e 3 de dreno. Com o Kalitas em campo, só dispara com fichas dos oponentes e com descarte.",
-   "sai": "Indulgent Aristocrat",
+   "porque": "Fica de fora pelo plano do dono (08/11/2026): o Indulgent Aristocrat, que ela tiraria, é um dos Vampiros de turno 1. Ela só dispara com criatura de oponente morrendo, e o Kalitas exila as que não são ficha.",
    "papel": "habilita",
    "papel_por_que": "Ganha 3 a cada criatura de oponente que morre ou descarte: 3 de perda pelo Vito."
   },
@@ -1784,8 +1781,8 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Vampiro {X}{B}{B} com vínculo. Entra com X marcadores e causa X de dano a um oponente.",
-   "porque": "O dano tem vínculo: ganha X e o Vito tira mais X. Fecha com mana sobrando. Pelo −3 do Sorin, entra com X 0.",
-   "sai": "Nullpriest of Oblivion",
+   "porque": "O dano tem vínculo: ganha X e o Vito tira mais X de outro oponente. Você já tem (Preta P). Fica como avaliar no lugar do Torment of Hailfire, o outro X, que não dispara o Vito; o Nullpriest, que ele tirava antes, é um dos Vampiros de começo do plano do dono (08/11/2026).",
+   "sai": "Torment of Hailfire",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (vínculo)",
    "papel_por_que": "Ao entrar, X de dano com vínculo: o ganho de X volta pelo Vito noutro oponente."
@@ -1801,11 +1798,11 @@
    "sin_por_que": {
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "B",
-   "rel": "MED",
-   "veredito": "avaliar",
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
    "faz": "Vampiro 5/4 de 4. Entra preparado com uma cópia de Demonic Tutor por {1}{B}.",
-   "porque": "Tutor com corpo, mais lento que o Grim Tutor.",
+   "porque": "Os tutores ficam, por decisão do dono (08/11/2026), e este é um tutor que conta como Vampiro: entra preparado com uma cópia de Demonic Tutor e fica um 5/4 na mesa, que se prepara de novo nos turnos com duas mortes. Você já tem (Preta P). Sai o Grim Tutor, a mesma busca sem corpo.",
    "sai": "Grim Tutor"
   },
   "Sanctum Seeker": {
@@ -1821,12 +1818,12 @@
     "sin1": "Motor: cada Vampiro que ataca faz cada oponente perder 1 e você ganhar 1, um gatilho do Vito por atacante.",
     "sin2": "Vampiro que rende a cada Vampiro que ataca: o dreno cresce com a tribo."
    },
-   "tier": "B",
-   "rel": "MED",
-   "veredito": "avaliar",
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
    "faz": "Vampiro 3/4. Sempre que um Vampiro seu ataca, cada oponente perde 1 e você ganha 1.",
-   "porque": "Cada ataque da tribo vira dreno e gatilho do Vito.",
-   "sai": "Markov Baron",
+   "porque": "O fechamento que o dono descreveu: cada Vampiro que ataca drena cada oponente em 1, e cada 1 ganho é um gatilho do Vito. Você já tem (Caixa). Sai o Mindcrank, que só existe para o laço da Bloodchief Ascension.",
+   "sai": "Mindcrank",
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno a cada ataque)",
    "papel_por_que": "Cada Vampiro que ataca dá 1 de vida, um gatilho do Vito por atacante."
@@ -1886,6 +1883,76 @@
    "papel": "multiplica",
    "papel_dupla": "Draw",
    "papel_por_que": "Dobra todo ganho de vida, e o Vito converte o dobro."
+  },
+  "Crossway Troublemakers": {
+   "notas": {
+    "vamp_c": 3,
+    "vida": 2,
+    "draw": 1
+   },
+   "sin": {
+    "sin1": 1,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Régua 1: vínculo com a vida que só ganha vida em combate, aqui dado aos Vampiros que atacam.",
+    "sin2": "Régua 2: o efeito usa os outros Vampiros (vínculo e toque mortífero ao atacar, compra quando morrem), sem multiplicá-los."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Vampiro 5/5 de 6. Vampiros seus que atacam têm toque mortífero e vínculo. Quando um Vampiro seu morre, você pode pagar 2 de vida para comprar uma carta.",
+   "porque": "É o ataque que o dono quer: cada Vampiro que ataca ganha vínculo, e cada um é um gatilho próprio do Vito, com alvo próprio. Você já tem (Caixa). Sai o Throne of Eldraine, ramp de turno 5 cuja mana não paga a habilidade do Vito.",
+   "sai": "Throne of Eldraine",
+   "papel": "habilita",
+   "papel_dupla": "Draw (Vampiro que morre)",
+   "papel_por_que": "Vampiros que atacam ganham vínculo: cada ataque vira vida para o Vito."
+  },
+  "Epicure of Blood": {
+   "notas": {
+    "combos": 3,
+    "vamp_c": 2,
+    "vida": 3
+   },
+   "sin": {
+    "sin1": 3,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Converte ganho de vida em perda dos oponentes, como um segundo conversor: cada ganho faz cada oponente perder 1. Com o Exquisite Blood, fecha o laço.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Vampiro 4/4 de 5. Sempre que você ganha vida, cada oponente perde 1.",
+   "porque": "O dreno da mesa inteira que o dono pediu: cada vínculo da tribo vira 1 de perda para cada oponente, dois manas mais barato que o Bloodlord. Com o Exquisite Blood também fecha o laço.",
+   "sai": "Defiant Bloodlord",
+   "papel": "recompensa",
+   "papel_por_que": "Cada ganho de vida vira perda de cada oponente: outro conversor, espalhado pela mesa."
+  },
+  "Falkenrath Noble": {
+   "notas": {
+    "vamp_c": 2,
+    "vida": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor sem combate: cada criatura que morre faz um jogador perder 1 e você ganhar 1, um gatilho do Vito por morte.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Vampiro 2/2 voar, de 4. Sempre que ele ou outra criatura morre, um jogador alvo perde 1 e você ganha 1.",
+   "porque": "Um segundo Blood Artist, com voar e na tribo: cada morte vira dreno e gatilho do Vito. Fica como avaliar no lugar da Imp's Mischief.",
+   "sai": "Imp's Mischief",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (dreno a cada morte)",
+   "papel_por_que": "Cada criatura que morre vira 1 de vida, que o Vito converte em mais perda."
   }
  },
  "combos": [
@@ -1995,7 +2062,7 @@
     "Necrodominance",
     "Enduring Tenacity"
    ],
-   "texto": "Com a Necrodominance, a Tenacity é exilada em vez de voltar, e Malakir Rebirth, Agadeem, Blood Artist e Vein Ripper param de funcionar pelas suas cartas."
+   "texto": "Com a Necrodominance, a Tenacity é exilada em vez de voltar, e Malakir Rebirth, Agadeem, Blood Artist e Vein Ripper param de funcionar pelas suas cartas. A Necrodominance fica por decisão do dono (08/11/2026): a mão cheia vale a perda, e a armadilha é só de ordem de jogo."
   },
   {
    "nome": "Armadilha: o laço sem querer",
@@ -2326,20 +2393,6 @@
    "sin_por_que": {},
    "em": "2026-10-18",
    "fonte": "caixa"
-  },
-  "Crossway Troublemakers": {
-   "sin": {
-    "sin1": 1,
-    "sin2": 2
-   },
-   "sin_por_que": {
-    "sin1": "Régua 1: vínculo com a vida que só ganha vida em combate, aqui dado aos Vampiros que atacam.",
-    "sin2": "Régua 2: o efeito usa os outros Vampiros (vínculo e toque mortífero ao atacar, compra quando morrem), sem multiplicá-los."
-   },
-   "em": "2026-10-18",
-   "fonte": "caixa",
-   "papel": "habilita",
-   "papel_por_que": "Vampiros que atacam ganham vínculo: cada ataque vira vida para o Vito."
   }
  },
  "plano": {
