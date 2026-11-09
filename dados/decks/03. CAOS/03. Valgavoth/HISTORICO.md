@@ -42,3 +42,4 @@
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
 - 07/11/2026: custo usual ao lado do impresso, pedido do dono: 3 cartas que saem mais baratas neste deck ganharam o valor usual e a frase de como saem: Blasphemous Act (2), Bolt Bend (1), Unholy Annex // Ritual Chamber (3). O CMC impresso, a curva e o placar não mudam.
 - 08/11/2026: porquê de Basilisk Collar citava Sulfuric Vortex, nome do Scryfall; agora cita Hades Grip, o nome impresso da carta do deck (o teste de regressão pegou). Só o texto mudou.
+- 08/11/2026: nome duplo, pedido do dono: o painel mostra o nome impresso da carta física em destaque e o nome do Scryfall menor, logo abaixo (na gaveta, "No Scryfall: …"); os textos citam a carta como "Impresso (Scryfall)", 5 textos (estratégia, porquê e radar).
