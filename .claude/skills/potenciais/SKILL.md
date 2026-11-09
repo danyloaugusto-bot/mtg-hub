@@ -22,3 +22,5 @@ Deck: $ARGUMENTS
 Lembre: o número mede presença na comunidade, não força. Carta de pré-construído aparece inflada.
 
 Ao terminar: uma linha no `HISTORICO.md` do deck e commit `potenciais: $ARGUMENTS`.
+
+Estratégias do dono: antes de decidir, leia os digests de `contexto/estrategias/` (avaliação de ameaças, staples e efeito manada, e os próximos temas). Staple genérica não entra no radar por ser forte; só quando o deck tem buraco no critério ou no pacote que ela preenche, e respeitando a identidade de cor.
