@@ -243,7 +243,76 @@
     "resultado": "forte",
     "porque": "Exsanguinate e Torment com mana igual ou maior que a deles, e o dreno não depende de mesa."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Tribal de Vampiros pequenos com dreno: mesa visível, mas de corpos baixos, que uma mesa experiente não prioriza. O perigo que a mesa aprende a ler é o Vito convertendo cada ganho de vida em perda, e os motores pagos em vida: Necropotence, Bolas's Citadel e Black Market Connections. Deck midrange: vence do meio para o fim.",
+   "postura": "Conciliadora no início e no meio: o alvo do Vito é escolhido a cada gatilho, então quem ataca você vira alvo e quem se alia fica de fora; é a moeda da política, e vale dizer isso em voz alta na mesa. Assumir quando a mesa estiver montada e o dreno de mesa (Gray Merchant of Asphodel, Malakir Bloodwitch, Exsanguinate) ou o ataque da tribo com vínculo fechar em dois turnos.",
+   "sinais": [
+    {
+     "carta": "Necropotence",
+     "porque": "Compra quantas cartas quiser por vida que o deck repõe: a mesa reage no turno seguinte."
+    },
+    {
+     "carta": "Bolas's Citadel",
+     "porque": "Joga do topo pagando vida: com o Vito em campo, cada ganho que repõe essa vida vira perda de alguém."
+    },
+    {
+     "carta": "Black Market Connections",
+     "porque": "Compra, tesouro e corpo todo turno: motor de valor que a mesa aprende a remover cedo."
+    },
+    {
+     "carta": "Bloodletter of Aclazotz",
+     "porque": "Dobra toda perda de vida dos oponentes no seu turno: a mesa calcula o dreno e vira contra você."
+    },
+    {
+     "carta": "Exquisite Blood",
+     "porque": "Todo mundo conhece o laço com o Vito: na mesa, é remoção certa no turno seguinte."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Exquisite Blood",
+     "porque": "Plano B: com o Vito em campo, o primeiro ganho de vida encerra o jogo, queira ou não. Só desce quando for a hora."
+    },
+    {
+     "carta": "Bloodthirsty Conqueror",
+     "porque": "O mesmo laço com corpo, e o gatilho é obrigatório: fica na mão até a decisão de fechar."
+    },
+    {
+     "carta": "Blood Tribute",
+     "porque": "Mata um jogador por seis manas com o Vito: guarde para o mais forte, não para o mais ferido."
+    },
+    {
+     "carta": "Hatred",
+     "porque": "Carta de estimação e golpe de 21 de comandante com a Shadowspear ou o Shizo: só no turno em que mata."
+    }
+   ],
+   "ponto_de_falha": "O Vito e os conversores (Enduring Tenacity, Marauding Blight-Priest): sem eles, ganhar vida é só ganhar vida. Por decisão do dono (08/11/2026), só Imp's Mischief e Malakir Rebirth o protegem, e o deck segue sem ele pelos Vampiros e pelos drenos de mesa, que não dependem do comandante. O outro ponto é a Necrodominance em campo: as suas mortes viram exílio e Blood Artist, Vein Ripper e a Meathook só rendem com as mortes dos oponentes.",
+   "respostas": [
+    {
+     "carta": "Deadly Rollick",
+     "para": "A criatura que fecha o jogo do oponente (comandante voltron, peça de combo com corpo): de graça com o Vito em campo, exila até indestrutível."
+    },
+    {
+     "carta": "Slaughter Pact",
+     "para": "A criatura não preta que mata alguém no turno, com toda a sua mana virada."
+    },
+    {
+     "carta": "Imp's Mischief",
+     "para": "A remoção pontual no Vito, ou a mágica de alvo único que fecha o combo alheio."
+    },
+    {
+     "carta": "Feed the Swarm",
+     "para": "O encantamento-motor do oponente (um Rhystic Study, uma Smothering Tithe) ou a peça de combo que é encantamento."
+    },
+    {
+     "carta": "Withering Torment",
+     "para": "A mesma resposta em velocidade instantânea, para a peça que entra no turno de fechar."
+    }
+   ],
+   "limpezas": "Três: Toxic Deluge (reset ajustável, pago em vida que o deck repõe), Damnation e The Meathook Massacre, que depois fica drenando. Decisão do dono (08/11/2026): a Damnation fica mesmo com 31 criaturas, porque é preciso controlar a mesa até retomá-la. Boa quando Blood Artist, Vein Ripper ou a Meathook estão em campo (cada morte vira dreno e gatilho do Vito) e a mão está cheia pela Necropotence; ruim com a Necrodominance em campo e sem reconstrução na mão. A quarta, Blasphemous Edict, sai no radar.",
+   "alvo": "O Vito mira a cada gatilho: sempre o jogador com mais recursos (cartas, mana, motor), não o de menos vida; e o alvo pode mudar no turno seguinte. O Preacher of the Schism ataca quem tem mais vida para criar a ficha e compra quando você tem mais vida: no meio do jogo, quem tem mais vida costuma ser o líder."
+  }
  },
  "cartas": {
   "Vito, Thorn of the Dusk Rose": {
@@ -1953,6 +2022,109 @@
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno a cada morte)",
    "papel_por_que": "Cada criatura que morre vira 1 de vida, que o Vito converte em mais perda."
+  },
+  "Three Tree City": {
+   "notas": {
+    "ramp": 3
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Não é Vampiro, mas existe por causa deles: com Vampiro escolhido, gera uma mana por Vampiro seu."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Mikokoro, Center of the Sea",
+   "faz": "Terreno lendário. Ao entrar, escolha um tipo de criatura. Gera {C}; por {2} e virando, gera uma mana da cor escolhida para cada criatura sua do tipo escolhido.",
+   "porque": "Com Vampiro escolhido e a mesa cheia de vampirinhos, vira seis, oito, dez manas pretas num terreno só: o X do Exsanguinate e do Torment cresce com a tribo. Entra desvirado. Sai o Mikokoro, que dá uma carta a você e três à mesa.",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Terreno que gera uma mana preta por Vampiro: a tribo vira mana para o X."
+  },
+  "Faceless Haven": {
+   "notas": {
+    "vamp_s": 2
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Animada, tem todos os tipos de criatura e conta como Vampiro: recebe os lordes e conta para a Malakir Bloodwitch, sem efeito voltado aos outros Vampiros."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Path of Ancestry",
+   "faz": "Terreno de neve. Gera {C}. Por {S}{S}{S} (mana de fonte de neve), vira uma criatura 4/3 com vigilância e todos os tipos de criatura até o fim do turno.",
+   "porque": "Os 20 Snow-Covered Swamp pagam a neve com folga, e ela vira um Vampiro 4/3 que recebe os lordes e ataca com o resto da tribo (no radar, o Sanctum Seeker drena por ela e a Crossway lhe dá vínculo); como terreno, escapa das limpezas de criaturas. Entra desvirado. Sai o Path of Ancestry, que entra virado e só dá vidência.",
+   "papel_dupla": "Vampiro (terreno que vira criatura)",
+   "papel_por_que": "Terreno que vira um Vampiro 4/3 para atacar com a tribo."
+  },
+  "Phyrexian Tower": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Cabal Stronghold",
+   "faz": "Terreno lendário. Gera {C}; virando e sacrificando uma criatura, gera {B}{B}.",
+   "porque": "Saída de sacrifício que paga: cada criatura sacrificada vira {B}{B} e dispara Blood Artist, Vein Ripper e a Meathook, que o Vito converte; também salva o valor de uma criatura que seria exilada ou roubada. Sai o Cabal Stronghold, que rende com os Pântanos básicos, mas repete a mana grande que Coffers, Nykthos, Crypt Ghast, Extraplanar Lens e a Three Tree City já dão.",
+   "papel_dupla": "Ramp (saída de sacrifício)",
+   "papel_por_que": "Terreno que troca uma criatura por {B}{B} e dispara os gatilhos de morte."
+  },
+  "Witch's Clinic": {
+   "notas": {
+    "vida": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Vínculo com a vida no comandante, que só ganha vida em combate."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Shizo, Death's Storehouse",
+   "faz": "Gera {C}. Por {2} e virando, um comandante alvo ganha vínculo com a vida até o fim do turno.",
+   "porque": "Vínculo no Vito todo turno, por {2}: com o Hatred, o dano volta como vida mesmo se ele for bloqueado, e o Vito tira o mesmo tanto de outro oponente. Fica como avaliar no lugar do Shizo, que dá medo ao Vito para o Hatred passar; o deck já tem a Shadowspear para o vínculo.",
+   "papel_dupla": "Vínculo no comandante",
+   "papel_por_que": "Dá vínculo ao Vito: cada dano dele vira ganho e gatilho."
+  },
+  "Takenuma, Abandoned Mire": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno lendário de preto, desvirado. Canalizar, por {3}{B} e descartando-o: tritura três e devolve uma criatura ou planeswalker do cemitério à mão; custa {1} a menos por criatura lendária sua.",
+   "porque": "Gera {B} como um Pântano e, tarde, vira recursão: devolve o Vein Ripper ou o Gray Merchant, por {2}{B} com o Vito em campo. Não é Pântano: Coffers e Crypt Ghast só o contam com o Urborg. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de um dos 20 Snow-Covered Swamp.",
+   "papel_dupla": "Recursão",
+   "papel_por_que": "Terreno que, descartado, devolve uma criatura do cemitério à mão."
+  },
+  "Zof Consumption": {
+   "notas": {
+    "vida": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Ganho de 4 de uma vez, que o Vito devolve inteiro num alvo."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de {4}{B}{B}: cada oponente perde 4 e você ganha 4. O verso é Zof Bloodbog, terreno de preto que entra virado.",
+   "porque": "Dreno que é terreno quando falta terreno: na mesa de quatro, cada oponente perde 4 e o Vito tira mais 4 de um deles. O verso entra virado. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de um dos 20 Snow-Covered Swamp.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (ganho de 4)",
+   "papel_por_que": "Cada oponente perde 4 e o ganho volta pelo Vito noutro."
   }
  },
  "combos": [
