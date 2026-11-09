@@ -2232,7 +2232,25 @@ function estrategiaPanel() {
     return '<div class="vs vs-' + esc(c.resultado) + '"><div class="vs-h"><b>' + esc(CONTRA[c.tipo] || c.tipo) + '</b><span>' + RES[c.resultado] + '</span></div><p>' + rich(c.porque) + '</p></div>';
   }).join('');
   return '<fieldset class="pn estr"><legend>Estratégia</legend>' + (fases ? '<div class="fases">' + fases + '</div>' : '') +
-    (vs ? '<h3 class="sub">Contra quem</h3><div class="vss">' + vs + '</div>' : '') + '</fieldset>';
+    (vs ? '<h3 class="sub">Contra quem</h3><div class="vss">' + vs + '</div>' : '') + (e.mesa ? mesaHtml(e.mesa) : '') + '</fieldset>';
+}
+/* "Na mesa" (08/11/2026): como os outros jogadores leem este deck, pelo material de avaliação de ameaças do dono. As cartas
+   citadas abrem a ficha; nada aqui entra no placar. */
+function mesaHtml(ms) {
+  var byN = {};
+  D.cards.concat(D.cands).forEach(function (c) { byN[c.on || c.n] = c; byN[c.n] = c; });
+  function ref(n) { var c = byN[n]; return c ? '<button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + '</button>' : '<b>' + esc(n) + '</b>'; }
+  function lista(xs, k) { return xs && xs.length ? '<ul>' + xs.map(function (x) { return '<li>' + ref(x.carta) + ': ' + rich(x[k]) + '</li>'; }).join('') + '</ul>' : ''; }
+  function bloco(tit, corpo, cls) { return corpo ? '<div class="mesa-b' + (cls ? ' ' + cls : '') + '"><h4>' + tit + '</h4>' + corpo + '</div>' : ''; }
+  return '<h3 class="sub">Na mesa</h3><p class="mesa-lede">Como os outros jogadores leem este deck, e como jogar a política da mesa. Não entra no placar.</p><div class="mesa-g">' +
+    bloco('Como a mesa te lê', '<p>' + rich(ms.leitura) + '</p>') +
+    bloco('Postura', '<p>' + rich(ms.postura) + '</p>') +
+    bloco('Sinais: o que te marca como a ameaça', lista(ms.sinais, 'porque')) +
+    bloco('O que fica na mão', lista(ms.guardar, 'porque')) +
+    bloco('Ponto de falha', '<p>' + rich(ms.ponto_de_falha) + '</p>', 'mesa-falha') +
+    bloco('Respostas a guardar', lista(ms.respostas, 'para')) +
+    bloco('As suas limpezas', '<p>' + rich(ms.limpezas) + '</p>') +
+    (ms.alvo ? bloco('Quem atacar', '<p>' + rich(ms.alvo) + '</p>') : '') + '</div>';
 }
 
 /* ============ comunidade ============ */
