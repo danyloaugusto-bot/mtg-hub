@@ -13,7 +13,7 @@
 
 Descer o máximo de Anjos, os mais fortes possíveis, e limpar a mesa dos outros com remoção em massa protegendo só a sua: no fim, só você tem criaturas grandes em campo e só você ataca.
 
-**Decisão do dono (07/11/2026):** o deck foge do caminho óbvio de Anjos com ganho de vida que esperam a hora do Akroma's Will. A resposta à mesa dos oponentes é a remoção em massa com proteção unilateral, não a remoção pontual, que fica de fora por escolha. Ser atacado não preocupa: o ganho de vida e os Anjos grandes seguram.
+**Decisão do dono (07/11/2026):** o deck foge do caminho óbvio de Anjos com ganho de vida que esperam a hora do Akroma's Will. A resposta à mesa dos oponentes é a remoção em massa com proteção unilateral, não a remoção pontual: as que já estão no deck (Get Lost, Generous Gift, Darksteel Mutation e a Eiganjo) ficam, e nenhuma outra entra. Ser atacado não preocupa: o ganho de vida e os Anjos grandes seguram.
 
 ## Tema e subtemas
 
