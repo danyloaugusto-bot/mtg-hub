@@ -38,3 +38,4 @@ Painel feito em conversa: avaliação das 100 cartas, radar com 22 candidatas, s
 - 06/11/2026: o porquê de cada carta foi revisado para explicar, numa frase, o tier e a relevância neste deck (pedido do dono). Notas, tiers e placar não mudaram.
 - 07/11/2026: custo usual ao lado do impresso, pedido do dono: 1 carta que sai mais barata neste deck ganhou o valor usual e a frase de como sai: Markov Baron (0). O CMC impresso, a curva e o placar não mudam.
 - 08/11/2026: porquês de Bloodthirsty Conqueror e Vito citavam Exquisite Blood, nome do Scryfall; agora citam Hunger of the Ancient One, o nome impresso da carta do deck. Só o texto mudou.
+- 08/11/2026: nome duplo, pedido do dono: o painel mostra o nome impresso da carta física em destaque e o nome do Scryfall menor, logo abaixo (na gaveta, "No Scryfall: …"); os textos citam a carta como "Impresso (Scryfall)", 5 textos (estratégia, porquês e combos).
