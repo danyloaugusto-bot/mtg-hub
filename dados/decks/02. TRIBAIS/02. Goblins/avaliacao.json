@@ -242,7 +242,76 @@
     "resultado": "fraco",
     "porque": "Taxa por criatura e travas de ataque seguram a horda."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Mesa larga de Goblins 1/1: pela hierarquia, ameaça visível e de prioridade baixa, até o Krenko descer. O Krenko é outra história: comandante conhecido por laço (Skirk Prospector, Thornbite Staff), a mesa mira nele antes da primeira ativação. O que faz a mesa virar de vez contra você é a saída de sacrifício em campo (Goblin Bombardment, Ashnod's Altar) com o Krenko ativando.",
+   "postura": "Conciliadora enquanto a horda dobra atrás de bloqueadores: dizer em voz alta que 1/1 não ameaça ninguém e deixar os outros brigarem. Assumir no turno em que o Krenko ativou duas vezes e o fechamento está na mão (Goblin War Strike, Shared Animosity, Fiery Emancipation): aí o jogo acaba antes de a mesa comprar a limpeza, e esperar só dá tempo a ela.",
+   "sinais": [
+    {
+     "carta": "Krenko, Mob Boss",
+     "porque": "Comandante de laço conhecido: a mesa reage à primeira ativação, e a remoção guardada vem nele."
+    },
+    {
+     "carta": "Goblin Bombardment",
+     "porque": "Saída grátis que converte cada ficha em dano: com o Krenko em campo, a mesa lê combo e remove o Krenko."
+    },
+    {
+     "carta": "Fiery Emancipation",
+     "porque": "Triplica todo dano: ninguém deixa um Bombardment com ele em campo por uma volta."
+    },
+    {
+     "carta": "Shared Animosity",
+     "porque": "Vinte Goblins batendo 20 cada: na mesa antes do ataque, é a primeira remoção de encantamento."
+    },
+    {
+     "carta": "Ashnod's Altar",
+     "porque": "Peça de laço com o Thornbite Staff do radar: outra que acende o alerta da mesa."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Shared Animosity",
+     "porque": "Fechamento de um turno: só desce no turno em que a horda ataca e mata."
+    },
+    {
+     "carta": "Goblin War Strike",
+     "porque": "Dano do tamanho da horda por {R}: guarde para o turno depois da ativação, no jogador que está prestes a fechar."
+    },
+    {
+     "carta": "Brightstone Ritual",
+     "porque": "Mana da horda: paga ativação e fechamento no mesmo turno; não gaste para desenvolver."
+    },
+    {
+     "carta": "Eldrazi Monument",
+     "porque": "Voo e indestrutível para a horda: desce com a mesa cheia, quando a limpeza deles já veio ou o ataque mata."
+    }
+   ],
+   "ponto_de_falha": "O Krenko: habilitador e ponto de falha, pelo Plano do deck. Sem ele a horda não dobra, e cada volta do comando custa 2 a mais. Por isso o radar leva a proteção a entra (Swiftfoot Boots, Untimely Malfunction, Commander's Plate, Mithril Coat, Tibalt's Trickery, Deflecting Swat). O segundo ponto é a limpeza: Lavabrink Floodgates e Nevinyrral's Disk, do próprio deck, matam a horda e o Krenko, e saem no radar.",
+   "respostas": [
+    {
+     "carta": "Mizzium Mortars",
+     "para": "Com sobrecarga, a mesa larga do oponente que bloqueia a horda; sem sobrecarga, a criatura que mata o Krenko ou o lorde deles."
+    },
+    {
+     "carta": "Chaos Warp",
+     "para": "A permanente que trava a horda (taxa de ataque, Ghostly Prison alheia) ou a peça de combo que não é criatura."
+    },
+    {
+     "carta": "Deflecting Swat",
+     "para": "A remoção pontual no Krenko, devolvida ao dono."
+    },
+    {
+     "carta": "Red Sun's Twilight",
+     "para": "A mesa de pedras de mana do oponente que corre na frente."
+    },
+    {
+     "carta": "Goblin Negotiation",
+     "para": "A criatura que segura a horda: o dano a mais vira Goblins."
+    }
+   ],
+   "limpezas": "Hoje uma a favor, Mizzium Mortars com sobrecarga, e três que levam a horda e o Krenko junto (Lavabrink Floodgates, Nevinyrral's Disk, Worldfire), que o radar tira. Entram pelo radar Goblin Chainwhirler e Electrickery, que só pegam o lado deles: três limpezas unilaterais, como o dono pede. Boa: antes do seu ataque, para tirar os bloqueadores pequenos. Ruim: qualquer uma simétrica com o Krenko em campo. Blasphemous Act fica como avaliar: só vale com Eldrazi Monument na mesa, ou com Brash Taunter e Fiery Emancipation.",
+   "alvo": "Quem tem mais remoção em massa provável (controle com mana aberta) é quem precisa cair primeiro: a horda morre para uma carta. A horda ataca quem tem menos bloqueadores; o Goblin Bombardment mira quem está prestes a fechar, não quem tem menos vida; com Shared Animosity, tudo em um jogador só."
+  }
  },
  "cartas": {
   "Krenko, Mob Boss": {
@@ -1694,10 +1763,9 @@
    },
    "tier": "B",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "fora",
    "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
-   "porque": "Protege o Krenko sem barrar o Thornbite Staff. Fontes A, B e C pedem proteção.",
-   "sai": "Izzet Chemister",
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela.",
    "marcas": {
     "imp": 1
    }
@@ -1781,10 +1849,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "INS",
-   "veredito": "entra",
+   "veredito": "fora",
    "faz": "Artefato lendário indestrutível de 4: proteção ao conjurar; vira: compre uma por marcador; perde 1 por marcador.",
-   "porque": "Compra que cresce. Game Changer. Fontes A e B.",
-   "sai": "Hedron Archive"
+   "porque": "Fica de fora por decisão do dono (09/11/2026): staple genérica, forte em qualquer deck e sem sinergia própria com este; não estava fora do radar, foi deixada de fora para o deck não ficar igual aos outros."
   },
   "Impact Tremors": {
    "notas": {
@@ -1826,10 +1893,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "fora",
    "faz": "Artefato de 1: {C}{C}{C}; não desvira sozinho; virado no passo de compra, 1 de dano.",
-   "porque": "O Krenko no turno 2. Game Changer. Fontes A e B.",
-   "sai": "Glittering Stockpile"
+   "porque": "Fica de fora por decisão do dono (09/11/2026): staple genérica, forte em qualquer deck e sem sinergia própria com este; não estava fora do radar, foi deixada de fora para o deck não ficar igual aos outros."
   },
   "Goblin Ringleader": {
    "notas": {
@@ -1860,10 +1926,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "fora",
    "faz": "Instantânea de 3, grátis com um comandante seu em campo: muda os alvos de uma mágica ou habilidade.",
-   "porque": "A remoção no Krenko vai para outro lugar. Fontes B e C.",
-   "sai": "Curse of Opulence"
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela."
   },
   "Electrickery": {
    "notas": {
@@ -2057,8 +2122,8 @@
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Terreno: {C}{C}, com 2 de dano.",
-   "porque": "Aceleração. Game Changer. Fontes A e B.",
-   "sai": "Opal Palace"
+   "porque": "Aceleração: o Krenko no turno 2. Game Changer. Fontes A e B. Sai o Soulstone Sanctuary, que vira Goblin por {4} e dá só incolor.",
+   "sai": "Soulstone Sanctuary"
   },
   "Jeska's Will": {
    "notas": {
@@ -2159,11 +2224,12 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno do tipo escolhido: {C}, ou qualquer cor para criatura dele, que não pode ser anulada.",
-   "porque": "Goblins que não são anulados. Fonte A.",
-   "sai": "Soulstone Sanctuary"
+   "porque": "Goblins que não são anulados. Fonte A. Sem quem sai: os três terrenos fracos já têm troca; no lugar de uma Montanha, se a mesa tiver azul."
   },
   "Three Tree City": {
-   "notas": {},
+   "notas": {
+    "ramp": 3
+   },
    "sin": {
     "sin1": 1,
     "sin2": 2
@@ -2172,14 +2238,15 @@
     "sin1": "Terreno que escolhe o tipo: de passagem.",
     "sin2": "Mana do tamanho da horda por {2}, todo turno."
    },
-   "tier": "B",
-   "rel": "MED",
-   "veredito": "avaliar",
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
    "faz": "Terreno lendário do tipo escolhido: {C}; {2}, vira: uma mana de uma cor por criatura desse tipo.",
-   "porque": "Mana da horda. Fonte A.",
+   "porque": "Com Goblin escolhido e o Krenko dobrando a horda, vira dez, vinte manas vermelhas num terreno só: paga a ativação, o Goblin War Strike e o resto da mão no mesmo turno. Entra desvirado. Sai o Path of Ancestry, que entra virado por uma vidência. Fonte A.",
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Uma mana por Goblin seu: a horda vira mana num terreno."
+   "papel_por_que": "Uma mana por Goblin seu: a horda vira mana num terreno.",
+   "sai": "Path of Ancestry"
   },
   "Goblin Trashmaster": {
    "notas": {
@@ -2511,6 +2578,25 @@
    "porque": "A outra recompensa que falta: cada ficha que o Krenko cria rende {C} do tamanho da horda, e uma ativação vira mana para descer o resto da mão no mesmo turno; no lugar do Faithless Looting, filtro que perde carta.",
    "papel": "recompensa",
    "papel_por_que": "Cada Goblin que entra vira mana do tamanho da horda."
+  },
+  "Castle Embereth": {
+   "notas": {
+    "buff": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Não é Goblin: fortalece a horda inteira sem citar a tribo, de passagem, como a régua trata o Shared Animosity."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Opal Palace",
+   "faz": "Terreno: gera {R}; entra virado se você não controla uma Montanha. Por {1}{R}{R} e virando: suas criaturas ganham +1/+0 até o fim do turno.",
+   "porque": "Com 28 Montanhas entra desvirado, e por três manas dá +1/+0 à horda inteira: depois de uma ativação do Krenko são 20 de dano a mais num terreno, sem gastar vaga de mágica. Sai o Opal Palace, que sem pagar {1} dá só incolor.",
+   "papel_dupla": "Buff (a horda inteira)",
+   "papel_por_que": "Terreno que dá +1/+0 à horda inteira por ativação."
   }
  },
  "combos": [
