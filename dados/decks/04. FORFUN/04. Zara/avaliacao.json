@@ -247,7 +247,84 @@
     "resultado": "fraco",
     "porque": "Mão sem criaturas: a Zara olha e não acha nada para pôr."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Comandante de cinco manas que rouba da mão: a mesa aprende rápido que cada ataque da Zara custa a melhor criatura de alguém, e trata o deck como controle de roubo. Até ela descer, a mesa vê pedras e anulações e não se preocupa; o Rhystic Study e os dois Niv-Mizzet são os sinais que viram a mesa contra você.",
+   "postura": "Conciliadora até a Zara descer com o Clout of the Dominus: o deck quase não tem corpo, então a defesa é a política e a Propaganda. O roubo é político e verificável: a Telepathy mostra as mãos, e você pode dizer na mesa que ataca quem tem a melhor criatura na mão, que costuma ser o líder. Assumir quando Mob Rule ou Mass Manipulation estiverem na mão com letal na mesa, ou quando a Curiosity encontrar um Niv-Mizzet com anulação aberta.",
+   "sinais": [
+    {
+     "carta": "Rhystic Study",
+     "porque": "A taxa que ninguém paga: motor de compra do topo da hierarquia, que uma mesa atenta remove cedo."
+    },
+    {
+     "carta": "Niv-Mizzet, Parun",
+     "porque": "Carta de estimação e metade do combo: desce e atrai a primeira remoção da mesa."
+    },
+    {
+     "carta": "Niv-Mizzet, the Firemind",
+     "porque": "O mesmo, e com a Curiosity fecha o jogo: a mesa conhece o laço."
+    },
+    {
+     "carta": "Clout of the Dominus",
+     "porque": "Na Zara, manto e ímpeto: a mesa entende que o roubo vai acontecer toda rodada e sem resposta mirada."
+    },
+    {
+     "carta": "Dominus of Fealty",
+     "porque": "Rouba uma permanente por turno, sozinho: a mesa reage no primeiro gatilho."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Mob Rule",
+     "porque": "Até a mesa dos outros ter criaturas suficientes para o ataque ser letal: antes disso, é só um turno barulhento."
+    },
+    {
+     "carta": "Mass Manipulation",
+     "porque": "Roubo que fica, em massa: só com mana para X de 2 ou mais e a mesa montada."
+    },
+    {
+     "carta": "Curiosity",
+     "porque": "Só com um Niv-Mizzet em campo e uma anulação aberta: sem proteção, a Aura é remoção certa."
+    },
+    {
+     "carta": "Cyclonic Rift",
+     "porque": "A sobrecarga é o turno de fechar; não gaste sem letal, nem como remoção de uma peça só."
+    },
+    {
+     "carta": "Fated Infatuation",
+     "porque": "Instantânea na etapa final: copia a emprestada antes de ela voltar ao dono."
+    }
+   ],
+   "ponto_de_falha": "A Zara: cinco manas, sem proteção além do Clout, e cinco limpezas da própria lista a matam; o deck é dela, e sem conversor repetível o roubo some na etapa final. Depois, os dois Niv-Mizzet: seis manas que atraem remoção. A proteção sobe no radar (Swiftfoot Boots entra), e a Thassa e a Sundial of the Infinite fazem o roubo ficar.",
+   "respostas": [
+    {
+     "carta": "Counterspell",
+     "para": "A remoção na Zara ou a mágica que fecha o jogo de alguém; não a primeira criatura grande."
+    },
+    {
+     "carta": "Exclude",
+     "para": "A criatura que mata a Zara em combate ou que fecha o jogo, e ainda compra."
+    },
+    {
+     "carta": "Izzet Charm",
+     "para": "A mágica não criatura que fecha, ou 2 de dano no bloqueador da Zara."
+    },
+    {
+     "carta": "Redirect",
+     "para": "A remoção pontual na Zara ou no Niv-Mizzet, devolvida a outro alvo."
+    },
+    {
+     "carta": "Mizzium Mortars",
+     "para": "A mesa larga que ameaça você, com sobrecarga, sem tocar na Zara nem nas emprestadas."
+    },
+    {
+     "carta": "Chaos Warp",
+     "para": "Do radar: a permanente que o azul não resolve, inclusive encantamento."
+    }
+   ],
+   "limpezas": "Cinco: Cyclonic Rift e Mizzium Mortars são unilaterais, e são as boas; Consuming Tide deixa uma permanente sua, a Zara. Nevinyrral's Disk e Blasphemous Act matam a Zara e as Auras de roubo: use só com a Zara na mão ou no comando, e o Disk sai no radar. Quem reconstrói melhor depois da sua limpeza é você, que rouba o que eles baixam de novo.",
+   "alvo": "A Zara ataca quem tem a melhor criatura na mão, não quem tem menos vida; a Telepathy decide antes do combate. A emprestada entra atacando outro jogador, então um ataque pressiona dois. Mude o alvo a cada rodada: quem perdeu a criatura já pagou, e a mesa vê que o roubo não é perseguição."
+  }
  },
  "cartas": {
   "Zara, Renegade Recruiter": {
@@ -1741,10 +1818,9 @@
    },
    "tier": "B",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "fora",
    "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
-   "porque": "Protege a Zara sem barrar você, ao contrário do manto. Fontes B e D.",
-   "sai": "Run Away Together"
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela."
   },
   "Treachery": {
    "notas": {
@@ -2503,14 +2579,15 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "entra",
    "faz": "Terreno: {C}; vira, sacrifique uma criatura: ganhe 1 de vida.",
-   "porque": "Saída de sacrifício na vaga de terreno: a emprestada vai para o cemitério do dono em vez de voltar à mão dele. Não dá cor. Potencial do edh.wiki (+41%).",
+   "porque": "Saída de sacrifício numa vaga de terreno: a emprestada vai para o cemitério do dono em vez de voltar à mão dele, e o Fling e a Kazuul's Fury ganham um irmão sem custo de mana. Entra desvirado no lugar do Myriad Landscape, que entra virado e busca dois básicos virados. Potencial do edh.wiki (+41%).",
    "marcas": {
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Terreno que sacrifica a roubada antes de ela voltar, por 1 de vida (papel fraco)."
+   "papel_por_que": "Terreno que sacrifica a roubada antes de ela voltar, por 1 de vida (papel fraco).",
+   "sai": "Myriad Landscape"
   },
   "Thud": {
    "notas": {
@@ -2579,6 +2656,51 @@
    },
    "papel": "recompensa",
    "papel_por_que": "Depois do ataque da Zara, entra como cópia de qualquer criatura, como a roubada, e fica."
+  },
+  "Riverglide Pathway": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Izzet Boilerworks",
+   "faz": "Terreno de duas faces: a frente gera {U}, o verso gera {R}. Você escolhe a face ao jogá-lo; entra desvirado.",
+   "porque": "A cor que faltar, desvirada e sem custo, no lugar do Izzet Boilerworks, que entra virado e devolve um terreno à mão: o deck quer a Zara no turno 5 sem perder um turno de mana."
+  },
+  "Hanweir Battlements": {
+   "notas": {
+    "motor": 2
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Prepara o ataque da Zara sem roubar, dando-lhe ímpeto, como o Clout of the Dominus e as botas na régua."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Temple of Epiphany",
+   "faz": "Gera {C}. Por {R} e virando: uma criatura alvo ganha ímpeto até o fim do turno. Por {3}{R}{R}, virando: se você possui e controla este terreno e uma criatura chamada Hanweir Garrison, exile-os e funda-os em Hanweir, the Writhing Township.",
+   "porque": "Ímpeto para a Zara no turno em que ela desce, sem depender do Clout: o primeiro roubo vem um turno antes, e a emprestada já ataca. Entra desvirado no lugar do Temple of Epiphany, que entra virado por uma vidência.",
+   "papel_dupla": "Ímpeto para a Zara",
+   "papel_por_que": "Terreno que dá ímpeto à Zara: o roubo começa no turno em que ela entra."
+  },
+  "Riptide Laboratory": {
+   "notas": {
+    "fechamento": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Reliquary Tower",
+   "faz": "Gera {C}. Por {1}{U} e virando: devolve um Mago que você controla à mão do dono.",
+   "porque": "Salva da remoção os dois Niv-Mizzet, cartas de estimação e fechamento do deck, e o Archmage Emeritus: a fraqueza do fim de jogo, os Niv-Mizzet atraindo a primeira remoção, ganha resposta numa vaga de terreno. Incolor por incolor, no lugar do Reliquary Tower, que só importa com a mão acima de sete.",
+   "papel_dupla": "Proteção dos Niv-Mizzet",
+   "papel_por_que": "Terreno que devolve o Mago à mão em resposta à remoção."
   }
  },
  "combos": [
