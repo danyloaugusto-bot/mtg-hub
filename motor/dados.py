@@ -176,9 +176,12 @@ def _mapa_decks():
                 if _nome_de_deck(n) and os.path.isdir(os.path.join(gp, n)):
                     m.setdefault(n, os.path.join(gp, n))
     if os.path.isdir(DADOS):
+        # pasta solta em dados/ só é deck se tiver a ficha, a lista ou a avaliação: dados/estratégias/ (material do dono,
+        # 08/11/2026) e outras pastas de apoio não são decks
         for n in sorted(os.listdir(DADOS)):
-            if _nome_de_deck(n) and os.path.isdir(os.path.join(DADOS, n)):
-                m.setdefault(n, os.path.join(DADOS, n))
+            p = os.path.join(DADOS, n)
+            if _nome_de_deck(n) and os.path.isdir(p) and _tem_deck(p):
+                m.setdefault(n, p)
     return m
 
 
@@ -634,12 +637,44 @@ def conferir_leituras(leituras, grupos, marcadores):
             raise ErroDeck("%s: 'rotulo' precisa ser [singular, plural]" % q)
 
 
-def conferir_estrategia(e):
-    """Bloco opcional: as três fases do jogo e contra que tipo de deck este vai bem ou mal."""
+MESA_TEXTOS = ("leitura", "postura", "ponto_de_falha", "limpezas")          # obrigatórios
+MESA_LISTAS = {"sinais": "porque", "guardar": "porque", "respostas": "para"}  # listas de {"carta", <frase>}
+
+
+def conferir_mesa(ms, nomes):
+    """estrategia.mesa (08/11/2026, material de threat assessment do dono): como a mesa lê este deck. Textos: leitura, postura,
+    ponto_de_falha, limpezas (obrigatórios) e alvo (opcional). Listas de cartas com frase: sinais (o que te marca como ameaça),
+    guardar (o que fica na mão) e respostas (que remoção guardar, e para quê). Toda carta citada precisa estar no deck ou no
+    radar, pelo nome do Scryfall."""
+    if not isinstance(ms, dict):
+        raise ErroDeck("estratégia, 'mesa': precisa ser um objeto")
+    for k in MESA_TEXTOS:
+        if not str(ms.get(k, "")).strip():
+            raise ErroDeck("estratégia, 'mesa': falta '%s'" % k)
+    for k, frase in MESA_LISTAS.items():
+        xs = ms.get(k) or []
+        if not isinstance(xs, list):
+            raise ErroDeck("estratégia, mesa.%s: precisa ser uma lista" % k)
+        for x in xs:
+            if not isinstance(x, dict) or not str(x.get("carta", "")).strip() or not str(x.get(frase, "")).strip():
+                raise ErroDeck("estratégia, mesa.%s: cada item leva 'carta' e '%s'" % (k, frase))
+            if nomes is not None and x["carta"] not in nomes:
+                raise ErroDeck("estratégia, mesa.%s: '%s' não está no deck nem no radar" % (k, x["carta"]))
+    extras = set(ms) - set(MESA_TEXTOS) - set(MESA_LISTAS) - {"alvo"}
+    if extras:
+        raise ErroDeck("estratégia, 'mesa': campo desconhecido %s" % ", ".join(sorted(extras)))
+    return ms
+
+
+def conferir_estrategia(e, nomes=None):
+    """Bloco opcional: as três fases do jogo, contra que tipo de deck este vai bem ou mal e, em 'mesa', como a mesa lê o deck.
+    `nomes` são os nomes do deck e do radar, para conferir as cartas citadas em 'mesa'."""
     if e is None:
         return None
     if not isinstance(e, dict):
         raise ErroDeck("avaliacao.json: 'estrategia' precisa ser um objeto")
+    if e.get("mesa") is not None:
+        conferir_mesa(e["mesa"], nomes)
     for f in FASES:
         x = e.get(f)
         if x is None:
@@ -841,7 +876,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         edh = dict(fonte=com.get("fonte", "edh.wiki"), url=com.get("url", ""), lido=com.get("lido", ""), pagina=com.get("pagina", ""),
                    temas=com.get("temas") or [], listas=com.get("listas") or [], precon=com.get("precon"))
 
-    estrategia = conferir_estrategia(av.get("estrategia"))
+    estrategia = conferir_estrategia(av.get("estrategia"), set(cartas_av) | set(radar_av))
     # onde as cartas deste painel aparecem nos outros decks e nas pastas (foto do último build de cada um)
     minhas = {chave_nome(c.get("on", c["n"])) for c in cards + cands + pool}
     # avulso: nada da coleção do dono (outros decks, pastas, Caixa) aparece no painel dele
