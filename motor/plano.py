@@ -247,7 +247,7 @@ def _cortes(cards, sobra, entra, usados):
     out = []
     terra = lambda x: bool(x.get("land") or x.get("mdfc"))
     for c in cards:
-        if c.get("cmd") or c.get("nocut") or c.get("rel") == "INS" or c["q"] != 1 or c["id"] in usados:
+        if c.get("cmd") or c.get("nocut") or c.get("fica") or c.get("rel") == "INS" or c["q"] != 1 or c["id"] in usados:
             continue
         if terra(c) != terra(entra):
             continue
