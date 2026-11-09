@@ -223,7 +223,72 @@
     "resultado": "forte",
     "porque": "A colmeia ataca voando antes da criatura grande deles."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Tribal de cinco cores com cascata: a ameaça mais visível que existe. Cada Sliver conjurado traz outro de graça, e a mesa vê a colmeia ganhar voar, golpe duplo e indestrutível; ninguém precisa ler o Rhystic Study para saber quem é o alvo. O que uma mesa experiente remove primeiro é o The First Sliver (a cascata), Gemhide e Manaweft (a mana) e a Sliver Queen (o combo que todo mundo conhece). Smothering Tithe e Rhystic Study são os sinais clássicos, e aqui só pioram a leitura.",
+   "postura": "Assumir a ameaça, e cedo: o deck não tem como se esconder, então a resposta é velocidade e proteção. Enquanto as cinco cores não fecham (o The First Sliver pede {W}{U}{B}{R}{G}), seja conciliador: Slivers de uma e duas manas, Gemhide e Manaweft, e nenhuma ameaça que peça resposta. Com o comandante em campo, cada Sliver conjurado é uma cascata: ataque voando com Galerider e Cloudshredder, feche em dois turnos com Sliver Legion ou com Bonescythe e Virulent (dois venenos por golpe), e guarde Heroic Intervention e Teferi's Protection para a limpeza que vai vir.",
+   "sinais": [
+    {
+     "carta": "The First Sliver",
+     "porque": "A cascata: cada Sliver conjurado traz outro de graça, e a mesa conta."
+    },
+    {
+     "carta": "Sliver Queen",
+     "porque": "O combo que a mesa conhece: com Intruder Alarm ou Mana Echoes, do radar, fichas sem fim."
+    },
+    {
+     "carta": "Smothering Tithe",
+     "porque": "Um Tesouro a cada compra deles: a mesa inteira paga a sua mana."
+    },
+    {
+     "carta": "Rhystic Study",
+     "porque": "O motor de compra que toda mesa aprende a remover primeiro."
+    },
+    {
+     "carta": "Sliver Legion",
+     "porque": "O lorde que fecha: +1/+1 por Sliver em cada um, e a mesa vê o letal."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Heroic Intervention",
+     "porque": "A limpeza alheia: indestrutível e hexproof para a colmeia por duas manas, em resposta."
+    },
+    {
+     "carta": "Teferi's Protection",
+     "porque": "A limpeza que exila ou dá −X/−X, que passa pelo Hivelord: a única saída."
+    },
+    {
+     "carta": "Sliver Queen",
+     "porque": "O combo só desce com a peça do radar na mão e a mesa sem contramágica aberta."
+    },
+    {
+     "carta": "Cyclonic Rift",
+     "porque": "Com sobrecarga, no fim do turno antes do seu ataque letal, não antes."
+    }
+   ],
+   "ponto_de_falha": "O The First Sliver e os dois Slivers de mana (Gemhide, Manaweft): sem a cascata, a colmeia é um tribal lento de cinco cores. Depois, a limpeza que exila ou dá −X/−X: Sliver Hivelord e Crystalline não salvam dela, só Teferi's Protection e Heroic Intervention. E o texto antigo: Heart, Crystalline, Harmonic e os outros marcados valem para os Slivers dos oponentes também.",
+   "respostas": [
+    {
+     "carta": "Swords to Plowshares",
+     "para": "A criatura que fecha o jogo de alguém: comandante voltron ou peça de combo com corpo."
+    },
+    {
+     "carta": "Path to Exile",
+     "para": "A mesma, quando a Swords já foi; o terreno que eles ganham não importa no turno em que fechariam."
+    },
+    {
+     "carta": "Fierce Guardianship",
+     "para": "A limpeza ou a mágica que vence, de graça com o comandante em campo."
+    },
+    {
+     "carta": "Necrotic Sliver",
+     "para": "Qualquer permanente, por {3} e sacrificando um Sliver: o motor de compra ou de mana do líder."
+    }
+   ],
+   "limpezas": "Uma, e unilateral: Cyclonic Rift com sobrecarga. A Kindred Dominance do radar é a segunda: escolhendo Sliver, só a colmeia fica (e o Morophon, que é Changeling). Com o Sliver Hivelord em campo, qualquer limpeza que destrói vira unilateral a seu favor, mas o deck não tem nenhuma. Pela regra do dono (3 a 4 por deck, de preferência unilaterais), Winds of Abandon entra no radar: com sobrecarga, exila todas as criaturas que você não controla. Limpeza é boa aqui quando o Hivelord ou a Heroic Intervention cobrem a colmeia; sem eles, nunca.",
+   "alvo": "Quem tem a limpeza ou a contramágica na mão: a colmeia perde para uma carta, não para uma mesa. Ataque voando (Galerider, Cloudshredder) no jogador com mais cartas na mão e mana aberta, e deixe o mais ferido para depois; com o Sliver Overlord, busque a resposta para a mesa, não só o próximo lorde."
+  }
  },
  "cartas": {
   "The First Sliver": {
@@ -2160,6 +2225,58 @@
    "veredito": "fora",
    "faz": "Encantamento de 3. Exile uma criatura sua: mana igual ao valor dela mais 1, só para criaturas.",
    "porque": "O edh.wiki cita o Food Chain nas listas afiadas; nesta lista nenhuma criatura volta do exílio para repetir, e sozinho ele só acelera."
+  },
+  "Talon Gates of Madara": {
+   "notas": {
+    "protecao": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Exotic Orchard",
+   "faz": "Terreno (Portão). Ao entrar, até uma criatura alvo sai de fase. Gera {C}, ou uma mana de qualquer cor por {1}. Por {4}, você o põe da mão em campo, a qualquer momento.",
+   "porque": "Proteção num terreno: por {4}, em resposta à remoção ou à limpeza que exila, tira de fase o The First Sliver ou a Sliver Queen; também tira de fase o atacante grande de um oponente. Dá qualquer cor por {1}, o que num deck de cinco cores vale como fixador. Entra desvirado. Sai o Exotic Orchard, que depende dos terrenos dos oponentes e numa mesa de duas cores não dá as cinco.",
+   "papel_dupla": "Proteção (sai de fase)",
+   "papel_por_que": "Terreno de estrutura que tira um Sliver lendário de fase em resposta a uma remoção."
+  },
+  "Mutavault": {
+   "notas": {
+    "colmeia": 1,
+    "fechamento": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Animado, tem todos os tipos de criatura e conta como Sliver (Changeling conta): recebe os bônus e as habilidades da colmeia, mas não dá nada aos outros, como o Sliver que só melhora a si mesmo."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Heart Sliver",
+   "faz": "Gera {C}. Por {1}, vira uma criatura 2/2 com todos os tipos de criatura até o fim do turno; continua sendo um terreno.",
+   "porque": "Um Sliver que mora na base de mana: por {1} vira um 2/2 que recebe voar, golpe duplo, os lordes e o indestrutível da colmeia, ataca e volta a ser terreno, fora do alcance das limpezas. Entra desvirado. Sai o Heart Sliver, a segunda fonte de ímpeto da colmeia (o Cloudshredder já dá), que ainda dá ímpeto aos Slivers dos oponentes.",
+   "papel_dupla": "Corpo da colmeia (terreno que vira Sliver)",
+   "papel_por_que": "Terreno que vira um Sliver 2/2 e recebe tudo o que a colmeia dá."
+  },
+  "Winds of Abandon": {
+   "notas": {
+    "removal": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Spiteful Sliver",
+   "massa": true,
+   "pontual": true,
+   "faz": "Feitiço de {1}{W}: exila uma criatura que você não controla, e o dono dela busca um terreno básico, que entra virado. Sobrecarga {4}{W}{W}: exila todas as criaturas que você não controla.",
+   "porque": "A limpeza unilateral que a regra do dono pede (3 a 4 por deck): com sobrecarga, exila só as criaturas dos oponentes e a colmeia fica inteira, sem depender do Hivelord; por duas manas, é remoção pontual que exila. A Giada usa a mesma carta. Sai o Spiteful Sliver, cujo dano devolvido depende de alguém bater nos seus Slivers.",
+   "papel_dupla": "Remoção em massa unilateral",
+   "papel_por_que": "Exila a mesa dos oponentes e poupa a colmeia."
   }
  },
  "combos": [
