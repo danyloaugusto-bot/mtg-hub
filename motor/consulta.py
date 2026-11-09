@@ -281,11 +281,11 @@ def _comparaveis(m, f, n=8):
     cri = "Creature" in f["tipo"].split("//")[0]
     cs = [c for c in m["cards"] if not c.get("cmd") and not c.get("land") and (c.get("t") == "cri") == cri and abs((c.get("cmc") or 0) - f["cmc"]) <= 1]
     cs.sort(key=lambda c: (_valor(c), c["n"]))
-    return [dict(n=c["n"], cmc=c.get("cmc"), tier=c.get("tier"), rel=c.get("rel"), valor=_valor(c), sin=c["s3"][:2], intocavel=bool(c.get("nocut"))) for c in cs[:n]]
+    return [dict(n=c["n"], cmc=c.get("cmc"), tier=c.get("tier"), rel=c.get("rel"), valor=_valor(c), sin=c["s3"][:2], intocavel=bool(c.get("nocut") or c.get("fica"))) for c in cs[:n]]
 
 
 def _mais_fracas(m, n=5):
-    cs = [c for c in m["cards"] if not c.get("cmd") and not c.get("land") and not c.get("nocut")]
+    cs = [c for c in m["cards"] if not c.get("cmd") and not c.get("land") and not c.get("nocut") and not c.get("fica")]
     cs.sort(key=lambda c: (_valor(c), c["n"]))
     return [dict(n=c["n"], cmc=c.get("cmc"), tier=c.get("tier"), rel=c.get("rel"), valor=_valor(c)) for c in cs[:n]]
 
@@ -690,7 +690,7 @@ def _deck_para_pagina(m, i, capa):
     sins = t.get("sinergias") or {}
     def sai(c):
         return dict(n=c["n"], v=encaixe.valor(c["s3"]), cmc=c["cmc"], land=1 if c.get("land") else 0, acel=c["s3"][ctx["ia"]]) if c else None
-    cs = [[c["n"], c.get("cmc") or 0, 1 if c.get("t") == "cri" else 0, encaixe.valor(c["s3"]), c.get("tier") or "", 1 if c.get("nocut") else 0]
+    cs = [[c["n"], c.get("cmc") or 0, 1 if c.get("t") == "cri" else 0, encaixe.valor(c["s3"]), c.get("tier") or "", 1 if c.get("nocut") or c.get("fica") else 0]
           for c in m["cards"] if not c.get("cmd") and not c.get("land")]
     return dict(pasta=m["pasta"], grupo=m["pasta"][:2], painel=m.get("painel"), cmd=m.get("curto"), ident=m.get("ident") or "",
                 desejo=1 if i.get("desejo") else 0, precon=1 if i.get("precon") else 0, capa=capa,
