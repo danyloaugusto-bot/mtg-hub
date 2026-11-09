@@ -142,5 +142,11 @@ for chave in ("cards", "cands"):
 for d in dif[:30]:
     R.nota(d)
 R.ok("cartas do deck e do radar iguais, campo a campo (%d e %d)" % (len(N["cards"]), len(N["cands"])), not dif, len(dif))
-R.ok("combos iguais", [(c["n"], c["p"], c["t"]) for c in O["combos"]] == [(c["n"], c["p"], c["t"]) for c in N["combos"]])
+# nome duplo (08/11/2026): o texto novo cita "Impresso (Scryfall)"; o parêntese do nome do Scryfall não conta como diferença
+oficiais = sorted(set(IMPRESSO.values()), key=len, reverse=True)
+def sem_duplo(t):
+    for on in oficiais:
+        t = t.replace(" (%s)" % on, "")
+    return t
+R.ok("combos iguais", [(c["n"], c["p"], c["t"]) for c in O["combos"]] == [(c["n"], c["p"], sem_duplo(c["t"])) for c in N["combos"]])
 R.fim()
