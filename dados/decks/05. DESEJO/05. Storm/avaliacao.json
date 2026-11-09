@@ -232,7 +232,80 @@
     "resultado": "forte",
     "porque": "Fecha antes da criatura grande deles importar."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Combo de storm com treze Game Changers: a mesa experiente te lê como a ameaça número um antes de a primeira mágica resolver. Rhystic Study, Mystic Remora e The One Ring são os sinais clássicos; Thousand-Year Storm e Underworld Breach dizem que o turno grande é agora. A própria Storm é discreta, um 3/4 voador que só ataca, e essa é a sua vantagem: enquanto ela conecta sem fazer nada, a mesa olha para outro lado.",
+   "postura": "Silenciosa até o turno: desenvolva com pedras, redutores (Goblin Electromancer, Stormcatch Mentor) e compra barata, e não mostre o fechamento. Deixe a Storm conectar sem usar o gatilho nos turnos em que a mesa está com mana aberta: ele não obriga a nada. Assumir é o turno grande: com Jeska's Will ou Seething Song na mão, uma proteção aberta (Fierce Guardianship, Force of Will, Veil of Summer) e a mesa sem contramágica, feche com Grapeshot ou Brain Freeze. Se der errado, volte ao silêncio: o deck reconstrói pela compra.",
+   "sinais": [
+    {
+     "carta": "Rhystic Study",
+     "porque": "O motor de compra que toda mesa aprende a remover primeiro."
+    },
+    {
+     "carta": "Mystic Remora",
+     "porque": "Uma carta por mágica deles nos primeiros turnos: a mesa percebe e para de jogar."
+    },
+    {
+     "carta": "The One Ring",
+     "porque": "Compra crescente e um turno de proteção: alvo de qualquer remoção de artefato."
+    },
+    {
+     "carta": "Thousand-Year Storm",
+     "porque": "Em campo, todo mundo sabe que o próximo turno é o grande."
+    },
+    {
+     "carta": "Underworld Breach",
+     "porque": "O cemitério vira mão: a mesa reage na hora, com ódio de cemitério ou contramágica."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Brain Freeze",
+     "porque": "Fechamento: só quando a contagem fecha a mesa, ou com Underworld Breach e Lotus Petal."
+    },
+    {
+     "carta": "Grapeshot",
+     "porque": "Fechamento: X de dano é a contagem; antes disso é só uma remoção de 1."
+    },
+    {
+     "carta": "Underworld Breach",
+     "porque": "Na mão até o turno em que fecha; em campo antes, só atrai remoção."
+    },
+    {
+     "carta": "Jeska's Will",
+     "porque": "Carta pet e o ritual que paga o turno grande: não é um turno qualquer."
+    },
+    {
+     "carta": "Force of Will",
+     "porque": "A mágica que vence o jogo de alguém, ou a contramágica na sua Grapeshot."
+    }
+   ],
+   "ponto_de_falha": "A Storm é a única fonte do gatilho: remoção nela antes do combate, ou um bloqueador voador, atrasa tudo. Depois, o cemitério (Underworld Breach) e a pilha: uma Flusterstorm alheia, split second e ódio de cemitério desmontam o turno. Stax é o pior caso: taxa por mágica ou limite de mágicas por turno desliga o deck.",
+   "respostas": [
+    {
+     "carta": "Force of Will",
+     "para": "A mágica que vence o jogo de alguém, de graça."
+    },
+    {
+     "carta": "Fierce Guardianship",
+     "para": "A limpeza ou a contramágica na sua mágica de fechamento, de graça com a Storm em campo."
+    },
+    {
+     "carta": "Flusterstorm",
+     "para": "A contramágica deles no seu turno grande: com storm própria, ganha a guerra de pilha."
+    },
+    {
+     "carta": "Swan Song",
+     "para": "O combo alheio em instantânea, feitiço ou encantamento, por uma mana."
+    },
+    {
+     "carta": "Veil of Summer",
+     "para": "A mágica azul ou preta que mira a Storm ou anula o turno; ainda compra uma carta."
+    }
+   ],
+   "limpezas": "Uma, e unilateral: Cyclonic Rift com sobrecarga, que também tira do caminho da Storm os bloqueadores voadores. Deck de combo quase não quer limpeza: a mesa deles não importa quando a Grapeshot resolve. Pela regra do dono (3 a 4 por deck), o Aetherize entra no radar como segunda, unilateral e instantânea: devolve à mão só quem ataca. Limpar é bom quando protege o turno seguinte; nunca no turno grande.",
+   "alvo": "A Storm ataca quem não tem bloqueador voador nem mana aberta: o gatilho é o que importa, não o dano. A Grapeshot vai no jogador que pode responder ou que está mais perto de vencer; o Brain Freeze, na mesa inteira. Não gaste o storm em quem já está fora da disputa."
+  }
  },
  "cartas": {
   "Storm, Force of Nature": {
@@ -2148,6 +2221,88 @@
    "porque": "Combo com Underworld Breach; mais um Game Changer numa lista que já tem treze.",
    "papel": "habilita",
    "papel_por_que": "Custa 0 e vira três manas: soma à contagem e paga o resto do turno."
+  },
+  "Arena of Glory": {
+   "notas": {
+    "ramp": 1,
+    "conexao": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Ímpeto: a Storm conjurada com a mana exaurida ataca e conecta no turno em que entra."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Exotic Orchard",
+   "faz": "Terreno de vermelho; entra virado a menos que você controle uma Montanha. Gera {R}. Por {R}, virando e exaurindo-o, gera {R}{R}; a criatura conjurada com essa mana ganha ímpeto até o fim do turno.",
+   "porque": "A Storm com ímpeto no turno em que desce: conecta no mesmo turno e a próxima mágica já ganha storm, sem gastar a vaga de uma Expedite. Com seis terrenos com o tipo Montanha na lista, entra desvirado quase sempre; 18% dos decks da Storm no EDHREC. Dragões, Strefan e Valgavoth já a usam. Sai o Exotic Orchard, que numa mesa sem vermelho ou verde não dá a cor.",
+   "marcas": {
+    "conecta": 1
+   },
+   "papel_dupla": "Ímpeto na Storm (conexão)",
+   "papel_por_que": "Terreno que dá ímpeto à Storm: ela conecta no turno em que entra."
+  },
+  "Talon Gates of Madara": {
+   "notas": {
+    "protecao": 2,
+    "conexao": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Protege a Storm de remoção com alvo: por {4}, em resposta, tira-a de fase; antes do combate, tira de fase um bloqueador voador."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "sai": "Reliquary Tower",
+   "faz": "Terreno (Portão). Ao entrar, até uma criatura alvo sai de fase. Gera {C}, ou uma mana de qualquer cor por {1}. Por {4}, você o põe da mão em campo, a qualquer momento.",
+   "porque": "A Storm é a única fonte do gatilho, e o deck tem pouca proteção de criatura: por {4}, em resposta à remoção, o terreno sai da mão e a tira de fase; antes do combate, tira de fase o bloqueador voador que a seguraria. Dá qualquer cor por {1}. Entra desvirado. Sai a Reliquary Tower: o turno grande esvazia a mão, e só The One Ring e o Wheel of Fortune a enchem.",
+   "marcas": {
+    "protege": 1
+   },
+   "papel_dupla": "Proteção (sai de fase)",
+   "papel_por_que": "Terreno de estrutura que tira a Storm de fase em resposta a uma remoção."
+  },
+  "Mystic Sanctuary": {
+   "notas": {
+    "draw": 1,
+    "storm": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Carta que recupera a peça do turno: devolve a Grapeshot ou o Brain Freeze do cemitério ao topo do grimório."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Island. Entra virada a menos que você controle três ou mais outras Islands. Quando entra desvirada, você pode pôr uma instantânea ou um feitiço do seu cemitério no topo do grimório.",
+   "porque": "Devolve a Grapeshot, o Brain Freeze ou o Wheel of Fortune ao topo para o Brainstorm ou a compra seguinte, sem gastar a vaga de um Regrowth; 22% dos decks da Storm no EDHREC. Com sete terrenos com o tipo Island, entra desvirada do meio do jogo em diante. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-la no lugar de uma das três Islands.",
+   "papel_dupla": "Recursão (mágica ao topo)",
+   "papel_por_que": "Terreno que devolve a mágica do fechamento ao topo para o turno grande."
+  },
+  "Aetherize": {
+   "notas": {
+    "removal": 3,
+    "protecao": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Preordain",
+   "massa": true,
+   "faz": "Instantânea de {3}{U}: devolve à mão todas as criaturas atacantes.",
+   "porque": "A limpeza unilateral que a regra do dono pede (3 a 4 por deck): por quatro manas, no combate, devolve só as criaturas que atacam você, e o turno seguinte é o seu turno grande. É a única limpeza que não atrapalha o combo. Sai o Preordain, a seleção de uma mana que só sai na sua fase principal.",
+   "papel_dupla": "Remoção em massa (defesa)",
+   "papel_por_que": "Devolve à mão quem ataca você, para o turno grande chegar."
   }
  },
  "combos": [
