@@ -247,7 +247,80 @@
     "resultado": "forte",
     "porque": "A Evelyn exila as cartas grandes deles, e você conjura com mana de qualquer cor."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Vampiros forfun em Grixis: a mesa vê corpos pequenos e um roubo 'engraçado', até perceber que a Evelyn joga a melhor carta de três grimórios todo turno, em qualquer turno. Os sinais: a própria Evelyn (lampejo, no fim do turno de alguém), Stolen Strategy, o Nalfeshnee dobrando o roubo e a Shared Animosity.",
+   "postura": "Conciliadora e discreta: o deck rouba de todos por igual e não precisa atacar cedo; a Evelyn desce com lampejo quando a mesa já gastou remoção. Use o roubo como política: a carta que você joga do exílio pode ser a resposta à ameaça comum. Assumir quando Shared Animosity com Drana, ou o dreno de Blood Artist e Falkenrath Noble com o Viscera Seer, fechar em dois turnos.",
+   "sinais": [
+    {
+     "carta": "Evelyn, the Covetous",
+     "porque": "Quatro cartas por Vampiro num banco que não expira: quando a mesa entende, ela vira o alvo."
+    },
+    {
+     "carta": "Stolen Strategy",
+     "porque": "Três cartas dos oponentes por turno: motor de valor visível que a mesa remove cedo."
+    },
+    {
+     "carta": "Nalfeshnee",
+     "porque": "Dobra cada mágica conjurada do exílio: a remoção roubada vira duas."
+    },
+    {
+     "carta": "Shared Animosity",
+     "porque": "Quando desce, todo mundo sabe que o ataque largo mata: remoção certa."
+    },
+    {
+     "carta": "Don Andres, the Renegade",
+     "porque": "Tesouros e criaturas roubadas com +2/+2: o roubo deixa de ser engraçado."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Evelyn, the Covetous",
+     "porque": "Lampejo: desce no fim do turno de quem acabou de gastar a remoção, nunca no seu turno com mana aberta na mesa."
+    },
+    {
+     "carta": "Shared Animosity",
+     "porque": "Só no turno do ataque letal."
+    },
+    {
+     "carta": "Delayed Blast Fireball",
+     "porque": "Prenunciada, ou exilada pela Evelyn do seu topo, é a de 5: espere a mesa deles cheia."
+    },
+    {
+     "carta": "Jwari Disruption",
+     "porque": "A única anulação do deck: para a mágica que fecha o combo alheio, não para uma remoção."
+    },
+    {
+     "carta": "Crippling Fear",
+     "porque": "Limpeza de um lado só: quando a mesa deles for maior que a sua, e com o Cordial Vampire em campo."
+    }
+   ],
+   "ponto_de_falha": "A Evelyn: sem ela o roubo para e o deck compra pouco (Phyrexian Arena e Bloodtracker são o que resta). Remoção nela em resposta ao primeiro Vampiro é como a mesa te para; por isso o Plaza of Heroes (radar) e as proteções contam. O segundo ponto é a cor: quatro terrenos incolores e 27 básicos em três cores travam a mão, o que o radar de terrenos corrige.",
+   "respostas": [
+    {
+     "carta": "Terminate",
+     "para": "Instantânea e sem restrição: o comandante voltron ou a peça de combo com corpo."
+    },
+    {
+     "carta": "Victim of Night",
+     "para": "A criatura que fecha o jogo, se não for Vampiro, Lobisomem ou Zumbi."
+    },
+    {
+     "carta": "Demon Bolt",
+     "para": "Prenunciada por uma mana: a criatura-motor, no turno de alguém."
+    },
+    {
+     "carta": "Feed the Swarm",
+     "para": "Uma das poucas respostas a encantamento: o Rhystic Study, a Smothering Tithe, a Rule of Law."
+    },
+    {
+     "carta": "Jwari Disruption",
+     "para": "A mágica que vence o jogo, no começo, enquanto {1} ainda pesa."
+    }
+   ],
+   "limpezas": "Quatro: Crippling Fear e Delayed Blast Fireball de um lado só, as melhores (com o Cordial Vampire, cada morte deles cresce a tribo); In Garruk's Wake de um lado só, mas por nove manas, e sai no radar pelo Champion of Dusk; Nevinyrral's Disk leva a sua mesa e a Evelyn, e sai no radar pela Olivia's Wrath, de um lado só. Com as trocas, ficam três unilaterais, dentro da regra do dono. Boa sempre que a mesa deles é maior; a sua reconstrução é a Evelyn com lampejo e o banco do exílio.",
+   "alvo": "O roubo da Evelyn é da mesa inteira, então o alvo é o do ataque e da remoção: quem tem o motor de compra ou a limpeza na mão, não quem tem menos vida. Ataque espalhado com Vampiros pequenos só avisa a mesa; prefira um ataque largo com a Shared Animosity em quem está sem bloqueadores."
+  }
  },
  "cartas": {
   "Evelyn, the Covetous": {
@@ -1805,10 +1878,9 @@
    "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
-   "porque": "Protege o Vampiro de bônus que segura a mesa. A Evelyn já tem lampejo.",
-   "sai": "Everflowing Chalice",
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela.",
    "marcas": {
     "protege": 1
    }
@@ -1884,9 +1956,9 @@
    "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "entra",
    "faz": "Terreno: {B} ou {R}, desvirado com dois ou mais oponentes.",
-   "porque": "Preto e vermelho desvirado, no lugar do Rakdos Carnarium, que entra virado. Base de mana: avaliar.",
+   "porque": "Preto e vermelho, desvirado na mesa de quatro, no lugar do Rakdos Carnarium, que entra virado e devolve um terreno: pela régua do dono (08/11/2026), terreno desvirado que rende cedo entra.",
    "sai": "Rakdos Carnarium"
   },
   "Morphic Pool": {
@@ -1897,9 +1969,9 @@
    "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "entra",
    "faz": "Terreno: {U} ou {B}, desvirado com dois ou mais oponentes.",
-   "porque": "Azul e preto desvirado, no lugar do Path of Ancestry, que entra virado. Base de mana: avaliar.",
+   "porque": "Azul e preto, desvirado na mesa de quatro, no lugar do Path of Ancestry, que entra virado: pela régua do dono (08/11/2026), terreno desvirado que rende cedo entra.",
    "sai": "Path of Ancestry"
   },
   "Haunted Ridge": {
@@ -1910,9 +1982,9 @@
    "sin_por_que": {},
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "entra",
    "faz": "Terreno: {B} ou {R}; entra virado se você não controla outros dois terrenos.",
-   "porque": "Preto e vermelho no lugar do Volatile Fault, que só dá incolor. Base de mana: avaliar.",
+   "porque": "Preto e vermelho, desvirado a partir do terceiro terreno, no lugar do Volatile Fault, que só dá incolor: pela régua do dono (08/11/2026), terreno de cor desvirado entra.",
    "sai": "Volatile Fault"
   },
   "Panharmonicon": {
@@ -2002,12 +2074,13 @@
    "sin_por_que": {
     "sin1": "Conta e poupa os Vampiros, sem fazer Vampiro entrar."
    },
-   "tier": "B",
-   "rel": "MED",
-   "veredito": "avaliar",
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
    "faz": "Feitiço de 5: criaturas que não são Vampiro ganham −X/−X, X o número dos seus Vampiros.",
-   "porque": "Limpeza que poupa a sua mesa. Potencial do edh.wiki (+49%).",
-   "massa": true
+   "porque": "Limpeza de um lado só, com uns 25 Vampiros na lista: a regra do dono (08/11/2026): 3 a 4 limpezas por deck, de preferência unilaterais, e ela entra no lugar do Nevinyrral's Disk, que leva a sua mesa e a Evelyn junto. Potencial do edh.wiki (+49%).",
+   "massa": true,
+   "sai": "Nevinyrral's Disk"
   },
   "Scion of Opulence": {
    "notas": {
@@ -2177,6 +2250,51 @@
    },
    "papel": "recompensa",
    "papel_por_que": "Cada mágica conjurada do exílio causa 1 de dano a cada oponente."
+  },
+  "Plaza of Heroes": {
+   "notas": {
+    "ramp": 1,
+    "protecao": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Rogue's Passage",
+   "faz": "Gera {C}; ou uma mana de qualquer cor, só para mágica lendária; ou uma mana de qualquer cor entre as das permanentes lendárias suas. Por {3}, virando e exilando-o, uma criatura lendária alvo ganha hexproof e indestrutível até o fim do turno.",
+   "porque": "A Evelyn é lendária e custa {2}{U/B}{B}{B/R}: o Plaza a paga em qualquer cor e, com ela ou outra lenda em campo (Don Andres, Drana, Florian, Strefan, Timothar, Yahenni), vira fonte das três cores. Por {3}, a salva de uma remoção, e sem a Evelyn o roubo para. Sai o Rogue's Passage, incolor num deck de três cores.",
+   "papel_dupla": "Proteção",
+   "papel_por_que": "Terreno que dá hexproof e indestrutível à Evelyn em resposta à remoção."
+  },
+  "Unclaimed Territory": {
+   "notas": {
+    "ramp": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Paga Vampiro por tipo, em qualquer cor: de passagem."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "sai": "Seething Landscape",
+   "faz": "Ao entrar, escolha um tipo de criatura. Gera {C}, ou uma mana de qualquer cor só para conjurar criatura do tipo escolhido.",
+   "porque": "Paga qualquer Vampiro em qualquer cor, desvirado, no lugar do Seething Landscape, que só dá incolor até se sacrificar. Você já tem (Caixa). Incolor para o resto do deck, por isso B."
+  },
+  "Sulfurous Springs": {
+   "notas": {
+    "ramp": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Gera {C}; ou {B} ou {R}, com 1 de dano em você.",
+   "porque": "Preto ou vermelho sempre desvirado, o par que a lista mais pede, por 1 de dano. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de uma Montanha."
   }
  },
  "combos": [
