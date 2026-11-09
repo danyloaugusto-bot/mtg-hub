@@ -50,7 +50,7 @@ R.ok("cabe em: exatamente os decks cuja identidade contém a da carta (incolor c
 R.ok("a cor da vaga não decide o encaixe (Medalhões incolores cabem em todo deck)", all(len(c["cabe"]) == len(decks) for n, c in enc.items() if c["ci"] == "" ))
 decklists = {}
 for p in dados.pastas_decks():
-    if dados.eh_deck(p) and os.path.exists(os.path.join(dados.pasta_deck(p), "decklist.txt")) and os.path.exists(os.path.join(dados.pasta_deck(p), "avaliacao.json")):
+    if dados.eh_deck(p) and not dados.eh_desejo(p) and os.path.exists(os.path.join(dados.pasta_deck(p), "decklist.txt")) and os.path.exists(os.path.join(dados.pasta_deck(p), "avaliacao.json")):
         decklists[p] = {dados.chave_nome(e["name"]) for e in dados.ler_decklist(os.path.join(dados.pasta_deck(p), "decklist.txt"))}
 pastas = dados.ler_pastas()
 amostra = sorted(enc, key=lambda n: (enc[n].get("rank") or 10 ** 9, n))[:80]
