@@ -670,6 +670,16 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .vs-h span{font-size:13.5px;font-weight:800;color:var(--vc)}
 .vs p{margin-top:4px;color:var(--mute);font-size:15px;line-height:1.38}
 .vs-forte{--vc:var(--ok)}.vs-equilibrado{--vc:var(--gold)}.vs-fraco{--vc:var(--bad)}
+/* Na mesa: como a mesa lê o deck */
+.mesa-lede{color:var(--mute);font-size:14.5px;margin-top:4px}
+.mesa-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:10px;margin-top:8px}
+.mesa-b{border:1px solid var(--line);border-radius:3px;padding:9px 12px;background:rgba(var(--deep-rgb),.35)}
+.mesa-b h4{font-size:14.5px;font-weight:700;color:var(--mute);letter-spacing:.02em;margin-bottom:4px}
+.mesa-b p,.mesa-b li{color:var(--bone);font-size:15px;line-height:1.4}
+.mesa-b ul{list-style:none;padding:0;margin:0}
+.mesa-b li{padding:3px 0}
+.mesa-b li .linkish{font-weight:700}
+.mesa-falha{border-left:4px solid var(--bad)}
 @media (max-width:980px){.fases{grid-template-columns:minmax(0,1fr)}}
 
 /* ============ modo claro (tema.json "modo": "claro"): o que foi desenhado para fundo escuro ============ */
