@@ -262,6 +262,9 @@ def indice_outros(pasta_atual):
                 if nc in BASICOS_IDX or (onde == "radar" and c.get("veredito") == "fora"):
                     continue
                 x = dict(d=nome, w=onde, t=c["tier"], r=c["rel"])
+                sn = sum(v for v in (c.get("sin") or {}).values() if isinstance(v, (int, float)))
+                if sn:
+                    x["sn"] = sn   # sinergia somada naquele deck (sin1 + sin2): o destaque das isoladas, aba Radar
                 if onde == "radar":
                     x["v"] = c.get("veredito", "avaliar")
                 out.setdefault(chave_nome(nc), []).append(x)
