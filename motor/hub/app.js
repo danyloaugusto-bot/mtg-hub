@@ -63,7 +63,7 @@ function cartao(d) {
       '</dl></div>' +
       '<div class="base"><span class="b-st"></span>' +
         cores(d.cores) + '</div>' +
-      '<span class="b-lk"><a href="#f-' + i + '" class="lk" title="Ficha no Dashboard">Ficha</a>' + (d.pub ? '<a href="' + esc(d.pub) + '" class="lk" target="_blank" rel="noopener noreferrer" title="Painel publicado">Online ↗</a>' : '') + '</span></article>';
+      '<span class="b-lk">' + (i >= 0 ? '<a href="#f-' + i + '" class="lk" title="Ficha no Dashboard">Ficha</a>' : '') + (d.pub ? '<a href="' + esc(d.pub) + '" class="lk" target="_blank" rel="noopener noreferrer" title="Painel publicado">Online ↗</a>' : '') + '</span></article>';
   }
   var passos = [['capa', !!d.capa], ['lista', !!d.lista], ['referência', !!(d.ref && d.ref.length)]];
   return '<article class="deck vazio' + (d.capa ? ' com-capa' : '') + '" data-busca="' + busca + '">' +
@@ -83,7 +83,7 @@ function linha(d) {
     '<td><a href="' + esc(d.href) + '"><b>' + esc(d.nome) + '</b></a> ' + pvB(A) + '<small>' + esc(d.painel) + '</small></td><td class="cm">' + esc(d.cmd) + '</td><td>' + cores(d.cores) + '</td>' +
     '<td class="n num">' + numP(d.placar) + (dp ? '<small class="' + (dp > 0 ? 'pos' : 'neg') + '">' + sinalP(dp) + '</small>' : '') + '</td><td class="n num">' + num(A.st.avg, 2) + '</td>' +
     '<td class="n num' + (A.res.frageis.length ? ' aviso' : '') + '">' + A.res.frageis.length + '</td><td class="n num' + (al ? ' aviso' : '') + '">' + al + '</td><td class="n num">' + A.tr.length + '</td>' +
-    '<td class="n num">' + (dt ? brData(dt) : '—') + '</td><td class="lks"><a href="#f-' + idxDK(d) + '">Ficha</a>' + (d.pub ? ' <a href="' + esc(d.pub) + '" target="_blank" rel="noopener noreferrer">Online ↗</a>' : '') + '</td></tr>';
+    '<td class="n num">' + (dt ? brData(dt) : '—') + '</td><td class="lks">' + (idxDK(d) >= 0 ? '<a href="#f-' + idxDK(d) + '">Ficha</a>' : '') + (d.pub ? ' <a href="' + esc(d.pub) + '" target="_blank" rel="noopener noreferrer">Online ↗</a>' : '') + '</td></tr>';
 }
 function resumoGrupo(ds) {
   var p = ds.filter(function (d) { return d.a; });
@@ -98,7 +98,7 @@ function barraDecks() {
   var cor = '<div class="seg cores-f" role="group" aria-label="Cores"><span class="seg-l">Cores</span>' + 'WUBRG'.split('').map(function (k) {
       return '<button data-dk="cor" data-k="' + k + '" aria-pressed="' + !!dk.cores[k] + '" title="Decks com ' + NOMEC[k].toLowerCase() + '"><i class="ms ms-' + k + '">' + k + '</i></button>';
     }).join('') + '</div>';
-  var nP = DK.length, nT = H.decks.length;
+  var nP = H.decks.filter(function (d) { return d.a; }).length, nT = H.decks.length;
   /* no celular os filtros ficam recolhidos, para a estante aparecer logo */
   var nf = Object.keys(dk.cores).filter(function (k) { return dk.cores[k]; }).length + (dk.sit ? 1 : 0);
   var aberto = !(window.matchMedia && window.matchMedia('(max-width: 640px)').matches) || dkAberto;
@@ -602,8 +602,9 @@ function resLinhas(R, A) {
 }
 
 /* ---------- preparo de cada deck ---------- */
-var DK = H.decks.filter(function (d) { return d.a; });
-DK.forEach(function (d) {
+/* os decks que entram no Dashboard e em toda comparação: fora os do grupo Desejo, que não existem fisicamente (dono, 09/11/2026) */
+var DK_TODOS = H.decks.filter(function (d) { return d.a; });
+DK_TODOS.forEach(function (d) {
   var A = d.a;
   A.nome = d.nome; A.pasta = d.pasta; A.href = d.href;
   A.idx = {}; A.cards.forEach(function (c) { A.idx[c.i] = c; }); A.cands.forEach(function (c) { A.idx[c.i] = c; });
@@ -617,6 +618,7 @@ DK.forEach(function (d) {
   A.cv = custoDeck(A);
   A.res = reserva(A);
 });
+var DK = DK_TODOS.filter(function (d) { return d.grupo !== '05'; });
 
 /* ---------- o que pede atenção ---------- */
 function atencao() {
@@ -1429,7 +1431,7 @@ function secCarteira() {
    (14/10/2026): para ele não faz sentido. A.br.gc guarda os nomes; A.br.c2 e o resto não existem mais. */
 var KIND_COMBO = { Combo: 1, 'Vitória': 1, Finalizador: 1 };   /* combos que fecham o jogo, para a ficha separar de motor */
 function gcsDe(cs) { var gc = []; cs.forEach(function (c) { if (c.gc) gc.push(c.n); }); return { gc: gc }; }
-DK.forEach(function (d) { d.a.br = gcsDe(d.a.cards); });
+DK_TODOS.forEach(function (d) { d.a.br = gcsDe(d.a.cards); });
 
 /* ============ a mão inicial ============ */
 function pEQ(N, K, n, k) { return comb(K, k) * comb(N - K, n - k) / comb(N, n); }
