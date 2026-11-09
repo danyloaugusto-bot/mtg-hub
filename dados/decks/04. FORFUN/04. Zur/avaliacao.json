@@ -228,7 +228,80 @@
     "resultado": "equilibrado",
     "porque": "A remoção-Aura cuida das criaturas grandes, mas o deck fecha devagar."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "O Zur chega com fama: a zona de comando diz 'combo e trava' antes da primeira compra, e a mesa pode condená-lo pela reputação. Este deck é de taxa e política, não de trava: vale dizer isso cedo e provar com as buscas. O que de fato vira a mesa contra você é o motor de compra (Phyrexian Arena, Consecrated Sphinx, o Rhystic Study do radar) e o Zur vestido com All That Glitters.",
+   "postura": "Conciliadora e cirúrgica, como o dono quer: a taxa vale para todos, e a Aura de remoção que o Zur busca vai em quem lidera, dito em voz alta (busquei a Darksteel Mutation para o comandante dele porque ele fecha no próximo turno). Os Impetus e a Bloodthirsty Blade fazem a mesa brigar sem você. Assumir quando o Zur estiver com All That Glitters e proteção (Greater Auramancy, Reconnaissance): três ataques fecham um jogador, antes que a mesa se reorganize.",
+   "sinais": [
+    {
+     "carta": "Phyrexian Arena",
+     "porque": "Compra extra todo turno desde cedo: o motor que a mesa aprende a remover primeiro."
+    },
+    {
+     "carta": "Consecrated Sphinx",
+     "porque": "Duas cartas a cada compra de cada oponente: enquanto estiver em campo, é a maior ameaça de compra da mesa."
+    },
+    {
+     "carta": "All That Glitters",
+     "porque": "No Zur, com pedras e encantamentos, um 7/7 voador que cresce a cada busca: a mesa calcula o dano de comandante."
+    },
+    {
+     "carta": "Sakashima the Impostor",
+     "porque": "Segundo Zur: dois encantamentos por combate, e a mesa sabe que a busca dobrou."
+    },
+    {
+     "carta": "Wedding Ring",
+     "porque": "Com o Sphinx, compra o grimório: todo mundo conhece o laço."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "All That Glitters",
+     "porque": "Só com proteção na mesa: é a Aura que a remoção espera, e cair com ela custa o imposto do Zur."
+    },
+    {
+     "carta": "Sakashima the Impostor",
+     "porque": "Depois que a mesa gastou a remoção no primeiro Zur."
+    },
+    {
+     "carta": "Wedding Ring",
+     "porque": "Para o turno do Sphinx, não antes: sozinho, dá cartas ao oponente escolhido."
+    },
+    {
+     "carta": "Teferi's Protection",
+     "porque": "Do radar: a resposta à limpeza de encantamentos e ao combo alheio; não gaste em ataque."
+    }
+   ],
+   "ponto_de_falha": "O Zur: um 1/4 que cinco limpezas da própria lista matam, e cada remoção custa o imposto de comando; sem ele, os encantamentos de valor até 3 são conjurados um a um. Depois, a mana preta: só sete fontes, e o Zur pede as três cores no turno 4. A proteção sobe no radar: Flawless Maneuver e Curator's Ward entram, e as Swiftfoot Boots entram no lugar das Lightning Greaves, cujo manto barra as suas próprias Auras.",
+   "respostas": [
+    {
+     "carta": "Mortify",
+     "para": "O motor de compra ou a criatura que fecha o jogo de alguém; não a primeira criatura grande."
+    },
+    {
+     "carta": "Stroke of Midnight",
+     "para": "A permanente que ignora a taxa ou trava você."
+    },
+    {
+     "carta": "Fracture",
+     "para": "Artefato ou encantamento-motor do oponente, ou o planeswalker a um turno da habilidade decisiva."
+    },
+    {
+     "carta": "Grasp of Fate",
+     "para": "Do radar: três peças, uma de cada oponente, no turno em que a mesa está montada."
+    },
+    {
+     "carta": "Teferi, Time Raveler",
+     "para": "O turno do seu ataque sem resposta instantânea; devolve à mão a peça de combo."
+    },
+    {
+     "carta": "Arcane Denial",
+     "para": "Do radar: a mágica que fecha o jogo, com duas cartas de troco para selar o acordo."
+    }
+   ],
+   "limpezas": "Sete hoje, e só duas poupam o Zur: Extinction Event escolhendo ímpar (o Zur tem valor 4) e Sculpted Sunburst escolhendo o Zur. Supreme Verdict, Doomskar, By Invitation Only, Cleansing Nova e Out of Time o matam: o radar já troca quatro delas, e Winds of Rath entra poupando o Zur encantado. Use a simétrica só com o Zur na mão ou no comando e a mesa dos outros maior que a sua; os seus encantamentos sobrevivem a qualquer limpeza de criaturas.",
+   "alvo": "O Zur ataca quem lidera, porque a busca dispara ao atacar, não ao acertar, e a Aura de remoção vai na peça dele; com Reconnaissance, ele sai do combate depois da busca e não toma bloqueio. Para o dano de comandante, escolha quem a mesa concorda que precisa cair, e diga isso: a política do deck é a mesa concordar com a vítima."
+  }
  },
  "cartas": {
   "Zur the Enchanter": {
@@ -2168,9 +2241,9 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "avaliar",
+   "veredito": "fora",
    "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
-   "porque": "Proteção que não barra você. Fonte C.",
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela.",
    "papel": "habilita",
    "papel_por_que": "Ímpeto e resistência a magia: o Zur ataca no turno em que entra e foge da remoção."
   },
@@ -2534,6 +2607,55 @@
    },
    "papel": "recompensa",
    "papel_por_que": "Cada encantamento que entra tira 1 de cada oponente, inclusive os da busca."
+  },
+  "Serra's Sanctum": {
+   "notas": {
+    "ramp": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Meticulous Archive",
+   "faz": "Terreno lendário. Gera {W} para cada encantamento que você controla.",
+   "porque": "Com cinco ou seis encantamentos na mesa, o que o Zur monta em três ataques, um terreno vira cinco ou seis manas brancas: paga All That Glitters e as Auras da mão no mesmo turno e ainda sobra para a Sphinx's Revelation. Entra desvirado no lugar do Meticulous Archive, que entra sempre virado.",
+   "papel_dupla": "Ramp (mana por encantamento)",
+   "papel_por_que": "Terreno que gera uma mana por encantamento: o Zur paga a própria mesa."
+  },
+  "Shizo, Death's Storehouse": {
+   "notas": {
+    "fechamento": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "marcas": {
+    "voltron": 1
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Hall of Storm Giants",
+   "faz": "Terreno lendário. Gera {B}. Por {B} e virando: uma criatura lendária alvo ganha medo até o fim do turno (só pode ser bloqueada por criaturas artefato e/ou pretas).",
+   "porque": "A oitava fonte de preto, desvirada, e evasão para o Zur encantado: com medo, o Zur com All That Glitters passa por quase toda mesa, e o dano de comandante fecha em três ataques. Sai o Hall of Storm Giants, que entra virado depois do segundo terreno e pede {5}{U} para virar criatura.",
+   "papel_dupla": "Faz o Zur bater",
+   "papel_por_que": "Terreno que dá medo ao Zur: o dano de comandante passa."
+  },
+  "Hall of the Bandit Lord": {
+   "notas": {},
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Carta que não é encantamento e dá ao Zur ímpeto, como Lightning Greaves e Swiftfoot Boots na régua: a mana dele dá ímpeto à criatura conjurada."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno lendário; entra virado. Virando e pagando 3 de vida: gera {C}; se essa mana for gasta numa mágica de criatura, ela ganha ímpeto.",
+   "porque": "O Zur com ímpeto busca a Propaganda no turno em que desce, um turno inteiro antes, e cada volta do comando também ataca na hora. Custa 3 de vida por uso e entra virado. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: entraria no lugar de uma das dez Islands.",
+   "papel_dupla": "Ímpeto para o Zur",
+   "papel_por_que": "Terreno que dá ímpeto ao Zur: a primeira busca vem um turno antes."
   }
  },
  "combos": [
