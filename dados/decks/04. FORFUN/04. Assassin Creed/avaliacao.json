@@ -242,7 +242,80 @@
     "resultado": "fraco",
     "porque": "Cinco cores com pouca mana fixa travam primeiro."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Tribal de Assassinos da coleção, no grupo Forfun: comandante de duas manas, criaturas pequenas e dezesseis remoções. A mesa vê um deck de brincadeira até o Ezio conectar duas vezes; quem conhece a carta sabe que, com um oponente em 10 de vida, a execução não negocia. O sinal mais visível é a Brotherhood Regalia no Ezio: imbloqueável com ward, todo turno.",
+   "postura": "Conciliadora e paciente: o deck ganha quando a mesa se desgasta sozinha até os 10 de vida. Use as remoções como moeda de política (são dezesseis: ofereça tirar a ameaça do líder) e ataque sem concentrar, só para abrir o freerunning do turno. Assuma a ameaça quando dois oponentes estiverem perto dos 10 e a Regalia ou o Bayek estiverem na mesa: aí é executar um por turno.",
+   "sinais": [
+    {
+     "carta": "Brotherhood Regalia",
+     "porque": "Ezio imbloqueável com ward {2} por {1}: a mesa entende que a conexão é garantida."
+    },
+    {
+     "carta": "Bayek of Siwa",
+     "porque": "Golpe duplo no Ezio: duas chances de execução no mesmo combate."
+    },
+    {
+     "carta": "Arbaaz Mir",
+     "porque": "Pinga cada oponente a cada histórica: o relógio dos 10 fica visível para todos."
+    },
+    {
+     "carta": "Roshan, Hidden Magister",
+     "porque": "Toda criatura vira Assassino e sai por {B}{B} depois da conexão: o turno explode."
+    },
+    {
+     "carta": "Queen Marchesa",
+     "porque": "A coroa: compra e cria Assassinos, e a mesa ataca você para tomar o monarca."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Smoke Bomb",
+     "porque": "Com lampejo, em resposta à remoção no Ezio: a mágica perde o alvo."
+    },
+    {
+     "carta": "Escape Detection",
+     "porque": "Proteção e compra pelo freerunning: só depois da conexão."
+    },
+    {
+     "carta": "Chain Assassination",
+     "porque": "Remoção pelo freerunning: espere o Assassino conectar para pagar barato."
+    },
+    {
+     "carta": "Casualties of War",
+     "porque": "O turno em que a mesa inteira está montada: seis manas, cinco permanentes."
+    },
+    {
+     "carta": "Supreme Verdict",
+     "porque": "Leva o Ezio e a tribo: só quando você está atrás, com o Ezio na zona de comando custando pouco."
+    }
+   ],
+   "ponto_de_falha": "O Ezio e a mana das cinco cores: ele custa 2 e volta barato, mas a execução pede {W}{U}{B}{R}{G} desvirados no combate, e treze terrenos não dão cor sozinhos. Quem quiser parar o deck não precisa matar o Ezio: basta bloquear a conexão (um bloqueador com toque mortífero) ou não deixar ninguém chegar aos 10. O segundo ponto está na própria lista: o Rest in Peace desliga oito cartas suas (sai no radar).",
+   "respostas": [
+    {
+     "carta": "Swords to Plowshares",
+     "para": "A criatura que fecha o jogo de alguém, por uma mana."
+    },
+    {
+     "carta": "Assassin's Trophy",
+     "para": "Qualquer permanente: guarde para o motor de compra ou a peça de combo."
+    },
+    {
+     "carta": "Royal Assassin",
+     "para": "A criatura virada do atacante do líder, todo turno, sem gastar carta."
+    },
+    {
+     "carta": "Terminate",
+     "para": "O comandante voltron ou o bloqueador com toque mortífero que segura o Ezio."
+    },
+    {
+     "carta": "Go for the Throat",
+     "para": "A criatura não artefato que mata você no próximo turno."
+    }
+   ],
+   "limpezas": "Uma, o Supreme Verdict, e ela mata o Ezio e a tribo: é a armadilha registrada. O radar troca por Kindred Dominance, que poupa os Assassinos; pela régua do dono (3 a 4 limpezas, de preferência unilaterais), entra para avaliar também o Winds of Abandon, que com sobrecarga exila só as criaturas dos oponentes e deixa a sua tribo atacando. Boa limpeza aqui é a que deixa o Ezio em pé; ruim é qualquer simétrica num deck de 23 criaturas pequenas.",
+   "alvo": "O Ezio ataca quem pode ser executado: quem já está em 10 ou menos, ou quem chega lá com o Arbaaz Mir e o Mjölnir. Os outros Assassinos espalham o ataque para abrir o freerunning. Não gaste o combate no jogador com mais vida só porque ele é o líder: contra o líder, use a remoção."
+  }
  },
  "cartas": {
   "Ezio Auditore da Firenze": {
@@ -1854,10 +1927,9 @@
    },
    "tier": "B",
    "rel": "MED",
-   "veredito": "entra",
+   "veredito": "fora",
    "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
-   "porque": "Proteção para o Ezio que não barra a Regalia. Fontes B e C.",
-   "sai": "Dead Weight"
+   "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela."
   },
   "Cover of Darkness": {
    "notas": {
@@ -2048,7 +2120,8 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: vira e pague 1: qualquer cor.",
-   "porque": "Fonte das cinco cores. Banco de B."
+   "porque": "Fonte das cinco cores desvirada, por 1 de vida a cada uso. Ganhou quem sai (09/11/2026): a Bountiful Landscape, que busca básico virado e não traz preto nem branco. Banco de B.",
+   "sai": "Bountiful Landscape"
   },
   "Farseek": {
    "notas": {
@@ -2255,6 +2328,81 @@
    "porque": "Garante a conexão do Ezio na hora da execução, na vaga de terreno. Não dá cor, num deck que precisa das cinco. Potencial do edh.wiki (+46%).",
    "papel": "habilita",
    "papel_por_que": "Terreno que deixa uma criatura imbloqueável por {4}."
+  },
+  "Plaza of Heroes": {
+   "notas": {
+    "protecao": 1
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno. Gera {C}; ou uma mana de qualquer cor, só para mágica lendária; ou uma mana de qualquer cor entre as cores das permanentes lendárias que você controla. Por {3}, virando e exilando-o: uma criatura lendária alvo ganha resistência a magia e indestrutível até o fim do turno.",
+   "porque": "O deck tem mais de trinta lendárias: a mana para elas é de qualquer cor, e a terceira habilidade paga o WUBRG da execução com as cores das lendárias em campo, sem restrição. Ainda salva o Ezio uma vez. Entra desvirado, no lugar do Crystal Grotto, que cobra {1} por cor.",
+   "sai": "Crystal Grotto",
+   "papel_dupla": "Proteção (uma vez)",
+   "papel_por_que": "Terreno que fixa as cores das lendárias e salva o Ezio uma vez."
+  },
+  "Spire of Industry": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Terreno. Gera {C}; virando e pagando 1 de vida, gera uma mana de qualquer cor, só se você controla um artefato.",
+   "porque": "Com os equipamentos e as históricas, você controla um artefato quase sempre: fonte das cinco cores desvirada para o WUBRG, por 1 de vida. Entra no lugar da Ash Barrens, que só busca um básico para a mão.",
+   "sai": "Ash Barrens"
+  },
+  "Talon Gates of Madara": {
+   "notas": {
+    "protecao": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Portão. Ao entrar, até uma criatura alvo sai de fase. Gera {C}, ou uma mana de qualquer cor por {1}. Por {4}, você o põe da mão em campo, a qualquer momento.",
+   "porque": "Proteção em resposta: por {4}, sai da mão e tira o Ezio de fase, salvando até do exílio; e dá qualquer cor por {1} para o WUBRG. Entra no lugar da Perilous Landscape, que busca básico virado e não traz preto. Está também na Giada.",
+   "sai": "Perilous Landscape",
+   "papel_dupla": "Proteção (sai de fase)",
+   "papel_por_que": "Terreno que tira o Ezio de fase em resposta a uma remoção."
+  },
+  "Access Tunnel": {
+   "notas": {
+    "conexao": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Imbloqueável repetível para outra criatura: o Ezio é 3/2 e cabe no limite de poder 3."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Terreno. Gera {C}. Por {3}, virando: uma criatura alvo com poder 3 ou menos não pode ser bloqueada neste turno.",
+   "porque": "A conexão do Ezio garantida por três manas, uma a menos que o Rogue's Passage do radar, e quase toda a tribo cabe no limite. Fica como avaliar porque é incolor num deck que precisa das cinco cores; no lugar da Tranquil Landscape, que não traz preto.",
+   "sai": "Tranquil Landscape",
+   "papel_dupla": "Conexão",
+   "papel_por_que": "Terreno que deixa o Ezio imbloqueável no turno da execução."
+  },
+  "Winds of Abandon": {
+   "notas": {
+    "removal": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Feitiço {1}{W}: exila uma criatura que você não controla; o controlador dela busca um terreno básico e o põe em campo virado. Sobrecarga {4}{W}{W}: exila cada criatura que você não controla.",
+   "porque": "A limpeza unilateral que o deck de ataque pede: com sobrecarga, a mesa dos oponentes some e os Assassinos atacam no mesmo turno; sem sobrecarga, é remoção de duas manas. Pela régua do dono, o deck quer 3 a 4 limpezas e tem uma, que mata o Ezio. No lugar do Primal Command, cinco manas que não decidem. Está também na Giada.",
+   "sai": "Primal Command",
+   "papel_dupla": "Remoção em massa",
+   "papel_por_que": "Limpeza unilateral: só as criaturas dos oponentes saem."
   }
  },
  "combos": [
