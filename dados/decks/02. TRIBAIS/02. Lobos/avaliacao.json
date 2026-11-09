@@ -230,7 +230,84 @@
     "resultado": "forte",
     "porque": "A matilha pressiona antes da criatura grande deles, e Gruul Charm passa por cima dela."
    }
-  ]
+  ],
+  "mesa": {
+   "leitura": "Matilha de lobos 2/2: mesa larga, a ameaça visível de prioridade baixa, e o deck que o dono salvou não tem fama. O que a mesa aprende a ler é a compra: cada lobo que conecta compra uma carta, e três voltas disso é vantagem de cartas, a ameaça nº 3. O alerta soa quando a noite trava (Immerwolf) e a matilha dobra (Unnatural Growth, Hollowhenge Overlord).",
+   "postura": "Conciliadora, por desenho: lobos pequenos não assustam, e o deck quer que a mesa brigue enquanto o Tovolar compra. Vale dizer que você está só comprando. Assumir quando a noite estiver travada com o Immerwolf, a evasão em massa na mão (Gruul Charm, Gruul War Chant, Hound Tamer) e o fechamento pronto (Craterhoof Behemoth e Overwhelming Stampede, do radar; Kessig Wolf Run com Unnatural Growth): um ataque decide.",
+   "sinais": [
+    {
+     "carta": "Unnatural Growth",
+     "porque": "Dobra a matilha em todo combate, inclusive na defesa: a mesa calcula e remove."
+    },
+    {
+     "carta": "Immerwolf",
+     "porque": "Trava a noite: a partir dele os lobisomens não encolhem, e a mesa sabe."
+    },
+    {
+     "carta": "Berserkers' Onslaught",
+     "porque": "Golpe duplo para a matilha: dano e compra em dobro, o fechamento visível."
+    },
+    {
+     "carta": "Lurking Predators",
+     "porque": "Criatura grátis a cada mágica dos outros: a mesa para de conjurar ou te mira."
+    },
+    {
+     "carta": "Tovolar, Dire Overlord",
+     "porque": "Compra por lobo que conecta: depois da segunda volta de compra, você é a vantagem de cartas da mesa."
+    }
+   ],
+   "guardar": [
+    {
+     "carta": "Gruul Charm",
+     "porque": "Ninguém sem voar bloqueia: só no turno em que a matilha inteira conecta e fecha, ou compra cinco."
+    },
+    {
+     "carta": "Heroic Intervention",
+     "porque": "A resposta à limpeza deles: não gaste para salvar um lobo só."
+    },
+    {
+     "carta": "Craterhoof Behemoth",
+     "porque": "O fechamento: desce no turno em que mata, nunca para ganhar valor."
+    },
+    {
+     "carta": "Blasphemous Act",
+     "porque": "Plano B do dono: quando a mesa deles passou da sua, o reset custa uma ou duas manas."
+    },
+    {
+     "carta": "Moonmist",
+     "porque": "Névoa só para os outros, e transforma os lobisomens: protege o ataque e o bloqueio num turno decisivo."
+    }
+   ],
+   "ponto_de_falha": "Os três lobos na manutenção: a noite cai e volta ao dia com duas mágicas de qualquer jogador, e uma limpeza barata zera a contagem e a compra junto. O Tovolar é o motor de compra e volta barato (custa três), mas sem lobos não compra. Hoje a proteção da mesa é Full Moon's Rise e Asceticism; Heroic Intervention, do radar, é a que falta. Quem quiser parar o deck conjura duas mágicas por turno para manter o dia e limpa a mesa quando a matilha tiver cinco lobos.",
+   "respostas": [
+    {
+     "carta": "Chaos Warp",
+     "para": "A permanente que trava a matilha (Ghostly Prison, Propaganda) ou a peça de combo, de qualquer tipo."
+    },
+    {
+     "carta": "Destructive Revelry",
+     "para": "O artefato ou encantamento motor do oponente: Rhystic Study, Smothering Tithe, o equipamento do voltron."
+    },
+    {
+     "carta": "Khalni Ambush",
+     "para": "A luta: o bloqueador que segura o Tovolar, com um lobo crescido à noite."
+    },
+    {
+     "carta": "Beast Within",
+     "para": "Qualquer permanente, em velocidade instantânea: a que está prestes a fechar o jogo."
+    },
+    {
+     "carta": "Savage Twister",
+     "para": "X pequeno: as fichas deles, poupando os lobos crescidos pelo Immerwolf e pelos lordes da noite."
+    },
+    {
+     "carta": "Domri, Anarch of Bolas",
+     "para": "A luta repetível: uma criatura por turno, a que mais atrapalha."
+    }
+   ],
+   "limpezas": "Duas hoje, Blasphemous Act e Savage Twister, simétricas e mantidas como plano B por decisão do dono (13/10/2026). Abaixo da regra de três a quatro, de preferência unilaterais: por isso Mizzium Mortars entra no radar como avaliar, 4 de dano em cada criatura dos oponentes, e Heroic Intervention (radar, entra) transforma o Blasphemous Act numa limpeza de um lado só. Boa: Savage Twister com X 2 ou 3 contra fichas, com a matilha crescida; Blasphemous Act quando a mesa deles passou da sua. Ruim: qualquer uma com a noite travada e a matilha na frente.",
+   "alvo": "Cada lobo que conecta compra: o ataque vai em quem tem menos bloqueadores, não em quem tem menos vida, e distribuído entre dois jogadores quando isso rende mais conexões. Tudo em um alvo só no turno do Gruul Charm, da Gruul War Chant ou do Craterhoof; até lá, pressionar o jogador que mais compra e conjura, porque ele é quem traz o dia."
+  }
  },
  "cartas": {
   "Tovolar, Dire Overlord": {
@@ -2149,9 +2226,9 @@
    "sin_por_que": {},
    "tier": "B",
    "rel": "ALT",
-   "veredito": "avaliar",
+   "veredito": "entra",
    "faz": "Mountain Forest: {R} ou {G}; virado sem dois básicos.",
-   "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste.",
+   "porque": "Você já tem (Caixa): dual com os tipos Montanha e Floresta, desvirada com dois básicos (a lista tem 16), que o Cultivate e o Roiling Regrowth acham. Sai o Temple of Abandon, que sempre entra virado. Passou de avaliar a entra pela regra do dono (08/11/2026): desvirado no lugar de virado, e preferência ao que ele já tem.",
    "sai": "Temple of Abandon"
   },
   "Karplusan Forest": {
@@ -2197,8 +2274,8 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: {C}. {4}, vira: uma criatura não pode ser bloqueada.",
-   "porque": "Evasão num terreno, no lugar de um incolor simétrico. Está também em quatro decks.",
-   "sai": "Field of Ruin"
+   "porque": "Evasão num terreno, no lugar de um incolor que só tira o limite da mão. Está também em quatro decks. O Field of Ruin, que ela tirava antes, sai pela Boseiju.",
+   "sai": "Reliquary Tower"
   },
   "Cavern of Souls": {
    "notas": {
@@ -2315,6 +2392,93 @@
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (+3/+0 aos atacantes à noite)",
    "papel_por_que": "Lobisomem antigo que o Tovolar vira e que fortalece todo o ataque."
+  },
+  "Thornspire Verge": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Gruul Guildgate",
+   "faz": "Terreno. Gera {R}; ou gera {G}, se você controla uma Montanha ou uma Floresta.",
+   "porque": "Você já tem (Caixa): dual desvirada que dá vermelho sempre e verde com qualquer básico, no lugar do Gruul Guildgate, que sempre entra virado. Um dos sete terrenos lentos a menos num deck que quer o Tovolar no turno 3."
+  },
+  "Mutavault": {
+   "notas": {
+    "matilha": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Animado, tem todos os tipos de criatura e conta como Lobo e Lobisomem: é o terceiro da manutenção e compra com o Tovolar ao conectar, sem ser lorde.",
+    "sin2": "Vira criatura na sua manutenção por {1}, antes do gatilho do Tovolar, sem conjurar nada: fecha os três da noite sem trazer o dia, de passagem."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Path of Ancestry",
+   "faz": "Terreno. Gera {C}. Por {1}: vira uma criatura 2/2 com todos os tipos de criatura até o fim do turno. Continua sendo um terreno.",
+   "porque": "O terceiro lobo da manutenção por {1}, sem conjurar e sem gastar vaga de mágica: anime-o na manutenção, antes do gatilho do Tovolar, e a noite cai; à noite recebe os lordes e ataca para comprar. Como terreno, escapa das limpezas dos oponentes e das suas. Entra desvirado. Sai o Path of Ancestry, que entra virado e só dá vidência nos lobisomens Humanos.",
+   "papel_dupla": "Lobo (terreno que vira criatura)",
+   "papel_por_que": "Terreno que vira um Lobo 2/2 para a contagem da noite e para conectar."
+  },
+  "Boseiju, Who Endures": {
+   "notas": {
+    "removal": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "sai": "Field of Ruin",
+   "faz": "Terreno lendário. Gera {G}. Canalizar, por {1}{G} e descartando-o: destrói um artefato, encantamento ou terreno não básico de um oponente, que pode buscar um terreno com tipo básico; custa {1} a menos por criatura lendária sua.",
+   "porque": "Interação que não ocupa vaga de mágica: por duas manas, em velocidade instantânea, tira o encantamento que trava a matilha ou o artefato-motor do oponente, e com o Tovolar em campo custa {G}. Entra desvirado e gera verde. Sai o Field of Ruin, incolor e simétrico.",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Terreno que, descartado, destrói artefato, encantamento ou terreno não básico."
+  },
+  "Game Trail": {
+   "notas": {},
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Highland Forest",
+   "faz": "Terreno. Ao entrar, você pode revelar uma carta de Montanha ou Floresta da mão; se não revelar, entra virado. Gera {R} ou {G}.",
+   "porque": "Você já tem (Caixa): com 16 básicos na lista, quase sempre entra desvirada, no lugar da Highland Forest, que sempre entra virada. Fica como avaliar porque depende da mão; o Cultivate e o Roiling Regrowth não a acham, como também não achavam a Highland Forest."
+  },
+  "Castle Garenbrig": {
+   "notas": {
+    "ramp": 2
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Entra virado se você não controla uma Floresta. Gera {G}. Por {2}{G}{G} e virando: gera seis {G}, só para mágicas de criatura ou habilidades de criaturas.",
+   "porque": "Dois a mais a cada ativação, e seis manas verdes pagam o Tovolar's Huntmaster, a Arlinn ou duas criaturas no mesmo turno; o X do Kessig Wolf Run não entra, porque é habilidade de terreno. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: no lugar de uma Forest.",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Terreno que gera seis manas para criaturas."
+  },
+  "Mizzium Mortars": {
+   "notas": {
+    "removal": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "sai": "Roiling Regrowth",
+   "faz": "Feitiço de {1}{R}: causa 4 de dano a uma criatura que você não controla. Sobrecarga {3}{R}{R}{R}: em vez de uma, cada criatura que você não controla.",
+   "porque": "A limpeza de um lado só que o deck não tem: com sobrecarga, 4 de dano em cada criatura dos oponentes e a matilha fica de pé. Regra do dono (08/11/2026): três a quatro limpezas por deck, de preferência unilaterais. Sai o Roiling Regrowth, ramp de um terreno a mais por três manas, que o Nature's Lore do radar também tira.",
+   "papel_dupla": "Remoção (em massa)",
+   "papel_por_que": "Limpeza que só pega o lado dos oponentes."
   }
  },
  "combos": [
