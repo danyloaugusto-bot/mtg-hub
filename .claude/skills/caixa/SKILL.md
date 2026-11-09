@@ -64,3 +64,5 @@ A posição de cada cópia na pasta física, casa a casa (vista Fichário das p�
 - A Caixa monta, `testes/caixa.py` passa e o resumo foi mostrado.
 - No `aplicar`: nenhuma decisão pendente que dependa só do script; as de Deck no radar como "avaliar"; o histórico da Caixa tem a entrada do dia.
 - Uma linha em `contexto/ESTADO.md` e commit `caixa: <o que mudou>` (ou `caixa: aplicar decisões de <data>`).
+
+Estratégias do dono: antes de decidir, leia os digests de `contexto/estrategias/` (avaliação de ameaças, staples e efeito manada, e os próximos temas). Staple genérica não entra no radar por ser forte; só quando o deck tem buraco no critério ou no pacote que ela preenche, e respeitando a identidade de cor.
