@@ -53,3 +53,5 @@ Para deck que já tem painel. Uma análise nova é mais uma fonte de ideias e ma
 - Commit `deck: <pasta>, nova análise de fora (fonte X)`.
 
 Plano do deck: toda carta nova no deck ou no radar ganha `papel` (habilita, recompensa, multiplica, ou nenhum para estrutura), `papel_dupla` quando houver e `papel_por_que`, pelo `contexto/plano/METODO-PLANO.md`, se o deck já tem o bloco `plano`. Deck novo sem classificação: rode o `/plano` depois.
+
+Estratégias do dono: antes de decidir, leia os digests de `contexto/estrategias/` (avaliação de ameaças, staples e efeito manada, e os próximos temas). Staple genérica não entra no radar por ser forte; só quando o deck tem buraco no critério ou no pacote que ela preenche, e respeitando a identidade de cor.
