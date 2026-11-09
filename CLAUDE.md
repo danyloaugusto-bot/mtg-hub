@@ -26,6 +26,14 @@ O material de estratégia que o dono solta em `dados/estratégias/<tema>/` não 
 - Windows. Use `python`, não `python3`.
 - O projeto fica em `C:\Projetos\mtg-hub`, fora do OneDrive. As pastas de deck têm espaço e ponto no nome: sempre entre aspas.
 
+## Avisar quando trocar de modelo
+
+O dono quer ser avisado; você não troca de modelo sozinho. No começo de toda tarefa, e sempre que a tarefa mudar de natureza no meio da sessão, compare o modelo em que você está rodando com o indicado em `contexto/MODELOS.md` (a tabela dos comandos e a seção "Aviso de troca"). Se não baterem, a primeira linha da resposta é o aviso, antes de qualquer ferramenta:
+
+> 🔁 Troque para `<modelo>` (`/model <modelo>`, esforço `<nível>`): <motivo em uma frase>.
+
+Avise também para descer, não só para subir. Se a diferença não mudar o resultado, não avise. Um aviso por tarefa: se o dono seguir no modelo atual, siga sem repetir.
+
 ## Nomes dos painéis
 
 Cada painel tem nome próprio, em português, evocativo e ligado ao comandante: Ritos de Sangue (Clavileño), Asas da Esperança (Giada). Deck novo recebe três opções de nome para o dono escolher. Nome já dado não muda.
