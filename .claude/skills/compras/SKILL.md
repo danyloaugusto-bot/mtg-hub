@@ -14,3 +14,5 @@ A lista de compras mora no banco do hub publicado (https://claude.ai/artifact/WC
 4. Diga em que deck cada carta rende mais, pelo encaixe da pontuação v3 (`motor/encaixe.py`, o mesmo do "Rende mais em" do hub): o deck, o ganho no placar e quem sairia. Agrupe a lista como o grupo 06. Compras do hub: as cinco cores, incolor, multicolorido e terrenos.
 5. **Não mostre preço**, nem em dólar nem em real: o dono decide pelo ganho no deck, não pelo custo.
 6. Grave em `saidas/Lista de compras.md` e mostre o resumo. Lista vazia: diga que está vazia e lembre o botão "+ Compras" no radar do hub.
+
+Estratégias do dono: antes de decidir, leia os digests de `contexto/estrategias/` (avaliação de ameaças, staples e efeito manada, e os próximos temas). Staple genérica não entra no radar por ser forte; só quando o deck tem buraco no critério ou no pacote que ela preenche, e respeitando a identidade de cor.
