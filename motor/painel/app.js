@@ -2856,6 +2856,30 @@ function radCtl(lista) {
     sel('rg', 'Pacote 8×8', ui.rg, [{ k: '', n: 'Todos' }].concat(G.map(function (g, i) { return { k: String(i), n: g.sh || g.k }; }))) +
     '</div>';
 }
+/* Isoladas no tema (09/11/2026, regra do dono): carta do deck com pouca sinergia (as duas somadas até 1), que não é tier S ou A,
+   comandante, terreno, MDFC, de estimação nem fora do corte. Candidata a sair, sobretudo se rende mais em outro deck. */
+function isolada(c) {
+  if (c.cmd || c.land || c.mdfc || c.nocut || c.pet || (IPET >= 0 && (c.s[IPET] || 0) > 0) || c.tier === 'S' || c.tier === 'A') return false;
+  var s3 = c.s3 || []; return V3 && ((s3[0] || 0) + (s3[1] || 0)) <= 1;
+}
+function isoladasSection() {
+  /* carta que cumpre função num pacote do 8×8 dentro da faixa é estrutura, não isolada; acima da faixa, entra no destaque */
+  var dk = deck(), nPk = {};
+  dk.forEach(function (c) { if (!c.cmd && !c.land && !c.mdfc) { var k = pacoteDe(c); if (k >= 0) nPk[k] = (nPk[k] || 0) + c.q; } });
+  function estoura(c) { var k = pacoteDe(c), r = k >= 0 ? G[k].ref : null; return r && (nPk[k] || 0) > r[1] ? G[k].sh || G[k].k : null; }
+  function estrutura(c) { var k = pacoteDe(c); return k >= 0 && (c.s[k] || 0) >= 2 && !estoura(c); }
+  var xs = dk.filter(function (c) { return isolada(c) && !estrutura(c); }).map(function (c) {
+    var noutros = ((D.outros && D.outros[chaveN(c)]) || []).filter(function (o) { return (o.sn || 0) >= 2; }).sort(function (a, b) { return b.sn - a.sn; });
+    return { c: c, o: noutros };
+  }).sort(function (a, b) { return (b.o.length ? 1 : 0) - (a.o.length ? 1 : 0) || TR[b.c.tier] - TR[a.c.tier] || pts3(a.c) - pts3(b.c); });
+  if (!xs.length) return '';
+  return '<fieldset class="pn"><legend>Isoladas no tema</legend><p class="hint">Cartas do deck com pouca sinergia com o tema (as duas sinergias somam 1 ou menos), fora tier S e A, terrenos, MDFC e cartas de estimação. São as primeiras candidatas a sair, sobretudo as que rendem mais em outro deck seu.</p><ul class="fora">' +
+    xs.map(function (x) {
+      var c = x.c, s3 = c.s3 || [];
+      return '<li>' + tierB(c.tier, true) + '<div><button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + '</button> <span class="hint">sinergias ' + (s3[0] || 0) + ' e ' + (s3[1] || 0) + ', ' + fmtP(pts3(c)) + ' pts</span>' +
+        (estoura(c) ? '<p class="hint">O pacote ' + esc(estoura(c)) + ' está acima da faixa do 8×8.</p>' : '') + '<p>' + (x.o.length ? 'Rende mais em: ' + x.o.map(function (o) { return esc(o.d) + ' (' + (o.w === 'deck' ? 'no deck' : 'no radar') + ', sinergia ' + o.sn + ')'; }).join('; ') + '.' : 'Nenhum outro deck seu a avaliou com sinergia 2 ou mais.') + '</p></div></li>';
+    }).join('') + '</ul><p class="pn-note">Pela régua do dono (09/11/2026): pode sair o que estoura critério ou pacote e a carta isolada no tema; nunca tier S ou A, nem carta que gera terreno.</p></fieldset>';
+}
 function renderRadar() {
   var all = cands().map(E).sort(radSort);
   var main0 = all.filter(function (c) { return c.verdict !== 'fora' || c.inDeck; }), no = all.filter(function (c) { return c.verdict === 'fora' && !c.inDeck; });
@@ -2887,6 +2911,7 @@ function renderRadar() {
       return '<li>' + chip(c, { tier: true, pts: true }) + '<span class="hint" style="flex:1;min-width:160px">' + esc(c.why) + '</span><button class="btn ghost sm" data-act="restore" data-id="' + esc(c.id) + '">Devolver ao deck</button></li>';
     }).join('') + '</ul></fieldset>';
   }
+  h += isoladasSection();
   /* as listas de fora vêm depois das cartas do radar (09/11/2026): antes ficavam no topo e empurravam o radar para baixo */
   h += confrontoSection();
   h += poolSection();
