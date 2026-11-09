@@ -21,7 +21,7 @@ sys.dont_write_bytecode = True
 MOTOR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, MOTOR)
 
-import caixa, ciclos, consulta, dados, encaixe, grimorio, hub, imagens, plano, scryfall, tema  # noqa: E402
+import caixa, ciclos, consulta, dados, encaixe, estrategias, grimorio, hub, imagens, plano, scryfall, tema  # noqa: E402
 
 RAIZ = os.path.dirname(MOTOR)
 SAIDAS = os.path.join(RAIZ, "saidas")
@@ -322,6 +322,20 @@ def montar_ciclos():
         print("  aviso: " + a)
 
 
+def montar_estrategias():
+    """As Estratégias: página própria (motor/estrategias/), a partir dos digests de contexto/estrategias/*.md e do bloco
+    "Na mesa" de cada deck (09/11/2026)."""
+    if not estrategias.temas():
+        print("%s: sem digest em contexto/estrategias/, puladas" % estrategias.NOME)
+        return
+    html, r = estrategias.pagina()
+    gravar(os.path.join(SAIDAS, estrategias.NOME + ".html"), html)
+    gravar(os.path.join(RAIZ, "Abrir as Estratégias.html"), estrategias.atalho())
+    print("%s: %d temas, %d de %d decks com o bloco Na mesa | %.0f KB" % (estrategias.NOME, r["temas"], r["decks"], r["total"], r["kb"]))
+    for a in r.get("avisos") or []:
+        print("  aviso: " + a)
+
+
 def main():
     ap = argparse.ArgumentParser(description="Monta os painéis dos decks.")
     g = ap.add_mutually_exclusive_group(required=True)
@@ -332,6 +346,7 @@ def main():
     g.add_argument("--grimorio", action="store_true", help="só o Grimório, saidas/00. Grimório.html")
     g.add_argument("--consulta", action="store_true", help="só a Consulta, saidas/00. Consulta.html")
     g.add_argument("--ciclos", action="store_true", help="só os Ciclos, saidas/00. Ciclos.html")
+    g.add_argument("--estrategias", action="store_true", help="só as Estratégias, saidas/00. Estratégias.html")
     g.add_argument("--avulso", help="deck avulso de dados/avulsos/<nome> (de amigo): saidas/avulsos/<nome>.html, isolado dos decks do dono")
     ap.add_argument("--atualizar-scryfall", action="store_true", help="consulta o Scryfall de novo, mesmo para cartas no cache")
     ap.add_argument("--imagens", choices=MODOS_IMG, default="embutidas", help="embutidas (padrão): lê cache/img/; externas: tenta o Scryfall ao vivo; nenhuma: sem imagens, nem ao vivo")
@@ -372,6 +387,13 @@ def main():
             print("%s: ERRO: %s" % (consulta.NOME, e), file=sys.stderr)
             sys.exit(1)
         sys.exit(0)
+    if a.estrategias:
+        try:
+            montar_estrategias()
+        except dados.ErroDeck as e:
+            print("%s: ERRO: %s" % (estrategias.NOME, e), file=sys.stderr)
+            sys.exit(1)
+        sys.exit(0)
     if a.avulso:
         dados.avulso(a.avulso)
     alvos = decks() if a.todos else [a.avulso or a.deck]
@@ -407,6 +429,11 @@ def main():
         except (dados.ErroDeck, scryfall.ErroScryfall) as e:
             erros += 1
             print("%s: ERRO: %s" % (ciclos.NOME, e), file=sys.stderr)
+        try:
+            montar_estrategias()
+        except dados.ErroDeck as e:
+            erros += 1
+            print("%s: ERRO: %s" % (estrategias.NOME, e), file=sys.stderr)
         montar_hub()
     sys.exit(1 if erros else 0)
 
