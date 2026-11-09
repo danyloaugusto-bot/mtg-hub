@@ -253,7 +253,80 @@
         "resultado": "forte",
         "porque": "O Manabarbs cobra 1 por terreno virado para mana: quem gira mais mana sangra mais."
       }
-    ]
+    ],
+    "mesa": {
+      "leitura": "Group slug: Manabarbs, Hades Grip (Sulfuric Vortex), Roiling Vortex e Spiteful Visions batem em todos, e a mesa se junta contra o deck cedo, antes de o Valgavoth estar grande. Ao mesmo tempo, os corpos são pequenos e a vitória vem por 21 de comandante: a mesa vê um deck que incomoda mais do que ameaça, até o Valgavoth passar de poder 7.",
+      "postura": "Assumir cedo, sem pedir desculpa: é voltron de comandante com sangria, e não dá para fingir discrição com um Manabarbs em campo. O que dá para escolher é a ordem: primeiro as fontes de dano na compra (Kederekt Parasite, Razorkin Needlehead, Underworld Dreams), que só cobram dos oponentes, e as simétricas (Manabarbs, Spiteful Visions) só quando o Valgavoth já estiver crescendo. Política: lembrar a mesa de que quem compra e conjura mais é quem sangra mais.",
+      "sinais": [
+        {
+          "carta": "Valgavoth, Harrower of Souls",
+          "porque": "Cresce e compra a cada turno de oponente: o relógio dos 21 começa quando ele desce."
+        },
+        {
+          "carta": "Manabarbs",
+          "porque": "1 de dano por terreno virado para mana, para todos: a mesa inteira reage."
+        },
+        {
+          "carta": "Sulfuric Vortex",
+          "porque": "O Hades Grip: 2 por manutenção e ninguém ganha vida, você incluído; a mesa entende que a corrida começou."
+        },
+        {
+          "carta": "Bloodletter of Aclazotz",
+          "porque": "Dobra a perda de vida dos oponentes no seu turno: um Valgavoth de poder 10 tira 20."
+        },
+        {
+          "carta": "Bloodchief Ascension",
+          "porque": "Com três marcadores e o Mindcrank, tritura e drena até o fim: quem conhece o laço remove na hora."
+        }
+      ],
+      "guardar": [
+        {
+          "carta": "Bloodletter of Aclazotz",
+          "porque": "Só no turno do golpe grande, para dobrar o Valgavoth e o dreno de uma vez."
+        },
+        {
+          "carta": "Master of Cruelties",
+          "porque": "Com o Bloodletter, fecha: desce quando puder atacar sozinho e sem bloqueio."
+        },
+        {
+          "carta": "Blasphemous Act",
+          "porque": "Custa 1 ou 2 com a mesa cheia: espere os bloqueadores do Valgavoth aparecerem, e tire o Valgavoth do alcance antes."
+        },
+        {
+          "carta": "Jeska's Will",
+          "porque": "O turno explosivo: com o comandante em campo, faz as duas coisas."
+        },
+        {
+          "carta": "Bolt Bend",
+          "porque": "Uma mana aberta com o Valgavoth em campo: a remoção nele vira remoção em outro alvo."
+        }
+      ],
+      "ponto_de_falha": "O Valgavoth e os marcadores dele: remoção e, pior, exílio ou roubo zeram o relógio dos 21, e nenhuma carta do deck guarda os marcadores (The Ozolith está no radar). Os cinco desvios de alvo (Bolt Bend, Imp's Mischief, Redirect Lightning, Return the Favor, Untimely Malfunction) protegem contra mágica de alvo, não contra edito nem limpeza. O segundo ponto é a sua própria vida: Hades Grip, Manabarbs e Spiteful Visions cobram de você também, e o deck começa a corrida já sangrando.",
+      "respostas": [
+        {
+          "carta": "Chaos Warp",
+          "para": "A permanente que trava o deck ou o motor do oponente, de qualquer tipo, em velocidade instantânea."
+        },
+        {
+          "carta": "Rakdos Charm",
+          "para": "O cemitério do reanimador, o artefato-motor, ou a mesa de fichas que vai atacar você."
+        },
+        {
+          "carta": "Feed the Swarm",
+          "para": "O encantamento-motor do oponente ou a peça de combo que é encantamento."
+        },
+        {
+          "carta": "Mandate of Abaddon",
+          "para": "Com o Valgavoth grande em campo: destrói tudo o que é menor que ele, limpeza unilateral de verdade."
+        },
+        {
+          "carta": "Withering Torment",
+          "para": "A criatura ou o encantamento que entra no turno em que alguém tenta fechar."
+        }
+      ],
+      "limpezas": "Cinco, e a maioria a favor do deck: Mandate of Abaddon (destrói o que é menor que o Valgavoth), Massacre Wurm (−2/−2 só nas criaturas deles, e 2 de vida por morte), e as simétricas Blasphemous Act, Nuclear Fallout e Blasphemous Edict (que sai no radar para a Chandra's Ignition, em que o Valgavoth bate em tudo e em cada oponente). Boa quando o Valgavoth tem poder alto ou está na zona de comando; ruim a Act e o Fallout com o Valgavoth pequeno e os seus pingers (Kederekt, Razorkin, Mai) em campo. Dentro da régua do dono: 3 a 4 unilaterais, sem precisar entrar nada.",
+      "alvo": "O Valgavoth bate em quem está mais saudável, como a estratégia diz: 21 de comandante não liga para quanta vida o alvo tem, e o dano direto fecha os outros. Nos turnos deles, o alvo escolhe a si mesmo: quem compra e conjura mais sangra mais."
+    }
   },
   "cartas": {
     "Valgavoth, Harrower of Souls": {
@@ -1624,10 +1697,9 @@
       "sin_por_que": {},
       "tier": "A",
       "rel": "ALT",
-      "veredito": "entra",
-      "sai": "Basilisk Collar",
+      "veredito": "fora",
       "faz": "Equipamento: resistência a magia e ímpeto. Equipar {1}.",
-      "porque": "Ímpeto e proteção sem o manto da Lightning Greaves: as suas próprias mágicas continuam podendo mirar o Valgavoth. O vínculo do Collar é anulado pelo Hades Grip (Sulfuric Vortex).",
+      "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela.",
       "marcas": {
         "golpe": 1
       }
@@ -2138,6 +2210,56 @@
       "papel": "habilita",
       "papel_dupla": "Remoção (limpeza)",
       "papel_por_que": "Por {B}, a qualquer hora, 1 de dano em cada jogador: ativado no turno do oponente, dispara o Valgavoth e limpa criaturas pequenas."
+    },
+    "Mount Doom": {
+      "notas": {
+        "dd_outros": 1,
+        "removal": 1
+      },
+      "sin": {
+        "sin1": 1
+      },
+      "sin_por_que": {
+        "sin1": "Tira 1 de cada oponente pagando mana a cada vez, também no turno deles: liga-se ao gatilho de passagem, como a Leechridden Swamp."
+      },
+      "tier": "A",
+      "rel": "ALT",
+      "veredito": "entra",
+      "faz": "Terreno lendário. Virando e pagando 1 de vida, gera {B} ou {R}. Por {1}{B}{R}, virando: causa 1 de dano a cada oponente. Por {5}{B}{R}, virando e sacrificando-o junto com um artefato lendário: escolha até duas criaturas e destrua o resto, como feitiço.",
+      "porque": "Dual desvirada nas duas cores e, com mana sobrando, um ping em cada oponente no turno dele: o gatilho do Valgavoth quando falta outra fonte. Entra no lugar do Canyon Slough, que sempre entra virado. A terceira habilidade pede artefato lendário, que o deck não tem: não conte com ela.",
+      "sai": "Canyon Slough",
+      "papel_dupla": "Dano direto (ping)",
+      "papel_por_que": "Terreno que tira 1 de cada oponente, à escolha do turno."
+    },
+    "Graven Cairns": {
+      "notas": {},
+      "sin": {},
+      "sin_por_que": {},
+      "tier": "B",
+      "rel": "ALT",
+      "veredito": "entra",
+      "faz": "Terreno. Gera {C}; ou, por {B/R} e virando, gera {B}{B}, {B}{R} ou {R}{R}.",
+      "porque": "Fonte desvirada que transforma uma mana em duas das cores certas: paga o {B}{B}{B} do Bloodletter ou o {R}{R} do Hades Grip com qualquer Pântano ou Montanha ao lado. Entra no lugar do Rakdos Carnarium, que entra virado e devolve um terreno à mão, o que atrasa o Valgavoth no turno 3 ou 4.",
+      "sai": "Rakdos Carnarium"
+    },
+    "Shivan Gorge": {
+      "notas": {
+        "dd_outros": 1
+      },
+      "sin": {
+        "sin1": 1
+      },
+      "sin_por_que": {
+        "sin1": "Tira 1 de cada oponente pagando mana a cada vez: liga-se ao gatilho de passagem, no turno que você escolher."
+      },
+      "tier": "B",
+      "rel": "MED",
+      "veredito": "avaliar",
+      "faz": "Terreno lendário. Gera {C}. Por {2}{R}, virando: causa 1 de dano a cada oponente.",
+      "porque": "Um gatilho do Valgavoth guardado num terreno: ativado no turno de um oponente, ele cresce e você compra, sem gastar carta. É incolor e custa três por ativação, por isso avaliar; no lugar do Spinerock Knoll, que entra virado e cujo esconderijo pede 7 de dano num turno só. Os jogadores do Valgavoth no EDHREC o usam em 62% das listas.",
+      "sai": "Spinerock Knoll",
+      "papel_dupla": "Dano direto (ping)",
+      "papel_por_que": "Terreno que tira 1 de cada oponente quando você quiser."
     }
   },
   "combos": [
