@@ -88,10 +88,26 @@ with sync_playwright() as p:
             R.ok("ordenar: ranking das cartas pelos pontos, do maior para o menor", pts_rk == sorted(pts_rk, reverse=True) and len(pts_rk) > 5, pts_rk[:5])
         pg.click('[data-tab="tab"]'); pg.wait_for_timeout(150)
     # nome impresso: a página mostra o nome da carta física; o do Scryfall fica só nos dados
-    escondidos = [c["on"] for c in D["cards"] if c.get("on")]
-    if escondidos:
-        R.ok("nome impresso no lugar do nome do Scryfall", not [n for n in escondidos if any(n in v for v in visto)],
-             ", ".join(c["n"] for c in D["cards"] if c.get("on")))
+    # nome duplo (pedido do dono, 08/11/2026): o do Scryfall aparece, mas só ao lado do impresso, numa linha
+    # menor ou entre parênteses depois dele; sozinho num texto, é erro (o porquê que cita Sulfuric Vortex em vez de Hades Grip)
+    duplas = [(c["n"], c["on"]) for c in D["cards"] if c.get("on") and c["on"] != c["n"]]
+    if duplas:
+        soltos = []
+        for v in visto:
+            for n, on in duplas:
+                t = v.replace("%s (%s)" % (n, on), n)
+                t = "\n".join(l for l in t.split("\n") if l.strip() != on)
+                if on in t:
+                    soltos.append(on)
+        R.ok("nome do Scryfall só ao lado do nome impresso", not soltos, sorted(set(soltos)) or ", ".join(n for n, _ in duplas))
+        pg.click('[data-tab="tab"]'); pg.wait_for_timeout(150)
+        n0, on0 = duplas[0]
+        linha = pg.locator("#v-tab tr.row", has=pg.locator("small.on", has_text=on0))
+        R.ok("tabelão mostra o nome do Scryfall abaixo do impresso", linha.count() >= 1, on0)
+        if linha.count():
+            linha.first.click(); pg.wait_for_timeout(150)
+            R.ok("gaveta mostra o nome do Scryfall", on0 in pg.inner_text(".dw-on"), n0)
+            pg.keyboard.press("Escape"); pg.wait_for_timeout(100)
 
     # gaveta: stepper, PetCard e tier (com uma carta que não sai nas trocas sugeridas)
     saem = {c.get("sai") for c in D["cands"] if c["verdict"] == "entra"}
