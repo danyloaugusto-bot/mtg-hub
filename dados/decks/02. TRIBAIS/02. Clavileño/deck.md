@@ -11,11 +11,13 @@
 
 ## O plano em uma frase
 
-Atacar com Vampiros, deixar o Clavileño abençoar um deles, e transformar a morte dele em carta e em um Demônio 4/3 voador. Depois, trazer de volta e repetir.
+Descer Vampiros de força parecida na curva, atacar com eles todo turno, sacrificar o abençoado na hora certa e trazê-lo de volta mais forte (Valkyrie's Call), repetindo e multiplicando os gatilhos até fechar sem depender de combo.
+
+**Decisão do dono (09/11/2026):** deck temático e tribal de Vampiros (o Vampiro precisa nascer Vampiro para virar Demônio), aristocrata de sacrifício com recursão e ganho de vida; fechar com as fases da mesa bem construídas, não com combo; os gatilhos fortes do Clavileño e das outras cartas precisam se repetir e se multiplicar.
 
 ## Tema e subtemas
 
-Tribal de Vampiros, com subtema aristocrata (muitos sacrifícios) e recursão do cemitério.
+Tribal de Vampiros em preto e branco, com aristocratas (sacrifício), recursão do cemitério e ganho de vida. O ciclo do deck: Vampiro abençoado vira Demônio, morre, volta como Anjo pela Valkyrie's Call, é abençoado de novo e, na segunda morte, rende carta e uma ficha de Demônio.
 
 ## Agrupamentos deste deck
 
