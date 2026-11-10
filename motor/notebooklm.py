@@ -241,6 +241,15 @@ def dossie(pasta):
                          " Sairia: %s." % sai["n"] if sai else "", frase(c["why"])))
         L.append("")
 
+    hp = os.path.join(base, "historia.md")   # a história do comandante (09/11/2026): o arquivo inteiro, sem o título
+    if os.path.exists(hp):
+        with open(hp, encoding="utf-8") as fh:
+            ht = fh.read().replace("\r\n", "\n").split("\n", 1)[1].strip()
+        L.append("## A história do comandante")
+        L.append("")
+        L.append(("\n" + ht).replace("\n### ", "\n#### ").replace("\n## ", "\n### ").strip())
+        L.append("")
+
     L.append("## Glossário")
     L.append("")
     L.extend("- **%s:** %s" % g for g in GLOSSARIO)
