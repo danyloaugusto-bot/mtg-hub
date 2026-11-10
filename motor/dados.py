@@ -717,6 +717,29 @@ def conferir_estrategia(e, nomes=None):
 
 
 # ---------------------------------------------------------------- deck inteiro
+def ler_historia(base):
+    """historia.md da pasta do deck (pedido do dono, 09/11/2026): a história do comandante, resumida em português a partir do
+    mtg.wiki. O painel mostra só "Em poucas linhas" e a fonte; o dossiê do NotebookLM leva o arquivo inteiro. Não pontua nada."""
+    p = os.path.join(base, "historia.md")
+    if not os.path.exists(p):
+        return None
+    with open(p, encoding="utf-8") as f:
+        txt = f.read().replace("\r\n", "\n")
+    secs = {}
+    for bloco in re.split(r"\n## ", "\n" + txt)[1:]:
+        tit, _, corpo = bloco.partition("\n")
+        secs[tit.strip().lower()] = corpo.strip()
+    curta = secs.get("em poucas linhas")
+    if not curta:
+        raise ErroDeck("historia.md sem a seção '## Em poucas linhas'")
+    mf = re.search(r"\*\*Fonte:\*\*(.+)", txt)
+    fontes = [dict(t=t, u=u) for t, u in re.findall(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", mf.group(1))] if mf else []
+    lida = re.search(r"lida em (\d{2}/\d{2}/\d{4})", mf.group(1)) if mf else None
+    if not fontes:
+        raise ErroDeck("historia.md sem a linha **Fonte:** com o link da página")
+    return dict(curta=[x.strip() for x in curta.split("\n\n") if x.strip()], fontes=fontes, lida=lida.group(1) if lida else None)
+
+
 def montar(pasta, atualizar_scryfall=False, avisar=print):
     base = pasta_deck(pasta)
     if not os.path.isdir(base):
@@ -857,6 +880,9 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         c = montar_carta(n, a, sf[n0 + j], grupos, marcadores)
         c["cand"] = 1
         c["verdict"] = a["veredito"]
+        m_or = re.match(r"coleção (\w+) \((\d{4}-\d{2}-\d{2})\)", a.get("origem") or "")
+        if m_or:   # trazida pelo /colecao: selo "nova" e filtro por coleção no radar (pedido do dono, 09/11/2026)
+            c["nova"] = dict(k=m_or.group(1), d=m_or.group(2))
         if a.get("sai"):
             c["sai"] = ids[a["sai"]]
         cands.append(c)
@@ -912,7 +938,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
             c["s3"] = notas3[k3]
             if porque3.get(k3):
                 c["s3w"] = porque3[k3]
-    return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, v3=v3,
+    return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, historia=ler_historia(base), v3=v3,
                 confrontos=confrontos, avaliadas=avaliadas,
                 criterios=grupos_v3() if v3 else None,
                 marcadores=marcadores, leituras=leituras, banidas=banidas, feito=av.get("feito", ""), ident=ident,
