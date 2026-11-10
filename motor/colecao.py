@@ -316,7 +316,7 @@ def gravar_radar(codigo, arq, avisar=print):
         j = json.load(fh)
     info = caixa.info_decks()
     cad = prenota.ler_cadastro()
-    feitos = []
+    feitos, pendentes = [], []
     for pasta, cartas in j.items():
         if dados.eh_desejo(pasta):
             raise ErroColecao("%s é deck Desejo: não recebe carta" % pasta)
@@ -334,21 +334,28 @@ def gravar_radar(codigo, arq, avisar=print):
                 raise ErroColecao("%s é precon intacto: não recebe 'entra'" % pasta)
             if v.get("sai") and v["sai"] not in no_deck:
                 raise ErroColecao("%s, %s: 'sai' %r não está no deck" % (pasta, nome, v["sai"]))
+            if v.get("veredito") == "entra" and v.get("sai"):
+                ja = [n for n, x in radar.items() if x.get("veredito") == "entra" and x.get("sai") == v["sai"] and n != nome]
+                if ja:
+                    raise ErroColecao("%s, %s: 'sai' %r já é o corte de %s, que também entra" % (pasta, nome, v["sai"], ja[0]))
             for campo in ("tier", "rel", "faz", "porque"):
                 if not str(v.get(campo) or "").strip():
                     raise ErroColecao("%s, %s: falta '%s'" % (pasta, nome, campo))
+            if nome not in cad["cartas"] and (c or {}).get("cadastro_proposto"):   # também para a carta que já está no radar
+                cp = c["cadastro_proposto"]
+                cad["cartas"][nome] = dict(n=cp["n"], por_que=cp["por_que"], fonte="claude", revisado=_hoje())
             if nome in radar or nome in no_deck:
                 continue
-            ent = dict(sin={k: n for k, n in zip(("sin1", "sin2"), l["sin"]) if n}, sin_por_que=l["sin_por_que"], tier=v["tier"], rel=v["rel"],
+            ent = dict(notas={}, sin={k: n for k, n in zip(("sin1", "sin2"), l["sin"]) if n}, sin_por_que=l["sin_por_que"], tier=v["tier"], rel=v["rel"],
                        veredito=v["veredito"], faz=v["faz"], porque=v["porque"], origem="coleção %s (%s)" % (codigo, _hoje()))
             if v.get("sai"):
                 ent["sai"] = v["sai"]
             dados.conferir_avaliacao(ent, "%s, radar: %s" % (pasta, nome), [], {}, radar=True)
             radar[nome] = ent
-            if nome not in cad["cartas"] and c.get("cadastro_proposto"):
-                cp = c["cadastro_proposto"]
-                cad["cartas"][nome] = dict(n=cp["n"], por_que=cp["por_que"], fonte="claude", revisado=_hoje())
             feitos.append((pasta, nome))
+        pendentes.append((p, av, ind, nl))
+    # tudo conferido: só agora grava (um erro no meio não deixa deck gravado sem o cadastro das cartas)
+    for p, av, ind, nl in pendentes:
         with open(p, "w", encoding="utf-8", newline="\n") as f:
             f.write(json.dumps(av, ensure_ascii=False, indent=ind) + ("\n" if nl else ""))
     prenota.gravar_cadastro(cad)
