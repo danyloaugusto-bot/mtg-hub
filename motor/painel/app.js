@@ -2219,9 +2219,15 @@ function planoPanel() {
 /* ============ a história (09/11/2026, pedido do dono): resumo do mtg.wiki em historia.md; sabor, não pontua ============ */
 function historiaPanel() {
   var x = D.historia; if (!x || !x.curta || !x.curta.length) return '';
-  return '<fieldset class="pn hist-pn"><legend>A história</legend>' + x.curta.map(function (t) { return '<p>' + rich(t) + '</p>'; }).join('') +
+  /* o texto ocupa a largura; à direita, a carta do comandante (ou as duas, na dupla), que abre a gaveta; no celular, a carta vem antes */
+  var cmds = D.cards.filter(function (c) { return c.cmd; }).slice(0, 2);
+  var arte = imgOn() && cmds.length ? '<div class="hist-art n' + cmds.length + '">' + cmds.map(function (c) {
+    return '<div class="hist-card c-' + esc(c.col) + '" data-card="' + esc(c.id) + '" role="button" tabindex="0" aria-label="Abrir ' + esc(c.n) + '">' + fbTile(c) + imgTag(c, 'normal', false) + '</div>';
+  }).join('') + '</div>' : '';
+  return '<fieldset class="pn hist-pn"><legend>A história</legend><div class="hist-g' + (arte ? ' com-arte' : '') + '"><div class="hist-txt">' +
+    x.curta.map(function (t) { return '<p>' + rich(t) + '</p>'; }).join('') +
     '<p class="pn-note">Fonte: ' + x.fontes.map(function (f) { return '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.t) + '</a>'; }).join(', ') +
-    (x.lida ? ', lida em ' + esc(x.lida) : '') + '. Resumo em português; a versão completa vai no dossiê do NotebookLM.</p></fieldset>';
+    (x.lida ? ', lida em ' + esc(x.lida) : '') + '. Resumo em português; a versão completa vai no dossiê do NotebookLM.</p></div>' + arte + '</div></fieldset>';
 }
 
 /* ============ estratégia ============ */
