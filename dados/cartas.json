@@ -1,6 +1,14 @@
 {
  "versao": 3,
  "cartas": {
+  "Abandoned Air Temple": {
+   "n": {
+    "amplificador": 3
+   },
+   "por_que": "Terreno de branco que entra desvirado com um básico; por {3}{W}, põe um marcador +1/+1 em cada criatura sua, de novo a cada turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-07"
+  },
   "Abandoned Campground": {
    "n": {},
    "por_que": "Dual de W e U desvirada se algum jogador tem 13 ou menos de vida: fixa a cor, não acelera.",
@@ -433,6 +441,16 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Ajani's Anguish": {
+   "n": {
+    "dano": 1,
+    "remocao": 1,
+    "evasao": 2
+   },
+   "por_que": "Ao entrar, X de dano em qualquer alvo, uma vez; suas criaturas têm atropelar.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Ajani, Caller of the Pride": {
    "n": {
     "amplificador": 2,
@@ -565,6 +583,17 @@
    "por_que": "Golpe primeiro; ao atacar, pagando {W/B}{W/B}, reanima atacando uma criatura de força 2 ou menos.",
    "fonte": "claude",
    "revisado": "2026-10-20"
+  },
+  "Alexander, Ship's Fool": {
+   "n": {
+    "draw": 1,
+    "dano": 2,
+    "resiliencia": 1,
+    "aceleradores": 1
+   },
+   "por_que": "Compra todo turno, mas todos compram; dano repetível num oponente ao acaso; vigilância e ímpeto.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Alexios, Deimos of Kosmos": {
    "n": {
@@ -1244,6 +1273,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Arcane Amphisbaena": {
+   "n": {
+    "evasao": 1,
+    "recurso": 1
+   },
+   "por_que": "Toque mortífero; ao entrar dá 2 de lealdade a um Jace, que vigia: filtro pequeno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Arcane Denial": {
    "n": {
     "resiliencia": 2,
@@ -1541,6 +1579,15 @@
    "fonte": "claude",
    "revisado": "2026-10-17"
   },
+  "Armus, Skin of Evil": {
+   "n": {
+    "remocao": 3,
+    "evasao": 1
+   },
+   "por_que": "Remoção 3 pela regra de fazer duas vezes: o descarte de duas cartas de um oponente a cada fim de turno seu é descarte repetível (2) e o \"Discard this card: Target creature gets -4/-4\" é uma remoção condicional de uma vez (1), por outra parte do texto, o que sobe um nível; Evasão 1 pela ameaça na própria criatura.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Army of the Damned": {
    "n": {
     "recurso": 3
@@ -1743,6 +1790,15 @@
    "por_que": "Vê o topo do grimório e, uma vez por turno, conjura dele criatura de poder 2 ou menos.",
    "fonte": "claude",
    "revisado": "2026-10-17"
+  },
+  "Assimilation Assessor": {
+   "n": {
+    "remocao": 2,
+    "recurso": 2
+   },
+   "por_que": "Remoção 2: \"When this creature enters, exile target opponent's graveyard\" é ódio a cemitério de um cemitério inteiro de uma vez; Recurso 2: \"Whenever this creature attacks, assimilate a creature card exiled with it\" põe em campo uma criatura a cada ataque, mas só do estoque exilado uma vez e só se ela atacar, então não chega ao 3. Sem evasão: é uma 5/5 comum.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Astarion's Thirst": {
    "n": {
@@ -2093,6 +2149,15 @@
    "por_que": "No seu turno, o dano de combate vem da resistência; a cada ataque, até cem criaturas ganham +0/+X (X = cartas na mão): pump do time, repetível.",
    "fonte": "claude",
    "revisado": "2026-10-18"
+  },
+  "Balefang the Unslayable": {
+   "n": {
+    "evasao": 2,
+    "resiliencia": 1
+   },
+   "por_que": "Voa e atropela (duas evasões); dá a um oponente um Anjo atiçado para o resto do jogo.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Balefire Dragon": {
    "n": {
@@ -2999,6 +3064,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Blastoneuron": {
+   "n": {
+    "evasao": 1,
+    "recurso": 1,
+    "dano": 2
+   },
+   "por_que": "Voa; ao entrar, exila uma criatura de valor até 3 do seu cemitério e cria uma cópia com ímpeto até o fim do turno; dreno de 1 em cada oponente a cada vez que cartas saem do seu cemitério.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Blatant Thievery": {
    "n": {
     "remocao": 3
@@ -3624,6 +3699,15 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Borg Queen, Perfection Manifest": {
+   "n": {
+    "amplificador": 2,
+    "recurso": 2
+   },
+   "por_que": "Amplificador 2: \"Artifact creatures you control get +2/+0\" é um bônus contínuo para todas as criaturas artefato, como um Glorious Anthem restrito; Recurso 2: \"When Borg Queen enters, assimilate target creature card from an opponent's graveyard\" põe em campo uma criatura de um cemitério uma vez, como o Raise Dead. O marcador do assimilar acompanha a recursão e não conta à parte.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Boromir, Gondor's Hope": {
    "n": {
     "recurso": 3
@@ -3680,6 +3764,15 @@
    "por_que": "Terreno de verde; canalizar destrói artefato, encantamento ou terreno não básico de oponente, mais barato por criatura lendária sua.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Boss Uramon, Shadow's Reach": {
+   "n": {
+    "evasao": 3,
+    "recurso": 2
+   },
+   "por_que": "Sombra em si e toque mortífero aos Ninjas e Ladinos atacantes (duas evasões); ficha de Rato a cada conexão de Ninjas ou Ladinos.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Botanical Brawler": {
    "n": {
@@ -4638,6 +4731,25 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Captain Jean-Luc Picard": {
+   "n": {
+    "amplificador": 2,
+    "recurso": 3
+   },
+   "por_que": "Amplificador 2: 'Other creatures you control get +1/+1' é o Glorious Anthem da calibração. Recurso 3: cria uma ficha 1/1 a cada mágica de criatura ou Spacecraft conjurada, repetível e várias por turno, e ainda busca um Spacecraft com sete Officers virados (busca de um tipo, que só reforça). Nenhum outro critério.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
+  "Captain Kathryn Janeway": {
+   "n": {
+    "aceleradores": 2,
+    "draw": 2,
+    "amplificador": 2
+   },
+   "por_que": "Terreno extra por turno, e cada criatura sua que entra explora: terreno vai para a mão ou ela ganha marcador +1/+1.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Captain Storm, Cosmium Raider": {
    "n": {
     "amplificador": 1
@@ -4865,6 +4977,14 @@
    "por_que": "Terreno de vermelho, virado sem Montanha; por {1}{R}{R} e virando, suas criaturas ganham +1/+0 no turno.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Castle Garenbrig": {
+   "n": {
+    "aceleradores": 2
+   },
+   "por_que": "Terreno de verde, virado sem Floresta; por {2}{G}{G} e virando, gera seis manas verdes só para criaturas e habilidades de criatura.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Castle Locthwain": {
    "n": {
@@ -5442,6 +5562,15 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Chief Magistrate of Mercadia": {
+   "n": {
+    "recurso": 3,
+    "draw": 2
+   },
+   "por_que": "Goblin a cada manutenção e, sendo monarca, copia cada ficha de criatura; dá a coroa ao entrar.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Chief Warg's Company": {
    "n": {
     "evasao": 1,
@@ -5872,6 +6001,12 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Colossal Clone Master": {
+   "n": {},
+   "por_que": "Clone de qualquer criatura; não pontua nos critérios da carta.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Colossal Rattlewurm": {
    "n": {
     "evasao": 1,
@@ -5896,6 +6031,14 @@
    "por_que": "Equipamento de 1: +10/+10 e perde voar; equipar {8}.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Combadge": {
+   "n": {
+    "evasao": 2
+   },
+   "por_que": "Vem em duas cópias; cada criatura equipada fica imbloqueável ao atacar enquanto a outra cópia estiver equipada.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Combat Celebrant": {
    "n": {
@@ -5978,6 +6121,16 @@
    "por_que": "Terreno de duas cores, desvirado até o terceiro terreno.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Concerted Effort": {
+   "n": {
+    "evasao": 2,
+    "amplificador": 1,
+    "resiliencia": 1
+   },
+   "por_que": "Em cada manutenção, o time ganha voar, atropelar, golpe duplo, proteção e outras se uma criatura sua tiver: condicional.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Conciliator's Duelist": {
    "n": {
@@ -6822,6 +6975,16 @@
    "fonte": "claude",
    "revisado": "2026-10-18"
   },
+  "Cryptic Command": {
+   "n": {
+    "resiliencia": 2,
+    "remocao": 1,
+    "draw": 1
+   },
+   "por_que": "Dois modos: anula, devolve uma permanente à mão, vira as criaturas dos oponentes ou compra uma.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Cryptolith Fragment": {
    "n": {
     "evasao": 1,
@@ -7243,6 +7406,15 @@
    "fonte": "claude",
    "revisado": "2026-10-20"
   },
+  "Curse-Marred Demon": {
+   "n": {
+    "evasao": 2,
+    "recurso": 2
+   },
+   "por_que": "Voa e tem atropelar; ao entrar, busca qualquer carta para a mão e descarta uma ao acaso, como Gamble.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Cursecloth Wrappings": {
    "n": {
     "recurso": 3,
@@ -7470,6 +7642,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15",
    "so_com": "Equipment"
+  },
+  "Danitha, Sword of Hope": {
+   "n": {
+    "evasao": 1,
+    "draw": 2
+   },
+   "por_que": "Golpe primeiro; compra uma ao conjurar Equipamento ou mágica que mira criatura sua, uma vez por turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Daretti, Rocketeer Engineer": {
    "n": {
@@ -7767,6 +7948,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Death Is Irrelevant": {
+   "n": {
+    "resiliencia": 2,
+    "recurso": 3
+   },
+   "por_que": "Recurso 3: \"At the beginning of your end step, assimilate target creature card from a graveyard\" põe em campo uma criatura de qualquer cemitério toda volta, efeito grande e repetível; Resiliência 2: \"Artifact creatures you control have indestructible\" protege de forma contínua as criaturas artefato, inclusive as assimiladas, mas não o resto. O marcador do assimilar acompanha a recursão e não conta à parte (um efeito, um critério).",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Deathbloom Gardener": {
    "n": {
     "aceleradores": 2,
@@ -7867,6 +8057,15 @@
    "por_que": "Instantânea: compra uma carta e cria uma Pista, que compra outra depois.",
    "fonte": "claude",
    "revisado": "2026-10-17"
+  },
+  "Deep Space 9": {
+   "n": {
+    "aceleradores": 3,
+    "amplificador": 2
+   },
+   "por_que": "Ao entrar e em toda manutenção, põe em campo as permanentes dos quatro do topo; estacionada em 9+, criaturas +3/+3.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Deepfathom Echo": {
    "n": {
@@ -8717,6 +8916,23 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Dominion Infiltration": {
+   "n": {
+    "recurso": 2,
+    "aceleradores": 1
+   },
+   "por_que": "Feitiço de X: cria de uma vez X fichas que copiam criaturas de oponentes, com metamorfo e ímpeto, exiladas na próxima etapa final.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
+  "Dominion Saboteur": {
+   "n": {
+    "amplificador": 1
+   },
+   "por_que": "Entra como cópia não lendária de qualquer artefato ou criatura em campo, com os mesmos marcadores do original: um clone, como o Clone.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Dominus of Fealty": {
    "n": {
     "remocao": 2,
@@ -8989,6 +9205,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15",
    "so_com": "Dragon"
+  },
+  "Dragon's Smile": {
+   "n": {
+    "evasao": 1,
+    "draw": 2,
+    "aceleradores": 2
+   },
+   "por_que": "Veículo voador; ao acertar exila do grimório do jogador cartas para jogar no turno; uma mágica do exílio de graça por turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Dragonback Assault": {
    "n": {
@@ -9512,6 +9738,14 @@
    "revisado": "2026-10-15",
    "so_com": "Artifact"
   },
+  "Edgar, Moonlit Sovereign": {
+   "n": {
+    "amplificador": 3
+   },
+   "por_que": "Lampejo; ganha dois marcadores +1/+1 no fim do turno em que você não conjurou; por {4}{G}, um marcador em cada criatura sua que já tem marcador: duas vezes Amplificador.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Edward Kenway": {
    "n": {
     "aceleradores": 2,
@@ -9754,6 +9988,17 @@
    "por_que": "+1 avança na masmorra todo turno; -2 olha seis e pega uma criatura; -7 dá atropelar, ímpeto e +2/+2 por masmorra completa.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Elspeth, Sun's Champion": {
+   "n": {
+    "recurso": 3,
+    "remocao": 2,
+    "amplificador": 1,
+    "evasao": 1
+   },
+   "por_que": "+1 cria três Soldados todo turno; −3 destrói as criaturas de força 4 ou mais; o emblema (modo raro) dá +2/+2 e voar ao time.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Elturel Survivors": {
    "n": {
@@ -10004,6 +10249,16 @@
    "revisado": "2026-10-20",
    "so_com": "Enchantment"
   },
+  "Encounter the Unknown": {
+   "n": {
+    "draw": 2,
+    "remocao": 2,
+    "dano": 1
+   },
+   "por_que": "Modal: exila as duas do topo para jogar até o fim do próximo turno, ou 2 de dano em cada criatura e cada jogador.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Encroaching Dragonstorm": {
    "n": {
     "aceleradores": 2
@@ -10130,6 +10385,14 @@
    "por_que": "Busca um artefato ou encantamento e o põe no topo, instantânea.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Ensign Pavel Chekov": {
+   "n": {
+    "aceleradores": 1
+   },
+   "por_que": "Ao entrar, um terreno de cada oponente fica jogável do exílio: garante descidas de terreno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Ensnared by the Mara": {
    "n": {
@@ -11157,6 +11420,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Fateshaper Aspirant": {
+   "n": {
+    "recurso": 1,
+    "amplificador": 1,
+    "resiliencia": 1
+   },
+   "por_que": "Ao entrar, escolhe: devolve uma carta lendária do cemitério à mão, ou põe um marcador +1/+1 numa criatura, que ganha vigilância e indestrutível no turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Fear of Infinity": {
    "n": {
     "evasao": 1,
@@ -11211,6 +11484,14 @@
    "por_que": "Branco; desvirado com dois outros terrenos, dá 2 de vida ou vidência 1, uma vez.",
    "fonte": "claude",
    "revisado": "2026-11-03"
+  },
+  "Federation Resupply": {
+   "n": {
+    "recurso": 3
+   },
+   "por_que": "Recurso 3 pela regra de fazer duas vezes: busca um tipo (Aura, Equipamento ou Spacecraft) para a mão, que é 2 na rubrica, e o 'Beam me up' deixa conjurar de novo do cemitério, uma segunda busca. Traz uma carta por vez, então não ganha Draw; devolver uma criatura sua à mão é custo, não Resiliência.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Feed the Swarm": {
    "n": {
@@ -11291,6 +11572,16 @@
    "por_que": "Duas cores, virado; ganha 1 de vida ao entrar.",
    "fonte": "claude",
    "revisado": "2026-11-03"
+  },
+  "Feroz, Ulgrotha's Warden": {
+   "n": {
+    "recurso": 3,
+    "draw": 2,
+    "aceleradores": 2
+   },
+   "por_que": "Duas fichas voadoras a cada turno; ou compra e põe permanente de valor até 4 da mão em campo.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Ferrous Lake": {
    "n": {},
@@ -12336,6 +12627,15 @@
    "revisado": "2026-10-15",
    "so_com": "Sliver"
   },
+  "Gallia, the Merrymaker": {
+   "n": {
+    "aceleradores": 2,
+    "amplificador": 1
+   },
+   "por_que": "Tem ímpeto e dá ímpeto às suas outras criaturas com marcador +1/+1; por {1}{R} e virando, põe um marcador +1/+1 numa criatura que entrou no turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Gallifrey Council Chamber": {
    "n": {
     "recurso": 1
@@ -12463,6 +12763,14 @@
    "por_que": "Na cor escolhida, todo básico gera uma mana a mais e toda criatura ganha +1/+1, de todos os jogadores.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Gavony Township": {
+   "n": {
+    "amplificador": 3
+   },
+   "fonte": "claude",
+   "revisado": "2026-11-09",
+   "por_que": "Terreno incolor; por {2}{G}{W}, virando, um marcador +1/+1 em cada criatura sua, de novo a cada turno."
   },
   "Geier Reach Bandit": {
    "n": {
@@ -12651,6 +12959,14 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Ghalta the Unstoppable": {
+   "n": {
+    "evasao": 2
+   },
+   "por_que": "Atropelar, e suas outras criaturas também: evasão comum dada ao time; o desconto no próprio custo não acelera o resto.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Ghalta, Primal Hunger": {
    "n": {
     "evasao": 1
@@ -12765,6 +13081,15 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Gideon the Oathless": {
+   "n": {
+    "dano": 2,
+    "resiliencia": 1
+   },
+   "por_que": "Causa 1 de dano ao oponente a cada criatura dele que entra e a cada habilidade de lealdade que ele ativa; proteção (ward) de descartar uma carta.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Gift of Fangs": {
    "n": {
     "amplificador": 1,
@@ -12774,6 +13099,14 @@
    "fonte": "claude",
    "revisado": "2026-10-25",
    "so_com": "Vampire"
+  },
+  "Gift of Perfection": {
+   "n": {
+    "recurso": 2
+   },
+   "por_que": "Põe em campo uma criatura do grimório de um oponente, com marcador.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Gifted Aetherborn": {
    "n": {
@@ -13656,6 +13989,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Grand Crescendo": {
+   "n": {
+    "recurso": 2,
+    "resiliencia": 3
+   },
+   "por_que": "Instantânea: X fichas 1/1 e o time fica indestrutível no turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Grand Master of Flowers": {
    "n": {
     "remocao": 1,
@@ -13883,6 +14225,16 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Greensleeves": {
+   "n": {
+    "recurso": 3,
+    "draw": 2,
+    "amplificador": 1
+   },
+   "por_que": "Ficha de Texugo a cada turno; mói três e põe as permanentes na mão; habilidade final deixa o time 8/8 com atropelar.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Gremlin Tamer": {
    "n": {
     "recurso": 2
@@ -13928,6 +14280,15 @@
    "por_que": "Aura de jogador: ele não ganha vida e, a cada dano que sofre, perde metade da vida, arredondada para cima; depende de outra fonte de dano.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Grilka, Widowed Warrior": {
+   "n": {
+    "remocao": 1,
+    "aceleradores": 2
+   },
+   "por_que": "Criatura 5/5 de 6 manas: ao entrar, toma uma criatura de oponente até o fim do turno, desvirada, com atropelar e ímpeto, e ela cria Tesouros do tamanho do dano de combate a um jogador; vira remoção só com saída de sacrifício.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Grim Guardian": {
    "n": {
@@ -14154,6 +14515,16 @@
    "fonte": "claude",
    "revisado": "2026-10-20"
   },
+  "Gul Dukat, Colonial Prefect": {
+   "n": {
+    "dano": 3,
+    "resiliencia": 2,
+    "evasao": 1
+   },
+   "por_que": "Em cada fim de turno, cada oponente perde de novo toda a vida que perdeu no turno: dobra a perda, em todos, todo turno (Dano Direto 3, como Wound Reflection); você ganha essa mesma vida, ganho repetível que depende da perda dos outros (Resiliência 2); ameaça na própria criatura (Evasão 1).",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Gut, True Soul Zealot": {
    "n": {
     "recurso": 2
@@ -14213,6 +14584,12 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Hall of the Bandit Lord": {
+   "n": {},
+   "por_que": "Terreno virado; por 3 de vida, uma mana que dá ímpeto à criatura conjurada com ela; ímpeto não entra em critério.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Hallowed Fountain": {
    "n": {},
    "por_que": "Duas cores, desvirada por 2 de vida.",
@@ -14266,6 +14643,12 @@
    "fonte": "claude",
    "revisado": "2026-10-15",
    "so_com": "Equipment"
+  },
+  "Hanweir Battlements": {
+   "n": {},
+   "por_que": "Terreno incolor; por {R} e virando, dá ímpeto a uma criatura; ímpeto não entra em critério.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Hanweir Militia Captain": {
    "n": {
@@ -15313,6 +15696,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Hunter's Axe": {
+   "n": {
+    "amplificador": 1,
+    "evasao": 1
+   },
+   "por_que": "Equipamento de {G}: +2/+0 e, a cada ataque, atropelar ou toque mortífero à escolha.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Hunter's Bow": {
    "n": {
     "resiliencia": 1,
@@ -15441,6 +15833,14 @@
    "por_que": "As criaturas do tipo escolhido ganham +1/+1; por {3} e virando, põe na mão uma criatura desse tipo entre as três do topo.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Identity Echo": {
+   "n": {
+    "recurso": 2
+   },
+   "por_que": "Por {3}{R}, como feitiço, troca uma criatura ou planeswalker seu pela próxima criatura ou planeswalker do grimório, direto em campo: repetível, mas caro e ao acaso.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Idol of Oblivion": {
    "n": {
@@ -15691,6 +16091,16 @@
    "fonte": "claude",
    "revisado": "2026-10-20"
   },
+  "In the Pale Moonlight": {
+   "n": {
+    "remocao": 2,
+    "draw": 1,
+    "recurso": 2
+   },
+   "por_que": "Saga: cada oponente sacrifica uma criatura que não é ficha; investiga; sacrificando um artefato ou criatura, cria duas fichas 2/2.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Incinerator of the Guilty": {
    "n": {
     "remocao": 2,
@@ -15871,6 +16281,12 @@
    "por_que": "Lição: um Inkling 2/1 voador por três manas.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Inkmoth Nexus": {
+   "n": {},
+   "por_que": "Terreno incolor que, por {1}, vira uma criatura artefato 1/1 com voar e infectar até o fim do turno; nenhum critério da carta, como o Mutavault.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Inkshield": {
    "n": {
@@ -16615,6 +17031,14 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Jabs, Mistress of Mockery": {
+   "n": {
+    "amplificador": 1
+   },
+   "por_que": "Dobra os gatilhos só de permanentes que você controla mas não possui.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Jace Beleren": {
    "n": {
     "draw": 2
@@ -16743,6 +17167,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Jefferies Tube": {
+   "n": {
+    "evasao": 1,
+    "draw": 1,
+    "aceleradores": 1
+   },
+   "por_que": "Por {3}, deixa uma criatura imbloqueável no turno (ativada); por {4}, compra uma e põe um terreno da mão.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Jegantha, the Wellspring": {
    "n": {
     "aceleradores": 2
@@ -16861,6 +17295,14 @@
    "fonte": "claude",
    "revisado": "2026-10-20"
   },
+  "Jhoira, Weatherlight Corsair": {
+   "n": {
+    "recurso": 3
+   },
+   "por_que": "Ao entrar e a cada ataque, põe em campo, sua, uma permanente histórica do grimório de um oponente; você perde vida igual ao valor dela.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Jin-Gitaxias": {
    "n": {
     "draw": 3,
@@ -16962,6 +17404,14 @@
    "revisado": "2026-10-25",
    "so_com": "Snow"
   },
+  "Joven and Chandler": {
+   "n": {
+    "amplificador": 1
+   },
+   "por_que": "Cresce a cada artefato que vai ao cemitério; rouba um artefato por um turno pagando {R}{R}{R}.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Joyful Stormsculptor": {
    "n": {
     "recurso": 1,
@@ -17050,6 +17500,15 @@
    "por_que": "Vínculo com a vida; cada {B} de qualquer custo pode ser pago com 2 de vida, em vez da mana; ganha um marcador +1/+1 a cada mágica preta que você conjura.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "K'Vort-Class Raider": {
+   "n": {
+    "resiliencia": 2,
+    "evasao": 2
+   },
+   "por_que": "No seu turno, ela e suas criaturas têm resistência a magia; com 4 marcadores, criatura 5/3 com voar e ameaça.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Kaalia of the Vast": {
    "n": {
@@ -17699,6 +18158,14 @@
    "fonte": "claude",
    "revisado": "2026-10-18"
   },
+  "Kiora of Fire and Ashes": {
+   "n": {
+    "recurso": 2
+   },
+   "por_que": "Ao entrar, cria uma ficha Dragão 5/5 voadora; por {8}, cria outra: a ficha duas vezes, uma delas cara.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Kira, Great Glass-Spinner": {
    "n": {
     "resiliencia": 2,
@@ -17840,6 +18307,15 @@
    "revisado": "2026-10-17",
    "so_com": "Vehicle"
   },
+  "Koloth, Tribble Hunter": {
+   "n": {
+    "recurso": 3,
+    "resiliencia": 2
+   },
+   "por_que": "Duas fichas por turno; todas as Tribbles, também as dos oponentes, ficam instigadas.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Kolvori, God of Kinship": {
    "n": {
     "draw": 2,
@@ -17857,6 +18333,14 @@
    "por_que": "Equipamento só para lendária: +1/+1 a quem compartilha cor e +1/+1 a quem compartilha tipo com a equipada.",
    "fonte": "claude",
    "revisado": "2026-10-17"
+  },
+  "Kor Haven": {
+   "n": {
+    "resiliencia": 2
+   },
+   "por_que": "Terreno incolor; por {1}{W} e virando, previne todo o dano de combate de um atacante, repetível a cada turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Korvold and the Noble Thief": {
    "n": {
@@ -18548,6 +19032,14 @@
    "por_que": "Voa, vínculo; cada outra criatura sua que não é ficha e morre volta para a mão no fim do turno; as dos oponentes que morreriam são exiladas.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Lieutenant Nyota Uhura": {
+   "n": {
+    "draw": 2
+   },
+   "por_que": "Por {4} e virando, todo turno, exila do topo de um oponente uma carta por nome de terreno seu e conjura de graça uma instantânea ou feitiço entre elas: repetível, mas com ativação cara e só acha instantânea ou feitiço.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Lifecrafter's Bestiary": {
    "n": {
@@ -19299,6 +19791,14 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Lwaxana Troi, Charming Guest": {
+   "n": {
+    "amplificador": 2
+   },
+   "por_que": "Por {2} e virando, faz cada habilidade disparada de outra criatura sua disparar uma vez a mais enquanto ela ficar virada, e ela pode não desvirar: um dobrador de gatilhos de uma criatura só, como o Strionic Resonator e o Roaming Throne.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Lydia Frye": {
    "n": {
     "recurso": 2,
@@ -19308,6 +19808,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15",
    "so_com": "Assassin"
+  },
+  "Lyna, Veil of Vengeance": {
+   "n": {
+    "evasao": 3,
+    "draw": 2
+   },
+   "por_que": "Sombra em si e, por {3}, marcador de sombra permanente em outra criatura; compra a cada conexão de criatura com sombra.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Lynde, Cheerful Tormentor": {
    "n": {
@@ -20144,6 +20653,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Massacre Girl, Most Wanted": {
+   "n": {
+    "dano": 2,
+    "resiliencia": 2,
+    "amplificador": 1
+   },
+   "por_que": "A cada outra criatura ou planeswalker seu que morre, 1 de dano num oponente e 1 de vida para você; ganha marcador +1/+1 quando oponente toma dano fora de combate.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Massacre Wurm": {
    "n": {
     "remocao": 3,
@@ -20216,6 +20735,16 @@
    "por_que": "Ameaça; no fim do turno, marca uma criatura de oponente, e quando ela morre você compra uma carta e ganha 2 de vida.",
    "fonte": "claude",
    "revisado": "2026-10-20"
+  },
+  "Matoc, Lavamancer": {
+   "n": {
+    "dano": 2,
+    "remocao": 2,
+    "draw": 2
+   },
+   "por_que": "Causa 2 a qualquer alvo, repetível; cada dano de exatamente 2 exila o topo para jogar.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Mauhúr, Uruk-hai Captain": {
    "n": {
@@ -20308,6 +20837,16 @@
    "por_que": "4/4 com ímpeto que investiga sempre que você ataca com três ou mais criaturas.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Medic's Kitesail": {
+   "n": {
+    "evasao": 1,
+    "resiliencia": 1,
+    "amplificador": 1
+   },
+   "por_que": "A equipada ganha +1/+0, voar e 1 de vida a cada ataque; equipar {2}.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Megantic Sliver": {
    "n": {
@@ -20748,6 +21287,14 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Mirrex": {
+   "n": {
+    "recurso": 1
+   },
+   "por_que": "Terreno incolor que dá qualquer cor só no turno em que entra e, por {3}, cria uma ficha 1/1 com tóxico 1 que não bloqueia.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Mirri the Cursed": {
    "n": {
     "amplificador": 1,
@@ -21156,6 +21703,14 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Moopsy": {
+   "n": {
+    "evasao": 1
+   },
+   "por_que": "Toque mortífero por {G}.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Moraug, Fury of Akoum": {
    "n": {
     "amplificador": 3
@@ -21337,6 +21892,14 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Mr. Spock, Science Officer": {
+   "n": {
+    "draw": 3
+   },
+   "por_que": "Toda compra sua vira duas, de forma contínua e só para você: dobra qualquer motor de compra.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Muddle the Mixture": {
    "n": {
     "resiliencia": 2,
@@ -21353,6 +21916,15 @@
    "por_que": "Terreno que gera {C}, ou {B} só para criatura; sacrificado por {1}{B}, devolve um Morcego, Lagarto, Rato ou Esquilo do cemitério à mão, uma vez.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Mugato": {
+   "n": {
+    "evasao": 1,
+    "resiliencia": 1
+   },
+   "por_que": "Alcance, vigilância e toque mortífero.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Muraganda Raceway": {
    "n": {
@@ -22147,6 +22719,16 @@
    "fonte": "claude",
    "revisado": "2026-10-17"
   },
+  "Niv-Mizzet, Ghost Counsel": {
+   "n": {
+    "draw": 3,
+    "dano": 2,
+    "evasao": 1
+   },
+   "por_que": "Voa; cada ganho de vida pode virar compra de igual número de cartas; virando, cada oponente perde 1 e você ganha 1, o que já compra uma por turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Niv-Mizzet, Parun": {
    "n": {
     "resiliencia": 1,
@@ -22667,6 +23249,14 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Olinda the Oblivious": {
+   "n": {
+    "dano": 2
+   },
+   "por_que": "Cada criatura marcada faz o dono perder 2 na manutenção dele, em cada oponente, e marca mais a cada ataque.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Oliphaunt": {
    "n": {
     "evasao": 1,
@@ -22807,6 +23397,14 @@
    "por_que": "Põe marcadores que tornam um terreno de todos os tipos e uma criatura de todos os tipos; sem função nos critérios da carta.",
    "fonte": "claude",
    "revisado": "2026-10-18"
+  },
+  "On the Shoulders of Giants": {
+   "n": {
+    "evasao": 2
+   },
+   "por_que": "Dá voar às suas criaturas históricas (artefatos e lendárias), não ao time inteiro.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "On Wings of Gold": {
    "n": {
@@ -23323,6 +23921,14 @@
    "por_que": "Voadora 4/3 com ward de 3 de vida.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Own the Day": {
+   "n": {
+    "amplificador": 2
+   },
+   "por_que": "Desvira as criaturas que atacaram e dá um combate e uma fase principal a mais, uma vez; o battlefront tira {1} do custo por oponente atacado no turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Packsong Pup": {
    "n": {
@@ -23937,6 +24543,14 @@
    "por_que": "Compra em todo fim de turno com duas outras criaturas; por {3}{W} cria um Soldado 1/1 e volta do cemitério por desenterrar.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Plaza of Heroes": {
+   "n": {
+    "resiliencia": 1
+   },
+   "por_que": "Terreno que dá qualquer cor para mágica lendária ou entre as cores das lendárias que você controla e, exilando-se por {3}, dá resistência a magia e indestrutível a uma criatura lendária até o fim do turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Plea for Power": {
    "n": {
@@ -26182,6 +26796,14 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Return to the Light Realms": {
+   "n": {
+    "recurso": 3
+   },
+   "por_que": "Devolve do seu cemitério ao campo todas as permanentes que não são terreno: recursão em massa.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Return Upon the Tide": {
    "n": {
     "recurso": 3
@@ -26928,6 +27550,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Rules of Acquisition": {
+   "n": {
+    "remocao": 2,
+    "draw": 1
+   },
+   "por_que": "Feitiço modal: rouba de vez qualquer permanente não terreno de um oponente, que compra três; ou entrega uma permanente sua a um oponente para comprar três.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Rummaging Goblin": {
    "n": {
     "recurso": 2
@@ -27190,6 +27821,14 @@
    "por_que": "Ao entrar cria fichas 2/2 pelo número de criaturas; a cada ataque põe +1/+1 em cada criatura sua.",
    "fonte": "claude",
    "revisado": "2026-10-18"
+  },
+  "Samut, Hazoret's Champion": {
+   "n": {
+    "aceleradores": 2
+   },
+   "por_que": "Suas criaturas têm ímpeto.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Samut, Tyrant of Naktamun": {
    "n": {
@@ -27742,6 +28381,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Screeching Soulbreaker": {
+   "n": {
+    "evasao": 1,
+    "dano": 2,
+    "resiliencia": 1
+   },
+   "por_que": "Voa; a cada ataque, 1 de dano a cada oponente e você ganha 1.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Scroll of Isildur": {
    "n": {
     "remocao": 2,
@@ -28069,6 +28718,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Selenia, the Cursed Heart": {
+   "n": {
+    "resiliencia": 2,
+    "evasao": 1,
+    "dano": 1
+   },
+   "por_que": "Voa, vínculo com a vida e dobra o ganho de vida; ao morrer, maldição dobra a perda de vida de um oponente.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Selfless Glyphweaver": {
    "n": {
     "resiliencia": 2,
@@ -28197,6 +28856,14 @@
    "por_que": "Voa; você e o time ganham proteção do tipo de carta escolhido.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Serra's Sanctum": {
+   "n": {
+    "aceleradores": 3
+   },
+   "por_que": "Terreno que gera {W} por encantamento seu: várias manas de um terreno só, todo turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Serum-Core Chimera": {
    "n": {
@@ -28676,6 +29343,12 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Shore Leave Planet": {
+   "n": {},
+   "por_que": "Terreno que entra virado e, por {4}{U}, vira cópia de uma criatura sua até o fim do turno: não pontua nos critérios da carta.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Show and Tell": {
    "n": {
     "aceleradores": 2
@@ -28727,6 +29400,15 @@
    "por_que": "Toque mortífero; ao entrar ou atacar, cada oponente perde 2, você ganha 2 e compra uma.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Sickbay": {
+   "n": {
+    "resiliencia": 2,
+    "amplificador": 2
+   },
+   "por_que": "Cada criatura sua que entra dá 1 de vida; em todo início de combate, marcadores +1/+1 numa criatura, um mais a vida ganha no turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Sidequest: Card Collection": {
    "n": {
@@ -28817,6 +29499,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15",
    "so_com": "Goblin"
+  },
+  "Sifa Grent": {
+   "n": {
+    "dano": 2,
+    "resiliencia": 2
+   },
+   "por_que": "A cada morte de criatura, oponente alvo perde 1 e você ganha 1; +1 provoca (goad) até duas criaturas, repetível.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Sigarda's Aid": {
    "n": {
@@ -29182,6 +29873,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15",
    "so_com": "Artifact"
+  },
+  "Skrelv's Hive": {
+   "n": {
+    "recurso": 3,
+    "evasao": 1,
+    "resiliencia": 1
+   },
+   "por_que": "Uma ficha Mite com tóxico 1 em toda manutenção sua; com um oponente em três venenos, as criaturas com tóxico ganham vínculo com a vida.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Skull Prophet": {
    "n": {
@@ -30218,6 +30919,12 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Spire of Industry": {
+   "n": {},
+   "por_que": "Terreno incolor que, com um artefato seu, dá uma mana de qualquer cor por 1 de vida: fixa a cor, não acelera.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Spirebluff Canal": {
    "n": {},
    "por_que": "Duas cores, desvirada até o terceiro terreno.",
@@ -30436,6 +31143,15 @@
    "por_que": "Voa; busca Planície básica ou criatura de custo 1 ou menos para a mão.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Starfleet Communicator": {
+   "n": {
+    "draw": 2,
+    "aceleradores": 1
+   },
+   "por_que": "Vem com uma cópia: cada criatura equipada que ataca compra pelo número de outras com Comunicador e põe terrenos da mão.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Starnheim Aspirant": {
    "n": {
@@ -30818,6 +31534,15 @@
    "por_que": "Oponente exila uma criatura à escolha dele e todo o seu cemitério.",
    "fonte": "claude",
    "revisado": "2026-10-17"
+  },
+  "Stray from History": {
+   "n": {
+    "recurso": 2,
+    "remocao": 2
+   },
+   "por_que": "Feitiço modal: devolve até duas criaturas do cemitério para a mão, ou olha a mão de um oponente e exila a carta que não é terreno que você escolher.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Strefan, Maurer Progenitor": {
    "n": {
@@ -31469,6 +32194,16 @@
    "revisado": "2026-10-15",
    "so_com": "Equipment"
   },
+  "Sword of Light and Shadow": {
+   "n": {
+    "resiliencia": 2,
+    "recurso": 1,
+    "amplificador": 1
+   },
+   "por_que": "+2/+2 e proteção de branco e preto; a cada acerto ganha 3 de vida e devolve uma criatura do cemitério à mão.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Sword of the Animist": {
    "n": {
     "amplificador": 1,
@@ -31589,6 +32324,15 @@
    "por_que": "Com 2 marcadores, no início do seu combate anima outro artefato seu como 2/2 voador até o fim do turno; com 9, vira criatura voadora com vigilância.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Synthetic Destiny": {
+   "n": {
+    "recurso": 2,
+    "resiliencia": 1
+   },
+   "por_que": "Instantânea: exila as suas criaturas e, na etapa final, põe em campo o mesmo número de criaturas do topo do grimório; em resposta a uma limpeza, salva o número de criaturas.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Syphon Mind": {
    "n": {
@@ -31851,6 +32595,14 @@
    "por_que": "Pedra de 2: incolor, ou preto ou verde com 1 de dano em você.",
    "fonte": "claude",
    "revisado": "2026-10-17"
+  },
+  "Talon Gates of Madara": {
+   "n": {
+    "resiliencia": 2
+   },
+   "por_que": "Ao entrar, tira uma criatura de fase; por {4}, vai da mão para o campo a qualquer momento, em resposta a uma remoção.",
+   "fonte": "claude",
+   "revisado": "2026-11-07"
   },
   "Tam, the Possibility": {
    "n": {
@@ -32620,6 +33372,14 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "The Black Gate": {
+   "n": {
+    "evasao": 1
+   },
+   "por_que": "Terreno lendário de preto, desvirado por 3 de vida; por {1}{B}, uma criatura não pode ser bloqueada pelas criaturas do jogador com mais vida, que pode ser você.",
+   "fonte": "claude",
+   "revisado": "2026-11-08"
+  },
   "The Book of Exalted Deeds": {
    "n": {
     "resiliencia": 2,
@@ -32638,6 +33398,15 @@
    "por_que": "Cria uma Comida a cada mágica não-criatura de oponente; virar duas Comidas gera uma mana de qualquer cor; dano de combate em você sacrifica uma Comida.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "The Caretaker": {
+   "n": {
+    "resiliencia": 2,
+    "draw": 2
+   },
+   "por_que": "Vigilância e ward {2} (duas resiliências, sobe um nível); em todo fim de turno com dilema, conjura de graça a primeira mágica do topo de um oponente: repetível, mas condicionado a escolher modo, por isso 2 e não 3.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "The Celestus": {
    "n": {
@@ -32853,6 +33622,22 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "The Guardian of Forever": {
+   "n": {
+    "recurso": 2
+   },
+   "por_que": "Por {4}, sacrifica outra criatura que não é ficha e a devolve ao campo na etapa final: recursão repetível, paga a cada vez.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
+  "The Holodeck": {
+   "n": {
+    "recurso": 3
+   },
+   "por_que": "Uma vez por turno, joga uma permanente do cemitério (a de fora do jogo não pontua).",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "The Horus Heresy": {
    "n": {
     "draw": 2,
@@ -32986,6 +33771,14 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "The Madcap Jester": {
+   "n": {
+    "draw": 2
+   },
+   "por_que": "A cada ataque, cada oponente exila o topo e você pode jogar essas cartas até o fim do seu próximo turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "The Magic Mirror": {
    "n": {
     "draw": 3
@@ -33058,6 +33851,14 @@
    "por_que": "Pedra indestrutível; ativada, pisca uma permanente toda etapa final.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "The Needs of the Many": {
+   "n": {
+    "resiliencia": 3
+   },
+   "por_que": "Instantânea: todas as suas criaturas indestrutíveis e com resistência a magia, você com resistência a magia e sem dano no turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "The One Ring": {
    "n": {
@@ -33286,6 +34087,17 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "The Theorist, Jace Beleren": {
+   "n": {
+    "draw": 3,
+    "recurso": 3,
+    "remocao": 2,
+    "amplificador": 1
+   },
+   "por_que": "Compra uma na etapa de compra de cada oponente; +1 cria um Ilusão 1/1 por turno; −2 devolve à mão um artefato ou criatura de cada oponente; o −6 põe marcadores no time.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "The Toymaker's Trap": {
    "n": {
     "draw": 1,
@@ -33302,6 +34114,15 @@
    "por_que": "Preto; desvirado com dois outros terrenos, põe uma criatura do seu cemitério no topo ou dá vidência 1, uma vez.",
    "fonte": "claude",
    "revisado": "2026-11-03"
+  },
+  "The Unluckiest Planeswalker": {
+   "n": {
+    "aceleradores": 2,
+    "draw": 1
+   },
+   "por_que": "Uma mana de qualquer cor por turno; compra duas por Aura sua, só ao descartar a mão.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "The Ur-Sphinx": {
    "n": {
@@ -33387,6 +34208,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15",
    "so_com": "God"
+  },
+  "The Wrath of Khan": {
+   "n": {
+    "remocao": 2,
+    "recurso": 1
+   },
+   "por_que": "Saga: 4 de dano numa criatura de oponente, que vem para você até o fim do turno se sobreviver; depois troca uma carta da mão por uma compra; e cada oponente sacrifica uma permanente não ficha: remoção duas vezes, uma delas à escolha dele.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Theater of Horrors": {
    "n": {
@@ -33487,6 +34317,15 @@
    "por_que": "Instantânea: o dono embaralha uma criatura no grimório e escolhe entre perder 5 de vida ou embaralhar outra criatura dele.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Thomil, the Destroyer": {
+   "n": {
+    "recurso": 3,
+    "aceleradores": 2
+   },
+   "por_que": "Ficha de Zumbi 2/2 a cada turno; sacrifica criatura por {B}{B}{B}.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Thopter Fabricator": {
    "n": {
@@ -34009,6 +34848,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Tireless Tracker": {
+   "n": {
+    "draw": 3,
+    "amplificador": 1
+   },
+   "por_que": "Cria uma Pista a cada terreno que entra, e cresce com marcador a cada Pista sacrificada.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Titania's Command": {
    "n": {
     "aceleradores": 2,
@@ -34109,6 +34957,16 @@
    "por_que": "Conspira ao entrar; as cartas que você descarta ficam exiladas e voltam à mão quando Toluz morre.",
    "fonte": "claude",
    "revisado": "2026-10-25"
+  },
+  "Tom Paris, Risk-Taker": {
+   "n": {
+    "evasao": 2,
+    "amplificador": 2,
+    "aceleradores": 1
+   },
+   "por_que": "Na segunda compra do turno, suas criaturas ganham voar, golpe duplo, vigilância e ímpeto até o fim do turno: condicional e por um turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Tomakul Scrapsmith": {
    "n": {
@@ -34791,6 +35649,16 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "U.S.S. Farragut, Bold Explorer": {
+   "n": {
+    "aceleradores": 2,
+    "draw": 1,
+    "evasao": 1
+   },
+   "por_que": "A cada terreno, põe uma criatura da mão em campo com ímpeto, que vai ao fundo no fim do turno e repõe uma carta; com 7 marcadores, voadora.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Uchbenbak, the Great Mistake": {
    "n": {
     "evasao": 1,
@@ -34998,6 +35866,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15",
    "so_com": "Demon"
+  },
+  "Unholy Grotto": {
+   "n": {
+    "recurso": 2
+   },
+   "fonte": "claude",
+   "revisado": "2026-11-09",
+   "por_que": "Terreno incolor; por {B}, virando, põe um Zumbi do cemitério no topo do grimório, repetível.",
+   "so_com": "Zombie"
   },
   "Unite the Coalition": {
    "n": {
@@ -35742,6 +36619,15 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Verdant Kraken": {
+   "n": {
+    "recurso": 2,
+    "aceleradores": 2
+   },
+   "por_que": "Na manutenção de cada jogador cria um Tentáculo 3/3 que é Floresta e gera {G}: ficha todo turno, e cada uma é mais um terreno de mana.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Verdant Mastery": {
    "n": {
     "aceleradores": 3
@@ -36325,6 +37211,24 @@
    "fonte": "claude",
    "revisado": "2026-10-25"
   },
+  "Vraska, Soul of Stone": {
+   "n": {
+    "aceleradores": 3,
+    "resiliencia": 1
+   },
+   "por_que": "Cada mágica não-criatura cria um Tesouro que também é criatura artefato 1/1; suas criaturas artefato têm vigilância.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
+  "Vraska, the Cutting Glare": {
+   "n": {
+    "remocao": 2,
+    "evasao": 1
+   },
+   "por_que": "Toque mortífero; ao entrar, com seis terrenos ou mais, destrói uma permanente de oponente, que ganha um Tesouro.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Vraska, the Silencer": {
    "n": {
     "evasao": 1,
@@ -36341,6 +37245,14 @@
    "por_que": "Duas cores, virado; ganha 1 de vida ao entrar.",
    "fonte": "claude",
    "revisado": "2026-11-03"
+  },
+  "Vulcan Mind-Meld": {
+   "n": {
+    "draw": 1
+   },
+   "por_que": "Você pode jogar duas cartas do topo de um oponente; ele pode jogar uma do seu.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Wail of the Forgotten": {
    "n": {
@@ -36505,6 +37417,17 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Warrior's Blades": {
+   "n": {
+    "dano": 1,
+    "remocao": 1,
+    "resiliencia": 1,
+    "amplificador": 1
+   },
+   "por_que": "Ao entrar, 3 de dano em qualquer alvo e 3 de vida, uma vez; a equipada ganha +2/+1, e o equipar fica mais barato com marcadores.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Warstorm Surge": {
    "n": {
     "dano": 3,
@@ -36610,6 +37533,25 @@
    "por_que": "Lampejo; entra como cópia de artefato ou criatura sua; ciclagem {2}.",
    "fonte": "claude",
    "revisado": "2026-10-17"
+  },
+  "Way of the Cryomancer": {
+   "n": {
+    "recurso": 1,
+    "draw": 1,
+    "amplificador": 1
+   },
+   "por_que": "Cria um Jace com 5 de lealdade, que vigia 1 ou compra 1; seus planeswalkers ganham −3 que copia a próxima instantânea ou feitiço do turno.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
+  "Way of the Deathbringer": {
+   "n": {
+    "recurso": 2,
+    "draw": 1
+   },
+   "por_que": "Cria um Jace com 5 de lealdade, que vigia 1 ou compra 1; seus planeswalkers ganham −2 que troca uma criatura sacrificada por um Beast 4/4 com atropelar.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Wayfarer's Bauble": {
    "n": {
@@ -36717,6 +37659,17 @@
    "fonte": "claude",
    "revisado": "2026-10-15"
   },
+  "Wesley Crusher, Starfleet Cadet": {
+   "n": {
+    "resiliencia": 1,
+    "remocao": 1,
+    "evasao": 1,
+    "recurso": 1
+   },
+   "por_que": "Lampejo, escolhe dois: anula se não pagarem {2}, devolve criatura de valor até 2, imbloqueável no turno, ou compra e descarta duas.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Westgate Regent": {
    "n": {
     "resiliencia": 1,
@@ -36770,6 +37723,14 @@
    "por_que": "Quem não escolheu o menor número descarta a mão e compra sete; causa dano ao maior número.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Whelming Wave": {
+   "n": {
+    "remocao": 3
+   },
+   "por_que": "Devolve à mão todas as criaturas, exceto Krakens, Leviatãs, Polvos e Serpentes: remoção em massa que poupa esses tipos.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Whip of Erebos": {
    "n": {
@@ -37282,6 +38243,15 @@
    "fonte": "claude",
    "revisado": "2026-11-03"
   },
+  "Worf, Intelligence Contractor": {
+   "n": {
+    "remocao": 1,
+    "aceleradores": 1
+   },
+   "por_que": "Criatura 3/2: ao entrar, toma até o fim do turno até uma criatura de valor até 3 de cada oponente, desvirada e com ímpeto; vira remoção só com uma saída de sacrifício.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "World at War": {
    "n": {
     "amplificador": 3
@@ -37467,6 +38437,15 @@
    "fonte": "claude",
    "revisado": "2026-10-20"
   },
+  "Year of Hell": {
+   "n": {
+    "draw": 2,
+    "dano": 2
+   },
+   "por_que": "Em três capítulos, cada jogador compra uma e sofre 2 de dano.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
+  },
   "Yennett, Cryptic Sovereign": {
    "n": {
     "evasao": 2,
@@ -37561,6 +38540,16 @@
    "por_que": "Voa; a cada ataque, de uma a cinco moedas: compra por vitória e leva 2 de dano por derrota.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Zagorka, Mother of Sanctum": {
+   "n": {
+    "aceleradores": 2,
+    "resiliencia": 2,
+    "evasao": 1
+   },
+   "por_que": "Terreno-ficha virado de qualquer cor a cada fim de turno, para todos; quem aceita não pode atacar você; vigilância e atropelar.",
+   "fonte": "claude",
+   "revisado": "2026-11-09"
   },
   "Zagoth Triome": {
    "n": {
@@ -37685,6 +38674,14 @@
    "por_que": "Causa 2 de dano ao controlador de cada terreno que entra.",
    "fonte": "claude",
    "revisado": "2026-10-15"
+  },
+  "Zof Consumption": {
+   "n": {
+    "dano": 2
+   },
+   "por_que": "Feitiço de {4}{B}{B}: cada oponente perde 4 e você ganha 4; o verso é terreno de preto que entra virado.",
+   "fonte": "claude",
+   "revisado": "2026-11-08"
   },
   "Zombie Apocalypse": {
    "n": {
@@ -37818,127 +38815,6 @@
    "fonte": "claude",
    "revisado": "2026-10-20",
    "so_com": "Human"
-  },
-  "Abandoned Air Temple": {
-   "n": {
-    "amplificador": 3
-   },
-   "por_que": "Terreno de branco que entra desvirado com um básico; por {3}{W}, põe um marcador +1/+1 em cada criatura sua, de novo a cada turno.",
-   "fonte": "claude",
-   "revisado": "2026-11-07"
-  },
-  "Talon Gates of Madara": {
-   "n": {
-    "resiliencia": 2
-   },
-   "por_que": "Ao entrar, tira uma criatura de fase; por {4}, vai da mão para o campo a qualquer momento, em resposta a uma remoção.",
-   "fonte": "claude",
-   "revisado": "2026-11-07"
-  },
-  "Zof Consumption": {
-   "n": {
-    "dano": 2
-   },
-   "por_que": "Feitiço de {4}{B}{B}: cada oponente perde 4 e você ganha 4; o verso é terreno de preto que entra virado.",
-   "fonte": "claude",
-   "revisado": "2026-11-08"
-  },
-  "The Black Gate": {
-   "n": {
-    "evasao": 1
-   },
-   "por_que": "Terreno lendário de preto, desvirado por 3 de vida; por {1}{B}, uma criatura não pode ser bloqueada pelas criaturas do jogador com mais vida, que pode ser você.",
-   "fonte": "claude",
-   "revisado": "2026-11-08"
-  },
-  "Plaza of Heroes": {
-   "n": {
-    "resiliencia": 1
-   },
-   "por_que": "Terreno que dá qualquer cor para mágica lendária ou entre as cores das lendárias que você controla e, exilando-se por {3}, dá resistência a magia e indestrutível a uma criatura lendária até o fim do turno.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Spire of Industry": {
-   "n": {},
-   "por_que": "Terreno incolor que, com um artefato seu, dá uma mana de qualquer cor por 1 de vida: fixa a cor, não acelera.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Inkmoth Nexus": {
-   "n": {},
-   "por_que": "Terreno incolor que, por {1}, vira uma criatura artefato 1/1 com voar e infectar até o fim do turno; nenhum critério da carta, como o Mutavault.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Mirrex": {
-   "n": {
-    "recurso": 1
-   },
-   "por_que": "Terreno incolor que dá qualquer cor só no turno em que entra e, por {3}, cria uma ficha 1/1 com tóxico 1 que não bloqueia.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Kor Haven": {
-   "n": {
-    "resiliencia": 2
-   },
-   "por_que": "Terreno incolor; por {1}{W} e virando, previne todo o dano de combate de um atacante, repetível a cada turno.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Hanweir Battlements": {
-   "n": {},
-   "por_que": "Terreno incolor; por {R} e virando, dá ímpeto a uma criatura; ímpeto não entra em critério.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Serra's Sanctum": {
-   "n": {
-    "aceleradores": 3
-   },
-   "por_que": "Terreno que gera {W} por encantamento seu: várias manas de um terreno só, todo turno.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Hall of the Bandit Lord": {
-   "n": {},
-   "por_que": "Terreno virado; por 3 de vida, uma mana que dá ímpeto à criatura conjurada com ela; ímpeto não entra em critério.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Whelming Wave": {
-   "n": {
-    "remocao": 3
-   },
-   "por_que": "Devolve à mão todas as criaturas, exceto Krakens, Leviatãs, Polvos e Serpentes: remoção em massa que poupa esses tipos.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Castle Garenbrig": {
-   "n": {
-    "aceleradores": 2
-   },
-   "por_que": "Terreno de verde, virado sem Floresta; por {2}{G}{G} e virando, gera seis manas verdes só para criaturas e habilidades de criatura.",
-   "fonte": "claude",
-   "revisado": "2026-11-09"
-  },
-  "Gavony Township": {
-   "n": {
-    "amplificador": 3
-   },
-   "fonte": "claude",
-   "revisado": "2026-11-09",
-   "por_que": "Terreno incolor; por {2}{G}{W}, virando, um marcador +1/+1 em cada criatura sua, de novo a cada turno."
-  },
-  "Unholy Grotto": {
-   "n": {
-    "recurso": 2
-   },
-   "fonte": "claude",
-   "revisado": "2026-11-09",
-   "por_que": "Terreno incolor; por {B}, virando, põe um Zumbi do cemitério no topo do grimório, repetível.",
-   "so_com": "Zombie"
   }
  }
 }
