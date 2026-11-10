@@ -23,6 +23,15 @@ Em todas, a carta só fica no radar com nota nos critérios, sinergia pela régu
 5. **Remoção em massa unilateral vale mais** que remoção pontual boa e genérica (Swords to Plowshares, Path to Exile). Todo deck quer 3 a 4 limpezas, de preferência unilaterais.
 6. **Deck perto do teto** só muda com carta excelente, mudança de estratégia ou buraco de critério. **Deck em otimização** aceita carta só "boa" no lugar de carta de tier baixo.
 
+## Bom não basta (dono, 09/11/2026)
+
+Duas frases que valem em toda análise, atual e futura:
+
+1. **"O problema dessa carta é que ela é só boa, não é 'marvada'."** Carta boazinha, que cumpre o papel mas não faz maldade nem muda o jogo quando entra, não segura vaga só por ser correta.
+2. **"Diga não para o bom para poder dizer sim para o ótimo."** Vaga ocupada por carta só boa é vaga que falta para a ótima.
+
+Na prática: ao dar veredito, tier ou sugerir corte, pergunte se a carta muda o jogo quando entra. A carta só boa é candidata a sair para uma "marvada", dentro da régua acima (nunca tier S ou A, nem carta que gera terreno).
+
 ## A pergunta de sempre
 
 Diante de uma carta que todo mundo usa e que o deck não tem: o dono a deixa de fora de propósito, para fugir do comum, ou ela escapou do radar? Se o texto da carta e o plano do deck não respondem, a pergunta vai ao dono, carta a carta.
