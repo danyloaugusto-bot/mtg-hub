@@ -60,3 +60,4 @@
 - 09/11/2026: bloco "Na mesa" na estratégia (material de avaliação de ameaças do dono, 08/11): como a mesa lê o deck, postura, sinais (The One Ring, Smothering Tithe, The Immortal Sun, Avacyn), o que fica na mão, ponto de falha, respostas a guardar, as cinco limpezas e quem atacar. Nada mudou no placar ou nos tiers.
 
 - 09/11/2026: staples no radar pela regra do dono (só entram com buraco no critério ou no pacote, ou com sinergia própria; proteção genérica só onde proteção é agrupamento): Ancient Tomb, fica (entra): buraco em 8×8 Ramp.
+- 09/11/2026: radar: 2 cartas das coleções novas pelo /colecao (TRC 1, TRK 1; 0 entra, 0 avaliar, 2 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
