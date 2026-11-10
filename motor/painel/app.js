@@ -2129,6 +2129,7 @@ function renderGeral() {
     '<fieldset class="pn"><legend>Os ' + NUM[NG] + ' agrupamentos</legend><div class="gl">' + groups + '</div>' +
     '<p class="pn-note">O número em destaque conta as cartas com nota 2 ou 3; o que vem depois do sinal de mais, as de nota 1. A faixa tracejada, onde aparece, é a referência usual de Commander, e vale como regra de bolso.</p></fieldset>' +
     '<fieldset class="pn"><legend>Leitura do deck</legend><ul class="read">' + readings(st) + '</ul></fieldset></div>';
+  h += historiaPanel();
   h += planoPanel();
   h += estrategiaPanel();
 
@@ -2213,6 +2214,14 @@ function planoPanel() {
     (notas ? '<p class="pn-note">' + notas + ' Nenhuma troca muda a decklist sozinha.</p>' : '') +
     '<details class="pcart"><summary>As ' + n + ' cartas do plano, por papel</summary><div class="pcols">' + cols + '</div>' +
     '<p class="pn-note">+ dupla função (passe o mouse para ver qual). Fora do plano: terrenos, ramp, compra e remoção sem papel nele.</p></details></fieldset>';
+}
+
+/* ============ a história (09/11/2026, pedido do dono): resumo do mtg.wiki em historia.md; sabor, não pontua ============ */
+function historiaPanel() {
+  var x = D.historia; if (!x || !x.curta || !x.curta.length) return '';
+  return '<fieldset class="pn hist-pn"><legend>A história</legend>' + x.curta.map(function (t) { return '<p>' + rich(t) + '</p>'; }).join('') +
+    '<p class="pn-note">Fonte: ' + x.fontes.map(function (f) { return '<a href="' + esc(f.u) + '" target="_blank" rel="noopener">' + esc(f.t) + '</a>'; }).join(', ') +
+    (x.lida ? ', lida em ' + esc(x.lida) : '') + '. Resumo em português; a versão completa vai no dossiê do NotebookLM.</p></fieldset>';
 }
 
 /* ============ estratégia ============ */
@@ -2732,7 +2741,8 @@ function candCard(c) {
     (c.fx ? '<p class="cand-fx' + (c.orig ? ' orig' : '') + '">' + rich(c.fx) + '</p>' : '') + (c.why ? '<p class="cand-why">' + rich(c.why) + '</p>' : '') + '</div></div>' +
     (V3 ? '<div class="gtags">' + gtags3(c) + '<span class="gt" style="--c:var(--gold-rgb)">' + fmtP(pts3(c)) + ' pts · ' + (function (p) { return p.n + 'ª de ' + p.de; })(posicao(c)) + '</span>' :
     '<div class="gtags">' + gtags(c) + '<span class="gt" style="--c:var(--gold-rgb)">' + pts(c) + ' pts</span>') +
-    (c.syn != null && EDH ? '<span class="gt" style="--c:160,170,182" title="Sinergia no ' + esc(EDH.fonte) + '">' + esc(EDH.fonte) + ' ' + synTxt(c.syn) + '</span>' : '') + (c.tem ? '<span class="gt" style="--c:95,191,167">tenho a carta</span>' : '') + '</div>' +
+    (c.syn != null && EDH ? '<span class="gt" style="--c:160,170,182" title="Sinergia no ' + esc(EDH.fonte) + '">' + esc(EDH.fonte) + ' ' + synTxt(c.syn) + '</span>' : '') + (c.tem ? '<span class="gt" style="--c:95,191,167">tenho a carta</span>' : '') +
+    (c.nova ? '<span class="gt" style="--c:var(--gold-rgb)" title="Trazida pelo /colecao em ' + esc(c.nova.d || '') + '">nova · ' + esc(c.nova.k) + '</span>' : '') + '</div>' +
     (cv ? '<p class="cand-cv">' + cv + '.</p>' : '') +
     (function () { var d = deltaTroca(c, alvo); return d == null ? '' : '<p class="cand-pl">Placar ' + (d > 0 ? '+' : d < 0 ? '−' : '±') + fmtP(Math.abs(d)) + (c.inDeck ? ' com a troca por ' : ' trocando por ') + esc(alvo.n) + '.</p>'; })() +
     '<div class="cand-a">' + (c.inDeck ?
@@ -2840,6 +2850,7 @@ function radSort(a, b) {
 function radFiltro(c) {
   if (ui.rv && c.verdict !== ui.rv && !(ui.rv === 'deck' && c.inDeck)) return false;
   if (ui.rc && c.col !== ui.rc) return false;
+  if (ui.rn && !(c.nova && (ui.rn === '*' || c.nova.k === ui.rn))) return false;
   if (ui.rt && GROUP_OF[c.t] !== ui.rt && c.g !== ui.rt) return false;
   if (ui.rg !== undefined && ui.rg !== '' && pacoteDe(c) !== +ui.rg) return false;
   return true;
@@ -2851,6 +2862,12 @@ function radCtl(lista) {
   return '<div class="rad-ctl">' +
     sel('rs', 'Ordenar por', ui.rs, radOrdens()) +
     sel('rv', 'Veredito', ui.rv, [{ k: '', n: 'Entra e avaliar' }, { k: 'entra', n: 'Só entra' }, { k: 'avaliar', n: 'Só avaliar' }]) +
+    (function () {   /* coleção (09/11/2026, pedido do dono): as cartas que o /colecao trouxe, pelo código do Scryfall */
+      var cs = {};
+      lista.forEach(function (c) { if (c.nova) cs[c.nova.k] = c.nova.d; });
+      var ks = Object.keys(cs).sort(function (x, y) { return (cs[y] || '').localeCompare(cs[x] || '') || x.localeCompare(y); });
+      return ks.length ? sel('rn', 'Coleção', ui.rn, [{ k: '', n: 'Todas' }, { k: '*', n: 'Novas de coleção' }].concat(ks.map(function (k) { return { k: k, n: k }; }))) : '';
+    })() +
     sel('rc', 'Cor', ui.rc, [{ k: '', n: 'Todas' }].concat(COLS.filter(function (c) { return cores[c.k]; }).map(function (c) { return { k: c.k, n: c.n }; }))) +
     sel('rt', 'Tipo', ui.rt, [{ k: '', n: 'Todos' }].concat(TG.filter(function (g) { return tipos[g.k]; }).map(function (g) { return { k: g.k, n: g.n }; }))) +
     sel('rg', 'Pacote 8×8', ui.rg, [{ k: '', n: 'Todos' }].concat(G.map(function (g, i) { return { k: String(i), n: g.sh || g.k }; }))) +
@@ -3002,7 +3019,7 @@ function outrosHtml(c) {
   var h = '<h3>Em outros decks e pastas</h3>';
   if (!os.length && !ps.length) {
     h += '<p class="dw-out-n">Não está em nenhum outro deck' + (D.pastas_com_lista && D.pastas_com_lista.length ? ' nem nas pastas.' : '. As listas das pastas ainda não chegaram: quando chegarem, aparecem aqui.') + '</p>';
-    return h;
+    return h + ondeRende(c);
   }
   os = os.slice().sort(function (a, b) { return (a.w === b.w ? 0 : a.w === 'deck' ? -1 : 1) || TR[a.t] - TR[b.t] || a.d.localeCompare(b.d); });
   h += '<ul class="dw-out">' + os.map(function (o) {
@@ -3020,7 +3037,18 @@ function outrosHtml(c) {
     h += '<p class="dw-out-n">É pedida no radar de outro deck. Aqui ela já joga.</p>';
   }
   if (ps.length) h += '<p class="dw-out-n"><b>Nas pastas:</b> ' + ps.map(function (p) { return esc(p.p) + ' ×' + p.q; }).join(', ') + '.</p>';
-  return h;
+  return h + ondeRende(c);
+}
+/* onde mais renderia (09/11/2026, pedido do dono): os três outros decks de maior ganho, pela conta do Encaixe; o detalhe
+   (quem sai, faixa, CMC) segue na caixa Encaixe, mais abaixo */
+function ondeRende(c) {
+  var L = ((D.encaixe || {})[c.id] || []).filter(function (x) { return x.p !== M.pasta && !x.j && x.g > 0; }).slice(0, 3);
+  if (!L.length) return '<h3>Onde mais renderia</h3><p class="dw-out-n">Em nenhum outro deck seu ela ganha espaço.</p>';
+  return '<h3>Onde mais renderia</h3><ol class="dw-rende">' + L.map(function (x) {
+    var inf = (D.encaixe_decks || {})[x.p] || {};
+    return '<li><b>' + esc(x.n) + '</b>' + (inf.c ? ' <small>' + esc(inf.c) + '</small>' : '') + ' <span class="enc-g pos">+' + fmtP(x.g) + '</span>' +
+      (x.a ? '' : ' <small class="enc-av">sinergia ainda não avaliada: o número é um piso</small>') + '</li>';
+  }).join('') + '</ol><p class="dw-out-n">Ganho no placar daquele deck se ela entrasse no lugar da carta mais fraca de lá. O detalhe está na caixa Encaixe, mais abaixo.</p>';
 }
 function renderDrawer() {
   var el = $('#drawer'), c = ui.drawer ? byId(ui.drawer) : null;
@@ -3480,7 +3508,7 @@ document.addEventListener('change', function (ev) {
   if (t.dataset && t.dataset.of) { ofField(t); return; }
   if (!a) return;
   if (a === 'ft') { ui.ft = t.value; render(); }
-  else if (a === 'rs' || a === 'rv' || a === 'rc' || a === 'rt' || a === 'rg') { ui[a] = t.value; render(); var f = $('[data-act="' + a + '"]'); if (f) f.focus(); }
+  else if (a === 'rs' || a === 'rv' || a === 'rc' || a === 'rt' || a === 'rg' || a === 'rn') { ui[a] = t.value; render(); var f = $('[data-act="' + a + '"]'); if (f) f.focus(); }
   else if (a === 'fr') { ui.fr = t.value; render(); }
   else if (a === 'grouped') { ui.grouped = t.checked; render(); }
   else if (a === 'tier-lands') { ui.tierLands = t.checked; render(); }
