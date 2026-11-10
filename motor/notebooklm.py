@@ -264,15 +264,17 @@ def instrucoes(pasta, tema, nomes_cmd):
         "Cole cada bloco no campo de personalização da ferramenta correspondente. Idioma de saída: português (Brasil).\n\n"
         "== Resumo em áudio (podcast) ==\n"
         "Fale em português do Brasil, para um jogador experiente de Commander que é o dono deste deck. Use os termos do jogo como "
-        "ele usa (lord, buff, ramp, draw, wipe, tier), sem traduzir. Comece pelo plano do deck e pelo que o comandante %s faz; "
+        "ele usa (lord, buff, ramp, draw, wipe, tier), sem traduzir. Abra com a história do comandante em poucas frases, como "
+        "está na seção do dossiê, e ligue-a ao plano do deck; depois, o plano e o que o comandante %s faz; "
         "depois conte como a partida anda no início, no meio e no fim, os combos, as cartas tier S, e termine com o radar: o que "
         "pode entrar e o que sairia. Respeite as decisões do dono registradas no dossiê; não sugira mudar o que ele já decidiu. "
         "Não fale de preço. Não invente texto de carta: use só o que está no dossiê.\n\n"
         "== Resumo em vídeo ==\n"
-        "Português do Brasil. Um vídeo de 5 a 8 minutos que explique o deck %s para quem vai jogar com ele: o plano em uma frase, "
-        "o comandante, as três fases da partida, os combos e as cinco cartas mais importantes. Sem preço.\n\n"
+        "Português do Brasil. Um vídeo de 5 a 8 minutos que explique o deck %s para quem vai jogar com ele: a história do comandante em "
+        "poucas frases, o plano em uma frase, o comandante, as três fases da partida, os combos e as cinco cartas mais importantes. "
+        "Sem preço.\n\n"
         "== Infográfico ==\n"
-        "Português do Brasil. Uma página com: o plano do deck em uma frase, o comandante, as três fases da partida (turnos e "
+        "Português do Brasil. Uma página com: o plano do deck em uma frase, o comandante e a história dele em duas linhas, as três fases da partida (turnos e "
         "objetivo de cada uma), os combos principais com as peças, as cartas tier S e contra quem o deck vai bem e vai mal. "
         "Sem preço.\n\n"
         "== Chat do notebook (configurar) ==\n"
@@ -306,14 +308,30 @@ def instrucoes(pasta, tema, nomes_cmd):
         % (curto, nomes_cmd, curto, curto, curto, curto, curto))
 
 
+PADRAO = "00. Instruções do estúdio (padrão).txt"
+
+
+def instrucoes_padrao():
+    """As instruções do estúdio são as mesmas para todo deck (pedido do dono, 10/11/2026): um arquivo único, sem o nome do deck,
+    em vez de um por deck. O dossiê de cada deck traz o nome, o comandante e a história."""
+    t = instrucoes("", {"comandante_curto": "\x00"}, "\x01")
+    t = t.replace("Instruções para o NotebookLM, deck \x00 (\x01)",
+                  "Instruções do estúdio NotebookLM: padrão para o dossiê de qualquer deck (as mesmas para todos)")
+    t = t.replace("deck \x00", "deck deste dossiê").replace("comandante \x00", "comandante").replace("\x00", "o deck").replace("\x01", "o comandante")
+    return t
+
+
 def gravar(pasta):
+    """Dois arquivos, sempre (dono, 10/11/2026): o dossiê completo do deck e as instruções do estúdio, estas num arquivo único padrão."""
     md, tema, nomes_cmd = dossie(pasta)
     os.makedirs(SAIDA, exist_ok=True)
     a = os.path.join(SAIDA, pasta + ".md")
-    b = os.path.join(SAIDA, pasta + " - instruções.txt")
     open(a, "w", encoding="utf-8", newline="\n").write(md)
-    open(b, "w", encoding="utf-8", newline="\n").write(instrucoes(pasta, tema, nomes_cmd))
-    print("%s: %s (%d KB) e instruções" % (pasta, os.path.relpath(a, RAIZ), len(md.encode("utf-8")) // 1024))
+    open(os.path.join(SAIDA, PADRAO), "w", encoding="utf-8", newline="\n").write(instrucoes_padrao())
+    velho = os.path.join(SAIDA, pasta + " - instruções.txt")
+    if os.path.exists(velho):
+        os.remove(velho)   # substituído pelo arquivo padrão
+    print("%s: %s (%d KB) e %s" % (pasta, os.path.relpath(a, RAIZ), len(md.encode("utf-8")) // 1024, PADRAO))
 
 
 def main():
