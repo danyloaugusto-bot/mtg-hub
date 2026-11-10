@@ -124,14 +124,14 @@ STAPLE_FORA = {"Swords to Plowshares"}
 # s3 e s3w: as notas dos dez critérios e o porquê delas, que a pontuação v3 acrescentou (o kit não tem)
 # pp, ppd e ppw: o papel no Plano do deck, a dupla função e o porquê (18/10/2026; o kit não tem)
 # why: o porquê de cada carta foi revisto a pedido do dono em 06/11/2026; cu e cuc: o custo usual (07/11/2026), que o kit não tem
-IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain", "s3", "s3w", "pp", "ppd", "ppw", "why", "cu", "cuc"}
+IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain", "s3", "s3w", "pp", "ppd", "ppw", "why", "cu", "cuc", "nova"}
 dif = []
 for chave in ("cards", "cands"):
     ob = {c["id"]: c for c in O[chave]}
     for c in N[chave]:
         x = ob.pop(c["id"], None)
         if not x:
-            if chave == "cands" and c["n"] in RADAR_NOVO:
+            if chave == "cands" and (c["n"] in RADAR_NOVO or c.get("nova")):   # nova: trazida pelo /colecao (09/11/2026)
                 continue
             dif.append("%s: %s só no motor" % (chave, c["n"])); continue
         for k in sorted((set(x) | set(c)) - IGNORA):
