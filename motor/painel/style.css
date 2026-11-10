@@ -920,5 +920,13 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 .kit-entra{animation:kitEntra .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*40ms)}
 @keyframes kitEntra{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.kit-entra{animation:none}}
-.hist-pn p{max-width:78ch;margin-top:8px;color:var(--bone)}
+.hist-pn p{margin-top:10px;color:var(--bone);line-height:1.62}
+.hist-txt p:first-child{margin-top:2px}
+.hist-g.com-arte{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:36px;align-items:center}
+.hist-art{display:flex;gap:14px;justify-content:center}
+.hist-card{position:relative;width:236px;aspect-ratio:488/680;border-radius:13px;overflow:hidden;cursor:pointer;background:#151517;box-shadow:0 14px 34px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08);transition:transform .18s ease}
+.hist-card:hover,.hist-card:focus-visible{transform:translateY(-3px)}
+.hist-art.n2 .hist-card{width:196px}
+.hist-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){.hist-g.com-arte{grid-template-columns:1fr;gap:18px}.hist-art{order:-1}.hist-card{width:210px}.hist-art.n2 .hist-card{width:150px}}
 .dw-rende{margin:6px 0 4px 18px;display:grid;gap:4px}.dw-rende li small{color:var(--dim)}
