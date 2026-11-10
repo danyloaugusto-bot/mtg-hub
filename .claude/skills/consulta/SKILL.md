@@ -26,7 +26,7 @@ O dono cola uma carta e quer a análise pronta, **sem perguntas no meio** (pedid
    Rode `python motor/consulta.py "$ARGUMENTS" --sinergias <tmp>/sinergias.json`. A tabela mostra o valor, o ganho, quem sai pelo motor, a faixa e o grau no vácuo.
 3. **Vereditos e estudo.** Grave `<tmp>/vereditos.json`: `{"resumo", "compra": {"acao", "porque"}, "decks": {pasta: {"veredito", "porque", "sai"}}, "estudo": {"leitura", "forcas": [...], "fraquezas": [...], "vacuo": {"porque"}, "armadilhas": {pasta: "..."}}}` e rode `python motor/consulta.py "$ARGUMENTS" --vereditos <tmp>/vereditos.json`. O comando grava e já remonta `saidas/00. Consulta.html`.
    - Veredito para cada deck com sinergia acima de 0 ou ganho a partir de 5: `entra`, `avaliar` ou `fora`, com o porquê. `entra` e `avaliar` pedem `sai`, a carta das `comparaveis` (mesmo papel na curva), não o "sai" do motor, que às vezes é uma MDFC ou uma peça que ninguém cortaria. Compare o valor dela com o da mais fraca do mesmo papel.
-   - Desejo e precon intacto nunca recebem `entra`. Tier S em deck tribal, só carta da tribo.
+   - Desejo e precon intacto nunca recebem `entra`.
    - Estudo, pelo texto do Scryfall: a leitura (o que faz e o que não faz), de três a cinco fortalezas e de três a cinco fraquezas, cada uma ancorada num trecho do texto entre aspas, o porquê do grau (o grau o script põe) e as armadilhas.
    - Compra: `comprar`, `esperar`, `so-se-sobrar` ou `nao`, pelo ganho (10 é Deck, 5 é Guardar) e pelo preço do Scryfall. Pré-lançamento ou sem preço: `esperar`, e diga para consultar de novo depois do lançamento.
 
