@@ -37,3 +37,4 @@
 - 08/11/2026: nome duplo, pedido do dono: o painel mostra o nome impresso da carta física em destaque e o nome do Scryfall menor, logo abaixo (na gaveta, "No Scryfall: …"); os textos citam a carta como "Impresso (Scryfall)", 1 texto (estratégia).
 
 - 09/11/2026: bloco "Na mesa" na estratégia e revisão de terrenos: Phyrexian Tower, Unholy Grotto e Drowned Catacomb como entra (saem Dimir Aqueduct, Mortuary Mire e Temple of Deceit) e Field of the Dead como avaliar (sai o Path of Ancestry); terrenos sempre virados de 7 para 2 com o radar. Noxious Ghoul de avaliar para entra, no lugar da Living Death, pela regra do dono de 3 a 4 limpezas. Unholy Grotto no cadastro. A lista não mudou.
+- 09/11/2026: radar: 4 cartas das coleções novas pelo /colecao (FRC 1, MBC 1, TRC 2; 0 entra, 3 avaliar, 1 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
