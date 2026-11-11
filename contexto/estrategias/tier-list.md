@@ -71,4 +71,4 @@ Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20,
 
 ## Em aberto
 
-O motor ainda não calcula o índice nem a letra: no piloto, a conta foi feita por script avulso. Falta levar os pesos e os limites a um arquivo próprio, o cálculo ao motor, os campos novos ao painel e o teste que recusa S sem os três argumentos. Depois, os lotes de cinco decks e o tier por deck no "Onde mais renderia".
+O motor já calcula (`motor/tier.json` e `motor/tier.py`) e o painel já mostra a função e as notas. Falta aplicar o método aos outros 25 decks, em lotes de cinco, e mostrar o tier por deck no "Onde mais renderia".
