@@ -2355,6 +2355,45 @@ function renderGal() {
 }
 
 /* ============ tier list ============ */
+/* Tier list pelo método do projeto (motor/tier.py): a função da carta, as cinco notas de 0 a 3 com a frase de cada uma,
+   o índice pelos pesos do grupo do deck e o que segurou a letra. Só aparece em deck que já passou pelo método. */
+function tierDw(c) {
+  var T = D.tier_lista, t = c.tl; if (!T || !t) return '';
+  var o = S.ov[c.id], movida = !!(o && o.tier);
+  var linhas = T.lentes.map(function (L, i) {
+    var v = t.l[i], pontos = '';
+    for (var k = 0; k < 3; k++) pontos += '<i' + (k < v ? ' class="on"' : '') + '></i>';
+    return '<li><span class="tl-k" title="' + esc(L.pergunta) + '">' + esc(L.nome) + '<small>peso ' + Math.round(T.pesos[i] * 100) + '%</small></span>' +
+      '<span class="tl-v" aria-label="nota ' + v + ' de 3">' + pontos + '<b>' + v + '</b></span><span class="tl-w">' + rich(t.w[i]) + '</span></li>';
+  }).join('');
+  var extra = '';
+  if (t.tv) extra += '<p class="tl-x"><b>Trava:</b> ' + esc(t.tv.join('; ')) + '.</p>';
+  if (t.an) extra += '<p class="tl-x"><b>Antissinergia:</b> ' + esc(t.an) + '.</p>';
+  if (t.sub) extra += '<p class="tl-x"><b>Substituto com nome:</b> ' + esc(t.sub) + '.</p>';
+  if (t.args) extra += '<p class="tl-x"><b>Por que é S:</b></p><ol class="tl-args">' + t.args.map(function (a) { return '<li>' + rich(a) + '</li>'; }).join('') + '</ol>';
+  if (t.ta) extra += '<p class="tl-x tl-d">Antes do método novo, era tier ' + esc(t.ta) + '.</p>';
+  if (t.cf) extra += '<p class="tl-x tl-d">Confiança ' + esc(t.cf) + ' nesta avaliação.</p>';
+  if (movida) extra += '<p class="tl-x tl-d">Você moveu a letra desta carta: as notas abaixo são da avaliação original.</p>';
+  return '<details class="dw-8 dw-tl"' + (ui.dwtl === false ? '' : ' open') + '><summary><span class="dw-h3">Como a letra saiu<span class="dw-tot">' +
+    esc(T.funcoes[t.f] || t.f) + ' · índice <b>' + fmt(t.ix, 2) + '</b></span></span></summary>' +
+    '<p class="dw-nota">Cinco notas de 0 a 3. O índice é a média com os pesos do grupo ' + esc(T.grupo.replace(/^\d+\. /, '')) + ': A de ' + fmt(T.cortes.A, 2) + ' para cima, B de ' + fmt(T.cortes.B, 2) +
+    ', C de ' + fmt(T.cortes.C, 2) + '. S pede ' + fmt(T.s, 2) + ', nenhuma nota abaixo de 2 e nenhuma trava.</p>' +
+    '<ul class="tl-l">' + linhas + '</ul>' + extra + '</details>';
+}
+/* as duas leituras das cartas de estimação (decisão do dono): bem empregadas em S ou A, custo de oportunidade em C ou D */
+function tierResumo(all) {
+  var T = D.tier_lista; if (!T) return '';
+  var com = all.filter(function (c) { return c.tl; }); if (!com.length) return '';
+  var pets = all.filter(function (c) { return !c.cmd && (c.pet || c.nocut); });
+  var alto = pets.filter(function (c) { return c.tier === 'S' || c.tier === 'A'; }), baixo = pets.filter(function (c) { return c.tier === 'C' || c.tier === 'D'; });
+  function nomes(cs) { return lista(cs.map(function (c) { return '<button class="linkish" data-card="' + esc(c.id) + '">' + esc(c.n) + '</button>'; })); }
+  var h = '<div class="tl-res"><p><b>Tier list pelo método novo.</b> Cada carta tem uma função e cinco notas; a letra sai da conta, e o motivo está na gaveta da carta, em "Como a letra saiu".</p>';
+  if (T.conta) h += '<p class="tl-conta"><b>A conta do deck:</b> ' + esc(T.conta) + '</p>';
+  if (pets.length) h += '<p><b>Cartas de estimação:</b> ' + (alto.length ? pl(alto.length, 'bem empregada', 'bem empregadas') + ' em S ou A (' + nomes(alto) + ')' : 'nenhuma em S ou A') + '; ' +
+    (baixo.length ? pl(baixo.length, 'em C ou D', 'em C ou D') + ', o custo de estimação (' + nomes(baixo) + ')' : 'nenhuma em C ou D') + '.</p>';
+  if (T.decisoes && T.decisoes.length) h += '<p class="tl-dec"><b>Decisões suas neste deck:</b> ' + T.decisoes.map(esc).join(' ') + '</p>';
+  return h + '</div>';
+}
 function renderTier() {
   var all = deck();
   var cs = all.filter(function (c) {
@@ -2372,6 +2411,7 @@ function renderTier() {
     (imgOn() ? '<div class="seg" role="group" aria-label="Como mostrar as cartas"><button data-act="tier-view" data-v="cartas" data-fid="tv1" aria-pressed="' + gal + '">Cartas</button>' +
       '<button data-act="tier-view" data-v="fichas" data-fid="tv2" aria-pressed="' + !gal + '">Fichas</button></div>' : '') +
     (ui.tierType ? '' : '<label class="tog"><input type="checkbox" data-act="tier-lands" data-fid="tl"' + (ui.tierLands ? ' checked' : '') + '> Incluir terrenos</label>') + '</div>';
+  h += tierResumo(all);
   h += '<div class="tiers">' + TIERS.map(function (t) {
     var list = cs.filter(function (c) { return c.tier === t.k; }).sort(function (a, b) { return (pts(b) - pts(a)) || a.n.localeCompare(b.n); });
     return '<div class="tier" data-t="' + t.k + '"><div class="tier-l"><b>' + t.k + '</b><span>' + t.d + '</span><small>' + pl(list.length, 'carta', 'cartas') + '</small></div>' +
@@ -3132,6 +3172,7 @@ function renderDrawer() {
   h += '<h3>Tier</h3><div class="segw" role="group" aria-label="Tier">' + TIERS.map(function (t) {
     return '<button data-act="set-tier" data-v="' + t.k + '" data-fid="st' + t.k + '" aria-pressed="' + (c.tier === t.k) + '">' + t.k + '<small>' + t.d + '</small></button>';
   }).join('') + '</div>';
+  h += tierDw(c);
   h += '<h3>Relevância</h3><div class="segw" role="group" aria-label="Relevância">' + RELS.map(function (r) {
     return '<button data-act="set-rel" data-v="' + r.k + '" data-fid="sr' + r.k + '" aria-pressed="' + (c.rel === r.k) + '">' + r.l + '<small>' + r.n + '</small></button>';
   }).join('') + '</div>';
@@ -3651,7 +3692,7 @@ $('#footTxt').innerHTML = footHtml();
 /* a gaveta é redesenhada a cada nota: o bloco do 8×8 lembra se estava aberto */
 document.addEventListener('toggle', function (e) {
   var l = e.target.classList; if (!l || !l.contains('dw-8')) return;
-  if (l.contains('dw-c3')) ui.dwc3 = e.target.open; else if (l.contains('dw-enc')) ui.dwenc = e.target.open; else ui.dw8 = e.target.open;
+  if (l.contains('dw-tl')) ui.dwtl = e.target.open; else if (l.contains('dw-c3')) ui.dwc3 = e.target.open; else if (l.contains('dw-enc')) ui.dwenc = e.target.open; else ui.dw8 = e.target.open;
 }, true);
 if (!V3) ['#t-crit', '#v-crit'].forEach(function (q) { var x = $(q); if (x) x.parentNode.removeChild(x); });   /* aba Critérios só no deck v3 */
 updStoreNote();
