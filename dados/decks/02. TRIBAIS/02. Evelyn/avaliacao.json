@@ -362,7 +362,27 @@
    "porque": "Vampiro de 2 que aciona a Evelyn cedo, mas a compra depende de alguém ficar sem mão, o que é raro; corpo barato e fácil de trocar.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Vampiro que entra e enche a coleção; a loucura o põe em campo do exílio."
+   "papel_por_que": "Vampiro que entra e enche a coleção; a loucura o põe em campo do exílio.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 2 que aciona a Evelyn.",
+    "I": "Um 3/1; a compra pede um jogador sem cartas na mão.",
+    "T": "Duas manas, no padrão.",
+    "Q": "Início e paridade.",
+    "R": "Há Vampiros de 2 melhores na lista; o Professional Face-Breaker do radar disputa a vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Professional Face-Breaker",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Blood Artist": {
    "notas": {
@@ -376,7 +396,7 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção, sem pôr outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Vampiro de 2. Sempre que ele ou outra criatura morre, um jogador perde 1 e você ganha 1.",
    "porque": "Uma das duas cartas de dreno: cada morte, dos dois lados da mesa, vira dano, e com o Viscera Seer fecha os combos de sacrifício por duas manas.",
@@ -384,7 +404,31 @@
     "dreno": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Vampiro barato que entra e enche a coleção; o dreno por morte é bônus."
+   "papel_por_que": "Vampiro barato que entra e enche a coleção; o dreno por morte é bônus.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o drenar: cada morte, de qualquer lado da mesa, tira 1 de um jogador.",
+    "I": "Precisa ficar; rende em toda morte, inclusive nas limpezas de um lado só.",
+    "T": "Duas manas.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira dreno; no início é só um Vampiro de 2.",
+    "R": "Só ele e o Falkenrath Noble convertem morte em dano, e o Noble custa o dobro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, só o Falkenrath Noble paga as mortes, por quatro manas, e as cinco saídas de sacrifício rendem pouco.",
+    "O Sanctum Seeker do radar custa quatro manas e só drena quando Vampiro ataca; o Blood Artist paga cada morte.",
+    "Na paridade e na frente, a cada sacrifício; atrás, transforma a limpeza em dano e vida."
+   ],
+   "indice": 2.45
   },
   "Bloodcrazed Paladin": {
    "notas": {
@@ -397,13 +441,33 @@
    "sin_por_que": {
     "sin1": "Vampiro com lampejo: enche a coleção em qualquer turno, mas não põe outro Vampiro em campo."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "BAX",
    "faz": "Vampiro de 2 com lampejo. Entra com um marcador por criatura que morreu no turno.",
    "porque": "O lampejo aciona a Evelyn em qualquer turno, mas o corpo é pequeno fora de uma limpeza e não faz mais nada pelo plano.",
    "prioridade": 6,
    "papel": "habilita",
-   "papel_por_que": "Vampiro com lampejo: entra no turno do oponente e dispara a Evelyn na hora certa."
+   "papel_por_que": "Vampiro com lampejo: entra no turno do oponente e dispara a Evelyn na hora certa.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro com lampejo: aciona a Evelyn no turno de qualquer jogador.",
+    "I": "Um 1/1; depois de uma limpeza entra grande.",
+    "T": "Duas manas, com lampejo.",
+    "Q": "Início, paridade e atrás, logo depois de uma limpeza.",
+    "R": "Fora a Evelyn, é o único Vampiro com lampejo; o radar prefere o Dusk Legion Zealot, que compra uma carta."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Dusk Legion Zealot",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Bloodtracker": {
    "notas": {
@@ -417,13 +481,33 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção, sem pôr outro Vampiro em campo."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Vampiro voador de 4. {B} e 2 de vida: um marcador nele. Quando sai, você compra uma por marcador.",
    "porque": "Transforma mana sobrando em cartas e devolve tudo quando sai; bom, mas lento, e fica em B porque a Evelyn já é a fonte principal de carta.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Vampiro voador que entra e enche a coleção; ao sair, compra pelos marcadores."
+   "papel_por_que": "Vampiro voador que entra e enche a coleção; ao sair, compra pelos marcadores.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 4 que aciona a Evelyn.",
+    "I": "Um 2/2 voador; as cartas só vêm quando ele sai, uma por marcador pago.",
+    "T": "Quatro manas, mais {B} e 2 de vida por carta.",
+    "Q": "Paridade e na frente, como destino de mana que sobra.",
+    "R": "O Preacher of the Schism do radar custa três e compra ou faz Vampiro a cada ataque."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Preacher of the Schism",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Bloodvial Purveyor": {
    "notas": {
@@ -441,7 +525,30 @@
    "faz": "Vampiro 5/6 voador e atropelar, de 4. Quando um oponente conjura, ele cria um Blood. Ao atacar, +1/+0 por Blood do defensor.",
    "porque": "Corpo forte por quatro, mas dá aos oponentes um filtro de carta a cada mágica deles; o custo para a mesa o segura em C.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador e grande que entra e enche a coleção."
+   "papel_por_que": "Vampiro voador e grande que entra e enche a coleção.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 4 que aciona a Evelyn.",
+    "I": "Um 5/6 voador com atropelar; dá um Blood ao oponente a cada mágica dele.",
+    "T": "Quatro manas por um corpo grande, com o custo dos Bloods.",
+    "Q": "Paridade, na frente e atrás, como bloqueador voador.",
+    "R": "O radar põe a Malakir Bloodwitch na vaga: dreno pelo número de Vampiros, sem dar Blood."
+   },
+   "antissinergia": "leve",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Malakir Bloodwitch",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Cordial Vampire": {
    "notas": {
@@ -461,7 +568,26 @@
    "porque": "Cada morte, de qualquer lado, cresce a tribo inteira: com o Crippling Fear, a limpeza vira marcadores nos Vampiros que ficam.",
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (Vampiro que entra)",
-   "papel_por_que": "Cada morte põe um marcador em todos os seus Vampiros: multiplica o time."
+   "papel_por_que": "Cada morte põe um marcador em todos os seus Vampiros: multiplica o time.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 2 que aciona a Evelyn; cada morte põe um marcador em todo Vampiro seu.",
+    "I": "Precisa ficar; com a Crippling Fear, as mortes deles crescem o seu time na hora.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A lista tem poucos buffs de time; os lords do radar não crescem com as mortes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Cormela, Glamour Thief": {
    "notas": {
@@ -482,7 +608,27 @@
    "porque": "Vampiro que aciona a Evelyn, mas a mana dela só paga instantânea e feitiço, e o deck tem pouco disso; papel de passagem.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Vampiro com ímpeto que entra e enche a coleção; gera mana para mágicas."
+   "papel_por_que": "Vampiro com ímpeto que entra e enche a coleção; gera mana para mágicas.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que aciona a Evelyn; a mana dela paga as instantâneas e feitiços da coleção.",
+    "I": "Um 2/4 com ímpeto; a mana só serve a instantânea e feitiço.",
+    "T": "Quatro manas, das três cores.",
+    "Q": "Paridade e na frente.",
+    "R": "Há Vampiros de 4 que fazem mais; a Vampire Socialite do radar custa metade."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Vampire Socialite",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Crimson Honor Guard": {
    "notas": {
@@ -497,10 +643,30 @@
    },
    "tier": "C",
    "rel": "MED",
-   "faz": "Vampiro 4/4 atropelar, de 5. No fim do turno de cada jogador, causa 4 de dano a ele, a menos que ele controle um comandante.",
+   "faz": "Vampiro 4/5 atropelar, de 5. No fim do turno de cada jogador, causa 4 de dano a ele, a menos que ele controle um comandante.",
    "porque": "Pune quem está sem comandante em campo, inclusive você sem a Evelyn; o risco e o custo de 5 o seguram em C.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro que entra e enche a coleção; o dano no fim do turno pouco se liga ao plano."
+   "papel_por_que": "Vampiro que entra e enche a coleção; o dano no fim do turno pouco se liga ao plano.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 5 que aciona a Evelyn.",
+    "I": "Um 4/5 com atropelar; os 4 de dano só pegam quem está sem comandante, você inclusive.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "The Madcap Jester do radar rouba a cada ataque e deixa jogar o que a Evelyn exila deles."
+   },
+   "antissinergia": "leve",
+   "substituto": "The Madcap Jester",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Crossway Troublemakers": {
    "notas": {
@@ -521,7 +687,26 @@
    "porque": "Torna cada ataque da tribo perigoso com toque mortífero e vínculo e paga as mortes em carta; custa 6, por isso fica em B.",
    "papel": "multiplica",
    "papel_dupla": "Draw",
-   "papel_por_que": "Vampiros atacantes ganham toque mortífero e vínculo, e cada Vampiro que morre compra."
+   "papel_por_que": "Vampiros atacantes ganham toque mortífero e vínculo, e cada Vampiro que morre compra.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que aciona a Evelyn; dá toque mortífero e vínculo aos Vampiros atacantes.",
+    "I": "Precisa ficar; cada Vampiro seu que morre vira carta por 2 de vida.",
+    "T": "Seis manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta da lista paga a morte de Vampiro em carta."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Dominating Vampire": {
    "notas": {
@@ -542,7 +727,26 @@
    "faz": "Vampiro de 3. Ao entrar, você ganha o controle de uma criatura de valor até o número de Vampiros seus até o fim do turno; ela desvira e ganha ímpeto.",
    "porque": "Rouba uma criatura por um turno e a manda para o Viscera Seer ou o Yahenni; bom com a mesa cheia, fraco com poucos Vampiros.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro que entra e enche a coleção, e rouba uma criatura até o fim do turno."
+   "papel_por_que": "Vampiro que entra e enche a coleção, e rouba uma criatura até o fim do turno.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 3 que aciona a Evelyn; a criatura roubada vai para a saída de sacrifício.",
+    "I": "Rouba por um turno uma criatura de valor até o número de Vampiros seus.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade e na frente; com poucos Vampiros, o alvo é pequeno.",
+    "R": "É o único roubo de criatura da lista; o Captivating Vampire do radar rouba de vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Don Andres, the Renegade": {
    "notas": {
@@ -559,7 +763,7 @@
     "sin1": "Vampiro: entra e enche a coleção, sem pôr outro Vampiro em campo.",
     "sin2": "Recompensa o roubo: o que não é seu ganha +2/+2, ameaça e toque mortífero, e cada mágica não criatura alheia dá dois Tesouros."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vampiro Pirata de 4. Criaturas que você controla mas não possui ganham +2/+2, ameaça e toque mortífero. Quando você conjura uma mágica não-criatura que não é sua, cria dois Treasures virados.",
    "porque": "Paga o roubo da Evelyn em Treasure e torna as criaturas roubadas ameaças: é a recompensa mais direta do plano de roubo.",
@@ -568,7 +772,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (Vampiro que entra)",
-   "papel_por_que": "Mágica que não é sua vira dois Tesouros e a criatura roubada cresce: paga cada carta do oponente que a Evelyn exila."
+   "papel_por_que": "Mágica que não é sua vira dois Tesouros e a criatura roubada cresce: paga cada carta do oponente que a Evelyn exila.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que aciona a Evelyn e paga o roubo: dois Treasures por mágica alheia não criatura.",
+    "I": "Precisa ficar; criatura roubada ganha +2/+2, ameaça e toque mortífero.",
+    "T": "Quatro manas, das três cores.",
+    "Q": "Paridade e na frente.",
+    "R": "É o único que paga o roubo em mana; o Prosper do radar dá um Treasure e não é Vampiro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Drana, Liberator of Malakir": {
    "notas": {
@@ -581,13 +804,32 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção; os marcadores vêm do ataque, não põe outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vampiro voador de 3, com iniciativa. Dano de combate num jogador: um marcador em cada criatura sua atacando.",
    "porque": "Cresce o time no meio do ataque, antes do dano dos outros, e com a Shared Animosity faz o ataque largo que fecha o jogo.",
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (Vampiro que entra)",
-   "papel_por_que": "Vampiro voador que põe marcador em cada atacante: multiplica o ataque do time."
+   "papel_por_que": "Vampiro voador que põe marcador em cada atacante: multiplica o ataque do time.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 3 que aciona a Evelyn; põe marcador em cada atacante quando acerta.",
+    "I": "Precisa sobreviver uma volta e acertar um jogador; a iniciativa cresce o time antes do dano.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Põe marcador no time inteiro num ataque só; o Stromkirk Captain do radar dá +1/+1 fixo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Etali, Primal Storm": {
    "notas": {
@@ -610,7 +852,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Ao atacar, exila o topo de cada grimório e conjura de graça: motor de jogar do exílio."
+   "papel_por_que": "Ao atacar, exila o topo de cada grimório e conjura de graça: motor de jogar do exílio.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A cada ataque exila o topo de cada grimório e conjura tudo de graça.",
+    "I": "Vira o jogo, mas só no turno seguinte: não tem ímpeto.",
+    "T": "Seis manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta da lista conjura de graça o topo de cada grimório."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Falkenrath Aristocrat": {
    "notas": {
@@ -625,7 +886,7 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção, sem pôr outro Vampiro em campo."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Vampiro 4/1 voador com ímpeto, de 4. Sacrifique uma criatura: fica indestrutível até o fim do turno.",
    "porque": "Ataca no turno em que entra e é saída de sacrifício para o dreno; o corpo 4/1 é frágil, por isso fica em B.",
@@ -633,7 +894,26 @@
     "saida": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador com ímpeto que entra e enche a coleção."
+   "papel_por_que": "Vampiro voador com ímpeto que entra e enche a coleção.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que aciona a Evelyn; saída de sacrifício grátis.",
+    "I": "Um 4/1 voador com ímpeto: bate na hora, morre fácil.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "São cinco saídas de sacrifício para um mínimo de três; esta e o Immersturm Predator são as mais caras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Falkenrath Gorger": {
    "notas": {
@@ -653,7 +933,30 @@
    "porque": "Quase nada descarta no deck, então a loucura não aparece; vale só como Vampiro de 1 que aciona a Evelyn.",
    "prioridade": 5,
    "papel": "habilita",
-   "papel_por_que": "Dá loucura aos seus Vampiros: eles entram do exílio e a coleção enche de novo."
+   "papel_por_que": "Dá loucura aos seus Vampiros: eles entram do exílio e a coleção enche de novo.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 1 que aciona a Evelyn; a loucura pede descarte, raro na lista.",
+    "I": "Um 2/1 sem efeito ao entrar.",
+    "T": "Uma mana.",
+    "Q": "Início e paridade.",
+    "R": "O radar põe o Stromkirk Captain na vaga: +1/+1 e iniciativa para todos os Vampiros."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Stromkirk Captain",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Falkenrath Noble": {
    "notas": {
@@ -675,7 +978,26 @@
     "dreno": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador que entra e enche a coleção; drena a cada morte."
+   "papel_por_que": "Vampiro voador que entra e enche a coleção; drena a cada morte.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o drenar: cada morte, de qualquer lado da mesa, tira 1 de um jogador.",
+    "I": "Precisa ficar; 2/2 voador que rende em toda morte.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira dreno.",
+    "R": "Sem ele sobra só o Blood Artist; o Sanctum Seeker do radar drena só no ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Florian, Voldaren Scion": {
    "notas": {
@@ -700,7 +1022,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Vampiro que exila uma carta do topo depois do combate para jogar no turno: motor de exílio."
+   "papel_por_que": "Vampiro que exila uma carta do topo depois do combate para jogar no turno: motor de exílio.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 3 que aciona a Evelyn e joga uma carta do exílio depois do combate.",
+    "I": "Um 3/3 com iniciativa; a carta só vem se os oponentes perderam vida no turno.",
+    "T": "Três manas, com condição.",
+    "Q": "Paridade e na frente.",
+    "R": "É o único Vampiro que joga do exílio; paga o Nalfeshnee e a Passionate Archaeologist."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Immersturm Predator": {
    "notas": {
@@ -716,7 +1057,7 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção, sem pôr outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vampiro Dragão voador de 4. Quando vira, exila uma carta de um cemitério e ganha um marcador. Sacrifique outra criatura: fica indestrutível e vira.",
    "porque": "Ameaça voadora que se protege e é saída de sacrifício: cobre o dreno e a proteção num só Vampiro de 4.",
@@ -725,7 +1066,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção (cemitério)",
-   "papel_por_que": "Vampiro Dragão voador que entra e enche a coleção; exila do cemitério ao virar."
+   "papel_por_que": "Vampiro Dragão voador que entra e enche a coleção; exila do cemitério ao virar.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que aciona a Evelyn; saída de sacrifício grátis.",
+    "I": "Voador que cresce, exila carta de cemitério e sobrevive à limpeza com um sacrifício.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, quando fica de pé depois da limpeza.",
+    "R": "Yahenni faz parecido por três manas, sem voar e sem exilar cemitério."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Indulgent Aristocrat": {
    "notas": {
@@ -748,7 +1108,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (Vampiro que entra)",
-   "papel_por_que": "Sacrifica para pôr um marcador em cada Vampiro seu: multiplica o time."
+   "papel_por_que": "Sacrifica para pôr um marcador em cada Vampiro seu: multiplica o time.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 1 que aciona a Evelyn; saída de sacrifício que cresce a tribo.",
+    "I": "Um 1/1 com vínculo; cada marcador custa {2} e uma criatura.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e na frente.",
+    "R": "É uma de cinco saídas de sacrifício, e a única que cobra mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Midnight Arsonist": {
    "notas": {
@@ -761,13 +1140,32 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção; conta os Vampiros, mas não põe outro em campo."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Vampiro de 4. Ao entrar, destrói até X artefatos sem habilidade de mana, X o número de Vampiros seus.",
    "porque": "Resposta a artefatos que depende de ter Vampiros em campo; útil às vezes, mas o efeito é de uma vez e variável.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Vampiro que entra e enche a coleção; destrói artefatos pelo número de Vampiros."
+   "papel_por_que": "Vampiro que entra e enche a coleção; destrói artefatos pelo número de Vampiros.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 4 que aciona a Evelyn.",
+    "I": "Destrói até um artefato sem habilidade de mana por Vampiro seu; às vezes não há alvo.",
+    "T": "Quatro manas, com alvo condicional.",
+    "Q": "Paridade, na frente e atrás, contra mesa de artefatos.",
+    "R": "Fora o Nevinyrral's Disk, é a única resposta a artefato da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Mirri the Cursed": {
    "notas": {
@@ -785,7 +1183,27 @@
    "faz": "Vampiro voador de 4, com iniciativa e ímpeto. Cresce quando causa dano de combate a uma criatura.",
    "porque": "Ataca no turno em que entra e aciona a Evelyn; fora isso, faz pouco pelo roubo ou pelo dreno.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador com ímpeto que entra e enche a coleção."
+   "papel_por_que": "Vampiro voador com ímpeto que entra e enche a coleção.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 4 que aciona a Evelyn e mais nada.",
+    "I": "Um 3/2 voador com iniciativa e ímpeto.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Sanctum Seeker do radar custa o mesmo e drena a mesa a cada Vampiro atacante."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Sanctum Seeker",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Nalfeshnee": {
    "notas": {
@@ -806,7 +1224,26 @@
     "exilio": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Copia toda mágica conjurada do exílio: dobra o que a Evelyn e os motores entregam."
+   "papel_por_que": "Copia toda mágica conjurada do exílio: dobra o que a Evelyn e os motores entregam.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia cada mágica conjurada do exílio: dobra a carta da Evelyn de cada turno.",
+    "I": "Precisa ficar; 4/6 voador que segura o ar.",
+    "T": "Seis manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta da lista dobra o roubo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Nighthawk Scavenger": {
    "notas": {
@@ -819,13 +1256,32 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção, sem pôr outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vampiro voador de 3, com toque mortífero e vínculo; força 1 mais os tipos de carta nos cemitérios dos oponentes.",
    "porque": "Vampiro eficiente de 3: bate forte, segura a mesa com toque mortífero e vínculo, e aciona a Evelyn.",
    "pacote": "fechamento",
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador que entra e enche a coleção."
+   "papel_por_que": "Vampiro voador que entra e enche a coleção.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 3 que aciona a Evelyn.",
+    "I": "Um voador com toque mortífero e vínculo; a força cresce com os cemitérios deles.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e atrás, como bloqueador.",
+    "R": "Faz o mesmo trabalho do Vampire Nighthawk, pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Quag Vampires": {
    "notas": {
@@ -844,7 +1300,30 @@
    "porque": "Escala com mana, mas vale pouco em qualquer ponto da curva; aciona a Evelyn e só.",
    "prioridade": 4,
    "papel": "habilita",
-   "papel_por_que": "Vampiro de 1 que entra e enche a coleção, e escala com o multichute."
+   "papel_por_que": "Vampiro de 1 que entra e enche a coleção, e escala com o multichute.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 1 que aciona a Evelyn e mais nada.",
+    "I": "Um 1/1; cada marcador custa {1}{B}.",
+    "T": "Uma mana; o multichute rende pouco pelo que cobra.",
+    "Q": "Início, paridade e na frente, como destino de mana que sobra.",
+    "R": "O radar põe o Bloodline Keeper na vaga: um Vampiro novo por turno."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Bloodline Keeper",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Rakish Heir": {
    "notas": {
@@ -863,7 +1342,30 @@
    "porque": "Recompensa o ataque com marcadores, mas só depois de conectar; os outros bônus da tribo fazem mais pelo fechamento.",
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (Vampiro que entra)",
-   "papel_por_que": "Cada Vampiro que causa dano a um jogador ganha um marcador: multiplica o time."
+   "papel_por_que": "Cada Vampiro que causa dano a um jogador ganha um marcador: multiplica o time.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 3 que aciona a Evelyn; marcador só em quem acerta um jogador.",
+    "I": "Um 2/2; o marcador vem depois do dano.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O radar põe o Markov Baron na vaga: +1/+1 fixo em todos, com convocar."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Markov Baron",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Strefan, Maurer Progenitor": {
    "notas": {
@@ -877,13 +1379,32 @@
    "sin_por_que": {
     "sin1": "Vampiro que põe outro Vampiro da mão em campo a cada ataque: a coleção enche de novo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vampiro voador de 4. No seu fim de turno, um Blood por jogador que perdeu vida. Ao atacar, sacrifique dois Blood: um Vampiro da mão entra atacando e indestrutível.",
    "porque": "Põe Vampiro grande da mão em campo de graça a cada ataque, e cada um aciona a Evelyn: um dos poucos que enchem a coleção em série.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Põe um Vampiro da mão em campo atacando: a coleção enche de novo."
+   "papel_por_que": "Põe um Vampiro da mão em campo atacando: a coleção enche de novo.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que põe outro Vampiro da mão em campo a cada ataque: a coleção enche de novo.",
+    "I": "Precisa ficar, atacar e juntar dois Bloods.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente; atrás, não ataca.",
+    "R": "É o único que põe Vampiro da mão em campo; o Bloodline Keeper do radar faz ficha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Taurean Mauler": {
    "notas": {
@@ -904,7 +1425,27 @@
     "tribo": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Troca-forma conta como Vampiro: entra e enche a coleção."
+   "papel_por_que": "Troca-forma conta como Vampiro: entra e enche a coleção.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Troca-forma: conta como Vampiro, aciona a Evelyn e soma na Shared Animosity.",
+    "I": "Um 2/2 que cresce a cada mágica dos oponentes.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "É só um corpo; o radar dá a vaga ao Unstable Amulet, que paga o roubo em dano."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Unstable Amulet",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Timothar, Baron of Bats": {
    "notas": {
@@ -918,12 +1459,31 @@
    "sin_por_que": {
     "sin1": "Vampiro que traz de volta ao campo os Vampiros que morrem: cada volta enche a coleção de novo."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "ALT",
    "faz": "Vampiro de 6, ward (descarte uma carta). Quando outro Vampiro seu não-ficha morre, pague {1}: exile-o e crie um Morcego 1/1 voador; quando o Morcego causa dano a um jogador, o Vampiro volta virado.",
    "porque": "Cada Vampiro que morre volta e aciona a Evelyn de novo, e o ward o protege; fica em B porque custa 6 e a volta depende do Morcego acertar.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro que morre volta pelo Morcego: entra de novo e a coleção enche."
+   "papel_por_que": "Vampiro que morre volta pelo Morcego: entra de novo e a coleção enche.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que traz de volta os Vampiros que morrem: cada volta aciona a Evelyn de novo.",
+    "I": "Precisa ficar; o ward de descarte ajuda, e o Morcego tem de acertar.",
+    "T": "Seis manas, mais {1} por Vampiro que volta.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira Morcegos.",
+    "R": "A lista tem só duas cartas de volta, abaixo da cota; nenhuma outra é repetível."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Vampire Nighthawk": {
    "notas": {
@@ -942,7 +1502,26 @@
    "porque": "Segura qualquer atacante e ganha a corrida, além de acionar a Evelyn; corpo sólido sem ligação com o roubo.",
    "pacote": "fechamento",
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador que entra e enche a coleção."
+   "papel_por_que": "Vampiro voador que entra e enche a coleção.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 3 que aciona a Evelyn.",
+    "I": "Um 2/3 voador com toque mortífero e vínculo.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e atrás, como bloqueador.",
+    "R": "Faz o mesmo trabalho do Nighthawk Scavenger, pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Viscera Seer": {
    "notas": {
@@ -956,7 +1535,7 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção, sem pôr outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vampiro de 1. Sacrifique uma criatura: vidência 1.",
    "porque": "Saída de sacrifício grátis: alimenta o dreno e acerta o topo antes do próximo Vampiro; peça de vários combos do deck.",
@@ -964,7 +1543,26 @@
     "saida": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Vampiro de 1 que entra e enche a coleção; saída de sacrifício."
+   "papel_por_que": "Vampiro de 1 que entra e enche a coleção; saída de sacrifício.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 1 que aciona a Evelyn; saída de sacrifício grátis para o dreno.",
+    "I": "Um 1/1; a vidência arruma o seu topo antes de a Evelyn exilar.",
+    "T": "Uma mana, sem custo de ativação.",
+    "Q": "Início, paridade e na frente; atrás, um 1/1 não segura a mesa.",
+    "R": "As outras saídas grátis custam três ou quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Voldaren Bloodcaster": {
    "notas": {
@@ -984,7 +1582,26 @@
    "faz": "Vampiro voador de 2. Quando ele ou outra criatura sua não-ficha morre, cria um Blood; com cinco Bloods, transforma e vira os Bloods em Morcegos.",
    "porque": "Mortes viram Bloods e, no fim, Morcegos voadores; bom com o sacrifício, mas os Morcegos não são Vampiros.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador de 2 que entra e enche a coleção; mortes viram Blood."
+   "papel_por_que": "Vampiro voador de 2 que entra e enche a coleção; mortes viram Blood.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 2 que aciona a Evelyn; cada morte sua vira um Blood.",
+    "I": "Um 2/1 voador; o verso pede cinco Bloods.",
+    "T": "Duas manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Há outros Vampiros de 2 na lista; nenhum faz Blood nas mortes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Voldaren Epicure": {
    "notas": {
@@ -1003,7 +1620,26 @@
    "faz": "Vampiro de 1. Ao entrar, 1 de dano em cada oponente e um Blood.",
    "porque": "O Vampiro mais barato: aciona a Evelyn, liga o espetáculo do Light Up the Stage e dá Blood ao Strefan; o corpo 1/1 o segura em B.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro de 1 que entra e enche a coleção, com dano e Blood."
+   "papel_por_que": "Vampiro de 1 que entra e enche a coleção, com dano e Blood.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 1 que aciona a Evelyn; o dano liga o espetáculo e o Florian.",
+    "I": "Um 1/1, 1 de dano em cada oponente e um Blood.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e na frente.",
+    "R": "É o melhor dos Vampiros de uma mana: os outros não fazem nada ao entrar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Yahenni, Undying Partisan": {
    "notas": {
@@ -1018,7 +1654,7 @@
    "sin_por_que": {
     "sin1": "Vampiro: entra e enche a coleção, sem pôr outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vampiro de 3 com ímpeto. Cresce quando criatura de oponente morre. Sacrifique outra criatura: fica indestrutível.",
    "porque": "Saída de sacrifício grátis que também se protege e cresce com as mortes dos oponentes: segura o dreno e a mesa.",
@@ -1026,7 +1662,26 @@
     "saida": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Vampiro com ímpeto que entra e enche a coleção; saída de sacrifício."
+   "papel_por_que": "Vampiro com ímpeto que entra e enche a coleção; saída de sacrifício.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 3 que aciona a Evelyn; saída de sacrifício grátis.",
+    "I": "Um 2/2 com ímpeto que cresce com as mortes deles.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "É uma de cinco saídas de sacrifício; o Viscera Seer faz o mesmo por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Arcane Signet": {
    "notas": {
@@ -1034,10 +1689,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: uma mana de qualquer das três cores.",
-   "porque": "Pedra de duas manas que acerta qualquer das três cores, acima das pedras incolores; é flex porque outras pedras dividem o papel."
+   "porque": "Pedra de duas manas que acerta qualquer das três cores, acima das pedras incolores; é flex porque outras pedras dividem o papel.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno, em qualquer das três cores.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota, e é a única pedra de 2 que dá as três cores sem condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Blade of the Bloodchief": {
    "notas": {
@@ -1053,7 +1727,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Equipamento de 1, equipar {1}. Sempre que uma criatura morre, um marcador na equipada, dois se for Vampiro.",
-   "porque": "Cresce com as mortes, em dobro num Vampiro, mas pede tempo de equipar e não aciona a Evelyn."
+   "porque": "Cresce com as mortes, em dobro num Vampiro, mas pede tempo de equipar e não aciona a Evelyn.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Rende mais em Vampiro, mas não entra, não rouba e não drena.",
+    "I": "Cresce uma criatura só, a cada morte.",
+    "T": "Uma mana e mais {1} para equipar.",
+    "Q": "Paridade e na frente.",
+    "R": "O radar põe a Tasha, the Witch Queen na vaga: um Demônio 3/3 por mágica alheia."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Tasha, the Witch Queen",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Chaos Wand": {
    "notas": {
@@ -1074,7 +1771,30 @@
    },
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Conjura de graça uma mágica do grimório do oponente: carta que não é sua, para o Don Andres e o Archaeologist."
+   "papel_por_que": "Conjura de graça uma mágica do grimório do oponente: carta que não é sua, para o Don Andres e o Archaeologist.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Conjura de graça uma mágica do grimório de um oponente, por ativação paga.",
+    "I": "Uma instantânea ou feitiço ao acaso, a partir do turno seguinte.",
+    "T": "Três manas e mais {4} a cada uso.",
+    "Q": "Paridade e na frente, como destino de mana que sobra.",
+    "R": "O radar põe o Captivating Vampire na vaga: lord que rouba criatura de vez."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Captivating Vampire",
+   "confianca": "alta",
+   "indice": 1.05
   },
   "Commander's Sphere": {
    "notas": {
@@ -1086,7 +1806,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 3: uma mana de qualquer cor da identidade; sacrifique: compre.",
-   "porque": "Acerta qualquer cor e vira carta no fim; fica em B porque custa 3, um a mais que as pedras de 2."
+   "porque": "Acerta qualquer cor e vira carta no fim; fica em B porque custa 3, um a mais que as pedras de 2.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno, em qualquer das três cores; tarde, vira uma carta.",
+    "T": "Três manas, uma a mais que as outras pedras.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota, e ela acerta as três cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Everflowing Chalice": {
    "notas": {
@@ -1094,10 +1833,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 0, multichute {2}: um marcador de carga por chute; vira: {C} por marcador.",
-   "porque": "Pedra de duas manas que não dá cor, num deck de três cores que precisa acertá-las."
+   "porque": "Pedra de duas manas que não dá cor, num deck de três cores que precisa acertá-las.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana incolor a mais por turno com um chute; mais, se sobrar mana.",
+    "T": "Duas manas com um chute.",
+    "Q": "Viva sempre.",
+    "R": "O Talisman of Creativity dá azul ou vermelho pelo mesmo custo; segura a vaga pela cota de ramp."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Talisman of Creativity",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Fellwar Stone": {
    "notas": {
@@ -1108,7 +1867,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: uma cor que um terreno de oponente geraria.",
-   "porque": "Pedra de duas manas que, em quatro jogadores, quase sempre dá a cor certa; cumpre sem destaque."
+   "porque": "Pedra de duas manas que, em quatro jogadores, quase sempre dá a cor certa; cumpre sem destaque.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno, da cor que os terrenos dos oponentes geram.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota: são oito pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Mind Stone": {
    "notas": {
@@ -1120,7 +1898,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: {C}; {1}, vira e sacrifique: compre.",
-   "porque": "Acelera e vira carta depois; só dá incolor, por isso fica em B."
+   "porque": "Acelera e vira carta depois; só dá incolor, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana incolor a mais por turno; tarde, vira uma carta.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Só incolor num deck de três cores; segura a vaga porque o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Nevinyrral's Disk": {
    "notas": {
@@ -1128,7 +1925,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "Artefato de 4, entra virado. {1}, vira: destrói todos os artefatos, criaturas e encantamentos.",
    "porque": "Limpa tudo, inclusive a sua mesa e a Evelyn; o Crippling Fear e a Delayed Blast Fireball limpam só o lado deles.",
@@ -1136,7 +1933,31 @@
     "contra": 1
    },
    "massa": true,
-   "prioridade": 9
+   "prioridade": 9,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 2,
+    "Q": 0,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Destrói a sua mesa: a Evelyn, 33 criaturas, 11 artefatos e 6 encantamentos da lista.",
+    "I": "Vira a mesa inteira, a sua também.",
+    "T": "Quatro manas, entra virado e pede {1} no turno seguinte.",
+    "Q": "Só atrás, quando a sua mesa já não vale nada.",
+    "R": "O radar põe a Olivia's Wrath na vaga: limpeza que poupa os Vampiros."
+   },
+   "antissinergia": "estrutural",
+   "travas": [
+    "antissinergia estrutural",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Olivia's Wrath",
+   "confianca": "média",
+   "indice": 1.0
   },
   "Sensei's Divining Top": {
    "notas": {
@@ -1152,7 +1973,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 1. {1}: olhe as três do topo e reordene. Vira: compre e ponha o Top no topo.",
-   "porque": "Você escolhe a carta do seu topo antes de um Vampiro entrar, e a Evelyn exila a que você quiser; é seleção, não compra, por isso B."
+   "porque": "Você escolhe a carta do seu topo antes de um Vampiro entrar, e a Evelyn exila a que você quiser; é seleção, não compra, por isso B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Arruma o seu topo antes de um Vampiro entrar: você escolhe a carta que vai para a coleção.",
+    "I": "Seleção, não compra: não soma carta.",
+    "T": "Uma mana, e {1} por olhada.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma outra carta da lista escolhe o que a Evelyn exila do seu grimório."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Sol Ring": {
    "notas": {
@@ -1163,7 +2003,26 @@
    "tier": "A",
    "rel": "MED",
    "faz": "Artefato de 1: {C}{C}.",
-   "porque": "A Evelyn no turno 3; aceleração forte, mas incolor e num papel que as outras pedras dividem."
+   "porque": "A Evelyn no turno 3; aceleração forte, mas incolor e num papel que as outras pedras dividem.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica; a mana incolor paga qualquer carta da coleção.",
+    "I": "Duas manas a mais por turno: a Evelyn desce no turno 3.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota, e nada acelera tanto por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Talisman of Dominance": {
    "notas": {
@@ -1174,7 +2033,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: {C}, ou {U} ou {B} com 1 de dano.",
-   "porque": "Pedra de duas manas que acerta azul e preto; cumpre o ramp sem ligação com o plano."
+   "porque": "Pedra de duas manas que acerta azul e preto; cumpre o ramp sem ligação com o plano.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno: incolor, ou azul ou preto por 1 de dano.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota: são oito pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Thought Vessel": {
    "notas": {
@@ -1182,10 +2060,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: {C}; sem limite de mão.",
-   "porque": "Pedra de duas manas incolor; o fim do limite de mão pouco importa aqui."
+   "porque": "Pedra de duas manas incolor; o fim do limite de mão pouco importa aqui.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana incolor a mais por turno; o fim do limite de mão pesa pouco aqui.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O Talisman of Indulgence dá preto ou vermelho pelo mesmo custo; segura a vaga pela cota de ramp."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Talisman of Indulgence",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Charred Foyer // Warped Space": {
    "notas": {
@@ -1198,7 +2096,7 @@
    "sin_por_que": {
     "sin2": "Motor e recompensa: o Foyer exila o topo para jogar em toda manutenção, e a Warped Space deixa uma mágica do exílio por turno sair de graça."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Sala. Charred Foyer, de 4: na sua manutenção, exile o topo e você pode jogá-lo neste turno. Warped Space, de 6: uma vez por turno, você pode pagar {0} em vez do custo de uma mágica conjurada do exílio.",
    "porque": "A Warped Space deixa a carta da Evelyn de cada turno sair de graça, e o Charred Foyer compra do exílio todo turno: motor e recompensa do roubo.",
@@ -1208,7 +2106,26 @@
    "caro_por_desenho": true,
    "papel": "habilita",
    "papel_dupla": "Recompensa (Warped Space: de graça do exílio)",
-   "papel_por_que": "Exila o topo toda manutenção para jogar: um segundo motor de jogar do exílio."
+   "papel_por_que": "Exila o topo toda manutenção para jogar: um segundo motor de jogar do exílio.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O Foyer joga o topo do exílio todo turno; a Warped Space paga a carta da Evelyn.",
+    "I": "Precisa ficar; a primeira carta chega na manutenção seguinte.",
+    "T": "Quatro manas pelo Foyer e mais seis pela Warped Space.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta da lista conjura do exílio de graça; o Dragon's Smile custa sete."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Military Intelligence": {
    "notas": {
@@ -1219,7 +2136,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Encantamento de 2. Sempre que você ataca com duas ou mais criaturas, compre.",
-   "porque": "Compra uma por ataque largo, que é o plano, mas é só uma carta por turno e pede duas criaturas atacando."
+   "porque": "Compra uma por ataque largo, que é o plano, mas é só uma carta por turno e pede duas criaturas atacando.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica para deck de ataque.",
+    "I": "Uma carta por turno, só atacando com duas criaturas ou mais.",
+    "T": "Duas manas, com condição.",
+    "Q": "Paridade e na frente.",
+    "R": "A Kindred Discovery do radar compra a cada Vampiro que entra ou ataca; o radar dá a vaga ao Nico Minoru."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Kindred Discovery",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Passionate Archaeologist": {
    "notas": {
@@ -1240,7 +2177,26 @@
     "exilio": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Na Evelyn, cada mágica conjurada do exílio causa dano igual ao valor dela."
+   "papel_por_que": "Na Evelyn, cada mágica conjurada do exílio causa dano igual ao valor dela.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada mágica conjurada do exílio vira dano igual ao valor dela.",
+    "I": "Nada na entrada; só rende com a Evelyn em campo.",
+    "T": "Duas manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Keeper of Secrets do radar faz o mesmo por seis manas, sem depender da Evelyn."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Phyrexian Arena": {
    "notas": {
@@ -1248,10 +2204,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 3. Na sua manutenção, compre e perca 1.",
-   "porque": "Compra que não depende da Evelyn: sem ela em campo o deck compra pouco, e a Arena cobre essa lacuna."
+   "porque": "Compra que não depende da Evelyn: sem ela em campo o deck compra pouco, e a Arena cobre essa lacuna.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Uma carta a mais por turno enquanto ficar.",
+    "T": "Três manas, sem condição.",
+    "Q": "Início, paridade e na frente; atrás, é lenta.",
+    "R": "É a única compra recorrente que não depende da Evelyn, de ataque nem de exílio."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Shared Animosity": {
    "notas": {
@@ -1268,7 +2243,26 @@
    "faz": "Encantamento de 3. Sempre que uma criatura sua ataca, ganha +1/+0 por outra atacante que divide um tipo com ela.",
    "porque": "O fechamento do deck: com seis Vampiros atacando, cada um ganha +5, e é o que transforma a tribo em dano.",
    "papel": "multiplica",
-   "papel_por_que": "Cada atacante ganha força por outro Vampiro atacando: multiplica o ataque tribal."
+   "papel_por_que": "Cada atacante ganha força por outro Vampiro atacando: multiplica o ataque tribal.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o fechamento no ataque largo: cada Vampiro atacante ganha +1/+0 por outro Vampiro atacando.",
+    "I": "Com quatro Vampiros atacando, cada um ganha +3; pede a mesa já montada.",
+    "T": "Três manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta multiplica o ataque; os lords do radar dão só +1/+1."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Stolen Strategy": {
    "notas": {
@@ -1281,7 +2275,7 @@
    "sin_por_que": {
     "sin2": "Motor por gatilho: em toda manutenção exila o topo de cada oponente para conjurar no turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 5. Na sua manutenção, exile o topo de cada oponente; neste turno, você pode conjurar essas cartas, gastando mana como de qualquer cor.",
    "porque": "Um segundo motor de roubo, que não depende de Vampiro entrar e alimenta o Nalfeshnee, a Archaeologist e o Don Andres.",
@@ -1290,7 +2284,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Exila o topo de cada oponente toda manutenção para conjurar: motor de cartas que não são suas."
+   "papel_por_que": "Exila o topo de cada oponente toda manutenção para conjurar: motor de cartas que não são suas.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o roubar sem a Evelyn: o topo de cada oponente, todo turno, com mana de qualquer cor.",
+    "I": "Precisa ficar; as primeiras cartas chegam na manutenção seguinte.",
+    "T": "Cinco manas por compra recorrente.",
+    "Q": "Paridade e na frente.",
+    "R": "É o roubo que não depende de Vampiro entrar nem da Evelyn em campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Crippling Fear": {
    "notas": {
@@ -1307,7 +2320,26 @@
    "rel": "ALT",
    "faz": "Feitiço de 4: criaturas que não são do tipo escolhido recebem −3/−3 até o fim do turno.",
    "porque": "Nomeando Vampiro, limpa a mesa deles e poupa a sua; com o Cordial Vampire, a tribo ainda cresce a cada morte.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Nomeando Vampiro, poupa a tribo; as mortes deles pagam o Blood Artist e o Cordial Vampire.",
+    "I": "Limpa um lado só, mas −3/−3 não mata criatura grande.",
+    "T": "Quatro manas, de um lado só.",
+    "Q": "Paridade, atrás e na frente, quando abre o caminho do ataque.",
+    "R": "São quatro limpezas, no teto da cota; esta poupa a tribo por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Delayed Blast Fireball": {
    "notas": {
@@ -1321,14 +2353,33 @@
    "sin_por_que": {
     "sin2": "Fica mais forte quando conjurada do exílio: 5 de dano em vez de 2."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 3: 2 de dano em cada oponente e em cada criatura deles; conjurada do exílio, 5. Prenunciar {4}{R}{R}.",
    "porque": "Limpeza unilateral que ainda fere cada oponente; exilada pela Evelyn do seu topo, ou prenunciada, vira a de 5.",
    "massa": true,
    "papel": "recompensa",
    "papel_dupla": "Remoção (limpeza)",
-   "papel_por_que": "Rende mais conjurada do exílio: 5 de dano em cada oponente e criatura deles."
+   "papel_por_que": "Rende mais conjurada do exílio: 5 de dano em cada oponente e criatura deles.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conjurada do exílio, pela coleção da Evelyn ou prenunciada, faz 5 em vez de 2.",
+    "I": "Da mão, 2 de dano de um lado só; do exílio, 5 em cada oponente e criatura deles.",
+    "T": "Três manas, instantânea, pela versão de 2; a de 5 custa {2} e depois seis.",
+    "Q": "Paridade, atrás e na frente, quando os 5 em cada oponente fecham.",
+    "R": "São quatro limpezas, no teto da cota; é a única instantânea."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Demon Bolt": {
    "notas": {
@@ -1340,10 +2391,30 @@
    "sin_por_que": {
     "sin2": "Prenunciar: pode ser conjurada do exílio, de passagem."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 3: 4 de dano numa criatura ou planeswalker. Prenunciar {R}.",
-   "porque": "Remoção instantânea, que prenunciada custa uma mana; cumpre bem, mas pega um alvo só."
+   "porque": "Remoção instantânea, que prenunciada custa uma mana; cumpre bem, mas pega um alvo só.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica; prenunciada, sai do exílio.",
+    "I": "Um por um: 4 de dano em criatura ou planeswalker.",
+    "T": "Três manas, instantânea; prenunciar divide o custo em {2} e {R}.",
+    "Q": "Viva sempre.",
+    "R": "É a pontual mais cara das seis; a Bedevil também pega artefato pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Bedevil",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Feed the Swarm": {
    "notas": {
@@ -1354,7 +2425,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 2: destrói uma criatura ou encantamento de oponente; você perde o valor dela.",
-   "porque": "Uma das poucas respostas a encantamento, e barata; a perda de vida e o alvo só de oponente a seguram em B."
+   "porque": "Uma das poucas respostas a encantamento, e barata; a perda de vida e o alvo só de oponente a seguram em B.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Um por um; você perde vida igual ao valor do alvo.",
+    "T": "Duas manas, de feitiço.",
+    "Q": "Viva sempre.",
+    "R": "É a única resposta pontual a encantamento da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "In Garruk's Wake": {
    "notas": {
@@ -1368,7 +2458,27 @@
    "faz": "Feitiço de 9: destrói todas as criaturas e planeswalkers que você não controla.",
    "porque": "Limpeza unilateral, mas de nove manas; o Crippling Fear e a Delayed Blast Fireball fazem parecido por bem menos.",
    "massa": true,
-   "prioridade": 8
+   "prioridade": 8,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 0,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica de um lado só.",
+    "I": "Vira a mesa: destrói todas as criaturas e planeswalkers dos outros.",
+    "T": "Nove manas.",
+    "Q": "Atrás e na paridade, e só no fim do jogo.",
+    "R": "Crippling Fear e Delayed Blast Fireball fazem parecido por bem menos; o radar dá a vaga ao Champion of Dusk."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Champion of Dusk",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Jwari Disruption": {
    "notas": {
@@ -1380,7 +2490,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 2: anula uma mágica a menos que o dono pague {1}. O verso é um terreno virado que gera {U}.",
-   "porque": "Terreno quando falta, resposta barata no início; a anulação perde força com o jogo avançado."
+   "porque": "Terreno quando falta, resposta barata no início; a anulação perde força com o jogo avançado.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Anulação genérica; o verso é terreno de azul.",
+    "I": "Um por um, e só enquanto {1} pesa para o oponente.",
+    "T": "Duas manas, instantânea; como terreno, entra virado.",
+    "Q": "Viva sempre: quando a anulação não serve, vira terreno.",
+    "R": "É a única anulação da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Light Up the Stage": {
    "notas": {
@@ -1406,7 +2535,26 @@
    "custo_usual": {
     "cmc": 1,
     "como": "com espetáculo, depois de um oponente perder vida"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cartas saem do exílio: pagam o Nalfeshnee e a Passionate Archaeologist.",
+    "I": "Duas cartas, para jogar até o fim do seu próximo turno.",
+    "T": "Uma mana com espetáculo, depois do Voldaren Epicure ou de um ataque.",
+    "Q": "Início, paridade e na frente; atrás, falta o dano que barateia.",
+    "R": "Há compra parecida nas cores; a Encounter the Unknown do radar faz o mesmo de instantânea."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Memory Plunder": {
    "notas": {
@@ -1423,7 +2571,27 @@
    "faz": "Instantânea de {U/B}x4: conjure de graça uma instantânea ou feitiço do cemitério de um oponente.",
    "porque": "Rouba uma instantânea ou feitiço do cemitério de um oponente; depende do que a mesa jogou e pede quatro manas pretas ou azuis.",
    "papel": "habilita",
-   "papel_por_que": "Conjura de graça mágica do oponente: alimenta o Don Andres, mas vem do cemitério, não do exílio."
+   "papel_por_que": "Conjura de graça mágica do oponente: alimenta o Don Andres, mas vem do cemitério, não do exílio.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Conjura carta de oponente uma vez; paga o Don Andres, não quem pede exílio.",
+    "I": "Uma mágica de graça, a melhor instantânea ou feitiço nos cemitérios deles.",
+    "T": "Quatro manas, instantânea; o custo híbrido sai só com preto.",
+    "Q": "Paridade, na frente e atrás, se houver limpeza num cemitério.",
+    "R": "O radar dá a vaga ao Shadow of the Goblin, que paga cada carta jogada do exílio."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Shadow of the Goblin",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Read the Bones": {
    "notas": {
@@ -1434,7 +2602,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 3: vidência 2, compre duas, perca 2.",
-   "porque": "Compra simples e confiável, com vidência; cumpre o papel, sem ligação com o roubo."
+   "porque": "Compra simples e confiável, com vidência; cumpre o papel, sem ligação com o roubo.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Duas cartas, com vidência 2 antes.",
+    "T": "Três manas, de feitiço.",
+    "Q": "Viva sempre.",
+    "R": "Há equivalentes de sobra nas cores; a Exploratory Mission do radar disputa a vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Sinister Waltz": {
    "notas": {
@@ -1453,7 +2640,27 @@
    "porque": "Devolve dois Vampiros e cada um aciona a Evelyn, mas a escolha é ao acaso e custa 5.",
    "pacote": "protecao",
    "papel": "habilita",
-   "papel_por_que": "Devolve duas criaturas do cemitério ao campo: Vampiros entram e a coleção enche."
+   "papel_por_que": "Devolve duas criaturas do cemitério ao campo: Vampiros entram e a coleção enche.",
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Devolve duas criaturas do cemitério ao campo: duas entradas de Vampiro de uma vez.",
+    "I": "Dois corpos de volta, sorteados entre três.",
+    "T": "Cinco manas, feitiço, com sorteio.",
+    "Q": "Atrás, depois da limpeza, e na paridade.",
+    "R": "A volta está abaixo da cota, mas o Bloodline Necromancer do radar escolhe o alvo e é Vampiro."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Bloodline Necromancer",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Terminate": {
    "notas": {
@@ -1461,10 +2668,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 2: destrói uma criatura; ela não regenera.",
-   "porque": "Remoção de duas manas, instantânea e sem restrição de alvo: das mais eficientes do deck."
+   "porque": "Remoção de duas manas, instantânea e sem restrição de alvo: das mais eficientes do deck.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Um por um.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "É a melhor pontual da lista: sem restrição de alvo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Victim of Night": {
    "notas": {
@@ -1475,7 +2701,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 2: destrói uma criatura que não é Vampiro, Werewolf nem Zombie.",
-   "porque": "Barata e instantânea; a restrição a Vampiro, Werewolf e Zombie pesa pouco contra a maioria das mesas."
+   "porque": "Barata e instantânea; a restrição a Vampiro, Werewolf e Zombie pesa pouco contra a maioria das mesas.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Um por um.",
+    "T": "Duas manas, instantânea, {B}{B}.",
+    "Q": "Viva sempre.",
+    "R": "Faz o trabalho da Terminate, com restrição a Vampiro, Lobisomem e Zumbi."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Wheel of Fate": {
    "notas": {
@@ -1487,11 +2732,34 @@
    "sin_por_que": {
     "sin2": "Suspender: é conjurada do exílio, de passagem."
    },
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Feitiço suspenso por 4 voltas, por {1}{R}: cada jogador descarta a mão e compra sete.",
    "porque": "Lento, com quatro voltas de suspender, e dá sete cartas a cada oponente; a conjuração do exílio é só de passagem.",
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica; suspensa, é conjurada do exílio.",
+    "I": "Sete cartas novas, mas para cada oponente também.",
+    "T": "Duas manas e quatro voltas de espera.",
+    "Q": "Início, para suspender, e atrás em cartas.",
+    "R": "É a pior compra da lista; o radar põe a Call the Bloodline na vaga."
+   },
+   "antissinergia": "leve",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Call the Bloodline",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Command Tower": {
    "notas": {
@@ -1502,7 +2770,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Qualquer cor da identidade.",
-   "porque": "Três cores desvirado, sem custo: num deck de Grixis, é o terreno que mais acerta a cor."
+   "porque": "Três cores desvirado, sem custo: num deck de Grixis, é o terreno que mais acerta a cor.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno melhor para três cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Path of Ancestry": {
    "notas": {
@@ -1518,7 +2805,27 @@
    "rel": "MED",
    "faz": "Sempre virado. Qualquer cor da identidade; vidência 1 ao conjurar Vampiro ou Ladino.",
    "porque": "Três cores e vidência em quase todo Vampiro ou Ladino, mas sempre entra virado.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As três cores; vidência ao pagar Vampiro ou Ladino.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "O radar põe o Morphic Pool na vaga: azul e preto, desvirado na mesa de quatro."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Morphic Pool",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Rakdos Carnarium": {
    "notas": {
@@ -1530,7 +2837,27 @@
    "rel": "MED",
    "faz": "Sempre virado; ao entrar, devolve um terreno seu à mão. {T}: {B}{R}.",
    "porque": "Duas manas num terreno, um turno depois; entra virado e devolve um terreno, o que atrasa a curva.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Preto e vermelho.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado e devolve um terreno à mão.",
+    "Q": "Paridade, na frente e atrás; no início, atrasa a curva.",
+    "R": "O radar põe a Luxury Suite na vaga: as mesmas cores, desvirada na mesa de quatro."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Luxury Suite",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Rogue's Passage": {
    "notas": {
@@ -1541,7 +2868,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. {4}, vira: uma criatura fica imbloqueável.",
-   "porque": "Fecha com a criatura grande, mas é incolor num deck de três cores."
+   "porque": "Fecha com a criatura grande, mas é incolor num deck de três cores.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; o imbloqueável de {4} não serve a nenhum verbo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "O radar põe o Plaza of Heroes na vaga: paga a Evelyn em qualquer cor e a protege."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Plaza of Heroes",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Seething Landscape": {
    "notas": {},
@@ -1550,17 +2900,63 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. Sacrifique: um Island, Swamp ou Mountain básico virado. Ciclo {U}{B}{R}.",
-   "porque": "Acerta a cor que falta, um turno depois; incolor e lento, mas busca qualquer das três cores."
+   "porque": "Acerta a cor que falta, um turno depois; incolor e lento, mas busca qualquer das três cores.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; sacrificado, busca um básico de qualquer das três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas a cor só chega um turno depois, virada.",
+    "Q": "Viva sempre.",
+    "R": "O radar põe o Unclaimed Territory na vaga: paga Vampiro em qualquer cor, desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Unclaimed Territory",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Temple of the False God": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "{C}{C}, só com cinco terrenos.",
    "porque": "Não gera nada nos turnos em que mana importa, e é incolor num deck de três cores.",
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor.",
+    "I": "Duas manas incolores, mas só com cinco terrenos em campo.",
+    "T": "Desvirado, mas não gera nada antes do quinto terreno.",
+    "Q": "Paridade e na frente; no início é uma vaga morta.",
+    "R": "O radar põe o Exotic Orchard na vaga: cor desde o turno 1."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Exotic Orchard",
+   "confianca": "alta",
+   "indice": 0.55
   },
   "Volatile Fault": {
    "notas": {
@@ -1571,7 +2967,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. {1}, vira e sacrifique: destrói um terreno não-básico de oponente, que busca um básico; você cria um Treasure.",
-   "porque": "Resposta a terreno forte que ainda vira Treasure; incolor, num deck que precisa de cor."
+   "porque": "Resposta a terreno forte que ainda vira Treasure; incolor, num deck que precisa de cor.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; destruir terreno de oponente não serve a nenhum verbo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "O radar põe o Haunted Ridge na vaga: preto e vermelho, desvirado do terceiro terreno em diante."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Haunted Ridge",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Voldaren Estate": {
    "notas": {
@@ -1587,34 +3006,110 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Incolor, ou qualquer cor com 1 de vida só para Vampiro. {5}, vira: um Blood, um a menos por Vampiro seu.",
-   "porque": "Paga Vampiro em qualquer cor e faz Blood mais barato com a tribo; fica em B porque a cor custa vida e só serve a Vampiro."
+   "porque": "Paga Vampiro em qualquer cor e faz Blood mais barato com a tribo; fica em B porque a cor custa vida e só serve a Vampiro.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor para pagar Vampiro, por 1 de vida; fora isso, incolor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "O Unclaimed Territory do radar faz parecido sem cobrar vida, mas não cria Blood."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Island": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Fonte de azul e alvo do Seething Landscape; básico que cumpre a base de três cores."
+   "porque": "Fonte de azul e alvo do Seething Landscape; básico que cumpre a base de três cores.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o azul, que só quatro cartas da lista exigem.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "O azul é a cor menos pedida; um terreno de duas cores do radar rende mais na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Mountain": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Fonte de vermelho e alvo do Seething Landscape; básico que cumpre a base de três cores."
+   "porque": "Fonte de vermelho e alvo do Seething Landscape; básico que cumpre a base de três cores.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o vermelho dos motores de exílio e de parte dos Vampiros.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Swamp": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Fonte de preto, a cor que a Evelyn exige, e alvo do Seething Landscape; básico que cumpre a base de três cores."
+   "porque": "Fonte de preto, a cor que a Evelyn exige, e alvo do Seething Landscape; básico que cumpre a base de três cores.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o preto, que a Evelyn e a maioria dos Vampiros pedem.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   }
  },
  "radar": {
@@ -2755,5 +4250,17 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "02. TRIBAIS",
+  "conta": "Cada Vampiro que entra tira o topo de cada grimório para a coleção da Evelyn (colecionar); ela joga uma dessas cartas por turno, em qualquer turno, com mana de qualquer cor (roubar); a mesa de Vampiros fecha no dreno das mortes ou no ataque largo (drenar).",
+  "decisoes": [
+   "Por decisão sua (13/10/2026), o deck é forfun, com poucos ou nenhum Game Changer.",
+   "Por decisão sua (13/10/2026), as trocas do radar podem usar cartas que você não tem ou que estão em outros decks.",
+   "Por decisão sua (13/10/2026), as cartas repetidas com outros decks (Strefan, Florian, Cordial Vampire e outras) são cópias próprias.",
+   "Pela sua resposta, o deck não tem carta de estimação."
+  ]
  }
 }
