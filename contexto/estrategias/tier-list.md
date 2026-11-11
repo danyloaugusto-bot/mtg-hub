@@ -51,6 +51,7 @@ Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20,
 - **Substituto de fora só rebaixa a pior cópia do papel.** A carta nova entraria no lugar da pior da função, então só ela leva R = 0. Sem isso, uma carta de fora melhor derrubaria o papel inteiro.
 - **Terreno:** a lente E lê as cores: 2 para as duas cores (ou utilitário que serve a um verbo), 1 para uma cor, 0 para incolor. Vale também em deck de uma cor só: a fonte da cor fica em 1 (decisão do dono, 11/11/2026).
 - **Tutor sem restrição:** I = 2, porque vale a carta que busca.
+- **Limpeza que leva a própria mesa** (11/11/2026): limpeza só de criaturas é antissinergia material (teto B), porque o dono quer de três a quatro por deck; estrutural fica para a que destrói também o motor que não é criatura (Nevinyrral's Disk, Worldfire).
 - **Os limites (2,20, 1,60, 1,00 e 2,40) ficaram como estavam.**
 - **Nome do campo:** `funcao` no dado, "Função" na tela (o Plano do deck já usa `papel`).
 - **Decisões por deck** ficam no bloco `tier_lista` do `avaliacao.json`. No Valgavoth: vida é recurso (cobrar a vida do dono não é antissinergia); Demônio só sai por Demônio melhor; The Lord of Pain é a única carta de estimação.
@@ -71,4 +72,4 @@ Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20,
 
 ## Em aberto
 
-Feitos: Valgavoth (piloto), lote 1 (Giada, Markov, Vito, Clavileño, Dragões) e lote 2 (Elfos, Evelyn, Goblins, Humanos, Kaalia). Faltam 15 decks, em lotes de cinco, e o tier por deck no "Onde mais renderia". As notas de cada lote saem de um agente por deck, com o roteiro de `contexto/tier/BRIEF-TIER.md`, e passam pela revisão da sessão principal antes do "pode" do dono.
+Feitos: Valgavoth (piloto), lote 1 (Giada, Markov, Vito, Clavileño, Dragões) lote 2 (Elfos, Evelyn, Goblins, Humanos, Kaalia) e lote 3 (Lobos, Strefan, Turtle Power!, Zumbis, Heads I win). Faltam 10 decks, fora os quatro do Desejo, em lotes de cinco, e o tier por deck no "Onde mais renderia". As notas de cada lote saem de um agente por deck, com o roteiro de `contexto/tier/BRIEF-TIER.md`, e passam pela revisão da sessão principal antes do "pode" do dono.
