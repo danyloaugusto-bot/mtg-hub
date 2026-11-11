@@ -270,7 +270,7 @@
     },
     {
      "carta": "Master of Cruelties",
-     "porque": "Posto pela Kaalia, deixa um jogador em 1: quem viu uma vez remove na hora."
+     "porque": "Do radar, ainda fora da lista: posto pela Kaalia, deixa um jogador em 1, e quem viu uma vez remove na hora."
     }
    ],
    "guardar": [
@@ -288,11 +288,11 @@
     },
     {
      "carta": "Deflecting Swat",
-     "porque": "De graça com a Kaalia em campo: devolve a remoção pontual ao dono."
+     "porque": "Do radar, ainda fora da lista: de graça com a Kaalia em campo, devolve a remoção pontual ao dono."
     },
     {
      "carta": "Flawless Maneuver",
-     "porque": "De graça com a Kaalia em campo: a limpeza deles passa e a sua mesa fica."
+     "porque": "Do radar, ainda fora da lista: de graça com a Kaalia em campo, a limpeza deles passa e a sua mesa fica."
     }
    ],
    "ponto_de_falha": "A Kaalia, habilitadora e ponto de falha pelo Plano: remoção em resposta ao gatilho de ataque ou no turno em que ela entra, e o deck vira um Mardu de sete manas. Hoje só Boros Charm e Your Temple Is Under Attack a protegem barato, e nenhuma bota; o radar leva Lightning Greaves, Swiftfoot Boots, Grand Abolisher, Mother of Runes, Deflecting Swat e Flawless Maneuver a entra. O segundo ponto é a cor: 25 básicos em três cores, e a Kaalia só é conjurável até o turno 4 em metade das partidas.",
@@ -370,7 +370,31 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "S",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Deixa a Kaalia indestrutível enquanto ficar: o ataque se repete todo turno.",
+    "I": "A estática vale ao entrar: a mesa toda indestrutível, e ela mesma também.",
+    "T": "De graça pela Kaalia; fora dela, oito manas com {W}{W}{W}.",
+    "Q": "Paridade, na frente e atrás: segura a limpeza alheia e bloqueia com vigilância.",
+    "R": "A Sephara só cobre as voadoras e não se protege; a proteção está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, a Kaalia volta a morrer para a primeira destruição e o deck fica com duas proteções baratas.",
+    "A Sephara, Sky's Blade só cobre as voadoras e cai para remoção; a Flawless Maneuver vale um turno só.",
+    "Na paridade protege o ataque, na frente trava a limpeza da mesa, atrás segura o chão com um 8/8."
+   ],
+   "indice": 2.65
   },
   "Balefire Dragon": {
    "notas": {
@@ -395,7 +419,31 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o incendiar: o dano no jogador se repete em cada criatura dele.",
+    "I": "Entra atacando e o gatilho é de dano, não de ataque: limpa a mesa dele no mesmo combate.",
+    "T": "De graça pela Kaalia; fora dela, sete manas.",
+    "Q": "Paridade, na frente e atrás: tira a mesa de quem está ganhando.",
+    "R": "O Shadowgrange Archfiend tira uma criatura de cada um; nenhuma outra carga limpa um lado inteiro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ele, a única limpeza de um lado só é o Ruinous Ultimatum, de sete manas e três cores.",
+    "O Archfiend of Depravity, do radar, limpa no fim do turno deles, depois dos bloqueios; o Balefire limpa no combate.",
+    "Na paridade abre o caminho, atrás zera a mesa do líder, na frente repete a limpeza a cada conexão."
+   ],
+   "indice": 2.45
   },
   "Gisela, Blade of Goldnight": {
    "notas": {
@@ -426,7 +474,31 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o incendiar: dobra o dano da Kaalia e de toda carga, já no ataque em que entra.",
+    "I": "Estática: dobra o dano no mesmo combate e corta pela metade o que você leva.",
+    "T": "De graça pela Kaalia; fora dela, sete manas.",
+    "Q": "Paridade, na frente e atrás: a metade do dano segura a corrida.",
+    "R": "É o único multiplicador de dano da lista; o Twinflame Tyrant, do radar, não protege você."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, nada na lista dobra dano: cada ataque tira metade da vida que tira hoje.",
+    "O Twinflame Tyrant dobra o dano por cinco manas, mas não previne a metade do dano em você.",
+    "Na paridade e na frente encurta o jogo pela metade; atrás, corta o dano que você e a Kaalia levam."
+   ],
+   "indice": 2.65
   },
   "Archangel Avacyn": {
    "notas": {
@@ -448,7 +520,26 @@
    "porque": "Com lampejo responde à limpeza e, pela Kaalia, protege o ataque. O risco: se morre criatura sua que não é Anjo, ela vira e os 3 de dano matam a Kaalia.",
    "papel": "habilita",
    "papel_dupla": "Proteção (time indestrutível)",
-   "papel_por_que": "Carga com lampejo: posta ou conjurada na resposta, deixa a Kaalia e o time indestrutíveis no turno."
+   "papel_por_que": "Carga com lampejo: posta ou conjurada na resposta, deixa a Kaalia e o time indestrutíveis no turno.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Protege a Kaalia no turno do ataque ou responde à limpeza com lampejo.",
+    "I": "Efeito ao entrar, vale pela Kaalia: time indestrutível no turno e um 4/4 voador.",
+    "T": "Cinco manas com lampejo, ou de graça pela Kaalia.",
+    "Q": "Paridade, na frente e atrás: responde à limpeza no turno alheio.",
+    "R": "Boros Charm faz o mesmo por duas manas; a proteção está abaixo da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Drana and Linvala": {
    "notas": {
@@ -462,12 +553,31 @@
    "sin_por_que": {
     "sin1": "Anjo cuja estática já vale no turno em que entra; travar as habilidades dos oponentes não é efeito voltado às outras cargas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vampiro Anjo lendário de 4 com voar e vigilância. Criaturas dos oponentes não ativam habilidades; ela tem todas elas.",
    "porque": "Trava de 4 manas que se conjura sem depender da Kaalia e ainda rouba as ativações das criaturas deles. Pela Kaalia, a trava já vale no ataque.",
    "papel": "habilita",
-   "papel_por_que": "Carga de 4 voadora que trava as habilidades ativadas das criaturas dos oponentes."
+   "papel_por_que": "Carga de 4 voadora que trava as habilidades ativadas das criaturas dos oponentes.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Carga cuja estática já vale no ataque em que a Kaalia a põe.",
+    "I": "Trava as ativações das criaturas deles e as usa; precisa ficar em campo.",
+    "T": "Quatro manas por um 3/4 voador com vigilância.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Linvala, Keeper of Silence repete a trava na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Hoarding Broodlord": {
    "notas": {
@@ -480,7 +590,7 @@
    "sin_por_que": {
     "sin1": "Dragão cujo efeito ao entrar funciona posto pela Kaalia, mas a carta buscada vai para o exílio, não para a mão: a Kaalia não a põe, então não é a próxima carga."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Dragão 7/6 de 8 com convocar e voar. Ao entrar, busca qualquer carta e a exila; você pode jogá-la de lá, e mágicas do exílio têm convocar.",
    "porque": "Tutor de qualquer carta ao entrar pela Kaalia, mas a carta buscada fica no exílio: precisa ser conjurada com convocar, a Kaalia não a põe.",
@@ -491,7 +601,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Busca qualquer carta ao entrar pela Kaalia, mas ela fica no exílio: a Kaalia não a põe.",
+    "I": "Tutor sem restrição ao entrar e um 7/6 voador.",
+    "T": "De graça pela Kaalia; fora dela, oito manas com convocar.",
+    "Q": "Paridade, na frente e atrás: busca a resposta que falta.",
+    "R": "O Rune-Scarred Demon, do radar, põe a carta na mão por sete manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Lord of the Void": {
    "notas": {
@@ -505,7 +634,7 @@
    "sin_por_que": {
     "sin1": "Demônio cujo gatilho de dano de combate funciona posto pela Kaalia; o efeito é só dele."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Demônio 7/7 de 7 com voar. Dano de combate a um jogador: exila as sete do topo dele e põe uma criatura delas em campo sob seu controle.",
    "porque": "O gatilho de dano funciona pela Kaalia, e cada conexão rouba uma criatura do grimório do oponente. Efeito forte, mas que só rende para ele.",
@@ -515,7 +644,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Carga cujo gatilho de dano de combate funciona posto pela Kaalia.",
+    "I": "7/7 voador; se conectar, põe em campo uma criatura das sete do topo dele.",
+    "T": "De graça pela Kaalia; fora dela, sete manas com {B}{B}{B}.",
+    "Q": "Paridade e na frente.",
+    "R": "Os outros conversores de dano da lista dependem do d20 ou dos artefatos da mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Rakdos, Patron of Chaos": {
    "notas": {
@@ -541,7 +689,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Carga cujo gatilho de fim de turno não pede ataque: vale no turno em que entra.",
+    "I": "Todo fim de turno seu, duas cartas ou duas permanentes dele sacrificadas, já na entrada.",
+    "T": "De graça pela Kaalia; fora dela, seis manas em duas cores.",
+    "Q": "Paridade, na frente e atrás: repõe a mão de cargas.",
+    "R": "O Indulgent Tormentor compra uma só, e o oponente escolhe entre três saídas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Reya Dawnbringer": {
    "notas": {
@@ -555,7 +722,7 @@
    "sin_por_que": {
     "sin1": "Anjo cujo gatilho de manutenção não pede ataque e funciona do turno seguinte em diante; reanima para o campo, não para a mão, então não é a próxima carga."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Anjo lendário 4/6 de 9 com voar. Na sua manutenção, reanima uma criatura do seu cemitério.",
    "porque": "Nove manas de graça pela Kaalia, e devolve um gordo do cemitério ao campo a cada manutenção.",
@@ -565,7 +732,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Traz as cargas mortas de volta ao campo sem passar pela Kaalia.",
+    "I": "Uma criatura reanimada por manutenção; só começa se sobreviver uma volta.",
+    "T": "Nove manas: só entra pela Kaalia.",
+    "Q": "Paridade e atrás, com cargas no cemitério.",
+    "R": "É a única recursão que se repete todo turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Sephara, Sky's Blade": {
    "notas": {
@@ -592,7 +778,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A Kaalia voa: fica indestrutível enquanto a Sephara estiver em campo.",
+    "I": "Estática ao entrar e um 7/7 voador com vínculo; ela mesma não é indestrutível.",
+    "T": "De graça pela Kaalia; fora dela, sete manas com {W}{W}{W}.",
+    "Q": "Paridade, na frente e atrás, com o vínculo.",
+    "R": "A Avacyn, Angel of Hope cobre a mesa toda; a proteção está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Valgavoth, Terror Eater": {
    "notas": {
@@ -608,7 +813,7 @@
    "sin_por_que": {
     "sin1": "Demônio cujas estáticas já valem no turno em que entra; o efeito é só dele."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Demônio lendário 9/9 de 9 com voar, vínculo e ward de sacrificar três permanentes. Carta que iria ao cemitério de oponente é exilada; no seu turno, você a joga pagando vida.",
    "porque": "Nove manas de graça pela Kaalia, difícil de remover pelo ward de três permanentes, e deixa jogar as cartas deles pagando vida.",
@@ -619,7 +824,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Carga cujas estáticas já valem no turno em que entra.",
+    "I": "9/9 voador com vínculo e ward caro; as cartas deles viram suas, pagando vida.",
+    "T": "Nove manas: só entra pela Kaalia.",
+    "Q": "Paridade, na frente e atrás, pelo vínculo de 9.",
+    "R": "Nenhuma outra carga é tão difícil de remover."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Ancient Brass Dragon": {
    "notas": {
@@ -644,7 +868,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Carga cujo gatilho de dano de combate funciona posto pela Kaalia.",
+    "I": "7/6 voador; se conectar, o d20 traz criaturas de qualquer cemitério.",
+    "T": "De graça pela Kaalia; fora dela, sete manas.",
+    "Q": "Paridade e na frente, com criaturas nos cemitérios.",
+    "R": "As cargas passam da cota; o radar avalia o Ob Nixilis, the Ascended na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Ancient Gold Dragon": {
    "notas": {
@@ -668,7 +911,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Carga cujo gatilho de dano de combate funciona posto pela Kaalia.",
+    "I": "7/10 voador; se conectar, cria um d20 de fichas 1/1 voadoras.",
+    "T": "De graça pela Kaalia; fora dela, sete manas.",
+    "Q": "Paridade e na frente.",
+    "R": "As cargas passam da cota, e há outros conversores de dano na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Hellkite Tyrant": {
    "notas": {
@@ -693,7 +955,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Carga cujo gatilho de dano de combate funciona posto pela Kaalia.",
+    "I": "6/5 voador com atropelar; se conectar, toma todos os artefatos do jogador.",
+    "T": "De graça pela Kaalia; fora dela, seis manas.",
+    "Q": "Paridade e na frente; rende conforme os artefatos da mesa.",
+    "R": "As cargas passam da cota, e há outros conversores de dano na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Linvala, Keeper of Silence": {
    "notas": {
@@ -711,7 +992,26 @@
    "faz": "Anjo lendário 3/4 de 4 com voar. Criaturas dos oponentes não ativam habilidades.",
    "porque": "Repete a trava da Drana and Linvala sem roubar as ativações: segunda cópia útil, sem acrescentar efeito novo.",
    "papel": "habilita",
-   "papel_por_que": "Carga de 4 voadora que trava as habilidades ativadas das criaturas dos oponentes."
+   "papel_por_que": "Carga de 4 voadora que trava as habilidades ativadas das criaturas dos oponentes.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Carga cuja estática já vale no ataque em que a Kaalia a põe.",
+    "I": "Trava ativações de criaturas deles; sem alvo na mesa, é um 3/4 voador.",
+    "T": "Quatro manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Drana and Linvala faz o mesmo e ainda usa as ativações deles."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Shadowgrange Archfiend": {
    "notas": {
@@ -735,7 +1035,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Carga cujo efeito ao entrar funciona pela Kaalia, antes dos bloqueios.",
+    "I": "Cada oponente sacrifica a criatura de maior poder, e você ganha a vida.",
+    "T": "De graça pela Kaalia; fora dela, sete manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É o único efeito de sacrifício para os três oponentes de uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Shadrix Silverquill": {
    "notas": {
@@ -750,7 +1069,7 @@
    "sin_por_que": {
     "sin1": "Dragão cujo gatilho de início de combate não pede ataque: posto pela Kaalia, o desse turno já passou, mas vale do turno seguinte em diante."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Dragão lendário 2/5 de 5 com voar e golpe duplo. No início do seu combate, escolhe dois modos, cada um para um jogador.",
    "porque": "Pela Kaalia o início do combate já passou: o gatilho só vale do turno seguinte em diante. Na entrada, é um 2/5 com golpe duplo.",
@@ -760,7 +1079,26 @@
    "pacote": "carga",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Carga com golpe duplo; a cada início de combate, dá carta, marcadores ou ficha."
+   "papel_por_que": "Carga com golpe duplo; a cada início de combate, dá carta, marcadores ou ficha.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O gatilho de início de combate não pede ataque, mas pela Kaalia o do turno já passou.",
+    "I": "Na entrada é um 2/5 voador com golpe duplo; os modos só vêm se sobreviver uma volta.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "As cargas passam da cota, e cada modo também dá algo a outro jogador."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Ao, the Dawn Sky": {
    "notas": {
@@ -780,7 +1118,26 @@
    "porque": "O valor está na morte, não na entrada: pela Kaalia é um 5/4 voador que só rende se morrer.",
    "pacote": "carga",
    "papel": "habilita",
-   "papel_por_que": "Carga voadora com vigilância; ao morrer, põe permanentes do topo em campo ou marcadores no time."
+   "papel_por_que": "Carga voadora com vigilância; ao morrer, põe permanentes do topo em campo ou marcadores no time.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Posto pela Kaalia é só o corpo: o efeito está na morte.",
+    "I": "5/4 voador; ao morrer, permanentes de custo baixo do topo ou marcadores no time.",
+    "T": "Cinco manas por um 5/4 voador com vigilância.",
+    "Q": "Paridade, na frente e atrás, como bloqueador que deixa valor.",
+    "R": "As cargas passam da cota, e há corpos de cinco manas iguais na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Archangel of Strife": {
    "notas": {
@@ -806,7 +1163,30 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "A escolha ao entrar vale no ataque em que a Kaalia o põe.",
+    "I": "+3/+0 nas suas criaturas; cada oponente também escolhe um bônus para si.",
+    "T": "De graça pela Kaalia; fora dela, sete manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Subjugator Angel, do radar, vira todas as criaturas deles ao entrar: ninguém bloqueia."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Subjugator Angel",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Archangel of Thune": {
    "notas": {
@@ -820,13 +1200,32 @@
    "sin_por_que": {
     "sin1": "Anjo cujo gatilho de ganho de vida já funciona no ataque em que entra, pelo próprio vínculo; os marcadores não dobram dano nem dão golpe duplo."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Anjo 3/4 de 5 com voar e vínculo. Sempre que você ganha vida, marcador +1/+1 em cada criatura sua.",
    "porque": "Pouco ganho de vida na lista: fora o próprio vínculo, os marcadores pingam devagar.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (marcadores a cada ganho de vida)",
-   "papel_por_que": "Carga com vínculo: o dano dela põe marcador +1/+1 em cada criatura sua."
+   "papel_por_que": "Carga com vínculo: o dano dela põe marcador +1/+1 em cada criatura sua.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O vínculo dela já dispara o próprio gatilho no ataque em que entra.",
+    "I": "Um marcador por ganho de vida em cada criatura sua; cresce devagar e precisa ficar.",
+    "T": "Cinco manas por um 3/4 voador com vínculo.",
+    "Q": "Paridade, na frente e atrás, pelo vínculo.",
+    "R": "As cargas passam da cota; a lista ganha vida poucas vezes fora do vínculo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Balor": {
    "notas": {
@@ -842,7 +1241,7 @@
    },
    "tier": "C",
    "rel": "BAX",
-   "faz": "Demônio 6/6 de 5 com voar. Ao atacar ou morrer, modos punitivos contra oponentes.",
+   "faz": "Demônio 5/5 de 5 com voar. Ao atacar ou morrer, modos punitivos contra oponentes.",
    "porque": "Pela Kaalia, só o gatilho de morte vale: entra como corpo voador, e a parte de ataque se perde.",
    "marcas": {
     "ataque": 1
@@ -850,7 +1249,30 @@
    "prioridade": 8,
    "pacote": "carga",
    "papel": "recompensa",
-   "papel_por_que": "Ao atacar ou morrer, pune os oponentes; posto pela Kaalia, o gatilho de ataque não dispara."
+   "papel_por_que": "Ao atacar ou morrer, pune os oponentes; posto pela Kaalia, o gatilho de ataque não dispara.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Pela Kaalia o gatilho de ataque não dispara: sobra o corpo e o gatilho de morte.",
+    "I": "5/5 voador; os modos só vêm se ele sobreviver para atacar, ou quando morrer.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Rune-Scarred Demon, do radar, busca qualquer carta para a mão ao entrar."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Rune-Scarred Demon",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Baneslayer Angel": {
    "notas": {
@@ -868,7 +1290,26 @@
    "faz": "Anjo 5/5 de 5 com voar, iniciativa, vínculo e proteção contra Demônios e Dragões.",
    "porque": "Corpo bom, mas pela Kaalia é só o corpo: tem só palavras-chave e nenhum efeito ao entrar.",
    "papel": "habilita",
-   "papel_por_que": "Carga só de palavras-chave: corpo 5/5 voador com vínculo posto atacando."
+   "papel_por_que": "Carga só de palavras-chave: corpo 5/5 voador com vínculo posto atacando.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Posto pela Kaalia é só o corpo: tem só palavras-chave.",
+    "I": "Um corpo: 5/5 voador com iniciativa e vínculo.",
+    "T": "Cinco manas, abaixo do padrão para o corpo.",
+    "Q": "Paridade, na frente e atrás, pelo vínculo.",
+    "R": "As cargas passam da cota, e ela não tem efeito ao entrar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Decadent Dragon": {
    "notas": {
@@ -892,7 +1333,26 @@
    },
    "pacote": "carga",
    "papel": "habilita",
-   "papel_por_que": "Carga de 4, fácil de conjurar cedo; o Tesouro só sai quando ela mesma é declarada atacante."
+   "papel_por_que": "Carga de 4, fácil de conjurar cedo; o Tesouro só sai quando ela mesma é declarada atacante.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O Treasure vem do gatilho de ataque, que não dispara pela Kaalia.",
+    "I": "4/4 voador com atropelar; o Treasure só vem se sobreviver para atacar.",
+    "T": "Quatro manas, ou três pela aventura.",
+    "Q": "Início, paridade e na frente.",
+    "R": "As cargas passam da cota; o radar põe a Lyra, Archangel of Dawn na vaga."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Indulgent Tormentor": {
    "notas": {
@@ -913,7 +1373,26 @@
    "pacote": "carga",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Carga que, a cada manutenção, compra ou faz um oponente sacrificar criatura ou pagar 3."
+   "papel_por_que": "Carga que, a cada manutenção, compra ou faz um oponente sacrificar criatura ou pagar 3.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O gatilho de manutenção não pede ataque e funciona posto pela Kaalia.",
+    "I": "Só rende na manutenção seguinte, e o oponente escolhe pagar 3 de vida.",
+    "T": "Cinco manas por um 5/3 voador.",
+    "Q": "Paridade e na frente.",
+    "R": "O Rakdos, Patron of Chaos rende no mesmo turno e compra duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Resolute Archangel": {
    "notas": {
@@ -925,7 +1404,7 @@
    "sin_por_que": {
     "sin1": "Anjo cujo efeito ao entrar funciona posto pela Kaalia; o efeito é só dele."
    },
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Anjo 4/4 de 7 com voar. Ao entrar, sua vida volta à inicial se estiver abaixo.",
    "porque": "Efeito de pânico: só devolve a vida, sem impacto na mesa num deck que quer atacar.",
@@ -936,7 +1415,30 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "O efeito ao entrar funciona pela Kaalia, mas não avança o ataque.",
+    "I": "Devolve a sua vida à inicial; na mesa, é um 4/4 voador.",
+    "T": "Sete manas por um 4/4, mesmo quando entra de graça.",
+    "Q": "Atrás, e na paridade só como corpo.",
+    "R": "A Neriv, Heart of the Storm, do radar, dobra o dano de quem entrou no turno."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Neriv, Heart of the Storm",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Sower of Discord": {
    "notas": {
@@ -960,7 +1462,30 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "A escolha ao entrar já vale no ataque em que a Kaalia o põe.",
+    "I": "O dano num escolhido vira perda de vida igual no outro; 6/6 voador.",
+    "T": "De graça pela Kaalia; fora dela, seis manas.",
+    "Q": "Paridade e na frente.",
+    "R": "A Aurelia, the Warleader, do radar, dá outro combate e outro gatilho da Kaalia."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Aurelia, the Warleader",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Varragoth, Bloodsky Sire": {
    "notas": {
@@ -981,7 +1506,30 @@
    },
    "prioridade": 6,
    "papel": "habilita",
-   "papel_por_que": "Demônio barato; o gabar-se pede ataque declarado, então posto pela Kaalia é só o corpo (papel fraco)."
+   "papel_por_que": "Demônio barato; o gabar-se pede ataque declarado, então posto pela Kaalia é só o corpo (papel fraco).",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "O gabar-se pede ter atacado, e a carga da Kaalia não foi declarada atacante.",
+    "I": "2/3 com toque mortífero; busca para o topo só se atacar e sobreviver.",
+    "T": "Três manas, mais {1}{B} por busca.",
+    "Q": "Início e paridade.",
+    "R": "O Master of Cruelties, do radar, deixa a vida do jogador em 1 sem bloqueio."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Master of Cruelties",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Velomachus Lorehold": {
    "notas": {
@@ -1007,7 +1555,30 @@
    "pacote": "carga",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Ao atacar, conjura de graça uma mágica das sete do topo; posto pela Kaalia, o gatilho não dispara."
+   "papel_por_que": "Ao atacar, conjura de graça uma mágica das sete do topo; posto pela Kaalia, o gatilho não dispara.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "O efeito é gatilho de ataque, que não dispara posto pela Kaalia.",
+    "I": "5/5 voador; a mágica de graça só vem se sobreviver para atacar.",
+    "T": "De graça pela Kaalia; para render na hora, sete manas com ímpeto.",
+    "Q": "Paridade e na frente.",
+    "R": "O Terror of Mount Velus, do radar, dá golpe duplo ao time ao entrar."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Terror of Mount Velus",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Piru, the Volatile": {
    "notas": {
@@ -1023,7 +1594,7 @@
    },
    "tier": "D",
    "rel": "BAX",
-   "faz": "Dragão lendário 6/6 de 8 com voar e vínculo. Pague {R}{W}{B} na manutenção ou sacrifique; ao morrer, 7 de dano em cada criatura não lendária.",
+   "faz": "Dragão lendário 7/7 de 8 com voar e vínculo. Pague {R}{W}{B} na manutenção ou sacrifique; ao morrer, 7 de dano em cada criatura não lendária.",
    "porque": "Cobra a mesma mana da Kaalia toda manutenção e, ao morrer, mata o seu lado inteiro, menos a Kaalia: trabalha contra o plano.",
    "prioridade": 1,
    "caro_por_desenho": true,
@@ -1033,7 +1604,31 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pela Kaalia, sem conjurar"
-   }
+   },
+   "tier_anterior": "D",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Entra pela Kaalia como corpo; a manutenção cobra {R}{W}{B}, a mana da Kaalia.",
+    "I": "7/7 voador com vínculo; ao morrer, mata 14 das outras 28 cargas.",
+    "T": "Oito manas em seis símbolos de cor, e {R}{W}{B} toda manutenção.",
+    "Q": "Atrás, pela limpeza ao morrer, e paridade como corpo.",
+    "R": "O Isshin, Two Heavens as One, do radar, dobra o gatilho da Kaalia por três manas."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Isshin, Two Heavens as One",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Boros Charm": {
    "notas": {
@@ -1053,7 +1648,26 @@
    "porque": "A proteção mais barata da lista: por 2, deixa a Kaalia indestrutível no turno ou dá golpe duplo a uma carga.",
    "marcas": {
     "blinda": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Deixa a Kaalia indestrutível no turno em que ela ataca.",
+    "I": "Salva a mesa de uma limpeza, ou dá golpe duplo à carga, ou 4 de dano.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Flawless Maneuver, do radar, sai de graça; a proteção está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Demonic Counsel": {
    "notas": {
@@ -1065,12 +1679,31 @@
    "sin_por_que": {
     "sin1": "Não é carga, mas existe por causa delas: busca um Demônio para a mão, de onde a Kaalia o põe."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 2: busca um Demônio; com delírio, qualquer carta.",
    "porque": "Tutor de 2 que põe um Demônio na mão, de onde a Kaalia o põe atacando; com delírio, busca qualquer carta.",
    "papel": "habilita",
-   "papel_por_que": "Busca um Demônio para a mão: a próxima carga da Kaalia."
+   "papel_por_que": "Busca um Demônio para a mão: a próxima carga da Kaalia.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Põe um Demônio na mão, de onde a Kaalia o tira.",
+    "I": "Uma carta por uma, e só Demônio; o delírio é raro nesta lista.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Demonic Tutor busca qualquer carta pelas mesmas duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Path to Exile": {
    "notas": {
@@ -1078,10 +1711,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Instantânea de 1: exila uma criatura; o dono busca um básico.",
-   "porque": "Remoção de uma mana, instantânea e por exílio: tira o bloqueador ou a ameaça sem atrasar a Kaalia."
+   "porque": "Remoção de uma mana, instantânea e por exílio: tira o bloqueador ou a ameaça sem atrasar a Kaalia.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "É a única remoção de uma mana que exila."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Ruinous Ultimatum": {
    "notas": {
@@ -1090,11 +1742,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 7 ({R}{R}{W}{W}{W}{B}{B}): destrói todas as permanentes não-terreno dos oponentes.",
    "porque": "Limpeza de um lado só: das três limpezas, a única que não mata a Kaalia. Custa 7 e pede as três cores.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica das três cores.",
+    "I": "Vira o jogo: destrói todas as permanentes não-terreno dos oponentes.",
+    "T": "Sete manas em sete símbolos de cor, mas só do lado deles.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É a única limpeza de um lado só; as outras duas levam a Kaalia."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Terminate": {
    "notas": {
@@ -1102,10 +1773,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 2: destrói uma criatura, sem regenerar.",
-   "porque": "Remoção limpa e instantânea de 2 manas, sem regenerar: tira o bloqueador ou a ameaça na hora certa."
+   "porque": "Remoção limpa e instantânea de 2 manas, sem regenerar: tira o bloqueador ou a ameaça na hora certa.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "A lista tem outras remoções de duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Vindicate": {
    "notas": {
@@ -1113,10 +1803,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 3: destrói uma permanente.",
-   "porque": "Responde a qualquer permanente por 3, terreno e encantamento inclusive."
+   "porque": "Responde a qualquer permanente por 3, terreno e encantamento inclusive.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, em qualquer permanente.",
+    "T": "Três manas, de feitiço.",
+    "Q": "Viva sempre.",
+    "R": "Só ela e a Abstruse Appropriation pegam encantamento e artefato."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Abstruse Appropriation": {
    "notas": {
@@ -1128,7 +1837,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 4, incolor: exila uma permanente não-terreno; você pode conjurá-la.",
-   "porque": "Remoção que vira carta e se paga com incolor. Custa 4, acima das remoções de 1 a 3 da lista."
+   "porque": "Remoção que vira carta e se paga com incolor. Custa 4, acima das remoções de 1 a 3 da lista.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Exila uma permanente e deixa você conjurá-la.",
+    "T": "Quatro manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "É a única instantânea da lista que exila qualquer permanente não-terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Damn": {
    "notas": {
@@ -1143,7 +1871,26 @@
    "marcas": {
     "mata": 1
    },
-   "pontual": true
+   "pontual": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Mata uma criatura por duas manas ou todas por quatro, a Kaalia junto.",
+    "T": "Duas manas de feitiço, ou quatro como limpeza.",
+    "Q": "Viva sempre.",
+    "R": "É pontual e limpeza na mesma carta; as limpezas estão no piso da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Power Word Kill": {
    "notas": {
@@ -1154,7 +1901,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 2: destrói uma criatura que não seja Angel, Demon, Devil nem Dragon.",
-   "porque": "Remoção instantânea de 2, mas não mata Anjo, Demônio nem Dragão, os gordos do espelho."
+   "porque": "Remoção instantânea de 2, mas não mata Anjo, Demônio nem Dragão, os gordos do espelho.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma; não pega Anjo, Demônio nem Dragão.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "O Terminate mata qualquer criatura pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Raise the Draugr": {
    "notas": {
@@ -1171,7 +1937,26 @@
    "faz": "Instantânea de 2: uma criatura do cemitério para a mão, ou duas do mesmo tipo.",
    "porque": "Recarrega a mão com dois Anjos ou dois Dragões para a Kaalia pôr. Depende de as cargas já terem morrido.",
    "papel": "habilita",
-   "papel_por_que": "Devolve à mão uma ou duas cargas mortas, para a Kaalia pôr de novo."
+   "papel_por_que": "Devolve à mão uma ou duas cargas mortas, para a Kaalia pôr de novo.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Devolve cargas mortas à mão, de onde a Kaalia as põe de novo.",
+    "I": "Duas criaturas do mesmo tipo por uma carta.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade e atrás, com cargas no cemitério.",
+    "R": "O radar avalia a Stray from History para o mesmo trabalho."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Read the Bones": {
    "notas": {
@@ -1179,10 +1964,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 3: vidência 2, compre 2, perca 2.",
-   "porque": "Combustível honesto: duas cartas e vidência, sem ligação direta com as cargas."
+   "porque": "Combustível honesto: duas cartas e vidência, sem ligação direta com as cargas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Vidência 2 e duas cartas por uma.",
+    "T": "Três manas, de feitiço.",
+    "Q": "Viva sempre.",
+    "R": "Sign in Blood compra as mesmas duas por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Sign in Blood": {
    "notas": {
@@ -1193,7 +1997,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 2: compre 2, perca 2.",
-   "porque": "Combustível honesto e barato: duas cartas por 2, sem ligação direta com as cargas."
+   "porque": "Combustível honesto e barato: duas cartas por 2, sem ligação direta com as cargas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Duas cartas por uma.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Read the Bones faz o mesmo por três."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Your Temple Is Under Attack": {
    "notas": {
@@ -1212,7 +2035,27 @@
    "porque": "Uma das duas peças de blindagem barata, com Boros Charm. Custa 3 e protege só de destruição.",
    "marcas": {
     "blinda": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Deixa a Kaalia indestrutível no turno em que ela ataca.",
+    "I": "Salva as criaturas de uma limpeza, ou compra duas para você e um oponente.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Flawless Maneuver, do radar, faz o mesmo de graça; a proteção está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Flawless Maneuver",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Entreat the Dead": {
    "notas": {
@@ -1230,7 +2073,26 @@
    "faz": "Feitiço de X X+3: X criaturas do seu cemitério para o campo; milagre {X}{B}{B}.",
    "porque": "Cara, e o deck não enche o cemitério: as criaturas vão direto ao campo, sem passar pela Kaalia.",
    "papel": "habilita",
-   "papel_por_que": "Plano B: devolve as cargas mortas do cemitério direto ao campo, sem passar pela Kaalia."
+   "papel_por_que": "Plano B: devolve as cargas mortas do cemitério direto ao campo, sem passar pela Kaalia.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Traz as cargas do cemitério direto ao campo, sem a Kaalia.",
+    "I": "Duas ou mais criaturas de volta de uma vez, se o cemitério tiver.",
+    "T": "Sete manas para duas criaturas; o milagre depende da compra do turno.",
+    "Q": "Paridade e atrás, depois de uma limpeza.",
+    "R": "A Reya Dawnbringer reanima todo turno, e de graça pela Kaalia."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Fatal Push": {
    "notas": {
@@ -1241,7 +2103,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 1: destrói criatura de valor até 2, ou até 4 com revolta.",
-   "porque": "Teto baixo no Commander: mata só criatura de valor até 2, ou até 4 com revolta."
+   "porque": "Teto baixo no Commander: mata só criatura de valor até 2, ou até 4 com revolta.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, só em criatura de valor até 2, ou até 4 com revolta.",
+    "T": "Uma mana, mas com condição de valor.",
+    "Q": "Início, paridade e atrás contra criatura barata.",
+    "R": "Path to Exile custa o mesmo e não olha o valor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Path of Peril": {
    "notas": {
@@ -1257,7 +2138,30 @@
     "mata": 1
    },
    "massa": true,
-   "prioridade": 14
+   "prioridade": 14,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica.",
+    "I": "Por três, mata as criaturas de valor até 2 e poupa a Kaalia; por seis, mata todas.",
+    "T": "Três manas para o modo pequeno; seis para a limpeza inteira.",
+    "Q": "Atrás e paridade.",
+    "R": "O Archfiend of Depravity, do radar, é carga e deixa só duas criaturas a cada oponente."
+   },
+   "antissinergia": "leve",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Archfiend of Depravity",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Thrilling Encore": {
    "notas": {
@@ -1276,7 +2180,26 @@
    "porque": "Depende de limpeza na mesma volta, e as criaturas vão direto ao campo, sem passar pela mão da Kaalia.",
    "prioridade": 15,
    "papel": "habilita",
-   "papel_por_que": "Plano B depois de uma limpeza: põe sob seu controle as criaturas que morreram no turno."
+   "papel_por_que": "Plano B depois de uma limpeza: põe sob seu controle as criaturas que morreram no turno.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Devolve ao campo as criaturas mortas no turno, sem a Kaalia.",
+    "I": "Depois de uma limpeza, a mesa volta sob o seu controle, a deles junto.",
+    "T": "Cinco manas guardadas à espera da limpeza.",
+    "Q": "Atrás e paridade.",
+    "R": "O radar avalia o Ajani Unrelenting na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Sol Ring": {
    "notas": {
@@ -1287,7 +2210,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Artefato de 1: {C}{C}.",
-   "porque": "Põe a Kaalia na mesa no turno 3: o acelerador mais forte para o comandante atacar cedo."
+   "porque": "Põe a Kaalia na mesa no turno 3: o acelerador mais forte para o comandante atacar cedo.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: qualquer deck usaria.",
+    "I": "Duas manas a mais desde o turno 1: a Kaalia desce no turno 3.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma pedra rende igual, e o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Arcane Signet": {
    "notas": {
@@ -1295,10 +2237,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Artefato de 2: mana da identidade.",
-   "porque": "Conserta as três cores num deck em que a cor falta antes da mana: entre os terrenos, só o Savai Triome dá as três."
+   "porque": "Conserta as três cores num deck em que a cor falta antes da mana: entre os terrenos, só o Savai Triome dá as três.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais, em qualquer das três cores.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "É a única pedra de duas que dá as três cores; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Boros Signet": {
    "notas": {
@@ -1309,7 +2270,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2. {1}, vira: {R}{W}.",
-   "porque": "Filtra para o vermelho, que falta: pedra de cor que cumpre, mas dá duas das três cores."
+   "porque": "Filtra para o vermelho, que falta: pedra de cor que cumpre, mas dá duas das três cores.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais, em vermelho e branco.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Há três Signets na lista e falta o preto; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Orzhov Signet": {
    "notas": {
@@ -1320,7 +2300,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2. {1}, vira: {W}{B}.",
-   "porque": "Pedra de cor que cumpre, mas sem vermelho, a cor mais escassa do deck."
+   "porque": "Pedra de cor que cumpre, mas sem vermelho, a cor mais escassa do deck.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais, em branco e preto.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Há três Signets na lista e falta o vermelho; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Rakdos Signet": {
    "notas": {
@@ -1331,7 +2330,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2. {1}, vira: {B}{R}.",
-   "porque": "Pedra de cor com vermelho, a cor mais escassa, mas sem o branco: cumpre sem passar disso."
+   "porque": "Pedra de cor com vermelho, a cor mais escassa, mas sem o branco: cumpre sem passar disso.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais, em preto e vermelho.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Há três Signets na lista e falta o branco; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Embercleave": {
    "notas": {
@@ -1350,7 +2368,26 @@
    "custo_usual": {
     "cmc": 4,
     "como": "com a Kaalia e a carga atacando"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Com lampejo no ataque, dá golpe duplo e atropelar à carga que entrou.",
+    "I": "Dobra o dano de uma carga no mesmo combate.",
+    "T": "Quatro manas com a Kaalia e a carga atacando.",
+    "Q": "Paridade e na frente.",
+    "R": "Boros Charm dá golpe duplo por um turno; o radar avalia a World at War na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Mind Stone": {
    "notas": {
@@ -1359,10 +2396,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: {C}; {1}, vira, sacrifique: compre.",
-   "porque": "Incolor não paga a Kaalia nem as cores que faltam: acelera, mas na mana errada."
+   "porque": "Incolor não paga a Kaalia nem as cores que faltam: acelera, mas na mana errada.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana incolor a mais; não paga as cores da Kaalia.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre: tarde, vira uma carta.",
+    "R": "O Talisman of Conviction, do radar, dá cor pelo mesmo custo; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Talisman of Conviction",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Savai Crystal": {
    "notas": {
@@ -1374,7 +2431,27 @@
    "rel": "BAX",
    "faz": "Artefato de 3: {R}, {W} ou {B}; reciclar {2}.",
    "porque": "Pedra de três chega tarde para a Kaalia, mesmo dando as três cores.",
-   "prioridade": 12
+   "prioridade": 12,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais, em qualquer das três cores.",
+    "T": "Três manas: chega depois da Kaalia.",
+    "Q": "Viva sempre: tarde, recicla.",
+    "R": "O Talisman of Indulgence, do radar, custa duas; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Talisman of Indulgence",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Strixhaven Stadium": {
    "notas": {
@@ -1386,10 +2463,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 3: {C} e um marcador; dez marcadores de dano de combate derrotam o jogador.",
-   "porque": "Fechamento lento que zera quando você toma dano, e a mana incolor não ajuda nas três cores.",
+   "porque": "Fechamento lento: cada criatura que causa dano de combate a você tira um marcador, e a mana incolor não ajuda nas três cores.",
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Cada dano de combate a um oponente põe marcador; com dez, ele perde o jogo."
+   "papel_por_que": "Cada dano de combate a um oponente põe marcador; com dez, ele perde o jogo.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra incolor; o marcador conta as criaturas que conectam.",
+    "I": "Uma mana incolor a mais; dez marcadores demoram muitos combates.",
+    "T": "Três manas.",
+    "Q": "Viva sempre, como pedra.",
+    "R": "O Talisman of Hierarchy, do radar, dá cor por duas; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Talisman of Hierarchy",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Wedding Ring": {
    "notas": {
@@ -1401,7 +2498,26 @@
    "rel": "BAX",
    "faz": "Artefato de 4. Ao entrar, um oponente ganha uma cópia; você compra quando ele compra.",
    "porque": "Simétrico: dá uma cópia e cartas a um oponente, num deck que tem combustível mais barato em Sign in Blood e Read the Bones.",
-   "prioridade": 13
+   "prioridade": 13,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Um oponente ganha a cópia: cada um compra quando o outro compra.",
+    "T": "Quatro manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Sign in Blood e Read the Bones compram por menos, sem dar cartas a ninguém."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Ghirapur Orrery": {
    "notas": {
@@ -1414,7 +2530,30 @@
    "rel": "BAX",
    "faz": "Artefato de 4: um terreno a mais por turno para todos; mão vazia compra três.",
    "porque": "Acelera a mesa inteira, e a compra de mão vazia ajuda mais os oponentes que um deck que guarda cargas na mão.",
-   "prioridade": 5
+   "prioridade": 5,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Acelera a mesa inteira, e a compra pede mão vazia num deck que guarda cargas.",
+    "I": "Um terreno a mais por turno para cada jogador.",
+    "T": "Quatro manas.",
+    "Q": "Início e paridade.",
+    "R": "O Grand Abolisher, do radar, cala os oponentes no turno do seu ataque."
+   },
+   "antissinergia": "leve",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Grand Abolisher",
+   "confianca": "alta",
+   "indice": 0.55
   },
   "Infiltration Lens": {
    "notas": {
@@ -1426,7 +2565,30 @@
    "rel": "BAX",
    "faz": "Equipamento de 1: a equipada bloqueada compra duas.",
    "porque": "A Kaalia voa e quase nunca é bloqueada, e as cargas também voam: a compra quase não dispara.",
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 0,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Só compra se a equipada for bloqueada, e a Kaalia e as cargas voam.",
+    "I": "Quase nada: o bloqueio que dispara a compra costuma matar a Kaalia.",
+    "T": "Uma mana e equipar por uma.",
+    "Q": "Início e paridade.",
+    "R": "A Lightning Greaves, do radar, dá ímpeto e manto à Kaalia."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Lightning Greaves",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Two-Handed Axe": {
    "notas": {
@@ -1439,7 +2601,30 @@
    "rel": "BAX",
    "faz": "Equipamento de 3: dobra o poder ao atacar; aventura dá golpe duplo.",
    "porque": "Lento e pequeno: dobra o poder de uma criatura só, e a Kaalia é uma 2/2.",
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "D",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Dobra o poder só de quem foi declarado atacante: na Kaalia, 2 vira 4.",
+    "I": "Quatro de dano a mais num ataque, ou golpe duplo por um turno na aventura.",
+    "T": "Três manas e equipar por duas.",
+    "Q": "Paridade e na frente.",
+    "R": "A Swiftfoot Boots, do radar, dá ímpeto e resistência a magia à Kaalia."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Swiftfoot Boots",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Smothering Tithe": {
    "notas": {
@@ -1447,10 +2632,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 4. Oponente compra: Treasure, a menos que pague {2}.",
-   "porque": "Mana para conjurar os gordos da mão se a Kaalia cair, e cresce sozinho com as compras dos oponentes."
+   "porque": "Mana para conjurar os gordos da mão se a Kaalia cair, e cresce sozinho com as compras dos oponentes.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Motor de mana genérico.",
+    "I": "Um Treasure por compra de oponente que não pagar {2}; precisa ficar.",
+    "T": "Quatro manas, mas rende mais que uma pedra.",
+    "Q": "Paridade, na frente e atrás: paga as cargas quando a Kaalia cai.",
+    "R": "A lista não tem outro motor de mana, e o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Call of the Ring": {
    "notas": {
@@ -1465,7 +2669,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 2. O Anel tenta você a cada manutenção; 2 de vida para comprar.",
-   "porque": "Compra por turno pagando vida, e a Kaalia portadora fica difícil de bloquear. Não a protege de remoção."
+   "porque": "Compra por turno pagando vida, e a Kaalia portadora fica difícil de bloquear. Não a protege de remoção.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica; o Anel na Kaalia dificulta o bloqueio de passagem.",
+    "I": "Uma carta por manutenção por 2 de vida; precisa de criatura em campo.",
+    "T": "Duas manas, com a condição de ter criatura.",
+    "Q": "Início, paridade e na frente.",
+    "R": "É a compra por turno mais barata da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Sorin Markov": {
    "notas": {
@@ -1474,10 +2697,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Planeswalker de 6. +2: 2 de dano; −3: a vida de um oponente vira 10.",
-   "porque": "Encurta o jogo de um oponente pondo a vida em 10, mas não é carga e custa 6 sem passar pela Kaalia."
+   "porque": "Encurta o jogo de um oponente pondo a vida em 10, mas não é carga e custa 6 sem passar pela Kaalia.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Não é carga; encurta um oponente para o ataque fechar.",
+    "I": "A vida de um oponente vira 10 no turno em que entra.",
+    "T": "Seis manas com {B}{B}{B}, sem passar pela Kaalia.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta da lista corta a vida de um jogador de uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Unholy Annex // Ritual Chamber": {
    "notas": {
@@ -1490,13 +2732,32 @@
    "sin_por_que": {
     "sin1": "Não é carga, mas rende por controlar um Demônio (drena 2 de cada oponente por turno), e a outra porta cria um Demônio 6/6."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "faz": "Sala de 3 // 5. Compre no fim do turno; com Demônio, cada oponente perde 2, sem Demônio você perde 2. A outra porta cria um Demônio 6/6.",
    "porque": "Combustível com dreno: compra todo turno e, com Demônio em campo, cada oponente perde 2. A outra porta cria um Demônio 6/6.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Compra no fim do turno e, com Demônio em campo, drena 2; a outra porta cria um Demônio 6/6."
+   "papel_por_que": "Compra no fim do turno e, com Demônio em campo, drena 2; a outra porta cria um Demônio 6/6.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Rende por controlar Demônio, e a lista tem oito; a outra porta cria um.",
+    "I": "Uma carta todo fim de turno, já no primeiro; com Demônio, tira 2 de cada oponente.",
+    "T": "Três manas, sem condição para comprar.",
+    "Q": "Início, paridade e na frente; sem Demônio, cobra 2 de vida por turno.",
+    "R": "Nenhuma outra compra por turno da lista drena a mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Darksteel Mutation": {
    "notas": {
@@ -1507,7 +2768,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Aura de 2: a criatura vira um inseto 0/1 indestrutível sem habilidades.",
-   "porque": "Aura frágil: neutraliza a criatura, mas cai com qualquer remoção de encantamento."
+   "porque": "Aura frágil: neutraliza a criatura, mas cai com qualquer remoção de encantamento.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma: a criatura vira um 0/1 sem habilidades.",
+    "T": "Duas manas, na velocidade de feitiço.",
+    "Q": "Viva sempre.",
+    "R": "A lista tem remoções de duas manas que tiram a criatura da mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Ghostly Prison": {
    "notas": {
@@ -1518,7 +2798,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Encantamento de 3: atacar você custa {2} por criatura.",
-   "porque": "Protege a sua vida, não a Kaalia, que é quem precisa de blindagem."
+   "porque": "Protege a sua vida, não a Kaalia, que é quem precisa de blindagem.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Protege a sua vida, não a Kaalia.",
+    "I": "Cobra {2} por criatura que atacar você; precisa ficar.",
+    "T": "Três manas.",
+    "Q": "Início, paridade e atrás.",
+    "R": "O radar põe a Mother of Runes na vaga, protegendo a Kaalia todo turno."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Mother of Runes",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Command Tower": {
    "notas": {},
@@ -1527,7 +2827,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Mana da identidade.",
-   "porque": "O melhor terreno do deck: dá qualquer das três cores, num deck em que a cor falta antes da mana."
+   "porque": "O melhor terreno do deck: dá qualquer das três cores, num deck em que a cor falta antes da mana.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno melhor para três cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Exotic Orchard": {
    "notas": {},
@@ -1536,7 +2855,27 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Uma cor que os terrenos dos oponentes gerem.",
-   "porque": "Conserta cor quando a mesa ajuda, num deck com pouca dual. Depende dos terrenos dos oponentes."
+   "porque": "Conserta cor quando a mesa ajuda, num deck com pouca dual. Depende dos terrenos dos oponentes.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As cores do deck, se a mesa tiver.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "A cor depende dos outros; o radar põe a Plaza of Heroes na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Plaza of Heroes",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Mountain": {
    "notas": {},
@@ -1545,7 +2884,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Só seis fontes básicas de vermelho: cada uma conta para pagar a Kaalia e as cargas vermelhas."
+   "porque": "Só seis fontes básicas de vermelho: cada uma conta para pagar a Kaalia e as cargas vermelhas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; são só seis fontes básicas de vermelho."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Plains": {
    "notas": {},
@@ -1554,7 +2912,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base de mana sem dual: cumpre, mas dá uma cor só num deck de três."
+   "porque": "Base de mana sem dual: cumpre, mas dá uma cor só num deck de três.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; liga o Monumental Henge."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Swamp": {
    "notas": {},
@@ -1563,7 +2940,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base de mana sem dual: dá o preto da Kaalia, mas uma cor só num deck de três."
+   "porque": "Base de mana sem dual: dá o preto da Kaalia, mas uma cor só num deck de três.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Savai Triome": {
    "notas": {
@@ -1575,7 +2971,26 @@
    "rel": "ALT",
    "faz": "Sempre virado: {R}, {W} ou {B}; reciclar {3}.",
    "porque": "O único terreno que dá as três cores, mesmo entrando sempre virado.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "É o único terreno da lista com as três cores e os três tipos; recicla tarde."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Bojuka Bog": {
    "notas": {
@@ -1588,7 +3003,30 @@
    "rel": "MED",
    "faz": "Sempre virado: {B}; ao entrar, exila um cemitério.",
    "porque": "Ódio de cemitério de bolso, mas entra virado e custa tempo num deck que quer a Kaalia cedo.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno; exila um cemitério ao entrar.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "A Godless Shrine, do radar, dá branco e preto e pode entrar desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Godless Shrine",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Monumental Henge": {
    "notas": {
@@ -1599,7 +3037,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{W}; virado sem Plains. {2}{W}{W}, vira: das cinco do topo, uma histórica para a mão.",
-   "porque": "Quase só a mana importa: a ativação custa 4 num deck que gasta a mana conjurando a Kaalia e as cargas."
+   "porque": "Quase só a mana importa: a ativação custa 4 num deck que gasta a mana conjurando a Kaalia e as cargas.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno; a busca de histórica custa quatro manas.",
+    "T": "Desvirado com Plains em campo; são nove na lista.",
+    "Q": "Viva sempre.",
+    "R": "A Sacred Foundry, do radar, dá vermelho e branco."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Sacred Foundry",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Shattered Landscape": {
    "notas": {},
@@ -1608,7 +3069,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{C}; sacrifique: um básico virado; reciclar {R}{W}{B}.",
-   "porque": "Conserta a cor devagar: gera incolor e o básico chega virado."
+   "porque": "Conserta a cor devagar: gera incolor e o básico chega virado.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Busca o básico de qualquer das três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Gera incolor, e o básico buscado entra virado.",
+    "Q": "Viva sempre.",
+    "R": "A Blood Crypt, do radar, dá duas cores na hora."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Blood Crypt",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Temple of Silence": {
    "notas": {
@@ -1620,7 +3104,30 @@
    "rel": "MED",
    "faz": "Sempre virado: {W} ou {B}; vidência 1.",
    "porque": "Dual lenta, que entra virada e não dá vermelho, a cor que mais falta.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Duas cores, sem o vermelho.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado; a vidência não paga o atraso.",
+    "Q": "Viva sempre.",
+    "R": "A Scrubland, do radar, dá as mesmas cores desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Scrubland",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Cathedral of War": {
    "notas": {
@@ -1633,7 +3140,30 @@
    "faz": "Sempre virado: {C}; exaltar.",
    "porque": "Incolor e virado num deck de três cores, e o exaltar pouco soma a uma Kaalia 2/2.",
    "virado": true,
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; o exaltar dá +1/+1 só a quem ataca sozinho.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "A Plateau, do radar, dá vermelho e branco desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Plateau",
+   "confianca": "alta",
+   "indice": 0.85
   },
   "Rogue's Passage": {
    "notas": {
@@ -1645,11 +3175,34 @@
    "sin_por_que": {
     "sin2": "Por {4}, a Kaalia não pode ser bloqueada: evasão para ela, sem proteção contra remoção."
    },
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "{C}; {4}, vira: uma criatura não pode ser bloqueada.",
    "porque": "A Kaalia já voa, e terreno incolor custa cor num deck que já sofre para juntar as três.",
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; deixa a Kaalia imbloqueável, mas ela já voa.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; a habilidade custa quatro manas.",
+    "Q": "Viva sempre.",
+    "R": "A Badlands, do radar, dá preto e vermelho desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Badlands",
+   "confianca": "alta",
+   "indice": 1.3
   }
  },
  "radar": {
@@ -1763,7 +3316,7 @@
    "porque": "Dispara posto pela Kaalia (ruling de 15/04/2013), e a Kaalia voando causa o resto. Fontes B e C; A erra a regra.",
    "sai": "Varragoth, Bloodsky Sire",
    "papel": "recompensa",
-   "papel_por_que": "Atacando sozinho e sem bloqueio, a vida do jogador vira 1; posto pela Kaalia, o gatilho não dispara."
+   "papel_por_que": "Atacando sem bloqueio, a vida do jogador vira 1; o gatilho dispara mesmo posto atacando pela Kaalia (ruling de 15/04/2013)."
   },
   "Terror of Mount Velus": {
    "notas": {
@@ -3186,5 +4739,17 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "02. TRIBAIS",
+  "conta": "A Kaalia desce cedo, fica viva e ataca (atacar); cada ataque põe da mão, de graça, um Anjo, Demônio ou Dragão (invocar); a carga decide o combate ao entrar, dobrando o dano ou limpando a mesa do oponente (incendiar).",
+  "decisoes": [
+   "Por decisão sua, o deck não tem carta de estimação.",
+   "Você pediu cartas fortes, que façam diferença quando entram pela Kaalia.",
+   "Por decisão sua, na Carga o gatilho de ataque vale 0: ele não dispara quando a Kaalia põe a criatura.",
+   "Você não quer muitas mudanças: quer saber onde deixar o deck mais rápido e mais forte."
+  ]
  }
 }
