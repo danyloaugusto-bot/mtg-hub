@@ -87,6 +87,9 @@ for k in ("placar", "conta", "agrupamentos", "tiers", "relevancia", "fatos", "cu
             R.nota("%-22s %-48s %s%s" % (k if i == 0 else "", str(x)[:48], str(y)[:60] if x != y else "igual", "" if x == y else "   <- difere"))
     else:
         R.nota("%-22s %-48s %s" % (k, ov, "igual" if ov == nv else nv))
+    if k == "tiers" and N.get("tier_lista"):
+        R.nota("tiers: o deck passou pela tier list do método novo (motor/tier.py), que refaz as letras; não se compara com o de origem")
+        continue
     if k in ("placar", "conta") and N["meta"].get("v3"):
         R.nota("%s: o deck está na pontuação v3, que muda o placar por desenho; não se compara com o de origem" % k)
         continue
@@ -135,7 +138,7 @@ for chave in ("cards", "cands"):
                 continue
             dif.append("%s: %s só no motor" % (chave, c["n"])); continue
         for k in sorted((set(x) | set(c)) - IGNORA):
-            if k == "tier" and c["id"] in REGRA_S:
+            if k == "tier" and (c["id"] in REGRA_S or c.get("tl")):   # tl: letra refeita pela tier list do método novo
                 continue
             if k in ("sai", "verdict") and c["n"] in STAPLE_FORA:
                 continue
