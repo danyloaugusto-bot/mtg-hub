@@ -353,7 +353,7 @@
     "sin1": "Torna Assassino todas as suas outras criaturas, na mão e no grimório inclusive: todas ganham o freerunning {B}{B}.",
     "sin2": "Ameaça só para as criaturas viradas para baixo, que são poucas: evasão de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Humano Assassino lendário de 4. Suas outras criaturas são Assassinos, em campo, na mão e no grimório; as viradas para baixo têm ameaça; desvirar uma para cima compra e perde 1.",
    "porque": "Toda criatura do deck passa a ter freerunning {B}{B}, inclusive as oito que não são Assassinos. Com o Ezio, a tribo vira o deck inteiro.",
@@ -363,7 +363,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning do Ezio, depois de conectar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o correr no deck inteiro: toda criatura, na mão e no grimório, sai por {B}{B} depois da conexão.",
+    "I": "Motor que precisa ficar; aqui, só oito criaturas viram Assassino, e são as mais fracas.",
+    "T": "Quatro manas, ou {B}{B} depois de conectar.",
+    "Q": "Paridade e na frente; atrás, tornar Assassino não segura a mesa.",
+    "R": "Nenhuma outra carta torna Assassino o resto da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Arno Dorian": {
    "notas": {
@@ -393,7 +412,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning do Ezio, depois de conectar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Lord: +2/+0 em cada Assassino que ataca leva a mesa aos 10 mais rápido.",
+    "I": "Precisa ficar em campo; o toque mortífero segura o chão.",
+    "T": "Quatro manas, ou {B}{B} depois de conectar; o disfarce protege com ward {2}.",
+    "Q": "Paridade, na frente e atrás, como bloqueador com toque mortífero.",
+    "R": "É o único lord da lista, e a leitura do deck pede três."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Bayek of Siwa": {
    "notas": {
@@ -419,7 +457,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning do Ezio, depois de conectar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dobra a execução: golpe duplo no Ezio dá dois gatilhos no mesmo combate.",
+    "I": "No seu turno, golpe duplo em quase toda a tribo, que é lendária; precisa ficar em campo.",
+    "T": "Cinco manas, ou {B}{B} depois de conectar.",
+    "Q": "Paridade, na frente e atrás, quando dobra o dano da mesa.",
+    "R": "A Duelist's Heritage, do radar, dá golpe duplo a um atacante por três manas, mas não à tribo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Queen Marchesa": {
    "notas": {
@@ -447,7 +504,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning do Ezio, depois de conectar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cria Assassinos com toque mortífero e ímpeto, que conectam e retomam a coroa.",
+    "I": "Compra já no turno em que entra; perdendo a coroa, um Assassino por manutenção.",
+    "T": "Quatro manas em três cores, ou {B}{B} depois de conectar.",
+    "Q": "Paridade, na frente e atrás, quando as fichas tomam a coroa de volta.",
+    "R": "O Rooftop Bypass, do radar, cria Assassinos, mas não compra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Arbaaz Mir": {
    "notas": {
@@ -463,14 +539,38 @@
     "sin1": "Assassino que ganha o freerunning; o gatilho é das permanentes históricas, não é voltado aos Assassinos.",
     "sin2": "Tira 1 de cada oponente a cada permanente histórica que entra: leva a mesa aos 10 de forma repetível."
    },
-   "tier": "B",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Humano Assassino lendário de 2. Ele ou outra permanente histórica sua (não ficha) entra: 1 de dano em cada oponente e você ganha 1.",
    "porque": "Com 39 cartas históricas, pinga a mesa toda rumo aos 10 da execução, e acelera com a Crystal Skull. Cada gatilho é só 1 de dano, por isso fica em B.",
    "pacote": "fechamento",
    "papel": "habilita",
    "papel_dupla": "Dano (dreno a cada histórico)",
-   "papel_por_que": "Corpo Assassino; cada histórico que entra drena 1, o que leva a mesa aos 10."
+   "papel_por_que": "Corpo Assassino; cada histórico que entra drena 1, o que leva a mesa aos 10.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o executar fora do combate: cada histórica que entra tira 1 de cada oponente, e a lista tem 40.",
+    "I": "Motor que precisa ficar; 2/2 frágil, e cada gatilho ainda dá 1 de vida.",
+    "T": "Duas manas, sem condição.",
+    "Q": "Início (turno 2), paridade e na frente.",
+    "R": "A Massacre Girl, Most Wanted, do radar, tira 1 de um oponente só, e por morte sua."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ele, a mesa só chega aos 10 pelo combate; o Shao Jun e o Mjölnir tiram 1 por vez, com condição.",
+    "A Massacre Girl, Most Wanted, do radar, fere um oponente por criatura sua que morre; nenhuma carta fere todos a cada histórica.",
+    "No início (turno 2), na paridade e na frente: cada artefato, lendária ou Saga que desce tira 1 de cada oponente."
+   ],
+   "indice": 2.45
   },
   "Adéwalé, Breaker of Chains": {
    "notas": {
@@ -490,7 +590,26 @@
    "porque": "Acha o próximo Assassino entre as seis do topo, uma vez só. A volta do cemitério pede um Veículo acertando, e o deck tem só a Adrestia e o Jackdaw.",
    "papel": "habilita",
    "papel_dupla": "Recurso (acha Assassino)",
-   "papel_por_que": "Corpo Assassino que, ao entrar, busca outro Assassino entre as seis do topo."
+   "papel_por_que": "Corpo Assassino que, ao entrar, busca outro Assassino entre as seis do topo.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Acha um Assassino entre as seis do topo: o próximo corpo do correr.",
+    "I": "Um corpo 4/1 e uma carta na entrada.",
+    "T": "Três manas, ou {B}{B} depois de conectar.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhuma outra carta da lista busca Assassino; a volta pede Veículo, e há só dois."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Royal Assassin": {
    "notas": {
@@ -509,7 +628,26 @@
    "porque": "Remoção repetível em corpo de Assassino, que sai por {B}{B}. Só mata criatura virada, por isso fica em B.",
    "papel": "habilita",
    "papel_dupla": "Remoção (repetível)",
-   "papel_por_que": "Corpo Assassino que ganha o freerunning {B}{B} e mata criaturas viradas."
+   "papel_por_que": "Corpo Assassino que ganha o freerunning {B}{B} e mata criaturas viradas.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica em corpo de Assassino.",
+    "I": "Mata uma criatura virada por turno; precisa ficar em campo.",
+    "T": "Três manas, e só pega criatura virada.",
+    "Q": "Paridade, na frente e atrás, contra quem ataca você.",
+    "R": "É a única remoção repetível da lista; com o Mjölnir, a criatura virada morre."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Shao Jun": {
    "notas": {
@@ -533,7 +671,26 @@
    "pacote": "fechamento",
    "papel": "habilita",
    "papel_dupla": "Dano (pinga com artefatos)",
-   "papel_por_que": "Corpo Assassino que voa no seu turno para conectar."
+   "papel_por_que": "Corpo Assassino que voa no seu turno para conectar.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Voa no seu turno para conectar, e pinga cada oponente com dois artefatos virados.",
+    "I": "Conecta e tira 1 da mesa por turno; precisa ficar em campo.",
+    "T": "Três manas, ou {B}{B} depois de conectar.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Arbaaz Mir pinga mais; nenhuma outra carta voa e pinga junto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Layla Hassan": {
    "notas": {
@@ -559,7 +716,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning do Ezio, depois de conectar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Rende a cada conexão dos Assassinos: uma histórica volta do cemitério à mão.",
+    "I": "Uma carta na entrada e outra por conexão; precisa ficar em campo.",
+    "T": "Quatro manas, ou {B}{B} depois de conectar.",
+    "Q": "Paridade, na frente e atrás, quando repõe a mão.",
+    "R": "Nenhuma outra carta recompra por conexão; o Rest in Peace da lista a desliga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Assassin Initiate": {
    "notas": {
@@ -579,7 +755,26 @@
    "faz": "Humano Assassino de 1. {1}: voar, toque mortífero ou vínculo até o fim do turno.",
    "porque": "Conecta no turno 2 e abre o freerunning. Corpo 1/1 que cumpre esse papel cedo e depois faz pouco, por isso fica em B.",
    "papel": "habilita",
-   "papel_por_que": "Corpo Assassino de 1 que ganha voar quando precisa conectar."
+   "papel_por_que": "Corpo Assassino de 1 que ganha voar quando precisa conectar.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conecta cedo: por {1} voa e abre o freerunning do turno.",
+    "I": "Um 1/1.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e na frente; tarde, ainda voa para abrir o freerunning.",
+    "R": "Nenhum outro Assassino de uma mana voa quando precisa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Lydia Frye": {
    "notas": {
@@ -601,7 +796,26 @@
    "porque": "Conecta quase sempre, porque criatura de força 3 ou mais não a bloqueia, e filtra com os Assassinos virados. Útil, sem efeito para o resto da tribo.",
    "papel": "habilita",
    "papel_dupla": "Recurso (vigiar)",
-   "papel_por_que": "Corpo Assassino difícil de bloquear por criaturas grandes; vigia pelos Assassinos virados."
+   "papel_por_que": "Corpo Assassino difícil de bloquear por criaturas grandes; vigia pelos Assassinos virados.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conecta quase sempre: criatura de força 3 ou mais não a bloqueia.",
+    "I": "Um 3/2 e o vigiar dos Assassinos virados.",
+    "T": "Três manas, ou {B}{B} depois de conectar.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Desmond Miles, do radar, conecta por duas, mas entra em outra vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Mary Read and Anne Bonny": {
    "notas": {
@@ -618,13 +832,33 @@
     "sin1": "Assassinas que ganham o freerunning, sem efeito voltado aos outros Assassinos.",
     "sin2": "Ímpeto só nelas mesmas: ajuda de passagem."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Humanas Assassinas Piratas lendárias de 3 com ímpeto. Vira: compre e descarte; descartar Island, Pirata ou Veículo cria um Tesouro virado.",
    "porque": "Filtro em corpo de Assassino, com ímpeto para conectar no turno em que entra. Não rende para a tribo, por isso fica em B.",
    "papel": "habilita",
    "papel_dupla": "Draw (saqueio)",
-   "papel_por_que": "Corpo Assassino com ímpeto, que conecta no turno em que entra."
+   "papel_por_que": "Corpo Assassino com ímpeto, que conecta no turno em que entra.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Saqueio genérico; o ímpeto não basta para conectar sem evasão.",
+    "I": "Troca uma carta por turno enquanto ficar; Tesouro só com Island, Pirata ou Veículo.",
+    "T": "Três manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Evie Frye, do radar, saqueia por duas e deixa uma criatura imbloqueável."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Evie Frye",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Eivor, Wolf-Kissed": {
    "notas": {
@@ -651,7 +885,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning do Ezio, depois de conectar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Sete de dano com atropelar e ímpeto: leva um oponente para perto dos 10.",
+    "I": "Um 7/6 que, ao conectar, põe terreno ou Saga em campo.",
+    "T": "Seis manas, ou {B}{B} depois de conectar.",
+    "Q": "Paridade, na frente e atrás, como bloqueador grande.",
+    "R": "O radar tem cinco cartas na disputa da vaga, como o Niv-Mizzet, Ghost Counsel."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Three Tree Mascot": {
    "notas": {
@@ -675,7 +928,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Metamorfo: conta como Assassino e ganha o freerunning {B}{B}."
+   "papel_por_que": "Metamorfo: conta como Assassino e ganha o freerunning {B}{B}.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Filtro de cor; é Assassino em toda zona.",
+    "I": "Um 2/1 e uma cor consertada por turno.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente, para fechar o {W}{U}{B}{R}{G}.",
+    "R": "As fontes de qualquer cor estão abaixo da cota: cinco para sete."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Shanid, Sleepers' Scourge": {
    "notas": {
@@ -695,7 +967,26 @@
    "porque": "Com 22 lendárias na lista, é motor de compra e dá ameaça às lendárias. Não é Assassino e perde o freerunning sem o Roshan, por isso fica em B.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Dá ameaça às criaturas lendárias, o Ezio e boa parte dos Assassinos."
+   "papel_por_que": "Dá ameaça às criaturas lendárias, o Ezio e boa parte dos Assassinos.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ameaça para o Ezio e as outras lendárias, quase toda a tribo: conectam mais.",
+    "I": "Compra a cada mágica lendária, e a lista tem mais de vinte; precisa ficar em campo.",
+    "T": "Quatro manas em três cores; sem o Roshan, não sai pelo freerunning.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Basim Ibn Ishaq, do radar, compra por histórica, mas só ele fica imbloqueável."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Metallic Mimic": {
    "notas": {
@@ -714,7 +1005,27 @@
    "porque": "Nomeando Assassino, engorda a tribo que entra depois. Não é Assassino na mão e não ajuda as que já estão em campo, por isso é substituível.",
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (vira Assassino)",
-   "papel_por_que": "Cada Assassino que entra ganha um marcador +1/+1."
+   "papel_por_que": "Cada Assassino que entra ganha um marcador +1/+1.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Nomeando Assassino, um marcador em cada Assassino que entra depois; não muda a conta.",
+    "I": "Um 2/1; não toca nos que já estão em campo.",
+    "T": "Duas manas.",
+    "Q": "Início e paridade.",
+    "R": "A Door of Destinies, do radar, cresce a tribo inteira a cada Assassino conjurado."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Door of Destinies",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Ezio, Brash Novice": {
    "notas": {
@@ -735,7 +1046,27 @@
    "faz": "Humano lendário de 2. Ao atacar, um marcador +1/+1; com dois ou mais, golpe primeiro e vira Assassino.",
    "porque": "Não é Assassino na mão, então não sai pelo freerunning, e só vira Assassino depois de dois ataques. Por isso é substituível.",
    "papel": "habilita",
-   "papel_por_que": "Vira Assassino com golpe primeiro depois de dois ataques (papel fraco)."
+   "papel_por_que": "Vira Assassino com golpe primeiro depois de dois ataques (papel fraco).",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Só vira Assassino em campo, depois de dois ataques: na mão, não tem freerunning.",
+    "I": "Um 1/1 que cresce atacando.",
+    "T": "Duas manas.",
+    "Q": "Início e paridade.",
+    "R": "O radar tem duas cartas para a vaga, como o Professional Face-Breaker, que dá Tesouro por conexão."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Professional Face-Breaker",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Alexios, Deimos of Kosmos": {
    "notas": {
@@ -748,10 +1079,29 @@
    "sin_por_que": {
     "sin2": "Atropelar só nele mesmo; o dano que causa aos oponentes é de combate: ajuda de passagem."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Humano Berserker lendário de 4 com atropelar; ataca todo combate, não pode ser sacrificado nem atacar o dono; na manutenção de cada jogador, passa a ele, desvira e cresce.",
-   "porque": "Caos político: bate em todo mundo menos em você e ajuda a levar a mesa aos 10. Mas não é Assassino e passa de mão em mão, por isso é substituível."
+   "porque": "Caos político: bate em todo mundo menos em você e ajuda a levar a mesa aos 10. Mas não é Assassino e passa de mão em mão, por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ataca todo combate quem não é você e cresce a cada manutenção: leva a mesa aos 10.",
+    "I": "Passa de mão em mão e bate em outro jogador toda volta; os oponentes podem bloquear.",
+    "T": "Quatro manas; não é Assassino, então não sai pelo freerunning.",
+    "Q": "Paridade, na frente e atrás: nunca ataca você.",
+    "R": "A Massacre Girl, Most Wanted, do radar, entra na vaga e pinga por morte sua."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Sigurd, Jarl of Ravensthorpe": {
    "notas": {
@@ -767,7 +1117,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Humano Guerreiro lendário de 3 com vigilância, atropelar e vínculo. Gabar {1}: mexe um marcador de saga; cada marcador de saga põe +1/+1 em outra criatura.",
-   "porque": "Quatro Sagas na lista alimentam o gabar, mas não é Assassino e não sai pelo freerunning. Rende pouco no plano, por isso é substituível."
+   "porque": "Quatro Sagas na lista alimentam o gabar, mas não é Assassino e não sai pelo freerunning. Rende pouco no plano, por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Repete capítulos das quatro Sagas; o +1/+1 a cada marcador não avança a conta.",
+    "I": "Atacando, tira um marcador e repete o capítulo: duas fichas do Origin por turno.",
+    "T": "Três manas em três cores, e {1} por gabar.",
+    "Q": "Paridade e na frente, com uma Saga em campo.",
+    "R": "A Vraska, the Cutting Glare, do radar, entra na vaga: Assassina que destrói uma permanente."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Vraska, the Cutting Glare",
+   "confianca": "média",
+   "indice": 1.15
   },
   "Towering Viewpoint": {
    "notas": {
@@ -786,7 +1159,27 @@
    "porque": "Dá voar para conectar, mas cobra {3} por vez. Conexão cara num deck que quer abrir o desconto barato, por isso é substituível.",
    "prioridade": 7,
    "papel": "habilita",
-   "papel_por_que": "Dá voar a uma criatura por {3} (papel fraco, caro)."
+   "papel_por_que": "Dá voar a uma criatura por {3} (papel fraco, caro).",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Voar por {3} a cada uso: conexão cara.",
+    "I": "Uma parede 0/4 com alcance, e voar numa criatura.",
+    "T": "Duas manas, mais três por uso.",
+    "Q": "Paridade, na frente e atrás, como bloqueador.",
+    "R": "O Desmond Miles, do radar, entra na vaga: Assassino de duas manas com ameaça."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Desmond Miles",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Shay Cormac": {
    "notas": {
@@ -799,7 +1192,30 @@
    "rel": "MED",
    "faz": "Humano Cavaleiro Ladino lendário de 2. {1}: permanentes dos oponentes perdem resistência a magia, indestrutível, proteção, manto e ward; criatura alvo de você ganha marcador de recompensa.",
    "porque": "Abre caminho para as remoções contra proteção, mas não é Assassino e o deck já tem remoção de sobra. Por isso é substituível.",
-   "prioridade": 6
+   "prioridade": 6,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Tira resistência, indestrutível e ward dos oponentes: só ajuda a remoção.",
+    "I": "Um 1/1 que cresce quando o alvo marcado morre.",
+    "T": "Duas manas, e {1} por uso.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Achilles Davenport, do radar, entra na vaga: o segundo lord."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Achilles Davenport",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Tax Collector": {
    "notas": {
@@ -816,7 +1232,30 @@
    "rel": "MED",
    "faz": "Humano de 2. Ao entrar: mágicas dos oponentes custam {1} a mais, ou detém uma criatura até o seu turno.",
    "porque": "Efeito de uma rodada só, e não é Assassino. Ajuda uma conexão, sem peso no resto do jogo, por isso é substituível.",
-   "prioridade": 5
+   "prioridade": 5,
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Detém um bloqueador por uma rodada, uma vez.",
+    "I": "Um 2/2 e um efeito de uma rodada.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e atrás, quando o imposto atrasa alguém.",
+    "R": "O Ezio, Blade of Vengeance, do radar, entra na vaga: compra a cada Assassino que conecta."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Ezio, Blade of Vengeance",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Brotherhood Regalia": {
    "notas": {
@@ -833,13 +1272,37 @@
     "sin1": "Não é Assassino, mas torna Assassino a criatura equipada.",
     "sin2": "Ezio imbloqueável por {1}, todo turno: garante a conexão e a execução."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Equipamento de 2; equipar lendária {1}, equipar {3}: ward {2}, vira Assassino e não pode ser bloqueada.",
    "porque": "O Ezio imbloqueável por uma mana: conexão garantida todo turno, e com ela o freerunning e a chance de execução.",
    "papel": "habilita",
    "papel_dupla": "Proteção (ward 2)",
-   "papel_por_que": "Torna a criatura Assassino e imbloqueável; no Ezio, custa {1}."
+   "papel_por_que": "Torna a criatura Assassino e imbloqueável; no Ezio, custa {1}.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o conectar garantido: o Ezio não pode ser bloqueado, todo turno, por {1}.",
+    "I": "Com ward {2} junto, a conexão, o freerunning e a execução ficam certos.",
+    "T": "Duas manas, e equipar lendária por {1}.",
+    "Q": "Viva sempre: desce no turno 3 e garante a execução no fim.",
+    "R": "O Whispersilk Cloak, do radar, custa mais para equipar e dá manto; não há outro imbloqueável."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o Ezio conecta só quando a mesa deixa: um bloqueador com toque mortífero ou dois corpos param a execução.",
+    "O Whispersilk Cloak, do radar, cobra {2} para equipar e dá manto, que impede equipar outras peças no Ezio.",
+    "No início (Ezio no turno 2, Regalia no 3), na paridade, atrás e na frente: toda volta abre o freerunning."
+   ],
+   "indice": 3.0
   },
   "Crystal Skull, Isu Spyglass": {
    "notas": {
@@ -852,7 +1315,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Artefato lendário de 4. Olha o topo quando quiser; joga terrenos históricos e conjura mágicas históricas do topo. Vira: {U}.",
-   "porque": "Uma das duas pedras do deck e motor de cartas: com 39 mágicas históricas, uns quatro topos em dez viram carta a mais. Básico não sai do topo."
+   "porque": "Uma das duas pedras do deck e motor de cartas: com 39 mágicas históricas, uns quatro topos em dez viram carta a mais. Básico não sai do topo.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Com 40 históricas na lista, cerca de quatro topos em dez viram carta a mais.",
+    "I": "Mana azul e cartas a mais enquanto ficar.",
+    "T": "Quatro manas, no padrão da compra recorrente.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É uma das duas pedras, e o ramp está bem abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Haunted Screen": {
    "notas": {
@@ -867,7 +1349,26 @@
    "porque": "Uma das duas pedras, com a Crystal Skull, e a única que dá as cinco cores.",
    "marcas": {
     "cores": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: pedra das cinco cores.",
+    "I": "Uma mana a mais, de qualquer cor.",
+    "T": "Três manas; três das cores custam 1 de vida.",
+    "Q": "Viva sempre; tarde, vira um 7/7.",
+    "R": "É a única pedra das cinco cores, e o ramp está bem abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Assassin Gauntlet": {
    "notas": {
@@ -888,7 +1389,26 @@
    "porque": "Abre o caminho inteiro para um ataque ao virar as criaturas de um oponente. Faz isso só ao entrar, uma vez, por isso fica em B.",
    "papel": "habilita",
    "papel_dupla": "Draw (saqueia ao conectar)",
-   "papel_por_que": "Ao entrar, vira todas as criaturas de um oponente: o caminho fica livre para conectar."
+   "papel_por_que": "Ao entrar, vira todas as criaturas de um oponente: o caminho fica livre para conectar.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vira todas as criaturas de um oponente: a tribo inteira conecta naquele ataque.",
+    "I": "Efeito grande e garantido na entrada, e o saqueio a cada conexão.",
+    "T": "Três manas, e equipar por duas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Cryptic Command, do radar, vira as criaturas de todos, mas pede {1}{U}{U}{U}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Lavaspur Boots": {
    "notas": {
@@ -905,7 +1425,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Equipamento de 1, equipar {1}: +1/+0, ímpeto e ward {1}.",
-   "porque": "O Ezio ataca no turno em que volta, por 1 mana e equipar 1. Útil depois de uma remoção, mas pouco além disso, por isso fica em B."
+   "porque": "O Ezio ataca no turno em que volta, por 1 mana e equipar 1. Útil depois de uma remoção, mas pouco além disso, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ímpeto: o Ezio volta e conecta no mesmo turno.",
+    "I": "Ímpeto, +1/+0 e ward {1}, proteção fraca.",
+    "T": "Uma mana, e equipar por uma.",
+    "Q": "Viva sempre: desce cedo e dá ímpeto na volta do Ezio.",
+    "R": "A Hidden Footblade também dá ímpeto; a Swiftfoot Boots, do radar, protege melhor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Hidden Blade": {
    "notas": {
@@ -922,10 +1461,30 @@
     "sin1": "Toque mortífero só se a criatura for Assassino, por um turno: cita Assassino de passagem.",
     "sin2": "Golpe primeiro e toque mortífero numa criatura: ajuda de passagem."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Equipamento de 2 com lampejo. Ao entrar, equipa; num Assassino, toque mortífero no turno. +1/+0 e golpe primeiro.",
-   "porque": "Truque de combate com lampejo: num Assassino, mata o bloqueador com toque mortífero e golpe primeiro. Efeito de um turno, por isso fica em B."
+   "porque": "Truque de combate com lampejo: num Assassino, mata o bloqueador com toque mortífero e golpe primeiro. Efeito de um turno, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Truque de combate: mata o bloqueador, mas o atacante bloqueado não conecta.",
+    "I": "Golpe primeiro, e toque mortífero num Assassino por um turno.",
+    "T": "Duas manas, com lampejo; equipar por duas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Cover of Darkness, do radar, dá medo a todos os Assassinos por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Cover of Darkness",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Hidden Footblade": {
    "notas": {
@@ -942,7 +1501,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Equipamento {R} com lampejo. Ao entrar, equipa e dá golpe primeiro no turno; +1/+0 e ímpeto.",
-   "porque": "Ímpeto por uma mana, com lampejo para o Assassino recém-chegado atacar. Pouco além disso, por isso fica em B."
+   "porque": "Ímpeto por uma mana, com lampejo para o Assassino recém-chegado atacar. Pouco além disso, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ímpeto com lampejo: o Ezio ou o Assassino novo conecta no turno em que entra.",
+    "I": "Ímpeto e +1/+0 numa criatura.",
+    "T": "Uma mana; equipar por duas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "As Lavaspur Boots fazem o mesmo e ainda dão ward."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Hunter's Bow": {
    "notas": {
@@ -956,7 +1534,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Equipamento de 2. Ao entrar, equipa, e a criatura causa dano igual à força numa criatura de oponente; alcance e ward {2}.",
-   "porque": "Remoção e proteção numa peça: a equipada causa dano numa criatura de oponente e ganha ward {2}. Depende da força da criatura, por isso fica em B."
+   "porque": "Remoção e proteção numa peça: a equipada causa dano numa criatura de oponente e ganha ward {2}. Depende da força da criatura, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção e proteção genéricas: dano pela força e ward {2}.",
+    "I": "Mata uma criatura na entrada e protege a equipada: dois por um.",
+    "T": "Duas manas, e equipar por uma.",
+    "Q": "Paridade, na frente e atrás; depende da força da equipada.",
+    "R": "Nenhuma outra peça da lista remove e protege juntas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Mjölnir, Storm Hammer": {
    "notas": {
@@ -974,11 +1571,30 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Equipamento lendário de 4 que entra numa lendária sua. Ao atacar: vira e atordoa uma criatura do defensor, e causa a cada oponente dano igual às criaturas viradas dele.",
-   "porque": "Abre bloqueio e tira vida de cada oponente a cada ataque, rumo aos 10. Custa 4 e só entra em lendária, por isso fica em B.",
+   "porque": "Abre bloqueio e, a cada ataque, fere cada oponente pelo número de criaturas viradas dele (em geral só o defensor, pela que o próprio Mjölnir virou), rumo aos 10. Custa 4 e só entra em lendária, por isso fica em B.",
    "pacote": "fechamento",
    "papel": "habilita",
    "papel_dupla": "Dano",
-   "papel_por_que": "Ao atacar, vira um bloqueador e drena por criatura virada: abre caminho e leva aos 10."
+   "papel_por_que": "Ao atacar, vira um bloqueador e drena por criatura virada: abre caminho e leva aos 10.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vira um bloqueador a cada ataque do Ezio e fere quem tem criatura virada.",
+    "I": "Entra já equipado numa lendária; com o Royal Assassin, a criatura virada morre.",
+    "T": "Quatro manas, e equipar por quatro.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra peça da lista tira um bloqueador por ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Adrestia": {
    "notas": {
@@ -1001,7 +1617,26 @@
    "porque": "Tripulada por Assassino, compra e vira Assassino ao atacar. Veículo pede tripulação e a passagem por ilha depende da mesa, por isso fica em B.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Compra ao atacar se um Assassino a tripulou, e vira Assassino no ataque."
+   "papel_por_que": "Compra ao atacar se um Assassino a tripulou, e vira Assassino no ataque.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tripulada por Assassino, compra ao atacar e vira Assassino: abre o freerunning se conectar.",
+    "I": "Uma carta por ataque; precisa de tripulação.",
+    "T": "Três manas e tripular 1.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhuma outra carta compra ao atacar; a passagem por ilha depende da mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Smoke Bomb": {
    "notas": {
@@ -1015,14 +1650,33 @@
    "sin_por_que": {
     "sin2": "Deixa uma criatura imbloqueável por um turno, uma vez."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 3 com lampejo: todas as criaturas têm manto; na sua manutenção, é sacrificado, e uma criatura sua não pode ser bloqueada.",
    "porque": "Em resposta à remoção no Ezio, ela falha; depois, ele passa imbloqueável. Funciona uma vez e custa 3, por isso é substituível.",
    "pacote": "protecao",
    "papel": "habilita",
    "papel_dupla": "Proteção",
-   "papel_por_que": "Deixa uma criatura imbloqueável por um turno (papel fraco, de uma vez)."
+   "papel_por_que": "Deixa uma criatura imbloqueável por um turno (papel fraco, de uma vez).",
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Na manutenção seguinte, uma criatura sua passa imbloqueável: uma conexão garantida.",
+    "I": "Com lampejo, a remoção no Ezio perde o alvo, e ainda abre o caminho.",
+    "T": "Três manas, com lampejo.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra proteção da lista também garante a conexão."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Haystack": {
    "notas": {
@@ -1031,10 +1685,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2. {2}, vira: uma criatura sua sai de fase até o seu turno.",
-   "porque": "Proteção repetível, rara na lista, mas cobra {2} e o virar a cada uso. Segura o Ezio sem empurrar o plano, por isso é substituível."
+   "porque": "Proteção repetível, rara na lista, mas cobra {2} e o virar a cada uso. Segura o Ezio sem empurrar o plano, por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica.",
+    "I": "Tira o Ezio de fase em resposta à remoção, todo turno.",
+    "T": "Duas manas, e {2} por uso.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É a única proteção repetível da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Jackdaw": {
    "notas": {
@@ -1054,7 +1727,27 @@
    "porque": "Recarga ao conectar, mas tripular 3 pesa e só rende na conexão dele mesmo. Por isso é substituível.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Ao conectar, troca a mão por uma carta por artefato (papel fraco: só rende na própria conexão)."
+   "papel_por_que": "Ao conectar, troca a mão por uma carta por artefato (papel fraco: só rende na própria conexão).",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Rende só na própria conexão: troca a mão por uma carta por artefato.",
+    "I": "Recarga se conectar; tripular 3 tira um atacante.",
+    "T": "Três manas e tripular 3.",
+    "Q": "Paridade e na frente.",
+    "R": "A Eagle Vision, do radar, compra três por {1}{U} depois de conectar."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Eagle Vision",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Hemlock Vial": {
    "notas": {
@@ -1070,7 +1763,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 2: compre e perca 1 ao entrar; {B}, vira, sacrifique: equipadas e equipamentos ganham toque mortífero.",
-   "porque": "Repõe a carta e dá toque mortífero às equipadas uma vez. Efeito pequeno, por isso é substituível."
+   "porque": "Repõe a carta e dá toque mortífero às equipadas uma vez. Efeito pequeno, por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica; o toque mortífero é de uma vez.",
+    "I": "Uma carta na entrada.",
+    "T": "Duas manas.",
+    "Q": "Início e paridade.",
+    "R": "A Chromatic Lantern, do radar, é infraestrutura que liga a execução; esta só repõe a carta."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Chromatic Lantern",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Apple of Eden, Isu Relic": {
    "notas": {
@@ -1079,11 +1792,34 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "Artefato lendário de 4. Vira, pague 4, sacrifique: exila a mão de um oponente; você joga essas cartas no turno, e ele compra uma por cada.",
    "porque": "Divertida e situacional: 4 para entrar e mais 4 para usar, sem ligação com a tribo nem com a execução.",
-   "prioridade": 9
+   "prioridade": 9,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 0,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Não avança a conta.",
+    "I": "Usa a mão de um oponente num turno, e ele compra por carta usada.",
+    "T": "Quatro manas, e mais 4 de vida, virar e sacrificar para usar.",
+    "Q": "Paridade e na frente.",
+    "R": "O Herald's Horn, do radar, barateia e compra Assassinos na mesma vaga."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Herald's Horn",
+   "confianca": "alta",
+   "indice": 0.35
   },
   "The Animus": {
    "notas": {
@@ -1091,10 +1827,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "Artefato lendário de 2. Na sua etapa final, exila uma criatura lendária de um cemitério com marcador de memória; vira: uma lendária sua vira cópia dela até o seu turno.",
-   "porque": "Funciona sozinha, com qualquer cemitério, mas copiar lendária não empurra a tribo nem a execução. Valor lateral, por isso é substituível."
+   "porque": "Funciona sozinha, com qualquer cemitério, mas copiar lendária não empurra a tribo nem a execução. Valor lateral, por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Copiar uma lendária do exílio não conecta, não corre e não executa.",
+    "I": "Uma cópia até o seu turno, depois de exilar uma lendária morta.",
+    "T": "Duas manas.",
+    "Q": "Paridade e na frente, com lendária no cemitério.",
+    "R": "O Rooftop Bypass, do radar, cria um Assassino a cada conexão."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Rooftop Bypass",
+   "confianca": "média",
+   "indice": 0.65
   },
   "Coastal Piracy": {
    "notas": {
@@ -1106,13 +1865,32 @@
    "sin_por_que": {
     "sin2": "Compra a cada conexão de qualquer criatura sua."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 4: uma criatura sua causa dano de combate a um oponente, compre.",
    "porque": "A compra do deck: cada conexão de qualquer criatura vira carta, e o plano é conectar todo turno.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Compra a cada criatura que causa dano de combate a um oponente."
+   "papel_por_que": "Compra a cada criatura que causa dano de combate a um oponente.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada conexão de qualquer criatura sua vira uma carta.",
+    "I": "Motor que precisa ficar; uma carta por criatura que conecta.",
+    "T": "Quatro manas, no padrão da compra recorrente.",
+    "Q": "Paridade, na frente e atrás, enquanto houver quem conecte.",
+    "R": "O Ezio, Blade of Vengeance, do radar, compra por Assassino que conecta, mas é criatura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Origin of the Hidden Ones": {
    "notas": {
@@ -1135,7 +1913,26 @@
    "porque": "Remoção, tribo e ataque numa Saga: 4 de dano, duas fichas Assassino e mais fichas no último capítulo. Lenta, por isso fica em B.",
    "papel": "habilita",
    "papel_dupla": "Remoção (4 de dano)",
-   "papel_por_que": "Cria Assassinos com ameaça e mais um a cada Assassino que ataca."
+   "papel_por_que": "Cria Assassinos com ameaça e mais um a cada Assassino que ataca.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cria Assassinos com ameaça, e mais um a cada Assassino que ataca no capítulo III.",
+    "I": "4 de dano, duas fichas e mais fichas atacando: três efeitos em três turnos.",
+    "T": "Quatro manas, e lenta.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Rooftop Bypass, do radar, cria Assassinos a cada conexão, mas não remove."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "The Revelations of Ezio": {
    "notas": {
@@ -1156,7 +1953,26 @@
    "porque": "Remoção e recursão de Assassino numa Saga. A remoção só pega criatura virada e o resto chega em turnos, por isso fica em B.",
    "papel": "recompensa",
    "papel_dupla": "Remoção (criatura virada)",
-   "papel_por_que": "Cresce os Assassinos que atacam e devolve um Assassino ao campo."
+   "papel_por_que": "Cresce os Assassinos que atacam e devolve um Assassino ao campo.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Marcador nos Assassinos que atacam e um Assassino de volta do cemitério.",
+    "I": "Remoção, buff e recursão em três turnos.",
+    "T": "Três manas; a remoção só pega criatura virada.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Restart Sequence devolve qualquer criatura, mas custa quatro sem conexão."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Ballad of the Black Flag": {
    "notas": {
@@ -1168,7 +1984,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Saga de 3: I a III, mói três e pega uma histórica; IV, históricas custam {2} a menos no turno.",
-   "porque": "Pega três cartas históricas e dá desconto no fim. Lenta, espalhada em quatro capítulos, por isso fica em B."
+   "porque": "Pega três cartas históricas e dá desconto no fim. Lenta, espalhada em quatro capítulos, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra que depende das 40 históricas da lista; não conecta nem executa.",
+    "I": "Até três históricas em três turnos, e o desconto de {2} no fim.",
+    "T": "Três manas, e lenta.",
+    "Q": "Início, paridade e atrás.",
+    "R": "A compra está no piso da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Bleeding Effect": {
    "notas": {
@@ -1188,7 +2023,27 @@
    "faz": "Encantamento de 4: no seu combate, suas criaturas ganham cada palavra-chave (voar, ameaça, toque mortífero...) que uma criatura no seu cemitério tenha.",
    "porque": "Depende de o cemitério ter as palavras-chave certas e custa 4 em duas cores. Evasão de time que nem sempre liga, por isso é substituível.",
    "papel": "habilita",
-   "papel_por_que": "Dá ao time as habilidades das criaturas do cemitério, como voar e ameaça, para conectar."
+   "papel_por_que": "Dá ao time as habilidades das criaturas do cemitério, como voar e ameaça, para conectar.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Evasão para o time quando o cemitério tem ameaça, atropelar ou golpe duplo.",
+    "I": "Depende do que morreu; o Rest in Peace da lista o desliga.",
+    "T": "Quatro manas em duas cores, com condição.",
+    "Q": "Paridade e na frente, depois de criaturas morrerem.",
+    "R": "O Cover of Darkness, do radar, dá medo aos Assassinos por duas manas, sem condição."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Cover of Darkness",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "The Aesir Escape Valhalla": {
    "notas": {
@@ -1200,7 +2055,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Saga de 3: I, exila uma permanente do cemitério e ganha vida igual ao valor; II, marcadores +1/+1 iguais ao valor; III, a Saga e a carta voltam à mão.",
-   "porque": "Lenta: três capítulos para um ganho pequeno, sem ligação com os Assassinos nem com a execução. Por isso é substituível."
+   "porque": "Lenta: três capítulos para um ganho pequeno, sem ligação com os Assassinos nem com a execução. Por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Marcadores numa criatura iguais ao valor da carta exilada: dano a mais, dois turnos depois.",
+    "I": "Vida, marcadores e a carta de volta à mão, devagar.",
+    "T": "Três manas, três turnos, e precisa de permanente no cemitério.",
+    "Q": "Paridade e na frente.",
+    "R": "O Sorin Markov, do radar, põe um oponente em 10 e fecha com o Ezio."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Sorin Markov",
+   "confianca": "média",
+   "indice": 1.0
   },
   "Dead Weight": {
    "notas": {
@@ -1212,7 +2087,26 @@
    "rel": "MED",
    "faz": "Aura de 1: −2/−2.",
    "porque": "Remoção de 1 mana que só mata criatura pequena. O deck tem 16 remoções, então é das que sobram.",
-   "prioridade": 4
+   "prioridade": 4,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Só mata criatura de resistência 2 ou menos.",
+    "T": "Uma mana, mas aura de feitiço e condicional.",
+    "Q": "Início, paridade e na frente, contra os pequenos.",
+    "R": "É a pior das treze remoções pontuais, para uma cota de oito a doze."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Rest in Peace": {
    "notas": {},
@@ -1226,7 +2120,31 @@
     "contra": 1
    },
    "prioridade": 1,
-   "pacote": "removal"
+   "pacote": "removal",
+   "tier_anterior": "D",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Desliga oito cartas da lista que usam o cemitério, entre elas Layla Hassan e Restart Sequence.",
+    "I": "Trava os cemitérios da mesa, o seu também.",
+    "T": "Duas manas.",
+    "Q": "Só contra deck de cemitério.",
+    "R": "O Ramses, Assassin Lord, do radar, entra na vaga: lord que faz a execução vencer a partida."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Ramses, Assassin Lord",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Swords to Plowshares": {
    "notas": {
@@ -1234,10 +2152,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Instantânea {W}: exila uma criatura; o controlador ganha vida igual à força.",
-   "porque": "A melhor remoção da lista: 1 mana, instantânea, exila qualquer criatura e abre o caminho para a conexão."
+   "porque": "A melhor remoção da lista: 1 mana, instantânea, exila qualquer criatura e abre o caminho para a conexão.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Viva sempre: tira o bloqueador cedo e a ameaça tarde.",
+    "R": "A Path to Exile faz o mesmo pelo mesmo custo; a remoção passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Path to Exile": {
    "notas": {
@@ -1245,10 +2182,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea {W}: exila uma criatura; o controlador busca um básico.",
-   "porque": "Remoção de 1 mana que exila qualquer criatura. Dá terra ao oponente, por isso fica um degrau abaixo da Swords to Plowshares."
+   "porque": "Remoção de 1 mana que exila qualquer criatura. Dá terra ao oponente, por isso fica um degrau abaixo da Swords to Plowshares.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, e o oponente ganha um terreno.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Viva sempre: tira o bloqueador cedo e a ameaça tarde.",
+    "R": "A Swords to Plowshares faz o mesmo sem dar terreno; a remoção passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Assassin's Trophy": {
    "notas": {
@@ -1256,10 +2212,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea {B}{G}: destrói uma permanente de oponente; ele busca um básico.",
-   "porque": "Tira qualquer permanente de oponente por 2 manas, instantânea. Poucas remoções do deck pegam qualquer tipo, por isso é titular."
+   "porque": "Tira qualquer permanente de oponente por 2 manas, instantânea. Poucas remoções do deck pegam qualquer tipo, por isso é titular.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, de qualquer tipo; o oponente ganha um terreno.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "É a única instantânea barata da lista que pega qualquer permanente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Go for the Throat": {
    "notas": {
@@ -1267,10 +2242,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 2: destrói criatura que não é artefato.",
-   "porque": "Remoção limpa de 2 manas, instantânea, que só falha em criatura artefato. Abre o caminho para o Ezio conectar."
+   "porque": "Remoção limpa de 2 manas, instantânea, que só falha em criatura artefato. Abre o caminho para o Ezio conectar.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma; falha em criatura artefato.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "O Terminate faz o mesmo e pega artefato; a remoção passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Terminate": {
    "notas": {
@@ -1278,10 +2272,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea {B}{R}: destrói uma criatura; não regenera.",
-   "porque": "Remoção limpa de 2 manas, instantânea e sem chance de regenerar. Abre o caminho para o Ezio conectar."
+   "porque": "Remoção limpa de 2 manas, instantânea e sem chance de regenerar. Abre o caminho para o Ezio conectar.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "O Go for the Throat faz o mesmo pelo mesmo custo; a remoção passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Chain Assassination": {
    "notas": {
@@ -1294,7 +2307,7 @@
    "sin_por_que": {
     "sin2": "Freerunning próprio: fica barata depois da conexão."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 4, freerunning {1}{B}: destrói uma criatura; se outra morreu no turno, compre.",
    "porque": "Remoção de 2 depois de conectar, e ainda compra se outra criatura morreu no turno. Casa com o plano de conectar primeiro.",
@@ -1307,7 +2320,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning, depois de conectar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção de freerunning: sai por {1}{B} depois da conexão.",
+    "I": "Uma por uma; compra se outra criatura morreu no turno.",
+    "T": "Quatro manas, ou duas depois de conectar.",
+    "Q": "Viva sempre: é instantânea.",
+    "R": "É a única remoção da lista que fica barata com a conexão."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Mortify": {
    "notas": {
@@ -1315,10 +2347,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "ALT",
    "faz": "Instantânea de 3: destrói criatura ou encantamento.",
-   "porque": "Flexível: tira criatura ou encantamento por 3 manas. Num deck com 16 remoções, é boa sem se destacar."
+   "porque": "Flexível: tira criatura ou encantamento por 3 manas. Num deck com 16 remoções, é boa sem se destacar.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, criatura ou encantamento.",
+    "T": "Três manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "O Assassin's Trophy pega encantamento por duas; a remoção passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Fatal Push": {
    "notas": {
@@ -1326,10 +2377,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Instantânea {B}: destrói criatura de valor até 2; até 4 se uma permanente sua saiu do campo no turno.",
-   "porque": "As oito Landscapes ligam a revolta: sacrifique uma e mata até valor 4. Sem isso, só pega criatura pequena, por isso fica em B."
+   "porque": "As oito Landscapes ligam a revolta: sacrifique uma e mata até valor 4. Sem isso, só pega criatura pequena, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica; as oito Landscapes ligam a revolta.",
+    "I": "Uma por uma, até valor 4 com a revolta.",
+    "T": "Uma mana, instantânea, mas condicional.",
+    "Q": "Início, paridade e na frente; as ameaças grandes escapam.",
+    "R": "Swords to Plowshares e Path to Exile pegam qualquer criatura pelo mesmo custo; a remoção passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Murder": {
    "notas": {
@@ -1341,7 +2411,26 @@
    "rel": "MED",
    "faz": "Instantânea de 3: destrói uma criatura.",
    "porque": "Redundante entre 16 remoções: 3 manas com {B}{B} por uma criatura, quando o deck tem opções mais baratas.",
-   "prioridade": 8
+   "prioridade": 8,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Três manas, instantânea, com {B}{B}.",
+    "Q": "Viva sempre.",
+    "R": "Terminate e Go for the Throat fazem o mesmo por duas; o radar põe a Chromatic Lantern na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Escape Detection": {
    "notas": {
@@ -1355,7 +2444,7 @@
    "sin_por_que": {
     "sin2": "Freerunning próprio: fica barata depois da conexão."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 3, freerunning devolvendo uma criatura azul sua: devolve uma criatura à mão; compre.",
    "porque": "Bounce que salva a sua criatura ou tira um bloqueador, e compra. O freerunning exige devolver uma criatura azul sua, por isso fica em B.",
@@ -1364,7 +2453,27 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Remoção (devolve) e Draw",
-   "papel_por_que": "Devolve uma criatura e compra; o freerunning a deixa sem custo de mana."
+   "papel_por_que": "Devolve uma criatura e compra; o freerunning a deixa sem custo de mana.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica; o freerunning pede devolver uma criatura azul sua.",
+    "I": "Salva uma criatura ou tira um bloqueador, e compra.",
+    "T": "Três manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "A Swiftfoot Boots, do radar, protege o Ezio todo turno."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Swiftfoot Boots",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Become Anonymous": {
    "notas": {
@@ -1375,7 +2484,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 4: exila uma criatura sua e as duas do topo, embaralha e as camufla: três criaturas 2/2 com ward {2}, viradas.",
-   "porque": "Salva uma criatura; com o Roshan, as camufladas têm ameaça e compram ao desvirar. Sem ele, são 4 manas por três 2/2 viradas."
+   "porque": "Salva uma criatura; com o Roshan, as camufladas têm ameaça e compram ao desvirar. Sem ele, são 4 manas por três 2/2 viradas.",
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica; com o Roshan, as camufladas ganham ameaça.",
+    "I": "Salva uma criatura e põe três 2/2 com ward, virados.",
+    "T": "Quatro manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Haystack e Smoke Bomb protegem por menos; o Teferi's Protection, do radar, salva a mesa inteira."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Teferi's Protection",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Deflecting Palm": {
    "notas": {
@@ -1389,11 +2518,34 @@
    "sin_por_que": {
     "sin2": "Devolve o dano ao controlador da fonte: tira vida de um oponente uma vez."
    },
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Instantânea {R}{W}: previne o próximo dano de uma fonte e o devolve ao controlador.",
    "porque": "Truque defensivo que depende do ataque deles: só tira vida quando um oponente bate em você. Por isso está na berlinda.",
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Tira vida de um oponente uma vez, e só se ele bater em você.",
+    "I": "Previne um golpe e devolve o dano ao dono.",
+    "T": "Duas manas, instantânea, mas depende do ataque deles.",
+    "Q": "Paridade e atrás.",
+    "R": "O Basim Ibn Ishaq, do radar, entra na vaga: Assassino que conecta e compra."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Basim Ibn Ishaq",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Petty Larceny": {
    "notas": {
@@ -1419,7 +2571,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning, depois de conectar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Freerunning: duas cartas do oponente e um Tesouro por {1}{B} depois da conexão.",
+    "I": "Duas cartas e uma mana: dois por um.",
+    "T": "Quatro manas, ou duas depois de conectar; feitiço.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Eagle Vision, do radar, compra três pelo freerunning, mas sem o Tesouro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Monastery Raid": {
    "notas": {
@@ -1440,7 +2611,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Pelo freerunning, exila X cartas para jogar: rende muito quando um Assassino conecta."
+   "papel_por_que": "Pelo freerunning, exila X cartas para jogar: rende muito quando um Assassino conecta.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Freerunning: depois da conexão, exila X cartas para jogar.",
+    "I": "Duas cartas por três manas, ou X com o freerunning.",
+    "T": "Três manas por duas cartas; depois de conectar, X mais uma por X cartas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra compra da lista cresce com a mana que sobra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Restart Sequence": {
    "notas": {
@@ -1457,7 +2647,7 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 4, freerunning {1}{B}: uma criatura do seu cemitério volta ao campo.",
-   "porque": "Recursão de 2 depois de conectar: um Assassino volta do cemitério. Sem conexão, custa 4, e depende do cemitério, por isso fica em B.",
+   "porque": "Recursão de 2 depois de conectar: qualquer criatura volta do cemitério. Sem conexão, custa 4, e depende do cemitério, por isso fica em B.",
    "marcas": {
     "fr": 1
    },
@@ -1467,7 +2657,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "por freerunning, depois de conectar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Freerunning: uma criatura do cemitério volta ao campo por {1}{B} depois da conexão.",
+    "I": "Devolve o Bayek ou o Arno direto ao campo.",
+    "T": "Quatro manas, ou duas depois de conectar.",
+    "Q": "Paridade, na frente e atrás, com criatura no cemitério.",
+    "R": "A Revelations of Ezio devolve só Assassino e leva três turnos; o Rest in Peace a desliga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Distract the Guards": {
    "notas": {
@@ -1488,7 +2697,27 @@
     "fr": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Pelo freerunning, três fichas mais baratas depois que um Assassino conecta."
+   "papel_por_que": "Pelo freerunning, três fichas mais baratas depois que um Assassino conecta.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Três Humanos, não Assassinos: sem o Roshan, não abrem o freerunning.",
+    "I": "Três fichas 1/1.",
+    "T": "Três manas, ou duas depois de conectar.",
+    "Q": "Paridade, na frente e atrás, como bloqueadores.",
+    "R": "A Aya of Alexandria, do radar, cria um Assassino com ameaça a cada histórica que conecta."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Aya of Alexandria",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Supreme Verdict": {
    "notas": {
@@ -1503,7 +2732,30 @@
    "marcas": {
     "contra": 1
    },
-   "massa": true
+   "massa": true,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Leva o Ezio e as 22 criaturas da lista; o Ezio volta com imposto de {2}.",
+    "I": "Vira a mesa, a sua também.",
+    "T": "Quatro manas, e não pode ser anulada.",
+    "Q": "Só quando você está atrás.",
+    "R": "É a única limpeza, abaixo da cota de três a quatro; a Winds of Abandon, do radar, limpa só os outros."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "substituto": "Winds of Abandon",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Casualties of War": {
    "notas": {
@@ -1515,7 +2767,26 @@
    "rel": "MED",
    "faz": "Feitiço {2}{B}{B}{G}{G}: destrói um artefato, uma criatura, um encantamento, um terreno e um planeswalker.",
    "porque": "Forte, mas pede {B}{B}{G}{G} num deck de cinco cores com 13 terrenos que não dão cor sozinhos. Pesada, por isso é substituível.",
-   "prioridade": 10
+   "prioridade": 10,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Até cinco permanentes de tipos diferentes numa carta.",
+    "T": "Seis manas, com {B}{B}{G}{G} em cinco cores.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Assassin's Trophy e Mortify cobrem parte por menos; a remoção passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Primal Command": {
    "notas": {
@@ -1528,7 +2799,30 @@
    "rel": "BAX",
    "faz": "Feitiço de 5, dois modos: ganhe 7, uma não-criatura no topo do grimório, embaralhe o cemitério, busque uma criatura.",
    "porque": "{G}{G} sem papel no plano: os modos não conectam, não executam e não ajudam a tribo. Por isso está na berlinda.",
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Busca uma criatura, como o Bayek; os outros modos são genéricos.",
+    "I": "Dois modos: dois por um.",
+    "T": "Cinco manas, com {G}{G}, de feitiço.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O radar põe a Winds of Abandon na vaga: limpeza de um lado só, que o deck não tem."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Winds of Abandon",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Path of Ancestry": {
    "notas": {
@@ -1547,7 +2841,26 @@
    "marcas": {
     "cores": 1
    },
-   "virado": true
+   "virado": true,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As cinco cores, e vidência nas criaturas Humanas e Assassinas.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "No início, atrasa a curva; depois, fixa as cinco cores.",
+    "R": "É o único terreno da lista que dá qualquer cor sem custo; essas fontes estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Island": {
    "notas": {},
@@ -1556,7 +2869,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base do azul e alvo das Landscapes. Básico que cumpre o papel sem mais nada."
+   "porque": "Base do azul e alvo das Landscapes. Básico que cumpre o papel sem mais nada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; alvo das Landscapes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Plains": {
    "notas": {},
@@ -1565,7 +2897,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base do branco da Swords e da Path, e alvo das Landscapes. Básico que cumpre o papel sem mais nada."
+   "porque": "Base do branco da Swords e da Path, e alvo das Landscapes. Básico que cumpre o papel sem mais nada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o branco da Swords e da Path.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; alvo das Landscapes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Swamp": {
    "notas": {},
@@ -1574,7 +2925,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base do preto, a cor do freerunning {B}{B}, e alvo das Landscapes. Básico que cumpre o papel sem mais nada."
+   "porque": "Base do preto, a cor do freerunning {B}{B}, e alvo das Landscapes. Básico que cumpre o papel sem mais nada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o preto do freerunning.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; alvo das Landscapes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Mountain": {
    "notas": {},
@@ -1583,7 +2953,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base do vermelho e alvo das Landscapes. Básico que cumpre o papel sem mais nada."
+   "porque": "Base do vermelho e alvo das Landscapes. Básico que cumpre o papel sem mais nada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; alvo das Landscapes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Forest": {
    "notas": {},
@@ -1592,7 +2981,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base do verde e alvo das Landscapes. Básico que cumpre o papel sem mais nada."
+   "porque": "Base do verde e alvo das Landscapes. Básico que cumpre o papel sem mais nada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; alvo das Landscapes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Bountiful Landscape": {
    "notas": {},
@@ -1601,7 +3009,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{T}: {C}; vira, sacrifique: busca um básico de um de três tipos, virado; ciclagem de três cores.",
-   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push."
+   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira um básico de uma de três cores, sem o preto.",
+    "I": "Um terreno por turno; liga a revolta do Fatal Push.",
+    "T": "O básico da cor entra virado.",
+    "Q": "Viva sempre; tarde, cicla por três cores.",
+    "R": "A Mana Confluence, do radar, dá qualquer cor desvirada por 1 de vida."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Mana Confluence",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Deceptive Landscape": {
    "notas": {},
@@ -1610,7 +3041,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{T}: {C}; vira, sacrifique: busca um básico de um de três tipos, virado; ciclagem de três cores.",
-   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push."
+   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira um básico de uma de três cores, virado.",
+    "I": "Um terreno por turno; liga a revolta do Fatal Push.",
+    "T": "O básico da cor entra virado.",
+    "Q": "Viva sempre; tarde, cicla por três cores.",
+    "R": "São oito iguais, e os terrenos virados passam do teto de três a quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Foreboding Landscape": {
    "notas": {},
@@ -1619,7 +3069,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{T}: {C}; vira, sacrifique: busca um básico de um de três tipos, virado; ciclagem de três cores.",
-   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push."
+   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira um básico de uma de três cores, virado.",
+    "I": "Um terreno por turno; liga a revolta do Fatal Push.",
+    "T": "O básico da cor entra virado.",
+    "Q": "Viva sempre; tarde, cicla por três cores.",
+    "R": "São oito iguais, e os terrenos virados passam do teto de três a quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Perilous Landscape": {
    "notas": {},
@@ -1628,7 +3097,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{T}: {C}; vira, sacrifique: busca um básico de um de três tipos, virado; ciclagem de três cores.",
-   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push."
+   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira um básico de uma de três cores, sem o preto.",
+    "I": "Um terreno por turno; liga a revolta do Fatal Push.",
+    "T": "O básico da cor entra virado.",
+    "Q": "Viva sempre; tarde, cicla por três cores.",
+    "R": "A Talon Gates of Madara, do radar, entra na vaga: qualquer cor por {1}, e protege o Ezio."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Talon Gates of Madara",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Seething Landscape": {
    "notas": {},
@@ -1637,7 +3129,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{T}: {C}; vira, sacrifique: busca um básico de um de três tipos, virado; ciclagem de três cores.",
-   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push."
+   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira um básico de uma de três cores, virado.",
+    "I": "Um terreno por turno; liga a revolta do Fatal Push.",
+    "T": "O básico da cor entra virado.",
+    "Q": "Viva sempre; tarde, cicla por três cores.",
+    "R": "São oito iguais, e os terrenos virados passam do teto de três a quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Sheltering Landscape": {
    "notas": {},
@@ -1646,7 +3157,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{T}: {C}; vira, sacrifique: busca um básico de um de três tipos, virado; ciclagem de três cores.",
-   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push."
+   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira um básico de uma de três cores, sem o preto.",
+    "I": "Um terreno por turno; liga a revolta do Fatal Push.",
+    "T": "O básico da cor entra virado.",
+    "Q": "Viva sempre; tarde, cicla por três cores.",
+    "R": "São oito iguais, e os terrenos virados passam do teto de três a quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Tranquil Landscape": {
    "notas": {},
@@ -1655,7 +3185,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{T}: {C}; vira, sacrifique: busca um básico de um de três tipos, virado; ciclagem de três cores.",
-   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push."
+   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira um básico de uma de três cores, sem o preto.",
+    "I": "Um terreno por turno; liga a revolta do Fatal Push.",
+    "T": "O básico da cor entra virado.",
+    "Q": "Viva sempre; tarde, cicla por três cores.",
+    "R": "O radar avalia o Access Tunnel na vaga; são oito iguais, e virados demais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Twisted Landscape": {
    "notas": {},
@@ -1664,7 +3213,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{T}: {C}; vira, sacrifique: busca um básico de um de três tipos, virado; ciclagem de três cores.",
-   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push."
+   "porque": "Cor só depois de se sacrificar, e o básico entra virado; liga a revolta do Fatal Push.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira um básico de uma de três cores, virado.",
+    "I": "Um terreno por turno; liga a revolta do Fatal Push.",
+    "T": "O básico da cor entra virado.",
+    "Q": "Viva sempre; tarde, cicla por três cores.",
+    "R": "São oito iguais, e os terrenos virados passam do teto de três a quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Abstergo Entertainment": {
    "notas": {
@@ -1672,13 +3240,32 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Lendário: {C}; {1}, vira: qualquer cor; {3}, vira, exile: uma histórica do cemitério à mão e exila os cemitérios.",
    "porque": "Dá qualquer cor e conta para o Shanid, mas só pagando {1}, o que pesa no turno do WUBRG. Por isso é substituível.",
    "marcas": {
     "cores": 1
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor só pagando {1}: na prática, um filtro.",
+    "I": "Um terreno por turno; tarde, recompra uma histórica.",
+    "T": "Desvirado, mas a cor custa {1}.",
+    "Q": "Viva sempre.",
+    "R": "As fontes de qualquer cor estão abaixo da cota, e é lendário para o Shanid e o Arbaaz."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Crystal Grotto": {
    "notas": {},
@@ -1690,7 +3277,30 @@
    "porque": "Filtro: só dá cor pagando {1}, o que pesa no turno do WUBRG. Substituível por terra que gere cor sozinha.",
    "marcas": {
     "cores": 1
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor só pagando {1}: um filtro.",
+    "I": "Um terreno por turno, com vidência 1.",
+    "T": "Desvirado, mas a cor custa {1}.",
+    "Q": "Viva sempre.",
+    "R": "A Plaza of Heroes, do radar, entra na vaga: qualquer cor para as lendárias, sem custo."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Plaza of Heroes",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Secluded Courtyard": {
    "notas": {},
@@ -1703,7 +3313,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{C}; qualquer cor só para mágica de criatura do tipo escolhido.",
-   "porque": "Paga os Assassinos em qualquer cor, mas não paga o WUBRG da execução. Ajuda a tribo e falha no fechamento."
+   "porque": "Paga os Assassinos em qualquer cor, mas não paga o WUBRG da execução. Ajuda a tribo e falha no fechamento.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor só para criatura Assassina; não paga o resto nem o {W}{U}{B}{R}{G}.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Paga só as criaturas; nas outras mágicas, é incolor.",
+    "R": "A Brotherhood Headquarters, do radar, faz o mesmo e paga também as mágicas de freerunning."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Brotherhood Headquarters",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Ash Barrens": {
    "notas": {},
@@ -1712,7 +3345,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{C}; ciclagem de básico {1}.",
-   "porque": "Vira um básico pela ciclagem, mas sozinha só gera incolor. Ajuste de cor lento, por isso é substituível."
+   "porque": "Vira um básico pela ciclagem, mas sozinha só gera incolor. Ajuste de cor lento, por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; a ciclagem por {1} busca o básico da cor que falta.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, só incolor; ou {1} para trocar por básico.",
+    "Q": "Viva sempre.",
+    "R": "O Spire of Industry, do radar, entra na vaga: qualquer cor desvirada com um artefato em campo."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Spire of Industry",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Ominous Cemetery": {
    "notas": {
@@ -1720,10 +3376,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "{C}; {5}, vira, exile: o dono embaralha uma criatura no grimório.",
-   "porque": "Não dá cor num deck de cinco cores, e a remoção custa {5}. Por isso é substituível."
+   "porque": "Não dá cor num deck de cinco cores, e a remoção custa {5}. Por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Só incolor, num deck de cinco cores.",
+    "I": "Um terreno por turno; por {5}, embaralha uma criatura no grimório.",
+    "T": "Desvirado.",
+    "Q": "Incolor pesa nas mãos de cinco cores.",
+    "R": "A Command Tower, do radar, entra na vaga: as cinco cores, desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Command Tower",
+   "confianca": "alta",
+   "indice": 0.95
   }
  },
  "radar": {
@@ -2522,18 +4201,17 @@
   "Constable Odo": {
    "notas": {},
    "sin": {
-    "sin1": 2,
+    "sin1": 0,
     "sin2": 1
    },
    "sin_por_que": {
-    "sin1": "Shapeshifter conta como Assassino: ganha o freerunning, sem efeito voltado aos outros.",
     "sin2": "Vira e atordoa uma criatura de oponente: impede um bloqueio uma vez."
    },
    "tier": "A",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Modal ao entrar: investiga duas vezes, ou vira uma criatura de oponente com dois marcadores de atordoamento.",
-   "porque": "Shapeshifter conta como Assassino: ganha o freerunning, sem efeito voltado aos outros.; Vira e atordoa uma criatura de oponente: impede um bloqueio uma vez. Ganho de +18.0; disputa com Eivor, Wolf-Kissed (tier B).",
+   "porque": "Shapeshifter não é Assassino nem tem changeling: não ganha o freerunning. Vira e atordoa uma criatura de oponente: impede um bloqueio uma vez. Ganho de +18.0; disputa com Eivor, Wolf-Kissed (tier B).",
    "origem": "coleção TRK (2026-11-09)",
    "sai": "Eivor, Wolf-Kissed"
   },
@@ -3019,5 +4697,18 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "04. FORFUN",
+  "conta": "Um Assassino ou o Ezio causa dano de combate a um jogador (conectar); com a conexão, os Assassinos saem por {B}{B} e as mágicas de freerunning ficam baratas (correr); com o jogador em 10 de vida ou menos, o Ezio conecta e paga {W}{U}{B}{R}{G} (executar).",
+  "decisoes": [
+   "Por decisão sua (14/10/2026), o deck não tem cartas de estimação: as foils e a etched não são de estimação.",
+   "A lista é a sua decklist.txt e não muda; o radar é só sugestão.",
+   "O Sol Ring e o Arcane Signet ficam de fora por decisão sua (03/11/2026): você tem os dois guardados e não vê necessidade de colocá-los.",
+   "Pela sua régua, o deck quer de três a quatro limpezas, de preferência unilaterais; hoje tem uma, o Supreme Verdict.",
+   "Staples genéricas ficam de fora por decisão sua (09/11/2026); proteção genérica entra porque proteção é agrupamento deste deck."
+  ]
  }
 }
