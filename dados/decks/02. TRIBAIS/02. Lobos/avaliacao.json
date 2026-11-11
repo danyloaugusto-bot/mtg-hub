@@ -348,7 +348,30 @@
    "porque": "Conta para os três lobos, mas a condição de valor 4 ou mais quase não dispara nesta curva: fica um lobo pequeno de 1 mana.",
    "prioridade": 6,
    "papel": "habilita",
-   "papel_por_que": "Lobo de 1 que conta para os três da noite e compra ao conectar com o Tovolar."
+   "papel_por_que": "Lobo de 1 que conta para os três da noite e compra ao conectar com o Tovolar.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Lobo de uma mana que conta para os três.",
+    "I": "Um 2/1; o marcador pede permanente de valor 4 ou mais, raro cedo.",
+    "T": "Uma mana por um 2/1, no padrão.",
+    "Q": "Início e reconstrução depois de uma limpeza.",
+    "R": "O Bejeweled Warg, do radar, é um 3/2 com atropelar que rende ao conectar."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Bejeweled Warg",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Augur of Autumn": {
    "notas": {
@@ -357,10 +380,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Humano de 3. Você vê o topo e joga terrenos de lá; com coven, conjura criaturas do topo.",
-   "porque": "Vantagem de carta que não depende de combate, num deck cuja compra é quase toda do Tovolar. Não é lobo, mas joga terrenos do topo."
+   "porque": "Vantagem de carta que não depende de combate, num deck cuja compra é quase toda do Tovolar. Não é lobo, mas joga terrenos do topo.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: joga terrenos do topo, sem depender de combate.",
+    "I": "Vantagem de carta todo turno, se ficar em campo.",
+    "T": "Três manas; conjurar criatura do topo pede três forças diferentes.",
+    "Q": "Viva sempre.",
+    "R": "A compra fora do Tovolar está abaixo da cota, e é a única que não pede ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Burly Breaker": {
    "notas": {
@@ -377,13 +419,33 @@
     "sin1": "Lobisomem comum: conta para os três da noite e compra ao conectar, sem ser lorde nem fábrica de Lobos.",
     "sin2": "Tem dia e noite: à noite vira 8/7 com ward {3}."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Lobisomem 6/5 de 5 com ward 1; à noite, 8/7 com ward 3 (Daybound).",
    "porque": "Corpo grande e difícil de responder, que fica 8/7 à noite, mas sem evasão: depende de atropelar vindo de fora para conectar e comprar.",
    "pacote": "noite",
    "papel": "habilita",
-   "papel_por_que": "Lobisomem grande com ward que conta para os três da noite e fica mais forte com ela."
+   "papel_por_que": "Lobisomem grande com ward que conta para os três da noite e fica mais forte com ela.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Conta para os três e é o melhor alvo do pump do Tovolar, mas não tem evasão.",
+    "I": "Um corpo grande com ward.",
+    "T": "Cinco manas por um 6/5, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Avabruck Caretaker, do radar, é corpo grande que ainda protege e aumenta a mesa."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Avabruck Caretaker",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Child of the Pack": {
    "notas": {
@@ -400,13 +462,32 @@
     "sin1": "Lobisomem que cria Lobos só por ativação paga, não por gatilho: fica no comum.",
     "sin2": "Tem dia e noite: à noite ganha atropelar e dá +1/+0 às outras criaturas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Lobisomem de 4. {2}{R}{G}: um Lobo 2/2, em qualquer turno. Verso: atropelar e +1/+0 nas outras criaturas (Daybound).",
    "porque": "Cria lobo no fim do turno de um oponente: é o terceiro lobo da sua manutenção, sem conjurar no seu turno e empurrar a mesa para o dia.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (+1/+0 ao time à noite)",
-   "papel_por_que": "Cria Lobos 2/2 pagando mana, em qualquer turno, e conta para os três."
+   "papel_por_que": "Cria Lobos 2/2 pagando mana, em qualquer turno, e conta para os três.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Faz Lobo em velocidade instantânea: o terceiro da manutenção, sem conjurar no seu turno.",
+    "I": "Entra como um 2/5; cada Lobo depende de ela ficar e de quatro manas.",
+    "T": "Quatro manas na carta e mais quatro por Lobo.",
+    "Q": "Paridade, na frente e atrás, como destino da mana; no início é lenta.",
+    "R": "Os outros geradores de Lobo da lista não agem no turno dos oponentes sem conjurar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Dire Wolf Prowler": {
    "notas": {
@@ -424,7 +505,27 @@
    "faz": "Lobo de 3. {1}{G}: +2/+2 e ímpeto, uma vez por turno.",
    "porque": "Lobo de enchimento que pede mana todo turno para crescer: conta para os três, mas não multiplica nada.",
    "papel": "habilita",
-   "papel_por_que": "Lobo que conta para os três e ganha ímpeto para conectar no turno em que entra."
+   "papel_por_que": "Lobo que conta para os três e ganha ímpeto para conectar no turno em que entra.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lobo que conta para os três; o ímpeto pago o deixa conectar no turno em que entra.",
+    "I": "Um 2/2.",
+    "T": "Três manas por um 2/2, e mais duas por turno para o +2/+2.",
+    "Q": "Início e paridade.",
+    "R": "O Cemetery Prowler, do radar, é um Lobo 3/4 pelas mesmas três manas."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Cemetery Prowler",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Fearless Pup": {
    "notas": {
@@ -437,13 +538,36 @@
    "sin_por_que": {
     "sin1": "Lobo comum: conta para os três da noite e compra ao conectar, sem ser lorde nem fábrica de Lobos."
    },
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Lobo 1/1 de 1 com iniciativa. Boast {2}{R}: +2/+0.",
    "porque": "O lobo mais fraco da lista: um 1/1 cujo gabar-se pede mana. Só conta para os três da noite.",
    "prioridade": 4,
    "papel": "habilita",
-   "papel_por_que": "Lobo de 1 que conta para os três da noite cedo."
+   "papel_por_que": "Lobo de 1 que conta para os três da noite cedo.",
+   "tier_anterior": "D",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Lobo de uma mana que conta para os três.",
+    "I": "Um 1/1 com iniciativa.",
+    "T": "Uma mana pelo corpo; o +2/+0 pede três manas e ter atacado.",
+    "Q": "Início e reconstrução depois de uma limpeza.",
+    "R": "O Torgal, A Fine Hound, do radar, é um Lobo 2/2 que gera mana de qualquer cor."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Torgal, A Fine Hound",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Goblin Anarchomancer": {
    "notas": {
@@ -451,11 +575,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Goblin de 2. Mágicas vermelhas e verdes custam {1} a menos.",
    "porque": "Barateia as mágicas, mas não é lobo: não conta para os três da noite nem compra com o Tovolar ao conectar.",
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Barateia as mágicas vermelhas e verdes, mas não conta para os três.",
+    "I": "Um 2/2 cujo desconto pede que ele fique em campo.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Duskwatch Recruiter, do radar, é Lobisomem, cava criatura e barateia as criaturas à noite."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Duskwatch Recruiter",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Halana and Alena, Partners": {
    "notas": {
@@ -467,7 +611,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Humanas de 4, alcance e iniciativa. No começo do seu combate, marcadores iguais à força delas noutra criatura sua, que ganha ímpeto.",
-   "porque": "Não contam para a noite, mas dão ímpeto e tamanho a um lobo recém-conjurado, que conecta e compra no mesmo turno. Custam 4 e não são lobo."
+   "porque": "Não contam para a noite, mas dão ímpeto e tamanho a um lobo recém-conjurado, que conecta e compra no mesmo turno. Custam 4 e não são lobo.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Dão ímpeto e marcadores a uma criatura por turno, mas não contam para os três.",
+    "I": "Dois marcadores e ímpeto todo combate seu, se ficarem em campo.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Reckless Stormseeker, do radar, dá ímpeto todo combate por três manas e é Lobisomem."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Reckless Stormseeker",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Hollowhenge Overlord": {
    "notas": {
@@ -489,7 +656,26 @@
    "porque": "Dobra a matilha a cada volta, e o lampejo o põe no turno dos outros. As fichas garantem a noite da volta seguinte, não a desta.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (dobra a matilha a cada manutenção)",
-   "papel_por_que": "Um Lobo 2/2 por Lobo ou Lobisomem seu em cada manutenção, com lampejo."
+   "papel_por_que": "Um Lobo 2/2 por Lobo ou Lobisomem seu em cada manutenção, com lampejo.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Um Lobo 2/2 por Lobo ou Lobisomem seu em toda manutenção: garante os três e a noite.",
+    "I": "Com lampejo no fim do turno alheio, a primeira leva de fichas vem quase sem janela de resposta.",
+    "T": "Seis manas, o topo da curva.",
+    "Q": "Paridade, na frente e atrás: sozinho, já faz uma ficha por volta.",
+    "R": "O Nightpack Ambusher do radar faz um Lobo por turno, e só se você não conjurar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Hound Tamer": {
    "notas": {
@@ -516,7 +702,26 @@
    "pacote": "evasao",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (atropelar à matilha à noite)",
-   "papel_por_que": "Lobisomem que conta para os três; à noite dá atropelar aos outros."
+   "papel_por_que": "Lobisomem que conta para os três; à noite dá atropelar aos outros.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "À noite dá atropelar aos outros Lobos e Lobisomens: a matilha conecta e compra.",
+    "I": "Um 3/3 com atropelar na hora; o atropelar em massa pede a noite.",
+    "T": "Três manas, com a condição da noite.",
+    "Q": "Início (conta para os três), paridade e na frente.",
+    "R": "O Howlpack Resurgence, do radar, dá atropelar sem a noite, mas não é corpo da matilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Howlpack Piper": {
    "notas": {
@@ -540,7 +745,26 @@
    "porque": "Põe os corpos caros em campo sem pagar o custo e cava criatura à noite, mas custa 4 e cada uso pede mana e virar.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Põe criaturas da mão em campo e desvira se for Lobo; à noite cava criatura."
+   "papel_por_que": "Põe criaturas da mão em campo e desvira se for Lobo; à noite cava criatura.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Põe criatura da mão em campo sem conjurar, o que não traz o dia; desvira se for Lobo ou Lobisomem.",
+    "I": "Um 2/2 que precisa ficar uma volta; depois despeja a mão cheia do Tovolar.",
+    "T": "Quatro manas, mais duas por uso, só no seu turno.",
+    "Q": "Paridade e na frente; atrás e sem mão, é um 2/2.",
+    "R": "Nenhuma outra carta da lista põe os corpos de seis manas em campo por duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Immerwolf": {
    "notas": {
@@ -560,11 +784,35 @@
    "tier": "S",
    "rel": "INS",
    "faz": "Lobo de 3, intimidar. Outros Wolves e Werewolves seus ganham +1/+1. Werewolves não-Humanos seus não podem se transformar.",
-   "porque": "Lorde da matilha e trava da noite: os lobisomens que não são Humanos ficam no verso mesmo quando a mesa vira dia. Com o Tovolar, a noite não acaba.",
+   "porque": "Lorde da matilha e trava da noite: os lobisomens que não são Humanos ficam no verso mesmo quando a mesa vira dia. Com o Tovolar, a noite não acaba. Também impede o Kessig Prowler de virar.",
    "pacote": "noite",
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (Lobo; trava os Lobisomens à noite)",
-   "papel_por_que": "Lorde +1/+1 dos Lobos e Lobisomens, e os não-Humanos não voltam ao dia."
+   "papel_por_que": "Lorde +1/+1 dos Lobos e Lobisomens, e os não-Humanos não voltam ao dia.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Segura a noite: os Lobisomens que não são Humanos não voltam para a frente. E é lord da matilha.",
+    "I": "O +1/+1 vale na hora para Lobos e Lobisomens; a trava da noite pede que ele fique em campo.",
+    "T": "Três manas, no padrão de um lord.",
+    "Q": "Início (conta para os três), paridade e na frente; atrás, sozinho, é um 2/2.",
+    "R": "Nenhuma outra carta da lista nem do radar trava os Lobisomens no verso."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, os Lobisomens encolhem toda vez que alguém conjura duas mágicas no próprio turno, e a lista perde o único lord de face única.",
+    "O Nightpack Ambusher do radar também dá +1/+1, mas custa quatro e não impede a volta ao dia.",
+    "No início fecha os três da manutenção, na paridade aumenta a matilha e na frente mantém a noite até o golpe final."
+   ],
+   "indice": 2.45
   },
   "Kessig Naturalist": {
    "notas": {
@@ -588,7 +836,26 @@
    "pacote": "noite",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (lorde +1/+1 à noite)",
-   "papel_por_que": "Lobisomem de 2 que gera mana ao atacar e, à noite, vira lorde da matilha."
+   "papel_por_que": "Lobisomem de 2 que gera mana ao atacar e, à noite, vira lorde da matilha.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem de turno 2 que conta para os três, gera mana ao atacar e vira lord à noite.",
+    "I": "O corpo vale na hora; a mana pede o ataque e o lord pede a noite.",
+    "T": "Duas manas por corpo, mana e lord.",
+    "Q": "Início, paridade e na frente; atrás é um 2/2.",
+    "R": "Nenhum outro corpo de duas manas da lista acelera e ainda vira lord."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Kessig Prowler": {
    "notas": {
@@ -609,7 +876,26 @@
    "faz": "Lobisomem de 1. {4}{G}: transforma num 4/4 que não pode ser bloqueado por mais de uma criatura.",
    "porque": "Lobo de turno 1 para a contagem, com uso tardio: a transformação custa 5 e não depende da noite.",
    "papel": "habilita",
-   "papel_por_que": "Lobisomem de 1 que conta para os três cedo e vira 4/4 pagando mana."
+   "papel_por_que": "Lobisomem de 1 que conta para os três cedo e vira 4/4 pagando mana.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem de uma mana que conta para os três.",
+    "I": "Um 2/1; virar 4/4 custa cinco manas, e o Immerwolf impede.",
+    "T": "Uma mana pelo corpo, no padrão.",
+    "Q": "Início e reconstrução depois de uma limpeza.",
+    "R": "Tem pares na lista: os outros corpos de uma mana fazem o mesmo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Mayor of Avabruck": {
    "notas": {
@@ -632,7 +918,26 @@
    "pacote": "noite",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (lorde +1/+1 à noite)",
-   "papel_por_que": "Lobisomem antigo que o Tovolar vira: à noite cria um Lobo 2/2 todo fim de turno."
+   "papel_por_que": "Lobisomem antigo que o Tovolar vira: à noite cria um Lobo 2/2 todo fim de turno.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Virado pelo Tovolar, é lord da matilha e fábrica de um Lobo em todo fim de turno seu.",
+    "I": "Na frente é um 1/1 que só ajuda Humanos: o lord e o Lobo pedem a noite e uma volta em campo.",
+    "T": "Duas manas, mas depende do Tovolar com três Lobos, ou de um turno sem mágicas, para virar.",
+    "Q": "Início (conta para os três), paridade e na frente; atrás, sozinho, não vira.",
+    "R": "O Nightpack Ambusher do radar faz lord e Lobo por quatro manas, o dobro do custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Outland Liberator": {
    "notas": {
@@ -654,7 +959,26 @@
    "porque": "Interação que conta como lobo: tira artefato ou encantamento e, à noite, destrói um a cada ataque.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Lobisomem de 2 que conta para os três e destrói artefato ou encantamento."
+   "papel_por_que": "Lobisomem de 2 que conta para os três e destrói artefato ou encantamento.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conta para os três e responde a artefato ou encantamento; à noite destrói um por ataque.",
+    "I": "Corpo agora e remoção quando precisar; à noite repete, se sobreviver.",
+    "T": "Duas manas, mais uma para o sacrifício.",
+    "Q": "Início (corpo), paridade, atrás (resposta) e na frente.",
+    "R": "Nenhuma outra remoção da lista é corpo da matilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Packsong Pup": {
    "notas": {
@@ -672,7 +996,26 @@
    "faz": "Lobo de 2. Cresce no seu combate se há outro Wolf ou Werewolf; ao morrer, você ganha vida igual à força.",
    "porque": "Corpo barato da tribo que cresce ao lado de outro lobo: cumpre a contagem, mas não multiplica a matilha.",
    "papel": "habilita",
-   "papel_por_que": "Lobo de 2 que conta para os três e cresce com outro Lobo em campo."
+   "papel_por_que": "Lobo de 2 que conta para os três e cresce com outro Lobo em campo.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lobo de duas manas que conta para os três e cresce ao lado de outro.",
+    "I": "Um 1/1 que ganha um marcador por combate seu, se sobreviver.",
+    "T": "Duas manas por um 1/1 que cresce devagar.",
+    "Q": "Início e paridade.",
+    "R": "Tem pares na lista entre os Lobos de duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Runebound Wolf": {
    "notas": {
@@ -692,7 +1035,26 @@
    "pacote": "evasao",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (Lobo)",
-   "papel_por_que": "Causa dano igual ao número de Wolves e Werewolves: rende com a matilha grande."
+   "papel_por_que": "Causa dano igual ao número de Wolves e Werewolves: rende com a matilha grande.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobo que conta para os três e causa dano direto igual ao tamanho da matilha.",
+    "I": "Um 2/2; o dano pede quatro manas e uma volta em campo.",
+    "T": "Duas manas pelo corpo; a ativação custa quatro.",
+    "Q": "Início, paridade (alcance com a mesa travada) e na frente.",
+    "R": "Nenhuma outra carta da lista causa dano direto que cresce com a matilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Scorned Villager": {
    "notas": {
@@ -715,7 +1077,26 @@
    "pacote": "noite",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Lobisomem antigo que o Tovolar vira; gera {G}, e {G}{G} à noite."
+   "papel_por_que": "Lobisomem antigo que o Tovolar vira; gera {G}, e {G}{G} à noite.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conta para os três e acelera o Tovolar para o turno 3; virado pelo Tovolar, gera duas manas.",
+    "I": "Um 1/1 que gera uma mana.",
+    "T": "Duas manas, abaixo do padrão de pedra, e ainda é corpo da matilha.",
+    "Q": "Início, paridade e na frente; atrás faz pouco.",
+    "R": "O Torgal, A Fine Hound, do radar, é equivalente; o ramp que também é Lobisomem é raro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Snarling Wolf": {
    "notas": {
@@ -733,7 +1114,26 @@
    "faz": "Lobo de 1. {1}{G}: +2/+2 uma vez por turno.",
    "porque": "Lobo de turno 1 para a contagem, com pump que pede mana; não acrescenta nada à matilha.",
    "papel": "habilita",
-   "papel_por_que": "Lobo de 1 que conta para os três e ganha +2/+2 para conectar."
+   "papel_por_que": "Lobo de 1 que conta para os três e ganha +2/+2 para conectar.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lobo de uma mana que conta para os três.",
+    "I": "Um 1/1; o +2/+2 custa duas manas por turno.",
+    "T": "Uma mana pelo corpo, no padrão.",
+    "Q": "Início e reconstrução depois de uma limpeza.",
+    "R": "Tem pares na lista: os outros Lobos de uma mana fazem o mesmo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Spirit of the Hunt": {
    "notas": {
@@ -749,12 +1149,31 @@
     "sin1": "Lobo que dá +0/+3 à matilha por um turno: bônus menor, não lorde.",
     "sin2": "Lampejo: entra no turno de um oponente e fecha os três da sua manutenção sem conjurar no seu turno."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Lobo de 3 com lampejo. Ao entrar, outros Wolves e Werewolves seus ganham +0/+3.",
    "porque": "Com lampejo, entra no fim do turno alheio e garante o terceiro lobo na manutenção. O +0/+3 dura um turno só.",
    "papel": "habilita",
-   "papel_por_que": "Lobo com lampejo: entra no turno alheio e fecha os três da manutenção."
+   "papel_por_que": "Lobo com lampejo: entra no turno alheio e fecha os três da manutenção.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Com lampejo, entra no turno alheio e fecha os três da manutenção sem conjurar no seu turno.",
+    "I": "Um 3/3 e +0/+3 por um turno: um corpo e um truque.",
+    "T": "Três manas por um 3/3 com lampejo, no padrão.",
+    "Q": "Início, paridade e atrás (salva a matilha de dano em massa pequeno).",
+    "R": "Só o Hollowhenge Overlord tem lampejo na lista, e custa seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Tovolar's Huntmaster": {
    "notas": {
@@ -777,7 +1196,26 @@
    "porque": "Três corpos por uma carta, e à noite mais dois lobos a cada ataque. Custa 6, o topo da curva.",
    "papel": "habilita",
    "papel_dupla": "Remoção (luta)",
-   "papel_por_que": "Dois Lobos 2/2 ao entrar; à noite, mais dois a cada ataque."
+   "papel_por_que": "Dois Lobos 2/2 ao entrar; à noite, mais dois a cada ataque.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Três corpos numa carta: sozinho fecha os três da manutenção. À noite, dois Lobos por ataque.",
+    "I": "Um 6/6 e dois Lobos 2/2 garantidos na entrada, e rende de novo a cada ataque à noite.",
+    "T": "Seis manas, o topo da curva.",
+    "Q": "Paridade, na frente e atrás: refaz a contagem depois de uma limpeza.",
+    "R": "Nenhuma outra carta da lista põe três corpos da matilha de uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Weaver of Blossoms": {
    "notas": {
@@ -793,14 +1231,33 @@
     "sin1": "Lobisomem comum: conta para os três da noite e compra ao conectar, sem ser lorde nem fábrica de Lobos.",
     "sin2": "Tem dia e noite: à noite gera duas manas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Lobisomem de 3: mana de qualquer cor. Verso: duas de uma cor (Daybound).",
    "porque": "Ramp que conta como lobo e gera duas manas à noite: acelera e ajuda a fechar os três da manutenção.",
    "pacote": "noite",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Lobisomem de 3 que conta para os três e gera mana, duas à noite."
+   "papel_por_que": "Lobisomem de 3 que conta para os três e gera mana, duas à noite.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conta para os três e acerta as duas cores; à noite gera duas manas.",
+    "I": "Um 2/3 que gera uma mana.",
+    "T": "Três manas, no padrão de pedra de três.",
+    "Q": "Início, paridade e na frente; atrás faz pouco.",
+    "R": "Só Scorned Villager e Kessig Naturalist também aceleram contando para a noite."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Werewolf Pack Leader": {
    "notas": {
@@ -814,13 +1271,37 @@
    "sin_por_que": {
     "sin1": "Lobisomem comum: compra também pelo ataque largo, mas não é lorde nem cria Lobos."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Lobisomem de 2, de uma face só. Ao atacar com força total 6 ou mais, compre. {3}{G}: vira 5/3 com atropelar.",
    "porque": "Segundo motor de compra pelo ataque largo, ao lado do Tovolar, num lobisomem de 2 que conta para os três.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (compra ao atacar com força 6)",
-   "papel_por_que": "Lobisomem de 2 que conta para os três e compra quando a matilha ataca forte."
+   "papel_por_que": "Lobisomem de 2 que conta para os três e compra quando a matilha ataca forte.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É compra sem depender de conectar: basta atacar com força total 6, e ele conta para os três.",
+    "I": "Um 3/3 na hora; a carta por ataque pede que ele fique em campo.",
+    "T": "Duas manas por um 3/3 que compra.",
+    "Q": "Início, paridade e na frente; atrás, sem matilha, não chega à força 6.",
+    "R": "Toski e Ohran Frostfang, do radar, compram mais, mas custam quatro e cinco e não são da matilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ele, toda a compra da lista depende de o Tovolar estar em campo e de os Lobos passarem pelos bloqueadores.",
+    "O Toski, Bearer of Secrets, do radar, custa quatro, não conta para os três e só compra quando o dano chega ao jogador.",
+    "No turno 2 é um 3/3 que fecha a contagem; na paridade e na frente compra a cada ataque com força 6."
+   ],
+   "indice": 2.45
   },
   "Arlinn, the Pack's Hope": {
    "notas": {
@@ -837,13 +1318,33 @@
     "sin1": "Não é Lobo nem Lobisomem como carta, mas cria dois Lobos e, à noite, vira uma criatura Lobisomem.",
     "sin2": "Tem dia e noite: à noite gera {R}{G} ou vira uma 5/5."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Planeswalker de 4 (Daybound). +1: até o seu turno, criaturas com lampejo e um marcador a mais. −3: dois Lobos 2/2. Verso: {R}{G}, ou vira 5/5.",
    "porque": "Dois lobos de uma vez, ou lobos conjurados com lampejo no turno dos outros sem trazer o dia. À noite vira uma 5/5.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "O −3 põe dois Lobos 2/2 em campo, e o +1 dá lampejo para fechar os três da manutenção no turno alheio."
+   "papel_por_que": "O −3 põe dois Lobos 2/2 em campo, e o +1 dá lampejo para fechar os três da manutenção no turno alheio.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O −3 põe dois Lobos; o +1 dá lampejo às criaturas, para conjurar no turno alheio.",
+    "I": "Dois Lobos 2/2 garantidos, mas o −3 quase esgota a lealdade.",
+    "T": "Quatro manas por dois corpos, no padrão.",
+    "Q": "Paridade, na frente e atrás; no início custa caro.",
+    "R": "A Arlinn Kord e o Huntmaster of the Fells, do radar, fazem Lobo mais de uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Arlinn Kord",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Domri, Anarch of Bolas": {
    "notas": {
@@ -857,7 +1358,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Planeswalker de 3. Criaturas suas +1/+0. +1: {R} ou {G} e criaturas não podem ser anuladas. −2: luta.",
-   "porque": "Anthem, remoção por luta e mana numa carta de 3, mas não é lobo e o +1/+0 é pequeno."
+   "porque": "Anthem, remoção por luta e mana numa carta de 3, mas não é lobo e o +1/+0 é pequeno.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Luta repetível e +1/+0 para a mesa; não conta para os três.",
+    "I": "O +1/+0 vale na hora, e ainda luta ou gera mana.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início (mana), paridade e atrás (luta), na frente (o +1/+0).",
+    "R": "Remoção de criatura é rara na lista: fora ele, quase só o Khalni Ambush e as limpezas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Bala Ged Recovery": {
    "notas": {
@@ -866,10 +1386,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 3: devolve uma carta do cemitério à mão. Verso: terreno virado que gera {G}.",
-   "porque": "Terreno quando falta, recursão quando sobra: flexível, sem ligação com a matilha."
+   "porque": "Terreno quando falta, recursão quando sobra: flexível, sem ligação com a matilha.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor como terreno; como mágica, devolve qualquer carta do cemitério.",
+    "I": "Um terreno, ou uma carta de volta.",
+    "T": "Como terreno, entra virado; como mágica, três manas.",
+    "Q": "Viva sempre.",
+    "R": "É a única recursão da lista que também é fonte de mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Blasphemous Act": {
    "notas": {
@@ -877,7 +1416,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 9, uma a menos por criatura em campo: 13 de dano em cada criatura.",
    "porque": "Mata a matilha também. Fica como plano B, por decisão do dono: o reset quando a mesa deles passou da sua.",
@@ -888,7 +1427,29 @@
    "custo_usual": {
     "cmc": 1,
     "como": "numa mesa cheia, com oito criaturas"
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 3,
+    "Q": 0,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Zera a própria conta: leva os três da noite e quem compra.",
+    "I": "Limpa a mesa inteira.",
+    "T": "Sai por uma a três manas numa mesa cheia.",
+    "Q": "Só atrás, quando a mesa deles passou da sua.",
+    "R": "As limpezas estão abaixo da cota (duas de três a quatro); o Mizzium Mortars do radar é unilateral."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "média",
+   "indice": 1.6
   },
   "Bramblecrush": {
    "notas": {
@@ -896,11 +1457,34 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Feitiço de 4: destrói uma permanente que não é criatura.",
    "porque": "Remoção cara e de feitiço, que só pega o que não é criatura: Chaos Warp e Destructive Revelry fazem por menos.",
-   "prioridade": 8
+   "prioridade": 8,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, e não pega criatura.",
+    "T": "Quatro manas, de feitiço.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "O Beast Within, do radar, pega qualquer permanente, instantâneo, por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Beast Within",
+   "confianca": "alta",
+   "indice": 0.95
   },
   "Cathartic Reunion": {
    "notas": {
@@ -908,11 +1492,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 2: descarte duas e compre três.",
    "porque": "Compra fraca, que custa duas cartas, num deck cujo comandante já compra.",
-   "prioridade": 5
+   "prioridade": 5,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica, que troca cartas em vez de somar.",
+    "I": "Três cartas por três: melhora a mão, não aumenta.",
+    "T": "Duas manas e duas cartas de custo adicional.",
+    "Q": "Início e paridade, com cartas sobrando na mão.",
+    "R": "O Toski, Bearer of Secrets, do radar, compra a cada criatura que conecta; fica pela cota de compra."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Toski, Bearer of Secrets",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Chaos Warp": {
    "notas": {
@@ -920,10 +1524,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 3: o dono embaralha uma permanente no grimório e revela o topo; se for permanente, entra.",
-   "porque": "Responde a qualquer tipo de permanente e é instantânea: a remoção mais ampla da lista."
+   "porque": "Responde a qualquer tipo de permanente e é instantânea: a remoção mais ampla da lista.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, e o dono pode revelar outra permanente.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "É a única resposta da lista a qualquer permanente; o Beast Within do radar entra em outra vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Cultivate": {
    "notas": {
@@ -935,7 +1558,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 3: dois básicos, um no campo virado e outro na mão.",
-   "porque": "Ramp de terreno que ainda põe outro na mão; cumpre, mas é feitiço de 3 sem ligação com a matilha."
+   "porque": "Ramp de terreno que ainda põe outro na mão; cumpre, mas é feitiço de 3 sem ligação com a matilha.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico de terreno.",
+    "I": "Dois básicos por uma carta.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e atrás.",
+    "R": "Ramp de terreno não cai com as pedras, e o Roiling Regrowth rende menos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Destructive Revelry": {
    "notas": {
@@ -946,7 +1588,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 2: destrói artefato ou encantamento e causa 2 ao controlador.",
-   "porque": "Interação barata e instantânea, mas só para artefato e encantamento."
+   "porque": "Interação barata e instantânea, mas só para artefato e encantamento.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica de artefato e encantamento.",
+    "I": "Uma por uma, mais 2 de dano.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "Dentro da cota de remoção; só o Outland Liberator faz o mesmo na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Dire-Strain Rampage": {
    "notas": {
@@ -958,7 +1619,27 @@
    "rel": "BAX",
    "faz": "Feitiço de 3: destrói artefato, encantamento ou terreno; o controlador busca básicos. Flashback.",
    "porque": "Flexível, mas de feitiço e dá básicos ao alvo; só vira ramp destruindo o próprio terreno.",
-   "prioridade": 9
+   "prioridade": 9,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, e o alvo ganha um terreno básico; o flashback repete por cinco.",
+    "T": "Três manas, de feitiço.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "A Destructive Revelry faz o mesmo instantânea; no radar a vaga é do Huntmaster of the Fells."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Huntmaster of the Fells",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Evolution Charm": {
    "notas": {
@@ -966,11 +1647,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Instantânea de 2: um básico na mão, uma criatura do cemitério na mão, ou voar.",
    "porque": "Três coisas pequenas, nenhuma que o deck precise: básico, recursão ou voar por um turno.",
-   "prioridade": 7
+   "prioridade": 7,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Três modos genéricos: básico na mão, criatura de volta à mão ou voar.",
+    "I": "Uma carta por uma.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Início (terreno), paridade e atrás (devolve criatura).",
+    "R": "O Bala Ged Recovery devolve qualquer carta; no radar a vaga é do Kruin Outlaw."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Kruin Outlaw",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Fog": {
    "notas": {
@@ -982,7 +1683,30 @@
    "rel": "BAX",
    "faz": "Instantânea de 1: previne todo dano de combate do turno.",
    "porque": "Defesa simétrica num deck que vence atacando: segura um turno e não protege de limpeza.",
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "D",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 0,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Não avança a conta: só adia um ataque.",
+    "I": "Segura um combate.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Só atrás, diante de um ataque letal.",
+    "R": "O Moonmist, do radar, previne o dano das criaturas que não são Lobos nem Lobisomens e vira os Humanos."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Moonmist",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Gruul Charm": {
    "notas": {
@@ -997,7 +1721,26 @@
    "porque": "O primeiro modo tira os bloqueadores de chão: a matilha inteira conecta e o Tovolar compra por cada lobo.",
    "marcas": {
     "evm": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Criaturas sem voar não bloqueiam: a matilha inteira conecta e o Tovolar compra por Lobo.",
+    "I": "Efeito grande e garantido no turno, do tamanho da mesa que você tiver.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade e na frente; os outros modos raramente salvam.",
+    "R": "A evasão em massa está abaixo da cota (quatro de cinco), e nenhuma outra custa duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.5
   },
   "Khalni Ambush": {
    "notas": {
@@ -1005,10 +1748,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 3: sua criatura luta com uma de oponente. Verso: terreno virado que gera {G}.",
-   "porque": "Remoção por luta quando sobra terreno, e terreno quando falta. Depende de ter a criatura maior."
+   "porque": "Remoção por luta quando sobra terreno, e terreno quando falta. Depende de ter a criatura maior.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Luta genérica, ou terreno de uma cor.",
+    "I": "Uma por uma, se o seu Lobo for o maior.",
+    "T": "Três manas e condicional; como terreno, entra virado.",
+    "Q": "Viva sempre: terreno quando falta, luta quando sobra.",
+    "R": "Remoção de criatura é rara na lista, e esta não ocupa vaga de mágica."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Moment's Peace": {
    "notas": {
@@ -1020,7 +1782,27 @@
    "rel": "BAX",
    "faz": "Instantânea de 2: previne todo dano de combate do turno. Flashback.",
    "porque": "Mesma razão do Fog: defesa simétrica num deck que vence atacando, mesmo com o flashback.",
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "D",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 2,
+    "Q": 0,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Não avança a conta: só adia um ataque.",
+    "I": "Segura um combate, e outro pelo flashback.",
+    "T": "Duas manas, e três pelo flashback.",
+    "Q": "Só atrás, diante de um ataque letal.",
+    "R": "O Fog faz o mesmo por uma mana, e a proteção passou da cota; no radar a vaga é do Pyreheart Wolf."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Pyreheart Wolf",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Roiling Regrowth": {
    "notas": {
@@ -1032,7 +1814,30 @@
    "rel": "BAX",
    "faz": "Instantânea de 3: sacrifique um terreno e busque dois básicos virados.",
    "porque": "Ramp de só um terreno a mais por três manas, e os dois chegam virados.",
-   "prioridade": 10
+   "prioridade": 10,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico de terreno.",
+    "I": "Um terreno a mais, e os dois entram virados.",
+    "T": "Três manas, instantânea.",
+    "Q": "Início, paridade e atrás.",
+    "R": "O Nature's Lore, do radar, põe uma Forest desvirada por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Nature's Lore",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Savage Twister": {
    "notas": {
@@ -1040,14 +1845,36 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de X+2: X de dano em cada criatura.",
    "porque": "Plano B do dono, e o mais afinável: com X pequeno mata as fichas deles e poupa os lobos crescidos pelo Immerwolf e pelos lordes da noite.",
    "marcas": {
     "contra": 1
    },
-   "massa": true
+   "massa": true,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica; com X pequeno poupa os Lobos crescidos pelos lords.",
+    "I": "Limpa as pequenas dos dois lados; o X afinado deixa parte da matilha.",
+    "T": "X mais duas manas: cinco para X igual a 3, no padrão.",
+    "Q": "Atrás, e na paridade com lord em campo.",
+    "R": "As limpezas estão abaixo da cota; é a única afinável da lista."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "média",
+   "indice": 1.6
   },
   "Storm the Festival": {
    "notas": {
@@ -1060,7 +1887,27 @@
    "rel": "BAX",
    "faz": "Feitiço de 6: das cinco do topo, até duas permanentes de valor 5 ou menos no campo. Flashback.",
    "porque": "Seis manas por um resultado variável: depende de haver duas permanentes boas entre as cinco do topo.",
-   "prioridade": 11
+   "prioridade": 11,
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Põe permanentes em campo, sem escolher Lobo: não é da matilha.",
+    "I": "Até duas permanentes entre cinco cartas; resultado variável.",
+    "T": "Seis manas, e dez pelo flashback.",
+    "Q": "Paridade e atrás, com mana sobrando.",
+    "R": "No radar a vaga é do Ohran Frostfang, que compra a cada criatura que conecta."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Ohran Frostfang",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Turntimber Symbiosis": {
    "notas": {
@@ -1073,7 +1920,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 7: das sete do topo, uma criatura no campo. Verso: terreno que entra virado ou por 3 de vida.",
-   "porque": "Terreno quando falta, uma criatura grande quando sobra; como mágica, custa 7."
+   "porque": "Terreno quando falta, uma criatura grande quando sobra; como mágica, custa 7.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor como terreno; como mágica, põe uma criatura das sete do topo.",
+    "I": "Um terreno, ou um corpo por sete manas.",
+    "T": "Desvirado por 3 de vida.",
+    "Q": "Viva sempre.",
+    "R": "Terreno que vira corpo tarde; dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Arcane Signet": {
    "notas": {
@@ -1084,7 +1950,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: uma mana da identidade.",
-   "porque": "Ramp de turno 2 que dá as duas cores; cumpre sem ligação com a matilha."
+   "porque": "Ramp de turno 2 que dá as duas cores; cumpre sem ligação com a matilha.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico, com as duas cores.",
+    "I": "Uma mana a mais.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O Gruul Signet é par, mas as duas estão entre as melhores pedras da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Decanter of Endless Water": {
    "notas": {
@@ -1096,7 +1981,27 @@
    "rel": "BAX",
    "faz": "Artefato de 3: mana de qualquer cor; sem limite de mão.",
    "porque": "Pedra de três que faz o que o Gruul Signet faz por duas; o sem limite de mão repete o Reliquary Tower.",
-   "prioridade": 12
+   "prioridade": 12,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico; o sem limite de mão repete o Reliquary Tower.",
+    "I": "Uma mana a mais.",
+    "T": "Três manas, no padrão de pedra de três.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O ramp passou da cota e os Signets fazem o mesmo por duas; no radar a vaga é de The Great Henge."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "The Great Henge",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Doors of Durin": {
    "notas": {
@@ -1110,7 +2015,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 5. Sempre que você ataca, vidência 2 e, se o topo é criatura, ela entra virada e atacando.",
-   "porque": "Corpo extra a cada ataque, mas custa 5 e os bônus pedem Dwarf e Elf, fora do plano da matilha."
+   "porque": "Corpo extra a cada ataque, mas custa 5 e os bônus pedem Dwarf e Elf, fora do plano da matilha.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Põe criatura do topo atacando, sem conjurar; se for Lobo e conectar, compra.",
+    "I": "Vidência 2 a cada ataque e um corpo quando o topo é criatura, cerca de uma em quatro.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Os bônus pedem Dwarf e Elf, que a lista não tem; a Lurking Predators faz parecido."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Gruul Cluestone": {
    "notas": {
@@ -1119,11 +2043,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Artefato de 3: {R} ou {G}; {R}{G}, vira e sacrifique: compre.",
    "porque": "Pedra lenta de três que gera uma mana, quando Gruul Signet e Arcane Signet fazem isso por duas.",
-   "prioridade": 13
+   "prioridade": 13,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico.",
+    "I": "Uma mana a mais; depois vira carta por duas manas.",
+    "T": "Três manas por uma mana.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O ramp passou da cota, e esta é a pior pedra que acelera: os Signets custam duas."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Nightpack Ambusher",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Gruul Signet": {
    "notas": {
@@ -1134,7 +2078,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2. {1}, vira: {R}{G}.",
-   "porque": "Ramp de turno 2 que filtra as duas cores; cumpre, sem ligação com a matilha."
+   "porque": "Ramp de turno 2 que filtra as duas cores; cumpre, sem ligação com a matilha.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico, que filtra as duas cores.",
+    "I": "Uma mana a mais.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O Arcane Signet é par, mas as duas estão entre as melhores pedras da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Icon of Ancestry": {
    "notas": {
@@ -1153,7 +2116,30 @@
    "porque": "Anthem pequeno de um tipo só, e a matilha tem dois: Wolf ou Werewolf fica de fora.",
    "prioridade": 14,
    "papel": "multiplica",
-   "papel_por_que": "Lorde +1/+1 para um tipo só (Lobo ou Lobisomem), metade da matilha."
+   "papel_por_que": "Lorde +1/+1 para um tipo só (Lobo ou Lobisomem), metade da matilha.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Escolhe um tipo só, e a matilha tem dois.",
+    "I": "+1/+1 para metade da matilha.",
+    "T": "Três manas, e mais três para cavar.",
+    "Q": "Paridade, na frente e atrás (cava criatura do tipo).",
+    "R": "O Howlpack Resurgence, do radar, dá +1/+1 e atropelar aos dois tipos pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Howlpack Resurgence",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Lightning Greaves": {
    "notas": {
@@ -1162,13 +2148,32 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
    "porque": "Protege o Tovolar e o faz atacar no turno em que entra, mas o manto também barra os seus próprios alvos nele.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica; o ímpeto deixa um Lobo conectar no turno em que entra.",
+    "I": "Protege uma criatura.",
+    "T": "Duas manas, equipar {0}.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "As Swiftfoot Boots fazem o mesmo sem barrar o pump do Tovolar e a Kessig Wolf Run."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Mind Stone": {
    "notas": {
@@ -1177,10 +2182,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: {C}; sacrifique: compre.",
-   "porque": "Incolor num deck de duas cores: acelera, mas não ajuda nas cores."
+   "porque": "Incolor num deck de duas cores: acelera, mas não ajuda nas cores.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico e incolor.",
+    "I": "Uma mana a mais; depois vira carta.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre: mana cedo, carta tarde.",
+    "R": "O Talisman of Impulse, do radar, custa o mesmo e dá as duas cores."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Talisman of Impulse",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Mystic Skull": {
    "notas": {
@@ -1188,11 +2213,34 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Artefato de 2. {1}, vira: uma mana de qualquer cor. {5}, vira: transforma.",
    "porque": "Não acelera: paga {1} por uma mana e só troca a cor, papel que as pedras de duas manas já fazem melhor.",
-   "prioridade": 15
+   "prioridade": 15,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 0,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Só troca a cor da mana: não acelera.",
+    "I": "Paga {1} para gerar uma mana: nada a mais.",
+    "T": "Duas manas por uma pedra que não acelera.",
+    "Q": "Só quando falta cor; virar a face custa cinco.",
+    "R": "O Talisman of Impulse, do radar, custa o mesmo, acelera e dá as duas cores."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Talisman of Impulse",
+   "confianca": "alta",
+   "indice": 0.6
   },
   "Obelisk of Urd": {
    "notas": {
@@ -1215,7 +2263,30 @@
    "custo_usual": {
     "cmc": 3,
     "como": "convocando com os lobos que não atacam"
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Escolhe um tipo só, e a matilha tem dois: Lobo ou Lobisomem fica de fora.",
+    "I": "+2/+2 na hora para o tipo escolhido.",
+    "T": "Seis manas, perto de três com convocar, virando criaturas que iam atacar.",
+    "Q": "Paridade e na frente.",
+    "R": "O Craterhoof Behemoth, do radar, aumenta a mesa inteira e dá atropelar."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Craterhoof Behemoth",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Rhonas's Monument": {
    "notas": {
@@ -1229,7 +2300,26 @@
    "rel": "ALT",
    "faz": "Artefato de 3. Criaturas verdes custam {1} a menos; cada criatura conjurada dá +2/+2 e atropelar a uma criatura sua.",
    "porque": "Atropelar e +2/+2 a cada criatura conjurada, mais desconto nas verdes; a evasão é de uma criatura por vez.",
-   "pacote": "evasao"
+   "pacote": "evasao",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada criatura conjurada dá +2/+2 e atropelar a um atacante; as verdes custam uma a menos.",
+    "I": "Nada ao entrar; depois, uma criatura por mágica.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início (o desconto), paridade e na frente.",
+    "R": "A evasão é de uma criatura por vez; Kessig Wolf Run e Skarrg fazem parecido sem ocupar vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Sol Ring": {
    "notas": {
@@ -1240,7 +2330,26 @@
    "tier": "A",
    "rel": "MED",
    "faz": "Artefato de 1: {C}{C}.",
-   "porque": "Põe o Tovolar na mesa no turno 2: o ramp mais rápido da lista, sem ligação com a matilha."
+   "porque": "Põe o Tovolar na mesa no turno 2: o ramp mais rápido da lista, sem ligação com a matilha.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico: põe o Tovolar em campo no turno 2.",
+    "I": "Duas manas por uma.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Não há pedra igual."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Spellbook": {
    "notas": {},
@@ -1250,7 +2359,30 @@
    "rel": "BAX",
    "faz": "Artefato de 0: sem limite de mão.",
    "porque": "O Reliquary Tower já tira o limite de mão sem ocupar vaga de mágica.",
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 0,
+    "T": 3,
+    "Q": 0,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Não avança a conta.",
+    "I": "Nada muda na mesa.",
+    "T": "Custa zero.",
+    "Q": "Só na frente, com mais de sete cartas na mão.",
+    "R": "Reliquary Tower e Decanter já tiram o limite de mão; no radar a vaga é do Moonlight Hunt."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "win-more"
+   ],
+   "substituto": "Moonlight Hunt",
+   "confianca": "alta",
+   "indice": 0.6
   },
   "Swiftfoot Boots": {
    "notas": {
@@ -1265,7 +2397,26 @@
    "porque": "A segunda proteção do Tovolar, com ímpeto, e o hexproof ainda deixa você mesmo mirar nele.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica; o ímpeto deixa um Lobo conectar no turno em que entra.",
+    "I": "Protege uma criatura.",
+    "T": "Duas manas, equipar {1}.",
+    "Q": "Paridade, na frente e atrás (protege quem sobrou).",
+    "R": "Dentro da cota de quatro proteções; não barra o pump do Tovolar no equipado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Asceticism": {
    "notas": {
@@ -1280,7 +2431,30 @@
    "marcas": {
     "protege": 1
    },
-   "prioridade": 17
+   "prioridade": 17,
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica da mesa.",
+    "I": "Resistência a magia para todas as criaturas, na hora.",
+    "T": "Cinco manas, e mais duas por criatura regenerada.",
+    "Q": "Paridade e na frente; numa limpeza, falta mana para regenerar a matilha.",
+    "R": "A Heroic Intervention, do radar, protege todas as permanentes de limpeza por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Heroic Intervention",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Berserkers' Onslaught": {
    "notas": {
@@ -1290,12 +2464,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 5: suas criaturas atacantes têm golpe duplo.",
    "porque": "Cada golpe é dano de combate separado: o Tovolar compra duas por lobo que conecta.",
    "papel": "multiplica",
-   "papel_por_que": "Golpe duplo nos atacantes: cada Lobo que conecta dispara a compra do Tovolar duas vezes."
+   "papel_por_que": "Golpe duplo nos atacantes: cada Lobo que conecta dispara a compra do Tovolar duas vezes.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Golpe duplo nos atacantes: cada Lobo que conecta compra duas cartas.",
+    "I": "Vale no combate do turno em que entra, mas pede matilha em campo.",
+    "T": "Cinco manas, com {R}{R} numa base de sete Mountains.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta da lista dobra a compra do Tovolar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Bow of Nylea": {
    "notas": {
@@ -1309,7 +2502,27 @@
    "rel": "BAX",
    "faz": "Artefato encantamento de 3. Atacantes com toque mortífero; {1}{G}, vira: um de quatro modos pequenos.",
    "porque": "Faz pouco por três manas: o toque mortífero só vale no ataque e os modos são pequenos.",
-   "prioridade": 18
+   "prioridade": 18,
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Toque mortífero nos atacantes desencoraja o bloqueio, mas não faz ninguém conectar.",
+    "I": "Um efeito pequeno por turno.",
+    "T": "Três manas, e mais duas por ativação.",
+    "Q": "Paridade, na frente e atrás (vida e voadoras).",
+    "R": "No radar a vaga é do Avabruck Caretaker; qualquer evasão em massa converte mais."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Avabruck Caretaker",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Fires of Yavimaya": {
    "notas": {
@@ -1320,8 +2533,28 @@
    "tier": "C",
    "rel": "BAX",
    "faz": "Encantamento de 3: suas criaturas têm ímpeto.",
-   "porque": "Repete o ímpeto do Rhythm of the Wild, que ainda protege as criaturas contra anulação.",
-   "prioridade": 19
+   "porque": "Dá ímpeto a todas as suas criaturas, as fichas de Lobo também; o Rhythm of the Wild só alcança as que não são ficha, mas protege contra anulação.",
+   "prioridade": 19,
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ímpeto para todas as criaturas, fichas de Lobo também.",
+    "I": "Não muda a mesa ao entrar.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "Tem par na lista (Rhythm of the Wild); no radar a vaga é da Arlinn Kord."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Arlinn Kord",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Full Moon's Rise": {
    "notas": {
@@ -1347,7 +2580,26 @@
    "pacote": "evasao",
    "papel": "multiplica",
    "papel_dupla": "Proteção (regenera os Lobisomens)",
-   "papel_por_que": "+1/+0 e atropelar aos Lobisomens: mais dano e mais conexões que compram."
+   "papel_por_que": "+1/+0 e atropelar aos Lobisomens: mais dano e mais conexões que compram.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Atropelar e +1/+0 só para os Lobisomens: os Lobos e as fichas ficam de fora.",
+    "I": "Vale na hora, e o sacrifício regenera os Lobisomens numa limpeza.",
+    "T": "Duas manas.",
+    "Q": "Paridade, na frente e atrás (a regeneração).",
+    "R": "O Howlpack Resurgence, do radar, pega os dois tipos; fica pela cota de evasão, que está baixa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Gruul War Chant": {
    "notas": {
@@ -1364,7 +2616,26 @@
     "evm": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Atacantes com +1/+0 e ameaça: mais Lobos passam e disparam a compra do Tovolar."
+   "papel_por_que": "Atacantes com +1/+0 e ameaça: mais Lobos passam e disparam a compra do Tovolar.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Ameaça para todos os atacantes: mais Lobos conectam e compram.",
+    "I": "Vale no combate do turno em que entra e fica em campo.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "A evasão em massa está abaixo da cota; é a única permanente de evasão para os dois tipos sem pedir a noite."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Lurking Predators": {
    "notas": {
@@ -1378,13 +2649,32 @@
    "sin_por_que": {
     "sin2": "Põe criaturas em campo pelo que os oponentes conjuram, sem você conjurar no seu turno: ajuda a fechar os três da manutenção."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 6. Sempre que um oponente conjura, revele o topo; se for criatura, ela entra.",
    "porque": "Corpos no turno dos outros, pagos pelo mesmo evento que vira o dia, e ajuda a fechar os três da manutenção.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Põe criaturas em campo no turno dos oponentes, fechando os três sem conjurar no seu turno."
+   "papel_por_que": "Põe criaturas em campo no turno dos oponentes, fechando os três sem conjurar no seu turno.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Põe criatura em campo no turno dos oponentes, sem você conjurar: ajuda a fechar os três.",
+    "I": "Nada ao entrar; depois, só 24 das 99 cartas são criaturas.",
+    "T": "Seis manas.",
+    "Q": "Paridade, na frente e atrás, enquanto a mesa conjurar.",
+    "R": "Nenhuma outra carta da lista gera corpo pelo que os oponentes conjuram."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Rhythm of the Wild": {
    "notas": {
@@ -1394,10 +2684,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 3. Criaturas suas não podem ser anuladas; as não-ficha entram com ímpeto ou um marcador.",
-   "porque": "Ímpeto para o lobo conectar e comprar no turno em que entra, e as suas criaturas não podem ser anuladas."
+   "porque": "Ímpeto para o lobo conectar e comprar no turno em que entra, e as suas criaturas não podem ser anuladas.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá ímpeto ao Lobo que entra: ele conecta e compra no mesmo turno.",
+    "I": "Não muda a mesa ao entrar; rende a cada criatura que não é ficha.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente; contra anulação, protege as criaturas.",
+    "R": "O Fires of Yavimaya dá ímpeto, mas não protege de anulação nem dá marcador."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Sylvan Anthem": {
    "notas": {
@@ -1405,13 +2714,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "BAX",
    "faz": "Encantamento de 2. Criaturas verdes +1/+1; vidência 1 quando uma entra.",
    "porque": "Só Fearless Pup e Runebound Wolf não são verdes, mas é anthem pequeno, e os lordes da matilha já dão +1/+1.",
    "prioridade": 20,
    "papel": "multiplica",
-   "papel_por_que": "+1/+1 às criaturas verdes, quase toda a matilha e as fichas de Lobo."
+   "papel_por_que": "+1/+1 às criaturas verdes, quase toda a matilha e as fichas de Lobo.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "+1/+1 para as criaturas verdes: quase toda a matilha e as fichas de Lobo.",
+    "I": "Buff pequeno, que não decide combate sozinho.",
+    "T": "Duas manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Os lords já dão +1/+1 e contam para os três; no radar a vaga é do Overwhelming Stampede."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Overwhelming Stampede",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Unnatural Growth": {
    "notas": {
@@ -1421,12 +2750,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Encantamento de 5. No começo de cada combate, dobra a força e a resistência das suas criaturas.",
    "porque": "O melhor multiplicador da lista: dobra a matilha em todo combate, inclusive os bloqueadores no turno dos oponentes.",
    "papel": "multiplica",
-   "papel_por_que": "Dobra força e resistência das suas criaturas em cada combate."
+   "papel_por_que": "Dobra força e resistência das suas criaturas em cada combate.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dobra a matilha em todo combate; não dá evasão nem carta, só tamanho.",
+    "I": "Dobra força e resistência já no combate do turno, no ataque e na defesa.",
+    "T": "Cinco manas, com {G}{G}{G}{G}.",
+    "Q": "Paridade, na frente e atrás (dobra os bloqueadores).",
+    "R": "Craterhoof Behemoth e Overwhelming Stampede, do radar, fecham num turno só; este fica em campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Castle Embereth": {
    "notas": {
@@ -1437,16 +2785,54 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{R}; entra virado sem Mountain. {1}{R}{R}, vira: criaturas suas +1/+0.",
-   "porque": "Pressão num terreno, que não ocupa vaga, mas a ativação custa 3 e dá só +1/+0."
+   "porque": "Pressão num terreno, que não ocupa vaga, mas a ativação custa 3 e dá só +1/+0.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; o +1/+0 para a mesa custa três manas.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado se você controla uma Mountain.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Command Tower": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "faz": "Mana da identidade.",
-   "porque": "As duas cores desvirado; num deck de duas cores, faz o que outras duais também fazem."
+   "porque": "As duas cores desvirado; num deck de duas cores, faz o que outras duais também fazem.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno melhor para duas cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Field of Ruin": {
    "notas": {
@@ -1458,7 +2844,30 @@
    "rel": "BAX",
    "faz": "{C}. {2}, vira e sacrifique: destrói terreno não-básico de oponente; cada jogador busca um básico.",
    "porque": "Incolor e simétrico: tira um terreno deles e dá um básico a todos.",
-   "prioridade": 5
+   "prioridade": 5,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; tirar um terreno deles não avança a conta.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "A Boseiju, Who Endures, do radar, gera {G} e responde a artefato, encantamento ou terreno."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Boseiju, Who Endures",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Fire-Lit Thicket": {
    "notas": {},
@@ -1467,7 +2876,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{C}, ou filtra {R/G} em duas.",
-   "porque": "Acerta as duas cores desvirado, filtrando a mana; cumpre sem passar disso."
+   "porque": "Acerta as duas cores desvirado, filtrando a mana; cumpre sem passar disso.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, filtrando.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; sozinho gera incolor.",
+    "Q": "Viva sempre.",
+    "R": "Acerta os custos {G}{G}{G}{G} e {R}{R} da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Forgotten Cave": {
    "notas": {
@@ -1476,12 +2904,35 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado, {R}. Ciclo {R}.",
    "porque": "Um dos sete terrenos que sempre entram virados, num deck que quer o Tovolar no turno 3.",
    "prioridade": 2,
-   "virado": true
+   "virado": true,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno, ou uma carta pelo ciclo.",
+    "T": "Sempre virado.",
+    "Q": "Viva sempre.",
+    "R": "O Cragcrown Pathway, do radar, dá uma das duas cores desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Cragcrown Pathway",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Gruul Guildgate": {
    "notas": {
@@ -1489,12 +2940,35 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado, {R} ou {G}.",
    "porque": "Virado, sem nada mais: um dos sete terrenos lentos que atrasam o Tovolar.",
    "prioridade": 1,
-   "virado": true
+   "virado": true,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Sempre virado, sem mais nada.",
+    "Q": "Viva sempre.",
+    "R": "O Thornspire Verge, do radar, entra desvirado e dá as duas cores com Mountain ou Forest em campo."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Thornspire Verge",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Highland Forest": {
    "notas": {
@@ -1506,7 +2980,27 @@
    "rel": "MED",
    "faz": "Sempre virado; Mountain Forest, {R} ou {G}.",
    "porque": "Dá as duas cores, mas entra virado e, sem ser básico, o Cultivate e o Roiling Regrowth não o acham.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Sempre virado.",
+    "Q": "Viva sempre.",
+    "R": "O Game Trail, do radar, dá as duas cores e entra desvirado revelando Mountain ou Forest."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Game Trail",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Kessig Wolf Run": {
    "notas": {
@@ -1518,7 +3012,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "{C}. {X}{R}{G}, vira: uma criatura ganha +X/+0 e atropelar.",
-   "porque": "Fechamento num terreno: +X/+0 e atropelar todo turno, e com Unnatural Growth o pump do comandante dobra."
+   "porque": "Fechamento num terreno: +X/+0 e atropelar todo turno, e com Unnatural Growth o pump do comandante dobra.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas dá +X/+0 e atropelar a um Lobo todo turno: serve ao conectar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre: mana cedo, fechamento tarde.",
+    "R": "Nenhum outro terreno fecha o jogo assim; o Skarrg dá só +1/+1."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Oran-Rief, the Vastwood": {
    "notas": {
@@ -1532,7 +3045,27 @@
    "faz": "Sempre virado, {G}. Vira: marcador em cada criatura verde que entrou no turno.",
    "porque": "Entra virado, e o marcador só pega criatura verde que entrou no turno: pouco efeito.",
    "prioridade": 3,
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; o marcador só pega criatura verde que entrou no turno.",
+    "I": "Um terreno por turno.",
+    "T": "Sempre virado.",
+    "Q": "Viva sempre.",
+    "R": "No radar a vaga é do Wooded Foothills, que busca Mountain ou Forest."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Wooded Foothills",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Path of Ancestry": {
    "notas": {
@@ -1549,7 +3082,27 @@
    "faz": "Sempre virado. Mana da identidade; vidência ao conjurar criatura que divide tipo com o comandante.",
    "porque": "Entra virado, e a vidência só sai nos lobisomens e Humanos, não nos lobos.",
    "prioridade": 4,
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores; a vidência sai nos Lobisomens e Humanos, não nos Lobos.",
+    "I": "Um terreno por turno.",
+    "T": "Sempre virado.",
+    "Q": "Viva sempre.",
+    "R": "No radar a vaga é do Mutavault, desvirado, que vira criatura de todos os tipos."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Mutavault",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Reliquary Tower": {
    "notas": {
@@ -1557,10 +3110,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "{C}. Sem limite de mão.",
-   "porque": "O Tovolar enche a mão, mas é um terreno incolor num deck de duas cores."
+   "porque": "O Tovolar enche a mão, mas é um terreno incolor num deck de duas cores.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; guarda a mão que o Tovolar enche.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "No radar a vaga é do Rogue's Passage, que deixa um Lobo sem bloqueio."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Rogue's Passage",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Rockfall Vale": {
    "notas": {},
@@ -1569,7 +3142,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{R} ou {G}; virado com menos de dois outros terrenos.",
-   "porque": "Desvirado do turno 3 em diante e dá as duas cores: cumpre sem passar disso."
+   "porque": "Desvirado do turno 3 em diante e dá as duas cores: cumpre sem passar disso.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Virado nos dois primeiros turnos.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Skarrg, the Rage Pits": {
    "notas": {
@@ -1581,7 +3173,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{C}. {R}{G}, vira: +1/+1 e atropelar numa criatura.",
-   "porque": "Utilitário de fechamento: atropelar num terreno, mas uma criatura por vez e gera incolor."
+   "porque": "Utilitário de fechamento: atropelar num terreno, mas uma criatura por vez e gera incolor.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas dá atropelar a um Lobo: serve ao conectar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "A Kessig Wolf Run faz o mesmo com +X/+0."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Spire Garden": {
    "notas": {},
@@ -1590,7 +3201,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{R} ou {G}; desvirado com dois ou mais oponentes.",
-   "porque": "Duas cores desvirado na mesa de quatro jogadores: cumpre sem passar disso."
+   "porque": "Duas cores desvirado na mesa de quatro jogadores: cumpre sem passar disso.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado com dois ou mais oponentes.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Temple of Abandon": {
    "notas": {
@@ -1603,7 +3233,30 @@
    "faz": "Sempre virado, {R} ou {G}; vidência 1.",
    "porque": "Entra sempre virado: a vidência não paga o turno perdido num deck que quer o Tovolar no turno 3.",
    "prioridade": 6,
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno, e vidência 1.",
+    "T": "Sempre virado.",
+    "Q": "Viva sempre.",
+    "R": "O Cinder Glade, do radar, dá as duas cores e entra desvirado com dois básicos."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Cinder Glade",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Tranquil Thicket": {
    "notas": {
@@ -1612,30 +3265,91 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado, {G}. Ciclo {G}.",
    "porque": "Sempre virado, e o ciclo não compensa: um dos sete terrenos lentos do deck.",
    "prioridade": 7,
-   "virado": true
+   "virado": true,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno, ou uma carta pelo ciclo.",
+    "T": "Sempre virado.",
+    "Q": "Viva sempre.",
+    "R": "O Karplusan Forest, do radar, dá as duas cores desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Karplusan Forest",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Forest": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Alvo do Cultivate e do Roiling Regrowth, mas dá uma cor só num deck de duas."
+   "porque": "Alvo do Cultivate e do Roiling Regrowth, mas dá uma cor só num deck de duas.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; sustenta os custos {G}{G} e o Cultivate.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Mountain": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Alvo do Cultivate e do Roiling Regrowth, mas dá uma cor só num deck de duas."
+   "porque": "Alvo do Cultivate e do Roiling Regrowth, mas dá uma cor só num deck de duas.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; liga o Castle Embereth.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   }
  },
  "radar": {
@@ -2730,5 +4444,19 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "02. TRIBAIS",
+  "conta": "Três Lobos e Lobisomens na manutenção trazem a noite (uivar); a matilha passa pelos bloqueadores com atropelar, ameaça ou bloqueio proibido (conectar); cada Lobo ou Lobisomem que causa dano de combate a um jogador vira carta no Tovolar (comprar).",
+  "decisoes": [
+   "Por decisão sua (13/10/2026), o deck mantém limpeza como plano alternativo: nenhuma troca tira o Blasphemous Act nem o Savage Twister.",
+   "Por decisão sua (13/10/2026), do radar só entram as trocas de tier alto; a base de mana fica para avaliar.",
+   "Por decisão sua (13/10/2026), Craterhoof Behemoth e Overwhelming Stampede ficam os dois no radar.",
+   "Por decisão sua (13/10/2026), The Great Henge pode entrar; Cavern of Souls, não.",
+   "Pela sua regra de 08/11/2026, cada deck quer três a quatro limpezas, de preferência de um lado só.",
+   "O deck não tem carta de estimação, como você registrou na ficha."
+  ]
  }
 }
