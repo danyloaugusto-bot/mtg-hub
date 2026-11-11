@@ -124,7 +124,7 @@ STAPLE_FORA = {"Swords to Plowshares"}
 # s3 e s3w: as notas dos dez critérios e o porquê delas, que a pontuação v3 acrescentou (o kit não tem)
 # pp, ppd e ppw: o papel no Plano do deck, a dupla função e o porquê (18/10/2026; o kit não tem)
 # why: o porquê de cada carta foi revisto a pedido do dono em 06/11/2026; cu e cuc: o custo usual (07/11/2026), que o kit não tem
-IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain", "s3", "s3w", "pp", "ppd", "ppw", "why", "cu", "cuc", "nova"}
+IGNORA = {"sid", "iset", "inum", "iback", "ar", "usd", "usdf", "mk", "vamp", "outlet", "drain", "s3", "s3w", "pp", "ppd", "ppw", "why", "cu", "cuc", "nova", "tl"}
 dif = []
 for chave in ("cards", "cands"):
     ob = {c["id"]: c for c in O[chave]}
