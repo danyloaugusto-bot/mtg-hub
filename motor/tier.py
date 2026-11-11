@@ -148,7 +148,9 @@ def aplicar(pasta, arquivo, gravar, avisar=print):
     cartas = av["cartas"]
     lista = dados.ler_decklist(os.path.join(os.path.dirname(caminho), "decklist.txt"))
     cmds = {e["name"] for e in lista if e["cmd"]}
-    qtd = {e["name"]: e["q"] for e in lista}
+    qtd = collections.Counter()
+    for e in lista:   # a mesma carta pode vir em duas linhas da lista (Mountain 1 e Mountain 7)
+        qtd[e["name"]] += e["q"]
     falta = sorted(set(cartas) - cmds - set(novo["cartas"]))
     sobra = sorted(set(novo["cartas"]) - (set(cartas) - cmds))
     if falta or sobra:
