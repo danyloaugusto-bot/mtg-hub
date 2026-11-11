@@ -49,7 +49,7 @@ Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20,
 ## Ajustes do piloto (Valgavoth, 10/11/2026)
 
 - **Substituto de fora só rebaixa a pior cópia do papel.** A carta nova entraria no lugar da pior da função, então só ela leva R = 0. Sem isso, uma carta de fora melhor derrubaria o papel inteiro.
-- **Terreno:** a lente E lê as cores: 2 para as duas cores (ou utilitário que serve a um verbo), 1 para uma cor, 0 para incolor.
+- **Terreno:** a lente E lê as cores: 2 para as duas cores (ou utilitário que serve a um verbo), 1 para uma cor, 0 para incolor. Vale também em deck de uma cor só: a fonte da cor fica em 1 (decisão do dono, 11/11/2026).
 - **Tutor sem restrição:** I = 2, porque vale a carta que busca.
 - **Os limites (2,20, 1,60, 1,00 e 2,40) ficaram como estavam.**
 - **Nome do campo:** `funcao` no dado, "Função" na tela (o Plano do deck já usa `papel`).
@@ -71,4 +71,4 @@ Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20,
 
 ## Em aberto
 
-O motor já calcula (`motor/tier.json` e `motor/tier.py`) e o painel já mostra a função e as notas. Falta aplicar o método aos outros 25 decks, em lotes de cinco, e mostrar o tier por deck no "Onde mais renderia".
+Feitos: Valgavoth (piloto) e o lote 1 (Giada, Markov, Vito, Clavileño, Dragões). Faltam 20 decks, em lotes de cinco, e o tier por deck no "Onde mais renderia". As notas de cada lote saem de um agente por deck, com o roteiro de `contexto/tier/BRIEF-TIER.md`, e passam pela revisão da sessão principal antes do "pode" do dono.
