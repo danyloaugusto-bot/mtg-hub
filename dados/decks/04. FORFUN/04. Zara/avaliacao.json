@@ -358,7 +358,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "C",
    "rel": "ALT",
    "faz": "Dragão Mago lendário 5/5 de 6 ({U}{U}{U}{R}{R}{R}) com voar, que não pode ser anulado. Qualquer jogador conjura instantânea ou feitiço: você compra; você compra: 1 de dano em qualquer alvo.",
    "porque": "Com a Curiosity, compra e dano infinitos (Commander Spellbook 1089-2353): é um dos fechamentos do plano. Carta de estimação, fica por escolha do dono.",
@@ -366,7 +366,26 @@
     "izzet": 1
    },
    "pacote": "fechamento",
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Fecha com a Curiosity, por fora do roubo: é o Izzet de mágicas que a homenagem evita.",
+    "I": "Compra a cada instantânea ou feitiço de qualquer jogador e fere a cada compra; precisa ficar.",
+    "T": "Seis manas, com {U}{U}{U}{R}{R}{R}.",
+    "Q": "Paridade, na frente e atrás, quando os disparos limpam a mesa.",
+    "R": "O Niv-Mizzet, the Firemind faz o mesmo laço com a Curiosity."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.35
   },
   "Niv-Mizzet, the Firemind": {
    "notas": {
@@ -376,12 +395,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "C",
    "rel": "ALT",
    "faz": "Dragão Mago lendário 4/4 de 6 com voar. Você compra: 1 de dano em qualquer alvo; {T}: compre.",
    "porque": "Com a Curiosity, compra e dano infinitos (Commander Spellbook 1089-4971): a segunda via do mesmo fechamento. Carta de estimação, fica por escolha do dono.",
    "pacote": "fechamento",
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Fecha com a Curiosity, por fora do roubo.",
+    "I": "Uma carta e 1 de dano por turno, só depois de uma volta da mesa.",
+    "T": "Seis manas.",
+    "Q": "Paridade, na frente e atrás, como voador e disparo.",
+    "R": "O Niv-Mizzet, Parun faz o mesmo laço e compra mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.15
   },
   "Dominus of Fealty": {
    "notas": {
@@ -404,7 +442,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma uma permanente a cada manutenção, desvirada e com ímpeto: roubo repetível fora da Zara."
+   "papel_por_que": "Toma uma permanente a cada manutenção, desvirada e com ímpeto: roubo repetível fora da Zara.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o recrutar sem a Zara: toma uma permanente a cada manutenção, desvirada e com ímpeto.",
+    "I": "Motor que precisa ficar; não rende no turno em que entra.",
+    "T": "Cinco manas híbridas, no padrão.",
+    "Q": "Paridade, na frente e atrás, quando toma a melhor peça da mesa.",
+    "R": "A Vedalken Shackles, do radar, rouba de novo, mas só criatura e pede Islands."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Clone": {
    "notas": {
@@ -428,7 +485,27 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Copia a criatura roubada, ou qualquer outra, e a cópia fica depois que a original volta."
+   "papel_por_que": "Copia a criatura roubada, ou qualquer outra, e a cópia fica depois que a original volta.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia a emprestada na segunda fase principal, e a cópia fica.",
+    "I": "Uma cópia da melhor criatura em campo, com o efeito de entrar de novo.",
+    "T": "Quatro manas, no padrão de um clone.",
+    "Q": "Paridade, na frente e atrás: copia qualquer criatura da mesa.",
+    "R": "O Dominion Saboteur, do radar, também copia a Zara; fica pela cota baixa de conversores."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Dominion Saboteur",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Glasspool Mimic": {
    "notas": {
@@ -442,7 +519,7 @@
    "sin_por_que": {
     "sin2": "Copia uma criatura sua, e a roubada é sua até a etapa final: a cópia fica."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "ALT",
    "faz": "Metamorfo Ladino de 3 que entra como cópia de uma criatura sua; o verso é terreno virado que dá {U}.",
    "porque": "A emprestada é sua até a etapa final, então a cópia fica; sem alvo, entra como terreno. Rende menos que o Clone por copiar só criatura sua.",
@@ -450,7 +527,26 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Entra como cópia de uma criatura sua, como a roubada, e a cópia fica."
+   "papel_por_que": "Entra como cópia de uma criatura sua, como a roubada, e a cópia fica.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia a emprestada, que é sua até a etapa final, e a cópia fica.",
+    "I": "Uma cópia garantida na entrada, com o efeito de entrar de novo.",
+    "T": "Três manas, uma a menos que o Clone.",
+    "Q": "Nunca morre na mão: sem alvo, é terreno.",
+    "R": "Clone e Quasiduplicate fazem o mesmo, mas os conversores estão abaixo da cota: sete para dez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3
   },
   "Archmage Emeritus": {
    "notas": {
@@ -458,14 +554,34 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Humano Mago de 4. Você conjura ou copia instantânea ou feitiço: compre.",
    "porque": "Compra boa com 32 instantâneas e feitiços, mas é o Izzet de mágicas que a homenagem queria evitar e não mexe no roubo.",
    "marcas": {
     "izzet": 1
    },
-   "prioridade": 12
+   "prioridade": 12,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra do Izzet de mágicas: rende com as 32 instantâneas e feitiços, não com o roubo.",
+    "I": "Uma carta por mágica, enquanto o 2/2 ficar.",
+    "T": "Quatro manas, e depende de conjurar mágicas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A compra está abaixo da cota; o radar põe a Lieutenant Nyota Uhura na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Lieutenant Nyota Uhura",
+   "confianca": "média",
+   "indice": 1.05
   },
   "Malevolent Hermit": {
    "notas": {
@@ -476,7 +592,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Humano Mago de 2. {U}, sacrifique: anula mágica que não é criatura, a menos que paguem {3}. Volta pelo verso (perturbar {2}{U}): Espírito voador; suas mágicas que não são criatura não podem ser anuladas.",
-   "porque": "Anulação em corpo que, pelo verso, protege o Mob Rule depois; é mais uma entre muitas anulações e não toca no roubo."
+   "porque": "Anulação em corpo que, pelo verso, protege o Mob Rule depois; é mais uma entre muitas anulações e não toca no roubo.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anulação genérica em corpo de 2/2.",
+    "I": "Uma anulação leve e, do cemitério, um voador que protege as suas mágicas.",
+    "T": "Duas manas, mais {U} e o sacrifício; o oponente pode pagar {3}.",
+    "Q": "Início, paridade e na frente, protegendo o Mob Rule.",
+    "R": "As anulações passaram da cota; o radar põe o Worf, Intelligence Contractor na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Worf, Intelligence Contractor",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Goblin Electromancer": {
    "notas": {
@@ -491,7 +627,27 @@
    "marcas": {
     "izzet": 1
    },
-   "prioridade": 5
+   "prioridade": 5,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Redutor do Izzet de mágicas: não barateia a Zara, as Auras nem as criaturas.",
+    "I": "Uma mana a menos por instantânea ou feitiço, enquanto o 2/2 ficar.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "As pedras aceleram a Zara; o radar põe o Wizard's Staff na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Wizard's Staff",
+   "confianca": "média",
+   "indice": 1.15
   },
   "Vadrik, Astral Archmage": {
    "notas": {
@@ -499,14 +655,37 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Humano Mago lendário de 3: instantâneas e feitiços custam {X} a menos, X a força dele; cresce quando dia e noite trocam.",
    "porque": "Outro redutor de mágica, como o Goblin Electromancer: puxa para o Izzet de mágicas e não acelera a Zara.",
    "marcas": {
     "izzet": 1
    },
-   "prioridade": 6
+   "prioridade": 6,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Outro redutor de mágicas: não acelera a Zara.",
+    "I": "Barateia as mágicas em 1 e cresce devagar, com o dia e a noite.",
+    "T": "Três manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Mind Stone, do radar, acelera a Zara na mesma vaga."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Mind Stone",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Goblin Flectomancer": {
    "notas": {
@@ -522,7 +701,27 @@
    "rel": "BAX",
    "faz": "Goblin Mago de 3. Sacrifique: muda os alvos de uma instantânea ou feitiço.",
    "porque": "Usa a mágica do oponente, mas uma vez só e sacrificando o corpo; o Redirect faz o mesmo sem ocupar vaga de criatura.",
-   "prioridade": 4
+   "prioridade": 4,
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica: desvia a mágica que mira a Zara.",
+    "I": "Salva a Zara e manda a remoção a outro alvo; só pega instantânea e feitiço.",
+    "T": "Três manas, com {R}{R}, e fica exposto em campo.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Redirect faz o mesmo sem ocupar vaga de criatura; o radar põe o Port Razer na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Port Razer",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Sphinx of the Second Sun": {
    "notas": {
@@ -532,11 +731,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Esfinge 6/6 de 8 com voar. Depois da sua segunda fase principal, há uma fase inicial extra (desvirar, manutenção e compra).",
    "porque": "Oito manas por uma fase extra sem combate: a Zara não ataca de novo, e o custo é alto demais para o que entrega neste plano.",
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 0,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: a fase extra não tem combate, e a Zara não ataca de novo.",
+    "I": "Um 6/6 voador; a cada turno seu, mais uma desvirada e uma compra.",
+    "T": "Oito manas.",
+    "Q": "Só no jogo longo.",
+    "R": "O radar põe o Conjurer's Closet na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Conjurer's Closet",
+   "confianca": "média",
+   "indice": 1.05
   },
   "Clout of the Dominus": {
    "notas": {
@@ -552,7 +771,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Aura {U/R}: numa criatura azul, +1/+1 e manto; numa vermelha, +1/+1 e ímpeto.",
-   "porque": "Por uma mana, protege a Zara e a faz atacar no turno em que entra: mantém o motor vivo. O manto também barra as suas mágicas, então mire a Zara antes."
+   "porque": "Por uma mana, protege a Zara e a faz atacar no turno em que entra: mantém o motor vivo. O manto também barra as suas mágicas, então mire a Zara antes.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Ímpeto e manto na Zara: ela rouba no turno em que desce.",
+    "I": "Vale na hora: +2/+2, ímpeto e manto, porque a Zara é azul e vermelha.",
+    "T": "Uma mana.",
+    "Q": "Paridade, na frente e atrás; vai junto quando a Zara sai de campo.",
+    "R": "É a única carta da lista que dá ímpeto e manto à Zara."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Mind Control": {
    "notas": {
@@ -565,7 +803,7 @@
    "sin_por_que": {
     "sin1": "Toma o controle de uma criatura de oponente, de vez."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Aura de 5: você controla a criatura encantada.",
    "porque": "Roubo que fica, da melhor criatura em campo, e alvo da Mirrormade para um segundo roubo: é a base de terminar a partida com as cartas deles.",
@@ -575,7 +813,27 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma de vez uma criatura."
+   "papel_por_que": "Toma de vez uma criatura.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez a melhor criatura em campo, e ela fica.",
+    "I": "Dois por um: tira a ameaça deles e põe do seu lado.",
+    "T": "Cinco manas, uma acima do roubo de vez mais barato.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Control Magic, do radar, faz o mesmo por quatro."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Control Magic",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Grafted Identity": {
    "notas": {
@@ -602,7 +860,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Recompensa (sacrifica a roubada como custo)",
-   "papel_por_que": "Toma uma criatura de vez, e o custo pode ser a criatura que a Zara trouxe."
+   "papel_por_que": "Toma uma criatura de vez, e o custo pode ser a criatura que a Zara trouxe.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "A emprestada paga o sacrifício, e a Aura toma outra criatura de vez.",
+    "I": "Dois por um: a emprestada vai ao cemitério do dono, e a melhor criatura deles fica sua.",
+    "T": "Quatro manas; com a emprestada, o sacrifício sai de graça.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra carta troca a emprestada por um roubo de vez; os conversores estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Curiosity": {
    "notas": {
@@ -611,10 +888,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Aura de 1: a criatura encantada causa dano a um oponente, você pode comprar.",
-   "porque": "Peça do combo com qualquer um dos dois Niv-Mizzet, compra e dano infinitos; sozinha, na Zara voando, compra uma carta por ataque."
+   "porque": "Peça do combo com qualquer um dos dois Niv-Mizzet, compra e dano infinitos; sozinha, na Zara voando, compra uma carta por ataque.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Fecha o laço com qualquer dos dois Niv-Mizzet, por fora do roubo; na Zara, compra a cada acerto.",
+    "I": "Com um Niv-Mizzet, vence; sozinha, uma carta por ataque que conecta.",
+    "T": "Uma mana.",
+    "Q": "Paridade, na frente e atrás, quando o laço vira o jogo.",
+    "R": "É a única peça que fecha o laço; sem ela, o plano perde um dos dois fechamentos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.05
   },
   "Rhystic Study": {
    "notas": {
@@ -626,7 +922,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Encantamento de 3: um oponente conjura, você compra, a menos que ele pague {1}.",
-   "porque": "O motor de compra do deck: rende a cada mágica dos oponentes, sem depender do ataque da Zara."
+   "porque": "O motor de compra do deck: rende a cada mágica dos oponentes, sem depender do ataque da Zara.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: qualquer deck azul usaria.",
+    "I": "Uma carta a cada mágica que o oponente não paga; precisa ficar.",
+    "T": "Três manas.",
+    "Q": "Viva sempre.",
+    "R": "É a única compra no turno dos outros, e a compra está abaixo da cota: oito para dez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Kitnap": {
    "notas": {
@@ -642,14 +957,34 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Aura de 4 com presente: vira a criatura e você a controla; sem o presente, ela ganha três marcadores de atordoamento.",
-   "porque": "Roubo que fica; com o presente a criatura já vem pronta, sem ele chega atordoada, e isso a deixa abaixo do Mind Control.",
+   "porque": "Roubo que fica; a criatura sempre entra virada, e sem o presente ainda ganha três marcadores de atordoamento, e isso a deixa abaixo do Mind Control.",
    "marcas": {
     "rouba": 1,
     "fica": 1
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma uma criatura de vez, virada e atordoada sem o presente."
+   "papel_por_que": "Toma uma criatura de vez, virada e atordoada sem o presente.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez uma criatura em campo.",
+    "I": "Dois por um, mas a criatura chega virada, e atordoada sem o presente.",
+    "T": "Quatro manas; o presente dá uma carta ao oponente.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Control Magic, do radar, faz o mesmo sem presente nem atordoar."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Control Magic",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Domestication": {
    "notas": {
@@ -672,7 +1007,27 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma de vez uma criatura de força até 3."
+   "papel_por_que": "Toma de vez uma criatura de força até 3.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez, mas só segura criatura de força até 3.",
+    "I": "Uma por uma, e só as pequenas.",
+    "T": "Quatro manas.",
+    "Q": "Paridade e atrás; as ameaças grandes escapam.",
+    "R": "Mind Control e Kitnap tomam qualquer criatura; o Control Magic, do radar, também."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Control Magic",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Mirrormade": {
    "notas": {
@@ -691,7 +1046,26 @@
    "faz": "Encantamento de 3 que entra como cópia de um artefato ou encantamento em campo.",
    "porque": "Copiando o Mind Control ou a Grafted Identity, é outro roubo que não mira (regra 303.4f). Depende de uma delas em campo, ou copia a melhor peça de um oponente.",
    "papel": "multiplica",
-   "papel_por_que": "Entra como cópia de uma Aura de roubo, como Mind Control, e toma outra criatura."
+   "papel_por_que": "Entra como cópia de uma Aura de roubo, como Mind Control, e toma outra criatura.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Entra como cópia de uma Aura de roubo e toma outra criatura, sem mirar.",
+    "I": "Outro roubo de vez; sem Aura em campo, copia a melhor peça da mesa.",
+    "T": "Três manas, mas pede uma Aura de roubo em campo.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra carta da lista copia uma Aura de roubo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Propaganda": {
    "notas": {
@@ -702,7 +1076,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 3: atacar você custa {2} por criatura.",
-   "porque": "Segura a mesa enquanto a Zara ataca e deixa você aberto; protege o plano, mas não rouba nem converte nada."
+   "porque": "Segura a mesa enquanto a Zara ataca e deixa você aberto; protege o plano, mas não rouba nem converte nada.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica: segura o ataque contra você, não a Zara.",
+    "I": "Garantida na entrada: cada atacante custa {2} toda volta.",
+    "T": "Três manas, no padrão.",
+    "Q": "Viva sempre: o deck tem poucos bloqueadores.",
+    "R": "É a única carta da lista que cobra o ataque contra você."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Telepathy": {
    "notas": {
@@ -718,7 +1111,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 1: os oponentes jogam com a mão revelada.",
-   "porque": "Mostra qual mão tem a melhor criatura antes de a Zara escolher quem atacar; prepara o ataque, mas sozinha não rouba nem compra."
+   "porque": "Mostra qual mão tem a melhor criatura antes de a Zara escolher quem atacar; prepara o ataque, mas sozinha não rouba nem compra.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o espiar antes do ataque: mostra qual mão tem a melhor criatura.",
+    "I": "Informação; não muda a mesa.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre: guia o ataque e as anulações.",
+    "R": "Nenhuma outra carta da lista mostra todas as mãos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Steal Enchantment": {
    "notas": {
@@ -741,7 +1153,30 @@
    "prioridade": 8,
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma de vez um encantamento de oponente."
+   "papel_por_que": "Toma de vez um encantamento de oponente.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Rouba só encantamento: não ataca nem passa pelo ficar.",
+    "I": "Uma por uma, e o alvo é raro.",
+    "T": "Duas manas.",
+    "Q": "Só quando alguém tem um encantamento que vale tomar.",
+    "R": "A Treachery, do radar, toma uma criatura e desvira até cinco terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Treachery",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Dissipation Field": {
    "notas": {
@@ -750,11 +1185,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Encantamento de 4: uma permanente causa dano a você, volta à mão do dono.",
    "porque": "Defesa lenta de 4 manas, fora do plano de roubo; o deck já se protege com a Propaganda e as anulações.",
-   "prioridade": 7
+   "prioridade": 7,
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Defesa genérica, fora do roubo.",
+    "I": "Devolve à mão o que já bateu em você.",
+    "T": "Quatro manas por uma defesa lenta.",
+    "Q": "Só na paridade e atrás, contra ataque.",
+    "R": "A proteção passou da cota, e esta é das piores; o radar põe o Agent of Treachery na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Agent of Treachery",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Firemind's Research": {
    "notas": {
@@ -763,14 +1218,34 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Encantamento de 2: marcador a cada instantânea ou feitiço; dois marcadores compram, cinco causam 5 de dano.",
    "porque": "Peça do Izzet de mágicas: lenta, precisa de muitas instantâneas e feitiços para render e não ajuda o roubo.",
    "marcas": {
     "izzet": 1
    },
-   "prioridade": 9
+   "prioridade": 9,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Peça do Izzet de mágicas: rende com instantâneas e feitiços, não com o roubo.",
+    "I": "Uma carta a cada duas mágicas, ou 5 de dano a cada cinco.",
+    "T": "Duas manas, e mais {1}{U} ou {1}{R} a cada uso.",
+    "Q": "Só no jogo longo, na paridade e na frente.",
+    "R": "O radar põe a Ghostly Flicker na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Ghostly Flicker",
+   "confianca": "alta",
+   "indice": 0.7
   },
   "Leyline of Resonance": {
    "notas": {
@@ -791,7 +1266,27 @@
    },
    "prioridade": 3,
    "papel": "multiplica",
-   "papel_por_que": "Copia Fated Infatuation e Quasiduplicate na roubada: duas cópias que ficam."
+   "papel_por_que": "Copia Fated Infatuation e Quasiduplicate na roubada: duas cópias que ficam.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Só dispara com a Fated Infatuation e a Quasiduplicate.",
+    "I": "Uma cópia a mais, quando dispara.",
+    "T": "Quatro manas, ou de graça na mão inicial.",
+    "Q": "Paridade e na frente, com uma das duas na mão.",
+    "R": "O radar põe o Phyrexian Altar na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Phyrexian Altar",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Mirror Sheen": {
    "notas": {
@@ -806,7 +1301,27 @@
    "marcas": {
     "izzet": 1
    },
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "D",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Não avança a conta: só copia mágica que mira você.",
+    "I": "Uma cópia, quando alguém mira você.",
+    "T": "Três manas, e mais três a cada uso.",
+    "Q": "Paridade e atrás, e só se alguém mirar você.",
+    "R": "A proteção passou da cota, e esta é a pior; o radar põe a Sundial of the Infinite na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Sundial of the Infinite",
+   "confianca": "alta",
+   "indice": 0.5
   },
   "Parallel Thoughts": {
    "notas": {
@@ -814,11 +1329,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Encantamento de 5: separa sete cartas do grimório; cada compra pode pegar uma delas.",
    "porque": "Cinco manas sem efeito na mesa: organiza compras futuras, mas atrasa a Zara e o roubo.",
-   "prioridade": 10
+   "prioridade": 10,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 0,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Separa sete peças do roubo, mas não compra a mais.",
+    "I": "Não muda a mesa: troca as compras pelas cartas escolhidas, em ordem aleatória.",
+    "T": "Cinco manas sem efeito na mesa.",
+    "Q": "Início e paridade.",
+    "R": "O radar põe o Helm of the Host na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Helm of the Host",
+   "confianca": "alta",
+   "indice": 0.85
   },
   "Smoke": {
    "notas": {
@@ -833,7 +1368,30 @@
    "marcas": {
     "contra": 1
    },
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "D",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Trava você também: se a Zara desvira, as outras onze criaturas da lista e as roubadas de vez ficam viradas.",
+    "I": "Segura a mesa larga deles, e a sua.",
+    "T": "Duas manas.",
+    "Q": "Paridade e atrás, contra mesa larga.",
+    "R": "A proteção passou da cota, e esta é a pior; o radar põe o Goblin Bombardment na vaga."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "substituto": "Goblin Bombardment",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Sol Ring": {
    "notas": {
@@ -841,10 +1399,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "faz": "Artefato de 1: {C}{C}.",
-   "porque": "A aceleração mais forte do deck: duas manas por uma, e a Zara chega no turno 4."
+   "porque": "A aceleração mais forte do deck: duas manas por uma, e a Zara pode chegar no turno 3.",
+   "tier_anterior": "S",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: qualquer deck usaria.",
+    "I": "Duas manas a mais desde o turno 1: a Zara pode descer no turno 3.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma pedra rende igual, e o ramp está abaixo da cota: seis pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Arcane Signet": {
    "notas": {
@@ -852,10 +1429,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Artefato de 2: mana da identidade.",
-   "porque": "Pedra de cor por duas manas, sem custo extra nem condição: a mais limpa depois do Sol Ring."
+   "porque": "Pedra de cor por duas manas, sem custo extra nem condição: a mais limpa depois do Sol Ring.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura.",
+    "I": "Uma mana a mais, azul ou vermelha.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Há outras pedras de duas, mas o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Talisman of Creativity": {
    "notas": {
@@ -866,7 +1462,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: {C}, ou {U} ou {R} com 1 de dano.",
-   "porque": "Pedra de cor que cumpre o papel; fica abaixo do Arcane Signet por cobrar vida para dar cor."
+   "porque": "Pedra de cor que cumpre o papel; fica abaixo do Arcane Signet por cobrar vida para dar cor.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura.",
+    "I": "Uma mana a mais, nas duas cores, a 1 de dano.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Há outras pedras de duas, mas o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Izzet Signet": {
    "notas": {
@@ -877,7 +1492,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2. {1}, vira: {U}{R}.",
-   "porque": "Pedra de cor que cumpre o papel; pede uma mana para dar as duas cores, e por isso fica abaixo do Arcane Signet."
+   "porque": "Pedra de cor que cumpre o papel; pede uma mana para dar as duas cores, e por isso fica abaixo do Arcane Signet.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura.",
+    "I": "Uma mana a mais, e troca incolor pelas duas cores.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Há outras pedras de duas, mas o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Fellwar Stone": {
    "notas": {
@@ -888,7 +1522,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: mana de uma cor que um terreno de oponente produza.",
-   "porque": "Pedra de duas manas que cumpre o papel, mas a cor que dá depende dos terrenos da mesa."
+   "porque": "Pedra de duas manas que cumpre o papel, mas a cor que dá depende dos terrenos da mesa.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura.",
+    "I": "Uma mana a mais, da cor que os terrenos deles geram.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Há outras pedras de duas, mas o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Midnight Clock": {
    "notas": {
@@ -897,10 +1550,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 3: {U}; no décimo segundo marcador, embaralha mão e cemitério e compra sete.",
-   "porque": "Pedra de azul que ainda recarrega a mão; o reinício demora a chegar e não ajuda o roubo, por isso fica em B."
+   "porque": "Pedra de azul que ainda recarrega a mão; o reinício demora a chegar e não ajuda o roubo, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra de azul; a mão nova não ajuda o roubo.",
+    "I": "Uma mana a mais; sete cartas novas no 12º marcador.",
+    "T": "Três manas.",
+    "Q": "Viva sempre, como pedra.",
+    "R": "É a pior pedra; o Mind Stone, do radar, acelera por duas, e só o ramp abaixo da cota a segura."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Mind Stone",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Sensei's Divining Top": {
    "notas": {
@@ -911,7 +1584,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 1. {1}: olha as três do topo e reordena; vira: compre e ponha o Top no topo.",
-   "porque": "Filtro todo turno por uma mana; ajuda a achar as peças, mas compra pouco e não mexe no roubo."
+   "porque": "Filtro todo turno por uma mana; ajuda a achar as peças, mas compra pouco e não mexe no roubo.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Seleção: qualquer deck usaria.",
+    "I": "Arruma o topo; não soma carta.",
+    "T": "Uma mana, e {1} por olhada.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma outra carta da lista arruma o topo, e a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Nevinyrral's Disk": {
    "notas": {
@@ -919,7 +1611,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Artefato de 4, entra virado. {1}, vira: destrói artefatos, criaturas e encantamentos.",
    "porque": "Leva a Zara, as pedras e as Auras de roubo junto: trabalha contra o deck, e o Cyclonic Rift e a Mizzium Mortars limpam sem esse custo.",
@@ -927,7 +1619,30 @@
     "contra": 1
    },
    "massa": true,
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 1,
+    "Q": 0,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Destrói a Zara, as seis pedras, as Auras de roubo e os encantamentos da lista junto com a mesa deles.",
+    "I": "Vira a mesa inteira, a sua também.",
+    "T": "Quatro manas, entra virado e pede {1} no turno seguinte.",
+    "Q": "Só atrás, quando a sua mesa já não vale nada.",
+    "R": "São cinco limpezas para três a quatro, e esta é a pior; o radar põe a Thassa, Deep-Dwelling na vaga."
+   },
+   "antissinergia": "estrutural",
+   "travas": [
+    "antissinergia estrutural"
+   ],
+   "substituto": "Thassa, Deep-Dwelling",
+   "confianca": "alta",
+   "indice": 0.75
   },
   "Cyclonic Rift": {
    "notas": {
@@ -936,12 +1651,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "faz": "Instantânea de 2: devolve uma permanente não-terreno de oponente; sobrecarga {6}{U}: todas.",
    "porque": "Resposta barata a qualquer coisa e, sobrecarregada, limpa só o lado dos oponentes, abrindo o ataque final da Zara.",
    "massa": true,
-   "pontual": true
+   "pontual": true,
+   "tier_anterior": "S",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica: qualquer deck azul usaria.",
+    "I": "Com sobrecarga, devolve tudo dos oponentes, e as roubadas ficam com você.",
+    "T": "Duas manas, instantânea; a sobrecarga é de um lado só.",
+    "Q": "Viva sempre: resposta barata cedo, mesa limpa tarde.",
+    "R": "Nenhuma outra carta da lista limpa a mesa deles em instantânea."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.4
   },
   "Counterspell": {
    "notas": {
@@ -949,10 +1683,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea {U}{U}: anula uma mágica.",
-   "porque": "A anulação mais limpa do deck: duas manas, qualquer mágica, sem condição; protege a Zara e o roubo em massa."
+   "porque": "A anulação mais limpa do deck: duas manas, qualquer mágica, sem condição; protege a Zara e o roubo em massa.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica; protege a Zara e o roubo em massa.",
+    "I": "Uma por uma.",
+    "T": "Duas manas, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "É a única anulação sem condição; as outras pedem tipo ou deixam pagar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Fated Infatuation": {
    "notas": {
@@ -973,7 +1726,26 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Ficha cópia da criatura roubada, que fica quando a original volta ao dono."
+   "papel_por_que": "Ficha cópia da criatura roubada, que fica quando a original volta ao dono.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o ficar na hora certa: copia a emprestada com a devolução na pilha.",
+    "I": "Uma cópia garantida, com o efeito de entrar de novo.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, na frente e atrás: também copia a sua melhor criatura.",
+    "R": "As outras cópias são de feitiço; os conversores estão abaixo da cota: sete para dez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Fling": {
    "notas": {
@@ -996,7 +1768,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Sacrifica a roubada antes de ela voltar e causa dano igual à força dela."
+   "papel_por_que": "Sacrifica a roubada antes de ela voltar e causa dano igual à força dela.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte a emprestada em dano antes de ela voltar.",
+    "I": "Dois por um: a emprestada vai ao cemitério do dono, e o dano tira outra criatura ou fere um jogador.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, na frente e atrás, com uma criatura para sacrificar.",
+    "R": "A Kazuul's Fury é par; os conversores estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Exclude": {
    "notas": {
@@ -1008,7 +1799,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 3: anula mágica de criatura; compre.",
-   "porque": "Anulação que repõe a carta, mas só de criatura; cumpre o papel sem tocar no roubo."
+   "porque": "Anulação que repõe a carta, mas só de criatura; cumpre o papel sem tocar no roubo.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica: só criatura.",
+    "I": "Anula e compra: dois por um.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É a anulação que repõe a carta; a Essence Capture faz menos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Supreme Will": {
    "notas": {
@@ -1017,10 +1827,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 3: anula a menos que paguem {3}, ou olha quatro e pega uma.",
-   "porque": "Flexível, anula ou cava; cumpre o papel, mas a anulação que cobra {3} perde força no fim do jogo."
+   "porque": "Flexível, anula ou cava; cumpre o papel, mas a anulação que cobra {3} perde força no fim do jogo.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica, ou seleção.",
+    "I": "Uma por uma, ou uma carta entre quatro.",
+    "T": "Três manas, instantânea; o oponente pode pagar {3}.",
+    "Q": "Viva sempre: cava cedo, anula quando dá.",
+    "R": "As anulações passaram da cota: são oito."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Izzet Charm": {
    "notas": {
@@ -1033,7 +1862,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 2: anula não-criatura a menos que paguem {2}, 2 de dano numa criatura, ou compre duas e descarte duas.",
-   "porque": "Flexível: anula, tira criatura pequena ou filtra. Cumpre o papel, sem nenhum modo forte."
+   "porque": "Flexível: anula, tira criatura pequena ou filtra. Cumpre o papel, sem nenhum modo forte.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica, em três modos.",
+    "I": "Uma por uma: anula, tira criatura pequena ou filtra.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "Cada modo tem par na lista, e as anulações passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Redirect": {
    "notas": {
@@ -1049,7 +1897,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea {U}{U}: muda os alvos de uma mágica.",
-   "porque": "Rouba a mágica do oponente: a remoção dele vai em outro alvo. Cumpre o papel de defesa, mas depende do que eles conjuram."
+   "porque": "Rouba a mágica do oponente: a remoção dele vai em outro alvo. Cumpre o papel de defesa, mas depende do que eles conjuram.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica; usa a mágica do oponente, mas não toma a carta.",
+    "I": "Salva a Zara e manda a remoção para outro alvo.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Goblin Flectomancer faz o mesmo, e a proteção passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Domineering Will": {
    "notas": {
@@ -1071,7 +1938,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Proteção",
-   "papel_por_que": "Toma até três criaturas em instantâneo, para bloquear ou alimentar Fling e altares."
+   "papel_por_que": "Toma até três criaturas em instantâneo, para bloquear ou alimentar Fling e altares.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Toma três criaturas: bloqueadores no turno deles, combustível da Fling e da Grafted Identity no seu.",
+    "I": "Até três criaturas de uma vez, garantido.",
+    "T": "Quatro manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra carta toma três criaturas em instantânea."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Kazuul's Fury": {
    "notas": {
@@ -1095,7 +1981,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Sacrifica a roubada e causa dano igual à força dela; o verso é terreno."
+   "papel_por_que": "Sacrifica a roubada e causa dano igual à força dela; o verso é terreno.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte a emprestada em dano antes de ela voltar.",
+    "I": "Dois por um, como a Fling.",
+    "T": "Três manas, instantânea; uma a mais que a Fling.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "A Fling é par; os conversores estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Flare of Duplication": {
    "notas": {
@@ -1117,7 +2022,26 @@
    "porque": "Copia a mágica de qualquer jogador, e uma emprestada vermelha paga o custo; boa, mas depende da mesa e da cor da roubada.",
    "papel": "multiplica",
    "papel_dupla": "Recompensa (sacrifica a roubada vermelha)",
-   "papel_por_que": "Copia uma mágica de roubo; pode ser paga com a criatura vermelha roubada."
+   "papel_por_que": "Copia uma mágica de roubo; pode ser paga com a criatura vermelha roubada.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia uma mágica de roubo, e uma emprestada vermelha paga o custo.",
+    "I": "Uma cópia de mágica, sua ou de um oponente.",
+    "T": "Três manas, instantânea, ou de graça sacrificando uma criatura vermelha.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Increasing Vengeance só copia mágica sua; esta copia também a deles."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Essence Capture": {
    "notas": {
@@ -1128,7 +2052,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Instantânea {U}{U}: anula mágica de criatura; +1/+1 numa criatura sua.",
-   "porque": "Anulação estreita, só de criatura; o Exclude faz o mesmo e ainda compra."
+   "porque": "Anulação estreita, só de criatura; o Exclude faz o mesmo e ainda compra.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica: só criatura.",
+    "I": "Uma por uma, e um marcador numa criatura sua.",
+    "T": "Duas manas, instantânea, com {U}{U}.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Exclude faz o mesmo e compra; as anulações passaram da cota, e esta é a pior."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Negate": {
    "notas": {
@@ -1139,7 +2082,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 2: anula mágica que não é criatura.",
-   "porque": "Anulação estreita, só de não-criatura; o Counterspell e as anulações flexíveis vêm antes."
+   "porque": "Anulação estreita, só de não-criatura; o Counterspell e as anulações flexíveis vêm antes.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica: só mágica que não é criatura.",
+    "I": "Uma por uma.",
+    "T": "Duas manas, instantânea, com condição de tipo.",
+    "Q": "Paridade, na frente e atrás, contra remoção e limpeza.",
+    "R": "O Counterspell pega tudo; as anulações passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Mana Leak": {
    "notas": {
@@ -1151,7 +2113,26 @@
    "rel": "MED",
    "faz": "Instantânea de 2: anula a menos que paguem {3}.",
    "porque": "Fica fraca depois do turno 5, quando os oponentes pagam o {3}; as outras anulações do deck envelhecem melhor.",
-   "prioridade": 14
+   "prioridade": 14,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica.",
+    "I": "Uma por uma.",
+    "T": "Duas manas, instantânea; o oponente pode pagar {3}.",
+    "Q": "Início e paridade; tarde, eles pagam.",
+    "R": "As anulações passaram da cota: são oito."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Increasing Vengeance": {
    "notas": {
@@ -1172,7 +2153,26 @@
     "izzet": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Copia uma mágica de roubo sua, duas vezes do cemitério."
+   "papel_por_que": "Copia uma mágica de roubo sua, duas vezes do cemitério.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Copia uma mágica de roubo sua: toma outra criatura.",
+    "I": "Uma cópia, ou duas pelo flashback.",
+    "T": "Duas manas; cinco no flashback.",
+    "Q": "Paridade e na frente, com uma mágica de roubo na pilha.",
+    "R": "A Flare of Duplication copia também a mágica dos oponentes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Silundi Vision": {
    "notas": {
@@ -1181,13 +2181,32 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 3: olha seis e pega uma instantânea ou feitiço. O verso é terreno virado que dá {U}.",
    "porque": "Acha o Mob Rule ou a Fling, ou entra como terreno; útil, mas é peça do Izzet de mágicas e não rouba.",
    "marcas": {
     "izzet": 1
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Acha a Fling, o Mob Rule ou uma mágica de roubo entre seis; ou é terreno.",
+    "I": "Uma carta, ou um terreno.",
+    "T": "Três manas, instantânea; o verso entra virado.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Carta de duas faces que conta na cota de terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Run Away Together": {
    "notas": {
@@ -1204,7 +2223,26 @@
    "rel": "BAX",
    "faz": "Instantânea de 2: duas criaturas de jogadores diferentes voltam à mão do dono.",
    "porque": "Bounce duplo, que pode ser em dois oponentes; salvar a Zara assim a manda para a mão ou o comando e atrasa o ataque.",
-   "prioridade": 11
+   "prioridade": 11,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Bounce genérico: duas criaturas de jogadores diferentes, que podem ser dois oponentes.",
+    "I": "Tempo: as duas voltam à mão.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A resposta passou da cota: são quinze para dez a doze."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Mob Rule": {
    "notas": {
@@ -1218,7 +2256,7 @@
    "sin_por_que": {
     "sin1": "Toma várias criaturas de oponentes de uma vez, com ímpeto para atacar."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Feitiço de 6: toma todas as criaturas de força 4 ou mais, ou todas de força 3 ou menos, até o fim do turno, desviradas e com ímpeto.",
    "porque": "O ataque final: toma o exército da mesa com ímpeto e fecha a partida, como pede o plano.",
@@ -1227,7 +2265,31 @@
    },
    "pacote": "fechamento",
    "papel": "habilita",
-   "papel_por_que": "Toma todas as criaturas de uma faixa de força por um turno, com ímpeto: fecha o jogo."
+   "papel_por_que": "Toma todas as criaturas de uma faixa de força por um turno, com ímpeto: fecha o jogo.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o recrutar em massa: toma todas as criaturas de uma faixa de força, com ímpeto.",
+    "I": "Vira o jogo: o exército deles ataca por você.",
+    "T": "Seis manas; o Insurrection, que toma todas, custa oito.",
+    "Q": "Paridade, na frente e atrás, quando a mesa deles é maior que a sua.",
+    "R": "O Insurrection, do radar, custa oito; o Mass Mutiny toma só uma criatura de cada oponente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, o ataque final depende da Mass Manipulation, que pede oito manas para duas criaturas, ou de a Zara recrutar uma por vez.",
+    "O Insurrection, do radar, toma todas, mas custa oito; o Mass Mutiny toma só uma de cada oponente.",
+    "Na paridade e na frente, como ataque final; atrás, vira o exército de quem lidera contra ele, e a Fling e a Grafted Identity ficam com o que valer."
+   ],
+   "indice": 2.5
   },
   "Mass Manipulation": {
    "notas": {
@@ -1251,7 +2313,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção (em massa)",
-   "papel_por_que": "Toma X criaturas e planeswalkers, de vez."
+   "papel_por_que": "Toma X criaturas e planeswalkers, de vez.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta em massa, de vez: X criaturas ou planeswalkers.",
+    "I": "Vira o jogo com X de 2 ou mais.",
+    "T": "Oito manas para duas, com {U}{U}{U}{U}.",
+    "Q": "Só no jogo longo.",
+    "R": "O Blatant Thievery, do radar, rouba uma permanente de cada oponente por sete, mas não escala."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Invoke the Winds": {
    "notas": {
@@ -1274,7 +2355,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma de vez um artefato ou criatura."
+   "papel_por_que": "Toma de vez um artefato ou criatura.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez uma criatura ou artefato.",
+    "I": "Dois por um, sem Aura que a mesa possa remover.",
+    "T": "Cinco manas, com {U}{U}{U}{U}.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É o único roubo de vez da lista que não é Aura e pega artefato."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Sakashima's Will": {
    "notas": {
@@ -1297,7 +2397,26 @@
     "fica": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toma de vez a criatura que o oponente escolher."
+   "papel_por_que": "Toma de vez a criatura que o oponente escolher.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez, mas o oponente escolhe qual criatura entrega.",
+    "I": "Quase sempre a pior criatura dele; contra quem tem uma só, a melhor.",
+    "T": "Quatro manas, de feitiço.",
+    "Q": "Paridade, na frente e atrás, contra voltron.",
+    "R": "Mind Control, Kitnap e Invoke the Winds tomam a criatura que você escolher."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Order of Succession": {
    "notas": {
@@ -1309,7 +2428,7 @@
    "sin_por_que": {
     "sin1": "Rouba entregando: você toma uma criatura do vizinho e entrega uma sua, escolhida por outro jogador."
    },
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "Feitiço de 4: cada jogador pega uma criatura do próximo jogador, para a esquerda ou a direita.",
    "porque": "Rouba, mas você também entrega uma criatura escolhida por outro jogador: se a Zara for a sua única criatura, é ela que vai.",
@@ -1318,7 +2437,30 @@
     "fica": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toma uma criatura de vez, mas entrega uma sua que o vizinho escolhe (papel fraco)."
+   "papel_por_que": "Toma uma criatura de vez, mas entrega uma sua que o vizinho escolhe (papel fraco).",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Rouba entregando uma criatura sua, que o vizinho escolhe.",
+    "I": "Troca uma por uma; se a Zara for a sua única criatura, é ela que vai.",
+    "T": "Quatro manas, de feitiço.",
+    "Q": "Só com a sua mesa sem criaturas.",
+    "R": "O Rules of Acquisition, do radar, toma a permanente que você escolher."
+   },
+   "antissinergia": "leve",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Rules of Acquisition",
+   "confianca": "alta",
+   "indice": 0.95
   },
   "Act of Treason": {
    "notas": {
@@ -1339,7 +2481,27 @@
     "rouba": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toma uma criatura por um turno, desvirada e com ímpeto: combustível para Fling e altares."
+   "papel_por_que": "Toma uma criatura por um turno, desvirada e com ímpeto: combustível para Fling e altares.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta por um turno, desvirada e com ímpeto: combustível da Fling e da Grafted Identity.",
+    "I": "Um ataque com a criatura deles; só fica com uma conversão.",
+    "T": "Três manas.",
+    "Q": "Paridade e na frente.",
+    "R": "A Zara faz isso de graça a cada ataque; o Kari Zev's Expertise, do radar, faz o mesmo e conjura uma mágica de graça."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Kari Zev's Expertise",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Unwilling Recruit": {
    "notas": {
@@ -1360,7 +2522,26 @@
     "rouba": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toma uma criatura por um turno, com +X/+0 e ímpeto."
+   "papel_por_que": "Toma uma criatura por um turno, com +X/+0 e ímpeto.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta por um turno, com +X/+0 e ímpeto.",
+    "I": "Um ataque forte com a criatura deles; só fica com uma conversão.",
+    "T": "Três manas e X, com {R}{R}{R}.",
+    "Q": "Paridade e na frente.",
+    "R": "O Act of Treason faz o mesmo por {2}{R}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Quasiduplicate": {
    "notas": {
@@ -1381,7 +2562,26 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Ficha cópia da roubada que fica, e de novo pelo salto do cemitério."
+   "papel_por_que": "Ficha cópia da roubada que fica, e de novo pelo salto do cemitério.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia a emprestada antes da etapa final, e a cópia fica.",
+    "I": "Duas cópias, uma agora e outra pelo jump-start.",
+    "T": "Três manas, de feitiço; o jump-start custa mais uma carta.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Clone e Glasspool Mimic copiam uma vez; os conversores estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Alchemist's Gambit": {
    "notas": {
@@ -1399,7 +2599,27 @@
    "faz": "Feitiço de 3: turno extra, e você perde no começo da etapa final dele; pelo custo de clivar (7), sem perder.",
    "porque": "Mais um ataque da Zara, mas pelo custo normal você perde se não vencer no turno, e clivar custa 7.",
    "papel": "multiplica",
-   "papel_por_que": "Turno extra: a Zara ataca e rouba mais uma vez."
+   "papel_por_que": "Turno extra: a Zara ataca e rouba mais uma vez.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Mais um turno: mais um ataque da Zara e mais um empréstimo.",
+    "I": "Um turno extra; pelo custo normal, você perde na etapa final dele.",
+    "T": "Três manas com a derrota no fim, ou sete clivada.",
+    "Q": "Na frente pelo custo normal; na paridade, só clivada.",
+    "R": "O Relentless Assault, do radar, dá outro ataque por quatro, sem perder o jogo."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Relentless Assault",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Consuming Tide": {
    "notas": {
@@ -1408,11 +2628,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 4: cada jogador escolhe uma permanente não-terreno sua; as outras voltam à mão. Compre uma por oponente com mais cartas que você.",
    "porque": "Reinício que poupa a Zara, se você a escolher, mas devolve também as suas pedras e Auras de roubo.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Leva também as seis pedras, as Auras de roubo e as roubadas; fica a Zara, se você a escolher.",
+    "I": "Vira a mesa: cada um fica com uma permanente, e você compra.",
+    "T": "Quatro manas.",
+    "Q": "Só quando você está atrás.",
+    "R": "Há cinco limpezas para uma cota de três a quatro."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "média",
+   "indice": 1.7
   },
   "Day's Undoing": {
    "notas": {
@@ -1427,10 +2669,29 @@
     "sin1": "Prepara o ataque sem roubar: cada oponente compra sete, e a mão do defensor volta a ter criaturas para a Zara.",
     "sin2": "Adia a devolução por um turno: encerrar o seu turno pula a etapa final, e a roubada só volta na etapa final do jogador seguinte."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 3: cada jogador embaralha mão e cemitério e compra sete; no seu turno, o turno termina.",
-   "porque": "Recarrega a mão do defensor para a Zara e, encerrando o turno, segura a emprestada até a etapa final seguinte; mas recarrega os oponentes também."
+   "porque": "Recarrega a mão do defensor para a Zara e, encerrando o turno, segura a emprestada até a etapa final seguinte; mas recarrega os oponentes também.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Enche a mão do defensor para a Zara e, no seu turno, segura a emprestada até a próxima etapa final.",
+    "I": "Sete cartas novas para todos.",
+    "T": "Três manas, e encerra o seu turno.",
+    "Q": "Atrás e na paridade, com a mão vazia.",
+    "R": "Nenhuma outra carta da lista enche a mão dos oponentes."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Browbeat": {
    "notas": {
@@ -1443,7 +2704,27 @@
    "rel": "MED",
    "faz": "Feitiço de 3: qualquer jogador pode tomar 5 de dano; se ninguém tomar, um jogador compra três.",
    "porque": "O oponente escolhe entre o dano e a compra, e costuma escolher o que menos ajuda você.",
-   "prioridade": 13
+   "prioridade": 13,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "O oponente escolhe entre tomar 5 e você comprar três.",
+    "T": "Três manas, se a mesa deixar.",
+    "Q": "Só quando ninguém pode tomar 5.",
+    "R": "O radar põe a The Wrath of Khan na vaga; só a cota de compra a segura."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "The Wrath of Khan",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Mizzium Mortars": {
    "notas": {
@@ -1456,7 +2737,26 @@
    "faz": "Feitiço de 2: 4 de dano numa criatura que não é sua; sobrecarga {3}{R}{R}{R}: em cada uma.",
    "porque": "Remoção barata e, sobrecarregada, limpeza só do lado deles, que poupa a Zara; a sobrecarga de seis manas a segura em B.",
    "massa": true,
-   "pontual": true
+   "pontual": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica; a sobrecarga poupa a Zara e as roubadas.",
+    "I": "Mata uma criatura por duas manas ou, por seis, limpa só o lado deles.",
+    "T": "Duas manas, e a sobrecarga é de um lado só.",
+    "Q": "Viva sempre: remoção barata cedo, limpeza tarde.",
+    "R": "É uma das duas limpezas de um lado só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Vandalblast": {
    "notas": {
@@ -1467,7 +2767,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 1: destrói um artefato que não é seu; sobrecarga {4}{R}: todos.",
-   "porque": "Responde a artefatos, de um ou de todos os oponentes; cumpre o papel, mas depende de a mesa ter artefatos."
+   "porque": "Responde a artefatos, de um ou de todos os oponentes; cumpre o papel, mas depende de a mesa ter artefatos.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica de artefato.",
+    "I": "Um artefato por uma mana ou, por cinco, todos os deles.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e atrás.",
+    "R": "É a única limpeza de artefatos da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Blasphemous Act": {
    "notas": {
@@ -1487,7 +2806,29 @@
    "custo_usual": {
     "cmc": 1,
     "como": "com a mesa cheia de criaturas"
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Mata a Zara, as roubadas e os Niv-Mizzet: o roubo para até ela voltar, com {2} a mais.",
+    "I": "Vira a mesa, a sua também.",
+    "T": "Quase sempre de uma a quatro manas.",
+    "Q": "Só quando você está atrás.",
+    "R": "Há cinco limpezas para uma cota de três a quatro; a Mizzium Mortars limpa só o lado deles."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Command Tower": {
    "notas": {},
@@ -1496,7 +2837,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Mana da identidade.",
-   "porque": "A melhor dual: dá as duas cores desde o primeiro turno, sem custo nem condição."
+   "porque": "A melhor dual: dá as duas cores desde o primeiro turno, sem custo nem condição.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno melhor para duas cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Castle Vantress": {
    "notas": {
@@ -1507,7 +2867,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{U}; virado sem Island. {2}{U}{U}, vira: vidência 2.",
-   "porque": "Quase sempre entra desvirado e filtra no fim do jogo: terreno que também ajuda a compra."
+   "porque": "Quase sempre entra desvirado e filtra no fim do jogo: terreno que também ajuda a compra.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: azul; a vidência por {2}{U}{U} filtra tarde.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado com uma Island; são doze.",
+    "Q": "Viva sempre.",
+    "R": "É o único terreno que filtra sem ser incolor; dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Island": {
    "notas": {},
@@ -1516,7 +2895,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base: dá o azul de que as anulações e as Auras de roubo precisam."
+   "porque": "Base: dá o azul de que as anulações e as Auras de roubo precisam.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o azul das anulações e das Auras de roubo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; desvira o Castle Vantress e é alvo da Myriad Landscape."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Mountain": {
    "notas": {},
@@ -1525,7 +2923,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base: dá o vermelho do Act of Treason, da Fling e do Mob Rule."
+   "porque": "Base: dá o vermelho do Act of Treason, da Fling e do Mob Rule.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o vermelho da Fling, do Act of Treason e do Mob Rule.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; alvo da Myriad Landscape."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Desolate Lighthouse": {
    "notas": {
@@ -1533,19 +2950,65 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "{C}; {1}{U}{R}, vira: compre e descarte.",
-   "porque": "Filtra, mas não dá cor, e o deck tem só 31 terrenos para duas cores."
+   "porque": "Filtra, mas não dá cor, e o deck tem só 31 terrenos para duas cores.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; o saqueio não serve a nenhum verbo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Incolor pesa nas mãos de {U}{U} e {R}{R}.",
+    "R": "A Shore Leave Planet, do radar, dá azul e vira uma cópia da Zara por {4}{U}."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Shore Leave Planet",
+   "confianca": "alta",
+   "indice": 0.95
   },
   "Reliquary Tower": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "{C}; sem limite de mão.",
-   "porque": "Sem limite de mão, mas não dá cor, e com 31 terrenos cada incolor pesa."
+   "porque": "Sem limite de mão, mas não dá cor, e com 31 terrenos cada incolor pesa.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; o deck raramente passa de sete cartas.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Incolor pesa nas mãos de duas cores.",
+    "R": "O Riptide Laboratory, do radar, também é incolor e salva os dois Niv-Mizzet da remoção."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Riptide Laboratory",
+   "confianca": "alta",
+   "indice": 0.95
   },
   "Encroaching Wastes": {
    "notas": {
@@ -1553,19 +3016,65 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "{C}; {4}, vira, sacrifique: destrói um terreno não-básico.",
-   "porque": "Responde a terreno não-básico, mas não dá cor e custa 4 manas para usar."
+   "porque": "Responde a terreno não-básico, mas não dá cor e custa 4 manas para usar.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; destruir terreno não serve à conta.",
+    "I": "Um terreno por turno; por {4}, troca-se por um terreno não básico deles.",
+    "T": "Desvirado.",
+    "Q": "Incolor pesa nas mãos de duas cores.",
+    "R": "A Steam Vents, do radar, dá as duas cores desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Steam Vents",
+   "confianca": "alta",
+   "indice": 0.95
   },
   "Temple of the False God": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "{C}{C} com cinco terrenos ou mais.",
-   "porque": "Morto no começo, com 31 terrenos, e não dá cor: numa base de duas cores, pesa mais do que ajuda."
+   "porque": "Morto no começo, com 31 terrenos, e não dá cor: numa base de duas cores, pesa mais do que ajuda.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Só incolor.",
+    "I": "Um terreno por turno, a partir do quinto.",
+    "T": "Não gera nada antes do quinto terreno.",
+    "Q": "Morta no início e quando você está atrás.",
+    "R": "O Hall of Echoes, do radar, vira uma cópia da Zara que ataca e recruta de novo."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Hall of Echoes",
+   "confianca": "alta",
+   "indice": 0.5
   },
   "Izzet Boilerworks": {
    "notas": {
@@ -1577,7 +3086,30 @@
    "rel": "MED",
    "faz": "Sempre virado; devolve um terreno; {U}{R}.",
    "porque": "Duas manas numa vaga, mas entra sempre virado e atrasa a curva.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Duas manas numa vaga, mas devolve um terreno à mão.",
+    "T": "Entra virado e devolve um terreno à mão.",
+    "Q": "Ruim no início; depois, rende.",
+    "R": "O Riverglide Pathway, do radar, dá a cor que faltar, desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Riverglide Pathway",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Temple of Epiphany": {
    "notas": {
@@ -1589,7 +3121,27 @@
    "rel": "MED",
    "faz": "Sempre virado: {U} ou {R}; vidência 1.",
    "porque": "Dual que cumpre a cor, mas entra sempre virada e atrasa a curva.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Entra sempre virado; a vidência não paga o atraso.",
+    "Q": "No início, atrasa a curva.",
+    "R": "São cinco terrenos sempre virados para um teto de três a quatro; o radar põe o Hanweir Battlements na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Hanweir Battlements",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Myriad Landscape": {
    "notas": {
@@ -1597,11 +3149,34 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "Sempre virado: {C}; {2}, vira, sacrifique: dois básicos do mesmo tipo, virados.",
    "porque": "Entra virada e é lenta para buscar os básicos; com 31 terrenos, atrasa a Zara.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; vira dois básicos da mesma cor.",
+    "I": "Um terreno que vira dois, por {2}.",
+    "T": "Entra virado, e os dois básicos também.",
+    "Q": "No início, atrasa a curva.",
+    "R": "O High Market, do radar, entra desvirado e sacrifica a emprestada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "High Market",
+   "confianca": "alta",
+   "indice": 0.95
   },
   "Vivid Crag": {
    "notas": {
@@ -1613,7 +3188,30 @@
    "rel": "MED",
    "faz": "Sempre virado: {R}, ou qualquer cor gastando um marcador (dois).",
    "porque": "Dual que cumpre a cor, mas entra sempre virada e atrasa a curva.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Vermelho sempre, e azul duas vezes.",
+    "I": "Um terreno por turno.",
+    "T": "Entra sempre virado.",
+    "Q": "No início, atrasa a curva.",
+    "R": "A Sulfur Falls, do radar, dá as duas cores desvirada com uma Island ou Mountain."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Sulfur Falls",
+   "confianca": "média",
+   "indice": 1.25
   },
   "Vivid Creek": {
    "notas": {
@@ -1625,7 +3223,30 @@
    "rel": "MED",
    "faz": "Sempre virado: {U}, ou qualquer cor gastando um marcador (dois).",
    "porque": "Dual que cumpre a cor, mas entra sempre virada e atrasa a curva.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Azul sempre, e vermelho duas vezes.",
+    "I": "Um terreno por turno.",
+    "T": "Entra sempre virado.",
+    "Q": "No início, atrasa a curva.",
+    "R": "A Shivan Reef, do radar, dá as duas cores desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Shivan Reef",
+   "confianca": "média",
+   "indice": 1.25
   }
  },
  "radar": {
@@ -3257,5 +4878,18 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "04. FORFUN",
+  "conta": "A Zara ataca e olha a mão do defensor (espiar); põe a melhor criatura de lá em campo, atacando por você, e as Auras e mágicas de roubo tomam o que já está na mesa (recrutar); antes da etapa final, a emprestada é copiada, sacrificada ou piscada, ou o roubo é de vez (ficar).",
+  "decisoes": [
+   "Você montou o deck para o seu irmão, como homenagem, para fugir do Izzet óbvio de mágicas e magos: o centro é o roubo.",
+   "Por decisão sua (14/10/2026), as cartas de estimação são os dois Niv-Mizzet; as outras foils não são de estimação.",
+   "A lista é a sua decklist.txt e não muda; o radar é só sugestão.",
+   "Staples genéricas ficam de fora por decisão sua (09/11/2026): a Swiftfoot Boots e o Chaos Warp não entram, e proteção genérica de comandante só vale em deck voltron.",
+   "Pela sua régua, o deck quer de três a quatro limpezas, de preferência unilaterais; hoje tem cinco, e duas são unilaterais (Cyclonic Rift e Mizzium Mortars)."
+  ]
  }
 }
