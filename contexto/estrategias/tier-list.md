@@ -71,4 +71,4 @@ Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20,
 
 ## Em aberto
 
-Feitos: Valgavoth (piloto) e o lote 1 (Giada, Markov, Vito, Clavileño, Dragões). Faltam 20 decks, em lotes de cinco, e o tier por deck no "Onde mais renderia". As notas de cada lote saem de um agente por deck, com o roteiro de `contexto/tier/BRIEF-TIER.md`, e passam pela revisão da sessão principal antes do "pode" do dono.
+Feitos: Valgavoth (piloto), lote 1 (Giada, Markov, Vito, Clavileño, Dragões) e lote 2 (Elfos, Evelyn, Goblins, Humanos, Kaalia). Faltam 15 decks, em lotes de cinco, e o tier por deck no "Onde mais renderia". As notas de cada lote saem de um agente por deck, com o roteiro de `contexto/tier/BRIEF-TIER.md`, e passam pela revisão da sessão principal antes do "pode" do dono.
