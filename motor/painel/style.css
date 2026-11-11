@@ -723,6 +723,8 @@ html{scroll-padding-top:calc(var(--top) + 12px + env(safe-area-inset-top,0px))}
 /* 8×8 */
 .pkg{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
 .pk-tot{color:var(--dim);margin:2px 0 12px}.pk-tot b{color:var(--bone)}
+.pk-salvar{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 12px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.pk-salvar p{margin:0;color:var(--bone)}.pk-salvar textarea{width:100%;font:14px/1.5 ui-monospace,Consolas,monospace;background:rgba(0,0,0,.25);color:var(--bone);border:1px solid var(--line);border-radius:8px;padding:8px 10px;resize:vertical}
 /* aba Critérios (pontuação v3) */
 .crit-t th:first-child,.crit-t td:first-child{text-align:left}
 .crit-t .linkish{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--bone);font-weight:700}
