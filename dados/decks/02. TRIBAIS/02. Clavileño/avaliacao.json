@@ -367,7 +367,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Recompensa (compra ao sacrificar)",
-   "papel_por_que": "Cria um Vampiro quando fichas suas entram e é saída de sacrifício que compra."
+   "papel_por_que": "Cria um Vampiro quando fichas suas entram e é saída de sacrifício que compra.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Põe um Vampiro em campo no turno em que entram fichas suas e ainda é saída de sacrifício.",
+    "I": "Motor que precisa ficar; a saída por {1}{B} já troca criatura por carta na hora.",
+    "T": "Quatro manas, no padrão; cada sacrifício custa {1}{B}.",
+    "Q": "Paridade, na frente e atrás, quando troca fichas por cartas.",
+    "R": "Mavren Fein e o caixão do Edgar também criam Vampiros, mas não sacrificam nem compram."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Bartolomé del Presidio": {
    "notas": {
@@ -391,7 +410,26 @@
     "saida": 2
    },
    "papel": "habilita",
-   "papel_por_que": "Saída de sacrifício sem custo: o abençoado morre na hora certa."
+   "papel_por_que": "Saída de sacrifício sem custo: o abençoado morre na hora certa.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Saída de sacrifício grátis e instantânea: o abençoado morre quando você quer.",
+    "I": "Liga a morte na hora, sem virar, e cresce a cada sacrifício; precisa ficar.",
+    "T": "Duas manas, sem custo de ativação.",
+    "Q": "Início, paridade e na frente; atrás, sem criatura para sacrificar, é só um corpo.",
+    "R": "A Viscera Seer faz o mesmo por uma mana; são quatro saídas grátis na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Blood Artist": {
    "notas": {
@@ -415,7 +453,31 @@
     "dreno": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Cada criatura que morre drena 1."
+   "papel_por_que": "Cada criatura que morre drena 1.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte cada morte, sua ou deles, em 1 de dano e 1 de vida.",
+    "I": "Precisa ficar em campo; rende em toda morte, inclusive nas limpezas.",
+    "T": "Duas manas.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira dreno; no início ainda não há mortes.",
+    "R": "Só ele e The Meathook Massacre convertem morte em dano: a função está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, a morte vira carta e Demônio, mas não vira dano: sobra só The Meathook Massacre.",
+    "O Cruel Celebrant do radar só conta as mortes do seu lado; o Blood Artist conta as de toda a mesa.",
+    "Na paridade e na frente, a cada sacrifício; atrás, transforma a limpeza em dreno e vida."
+   ],
+   "indice": 2.45
   },
   "Bloodghast": {
    "notas": {
@@ -432,12 +494,36 @@
     "sin1": "Vampiro comum: ataca e pode ser abençoado, sem pôr outro Vampiro em campo.",
     "sin2": "Recursão repetível: volta do cemitério a cada terreno que entra, pronto para ser abençoado de novo."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Volta do cemitério para o campo sempre que um terreno entra sob seu controle. Não pode bloquear.",
    "porque": "Combustível que se repõe sozinho: ataca, é abençoado, morre e volta no próximo terreno. Par ideal para Skullclamp e para os altares.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro que volta sozinho do cemitério para atacar de novo."
+   "papel_por_que": "Vampiro que volta sozinho do cemitério para atacar de novo.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Volta sozinho a cada terreno e pode ser abençoado de novo: é o voltar sem gastar mana.",
+    "I": "Um corpo que se repõe: cada volta é outra morte que rende.",
+    "T": "Duas manas, e a volta é de graça.",
+    "Q": "Início, paridade e na frente; atrás não ajuda, porque não bloqueia.",
+    "R": "Nenhuma outra carta da lista volta sem mana; Carmen pede ataque e Chthonian Nightmare pede custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ele, cada sacrifício gasta uma carta; com ele, o mesmo Vampiro morre e volta a cada terreno.",
+    "Carmen custa cinco manas e precisa atacar; Chthonian Nightmare cobra duas manas e outra criatura a cada uso.",
+    "No início, como atacante de duas manas; na paridade e na frente, como combustível que não acaba."
+   ],
+   "indice": 2.45
   },
   "Bloodline Keeper": {
    "notas": {
@@ -451,13 +537,32 @@
    "sin_por_que": {
     "sin1": "Vampiro que cria uma ficha de Vampiro voadora por turno, virando; transformado, ainda é lorde."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "faz": "Vira para criar um Vampiro 2/2 voador. Com cinco Vampiros em campo, transforma por {B} em um lorde que dá +2/+2 aos outros.",
    "porque": "Fábrica de Vampiros voadores e lorde na mesma vaga. Dois turnos em campo costumam decidir a mesa.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (vira lorde +2/+2)",
-   "papel_por_que": "Um Vampiro voador por turno, pronto para atacar e ser abençoado."
+   "papel_por_que": "Um Vampiro voador por turno, pronto para atacar e ser abençoado.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vira e põe um Vampiro 2/2 voador em campo todo turno, pronto para atacar e ser abençoado.",
+    "I": "Motor que precisa ficar; transformado, dá +2/+2 aos outros Vampiros.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, com um bloqueador voador por turno.",
+    "R": "Mavren Fein, Baron Bertram e o caixão do Edgar também criam Vampiros, só que 1/1."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Bloodthirsty Conqueror": {
    "notas": {
@@ -470,12 +575,31 @@
    "sin_por_que": {
     "sin1": "Vampiro comum: ataca e pode ser abençoado, sem pôr outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "5/5 voador com toque mortífero. Sempre que um oponente perde vida, você ganha a mesma quantidade.",
    "porque": "O mesmo laço do Hunger of the Ancient One (Exquisite Blood), agora com corpo: com o Vito em campo, qualquer perda de vida de um oponente vira loop infinito.",
    "papel": "recompensa",
-   "papel_por_que": "Com o Vito, fecha o loop: perda de vida dos oponentes vira ganho seu."
+   "papel_por_que": "Com o Vito, fecha o loop: perda de vida dos oponentes vira ganho seu.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Devolve em vida o que os oponentes perdem; com o Vito, fecha o laço, que é contingência.",
+    "I": "Corpo voador com toque mortífero; o ganho de vida depende de ficar.",
+    "T": "Cinco manas por corpo e efeito, no padrão.",
+    "Q": "Paridade, na frente e atrás, como bloqueador e fonte de vida.",
+    "R": "A Exquisite Blood faz o mesmo sem corpo; ele ainda ataca e pode ser abençoado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Carmen, Cruel Skymarcher": {
    "notas": {
@@ -492,13 +616,32 @@
     "sin1": "Vampiro comum: ataca e pode ser abençoada; o que devolve ao atacar não precisa ser Vampiro.",
     "sin2": "Recursão repetível: a cada ataque devolve uma permanente do cemitério ao campo, e cresce com cada sacrifício."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Voadora que ganha um marcador e 1 de vida a cada permanente sacrificada por qualquer jogador. Ao atacar, devolve do cemitério ao campo uma permanente de custo até o poder dela.",
    "porque": "Cresce com o que o deck já faz e vira recursão a cada ataque. Quanto mais sacrifício, maior o alcance do que ela traz de volta.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (cresce e ganha vida a cada sacrifício)",
-   "papel_por_que": "Ao atacar, devolve uma permanente do cemitério ao campo."
+   "papel_por_que": "Ao atacar, devolve uma permanente do cemitério ao campo.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Devolve uma permanente do cemitério ao campo a cada ataque e cresce a cada sacrifício.",
+    "I": "Precisa atacar para devolver: o valor só chega se ela sobreviver uma volta.",
+    "T": "Cinco manas, no padrão da recursão repetível.",
+    "Q": "Paridade e na frente; atrás, atacar com ela é arriscado.",
+    "R": "A Redemption Choir também devolve ao atacar, mas pede coven e só alcança custo até 3."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Charismatic Conqueror": {
    "notas": {
@@ -517,7 +660,26 @@
    "faz": "Quando um artefato ou criatura entra desvirado sob controle de um oponente, ele vira a permanente ou você cria um Vampiro 1/1 com vínculo com a vida.",
    "porque": "Em mesa de quatro rende ficha ou atrasa os oponentes. Forte no início, perde tração no fim de jogo.",
    "papel": "habilita",
-   "papel_por_que": "Cria Vampiros com o que os oponentes põem em campo."
+   "papel_por_que": "Cria Vampiros com o que os oponentes põem em campo.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cria Vampiros quando o oponente não vira o que entrou: a escolha é dele.",
+    "I": "Um corpo com vigilância; as fichas dependem dos oponentes.",
+    "T": "Duas manas.",
+    "Q": "Início e paridade; tarde, a mesa já está montada e ele rende pouco.",
+    "R": "Mavren Fein e Legion's Landing criam Vampiros sem depender de ninguém."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Cordial Vampire": {
    "notas": {
@@ -533,12 +695,31 @@
     "sin1": "Vampiro que faz a tribo crescer a cada morte, mas não põe outro Vampiro em campo.",
     "sin2": "Só rende com a morte, sem matar nem devolver."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Sempre que ele ou outra criatura morre, coloca um marcador +1/+1 em cada Vampiro seu.",
    "porque": "Cada sacrifício engorda a tribo inteira. Com fichas morrendo em série, o time cresce rápido.",
    "papel": "recompensa",
-   "papel_por_que": "Cada morte põe um marcador em todos os seus Vampiros."
+   "papel_por_que": "Cada morte põe um marcador em todos os seus Vampiros.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada morte põe um marcador em todo Vampiro seu: rende com o morrer, mas não dá carta nem dano.",
+    "I": "Precisa ficar; com saída de sacrifício em campo, o time cresce no mesmo turno.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente; atrás, marcador não reconstrói a mesa.",
+    "R": "Divide o trabalho de buff com Legion Lieutenant, Markov Baron e Edgar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Drivnod, Carnage Dominus": {
    "notas": {
@@ -554,12 +735,31 @@
     "sin1": "Não é Vampiro, mas dobra o gatilho de morte do abençoado: duas cartas e dois Demônios.",
     "sin2": "Dobra os gatilhos de morte, sem matar nem devolver."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gatilhos de morte das suas permanentes disparam uma vez a mais. Pode ganhar indestrutível exilando três criaturas do cemitério.",
    "porque": "Dobra Blood Artist, as Elendas e o gatilho que o Clavileño concede. É o segundo Teysa, mais caro e, como ela, sem ser Vampiro.",
    "papel": "multiplica",
-   "papel_por_que": "Gatilhos de morte disparam uma vez a mais."
+   "papel_por_que": "Gatilhos de morte disparam uma vez a mais.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dobra todo gatilho de morte: duas cartas e dois Demônios por abençoado.",
+    "I": "Precisa ficar; não rende nada ao entrar.",
+    "T": "Cinco manas pelo que a Teysa Karlov faz por quatro.",
+    "Q": "Paridade e na frente; sem mortes para dobrar, é só um corpo.",
+    "R": "É a segunda cópia da Teysa Karlov, mais cara."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Dusk Legion Sergeant": {
    "notas": {
@@ -580,7 +780,26 @@
    "faz": "Por {1}{B}, sacrifique-o: seus Vampiros que não são fichas ganham persistir até o fim do turno.",
    "porque": "Seguro contra remoção em massa e uma segunda rodada de gatilhos de morte. Situacional, mas barato.",
    "papel": "habilita",
-   "papel_por_que": "Dá persistir aos seus Vampiros: eles morrem e voltam."
+   "papel_por_que": "Dá persistir aos seus Vampiros: eles morrem e voltam.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá persistir aos Vampiros que não são ficha por um turno: morrem, rendem e voltam.",
+    "I": "Uma rodada inteira de mortes que voltam; vale uma vez.",
+    "T": "Duas manas para entrar e {1}{B} para usar.",
+    "Q": "Na frente, com saída de sacrifício, e atrás, em resposta à limpeza, com {1}{B} em pé.",
+    "R": "A proteção está no piso da cota: são três cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Edgar, Charmed Groom": {
    "notas": {
@@ -603,7 +822,26 @@
    "porque": "Lorde que volta ao morrer: removê-lo só troca o bônus por um caixão que fabrica fichas e depois o traz de volta.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (lorde +1/+1)",
-   "papel_por_que": "O Caixão cria um Vampiro por turno e volta a ser o Edgar."
+   "papel_por_que": "O Caixão cria um Vampiro por turno e volta a ser o Edgar.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lord que, ao morrer, vira o caixão e cria um Vampiro por manutenção até voltar.",
+    "I": "+1/+1 na hora; a remoção só o troca pelo caixão, salvo exílio.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás: atravessa a limpeza como artefato.",
+    "R": "Os outros lords não voltam nem criam Vampiros."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Elenda's Hierophant": {
    "notas": {
@@ -620,13 +858,32 @@
     "sin1": "Vampiro que só cria fichas de Vampiro ao morrer, uma vez.",
     "sin2": "Só rende com a própria morte, sem matar nem devolver."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "1/1 voador que ganha um marcador a cada ganho de vida. Ao morrer, cria X Vampiros 1/1 com vínculo com a vida, onde X é o poder dele.",
    "porque": "Cresce sozinho num deck cheio de vínculo com a vida e explode em fichas quando é sacrificado.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (cresce com ganho de vida)",
-   "papel_por_que": "Ao morrer, vira vários Vampiros."
+   "papel_por_que": "Ao morrer, vira vários Vampiros.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cresce a cada ganho de vida e vira X Vampiros ao morrer: combustível para atacar e morrer.",
+    "I": "Entra pequeno e precisa crescer; com saída de sacrifício, a remoção vira fichas.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Elenda, the Dusk Rose faz o mesmo maior e com vínculo com a vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Elenda, the Dusk Rose": {
    "notas": {
@@ -643,13 +900,32 @@
     "sin1": "Vampiro que só cria fichas de Vampiro ao morrer, uma vez.",
     "sin2": "Só rende com a morte, sem matar nem devolver."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "faz": "Ganha um marcador a cada outra criatura que morre. Ao morrer, cria X Vampiros 1/1 com vínculo com a vida, onde X é o poder dela.",
    "porque": "A melhor recompensa de sacrifício do deck: absorve as mortes e devolve tudo em fichas, e com o Phyrexian Altar cada ficha ainda vira mana.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (vira Vampiros ao morrer)",
-   "papel_por_que": "Cresce a cada morte e vira um exército quando morre."
+   "papel_por_que": "Cresce a cada morte e vira um exército quando morre.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte cada morte em marcador e a própria morte em Vampiros 1/1 com vínculo com a vida.",
+    "I": "Precisa ficar para crescer; quando morre, devolve o tamanho em fichas.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, com vínculo com a vida; a limpeza a troca por fichas.",
+    "R": "O Elenda's Hierophant é a versão menor; nenhuma outra absorve as mortes da mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Henrika Domnathi": {
    "notas": {
@@ -672,7 +948,27 @@
    "porque": "Faz um pouco de tudo e nada com força. Quatro manas por três efeitos de uso único é pouco para a vaga.",
    "prioridade": 7,
    "papel": "habilita",
-   "papel_por_que": "Vampiro que ataca; os modos dela pouco ajudam o plano (papel fraco)."
+   "papel_por_que": "Vampiro que ataca; os modos dela pouco ajudam o plano (papel fraco).",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampira voadora; no primeiro modo cada jogador sacrifica, e você escolhe quem morre do seu lado.",
+    "I": "Um modo por combate, cada um uma vez só; depende de ficar em campo.",
+    "T": "Quatro manas por efeitos pequenos de uso único.",
+    "Q": "Paridade e na frente.",
+    "R": "É a pior resposta pontual da lista; o radar põe o Pitiless Plunderer na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Pitiless Plunderer",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "High-Society Hunter": {
    "notas": {
@@ -689,13 +985,32 @@
     "sin1": "Vampiro comum: ataca e pode ser abençoado, sem pôr outro Vampiro em campo.",
     "sin2": "Sacrifica outra criatura a cada ataque dele, no mesmo combate da bênção, e compra quando ela morre."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "5/3 voador. Ao atacar, pode sacrificar outra criatura para ganhar um marcador. Compra uma carta sempre que outra criatura que não seja ficha morre, de qualquer jogador.",
    "porque": "Motor de compra que se alimenta do próprio plano e ainda oferece saída de sacrifício no ataque.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (sacrifica ao atacar)",
-   "papel_por_que": "Compra a cada criatura que não é ficha morrendo."
+   "papel_por_que": "Compra a cada criatura que não é ficha morrendo.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica outra criatura a cada ataque e compra quando morre criatura que não é ficha.",
+    "I": "Precisa atacar para sacrificar; a compra vale desde a entrada.",
+    "T": "Cinco manas: acima do padrão da compra recorrente.",
+    "Q": "Paridade e na frente; atrás, é caro e precisa atacar.",
+    "R": "Skullclamp e Baron Bertram convertem morte em carta por menos; a compra está no teto da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Legion Lieutenant": {
    "notas": {
@@ -712,7 +1027,26 @@
    "faz": "Outros Vampiros seus recebem +1/+1.",
    "porque": "Lorde de 2 manas, honesto e sem truque. Entra pela densidade tribal; é o primeiro lorde a sair se faltar espaço.",
    "papel": "multiplica",
-   "papel_por_que": "Lorde +1/+1."
+   "papel_por_que": "Lorde +1/+1.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord: +1/+1 em todo Vampiro que ataca.",
+    "I": "Só o buff, e depende de ficar em campo.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente; atrás, +1/+1 não vira a mesa.",
+    "R": "São três lords na lista, e este só dá o buff."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Markov Baron": {
    "notas": {
@@ -733,7 +1067,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "convocando com as fichas"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord com vínculo com a vida: buff no ataque dos Vampiros.",
+    "I": "O buff depende de ficar em campo.",
+    "T": "Três manas, e o convocar deixa as fichas pagarem.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Faz o mesmo trabalho do Legion Lieutenant e do Edgar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Master of Dark Rites": {
    "notas": {
@@ -759,7 +1112,27 @@
    },
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Saída de sacrifício que gera mana."
+   "papel_por_que": "Saída de sacrifício que gera mana.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Saída de sacrifício que precisa virar: uma por turno, e nunca no turno em que entra.",
+    "I": "Um corpo; a mana só chega se ele sobreviver uma volta.",
+    "T": "Uma mana, mas {B}{B}{B} só paga Vampiro, Clérigo ou Demônio.",
+    "Q": "Início e paridade.",
+    "R": "É a pior das oito saídas; o radar põe o Cruel Celebrant na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Cruel Celebrant",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Mavren Fein, Dusk Apostle": {
    "notas": {
@@ -778,7 +1151,26 @@
    "faz": "Sempre que um ou mais Vampiros seus que não são fichas atacam, cria um Vampiro 1/1 com vínculo com a vida.",
    "porque": "Uma ficha por combate, no mesmo momento em que o Clavileño dispara. Combustível de sacrifício garantido todo turno.",
    "papel": "habilita",
-   "papel_por_que": "Cada ataque de Vampiros põe outro Vampiro em campo."
+   "papel_por_que": "Cada ataque de Vampiros põe outro Vampiro em campo.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cria um Vampiro a cada ataque de Vampiros que não são ficha, no combate da bênção.",
+    "I": "Uma ficha 1/1 com vínculo com a vida por ataque; depende de ficar e de atacar.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente; atrás, o deck não ataca.",
+    "R": "Baron Bertram e Bloodline Keeper também criam Vampiros, mas custam quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Nullpriest of Oblivion": {
    "notas": {
@@ -798,7 +1190,26 @@
    "faz": "2/1 com ameaçar e vínculo com a vida. Reforçada por {3}{B}, devolve uma criatura do cemitério ao campo.",
    "porque": "Flexível: jogada de turno 2 ou reanimação no fim do jogo. Nunca é carta morta, raramente é a melhor.",
    "papel": "habilita",
-   "papel_por_que": "Reforçada, devolve uma criatura do cemitério ao campo."
+   "papel_por_que": "Reforçada, devolve uma criatura do cemitério ao campo.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Com kicker, devolve uma criatura do cemitério ao campo, uma vez.",
+    "I": "Com kicker, são dois corpos por uma carta; sem ele, um corpo com ameaçar e vínculo com a vida.",
+    "T": "Duas manas ou seis: flexível, mas a volta sai cara.",
+    "Q": "Início, paridade e atrás, na reconstrução.",
+    "R": "Victimize devolve duas criaturas por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Ojer Taq, Deepest Foundation": {
    "notas": {
@@ -815,12 +1226,31 @@
     "sin1": "Não é Vampiro, mas triplica o Demônio do abençoado e as fichas de Vampiro.",
     "sin2": "Volta ao morrer, mas como terreno; só vira criatura de novo pela ativação do terreno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "6/6 com vigilância. Toda criação de fichas de criatura sua é triplicada. Ao morrer, volta como terreno.",
    "porque": "Triplica as Elendas, o Bloodline Keeper e o Demônio do Clavileño. Com ele em campo, qualquer gerador de ficha decide o jogo.",
    "papel": "multiplica",
-   "papel_por_que": "Triplica as fichas de criatura."
+   "papel_por_que": "Triplica as fichas de criatura.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Triplica toda criação de fichas de criatura: três Demônios por abençoado que morre.",
+    "I": "Corpo com vigilância que volta como terreno; o triplo depende de ficar.",
+    "T": "Seis manas: o topo da curva da lista.",
+    "Q": "Paridade e na frente.",
+    "R": "O Mondrak, Glory Dominus do radar custa quatro manas, mas só dobra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Preacher of the Schism": {
    "notas": {
@@ -841,7 +1271,26 @@
    "porque": "Num deck que ganha vida o tempo todo, compra com frequência. Depende de atacar com segurança.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Ao atacar, cria um Vampiro ou compra uma carta."
+   "papel_por_que": "Ao atacar, cria um Vampiro ou compra uma carta.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que, ao atacar, cria outro Vampiro ou compra uma carta.",
+    "I": "Precisa atacar; o toque mortífero deixa o ataque seguro.",
+    "T": "Três manas, com condição de vida nos dois gatilhos.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhum outro Vampiro de três manas troca entre ficha e carta conforme a vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Qarsi Revenant": {
    "notas": {
@@ -859,7 +1308,27 @@
    "faz": "3/3 com voar, toque mortífero e vínculo com a vida. Do cemitério, pode ser exilado para dar os três marcadores de habilidade a outra criatura.",
    "porque": "Corpo eficiente que ainda rende algo depois de morrer. Bom, mas não conversa com sacrifício.",
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador que ataca e pode ser abençoado."
+   "papel_por_que": "Vampiro voador que ataca e pode ser abençoado.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que ataca e pode ser abençoado; o vínculo com a vida alimenta Vito e Hierophant.",
+    "I": "Um corpo; do cemitério, ainda passa as três habilidades a outra criatura.",
+    "T": "Três manas por voar, toque mortífero e vínculo com a vida.",
+    "Q": "Início, paridade e atrás, como bloqueador.",
+    "R": "Corpo sem gatilho de ataque nem de morte; o radar tem Vampiro que rende mais, o Sanctum Seeker."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Sanctum Seeker",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Redemption Choir": {
    "notas": {
@@ -875,12 +1344,31 @@
     "sin1": "Vampiro comum; o que devolve é qualquer permanente barata, não só Vampiro.",
     "sin2": "Recursão repetível: ao entrar e a cada ataque, com coven, devolve uma permanente de valor até 3 ao campo."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "3/3 com vínculo com a vida. Ao entrar ou atacar, se você controla três criaturas de poderes diferentes, devolve do cemitério ao campo uma permanente de custo 3 ou menos.",
    "porque": "Recursão repetível a cada ataque quando o coven fecha, o que lordes e marcadores ajudam. Fica no meio por depender da condição e só trazer permanente de custo até 3.",
    "papel": "habilita",
-   "papel_por_que": "Devolve uma permanente do cemitério ao campo, com condição."
+   "papel_por_que": "Devolve uma permanente do cemitério ao campo, com condição.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Devolve uma permanente de custo até 3 ao entrar e ao atacar, se o coven fechar.",
+    "I": "Com o coven, a volta já vem na entrada, com um corpo com vínculo com a vida.",
+    "T": "Quatro manas, com condição: três criaturas de poderes diferentes.",
+    "Q": "Paridade e na frente; atrás, o coven não fecha.",
+    "R": "Carmen e Chthonian Nightmare fazem a recursão repetível sem a condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Roaming Throne": {
    "notas": {
@@ -895,12 +1383,31 @@
     "sin1": "Nomeando Vampiro, conta como Vampiro (decisão do dono) e dobra o gatilho de ataque do Clavileño: multiplica a bênção.",
     "sin2": "Dobra os gatilhos de morte dos Vampiros, sem matar nem devolver."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "4/4 com salvaguarda {2}. Escolha um tipo: gatilhos das suas outras criaturas daquele tipo disparam uma vez a mais.",
    "porque": "Nomeando Vampiro, dobra o gatilho de ataque do Clavileño e quase todo gatilho de morte da tribo.",
    "papel": "multiplica",
-   "papel_por_que": "Gatilhos dos seus Vampiros disparam uma vez a mais, inclusive o do Clavileño."
+   "papel_por_que": "Gatilhos dos seus Vampiros disparam uma vez a mais, inclusive o do Clavileño.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Nomeando Vampiro, dobra a bênção do Clavileño e os gatilhos de morte dos Vampiros.",
+    "I": "Nada ao entrar; depende de ficar, e a salvaguarda {2} ajuda.",
+    "T": "Quatro manas incolores, no padrão.",
+    "Q": "Paridade e na frente: precisa do Clavileño atacando.",
+    "R": "Só o Strionic Resonator também dobra a bênção, e cobra {2} a cada uso."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Ruthless Lawbringer": {
    "notas": {
@@ -916,13 +1423,32 @@
     "sin1": "Vampiro comum: ataca e pode ser abençoado, sem pôr outro Vampiro em campo.",
     "sin2": "Sacrifica uma criatura sua uma vez, ao entrar, como custo da remoção."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Ao entrar, você pode sacrificar outra criatura para destruir uma permanente que não seja terreno.",
    "porque": "Remoção universal num corpo de Vampiro, e o custo é exatamente o que o deck quer pagar.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Sacrifica uma criatura sua para destruir uma permanente."
+   "papel_por_que": "Sacrifica uma criatura sua para destruir uma permanente.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que sacrifica outra criatura ao entrar: a remoção mata o abençoado.",
+    "I": "Destrói qualquer permanente que não seja terreno e deixa um corpo.",
+    "T": "Três manas, na velocidade de feitiço.",
+    "Q": "Paridade, na frente e atrás; pede uma criatura para sacrificar.",
+    "R": "Remoção pontual dentro da cota; as outras não deixam Vampiro em campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Teysa Karlov": {
    "notas": {
@@ -944,7 +1470,26 @@
    "faz": "Gatilhos de morte das suas permanentes disparam uma vez a mais. Suas fichas de criatura têm vigilância e vínculo com a vida.",
    "porque": "Dobra o valor de cada morte por 4 manas: duas cartas e dois Demônios por Vampiro abençoado.",
    "papel": "multiplica",
-   "papel_por_que": "Gatilhos de morte disparam uma vez a mais."
+   "papel_por_que": "Gatilhos de morte disparam uma vez a mais.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dobra todo gatilho de morte: duas cartas e dois Demônios por abençoado.",
+    "I": "Precisa ficar; as fichas ganham vigilância e vínculo com a vida na hora.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, quando as fichas com vínculo com a vida seguram a corrida.",
+    "R": "O Drivnod dobra por cinco manas e não dá nada às fichas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Twilight Prophet": {
    "notas": {
@@ -958,13 +1503,32 @@
    "sin_por_que": {
     "sin1": "Vampiro comum: ataca e pode ser abençoado, sem pôr outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/4 voador. Com a bênção da cidade, toda manutenção revela e compra o topo; os oponentes perdem vida igual ao custo da carta e você ganha o mesmo.",
    "porque": "Compra e dreno todo turno. Dez permanentes é fácil com fichas.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Com a bênção da cidade, compra e drena toda manutenção."
+   "papel_por_que": "Com a bênção da cidade, compra e drena toda manutenção.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro voador que compra e drena toda manutenção, depois da bênção da cidade.",
+    "I": "Carta e dreno por turno, mas só a partir da manutenção seguinte.",
+    "T": "Quatro manas; pede dez permanentes, que as fichas completam no meio do jogo.",
+    "Q": "Paridade, na frente e atrás: a bênção da cidade não se perde.",
+    "R": "Welcoming Vampire compra por três manas, mas não drena."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Viscera Seer": {
    "notas": {
@@ -980,7 +1544,7 @@
     "sin1": "Vampiro comum: ataca e pode ser abençoado, sem pôr outro Vampiro em campo.",
     "sin2": "Saída de sacrifício grátis, instantânea e repetível: mata o abençoado na hora certa."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Sacrifique uma criatura, sem custo: vidência 1.",
    "porque": "A saída de sacrifício mais barata do formato, e é Vampiro. Liga o deck inteiro por uma mana.",
@@ -988,7 +1552,31 @@
     "saida": 2
    },
    "papel": "habilita",
-   "papel_por_que": "Saída de sacrifício sem custo."
+   "papel_por_que": "Saída de sacrifício sem custo.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Saída de sacrifício grátis e instantânea por uma mana: o abençoado morre quando você quer.",
+    "I": "Liga a morte na hora, sem virar, e a vidência arruma a próxima compra.",
+    "T": "Uma mana, sem custo de ativação.",
+    "Q": "Início, paridade e na frente; atrás, tira a criatura do exílio, mas não segura a mesa.",
+    "R": "As outras saídas grátis custam duas ou três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o abençoado só morre com Bartolomé, Yahenni ou Phyrexian Altar, de duas e três manas, ou no bloqueio.",
+    "Bartolomé custa o dobro; Yahenni e Phyrexian Altar custam três manas, o mesmo que o Clavileño.",
+    "No início, na primeira mana; na paridade e na frente, em toda bênção; e em resposta à remoção."
+   ],
+   "indice": 2.45
   },
   "Vito, Thorn of the Dusk Rose": {
    "notas": {
@@ -1001,12 +1589,31 @@
    "sin_por_que": {
     "sin1": "Vampiro comum: ataca e pode ser abençoado, sem pôr outro Vampiro em campo."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "faz": "Sempre que você ganha vida, um oponente perde a mesma quantidade. Por {3}{B}{B}, suas criaturas ganham vínculo com a vida até o fim do turno.",
    "porque": "Metade do combo: com Hunger of the Ancient One (Exquisite Blood) ou Bloodthirsty Conqueror, qualquer ponto de vida vira loop infinito. É a vitória mais rápida que o deck tem.",
    "papel": "recompensa",
-   "papel_por_que": "Ganho de vida vira perda de vida do oponente; peça do combo."
+   "papel_por_que": "Ganho de vida vira perda de vida do oponente; peça do combo.",
+   "tier_anterior": "S",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Converte o ganho de vida em perda de um oponente; rende pela quantidade de vínculo com a vida da lista.",
+    "I": "Precisa ficar; cada ficha com vínculo com a vida passa a bater duas vezes.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "É o terceiro conversor em dano de uma lista com falta deles, e metade do laço de contingência."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Welcoming Vampire": {
    "notas": {
@@ -1020,13 +1627,32 @@
    "sin_por_que": {
     "sin1": "Vampiro comum: ataca e pode ser abençoado, sem pôr outro Vampiro em campo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/3 voador. Uma vez por turno, compra uma carta quando criaturas suas de poder 2 ou menos entram.",
    "porque": "Uma carta por turno quase garantida com tanta ficha 1/1. Funciona também no turno dos oponentes.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Compra quando entram criaturas pequenas, como as fichas."
+   "papel_por_que": "Compra quando entram criaturas pequenas, como as fichas.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra quando entram criaturas suas de poder 2 ou menos: fichas e Vampiros que voltam.",
+    "I": "Uma carta por turno, inclusive no turno dos outros; precisa ficar.",
+    "T": "Três manas, com condição de poder.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Dentro da cota de compra; as fichas 1/1 da lista garantem o gatilho."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Yahenni, Undying Partisan": {
    "notas": {
@@ -1045,12 +1671,31 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "2/2 com ímpeto que cresce quando criaturas dos oponentes morrem. Sacrifique outra criatura, sem custo: fica indestrutível até o fim do turno.",
-   "porque": "Saída de sacrifício gratuita que sobrevive às suas próprias remoções em massa.",
+   "porque": "Saída de sacrifício gratuita que sobrevive às suas limpezas por destruição; a Toxic Deluge e a Meathook Massacre a matam.",
    "marcas": {
     "saida": 2
    },
    "papel": "habilita",
-   "papel_por_que": "Saída de sacrifício sem custo."
+   "papel_por_que": "Saída de sacrifício sem custo.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Saída de sacrifício grátis e instantânea, em corpo com ímpeto.",
+    "I": "Liga a morte na hora e fica indestrutível; cresce quando morre criatura deles.",
+    "T": "Três manas: a mais cara das saídas grátis em criatura.",
+    "Q": "Paridade, na frente e atrás: atravessa as limpezas de destruição.",
+    "R": "Viscera Seer e Bartolomé fazem o mesmo por menos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Sorin the Mirthless": {
    "notas": {
@@ -1071,7 +1716,26 @@
    "porque": "Vantagem de carta estável e um corpo por ativação. Sólido, sem ser central.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Cria um Vampiro voador e dá vantagem de cartas."
+   "papel_por_que": "Cria um Vampiro voador e dá vantagem de cartas.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O −2 cria um Vampiro 2/3 voador com vínculo com a vida, que pode ser abençoado.",
+    "I": "Ficha garantida na entrada, ou a carta do topo em troca de vida.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, com o bloqueador com vínculo com a vida.",
+    "R": "Bloodline Keeper cria Vampiro voador todo turno sem gastar lealdade."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Invasion of New Capenna": {
    "notas": {
@@ -1090,7 +1754,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Ao entrar, você pode sacrificar um artefato ou criatura para exilar um artefato ou criatura de um oponente. Derrotada, vira um equipamento que distribui marcadores.",
-   "porque": "Exílio por 2 manas com o custo que o deck gosta de pagar. O verso é um bônus raro."
+   "porque": "Exílio por 2 manas com o custo que o deck gosta de pagar. O verso é um bônus raro.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O exílio pede sacrificar criatura ou artefato seu: mata o abençoado.",
+    "I": "Um por um, só em artefato ou criatura; o verso raramente vira.",
+    "T": "Duas manas, na velocidade de feitiço.",
+    "Q": "Paridade, na frente e atrás; pede algo para sacrificar.",
+    "R": "A Rite of Oblivion exila qualquer permanente que não seja terreno e ainda se repete."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Agadeem's Awakening": {
    "notas": {
@@ -1104,11 +1787,30 @@
    "sin_por_que": {
     "sin2": "Recursão em massa, numa vez só."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Devolve do cemitério ao campo criaturas com custos diferentes entre si, cada uma de custo X ou menos. O verso é um terreno que gera {B}.",
    "porque": "Reanimação em massa no fim do jogo ou terreno quando falta mana. Nunca é carta morta.",
-   "gera": "B"
+   "gera": "B",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Devolve ao campo várias criaturas de custos diferentes: o voltar em massa, uma vez.",
+    "I": "Reconstrói a mesa depois da limpeza; depende do X que a mana paga.",
+    "T": "{X}{B}{B}{B}: cara como mágica, mas entra como terreno desvirado por 3 de vida.",
+    "Q": "Nunca é carta morta: terreno cedo, reconstrução tarde.",
+    "R": "A proteção está no piso da cota; Victimize devolve só duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Archenemy's Charm": {
    "notas": {
@@ -1121,10 +1823,29 @@
    "sin_por_que": {
     "sin2": "Devolve uma ou duas criaturas do cemitério para a mão, uma vez."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea com três modos: exila criatura ou planeswalker, devolve até duas criaturas ou planeswalkers do cemitério à mão, ou dá dois marcadores e vínculo com a vida.",
-   "porque": "Exílio em velocidade instantânea com recursão de reserva. O custo {B}{B}{B} pede atenção à base de mana."
+   "porque": "Exílio em velocidade instantânea com recursão de reserva. O custo {B}{B}{B} pede atenção à base de mana.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica; o segundo modo devolve duas criaturas à mão.",
+    "I": "Exila criatura ou planeswalker, ou vale duas cartas do cemitério.",
+    "T": "Três manas, instantânea; {B}{B}{B} pesa em duas cores.",
+    "Q": "Os três modos cobrem os quatro momentos.",
+    "R": "Remoção pontual dentro da cota; é o único exílio instantâneo da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Austere Command": {
    "notas": {
@@ -1132,11 +1853,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Escolha dois: destruir artefatos, encantamentos, criaturas de custo 3 ou menos, criaturas de custo 4 ou mais.",
    "porque": "Única resposta em massa a artefatos e encantamentos, e dá para poupar o seu lado. Fica no meio porque custa 6 e é uma de seis limpezas num deck que quer manter a própria mesa.",
-   "massa": 1
+   "massa": 1,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica; os modos deixam escolher o que do seu lado sobrevive.",
+    "I": "Vira a mesa, e é a única que varre artefatos e encantamentos.",
+    "T": "Seis manas.",
+    "Q": "Atrás e na paridade.",
+    "R": "São seis limpezas para uma cota de três a quatro, e esta é a mais cara."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Damn": {
    "notas": {
@@ -1144,11 +1884,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Destrói uma criatura por {B}{B}, ou todas por {2}{W}{W} com sobrecarga.",
    "porque": "Remoção pontual barata ou global, conforme a necessidade. A flexibilidade justifica a vaga.",
-   "massa": 1
+   "massa": 1,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Mata uma criatura, ou todas com sobrecarga.",
+    "T": "Duas manas na pontual, quatro na limpeza; é feitiço.",
+    "Q": "A pontual vale sempre; a limpeza vale atrás e na paridade.",
+    "R": "Vale por pontual e por limpeza na mesma vaga; as limpezas estão acima da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Deadly Dispute": {
    "notas": {
@@ -1163,10 +1922,29 @@
    "sin_por_que": {
     "sin2": "Sacrifica uma criatura ou artefato uma vez, como custo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Sacrifique um artefato ou criatura: compre duas cartas e crie um Tesouro.",
-   "porque": "Compra instantânea que ainda dispara gatilho de morte. Uma das melhores cartas de aristocratas por 2 manas."
+   "porque": "Compra instantânea que ainda dispara gatilho de morte. Uma das melhores cartas de aristocratas por 2 manas.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O sacrifício é o custo, e é instantânea: mata o abençoado na hora certa.",
+    "I": "Duas cartas e um Tesouro por uma criatura.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, na frente e atrás, em resposta à remoção; pede algo para sacrificar.",
+    "R": "A Village Rites do radar compra o mesmo por uma mana; a compra está no teto da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Diabolic Intent": {
    "notas": {
@@ -1183,7 +1961,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Sacrifique uma criatura: busque qualquer carta do grimório para a mão.",
-   "porque": "Tutor de 2 manas cujo custo é um bônus neste deck. Encontra a peça de combo que faltar."
+   "porque": "Tutor de 2 manas cujo custo é um bônus neste deck. Encontra a peça de combo que faltar.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O sacrifício é o custo: mata o abençoado e busca a peça que falta.",
+    "I": "Tutor sem restrição: vale a carta que busca.",
+    "T": "Duas manas; é feitiço.",
+    "Q": "Paridade, na frente e atrás; pede uma criatura.",
+    "R": "O Emeritus of Woe do radar repete a busca, mas custa quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Generous Gift": {
    "notas": {
@@ -1191,10 +1988,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea: destrói qualquer permanente. O controlador ganha um Elefante 3/3.",
-   "porque": "Responde a qualquer coisa, inclusive terrenos. É a resposta universal do branco."
+   "porque": "Responde a qualquer coisa, inclusive terrenos. É a resposta universal do branco.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Um por um, e o alvo deixa um Elefante 3/3.",
+    "T": "Três manas, instantânea.",
+    "Q": "Viva nos quatro momentos: destrói qualquer permanente.",
+    "R": "Remoção pontual dentro da cota; é a única que alcança terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Insatiable Avarice": {
    "notas": {
@@ -1206,7 +2022,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Modos cumulativos: por +{2}, busca uma carta e a coloca no topo; por +{B}{B}, um jogador compra três cartas e perde 3 de vida.",
-   "porque": "Tutor, compra ou os dois, e o modo de compra ainda tira 3 de vida no alvo certo. Fica no meio porque a busca vai para o topo e os dois modos juntos custam 5."
+   "porque": "Tutor, compra ou os dois, e o modo de compra ainda tira 3 de vida no alvo certo. Fica no meio porque a busca vai para o topo e os dois modos juntos custam 5.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Tutor e compra genéricos.",
+    "I": "Tutor sem restrição, mas a carta vai para o topo.",
+    "T": "Três manas em cada modo, cinco nos dois juntos.",
+    "Q": "Viva nos quatro momentos, como busca ou como três cartas.",
+    "R": "Diabolic Intent busca para a mão por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Malakir Rebirth": {
    "notas": {
@@ -1223,7 +2058,26 @@
    "rel": "ALT",
    "faz": "Instantânea de {B}: a criatura alvo volta ao campo se morrer neste turno. O verso é um terreno que gera {B}.",
    "porque": "Proteção barata para uma peça-chave ou segunda rodada de gatilho de morte. Na pior hipótese, é terreno.",
-   "gera": "B"
+   "gera": "B",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A criatura morre e volta no mesmo turno: salva o Clavileño, ou o abençoado rende e volta.",
+    "I": "Um por um.",
+    "T": "Uma mana, instantânea, e 2 de vida.",
+    "Q": "Nunca é carta morta: na pior hipótese é terreno, que entra virado.",
+    "R": "A proteção está no piso da cota: são três cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "New Blood": {
    "notas": {
@@ -1240,7 +2094,27 @@
    "rel": "BAX",
    "faz": "Vire um Vampiro: ganhe o controle de uma criatura em definitivo, e ela passa a tratar um tipo de criatura como Vampiro.",
    "porque": "Efeito forte, mas é feitiço de 4 manas com um alvo só e exige um Vampiro desvirado. Há remoção mais eficiente.",
-   "prioridade": 5
+   "prioridade": 5,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Rouba uma criatura; o custo vira um Vampiro seu, que deixa de atacar no turno.",
+    "I": "Fica com a melhor criatura da mesa em definitivo.",
+    "T": "Quatro manas, feitiço, e pede um Vampiro desvirado.",
+    "Q": "Paridade e na frente; sem Vampiro em campo, não se conjura.",
+    "R": "É a remoção pontual mais cara da lista; o radar põe o Vein Ripper na vaga."
+   },
+   "antissinergia": "leve",
+   "substituto": "Vein Ripper",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Olivia's Wrath": {
    "notas": {
@@ -1253,11 +2127,30 @@
    "sin_por_que": {
     "sin1": "Conta os Vampiros e os poupa: liga-se à tribo de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Cada criatura que não é Vampiro recebe −X/−X, onde X é o número de Vampiros que você controla.",
    "porque": "Remoção em massa de um lado só. Com meia dúzia de Vampiros, limpa a mesa e mantém a sua.",
-   "massa": 1
+   "massa": 1,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Limpeza que poupa os Vampiros e cresce com a contagem deles.",
+    "I": "−X/−X em quem não é Vampiro, Teysa e Drivnod inclusive; o X depende da sua mesa.",
+    "T": "Cinco manas, e é de um lado só.",
+    "Q": "Paridade e na frente; atrás, sem Vampiros, o X é pequeno.",
+    "R": "É a única limpeza de um lado só; as limpezas estão acima da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Rite of Oblivion": {
    "notas": {
@@ -1271,10 +2164,29 @@
    "sin_por_que": {
     "sin2": "Sacrifica uma permanente como custo, até duas vezes com o flashback."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Sacrifique uma permanente que não seja terreno: exile uma permanente que não seja terreno. Tem recapitular.",
-   "porque": "Dois exílios em uma carta, e cada um aciona seus gatilhos de sacrifício."
+   "porque": "Dois exílios em uma carta, e cada um aciona seus gatilhos de sacrifício.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Sacrificar uma permanente é o custo, duas vezes com o recapitular.",
+    "I": "Dois exílios de permanente que não seja terreno numa carta.",
+    "T": "Duas manas de feitiço; quatro no recapitular.",
+    "Q": "Paridade, na frente e atrás; pede algo para sacrificar.",
+    "R": "Remoção pontual dentro da cota; a Invasion of New Capenna só pega artefato ou criatura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Split Up": {
    "notas": {
@@ -1287,7 +2199,27 @@
    "faz": "Destrói todas as criaturas viradas ou todas as desviradas.",
    "porque": "Sexta remoção em massa do deck e a menos confiável: depende de como a mesa está virada.",
    "massa": 1,
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica.",
+    "I": "Destrói as viradas ou as desviradas: parte da mesa, conforme o momento.",
+    "T": "Três manas, mas depende de quem está virado.",
+    "Q": "Atrás e na paridade.",
+    "R": "É a pior das seis limpezas, com a cota em três a quatro; o radar avalia o Mondrak, Glory Dominus na vaga."
+   },
+   "antissinergia": "leve",
+   "substituto": "Mondrak, Glory Dominus",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Toxic Deluge": {
    "notas": {
@@ -1299,7 +2231,26 @@
    "rel": "INS",
    "faz": "Pague X de vida: todas as criaturas recebem −X/−X.",
    "porque": "A melhor remoção em massa do formato. Num deck que ganha vida, o custo quase não pesa.",
-   "massa": 1
+   "massa": 1,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o reset do deck: os Demônios, as fichas da Elenda e as cartas chegam depois do efeito.",
+    "I": "Vira a mesa, no tamanho que você escolher.",
+    "T": "Três manas; a vida paga o vínculo com a vida das fichas repõe.",
+    "Q": "Atrás e na paridade.",
+    "R": "É a melhor das seis limpezas; a cota do dono é de três a quatro."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Treacherous Greed": {
    "notas": {
@@ -1317,7 +2268,30 @@
    "rel": "BAX",
    "faz": "Instantânea: sacrifique uma criatura que causou dano neste turno, compre três cartas e drene 3 de cada oponente.",
    "porque": "O texto é ótimo, a condição atrapalha: a criatura precisa ter causado dano antes. Deadly Dispute faz parecido sem restrição.",
-   "prioridade": 4
+   "prioridade": 4,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "O sacrifício é o custo, mas só de criatura que causou dano no turno.",
+    "I": "Três cartas e 3 de dreno em cada oponente.",
+    "T": "Três manas com condição: a criatura precisa ter causado dano.",
+    "Q": "Paridade e na frente, depois do combate.",
+    "R": "O Scheming Silvertongue do radar repete a compra nos turnos em que você ganha 2 de vida."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Scheming Silvertongue",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Victimize": {
    "notas": {
@@ -1336,7 +2310,26 @@
    "faz": "Sacrifique uma criatura: devolva duas criaturas do cemitério ao campo, viradas.",
    "porque": "Três manas por dois corpos e mais um gatilho de morte. Padrão ouro de reanimação para aristocratas.",
    "papel": "habilita",
-   "papel_por_que": "Sacrifica uma criatura e devolve duas."
+   "papel_por_que": "Sacrifica uma criatura e devolve duas.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica uma criatura e devolve duas ao campo: morrer e voltar na mesma mágica, uma vez.",
+    "I": "Dois corpos do cemitério e mais um gatilho de morte.",
+    "T": "Três manas por duas reanimações.",
+    "Q": "Paridade, na frente e atrás; pede uma criatura em campo e duas no cemitério.",
+    "R": "Nullpriest of Oblivion e Agadeem's Awakening devolvem por mais mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Arcane Signet": {
    "notas": {
@@ -1344,10 +2337,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera uma mana de qualquer cor da identidade do comandante.",
-   "porque": "Pedra de 2 manas que dá as duas cores e entra desvirada: num deck abaixo da faixa de ramp, é a base da aceleração."
+   "porque": "Pedra de 2 manas que dá as duas cores e entra desvirada: num deck abaixo da faixa de ramp, é a base da aceleração.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno, nas duas cores.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota: são cinco pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Lithoform Engine": {
    "notas": {
@@ -1368,7 +2380,27 @@
    "porque": "Quatro manas para entrar e mais mana para cada uso. Brilha quando você já está ganhando.",
    "prioridade": 2,
    "papel": "multiplica",
-   "papel_por_que": "Copia habilidades e mágicas."
+   "papel_por_que": "Copia habilidades e mágicas.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Copia a bênção ou o gatilho de morte do abençoado, um por turno.",
+    "I": "Nada ao entrar; cada cópia custa {2} e virar.",
+    "T": "Quatro manas pelo que o Strionic Resonator faz por duas.",
+    "Q": "Paridade e na frente.",
+    "R": "É a pior cópia dos multiplicadores; o radar põe a Saw in Half na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Saw in Half",
+   "confianca": "alta",
+   "indice": 1.05
   },
   "Mind Stone": {
    "notas": {
@@ -1380,7 +2412,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Gera {C}. Por {1}, pode ser sacrificada para comprar uma carta.",
-   "porque": "Acelera e vira carta no fim do jogo, mas gera só incolor num deck de custos {B}{B} e {W}{W}, por isso fica atrás das pedras que dão cor."
+   "porque": "Acelera e vira carta no fim do jogo, mas gera só incolor num deck de custos {B}{B} e {W}{W}, por isso fica atrás das pedras que dão cor.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana incolor a mais por turno; tarde, vira uma carta.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "Só incolor num deck de {B}{B} e {W}{W}; segura a vaga porque o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Orzhov Signet": {
    "notas": {
@@ -1391,7 +2442,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Por {1}, gera {W}{B}.",
-   "porque": "Acelera e corrige cor. É a menos eficiente das pedras de 2 manas do deck."
+   "porque": "Acelera e corrige cor. É a menos eficiente das pedras de 2 manas do deck.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno, nas duas cores.",
+    "T": "Duas manas; pede {1} para gerar {W}{B}.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota; é a pedra menos ágil das cinco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Phyrexian Altar": {
    "notas": {
@@ -1415,7 +2485,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Saída de sacrifício sem custo que gera mana."
+   "papel_por_que": "Saída de sacrifício sem custo que gera mana.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Saída de sacrifício grátis e instantânea, e cada morte vira uma mana de qualquer cor.",
+    "I": "Liga a morte na hora; com as fichas da Elenda, paga o resto da mão.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, em resposta à limpeza.",
+    "R": "É a única saída grátis que não morre com as criaturas; as outras três são Vampiros."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Skullclamp": {
    "notas": {
@@ -1430,10 +2519,34 @@
    "sin_por_que": {
     "sin2": "Só rende com a morte da equipada; mata de passagem só criatura de resistência 1."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Equipamento de {1}: +1/−1. Quando a criatura equipada morre, compre duas cartas.",
-   "porque": "Cada ficha 1/1 vira duas cartas por uma mana. O melhor motor de compra do deck."
+   "porque": "Cada ficha 1/1 vira duas cartas por uma mana. O melhor motor de compra do deck.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte a morte de quem está equipado em duas cartas, e mata a ficha 1/1 por {1}.",
+    "I": "Duas cartas por mana, repetível; pede criaturas em campo.",
+    "T": "Uma mana para entrar e uma para equipar.",
+    "Q": "Início, paridade e na frente; atrás, sem criaturas, não faz nada.",
+    "R": "Nenhuma outra compra da lista rende duas cartas por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, as fichas 1/1 de Mavren Fein, Legion's Landing e das Elendas só valem como corpo.",
+    "Baron Bertram cobra {1}{B} por uma carta; a Village Rites do radar vale uma vez só.",
+    "No início, com a primeira ficha; na paridade e na frente, todo turno, com qualquer criatura de resistência 1."
+   ],
+   "indice": 2.45
   },
   "Sol Ring": {
    "notas": {
@@ -1444,7 +2557,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Gera {C}{C}.",
-   "porque": "Duas manas por uma: adianta o Clavileño e os motores de 4 e 5 manas em um turno inteiro, num deck abaixo da faixa de ramp."
+   "porque": "Duas manas por uma: adianta o Clavileño e os motores de 4 e 5 manas em um turno inteiro, num deck abaixo da faixa de ramp.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Duas manas a mais por turno: o Clavileño desce no turno 2.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota, e nada acelera tanto por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Strionic Resonator": {
    "notas": {
@@ -1459,12 +2591,31 @@
     "sin1": "Não é Vampiro, mas copia o gatilho de ataque do Clavileño ou o de morte do abençoado, pagando a cada uso.",
     "sin2": "Copia um gatilho de morte, sem matar nem devolver."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Por {2}, copia uma habilidade desencadeada que você controla.",
    "porque": "Dobra o gatilho das Elendas ou do Vampiro abençoado. Sem um bom gatilho na pilha, não faz nada.",
    "papel": "multiplica",
-   "papel_por_que": "Copia um gatilho, como o da morte do abençoado."
+   "papel_por_que": "Copia um gatilho, como o da morte do abençoado.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Copia a bênção do Clavileño ou o gatilho de morte do abençoado, um por turno.",
+    "I": "Nada ao entrar; cada cópia custa {2} e virar.",
+    "T": "Duas manas, mais {2} por uso.",
+    "Q": "Paridade e na frente.",
+    "R": "Roaming Throne e Teysa Karlov dobram sem pagar a cada vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Talisman of Hierarchy": {
    "notas": {
@@ -1472,10 +2623,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {C}, ou {W} ou {B} causando 1 de dano a você.",
-   "porque": "Pedra de 2 manas que dá as duas cores; o 1 de dano por mana colorida o vínculo das fichas repõe. Peça central de um ramp curto."
+   "porque": "Pedra de 2 manas que dá as duas cores; o 1 de dano por mana colorida o vínculo das fichas repõe. Peça central de um ramp curto.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno; a colorida custa 1 de dano.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota: são cinco pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Black Market Connections": {
    "notas": {
@@ -1496,7 +2666,26 @@
    "porque": "Mana, carta e corpo todo turno; o Metamorfo também é Demônio e não recebe a bênção. A vida perdida o deck recupera com folga.",
    "papel": "habilita",
    "papel_dupla": "Draw e Ramp",
-   "papel_por_que": "Fichas de Metamorfo, que contam como Vampiro, todo turno."
+   "papel_por_que": "Fichas de Metamorfo, que contam como Vampiro, todo turno.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Mana, carta e corpo que qualquer deck preto usaria; o Metamorfo é Demônio e não recebe a bênção.",
+    "I": "Rende todo turno, a partir do turno seguinte; encantamento é difícil de tirar.",
+    "T": "Três manas, sem condição; cobra de 1 a 6 de vida por turno.",
+    "Q": "Viva nos quatro momentos: você escolhe quanto paga.",
+    "R": "O ramp está abaixo da cota, e nada na lista dá mana, carta e corpo juntos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3
   },
   "Chthonian Nightmare": {
    "notas": {
@@ -1516,7 +2705,26 @@
    "faz": "Pague energia igual ao custo, sacrifique uma criatura e devolva o encantamento à mão: reanima uma criatura do cemitério.",
    "porque": "Reanimação reutilizável que ainda serve de saída de sacrifício. Volta para a mão e recarrega a energia.",
    "papel": "habilita",
-   "papel_por_que": "Sacrifica e reanima, de forma repetível."
+   "papel_por_que": "Sacrifica e reanima, de forma repetível.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica uma criatura e devolve outra do cemitério, de novo a cada vez que volta à mão.",
+    "I": "Reanima na hora, com criatura em campo e alvo de custo até 3 no cemitério.",
+    "T": "Duas manas por uso, só no seu turno; a energia limita o custo do alvo.",
+    "Q": "Paridade, na frente e atrás; pede uma criatura para sacrificar.",
+    "R": "Nenhuma outra recursão da lista se repete por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Exquisite Blood": {
    "notas": {
@@ -1525,12 +2733,32 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "C",
    "rel": "INS",
    "faz": "Sempre que um oponente perde vida, você ganha a mesma quantidade.",
    "porque": "Metade do combo com o Vito. Sozinho, dobra o valor de cada dreno.",
    "papel": "recompensa",
-   "papel_por_que": "Com o Vito, fecha o loop de dreno."
+   "papel_por_que": "Com o Vito, fecha o loop de dreno.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Metade do laço com o Vito, que é contingência; sozinha, só devolve vida.",
+    "I": "Não mexe na mesa: ganha vida quando os oponentes perdem.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Bloodthirsty Conqueror faz o mesmo em corpo de Vampiro; o radar avalia o Sanctum Seeker."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Sanctum Seeker",
+   "confianca": "média",
+   "indice": 1.25
   },
   "Glasswing Grace": {
    "notas": {},
@@ -1540,7 +2768,26 @@
    "rel": "MED",
    "faz": "Aura: +2/+2, voar e vínculo com a vida. O verso é um terreno virado que gera {W} ou {B}.",
    "porque": "Na prática é um terreno bicolor com uma opção de fim de jogo. Conta como fonte de mana, não como mágica.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Na prática, é terreno das duas cores.",
+    "I": "Um terreno por turno; a aura de cinco manas é opção tardia.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre: terreno cedo, aura tarde.",
+    "R": "Os terrenos virados passam do teto de três a quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Legion's Landing": {
    "notas": {
@@ -1555,10 +2802,29 @@
    "sin_por_que": {
     "sin1": "Não é Vampiro, mas cria fichas de Vampiro, e o verso segue criando."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Cria um Vampiro 1/1 com vínculo com a vida. Atacando com três criaturas, vira um terreno que gera {W} e fabrica mais Vampiros.",
-   "porque": "Uma mana por um corpo no turno 1 e, depois, um terreno que fabrica Vampiros para sempre; com o Skullclamp, cada ficha vira duas cartas."
+   "porque": "Uma mana por um corpo no turno 1 e, depois, um terreno que fabrica Vampiros para sempre; com o Skullclamp, cada ficha vira duas cartas.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Um Vampiro por uma mana; virada, é terreno que fabrica Vampiros.",
+    "I": "Uma ficha 1/1 com vínculo com a vida; o resto depende de atacar com três.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhuma outra carta põe Vampiro em campo no turno 1."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "March of the Canonized": {
    "notas": {
@@ -1578,7 +2844,27 @@
    "porque": "Cara pelo que entrega na hora, e a devoção 7 demora a fechar. Primeira da fila de corte.",
    "prioridade": 1,
    "papel": "habilita",
-   "papel_por_que": "Cria X Vampiros, e Demônios com devoção."
+   "papel_por_que": "Cria X Vampiros, e Demônios com devoção.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cria X Vampiros 1/1 com vínculo com a vida.",
+    "I": "Corpos pequenos; o Demônio por manutenção pede devoção 7.",
+    "T": "{X}{W}{W}: duas fichas por quatro manas.",
+    "Q": "Paridade e na frente.",
+    "R": "É o pior gerador de Vampiros da lista; o radar põe o Emeritus of Woe na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Emeritus of Woe",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "The Meathook Massacre": {
    "notas": {
@@ -1593,7 +2879,7 @@
    "sin_por_que": {
     "sin2": "Só rende com a morte, sem matar nem devolver."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Ao entrar, todas as criaturas recebem −X/−X. Depois, cada criatura sua que morre tira 1 de vida de cada oponente, e você ganha 1 de vida a cada criatura deles que morre.",
    "porque": "Limpeza de tamanho ajustável que depois fica em campo como um segundo Blood Artist: com ele, são os dois conversores de morte em dano do deck.",
@@ -1603,7 +2889,31 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Remoção em massa",
-   "papel_por_que": "Cada morte drena."
+   "papel_por_que": "Cada morte drena.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte cada morte sua em 1 de dano em cada oponente e fica em campo.",
+    "I": "Limpeza do tamanho que você paga, e depois dreno a cada morte.",
+    "T": "{X}{B}{B}: com X = 3 custa cinco manas, no padrão da limpeza.",
+    "Q": "Viva nos quatro momentos: dreno por duas manas cedo, limpeza atrás, fechamento na frente.",
+    "R": "Só ela e o Blood Artist convertem morte em dano; como limpeza, é uma de seis."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, só o Blood Artist converte morte em dano, e em um jogador por vez.",
+    "O Vein Ripper do radar custa seis manas e não limpa a mesa; o Blood Artist atinge um jogador só.",
+    "Nos quatro: X = 0 no início, limpeza quando atrás, dreno em cada sacrifício na paridade e na frente."
+   ],
+   "indice": 2.6
   },
   "Valkyrie's Call": {
    "notas": {
@@ -1618,22 +2928,65 @@
    "sin_por_que": {
     "sin2": "Faz cada criatura sua que não é ficha voltar ao morrer, e quem volta não é Demônio: pode ser abençoado de novo."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Quando uma criatura sua que não é ficha nem Anjo morre, ela volta ao campo com um marcador +1/+1, voar e o tipo Anjo.",
    "porque": "Cada Vampiro morre duas vezes: dois gatilhos de morte por carta e um time que resiste a remoções em massa.",
    "papel": "habilita",
-   "papel_por_que": "Quem morre volta como Anjo: a morte vira repetição."
+   "papel_por_que": "Quem morre volta como Anjo: a morte vira repetição.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o voltar: cada criatura sua que não é ficha volta ao morrer, como Anjo, e pode ser abençoada de novo.",
+    "I": "Nada ao entrar; depois, toda morte vale duas, e a limpeza deixa de zerar a mesa.",
+    "T": "Cinco manas, no padrão do efeito.",
+    "Q": "Paridade, na frente e atrás, antes da limpeza; no início é cara.",
+    "R": "Nenhuma outra carta faz o time voltar; a Avacyn, Angel of Horror custa oito manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o ciclo para no Demônio: o abençoado morre uma vez e não volta como Anjo para a segunda bênção.",
+    "A Avacyn, Angel of Horror do radar custa oito manas, três a mais, e só devolve no passo final.",
+    "Na paridade e na frente, dobra cada morte; atrás, segura a mesa contra a limpeza."
+   ],
+   "indice": 2.45
   },
   "Bleachbone Verge": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {B}; gera {W} se você controla uma Planície ou um Pântano.",
    "porque": "Bicolor que entra desvirado e dá preto sempre; o branco pede Planície ou Pântano em campo, que a Godless Shrine e os básicos cobrem.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores; o branco pede Planície ou Pântano em campo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Bojuka Bog": {
    "notas": {
@@ -1642,22 +2995,60 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Entra virado, gera {B} e exila o cemitério de um jogador.",
    "porque": "Resposta a cemitério sem ocupar vaga de mágica; fica no meio porque entra virado e só limpa um cemitério, uma vez.",
    "virado": 1,
-   "gera": "B"
+   "gera": "B",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; exila um cemitério ao entrar.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "É a única resposta a cemitério da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Brightclimb Pathway": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Escolha ao baixar: gera {W} ou gera {B}.",
    "porque": "Entra sempre desvirado e sem custo de vida, com branco ou preto escolhido ao jogar: flexível na mão, embora dê uma cor só depois de baixado.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Branco ou preto, escolhido ao baixar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem custo.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Castle Locthwain": {
    "notas": {
@@ -1665,11 +3056,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {B}. Por {1}{B}{B}, compra uma carta e você perde vida igual ao número de cartas na mão.",
    "porque": "Gera preto, entra desvirado com um Pântano e vira compra quando a mão esvazia: custo quase zero na base de mana.",
-   "gera": "B"
+   "gera": "B",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; compra tarde por {1}{B}{B}.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado só com Pântano em campo, e são seis na lista.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Cavern of Souls": {
    "notas": {
@@ -1681,11 +3091,30 @@
    "sin_por_que": {
     "sin1": "Escolhendo Vampiro, paga os Vampiros em qualquer cor e os protege de anulação: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Gera mana de qualquer cor para criaturas do tipo escolhido, e elas não podem ser anuladas.",
    "porque": "Nomeando Vampiro, corrige cor e protege a tribo de anulações.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor para os Vampiros, sem anulação; incolor para o resto.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma outra fonte protege os Vampiros de anulação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Command Tower": {
    "notas": {},
@@ -1695,27 +3124,85 @@
    "rel": "INS",
    "faz": "Gera {W} ou {B}.",
    "porque": "As duas cores, sempre desvirado e sem custo nem condição: o terreno mais limpo da base.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno melhor para duas cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Concealed Courtyard": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {W} ou {B}; entra desvirado se você controla até dois outros terrenos.",
    "porque": "Bicolor desvirado nos primeiros turnos, quando a curva mais pede; mais tarde entra virado, que é o único defeito.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado só até o terceiro terreno.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Desolate Mire": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Por {1}, gera {W}{B}.",
    "porque": "Filtra para branco e preto, mas não gera mana sozinho: depende de outro terreno e por isso fica atrás dos bicolores comuns.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Filtra para as duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas não gera mana sozinho.",
+    "Q": "Ruim como único terreno da mão inicial.",
+    "R": "O radar põe a Three Tree City na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Three Tree City",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Fetid Heath": {
    "notas": {},
@@ -1725,17 +3212,56 @@
    "rel": "MED",
    "faz": "Gera {C}, ou converte uma mana branca ou preta em duas dessas cores.",
    "porque": "Ajuda a pagar custos como o {B}{B}{B} do Archenemy's Charm, mas sozinho gera só incolor e precisa de outra fonte colorida.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Filtra para as duas cores; sozinho, gera incolor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas a cor pede outra fonte colorida.",
+    "Q": "Fraco como único terreno da mão inicial.",
+    "R": "O radar avalia a Eiganjo, Seat of the Empire na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Eiganjo, Seat of the Empire",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Godless Shrine": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Planície Pântano. Gera {W} ou {B}; entra desvirado por 2 de vida.",
    "porque": "Tem os dois tipos básicos: liga os terrenos que checam Planície ou Pântano e pode ser buscado.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, e é Planície e Pântano.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado por 2 de vida.",
+    "Q": "Viva sempre.",
+    "R": "Liga os terrenos que checam tipo, e a Marsh Flats a busca."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "High Market": {
    "notas": {
@@ -1747,34 +3273,91 @@
    "sin_por_que": {
     "sin2": "Saída de sacrifício instantânea num terreno, uma por turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {C}. Vire e sacrifique uma criatura: ganhe 1 de vida.",
    "porque": "Saída de sacrifício que não ocupa vaga de mágica e não pode ser anulada.",
    "gera": "C",
    "marcas": {
     "saida": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor; saída de sacrifício que não ocupa vaga de mágica.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Incolor pesa nas mãos de {B}{B} e {W}{W}.",
+    "R": "Saída que não pode ser anulada; rende só 1 de vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Isolated Chapel": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {W} ou {B}; entra desvirado se você controla uma Planície ou um Pântano.",
    "porque": "Bicolor quase sempre desvirado: a Godless Shrine, a Marsh Flats e os básicos ligam a condição.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado com Planície ou Pântano em campo; são nove na lista.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Marsh Flats": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Pague 1 de vida e sacrifique: busca uma Planície ou um Pântano para o campo.",
    "porque": "Acha a Godless Shrine e conta como dois terrenos entrando para o Bloodghast.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Busca Planície ou Pântano, a Godless Shrine inclusive; são dois terrenos entrando para o Bloodghast.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; custa 1 de vida.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Minas Tirith": {
    "notas": {
@@ -1790,7 +3373,26 @@
    "rel": "MED",
    "faz": "Gera {W}. Por {1}{W}, compra uma carta se você atacou com duas ou mais criaturas.",
    "porque": "Compra nos turnos de ataque, o que o deck faz quase sempre, e entra desvirada com o Clavileño em campo; fica no meio porque dá só branco e cada carta custa {1}{W}.",
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; compra quando você atacou com duas criaturas.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada com criatura lendária em campo.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota; cada carta custa {1}{W}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Path of Ancestry": {
    "notas": {
@@ -1803,12 +3405,32 @@
    "sin_por_que": {
     "sin1": "Vidência ao conjurar criatura que divida tipo com o Clavileño: liga-se por tipo, de passagem."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Entra virado, gera {W} ou {B} e dá vidência 1 ao pagar Vampiros ou Clérigos.",
    "porque": "Dá as duas cores e vidência ao pagar Vampiro, mas entra virado, o que o segura no meio.",
    "virado": 1,
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores; vidência ao pagar Vampiro ou Clérigo.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "O radar põe a Takenuma, Abandoned Mire na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Takenuma, Abandoned Mire",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Phyrexian Tower": {
    "notas": {
@@ -1828,7 +3450,26 @@
    "gera": "C",
    "marcas": {
     "saida": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Incolor; saída de sacrifício que devolve {B}{B}.",
+    "I": "Um terreno por turno, que vale duas manas pretas no sacrifício.",
+    "T": "Desvirado.",
+    "Q": "Incolor quando não há criatura para sacrificar.",
+    "R": "Saída e ramp no mesmo terreno, com o ramp abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Plains": {
    "notas": {},
@@ -1838,7 +3479,26 @@
    "rel": "MED",
    "faz": "Terreno básico. Gera {W}.",
    "porque": "Liga os terrenos que checam tipo básico. A quantidade de básicos é o ajuste fino da base de mana.",
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; liga Isolated Chapel, Bleachbone Verge e Shineshadow Snarl.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Secluded Courtyard": {
    "notas": {
@@ -1850,31 +3510,89 @@
    "sin_por_que": {
     "sin1": "Escolhendo Vampiro, paga Vampiro em qualquer cor: liga-se à tribo de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {C}, ou mana de qualquer cor para mágicas e habilidades de criaturas do tipo escolhido.",
    "porque": "Segunda Cavern para a tribo: paga os Vampiros e as habilidades deles em qualquer cor, só sem a proteção contra anulação.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor para os Vampiros e as habilidades deles; incolor para o resto.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "É a segunda Cavern of Souls, sem a proteção contra anulação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Shattered Sanctum": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {W} ou {B}; entra desvirado se você controla dois ou mais outros terrenos.",
    "porque": "Bicolor que entra desvirado do turno 3 em diante, quando o deck começa a gastar mais mana; nos dois primeiros turnos entra virado.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado só a partir do terceiro terreno.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Shineshadow Snarl": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Gera {W} ou {B}; entra desvirado se você revelar uma Planície ou um Pântano da mão.",
    "porque": "Bicolor que pede Planície ou Pântano na mão para entrar desvirado; com poucos básicos no deck, entra virado mais vezes do que deveria.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado só revelando Planície ou Pântano da mão; são nove na lista.",
+    "Q": "Viva sempre.",
+    "R": "O radar põe a Plaza of Heroes na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Plaza of Heroes",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Silent Clearing": {
    "notas": {
@@ -1882,11 +3600,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Por 1 de vida, gera {W} ou {B}. Por {1}, pode ser sacrificado para comprar uma carta.",
    "porque": "Bicolor sempre desvirado, por 1 de vida que o vínculo das fichas repõe, e no fim do jogo se troca por uma carta.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; 1 de vida por mana.",
+    "Q": "Viva sempre; tarde, troca-se por uma carta.",
+    "R": "Dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Swamp": {
    "notas": {},
@@ -1896,7 +3633,26 @@
    "rel": "MED",
    "faz": "Terreno básico. Gera {B}.",
    "porque": "Liga os terrenos que checam tipo básico. A quantidade de básicos é o ajuste fino da base de mana.",
-   "gera": "B"
+   "gera": "B",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; liga Castle Locthwain, Witch's Cottage e os terrenos que checam tipo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Vault of Champions": {
    "notas": {},
@@ -1906,7 +3662,26 @@
    "rel": "ALT",
    "faz": "Gera {W} ou {B}; entra desvirado se você tem dois ou mais oponentes.",
    "porque": "Na mesa de quatro, entra sempre desvirado com as duas cores: um bicolor sem custo nem condição.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado sempre, em mesa de quatro.",
+    "Q": "Viva sempre.",
+    "R": "Igual à Command Tower na mesa de quatro: sem custo nem condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Voldaren Estate": {
    "notas": {
@@ -1922,7 +3697,26 @@
    "rel": "MED",
    "faz": "Gera {C}, ou mana de qualquer cor para mágicas de Vampiro por 1 de vida. Cria fichas de Sangue.",
    "porque": "Corrige cor para a tribo; a ficha de Sangue raramente é usada.",
-   "gera": "WB"
+   "gera": "WB",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor só para mágica de Vampiro; incolor para o resto.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; a cor custa 1 de vida.",
+    "Q": "Viva sempre.",
+    "R": "É a terceira fonte por tipo, atrás de Cavern of Souls e Secluded Courtyard."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Windbrisk Heights": {
    "notas": {
@@ -1935,12 +3729,31 @@
    "sin_por_que": {
     "sin1": "Joga de graça a carta escondida se você atacou com três criaturas: rende com o ataque, sem citar Vampiros."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Entra virado, exila uma das quatro cartas do topo e gera {W}. Atacando com três criaturas, você joga a carta exilada sem pagar o custo.",
    "porque": "Com tanta ficha, a condição fecha fácil. Entrar virado é o custo.",
    "virado": 1,
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; a carta escondida sai quando você ataca com três criaturas.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "A carta escondida só rende na paridade e na frente.",
+    "R": "Os terrenos virados passam do teto de três a quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Witch's Cottage": {
    "notas": {
@@ -1958,7 +3771,30 @@
    "faz": "Pântano que gera {B}. Entra virado sem três outros Pântanos; quando entra desvirado, põe uma criatura do cemitério no topo do grimório.",
    "porque": "Com quatro Pântanos básicos e a Godless Shrine, quase sempre entra virado e sem o bônus. Um Pântano básico rende mais.",
    "virado": 1,
-   "gera": "B"
+   "gera": "B",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; é Pântano.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado sem três outros Pântanos, e a lista tem cinco além dele.",
+    "Q": "Viva sempre.",
+    "R": "Um Swamp básico entra desvirado sempre; o bônus quase nunca acontece."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Swamp",
+   "confianca": "alta",
+   "indice": 1.1
   }
  },
  "radar": {
@@ -2464,7 +4300,7 @@
    "veredito": "entra",
    "sai": "Shineshadow Snarl",
    "faz": "Gera {C}; ou uma mana de qualquer cor, só para mágica lendária; ou uma mana de qualquer cor entre as das permanentes lendárias suas. Por {3}, virando e exilando-o, uma criatura lendária alvo ganha hexproof e indestrutível até o fim do turno.",
-   "porque": "O deck tem doze lendas (Clavileño, Elenda, Carmen, Baron Bertram, Bartolomé, Edgar, Ojer Taq, Teysa, Drivnod, Yahenni, Vito, Sorin): o Plaza paga qualquer uma em qualquer cor e, com uma em campo, dá as duas cores sem condição. Por {3}, salva o Clavileño da remoção pontual, que é o jeito de parar o deck. Sai o Shineshadow Snarl, que pede básico na mão para entrar desvirado.",
+   "porque": "O deck tem catorze lendas (Clavileño, Elenda, Carmen, Baron Bertram, Bartolomé, Edgar, Ojer Taq, Teysa, Drivnod, Yahenni, Vito, Mavren Fein, Henrika e o Sorin): o Plaza paga qualquer uma em qualquer cor e, com uma em campo, dá as duas cores sem condição. Por {3}, salva o Clavileño da remoção pontual, que é o jeito de parar o deck. Sai o Shineshadow Snarl, que pede básico na mão para entrar desvirado.",
    "papel_dupla": "Proteção",
    "papel_por_que": "Terreno que dá hexproof e indestrutível a uma lenda em resposta à remoção."
   },
@@ -2623,5 +4459,17 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "02. TRIBAIS",
+  "conta": "Os Vampiros atacam e o Clavileño abençoa um deles (atacar); o abençoado morre na hora certa e vira carta e Demônio (morrer); a recursão e a Valkyrie's Call o trazem de volta para ser abençoado de novo (voltar).",
+  "decisoes": [
+   "O deck fecha sem depender de combo: repetir e multiplicar gatilhos. O laço do Vito é contingência.",
+   "O ciclo é Vampiro, Demônio, Anjo (pela Valkyrie's Call) e Demônio de novo.",
+   "A Toxic Deluge é o reset do deck, não candidata a corte.",
+   "O deck tem seis limpezas; a cota do dono é de três a quatro, de preferência unilaterais."
+  ]
  }
 }
