@@ -364,7 +364,27 @@
    "rel": "BAX",
    "faz": "Golpe primeiro. Ganha um marcador +1/+1 ao atacar. No seu fim de turno, se você atacou, devolve do cemitério ao campo uma criatura de valor de mana até o poder dela.",
    "porque": "Reanima as peças baratas só se atacou e sobreviveu, e não é Vampiro: o Strefan não a põe em campo e ela não soma à tribo.",
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Reanima criatura barata no fim do turno, só se você atacou; o Strefan não a põe em campo.",
+    "I": "Precisa atacar e sobreviver; 2/2 com iniciativa.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "A recursão está acima da cota e esta é a pior cópia; o radar põe o Sanctum Seeker na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Sanctum Seeker",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Anje, Maid of Dishonor": {
    "notas": {
@@ -393,7 +413,26 @@
    "fora_do_corte": true,
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno ao gastar Sangue)",
-   "papel_por_que": "Cria Sangue quando o Vampiro do Strefan entra, e cada ficha gasta drena 2."
+   "papel_por_que": "Cria Sangue quando o Vampiro do Strefan entra, e cada ficha gasta drena 2.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cria Sangue quando entra Vampiro, inclusive pelo Strefan, e troca ficha por 2 de vida de cada oponente.",
+    "I": "Uma ficha garantida na entrada; o resto pede que ela fique. Corpo 4/5.",
+    "T": "Quatro manas, e o dreno cobra {2} por uso.",
+    "Q": "Paridade, na frente e atrás: o 4/5 bloqueia e o dreno devolve vida.",
+    "R": "A Lobelia e o Oni-Cult Anvil também trocam ficha por ping, mas não criam Sangue."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Belligerent Guest": {
    "notas": {
@@ -417,7 +456,26 @@
    },
    "fora_do_corte": true,
    "papel": "habilita",
-   "papel_por_que": "Vampiro que o Strefan põe atacando; cria Sangue ao conectar."
+   "papel_por_que": "Vampiro que o Strefan põe atacando; cria Sangue ao conectar.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Só cria Sangue quando conecta com um jogador.",
+    "I": "Um corpo 3/2 com atropelar.",
+    "T": "Três manas por uma ficha que depende do combate.",
+    "Q": "Início e na frente.",
+    "R": "O Falkenrath Forebear faz o mesmo voando e volta do cemitério."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Bloodtithe Harvester": {
    "notas": {
@@ -443,7 +501,26 @@
    "fora_do_corte": true,
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Vampiro barato que entra com uma ficha de Sangue."
+   "papel_por_que": "Vampiro barato que entra com uma ficha de Sangue.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A primeira ficha de Sangue no turno 2, e a remoção cresce com o estoque.",
+    "I": "Ficha garantida na entrada e uma remoção guardada no corpo 3/2.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre: ficha cedo, remoção na paridade e atrás.",
+    "R": "O Voldaren Epicure, do radar, cria a ficha por uma mana, mas não remove."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Captivating Vampire": {
    "notas": {
@@ -457,7 +534,7 @@
    "sin_por_que": {
     "sin1": "Vampiro e lorde: o bônus nos outros Vampiros é estático, sem gatilho a cada Vampiro que entra."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "2/2 de 3. Os outros Vampiros ganham +1/+1. Virar cinco Vampiros: toma o controle de uma criatura, que vira Vampiro.",
    "porque": "Lord da tribo: posto pelo Strefan no meio do ataque, já aumenta os atacantes. Divide o papel com Markov Baron e Stromkirk Captain.",
@@ -466,7 +543,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Remoção (rouba criatura)",
-   "papel_por_que": "Lorde +1/+1 dos Vampiros."
+   "papel_por_que": "Lorde +1/+1 dos Vampiros.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord: o buff aumenta o ataque, mas não cria ficha nem sangra mais jogadores.",
+    "I": "Um corpo 2/2 e +1/+1 nos outros Vampiros enquanto ficar; o roubo pede cinco Vampiros desvirados.",
+    "T": "Três manas, no padrão de lord.",
+    "Q": "Início, paridade e na frente.",
+    "R": "São três lords e uma bandeira; Markov Baron e Stromkirk Captain fazem o mesmo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Champion of Dusk": {
    "notas": {
@@ -479,7 +575,7 @@
    "sin_por_que": {
     "sin1": "Vampiro que conta os Vampiros ao entrar, inteiro quando o Strefan o põe em campo, mas sem gatilho a cada Vampiro que entra."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "4/4 de 5. Ao entrar, você compra X cartas e perde X de vida, X o número de Vampiros que você controla.",
    "porque": "O melhor reabastecimento do deck, e funciona inteiro posto pelo Strefan. A vida perdida é sua e também vira ficha.",
@@ -492,7 +588,31 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Strefan, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Alvo do brinde: posto pelo Strefan, compra uma carta por Vampiro, e a vida perdida é a sua ficha.",
+    "I": "Garantido na entrada: duas cartas ou mais, com o Strefan e ele em campo.",
+    "T": "Cinco manas conjurado; pelo Strefan, duas fichas.",
+    "Q": "Paridade, na frente e atrás, quando reabastece a mão.",
+    "R": "A compra está abaixo da cota, e nenhum outro Vampiro da lista compra na entrada."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, o brinde põe corpo em campo mas não repõe a mão: o deck tem oito fontes de compra, abaixo da cota.",
+    "A Pointed Discussion compra duas e para; a Black Market Connections compra uma por turno e não entra pelo Strefan.",
+    "Na paridade e na frente, posto pelo Strefan; atrás, conjurado por cinco, reabastece depois da limpeza."
+   ],
+   "indice": 2.45
   },
   "Creeping Bloodsucker": {
    "notas": {
@@ -516,7 +636,31 @@
     "ping": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toda manutenção, cada oponente perde 1: uma ficha de Sangue por oponente."
+   "papel_por_que": "Toda manutenção, cada oponente perde 1: uma ficha de Sangue por oponente.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o sangrar: toda manutenção sua, cada oponente perde 1 e vira ficha no fim do turno.",
+    "I": "Motor que precisa ficar em campo; corpo 1/2, e nada na entrada.",
+    "T": "Duas manas, sem condição e sem pagar para pingar.",
+    "Q": "Início, paridade e na frente; atrás, um 1/2 não segura a mesa.",
+    "R": "O Spear Spewer, do radar, é equivalente por uma mana; mas ping sem condição a lista só tem dois."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, as três fichas do turno dependem de combate ou de ping pago: o Strefan chega rendendo só a sua ficha.",
+    "O Spear Spewer faz o mesmo por uma mana, sem o ganho de vida, e entraria ao lado dele, não no lugar; os outros pings pedem ficha, ataque ou mana.",
+    "No início (turno 2, antes do Strefan), na paridade e na frente, sem gastar mana nem ficha."
+   ],
+   "indice": 2.45
   },
   "Exsanguinator Cavalry": {
    "notas": {
@@ -541,7 +685,27 @@
    },
    "prioridade": 8,
    "papel": "habilita",
-   "papel_por_que": "Vampiro Cavaleiro que cria Sangue quando Cavaleiros conectam."
+   "papel_por_que": "Vampiro Cavaleiro que cria Sangue quando Cavaleiros conectam.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cria Sangue quando um Cavaleiro seu conecta, e são três Cavaleiros na lista.",
+    "I": "Um corpo 2/3 com ameaçar e vínculo com a vida.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início e na frente.",
+    "R": "É a cópia mais fraca do Sangue por combate; o radar avalia a Olivia, Mobilized for War na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Olivia, Mobilized for War",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Falkenrath Forebear": {
    "notas": {
@@ -568,7 +732,26 @@
    "fora_do_corte": true,
    "papel": "habilita",
    "papel_dupla": "Recompensa (volta gastando Sangue)",
-   "papel_por_que": "Vampiro voador que cria Sangue ao conectar e volta do cemitério por duas fichas."
+   "papel_por_que": "Vampiro voador que cria Sangue ao conectar e volta do cemitério por duas fichas.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Voa e conecta quase todo turno: a ficha dele e mais um jogador ferido para o Strefan.",
+    "I": "Um corpo 3/1 que não bloqueia; a ficha depende de conectar.",
+    "T": "Três manas, no padrão; a volta custa {B} e duas fichas.",
+    "Q": "Início, paridade e na frente; atrás, não bloqueia.",
+    "R": "Tem par na lista: Belligerent Guest e Exsanguinator Cavalry fazem Sangue por combate."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Florian, Voldaren Scion": {
    "notas": {
@@ -589,7 +772,26 @@
    "porque": "Vantagem de carta que cresce com o ping: com os três oponentes pingados, olha três cartas ou mais todo turno.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Cava cartas pela vida que os oponentes perderam no turno."
+   "papel_por_que": "Cava cartas pela vida que os oponentes perderam no turno.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Converte a sangria em carta: olha uma carta por ponto de vida que os oponentes perderam.",
+    "I": "Rende no turno em que entra, se alguém já perdeu vida; depois, todo turno.",
+    "T": "Três manas; pede perda de vida no turno.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A compra está abaixo da cota, e só ele dá carta todo turno por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Henrika Domnathi": {
    "notas": {
@@ -603,13 +805,32 @@
    "sin_por_que": {
     "sin1": "Vampiro: o Strefan pode pô-la em campo da mão, mas não tem gatilho a cada Vampiro que entra."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Voar, de 4. No começo do combate, escolhe um modo ainda não usado: cada jogador sacrifica uma criatura; você compra e perde 1; ou transforma (voar, toque mortífero, vínculo, e bombeia os seus voadores).",
    "porque": "Carta de estimação. Posta pelo Strefan, o começo do combate já passou: rende conjurada, com três modos úteis.",
    "fora_do_corte": true,
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador que ataca; os modos dela pouco ajudam o plano (papel fraco)."
+   "papel_por_que": "Vampiro voador que ataca; os modos dela pouco ajudam o plano (papel fraco).",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "A compra cobra 1 de vida, que é a sua ficha, uma vez só.",
+    "I": "Conjurada antes do combate, já escolhe um modo: sacrifício para todos, carta ou transformar.",
+    "T": "Quatro manas, no padrão; pelo Strefan, o começo do combate já passou.",
+    "Q": "Paridade, na frente e atrás, contra o atacante único.",
+    "R": "O sacrifício pega você também; há remoção pontual mais barata na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.35
   },
   "High-Society Hunter": {
    "notas": {
@@ -636,7 +857,30 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Strefan, sem conjurar"
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Um voador para o brinde; a compra por morte não fala com o Sangue.",
+    "I": "Um corpo 5/3; o gatilho de ataque não dispara quando entra pelo Strefan.",
+    "T": "Cinco manas conjurado; pelo Strefan, duas fichas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Bloodline Keeper, do radar, faz um Vampiro por turno por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Bloodline Keeper",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Lobelia, Defender of Bag End": {
    "notas": {
@@ -651,7 +895,7 @@
    "sin_por_que": {
     "sin2": "Virando e sacrificando um artefato, como uma ficha de Sangue, cada oponente perde 2: uma vez por turno, sem pagar mana."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Ao entrar, exila virada a carta do topo de cada oponente. Vira e sacrifica um artefato: joga uma carta exilada sem pagar, ou cada oponente perde 2 e você ganha 2.",
    "porque": "Troca ficha de Sangue por dreno de 6 ou uma carta dos oponentes, como a Anje, mas sem ser Vampiro: o Strefan não a põe em campo.",
@@ -659,7 +903,27 @@
     "ping": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Sacrifica artefato, como a ficha de Sangue sobrando, para cada oponente perder 2."
+   "papel_por_que": "Sacrifica artefato, como a ficha de Sangue sobrando, para cada oponente perder 2.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Troca uma ficha por 2 de vida de cada oponente, mas gasta a ficha que o brinde quer.",
+    "I": "Precisa sobreviver uma volta para virar; 2/2.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Oni-Cult Anvil faz o mesmo ping por duas manas, sem enjoo de invocação."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Combat Celebrant",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Malakir Bloodwitch": {
    "notas": {
@@ -675,7 +939,7 @@
     "sin1": "Vampiro que conta os Vampiros ao entrar, mas sem gatilho a cada Vampiro que entra.",
     "sin2": "Ao entrar, cada oponente perde vida, por gatilho: posta pelo Strefan, liga as fichas de todos no fim do turno."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "faz": "4/4 voar e proteção contra branco, de 5. Ao entrar, cada oponente perde vida igual ao número de Vampiros que você controla, e você ganha esse tanto.",
    "porque": "Posta pelo Strefan, drena todos antes do fim do turno e liga as fichas. O dreno depende de quantos Vampiros há, e conjurada custa 5.",
@@ -688,7 +952,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Strefan, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Alvo do brinde: ao entrar, cada oponente perde vida, e as três fichas do turno ficam garantidas.",
+    "I": "Garantido na entrada: dreno pelo número de Vampiros, no mínimo 2 com o Strefan.",
+    "T": "Cinco manas conjurada; pelo Strefan, duas fichas.",
+    "Q": "Paridade, na frente e atrás: 4/4 voador e vida de volta.",
+    "R": "É o único Vampiro da lista que sangra a mesa toda ao entrar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Markov Baron": {
    "notas": {
@@ -703,7 +986,7 @@
     "sin1": "Vampiro e lorde: o bônus nos outros Vampiros é estático, sem gatilho a cada Vampiro que entra.",
     "sin2": "Loucura: sai por {2}{B} quando descartado pela ficha de Sangue."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "2/2 vínculo, de 3, com convocar. Os outros Vampiros ganham +1/+1. Loucura {2}{B}.",
    "porque": "Lord da tribo que sai pela loucura quando descartado na ficha de Sangue. Corpo 2/2, que pesa pouco sozinho.",
@@ -715,7 +998,26 @@
    "custo_usual": {
     "cmc": 1,
     "como": "convocando com as criaturas"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord; sai pela loucura quando descartado na ficha de Sangue, pelo mesmo custo.",
+    "I": "Um corpo 2/2 com vínculo com a vida e +1/+1 nos outros Vampiros enquanto ficar.",
+    "T": "Três manas, e convocar pode baratear.",
+    "Q": "Início, paridade e na frente.",
+    "R": "São três lords e uma bandeira; Captivating Vampire e Stromkirk Captain fazem o mesmo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Markov Enforcer": {
    "notas": {
@@ -745,7 +1047,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Strefan, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Alvo do brinde: luta ao entrar e a cada Vampiro que entra depois, e a criatura morta vira ficha.",
+    "I": "Remoção garantida na entrada, com um corpo 6/6.",
+    "T": "Seis manas conjurado; pelo Strefan, duas fichas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Patron of the Vein, do radar, destrói na entrada, mas não repete nem cria Sangue."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Mirkwood Bats": {
    "notas": {
@@ -759,7 +1080,7 @@
    "sin_por_que": {
     "sin2": "Cada ficha criada ou sacrificada tira 1 de cada oponente: as duas que o Strefan gasta no ataque já ligam as fichas do fim do turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/3 voar, de 4. Sempre que você cria ou sacrifica uma ficha, cada oponente perde 1.",
    "porque": "Cada ficha de Sangue pinga a mesa duas vezes, ao nascer e ao ser gasta: as duas que o Strefan sacrifica no ataque já ligam as fichas do fim do turno.",
@@ -768,7 +1089,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (perda de vida vira Sangue)",
-   "papel_por_que": "Cada ficha de Sangue criada ou gasta faz cada oponente perder 1."
+   "papel_por_que": "Cada ficha de Sangue criada ou gasta faz cada oponente perder 1.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada ficha criada ou sacrificada tira 1 de cada oponente: o brinde do Strefan já garante as fichas do turno.",
+    "I": "Motor que precisa ficar em campo; 2/3 voador.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente: precisa das fichas rodando.",
+    "R": "Nenhuma outra carta da lista pinga por ficha criada; a Anje e o Oni-Cult Anvil cobrem a ficha gasta."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Moonstone Eulogist": {
    "notas": {
@@ -789,7 +1129,30 @@
    },
    "prioridade": 1,
    "papel": "habilita",
-   "papel_por_que": "Cria Sangue quando criatura de oponente morre."
+   "papel_por_que": "Cria Sangue quando criatura de oponente morre.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Cria Sangue quando morre criatura de oponente: depende da mesa deles e das suas limpezas.",
+    "I": "Um corpo 4/4 voador; as fichas vêm depois.",
+    "T": "Cinco manas, e o Strefan não o põe em campo.",
+    "Q": "Paridade e na frente.",
+    "R": "O Voldaren Epicure, do radar, pinga os três e cria Sangue na entrada, por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Voldaren Epicure",
+   "confianca": "alta",
+   "indice": 1.05
   },
   "Nullpriest of Oblivion": {
    "notas": {
@@ -808,7 +1171,27 @@
    "porque": "Vampiro flexível, corpo cedo ou reanimação por 6, mas posto pelo Strefan entra sem reforço e não reanima.",
    "prioridade": 9,
    "papel": "habilita",
-   "papel_por_que": "Vampiro barato; reforçado, devolve uma criatura do cemitério ao campo."
+   "papel_por_que": "Vampiro barato; reforçado, devolve uma criatura do cemitério ao campo.",
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Com reforço, reanima uma criatura; posto pelo Strefan, entra sem reforço.",
+    "I": "Sem reforço, um corpo 2/1 com vínculo com a vida e ameaçar.",
+    "T": "Duas manas, ou seis com a reanimação.",
+    "Q": "Início, paridade e atrás.",
+    "R": "A recursão está acima da cota; o radar põe o Deadly Rollick na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Deadly Rollick",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Olivia's Attendants": {
    "notas": {
@@ -841,7 +1224,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Strefan, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Posta pelo Strefan, ataca como 6/6 e cada ponto de dano vira uma ficha: o brinde se repaga.",
+    "I": "Seis fichas se o dano entrar, no mesmo combate; bloqueada, ainda causa dano à criatura.",
+    "T": "Seis manas conjurada; pelo Strefan, duas fichas.",
+    "Q": "Paridade e na frente: pede o Strefan atacando ou seis manas.",
+    "R": "Nenhuma outra carta cria várias fichas de Sangue de uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Olivia, Crimson Bride": {
    "notas": {
@@ -855,13 +1257,32 @@
    "sin_por_que": {
     "sin1": "Vampiro: o Strefan pode pô-la em campo, mas assim o gatilho de ataque não dispara, e a reanimação serve a qualquer criatura."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "3/4 voar e pressa, de 6. Ao atacar, devolve do cemitério uma criatura virada e atacando, que se exila sem um Vampiro lendário seu.",
    "porque": "Carta de estimação, da série Drácula. Posta pelo Strefan, não foi declarada atacante e o gatilho não dispara: rende conjurada, com a pressa.",
    "fora_do_corte": true,
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador que, ao atacar, traz uma criatura do cemitério atacando."
+   "papel_por_que": "Vampiro voador que, ao atacar, traz uma criatura do cemitério atacando.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Reanima atacando a cada ataque dela; posta pelo Strefan, o gatilho não dispara naquele combate.",
+    "I": "Conjurada, tem ímpeto e traz uma criatura no mesmo turno.",
+    "T": "Seis manas para render na hora; pelo Strefan, só no turno seguinte.",
+    "Q": "Paridade e na frente: precisa atacar.",
+    "R": "A recursão está acima da cota, e o Queen's Bay Paladin faz parecido ao entrar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Queen's Bay Paladin": {
    "notas": {
@@ -888,7 +1309,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Strefan, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Posto pelo Strefan, traz outro Vampiro do cemitério, e a vida cobrada é a sua ficha.",
+    "I": "Dois corpos por uma carta, se houver Vampiro no cemitério.",
+    "T": "Cinco manas conjurado; pelo Strefan, duas fichas.",
+    "Q": "Paridade, na frente e atrás, depois de uma limpeza.",
+    "R": "A recursão está acima da cota, e a Olivia, Crimson Bride repete o papel."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Roaming Throne": {
    "notas": {
@@ -903,7 +1343,7 @@
     "sin1": "Nomeando Vampiro, conta como Vampiro (decisão do dono) e dobra os gatilhos do Strefan e dos outros Vampiros.",
     "sin2": "Dobra o gatilho de Sangue do Strefan: duas fichas por jogador que perdeu vida."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "faz": "4/4 com resguardo 2, de 4. Escolha um tipo: o Trono é desse tipo, e habilidades desencadeadas de outras criaturas suas desse tipo disparam uma vez a mais.",
    "porque": "Nomeando Vampiro, dobra os dois gatilhos do Strefan: duas fichas por jogador e dois Vampiros por ataque. Dobra também Anje, Champion of Dusk e Markov Enforcer.",
@@ -911,7 +1351,26 @@
     "tribo": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Gatilhos dos seus Vampiros disparam uma vez a mais, inclusive os dois do Strefan."
+   "papel_por_que": "Gatilhos dos seus Vampiros disparam uma vez a mais, inclusive os dois do Strefan.",
+   "tier_anterior": "S",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Nomeando Vampiro, dobra os dois gatilhos do Strefan: duas fichas por jogador e dois brindes por ataque.",
+    "I": "Rende no mesmo turno se o Strefan já está em campo; sozinho é um 4/4 com ward {2}.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente: precisa do Strefan ou de outro Vampiro com gatilho.",
+    "R": "Não há outro dobrador de gatilho na lista nem no radar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Stromkirk Captain": {
    "notas": {
@@ -923,7 +1382,7 @@
    "sin_por_que": {
     "sin1": "Vampiro e lorde: o bônus nos outros Vampiros é estático, sem gatilho a cada Vampiro que entra."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "2/2 golpe primeiro, de 3. Os outros Vampiros ganham +1/+1 e golpe primeiro.",
    "porque": "Lord da tribo: o Vampiro posto pelo Strefan entra maior e ataca primeiro. Corpo pequeno, sem efeito ao entrar.",
@@ -931,7 +1390,26 @@
     "alvo": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Lorde +1/+1 e golpe primeiro."
+   "papel_por_que": "Lorde +1/+1 e golpe primeiro.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord: o buff e a iniciativa não criam ficha nem sangram mais jogadores.",
+    "I": "Um corpo 2/2 e +1/+1 com iniciativa nos outros Vampiros enquanto ficar.",
+    "T": "Três manas, no padrão de lord.",
+    "Q": "Início, paridade e na frente.",
+    "R": "São três lords e uma bandeira; Markov Baron e Captivating Vampire fazem o mesmo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Stromkirk Occultist": {
    "notas": {
@@ -953,7 +1431,27 @@
    "porque": "Descartado na ficha de Sangue, sai por duas manas pela loucura; o resto depende de conectar.",
    "prioridade": 10,
    "papel": "habilita",
-   "papel_por_que": "Vampiro de atropelar que o Strefan põe atacando."
+   "papel_por_que": "Vampiro de atropelar que o Strefan põe atacando.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Sai pela loucura no descarte da ficha; a carta extra depende de conectar.",
+    "I": "Um corpo 3/2 com atropelar.",
+    "T": "Três manas, ou duas pela loucura.",
+    "Q": "Início e na frente.",
+    "R": "O radar avalia o Blood Artist e o Scheming Silvertongue na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Scheming Silvertongue",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Twilight Prophet": {
    "notas": {
@@ -978,7 +1476,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Com a bênção da cidade, compra e drena toda manutenção."
+   "papel_por_que": "Com a bênção da cidade, compra e drena toda manutenção.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Com a bênção da cidade, compra e sangra os três toda manutenção; terreno revelado não tira vida.",
+    "I": "Motor que precisa ligar e sobreviver até a sua manutenção; 2/4 voador.",
+    "T": "Quatro manas e a condição de dez permanentes, que as fichas ajudam a cumprir.",
+    "Q": "Paridade e na frente.",
+    "R": "A compra está abaixo da cota, e nenhuma outra carta junta compra e ping por turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Vampire Socialite": {
    "notas": {
@@ -998,7 +1515,27 @@
    "porque": "Bônus pequeno, que só rende se um oponente já perdeu vida no turno, num 2/2 que não mexe no motor de Sangue.",
    "prioridade": 4,
    "papel": "multiplica",
-   "papel_por_que": "Marcador +1/+1 nos outros Vampiros quando um oponente perdeu vida."
+   "papel_por_que": "Marcador +1/+1 nos outros Vampiros quando um oponente perdeu vida.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Paga a sangria com marcadores +1/+1; não cria ficha nem tira vida.",
+    "I": "Um corpo 2/2 com ameaçar; os marcadores pedem oponente ferido no turno.",
+    "T": "Duas manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O buff está acima da cota e esta é a cópia mais fraca; o radar põe o Vicious Conquistador na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Vicious Conquistador",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Vein Ripper": {
    "notas": {
@@ -1014,7 +1551,7 @@
     "sin1": "Vampiro: o Strefan pode pô-lo em campo da mão, mas não tem gatilho a cada Vampiro que entra.",
     "sin2": "Cada morte tira 2 de um oponente só: um jogador por vez."
    },
-   "tier": "S",
+   "tier": "B",
    "rel": "INS",
    "faz": "6/5 voar, de 6. Resguardo: sacrificar uma criatura. Sempre que uma criatura morre, um oponente perde 2 e você ganha 2.",
    "porque": "O fechamento do deck: com Toxic Deluge ou Blasphemous Act, cada criatura morta é dreno de 2. Posto pelo Strefan, sai por duas fichas.",
@@ -1027,7 +1564,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Strefan, sem conjurar"
-   }
+   },
+   "tier_anterior": "S",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada morte tira 2 de um oponente só; 6/5 voador para o brinde, sem efeito ao entrar.",
+    "I": "Motor que precisa ficar; o ward de sacrifício ajuda.",
+    "T": "Seis manas conjurado; pelo Strefan, duas fichas.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira dreno.",
+    "R": "O Blood Artist, do radar, faz metade por duas manas; nenhum traz o corpo voador com ward."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Voldaren Bloodcaster": {
    "notas": {
@@ -1051,7 +1607,26 @@
    },
    "fora_do_corte": true,
    "papel": "habilita",
-   "papel_por_que": "Vampiro que cria Sangue quando criaturas suas morrem."
+   "papel_por_que": "Vampiro que cria Sangue quando criaturas suas morrem.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cria Sangue quando ele ou outra criatura sua que não é ficha morre: a limpeza vira estoque.",
+    "I": "Um corpo 2/1 voador; as fichas dependem de mortes.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e atrás, depois de uma limpeza.",
+    "R": "É o único Sangue da lista que sobrevive à limpeza da mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Westgate Regent": {
    "notas": {
@@ -1070,7 +1645,30 @@
    "porque": "Sem efeito ao entrar: posto pelo Strefan é só um 4/4 voador, que só cresce se conectar.",
    "prioridade": 3,
    "papel": "habilita",
-   "papel_por_que": "Vampiro voador para o Strefan pôr atacando."
+   "papel_por_que": "Vampiro voador para o Strefan pôr atacando.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Um voador para o brinde, sem efeito ao entrar.",
+    "I": "Um corpo 4/4 que só cresce se conectar.",
+    "T": "Cinco manas conjurado; pelo Strefan, duas fichas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Emeritus of Woe, do radar, entra preparado e rende um tutor por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Emeritus of Woe",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Arcane Signet": {
    "notas": {
@@ -1081,7 +1679,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Gera uma mana das cores do comandante.",
-   "porque": "Pedra de duas manas que dá as duas cores; cumpre sem se ligar ao Sangue."
+   "porque": "Pedra de duas manas que dá as duas cores; cumpre sem se ligar ao Sangue.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno, nas duas cores.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está no piso da cota: são dez cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Bontu's Monument": {
    "notas": {
@@ -1097,7 +1714,7 @@
     "sin1": "Barateia as criaturas pretas, não os Vampiros pelo tipo: liga-se à tribo de passagem.",
     "sin2": "Cada criatura conjurada faz cada oponente perder 1, por gatilho."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Suas mágicas de criatura preta custam 1 a menos. Sempre que você conjura uma criatura, cada oponente perde 1 e você ganha 1.",
    "porque": "Barateia as criaturas pretas e pinga a mesa a cada criatura conjurada: liga as fichas do turno só por jogar a tribo.",
@@ -1106,7 +1723,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Cada criatura conjurada faz cada oponente perder 1: Sangue de todos no fim do turno."
+   "papel_por_que": "Cada criatura conjurada faz cada oponente perder 1: Sangue de todos no fim do turno.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada criatura conjurada tira 1 de cada oponente; o Vampiro posto pelo Strefan não é conjurado e não dispara.",
+    "I": "Motor que precisa de outra criatura conjurada; artefato, sobrevive às limpezas.",
+    "T": "Três manas, e devolve uma a cada criatura preta.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Urza's Incubator, do radar, desconta 2, mas não pinga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Cryptolith Fragment": {
    "notas": {
@@ -1130,7 +1766,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Cada uso faz todos os jogadores perderem 1: Sangue de todos."
+   "papel_por_que": "Cada uso faz todos os jogadores perderem 1: Sangue de todos.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vira para mana e cada jogador perde 1: quatro fichas no fim do turno.",
+    "I": "Rende a partir do turno seguinte, porque entra virado; artefato, sobrevive às limpezas de criatura.",
+    "T": "Três manas, no padrão de pedra, mas entra virado.",
+    "Q": "Início, paridade e na frente; atrás, a dor também é sua.",
+    "R": "É a única pedra que pinga a mesa, mas o ping tem pares na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Glass-Cast Heart": {
    "notas": {
@@ -1155,7 +1810,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Recompensa (13 fichas fecham o jogo)",
-   "papel_por_que": "Cria Sangue sempre que Vampiros atacam e faz Vampiros 1/1."
+   "papel_por_que": "Cria Sangue sempre que Vampiros atacam e faz Vampiros 1/1.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cria uma ficha a cada ataque de Vampiro: repõe metade do brinde do Strefan.",
+    "I": "Motor que precisa de ataque; artefato, sobrevive às limpezas de criatura.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, quando faz Vampiros 1/1 com vínculo com a vida.",
+    "R": "Nenhuma outra carta da lista cria Sangue só por atacar, sem conectar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Helm of the Host": {
    "notas": {
@@ -1168,13 +1842,32 @@
    "sin_por_que": {
     "sin1": "Efeito genérico: equipado no Strefan, cria uma cópia dele com ímpeto a cada combate."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Equipamento lendário de 4, equipar {5}. No começo do combate, cria uma cópia não lendária da criatura equipada, com pressa.",
    "porque": "Peça do combo de combates, mantida pelo dono. Com Breath of Fury, cada cópia recebe a aura e há outro combate; sozinho é lento, com equipar 5.",
    "fora_do_corte": true,
    "papel": "multiplica",
-   "papel_por_que": "Cópia não lendária do equipado todo turno, com ímpeto: dois Strefans atacando."
+   "papel_por_que": "Cópia não lendária do equipado todo turno, com ímpeto: dois Strefans atacando.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "No Strefan, cada cópia cria as próprias fichas no fim do turno; com Breath of Fury, combates em cadeia.",
+    "I": "Nada na hora: a primeira cópia vem no combate depois de equipar.",
+    "T": "Quatro manas e equipar {5}.",
+    "Q": "Paridade e na frente.",
+    "R": "Só o Splinter Twin também copia criatura, e a cópia dele some no fim do turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Herald's Horn": {
    "notas": {
@@ -1195,7 +1888,30 @@
    "prioridade": 7,
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Traz Vampiros do topo para a mão, de onde o Strefan os põe atacando."
+   "papel_por_que": "Traz Vampiros do topo para a mão, de onde o Strefan os põe atacando.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Desconta {1} dos Vampiros conjurados; o brinde do Strefan já não paga custo.",
+    "I": "Nada na hora; às vezes põe na mão o Vampiro do topo.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Urza's Incubator, do radar, desconta {2} pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Urza's Incubator",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Oni-Cult Anvil": {
    "notas": {
@@ -1218,7 +1934,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (Construto quando artefato sai)",
-   "papel_por_que": "Sacrifica artefato, como a ficha de Sangue sobrando, e pinga cada oponente."
+   "papel_por_que": "Sacrifica artefato, como a ficha de Sangue sobrando, e pinga cada oponente.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma ficha sacrificada tira 1 de cada oponente: uma ficha vira três, e o Construct repõe a gasta.",
+    "I": "Motor que precisa de artefato para sacrificar; nada na entrada.",
+    "T": "Duas manas, e a ativação não custa mana.",
+    "Q": "Paridade e na frente: sem ficha na mesa, não liga.",
+    "R": "A Lobelia faz o mesmo ping por três manas e sem a ficha de volta."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Patchwork Banner": {
    "notas": {
@@ -1237,7 +1972,26 @@
    "porque": "Pedra que também é lord da tribo: cumpre as duas coisas, sem pingar nem fazer Sangue.",
    "papel": "multiplica",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Lorde +1/+1 pelo tipo escolhido."
+   "papel_por_que": "Lorde +1/+1 pelo tipo escolhido.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra que também é lord dos Vampiros.",
+    "I": "Uma mana a mais de qualquer cor e +1/+1 nos Vampiros.",
+    "T": "Três manas, no padrão.",
+    "Q": "Viva sempre: pedra cedo, buff tarde.",
+    "R": "É a única pedra que fortalece a mesa; o radar avalia a Ingris Stingerquill na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Rakdos Signet": {
    "notas": {
@@ -1248,7 +2002,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{1}, vira: gera {B}{R}.",
-   "porque": "Pedra de duas manas nas duas cores; cumpre sem se ligar ao Sangue."
+   "porque": "Pedra de duas manas nas duas cores; cumpre sem se ligar ao Sangue.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais, em preto e vermelho.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está no piso da cota: são dez cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Sol Ring": {
    "notas": {
@@ -1259,7 +2032,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Vira: gera {C}{C}.",
-   "porque": "A melhor pedra do formato: põe o Strefan na mesa no turno 2 ou 3 e adianta as fichas."
+   "porque": "A melhor pedra do formato: põe o Strefan na mesa no turno 2 ou 3 e adianta as fichas.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Duas manas a mais por turno: o Strefan desce no turno 2 ou 3.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está no piso da cota, e nada acelera tanto por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Talisman of Indulgence": {
    "notas": {
@@ -1274,7 +2066,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Vira: {C}, ou {B} ou {R} com 1 de dano em você.",
-   "porque": "Pedra de duas manas, e a dor é sua: conta como um jogador para as fichas."
+   "porque": "Pedra de duas manas, e a dor é sua: conta como um jogador para as fichas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra cuja dor é sua: ao dar cor, você perde 1 e garante a sua ficha no fim do turno.",
+    "I": "Uma mana a mais por turno.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "É a única pedra de duas manas que fere você; o ramp está no piso da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Throne of the God-Pharaoh": {
    "notas": {
@@ -1297,7 +2108,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (Sangue de cada oponente)",
-   "papel_por_que": "Os atacantes virados drenam cada oponente no fim do turno."
+   "papel_por_que": "Os atacantes virados drenam cada oponente no fim do turno.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "No seu fim de turno, cada oponente perde vida pelos seus virados; resolvido antes do Strefan, todos contam.",
+    "I": "Rende no mesmo turno se você já atacou; sem criatura virada, não faz nada.",
+    "T": "Duas manas.",
+    "Q": "Paridade e na frente: pede atacante virado.",
+    "R": "Só ele sangra os três sem mana, no fim do turno; os outros pings cobrem parte."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Wishclaw Talisman": {
    "notas": {
@@ -1305,10 +2135,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "faz": "Entra com três desejos. {1}, vira, tira um desejo: busca uma carta; um oponente ganha o controle dele. Só no seu turno.",
-   "porque": "Tutor de duas manas para o combo ou o Strefan, mas passa ao oponente: só vale na volta em que fecha."
+   "porque": "Tutor de duas manas para o combo ou o Strefan, mas passa ao oponente: só vale na volta em que fecha.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Tutor genérico.",
+    "I": "Vale a carta que busca, mas o artefato passa a um oponente com dois usos.",
+    "T": "Duas manas e mais uma para usar, só no seu turno.",
+    "Q": "Paridade e na frente: só vale na volta em que você fecha.",
+    "R": "O deck tem quatro tutores, e este é o único que arma um oponente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.4
   },
   "Tarrian's Journal": {
    "notas": {
@@ -1325,10 +2174,29 @@
     "sin1": "O verso torna Vampiro a criatura conjurada do cemitério: liga-se à tribo de passagem.",
     "sin2": "Sacrifica artefato ou criatura para comprar, e qualquer um serve, a ficha de Sangue inclusive."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Vira e sacrifica outro artefato ou criatura, como feitiço: compra uma carta. {2}, vira e descarta a mão: vira um terreno que gera {B} e deixa conjurar uma criatura do cemitério.",
-   "porque": "Compra com a ficha de Sangue sem descartar e depois vira terreno de reanimação; lento nas duas funções."
+   "porque": "Compra com a ficha de Sangue sem descartar e depois vira terreno de reanimação; lento nas duas funções.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Troca ficha ou criatura por carta, sem descartar; gasta a ficha que o brinde quer.",
+    "I": "Uma carta por turno, só na sua vez de feitiço.",
+    "T": "Duas manas; pede algo para sacrificar.",
+    "Q": "Paridade e na frente.",
+    "R": "A compra está abaixo da cota; a própria ficha de Sangue já compra, com descarte."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.4
   },
   "Black Market Connections": {
    "notas": {
@@ -1344,13 +2212,37 @@
     "sin1": "Não é Vampiro, mas pode criar um Metamorfo 3/2 por turno, que é Vampiro.",
     "sin2": "Você perde vida a cada modo, todo turno: conta como um jogador para as fichas."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Na sua primeira fase principal, escolha um ou mais: Tesouro e perde 1; compra e perde 2; Metamorfo 3/2 e perde 3.",
    "porque": "Mana e cartas todo turno, e a vida que você paga conta como um jogador para as fichas do Strefan.",
    "papel": "habilita",
    "papel_dupla": "Draw e Ramp",
-   "papel_por_que": "Você perde vida todo turno (Sangue certo) e o Metamorfo conta como Vampiro."
+   "papel_por_que": "Você perde vida todo turno (Sangue certo) e o Metamorfo conta como Vampiro.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "A vida paga todo turno é a sua ficha garantida, e ainda vêm Tesouro, carta ou Metamorfo.",
+    "I": "Rende todo turno a partir da sua próxima fase principal; encantamento é difícil de tirar.",
+    "T": "Três manas, sem condição.",
+    "Q": "Início, paridade e na frente; atrás, com pouca vida, você paga menos.",
+    "R": "A compra está abaixo da cota, e nada na lista dá mana, carta e corpo juntos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, a sua ficha do turno depende de terreno de dor, e o deck perde a única fonte que soma mana e carta todo turno.",
+    "O Phyrexian Arena compra uma por turno e cobra 1 de vida, mas não dá Tesouro nem corpo; a Pointed Discussion é de uso único.",
+    "No início (turno 3, antes do Strefan), na paridade e na frente; atrás, você escolhe só o Tesouro."
+   ],
+   "indice": 2.4
   },
   "Breath of Fury": {
    "notas": {
@@ -1369,7 +2261,26 @@
    "porque": "Peça do combo, mantida pelo dono: com Splinter Twin ou Helm of the Host, cada cópia nova recebe a aura e há outro combate. Depende de conectar.",
    "fora_do_corte": true,
    "papel": "multiplica",
-   "papel_por_que": "Combate extra: o Strefan ataca de novo e põe outro Vampiro da mão."
+   "papel_por_que": "Combate extra: o Strefan ataca de novo e põe outro Vampiro da mão.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada combate a mais é outro ataque do Strefan e outro brinde; cobra uma criatura por combate.",
+    "I": "Nada na entrada: a criatura encantada precisa conectar.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "É a única carta de combate extra da lista; o Combat Celebrant, do radar, não pede conectar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Splinter Twin": {
    "notas": {
@@ -1388,7 +2299,26 @@
    "porque": "Peça do combo de combates, mantida pelo dono: com Breath of Fury, cada cópia recebe a aura e há outro combate.",
    "fora_do_corte": true,
    "papel": "multiplica",
-   "papel_por_que": "Cópia com ímpeto de um Vampiro todo turno, que dispara os gatilhos de entrada."
+   "papel_por_que": "Cópia com ímpeto de um Vampiro todo turno, que dispara os gatilhos de entrada.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia todo turno um Vampiro com efeito de entrada; com Breath of Fury, abre combates em cadeia.",
+    "I": "Aura: pede criatura desvirada e sem enjoo; some com ela.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "Só o Helm of the Host também copia criatura, e custa nove manas ao todo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Virtue of Persistence": {
    "notas": {
@@ -1398,11 +2328,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 7: na sua manutenção, põe em campo sob seu controle uma criatura de qualquer cemitério. Aventura de 2 (Locthwain Scorn): −3/−3 e você ganha 2.",
    "porque": "Remoção de duas manas cedo e motor de reanimação de qualquer cemitério tarde: as duas metades servem ao deck.",
-   "caro_por_desenho": true
+   "caro_por_desenho": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica cedo e reanimação genérica tarde.",
+    "I": "−3/−3 por duas manas, ou uma criatura de qualquer cemitério por turno.",
+    "T": "Duas manas de feitiço; o encantamento custa sete.",
+    "Q": "Viva sempre: remoção cedo e atrás, motor na paridade e na frente.",
+    "R": "Nenhuma outra carta da lista junta remoção barata e reanimação por turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Wound Reflection": {
    "notas": {
@@ -1422,7 +2371,30 @@
    "porque": "Dobra o ping, mas são seis manas sem efeito na mesa e sem nenhuma ficha a mais.",
    "prioridade": 5,
    "papel": "multiplica",
-   "papel_por_que": "Dobra a vida que os oponentes perderam no turno."
+   "papel_por_que": "Dobra a vida que os oponentes perderam no turno.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Dobra a vida perdida no fim do turno; não cria nenhuma ficha a mais.",
+    "I": "Com pings de 1, dobra pouco; nada na mesa.",
+    "T": "Seis manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Bloodletter of Aclazotz, do radar, dobra no seu turno por quatro manas e entra pelo Strefan."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Bloodletter of Aclazotz",
+   "confianca": "alta",
+   "indice": 1.05
   },
   "Chaos Warp": {
    "notas": {
@@ -1433,7 +2405,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "O dono embaralha uma permanente no grimório e revela o topo; se for permanente, entra.",
-   "porque": "A única resposta a artefato da lista, e pega qualquer permanente; o topo revelado pode devolver algo ao dono."
+   "porque": "A única resposta a artefato da lista, e pega qualquer permanente; o topo revelado pode devolver algo ao dono.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, e o dono pode revelar outra permanente.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É a única resposta a artefato da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Vampires' Vengeance": {
    "notas": {
@@ -1457,7 +2448,26 @@
     "sangue": 1
    },
    "massa": true,
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Poupa os Vampiros e cria uma ficha de Sangue.",
+    "I": "2 de dano em cada não Vampiro: pega só os pequenos, e a ficha vem sempre.",
+    "T": "Três manas, instantânea, e de um lado só.",
+    "Q": "Paridade, atrás contra mesa de fichas, e na frente.",
+    "R": "As limpezas estão acima da cota; a Olivia's Wrath pega criatura maior."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Vampiric Tutor": {
    "notas": {
@@ -1465,10 +2475,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Instantânea de 1: busca uma carta e a põe no topo. Você perde 2.",
-   "porque": "Acha o combo, o Strefan ou a resposta por uma mana, em velocidade instantânea, pondo a carta no topo."
+   "porque": "Acha o combo, o Strefan ou a resposta por uma mana, em velocidade instantânea, pondo a carta no topo.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tutor: qualquer deck preto usaria.",
+    "I": "Vale a carta que busca, mas ela vai para o topo.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "É o tutor mais barato dos quatro e o único instantâneo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Withering Torment": {
    "notas": {
@@ -1479,7 +2508,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 3: destrói criatura ou encantamento. Você perde 2.",
-   "porque": "A única resposta a encantamento da lista, e ainda mata criatura; a vida perdida é sua e conta para as fichas."
+   "porque": "A única resposta a encantamento da lista, e ainda mata criatura; a vida perdida é sua e conta para as fichas.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica; no seu turno, a vida perdida é a sua ficha.",
+    "I": "Uma por uma, em criatura ou encantamento.",
+    "T": "Três manas, instantânea, e 2 de vida.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É a única resposta a encantamento da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Malakir Rebirth": {
    "notas": {
@@ -1498,7 +2546,26 @@
    "porque": "A única proteção do Strefan na lista, e vira terreno quando não precisa.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica que também conta como terreno; salva o Strefan da destruição.",
+    "I": "Salva uma criatura de uma remoção ou de uma limpeza.",
+    "T": "Uma mana, instantânea, e 2 de vida.",
+    "Q": "Nunca morre na mão: é terreno ou proteção.",
+    "R": "É a única proteção do Strefan na lista, abaixo da cota de três."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Fell the Profane": {
    "notas": {
@@ -1509,7 +2576,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 4: destrói criatura ou planeswalker. O verso é um terreno que gera {B}, desvirado por 3 de vida.",
-   "porque": "Remoção instantânea de criatura ou planeswalker, ou terreno: não toma vaga, mas a mágica custa 4."
+   "porque": "Remoção instantânea de criatura ou planeswalker, ou terreno: não toma vaga, mas a mágica custa 4.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica que também conta como terreno preto.",
+    "I": "Uma por uma, em criatura ou planeswalker.",
+    "T": "Quatro manas, instantânea; como terreno, desvirado por 3 de vida.",
+    "Q": "Nunca morre na mão: é terreno ou remoção.",
+    "R": "Carta de duas faces que conta na cota de terrenos; o Terminate, do radar, custa duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Agadeem's Awakening": {
    "notas": {
@@ -1520,7 +2606,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de X+3: devolve do cemitério ao campo criaturas de valores diferentes, até X. O verso é um terreno que gera {B}, desvirado por 3 de vida.",
-   "porque": "Recuperação depois de limpeza, ou terreno quando falta: flexível, sem pesar na conta de mágicas."
+   "porque": "Recuperação depois de limpeza, ou terreno quando falta: flexível, sem pesar na conta de mágicas.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Reconstrução genérica que também conta como terreno.",
+    "I": "Devolve várias criaturas de custos diferentes depois de uma limpeza.",
+    "T": "Terreno desvirado por 3 de vida; como mágica custa X mais três pretas.",
+    "Q": "Nunca morre na mão: é terreno ou reconstrução.",
+    "R": "A recursão está acima da cota; o Lich-Knights' Conquest faz o mesmo com as fichas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Blasphemous Act": {
    "notas": {
@@ -1537,7 +2642,29 @@
    "custo_usual": {
     "cmc": 1,
     "como": "com a mesa cheia de criaturas"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Leva o Strefan, o Roaming Throne e quatro pings em criatura: Creeping Bloodsucker, Mirkwood Bats, Anje e Lobelia.",
+    "I": "Vira a mesa: 13 de dano em cada criatura.",
+    "T": "Uma ou duas manas com a mesa cheia.",
+    "Q": "Atrás e na paridade travada.",
+    "R": "São cinco limpezas, acima da cota. Ficam as fichas, os quatro pings em artefato e o Vampiro do brinde, indestrutível: o ganho supera."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "média",
+   "indice": 1.8
   },
   "Bloodsoaked Insight": {
    "notas": {
@@ -1559,7 +2686,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "depois dos pings e do ataque no turno"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A sangria do turno barateia a mágica; do outro lado, é terreno das duas cores.",
+    "I": "No piso, um terreno virado; depois dos pings, três cartas de um oponente.",
+    "T": "Sete manas menos a vida que os oponentes perderam no turno.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Carta de duas faces que conta na cota de terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Demonic Tutor": {
    "notas": {
@@ -1567,10 +2713,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Feitiço de 2: busca qualquer carta.",
-   "porque": "O melhor tutor do formato: acha o combo, o Strefan ou a resposta por 2 manas."
+   "porque": "O melhor tutor do formato: acha o combo, o Strefan ou a resposta por 2 manas.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tutor: qualquer deck preto usaria.",
+    "I": "Vale a carta que busca, direto na mão.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "É o melhor tutor de feitiço; os outros três da lista cobram vida, descarte ou a posse."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Gamble": {
    "notas": {
@@ -1581,7 +2746,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 1: busca uma carta e descarta uma ao acaso.",
-   "porque": "Tutor de uma mana; o descarte ao acaso pesa menos com Reanimate, loucura e Lich-Knights' Conquest por perto."
+   "porque": "Tutor de uma mana; o descarte ao acaso pesa menos com Reanimate, loucura e Lich-Knights' Conquest por perto.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Tutor genérico.",
+    "I": "Vale a carta que busca; o descarte ao acaso pode levar a própria.",
+    "T": "Uma mana.",
+    "Q": "Paridade, na frente e atrás; com a mão cheia, o risco cai.",
+    "R": "É o tutor de maior risco dos quatro; o radar avalia quatro cartas na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Kindred Dominance": {
    "notas": {
@@ -1598,7 +2782,27 @@
    "faz": "Feitiço de 7: escolha um tipo de criatura; destrói todas as que não são dele.",
    "porque": "Limpeza de um lado só escolhendo Vampiro, mas custa sete manas, e Olivia's Wrath e Mysterious Blood Illness (Vampires' Vengeance) fazem o mesmo papel por menos.",
    "massa": true,
-   "prioridade": 11
+   "prioridade": 11,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Limpeza que poupa os Vampiros; leva Mirkwood Bats, Lobelia, Alesha e Moonstone Eulogist.",
+    "I": "Destrói tudo que não é Vampiro, de qualquer tamanho.",
+    "T": "Sete manas.",
+    "Q": "Atrás e na paridade.",
+    "R": "É a mais cara das cinco limpezas, acima da cota; o radar põe o Terminate na vaga."
+   },
+   "antissinergia": "leve",
+   "substituto": "Terminate",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Lich-Knights' Conquest": {
    "notas": {
@@ -1613,13 +2817,32 @@
    "sin_por_que": {
     "sin2": "Usa as fichas de Sangue como custo, mas qualquer artefato, encantamento ou ficha serve."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 5: sacrifique artefatos, encantamentos ou fichas; devolve do cemitério ao campo esse tanto de criaturas.",
    "porque": "Cada ficha de Sangue guardada vira uma criatura de volta: o melhor uso do estoque depois de uma limpeza.",
    "marcas": {
     "sangue": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte o estoque: cada ficha de Sangue sacrificada devolve uma criatura ao campo.",
+    "I": "Várias criaturas por uma carta, se houver fichas e cemitério.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Atrás, depois da limpeza, e na paridade com o cemitério cheio.",
+    "R": "A recursão está acima da cota, mas nenhuma outra carta troca ficha por criatura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Olivia's Wrath": {
    "notas": {
@@ -1635,7 +2858,26 @@
    "rel": "MED",
    "faz": "Feitiço de 5: cada criatura que não é Vampiro recebe −X/−X, X o número de Vampiros que você controla.",
    "porque": "Limpeza de um lado só que conta os Vampiros, mas é feitiço de cinco manas.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Limpeza que poupa os Vampiros e cresce com a contagem deles.",
+    "I": "−X/−X em quem não é Vampiro; o X depende da sua mesa.",
+    "T": "Cinco manas, e é de um lado só.",
+    "Q": "Paridade e na frente; atrás, com poucos Vampiros, o X é pequeno.",
+    "R": "As limpezas estão acima da cota; a Vampires' Vengeance faz parecido por três, instantânea."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Pointed Discussion": {
    "notas": {
@@ -1656,7 +2898,26 @@
    "marcas": {
     "sangue": 1
    },
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra duas, e a vida perdida mais a ficha criada são duas fichas no turno.",
+    "I": "Duas cartas e uma ficha por uma carta.",
+    "T": "Três manas; o Night's Whisper compra as duas por duas, sem a ficha.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A compra está abaixo da cota; fora da lista há compra mais barata, mas sem Sangue."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Raise the Draugr": {
    "notas": {
@@ -1669,11 +2930,30 @@
    "sin_por_que": {
     "sin1": "Devolve à mão duas criaturas que compartilham um tipo, como dois Vampiros para o Strefan: de passagem."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "BAX",
    "faz": "Instantânea de 2: devolve à mão uma criatura do cemitério, ou duas do mesmo tipo.",
    "porque": "Recursão para a mão, e a lista já tem muita recursão para o campo, como Reanimate e Lich-Knights' Conquest.",
-   "prioridade": 12
+   "prioridade": 12,
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Devolve Vampiros à mão, de onde o Strefan os põe em campo de novo.",
+    "I": "No piso, uma criatura; com dois Vampiros no cemitério, duas.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade e atrás: pede cemitério.",
+    "R": "A recursão está acima da cota, e as outras devolvem direto ao campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Reanimate": {
    "notas": {
@@ -1685,7 +2965,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Feitiço de 1: põe em campo uma criatura de um cemitério; você perde vida igual ao valor dela.",
-   "porque": "O Vampiro grande descartado na ficha de Sangue volta por uma mana, e a vida paga conta para as fichas."
+   "porque": "O Vampiro grande descartado na ficha de Sangue volta por uma mana, e a vida paga conta para as fichas.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O Vampiro grande descartado na ficha volta por uma mana, e a vida paga é a sua ficha.",
+    "I": "Um corpo de cinco ou seis manas, de qualquer cemitério.",
+    "T": "Uma mana.",
+    "Q": "Paridade, na frente e atrás; no início, falta alvo.",
+    "R": "A recursão está acima da cota, mas nenhuma outra reanima por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Sundering Eruption": {
    "notas": {
@@ -1696,7 +2995,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 3: destrói um terreno (o dono busca um básico) e criaturas sem voar não bloqueiam. O verso é um terreno que gera {R}, desvirado por 3 de vida.",
-   "porque": "Quase sempre terreno; o feitiço tira os bloqueadores de chão para o ataque final."
+   "porque": "Quase sempre terreno; o feitiço tira os bloqueadores de chão para o ataque final.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conta como terreno vermelho; o lado mágica destrói um terreno.",
+    "I": "Terreno, ou um terreno deles a menos e um turno sem bloqueio de quem não voa.",
+    "T": "Desvirado por 3 de vida.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Carta de duas faces que conta na cota de terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Terminal Agony": {
    "notas": {
@@ -1713,7 +3031,26 @@
    "rel": "MED",
    "faz": "Feitiço de 4: destrói uma criatura. Loucura {B}{R}.",
    "porque": "Descartada na ficha de Sangue, é remoção de duas manas pela loucura; conjurada, custa 4.",
-   "caro_por_desenho": true
+   "caro_por_desenho": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Descartada na ficha de Sangue, sai pela loucura por {B}{R}.",
+    "I": "Uma por uma, só em criatura.",
+    "T": "Duas manas pela loucura; quatro, de feitiço, na mão.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É a única remoção da lista que aproveita o descarte da ficha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Toxic Deluge": {
    "notas": {
@@ -1721,11 +3058,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 3: pague X de vida; todas as criaturas recebem −X/−X.",
    "porque": "A limpeza mais flexível do formato: escolhe o tamanho, e a vida paga conta para as fichas. Com Vein Ripper, vira dreno.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica; a vida paga é a sua ficha do turno.",
+    "I": "Vira a mesa, no tamanho que você escolher, e passa por indestrutível.",
+    "T": "Três manas.",
+    "Q": "Atrás e na paridade travada.",
+    "R": "É a melhor das cinco limpezas, mas elas estão acima da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Sorin, Imperious Bloodlord": {
    "notas": {
@@ -1751,7 +3107,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "O −3 põe um Vampiro da mão em campo."
+   "papel_por_que": "O −3 põe um Vampiro da mão em campo.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O −3 põe um Vampiro da mão em campo sem ficha e sem o Strefan.",
+    "I": "Rende na entrada: um Vampiro de cinco ou seis manas em campo.",
+    "T": "Três manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhuma outra carta da lista põe Vampiro em campo sem pagar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Command Tower": {
    "notas": {},
@@ -1760,7 +3135,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "B ou R.",
-   "porque": "O melhor terreno de duas cores: entra desvirado e dá preto ou vermelho."
+   "porque": "O melhor terreno de duas cores: entra desvirado e dá preto ou vermelho.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno melhor para duas cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Ancient Tomb": {
    "notas": {
@@ -1775,7 +3169,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Incolor: {C}{C}, com 2 de dano em você.",
-   "porque": "Duas manas num terreno, e a dor conta para as fichas do Strefan."
+   "porque": "Duas manas num terreno, e a dor conta para as fichas do Strefan.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Incolor; os 2 de dano em você garantem a sua ficha no fim do turno.",
+    "I": "Duas manas num terreno: o Strefan desce um turno antes.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Nenhum outro terreno da lista dá duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3
   },
   "Arena of Glory": {
    "notas": {
@@ -1788,13 +3201,32 @@
    "sin_por_que": {
     "sin1": "Dá ímpeto ao Strefan conjurado com a mana dela: ele ataca no turno em que entra."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "R. Desvirada com uma Mountain. {R}, vira e exaure: {R}{R}, e a criatura conjurada com ela ganha ímpeto.",
    "porque": "A única fonte de ímpeto da lista: o Strefan ataca no turno em que entra.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Vermelho, e ímpeto para o Strefan conjurado com a mana dela.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virada sem Montanha, e são quatro na lista.",
+    "Q": "Viva sempre.",
+    "R": "É a única fonte de ímpeto da lista, e o ímpeto está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Blazemire Verge": {
    "notas": {},
@@ -1803,7 +3235,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "B; R com Swamp ou Mountain.",
-   "porque": "Dual que entra desvirada e dá as duas cores; cumpre sem se ligar ao Sangue."
+   "porque": "Dual que entra desvirada e dá as duas cores; cumpre sem se ligar ao Sangue.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Preto sempre; vermelho com um Pântano ou uma Montanha em campo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Dual desvirada, dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Blightstep Pathway": {
    "notas": {},
@@ -1812,7 +3263,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "B ou R, escolhido ao jogar.",
-   "porque": "Entra desvirada, mas dá uma cor só, escolhida ao jogar: cumpre como dual parcial."
+   "porque": "Entra desvirada, mas dá uma cor só, escolhida ao jogar: cumpre como dual parcial.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor só, escolhida ao jogar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "O Dragonskull Summit, do radar, dá as duas cores no mesmo terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Blood Crypt": {
    "notas": {},
@@ -1821,7 +3291,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Swamp Mountain. Desvirada por 2 de vida.",
-   "porque": "As duas cores, desvirada pagando 2 de vida que conta para as fichas, e alvo das buscas."
+   "porque": "As duas cores, desvirada pagando 2 de vida que conta para as fichas, e alvo das buscas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, com os tipos que o Polluted Delta e a Verdant Catacombs buscam.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada por 2 de vida, que é a sua ficha do turno.",
+    "Q": "Viva sempre.",
+    "R": "É a melhor dual com tipo da lista; fora dela há par."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Cabal Pit": {
    "notas": {
@@ -1836,7 +3325,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "B, com 1 de dano em você. Com sete cartas no cemitério, sacrifica: −2/−2.",
-   "porque": "Mana com dor que conta para as fichas, e uma remoção pequena tarde."
+   "porque": "Mana com dor que conta para as fichas, e uma remoção pequena tarde.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; a dor a cada uso é a sua ficha.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Um Swamp dá o mesmo preto sem dor; o −2/−2 pede sete cartas no cemitério."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Castle Locthwain": {
    "notas": {
@@ -1851,7 +3359,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "B. Desvirada com Swamp. {1}{B}{B}, vira: compra e perde vida igual à mão.",
-   "porque": "Compra num terreno, e a vida perdida na ativação conta para as fichas."
+   "porque": "Compra num terreno, e a vida perdida na ativação conta para as fichas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; a compra cobra vida, que é a sua ficha.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado só com Pântano em campo, e são oito na lista.",
+    "Q": "Viva sempre.",
+    "R": "É o único terreno que compra, e a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "City of Brass": {
    "notas": {},
@@ -1864,7 +3391,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Qualquer cor, com 1 de dano em você ao virar.",
-   "porque": "Qualquer cor, e a dor a cada uso conta como um jogador para as fichas do Strefan."
+   "porque": "Qualquer cor, e a dor a cada uso conta como um jogador para as fichas do Strefan.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor, e o dano a cada uso é a sua ficha.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Dual com dor, dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Exotic Orchard": {
    "notas": {},
@@ -1873,7 +3419,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Cor que um terreno de oponente gere.",
-   "porque": "Quase sempre dá preto ou vermelho, mas depende dos terrenos da mesa."
+   "porque": "Quase sempre dá preto ou vermelho, mas depende dos terrenos da mesa.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, se os terrenos da mesa derem.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "A cor depende dos oponentes; o Dragonskull Summit, do radar, não depende."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Graven Cairns": {
    "notas": {},
@@ -1882,7 +3447,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Incolor, ou filtra para {B}{B}, {B}{R} ou {R}{R}.",
-   "porque": "Conserta custos pesados de uma cor só, filtrando a mana; sozinha gera só incolor."
+   "porque": "Conserta custos pesados de uma cor só, filtrando a mana; sozinha gera só incolor.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Preto e vermelho, filtrando outra mana.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas sozinho só gera incolor.",
+    "Q": "Não paga cor no turno 1; depois, viva.",
+    "R": "O Dragonskull Summit, do radar, dá as mesmas cores sem outra fonte."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Leechridden Swamp": {
    "notas": {
@@ -1902,16 +3486,54 @@
    "marcas": {
     "ping": 1
    },
-   "virado": true
+   "virado": true,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor, e o ping em todos por {B} serve ao sangrar.",
+    "I": "Um terreno por turno; o ping pede duas permanentes pretas.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "É Pântano que o Polluted Delta busca, e um dos três pings que sobrevivem às limpezas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.75
   },
   "Luxury Suite": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "B ou R. Desvirada com dois ou mais oponentes.",
-   "porque": "Dual sem custo em mesa de quatro, desvirada desde o turno 1."
+   "porque": "Dual sem custo em mesa de quatro, desvirada desde o turno 1.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Preto e vermelho.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado na mesa de quatro.",
+    "Q": "Viva sempre.",
+    "R": "Dual desvirada sem custo, dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Mount Doom": {
    "notas": {
@@ -1930,7 +3552,26 @@
    "porque": "Ping em todos num terreno, e a vida paga a cada mana conta para as fichas.",
    "marcas": {
     "ping": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores por 1 de vida, que é a sua ficha, e ping em todos por três manas.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Nenhum outro terreno da lista dá as duas cores e pinga a mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Path of Ancestry": {
    "notas": {
@@ -1946,7 +3587,30 @@
    "rel": "MED",
    "faz": "Sempre virada. Cor do comandante; vidência 1 ao conjurar Vampiro ou Nobre.",
    "porque": "Sempre virada, e a vidência ao conjurar Vampiro não compensa o turno perdido.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "As duas cores; vidência 1 ao pagar Vampiro.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "O Accursed Duneyard, do radar, entra desvirado e regenera o Strefan."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Accursed Duneyard",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Polluted Delta": {
    "notas": {},
@@ -1955,7 +3619,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Busca Island ou Swamp, por 1 de vida.",
-   "porque": "Busca Swamp, Blood Crypt, Raucous Theater, Smoldering Marsh ou Leechridden Swamp, e a vida paga conta para as fichas."
+   "porque": "Busca Swamp, Blood Crypt, Raucous Theater, Smoldering Marsh ou Leechridden Swamp, e a vida paga conta para as fichas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Busca Pântano: Blood Crypt, Raucous Theater ou Smoldering Marsh dão as duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; 1 de vida, que é a sua ficha.",
+    "Q": "Viva sempre.",
+    "R": "Busca de terreno com tipo, dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Raucous Theater": {
    "notas": {
@@ -1963,11 +3646,34 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Swamp Mountain, sempre virada. Vigiar 1.",
    "porque": "Dá as duas cores e é alvo do Polluted Delta, mas entra sempre virada.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, com os dois tipos.",
+    "I": "Um terreno por turno.",
+    "T": "Entra sempre virado.",
+    "Q": "Viva sempre.",
+    "R": "O Dragonskull Summit, do radar, dá as duas cores desvirado com Pântano ou Montanha."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Dragonskull Summit",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Rogue's Passage": {
    "notas": {},
@@ -1976,7 +3682,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. {4}, vira: uma criatura não pode ser bloqueada.",
-   "porque": "O Strefan já voa, e a ativação de 4 manas sai cara para tirar um bloqueio."
+   "porque": "O Strefan já voa, e a ativação de 4 manas sai cara para tirar um bloqueio.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; o Strefan já voa, e o imbloqueável de {4} não serve a nenhum verbo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "O Unclaimed Territory, do radar, dá cor aos Vampiros, também desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Unclaimed Territory",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Shadowblood Ridge": {
    "notas": {},
@@ -1985,7 +3714,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{1}, vira: {B}{R}.",
-   "porque": "Filtra para as duas cores, mas precisa de outra mana para funcionar: sozinha não gera nada."
+   "porque": "Filtra para as duas cores, mas precisa de outra mana para funcionar: sozinha não gera nada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Preto e vermelho, filtrando outra mana.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas sozinho não gera nada.",
+    "Q": "Não paga nada no turno 1; depois, viva.",
+    "R": "O Dragonskull Summit, do radar, dá as mesmas cores sem outra fonte."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Shivan Gorge": {
    "notas": {
@@ -2003,7 +3751,26 @@
    "porque": "Ping em todos num terreno: três fichas no fim do turno, pagando 3 manas.",
    "marcas": {
     "ping": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas o ping em todos por {2}{R} serve ao sangrar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; o ping custa três manas e o terreno.",
+    "Q": "Sem cor no início; depois, viva.",
+    "R": "É um dos três pings em terreno, que sobrevivem às limpezas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Smoldering Marsh": {
    "notas": {},
@@ -2012,7 +3779,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Swamp Mountain. Desvirada com dois básicos.",
-   "porque": "Dá as duas cores, mas com só cinco básicos na lista entra virada quase sempre."
+   "porque": "Dá as duas cores, mas com só cinco básicos na lista entra virada quase sempre.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, com os dois tipos.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado quase sempre: são cinco básicos.",
+    "Q": "Viva sempre.",
+    "R": "A Three Tree City, do radar, entra desvirada e rende uma mana por Vampiro."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Three Tree City",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Sulfurous Springs": {
    "notas": {},
@@ -2025,7 +3815,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Incolor, ou B ou R com 1 de dano em você.",
-   "porque": "As duas cores, e a dor a cada mana colorida conta para as fichas."
+   "porque": "As duas cores, e a dor a cada mana colorida conta para as fichas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, e a dor ao dar cor é a sua ficha.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Dual com dor, dentro da cota de fontes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Verdant Catacombs": {
    "notas": {},
@@ -2034,7 +3843,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Busca Swamp ou Forest, por 1 de vida.",
-   "porque": "Na prática busca só Swamp, sem a outra cor, e a vida paga conta para as fichas."
+   "porque": "Busca Swamp, inclusive os de duas cores que dão vermelho (Blood Crypt, Raucous Theater e Smoldering Marsh), e a vida paga conta para as fichas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Busca Pântano: Blood Crypt, Raucous Theater ou Smoldering Marsh dão as duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; 1 de vida, que é a sua ficha.",
+    "Q": "Viva sempre.",
+    "R": "O Bloodstained Mire busca Pântano ou Montanha: o mesmo, e mais a Mountain."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Voldaren Estate": {
    "notas": {
@@ -2049,14 +3877,33 @@
     "sin1": "Paga Vampiro em qualquer cor e fica barata com a tribo: de passagem.",
     "sin2": "Cria Sangue por ativação paga, e a mana para Vampiro custa 1 de vida."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Incolor; qualquer cor para Vampiro, por 1 de vida. {5}, vira: ficha de Sangue, 1 a menos por Vampiro.",
    "porque": "Carta de estimação: cor para a tribo e Sangue quase de graça com a mesa cheia de Vampiros.",
    "marcas": {
     "sangue": 1
    },
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor para mágica de Vampiro, por 1 de vida; cria Sangue com a mesa cheia.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "O Unclaimed Territory, do radar, dá a cor sem cobrar vida, mas não cria Sangue."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Mountain": {
    "notas": {},
@@ -2065,7 +3912,26 @@
    "tier": "B",
    "rel": "INS",
    "faz": "Básico.",
-   "porque": "Cópia única: fonte básica de vermelho que também desvira a Arena of Glory."
+   "porque": "Cópia única: fonte básica de vermelho que também desvira a Arena of Glory.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; desvira a Arena of Glory."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Swamp": {
    "notas": {},
@@ -2074,7 +3940,26 @@
    "tier": "B",
    "rel": "INS",
    "faz": "Básico.",
-   "porque": "Quatro cópias: base do preto, que desviram o Castle Locthwain e liberam o vermelho da Blazemire Verge."
+   "porque": "Quatro cópias: base do preto, que desviram o Castle Locthwain e liberam o vermelho da Blazemire Verge.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; liga o Castle Locthwain e a Blazemire Verge.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   }
  },
  "radar": {
@@ -2246,7 +4131,7 @@
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Artefato de 3. Escolha um tipo: mágicas de criatura dele custam 2 a menos.",
-   "porque": "Com 28 Vampiros, cada um custa 2 a menos. O dobro do desconto do Herald's Horn. Do guia do TikTok.",
+   "porque": "Com 25 Vampiros, cada um custa 2 a menos. O dobro do desconto do Herald's Horn. Do guia do TikTok.",
    "sai": "Herald's Horn"
   },
   "Lightning Greaves": {
@@ -2811,7 +4696,7 @@
    "veredito": "entra",
    "sai": "Smoldering Marsh",
    "faz": "Terreno lendário. Ao entrar, escolha um tipo de criatura. Gera {C}; por {2} e virando, gera uma mana da cor escolhida para cada criatura sua do tipo escolhido.",
-   "porque": "Com 28 Vampiros na lista e o Strefan pondo mais um a cada ataque, vira cinco, oito manas pretas num terreno: paga a ativação do Glass-Cast Heart, do Castle Locthwain e da Castle Dracula (Voldaren Estate), e o Vampiro grande da mão quando as fichas faltam. Entra desvirado. Sai o Smoldering Marsh, que com cinco básicos entra virado quase sempre.",
+   "porque": "Com 25 Vampiros na lista e o Strefan pondo mais um a cada ataque, vira cinco, oito manas pretas num terreno: paga a ativação do Glass-Cast Heart, do Castle Locthwain e da Castle Dracula (Voldaren Estate), e o Vampiro grande da mão quando as fichas faltam. Entra desvirado. Sai o Smoldering Marsh, que com cinco básicos entra virado quase sempre.",
    "papel_dupla": "Ramp",
    "papel_por_que": "Terreno que gera uma mana por Vampiro."
   },
@@ -2830,7 +4715,7 @@
    "veredito": "entra",
    "sai": "Rogue's Passage",
    "faz": "Terreno. Ao entrar, escolha um tipo de criatura. Gera {C}; ou uma mana de qualquer cor, só para mágica de criatura do tipo escolhido.",
-   "porque": "Você já tem (Caixa): cor para os 28 Vampiros num terreno desvirado, no lugar do Rogue's Passage, incolor e caro de ativar num comandante que já voa. É a Cavern of Souls sem a anulação."
+   "porque": "Você já tem (Caixa): cor para os 25 Vampiros num terreno desvirado, no lugar do Rogue's Passage, incolor e caro de ativar num comandante que já voa. É a Cavern of Souls sem a anulação."
   },
   "Dragonskull Summit": {
    "notas": {},
@@ -3099,5 +4984,18 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "02. TRIBAIS",
+  "conta": "Fazer cada jogador perder vida no seu turno (sangrar); no fim do turno o Strefan cria uma ficha de Sangue por jogador ferido, você incluído (engarrafar); no ataque dele, duas fichas põem um Vampiro da mão em campo, virado e atacando (brindar).",
+  "decisoes": [
+   "Por decisão sua (11/10/2026), o combo fica: Breath of Fury, Splinter Twin e Helm of the Host nunca entram na fila de corte.",
+   "Por decisão sua (11/10/2026), as onze cartas de estimação nunca entram na fila de corte.",
+   "Por decisão sua (11/10/2026), o deck quer mais Vampiros, não menos.",
+   "Por regra sua (08/11/2026), o deck leva de três a quatro limpezas, de preferência de um lado só; a Olivia's Wrath fica.",
+   "Por decisão sua (09/11/2026), proteção genérica de comandante fica fora: Lightning Greaves, Deflecting Swat e Swiftfoot Boots."
+  ]
  }
 }
