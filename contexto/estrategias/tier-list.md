@@ -1,6 +1,6 @@
 # Tier list: o método do projeto
 
-Digest do projeto, escrito em 10/11/2026 a partir dos seis arquivos de `dados/estratégias/tier list/` e dos outros digests desta pasta. **Ainda não está implementado em nenhum deck**: o piloto e os lotes só começam com o "pode" do dono.
+Digest do projeto, escrito em 10/11/2026 a partir dos seis arquivos de `dados/estratégias/tier list/` e dos outros digests desta pasta. **Piloto feito no Valgavoth em 10/11/2026**, com as notas gravadas no `avaliacao.json` do deck (campos `funcao`, `lentes`, `lentes_por_que`, `indice`, `antissinergia`, `travas`, `substituto`, `confianca`, `argumentos_s`, `tier_anterior`). Os outros decks vêm em lotes, cada um com o "pode" do dono.
 
 ## As fontes e o que vale delas
 
@@ -31,7 +31,7 @@ Não é a força da carta: é o valor sobre a reposição. A letra é do deck, n
 3. **Travas**, que mandam mais que a média: antissinergia estrutural (teto D), antissinergia material (teto B, com a conta escrita), win-more (teto C), dependência ausente (teto C), dependência dupla (teto B), substituto nomeado melhor (teto C).
 4. **Índice**: média ponderada das lentes, com os pesos do grupo do deck.
 5. **Letra**: A de 2,20 para cima; B de 1,60 a 2,19; C de 1,00 a 1,59; D abaixo de 1,00. A trava vence o índice.
-6. **Portão do S**, sete condições, todas obrigatórias: E = 3; sem par na lista; R de 2 ou mais; I e Q de 2 ou mais e T de 1 ou mais; nenhuma trava; índice de 2,40 ou mais; três argumentos escritos (o que muda na conta sem ela, por que o substituto não cobre, em que momentos atua). Falhou em um, é A, com o motivo.
+6. **Portão do S** (revisto pelo dono em 10/11/2026): índice de 2,40 ou mais; nenhuma das cinco lentes abaixo de 2; nenhuma trava, e antissinergia no máximo leve; três argumentos escritos (o que muda na conta sem ela, por que o substituto não cobre, em que momentos atua). O S mede excelência, não exclusividade: ter par na lista não tira o S, e não há limite de cartas S. Falhou em um item, é A.
 
 Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20, 20, 15, 20; 03. CAOS e 04. FORFUN 30, 20, 15, 15, 20; 05. DESEJO herda o grupo de destino.
 
@@ -45,6 +45,16 @@ Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20,
 - Antissinergia que desliga o comandante ou o motor, mesmo por tempo limitado, conta como estrutural, salvo decisão carta a carta.
 - **Refazer todos os decks** (10/11/2026), em lotes, e não só os revisitados.
 - **"Bom não basta"** (10/11/2026): a carta só boa, que não muda o jogo quando entra, é a fila de upgrade. No método, isso é a lente I e a letra B.
+
+## Ajustes do piloto (Valgavoth, 10/11/2026)
+
+- **Substituto de fora só rebaixa a pior cópia do papel.** A carta nova entraria no lugar da pior da função, então só ela leva R = 0. Sem isso, uma carta de fora melhor derrubaria o papel inteiro.
+- **Terreno:** a lente E lê as cores: 2 para as duas cores (ou utilitário que serve a um verbo), 1 para uma cor, 0 para incolor.
+- **Tutor sem restrição:** I = 2, porque vale a carta que busca.
+- **Os limites (2,20, 1,60, 1,00 e 2,40) ficaram como estavam.**
+- **Nome do campo:** `funcao` no dado, "Função" na tela (o Plano do deck já usa `papel`).
+- **Decisões por deck** ficam no bloco `tier_lista` do `avaliacao.json`. No Valgavoth: vida é recurso (cobrar a vida do dono não é antissinergia); Demônio só sai por Demônio melhor; The Lord of Pain é a única carta de estimação.
+- Resultado no Valgavoth, 99 cartas fora o comandante: de 5 S, 27 A, 53 B, 13 C e 1 D para 7 S, 9 A, 63 B, 19 C e 1 D.
 
 ## Como os outros digests entram
 
@@ -61,4 +71,4 @@ Pesos por grupo (E, I, T, Q, R): 01. TOP 15, 25, 25, 20, 15; 02. TRIBAIS 25, 20,
 
 ## Em aberto
 
-Ver o relatório ao dono de 10/11/2026: nome do campo do papel (o Plano já usa `papel`), deck do piloto e quem dá a nota de cada lente.
+O motor ainda não calcula o índice nem a letra: no piloto, a conta foi feita por script avulso. Falta levar os pesos e os limites a um arquivo próprio, o cálculo ao motor, os campos novos ao painel e o teste que recusa S sem os três argumentos. Depois, os lotes de cinco decks e o tier por deck no "Onde mais renderia".
