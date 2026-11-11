@@ -114,6 +114,18 @@ try:
     recusa("onze-agrupamentos", onze, "de 6 a 10")
     recusa("marca-nao-declarada", marca, "não está declarada")
     recusa("tier-invalido", tier, "tier")
+    # tier list pelo método novo (10/11/2026): a letra sai das lentes; S pede os três argumentos; toda lente tem frase
+    def lentes(**muda):
+        def f(av):
+            c = next(iter(av["cartas"].values()))
+            c.update(funcao="motor", lentes=dict(E=3, I=3, T=3, Q=3, R=3), lentes_por_que=dict(E="x", I="x", T="x", Q="x", R="x"), tier="S", argumentos_s=["a", "b", "c"])
+            c.update(muda)
+        return f
+    recusa("tier-letra-escolhida", lentes(tier="B"), "a letra sai da régua")
+    recusa("tier-s-sem-argumentos", lentes(argumentos_s=["a"]), "três argumentos")
+    recusa("tier-lente-sem-frase", lentes(lentes_por_que=dict(E="x")), "sem a frase")
+    recusa("tier-funcao-invalida", lentes(funcao="rainha"), "função")
+    recusa("tier-trava-sem-substituto", lentes(travas=["substituto nomeado melhor"], tier="C", argumentos_s=None), "pede o nome")
     recusa("sai-fora-do-deck", sai, "não está no deck")
     recusa("leitura-quebrada", leitura, "não existe")
     # "Na mesa" (08/11/2026): os quatro textos são obrigatórios e toda carta citada precisa estar no deck ou no radar
