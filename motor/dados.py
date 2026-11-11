@@ -6,6 +6,7 @@ Contrato: contexto/ARQUITETURA.md, seção "Contrato de um deck".
 import json, math, os, re, unicodedata
 
 import scryfall
+import tier
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DADOS = os.path.join(RAIZ, "dados")
@@ -588,6 +589,8 @@ def montar_carta(nome, av, sf, grupos, marcadores, entrada=None):
             d["fica"] = 1
         if av.get("pacote"):
             d["pk0"] = av["pacote"]
+        if av.get("_tl"):
+            d["tl"] = av["_tl"]
         if av.get("caro_por_desenho") or av.get("custo_usual"):
             d["cpd"] = 1
         if av.get("custo_usual"):
@@ -814,8 +817,14 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
     sobra = sorted(set(cartas_av) - {e["name"] for e in lista})
     if sobra:
         avisar("aviso: avaliadas mas fora da decklist (ignoradas): " + ", ".join(sobra))
+    grupo_tier = tier.grupo_de(base, av)   # tier list pelo método novo: a letra sai das lentes (motor/tier.py)
     for n, a in cartas_av.items():
         conferir_avaliacao(a, n, grupos, marcadores)
+        erro_tier = tier.conferir(a, n, grupo_tier)
+        if erro_tier:
+            raise ErroDeck(erro_tier)
+        if "lentes" in a:
+            a["_tl"] = tier.para_painel(a, grupo_tier)
     copias = {}
     for e in lista:
         copias[e["name"]] = copias.get(e["name"], 0) + e["q"]
@@ -938,7 +947,7 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
             c["s3"] = notas3[k3]
             if porque3.get(k3):
                 c["s3w"] = porque3[k3]
-    return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, historia=ler_historia(base), v3=v3,
+    return dict(outros=outros, em_pastas=em_pastas, pastas_com_lista=sorted(listas), cards=cards, cands=cands, pool=pool, combos=combos, edh=edh, grupos=grupos, estrategia=estrategia, historia=ler_historia(base), tier_lista=tier.bloco_painel(av, grupo_tier), v3=v3,
                 confrontos=confrontos, avaliadas=avaliadas,
                 criterios=grupos_v3() if v3 else None,
                 marcadores=marcadores, leituras=leituras, banidas=banidas, feito=av.get("feito", ""), ident=ident,
