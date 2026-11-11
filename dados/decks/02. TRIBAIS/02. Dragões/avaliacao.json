@@ -187,7 +187,7 @@
   },
   "fim": {
    "turnos": "9 em diante",
-   "plano": "Torbran, Gratuitous Violence e Fiendish Duo dobram o dano; Scourge of the Throne, Hellkite Charger, Great Train Heist, Overpowering Attack e Fury of the Horde dão combates extras; o Utvara enche a mesa de 6/6; o Insurrection toma tudo. A Reaver Cleaver no Charger é combate infinito.",
+   "plano": "Torbran, Gratuitous Violence e Fiendish Duo dobram o dano; Scourge of the Throne, Hellkite Charger, Great Train Heist, Overpowering Attack e Fury of the Horde dão combates extras; o Utvara enche a mesa de 6/6; o Insurrection toma tudo. A Reaver Cleaver no Charger paga em Tesouros seis das sete manas de cada combate extra; com o Torbran em campo, paga tudo e o combate se repete.",
    "fortes": [
     "Muitas linhas de fechamento, e o combo Cleaver com Charger.",
     "O pump de {1}{R} da Lathliss transforma mana em dano."
@@ -343,13 +343,37 @@
    "sin_por_que": {
     "sin1": "Não é Dragão, mas existe por causa deles: as mágicas de Dragão custam {2} a menos, a Lathliss inclusive."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Humano Bárbaro Xamã de 3: mágicas de Dragão custam {2} a menos.",
    "porque": "Põe a Lathliss em campo por 4 e corta {2} de cada Dragão: num deck de CMC médio 3,8, é o redutor que mais acelera o plano.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Mágicas de Dragão custam 2 a menos: mais Dragões em campo, mais fichas."
+   "papel_por_que": "Mágicas de Dragão custam 2 a menos: mais Dragões em campo, mais fichas.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o descer no ritmo certo: a Lathliss sai por quatro manas e cada Dragão custa {2} a menos.",
+    "I": "Não faz nada ao entrar e é um 2/2: precisa ficar em campo.",
+    "T": "Três manas que voltam como duas a cada Dragão.",
+    "Q": "Início, paridade e atrás, quando a Lathliss precisa voltar.",
+    "R": "O Dragonlord's Servant corta só {1}; o Urza's Incubator barateia também os Dragões dos oponentes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, a Lathliss só desce com seis manas e cada Dragão sai pelo preço cheio; os de sete e oito ficam para o fim.",
+    "O Dragonlord's Servant corta só {1} por Dragão; o Urza's Incubator corta {2}, mas vale para os Dragões de todos na mesa.",
+    "No início (Shaman no turno 3, Lathliss no 4), na paridade (dois Dragões por turno) e atrás (a volta da Lathliss custa 2 a menos)."
+   ],
+   "indice": 2.45
   },
   "Goldspan Dragon": {
    "notas": {
@@ -369,7 +393,26 @@
    "porque": "Dispara a Lathliss, ataca no turno em que chega e dobra a mana de todos os Tesouros do deck, o que paga o próximo Dragão e o pump.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Dragão com ímpeto que dispara a Lathliss e gera Tesouro ao atacar."
+   "papel_por_que": "Dragão com ímpeto que dispara a Lathliss e gera Tesouro ao atacar.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss e paga o próximo: cada Tesouro seu passa a valer duas manas.",
+    "I": "Ataca no turno em que entra e já cria um Tesouro.",
+    "T": "Cinco manas por um 4/4 voador com ímpeto que devolve duas.",
+    "Q": "Paridade, na frente e atrás, quando a mana refaz a mesa.",
+    "R": "O Rapacious Dragon dá Tesouros uma vez só; o Ganax, do radar, não tem ímpeto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Roaming Throne": {
    "notas": {
@@ -391,7 +434,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (entra como Dragão)",
-   "papel_por_que": "Gatilhos dos seus Dragões disparam uma vez a mais, o da Lathliss também."
+   "papel_por_que": "Gatilhos dos seus Dragões disparam uma vez a mais, o da Lathliss também.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o duplicar: nomeando Dragão, cada entrada traz duas fichas da Lathliss.",
+    "I": "Entra como Dragão e já dispara a Lathliss; o dobro pede que ele fique. Tem ward {2}.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás: dobra também os gatilhos dos outros Dragões.",
+    "R": "O Molten Echoes dobra de outro jeito; fora da lista não há igual."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Utvara Hellkite": {
    "notas": {
@@ -405,12 +467,31 @@
    "sin_por_que": {
     "sin1": "Dragão que rende a cada Dragão seu que ataca: uma ficha 6/6 voadora por atacante."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Dragão 6/6 de 8 com voar. Um Dragão seu ataca: uma ficha Dragão 6/6 voadora.",
    "porque": "Caro, mas cada Dragão que ataca vira mais uma ficha 6/6, e com o Roaming Throne são duas: com as fichas da Lathliss, a mesa dobra a cada ataque.",
    "papel": "recompensa",
-   "papel_por_que": "Cada Dragão seu que ataca cria um Dragão 6/6 voador."
+   "papel_por_que": "Cada Dragão seu que ataca cria um Dragão 6/6 voador.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o duplicar no ataque: cada Dragão que ataca cria um 6/6 voador.",
+    "I": "Rende muito, mas só no ataque seguinte, se ficar em campo.",
+    "T": "Oito manas; seis com o Dragonspeaker Shaman.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta cria Dragão a cada ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Scourge of the Throne": {
    "notas": {
@@ -425,13 +506,32 @@
     "sin1": "Dragão comum: dispara a Lathliss; o combate a mais é do ataque dele, sem efeito a cada outro Dragão que entra ou ataca.",
     "sin2": "Combate a mais todo turno, sem custo, atacando o jogador com mais vida."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Dragão 5/5 de 6 com voar e destronar. Na primeira vez que ataca o jogador com mais vida no turno: desvira os atacantes e há outro combate.",
    "porque": "O único combate a mais que se repete todo turno sem custo, num Dragão que ainda dispara a Lathliss: com a revoada em campo, dobra o dano.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (combate a mais)",
-   "papel_por_que": "Dragão que dispara a Lathliss; atacando o líder em vida, dá outro combate."
+   "papel_por_que": "Dragão que dispara a Lathliss; atacando o líder em vida, dá outro combate.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o queimar: um combate a mais todo turno, sem pagar.",
+    "I": "Só rende ao atacar, e pede atacar quem tem mais vida.",
+    "T": "Seis manas, no padrão dos Dragões grandes.",
+    "Q": "Paridade e na frente.",
+    "R": "O Hellkite Charger cobra {5}{R}{R} por combate; as mágicas valem uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Torbran, Thane of Red Fell": {
    "notas": {
@@ -448,7 +548,26 @@
    "faz": "Anão Nobre lendário de 4: fonte vermelha sua que causaria dano a um oponente ou ao que é dele causa 2 a mais.",
    "porque": "Cada ficha 5/5 bate 7 e cada disparo do Dragon Tempest leva 2 a mais: soma dano a todas as fontes vermelhas, só contra os oponentes.",
    "papel": "multiplica",
-   "papel_por_que": "Soma 2 ao dano de cada fonte vermelha: cada Dragão da revoada bate mais."
+   "papel_por_que": "Soma 2 ao dano de cada fonte vermelha: cada Dragão da revoada bate mais.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o queimar: cada ficha e cada disparo do Dragon Tempest causam 2 a mais.",
+    "I": "Vale na hora para a mesa que já existe, mas precisa ficar.",
+    "T": "Quatro manas, o mais barato dos multiplicadores.",
+    "Q": "Paridade e na frente.",
+    "R": "O Gratuitous Violence e o Fiendish Duo custam cinco e seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Rapacious Dragon": {
    "notas": {
@@ -468,7 +587,26 @@
    "porque": "Dispara a Lathliss e paga o próximo Dragão com dois Tesouros (quatro com o Molten Echoes), mas o corpo 3/3 é fraco e o efeito é de uma vez.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Dragão que dispara a Lathliss e entra com dois Tesouros."
+   "papel_por_que": "Dragão que dispara a Lathliss e entra com dois Tesouros.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss e paga parte do próximo.",
+    "I": "Dois Tesouros garantidos na entrada, mais o corpo.",
+    "T": "Cinco manas por um 3/3 voador que devolve duas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Goldspan Dragon faz mais dentro da lista; o Ganax, do radar, rende a cada Dragão."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Skyline Despot": {
    "notas": {
@@ -488,7 +626,26 @@
    "porque": "Com a coroa, compra e uma ficha 5/5 por turno, além da ficha da Lathliss; fica em B porque custa 7 e depende de manter o monarca.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Dragão que dispara a Lathliss e dá o monarca, que cria um Dragão 5/5 por manutenção."
+   "papel_por_que": "Dragão que dispara a Lathliss e dá o monarca, que cria um Dragão 5/5 por manutenção.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dispara a Lathliss e cria um 5/5 por turno enquanto você for o monarca.",
+    "I": "O monarca vem na entrada e já compra no fim do turno.",
+    "T": "Sete manas.",
+    "Q": "Paridade e na frente; atrás, a coroa vai embora.",
+    "R": "É a única compra recorrente em corpo de Dragão, e a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Hellkite Charger": {
    "notas": {
@@ -503,13 +660,32 @@
     "sin1": "Dragão comum: dispara a Lathliss; o combate a mais vem do ataque dele, não de outros Dragões.",
     "sin2": "Combate a mais a cada ataque, mas pagando {5}{R}{R} a cada vez."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "ALT",
    "faz": "Dragão 5/5 de 6 com voar e ímpeto. Ao atacar, pague {5}{R}{R}: desvira os atacantes e há outro combate.",
-   "porque": "Com a Reaver Cleaver, combates infinitos, e com o Hellkite Tyrant vira vitória; sozinho, o combate extra custa {5}{R}{R} a cada vez, por isso fica em B.",
+   "porque": "Com a Reaver Cleaver, cada acerto rende 6 Tesouros, um a menos que os {5}{R}{R} do combate extra: o laço só fecha com mais uma mana por volta ou com o Torbran em campo. Sozinho, o combate extra custa sete manas a cada vez.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (combate a mais)",
-   "papel_por_que": "Dragão com ímpeto que dispara a Lathliss; pagando 7, desvira os atacantes e dá outro combate."
+   "papel_por_que": "Dragão com ímpeto que dispara a Lathliss; pagando 7, desvira os atacantes e dá outro combate.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss; o combate extra é pago.",
+    "I": "Um 5/5 voador com ímpeto; o segundo combate pede mais sete manas.",
+    "T": "Seis manas pelo corpo, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Scourge of the Throne dá o combate de graça; a lista tem sete cartas de fechamento."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Enduring Courage": {
    "notas": {
@@ -529,7 +705,26 @@
    "faz": "Encantamento Criatura Cão 3/3 de 4. Outra criatura sua entra: +2/+0 e ímpeto no turno. Morrendo, volta como encantamento.",
    "porque": "Faz as fichas 5/5 atacarem como 7/5 no turno em que nascem e volta quando morre; fica em B porque não é Dragão nem dispara a Lathliss.",
    "papel": "multiplica",
-   "papel_por_que": "Cada criatura que entra, a ficha 5/5 também, ganha +2/+0 e ímpeto."
+   "papel_por_que": "Cada criatura que entra, a ficha 5/5 também, ganha +2/+0 e ímpeto.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada criatura que entra ganha +2/+0 e ímpeto: as fichas atacam como 7/5.",
+    "I": "Precisa ficar, mas volta como encantamento quando morre.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Dragon Tempest já dá ímpeto aos voadores por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Fiendish Duo": {
    "notas": {
@@ -546,7 +741,26 @@
    "faz": "Demônio 5/5 de 6 com golpe primeiro: dano a um oponente é dobrado.",
    "porque": "Dobra o dano só contra os oponentes, e a revoada fecha o jogo rápido; fica em B porque não é Dragão, não dispara a Lathliss e custa 6.",
    "papel": "multiplica",
-   "papel_por_que": "Dobra o dano que os oponentes recebem, inclusive o da revoada."
+   "papel_por_que": "Dobra o dano que os oponentes recebem, inclusive o da revoada.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o queimar: dobra o dano que os oponentes recebem.",
+    "I": "Dobra na hora, mas é criatura e precisa ficar.",
+    "T": "Seis manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Gratuitous Violence faz o mesmo por cinco, em encantamento."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Balefire Dragon": {
    "notas": {
@@ -559,7 +773,7 @@
    "sin_por_que": {
     "sin1": "Dragão comum: dispara a Lathliss; a limpeza vem do dano dele, sem efeito voltado aos outros Dragões."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Dragão 6/6 de 7 com voar. Ao causar dano de combate a um jogador, causa esse tanto a cada criatura dele.",
    "porque": "Dispara a Lathliss e limpa o lado do oponente a cada acerto, uma das limpezas que poupam os seus Dragões; custa 7, o que o segura em B.",
@@ -569,7 +783,26 @@
    "pacote": "dragoes",
    "papel": "habilita",
    "papel_dupla": "Remoção (limpeza)",
-   "papel_por_que": "Dragão que dispara a Lathliss; ao bater, causa o mesmo dano a cada criatura do jogador."
+   "papel_por_que": "Dragão que dispara a Lathliss; ao bater, causa o mesmo dano a cada criatura do jogador.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss e limpa só o lado de quem ele acerta.",
+    "I": "Limpa uma mesa inteira, mas só se conectar.",
+    "T": "Sete manas.",
+    "Q": "Paridade e na frente.",
+    "R": "A lista tem limpezas acima da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Ryusei, the Falling Star": {
    "notas": {
@@ -582,7 +815,7 @@
    "sin_por_que": {
     "sin1": "Dragão comum: dispara a Lathliss; a limpeza ao morrer poupa os voadores, mas não rende a cada outro Dragão."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Dragão Espírito lendário 5/5 de 6 com voar. Morrendo, 5 de dano em cada criatura sem voar.",
    "porque": "Dispara a Lathliss e, ao morrer, limpa o chão poupando os seus voadores; fica em B porque a limpeza depende de ele morrer.",
@@ -592,7 +825,26 @@
    "pacote": "dragoes",
    "papel": "habilita",
    "papel_dupla": "Remoção (limpeza)",
-   "papel_por_que": "Dragão que dispara a Lathliss; ao morrer, 5 de dano a cada criatura sem voar."
+   "papel_por_que": "Dragão que dispara a Lathliss; ao morrer, 5 de dano a cada criatura sem voar.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss; a limpeza poupa os voadores.",
+    "I": "Um 5/5 voador; os 5 de dano só vêm quando ele morre.",
+    "T": "Seis manas por uma limpeza que não é você quem decide.",
+    "Q": "Paridade, na frente e atrás: quem limpa a mesa leva o troco.",
+    "R": "A lista tem limpezas acima da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Incinerator of the Guilty": {
    "notas": {
@@ -605,7 +857,7 @@
    "sin_por_que": {
     "sin1": "Dragão comum: dispara a Lathliss, sem efeito a cada outro Dragão que entra ou ataca."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Dragão 6/6 de 6 com voar e atropelar. Ao acertar, coleta evidência X e causa X a cada criatura e planeswalker do jogador.",
    "porque": "Dispara a Lathliss e limpa o lado do oponente ao acertar, poupando o seu; fica em B porque gasta o cemitério e depende do acerto.",
@@ -615,7 +867,26 @@
    "pacote": "dragoes",
    "papel": "habilita",
    "papel_dupla": "Remoção (limpeza)",
-   "papel_por_que": "Dragão que dispara a Lathliss; ao bater, pode causar X a cada criatura do jogador."
+   "papel_por_que": "Dragão que dispara a Lathliss; ao bater, pode causar X a cada criatura do jogador.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss e limpa o lado de quem ele acerta.",
+    "I": "Um 6/6 voador com atropelar; a limpeza pede conectar e gastar o cemitério.",
+    "T": "Seis manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Balefire Dragon limpa sem gastar cemitério; limpezas acima da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Inferno of the Star Mounts": {
    "notas": {
@@ -634,7 +905,26 @@
    "faz": "Dragão lendário 6/6 de 6 que não pode ser anulado, com voar e ímpeto. {R}: +1/+0; ao chegar a 20 de força assim, 20 de dano em qualquer alvo.",
    "porque": "Dispara a Lathliss, não pode ser anulado e fecha sozinho com mana sobrando; fica em B porque o pump e os 20 de dano são só dele, não da revoada.",
    "papel": "habilita",
-   "papel_por_que": "Dragão com ímpeto, que não pode ser anulado, e dispara a Lathliss."
+   "papel_por_que": "Dragão com ímpeto, que não pode ser anulado, e dispara a Lathliss.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss e fecha sozinho com mana sobrando.",
+    "I": "Não pode ser anulado e bate 6 no ar no turno em que entra.",
+    "T": "Seis manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, contra mesa de anulação.",
+    "R": "É a única ameaça da lista que passa por anulação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Hellkite Tyrant": {
    "notas": {
@@ -649,13 +939,32 @@
    "sin_por_que": {
     "sin1": "Dragão comum: dispara a Lathliss, sem efeito a cada outro Dragão que entra ou ataca."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Dragão 6/5 de 6 com voar e atropelar. Ao acertar, toma todos os artefatos do jogador; na sua manutenção, com 20 artefatos, você vence.",
    "porque": "Dispara a Lathliss e rouba Tesouros e pedras; com a Reaver Cleaver e o Hellkite Charger vence o jogo, mas sozinho só toma artefatos.",
    "papel": "habilita",
    "papel_dupla": "Remoção (rouba artefatos)",
-   "papel_por_que": "Dragão que dispara a Lathliss; ao bater, toma os artefatos do jogador."
+   "papel_por_que": "Dragão que dispara a Lathliss; ao bater, toma os artefatos do jogador.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss; a vitória com 20 artefatos pede o combo inteiro.",
+    "I": "Um 6/5 voador sem ímpeto; o roubo de artefatos só vem se conectar.",
+    "T": "Seis manas, no padrão dos Dragões grandes.",
+    "Q": "Paridade e na frente.",
+    "R": "Há outros Dragões de seis na lista com efeito mais certo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Chaos Dragon": {
    "notas": {
@@ -672,7 +981,26 @@
    "faz": "Dragão 4/4 de 3 com voar e ímpeto; ataca todo combate, e um dado decide quem ele pode atacar.",
    "porque": "Dragão de 3 que dispara a Lathliss cedo, mas ataca todo combate e o dado decide quem; corpo barato que o deck troca sem perder o plano.",
    "papel": "habilita",
-   "papel_por_que": "Dragão de 3 com voar e ímpeto que dispara a Lathliss cedo."
+   "papel_por_que": "Dragão de 3 com voar e ímpeto que dispara a Lathliss cedo.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão de três manas: dispara a Lathliss barato.",
+    "I": "Um corpo 4/4 voador com ímpeto.",
+    "T": "Três manas, mas ataca todo combate e o dado decide em quem.",
+    "Q": "Paridade e na frente; atrás, o ataque forçado deixa você sem bloqueador.",
+    "R": "Qualquer Dragão barato cumpre; o Universal Automaton, do radar, dispara a Lathliss por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Reckless Barbarian": {
    "notas": {
@@ -685,13 +1013,32 @@
    "sin_por_que": {
     "sin1": "Dragão comum de 2: dispara a Lathliss e depois vira {R}{R}."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Dragão Bárbaro 2/2 de 2. Sacrifique: {R}{R}.",
    "porque": "Dragão de 2 que dispara a Lathliss e devolve {R}{R} ao ser sacrificado; útil na curva, mas o corpo 2/2 não faz mais nada pelo plano.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Dragão de 2 que dispara a Lathliss e vira RR quando sacrificado."
+   "papel_por_que": "Dragão de 2 que dispara a Lathliss e vira RR quando sacrificado.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão de duas manas: dispara a Lathliss e ainda devolve {R}{R}.",
+    "I": "Um corpo 2/2 sem voar.",
+    "T": "Duas manas, e o sacrifício paga de volta.",
+    "Q": "Início (leva a Lathliss ao turno 4), paridade e na frente.",
+    "R": "O Universal Automaton, do radar, custa uma mana, mas não gera mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Gadrak, the Crown-Scourge": {
    "notas": {
@@ -710,7 +1057,26 @@
    "porque": "Dragão de 3 que dispara a Lathliss e gera Tesouros nas limpezas, mas só ataca com quatro artefatos; papel de passagem, fácil de trocar.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Dragão de 3 que dispara a Lathliss; Tesouros quando criaturas não ficha morrem."
+   "papel_por_que": "Dragão de 3 que dispara a Lathliss; Tesouros quando criaturas não ficha morrem.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão de três manas que dispara a Lathliss.",
+    "I": "Um corpo 5/4 voador que quase nunca ataca.",
+    "T": "Três manas, mas só ataca com quatro artefatos em campo.",
+    "Q": "Paridade e atrás: bloqueia no ar e rende Tesouros depois de uma limpeza.",
+    "R": "Qualquer Dragão barato cumpre o mesmo papel."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Territorial Hellkite": {
    "notas": {
@@ -729,7 +1095,27 @@
    "porque": "Dragão de 4 com ímpeto que bate forte, mas o alvo do ataque é sorteado; dispara a Lathliss e pouco mais, por isso fica em C.",
    "prioridade": 9,
    "papel": "habilita",
-   "papel_por_que": "Dragão de 4 com ímpeto que dispara a Lathliss."
+   "papel_por_que": "Dragão de 4 com ímpeto que dispara a Lathliss.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão de quatro manas que dispara a Lathliss.",
+    "I": "Um corpo 6/5 voador com ímpeto.",
+    "T": "Quatro manas, mas o oponente atacado é sorteado.",
+    "Q": "Paridade e na frente; atrás, ele ataca e fica virado.",
+    "R": "O radar tem o Universal Automaton para a vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Universal Automaton",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Vengeful Ancestor": {
    "notas": {
@@ -742,12 +1128,31 @@
    "sin_por_que": {
     "sin1": "Espírito Dragão: dispara a Lathliss; o goad não se volta aos outros Dragões."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Espírito Dragão 3/4 de 4 com voar. Ao entrar ou atacar, dá goad numa criatura; criatura com goad que ataca causa 1 ao controlador.",
    "porque": "Dragão de 4 que dispara a Lathliss e manda a mesa brigar com goad; ajuda, mas não acelera a revoada nem soma dano a ela.",
    "papel": "habilita",
-   "papel_por_que": "Dragão que dispara a Lathliss e provoca uma criatura ao entrar e ao atacar."
+   "papel_por_que": "Dragão que dispara a Lathliss e provoca uma criatura ao entrar e ao atacar.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão de quatro manas que dispara a Lathliss.",
+    "I": "Um corpo 3/4 voador e goad numa criatura ao entrar.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás: o goad tira um atacante de cima de você.",
+    "R": "Qualquer Dragão de quatro cumpre; o goad é o que ele tem de próprio."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Manaform Hellkite": {
    "notas": {
@@ -766,7 +1171,26 @@
    "faz": "Dragão 4/4 de 4 com voar. Você conjura mágica que não é criatura: ficha Dragão Ilusão X/X voadora com ímpeto, exilada no fim do turno.",
    "porque": "Dispara a Lathliss, e com 43 mágicas não criatura no deck gera fichas que disparam o Tempest; a ficha some no fim do turno, por isso fica em C.",
    "papel": "habilita",
-   "papel_por_que": "Dragão que dispara a Lathliss; mágicas não criatura criam Dragões voadores com ímpeto por um turno."
+   "papel_por_que": "Dragão que dispara a Lathliss; mágicas não criatura criam Dragões voadores com ímpeto por um turno.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss; as fichas dele disparam o Dragon Tempest.",
+    "I": "Um corpo 4/4; a ficha pede outra mágica e some no fim do turno.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "Qualquer Dragão de quatro cumpre o mesmo papel."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Dragon Mage": {
    "notas": {
@@ -785,7 +1209,26 @@
    "porque": "A única wheel do deck: dispara a Lathliss e recarrega a sua mão, mas também a de todos, custa 7 e depende de acertar.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Dragão que dispara a Lathliss; ao bater, todos trocam a mão por sete cartas."
+   "papel_por_que": "Dragão que dispara a Lathliss; ao bater, todos trocam a mão por sete cartas.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dragão que dispara a Lathliss e enche a mão.",
+    "I": "Sete cartas, mas só se conectar, e para a mesa toda.",
+    "T": "Sete manas e uma condição.",
+    "Q": "Paridade e na frente.",
+    "R": "É a única recarga completa da mão, e a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Pinnacle Monk": {
    "notas": {
@@ -794,10 +1237,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Djinn Monge 2/2 de 5 com proeza; ao entrar, uma instantânea ou feitiço do cemitério volta à mão. O verso é terreno: pague 3 de vida ou entra virado.",
-   "porque": "Terreno quando falta, recursão de mágica quando sobra; flexível, mas o lado criatura custa 5 e não se liga aos Dragões."
+   "porque": "Terreno quando falta, recursão de mágica quando sobra; flexível, mas o lado criatura custa 5 e não se liga aos Dragões.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conta como terreno vermelho; o lado criatura devolve uma mágica.",
+    "I": "Terreno, ou um 2/2 que recupera uma instantânea ou feitiço.",
+    "T": "Desvirado por 3 de vida.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Carta de duas faces que conta na cota de terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Sol Ring": {
    "notas": {
@@ -808,7 +1270,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Artefato de 1: {C}{C}.",
-   "porque": "A aceleração mais barata do deck: põe a Lathliss em campo no turno 4, e num deck de curva alta isso muda a partida."
+   "porque": "A aceleração mais barata do deck: põe a Lathliss em campo no turno 4, e num deck de curva alta isso muda a partida.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: qualquer deck usaria.",
+    "I": "Duas manas a mais desde o turno 1.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma pedra rende igual, e a lista só tem duas pedras baratas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Arcane Signet": {
    "notas": {
@@ -819,7 +1300,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: mana da identidade.",
-   "porque": "Pedra de 2 que cumpre o ramp sem erro; não faz nada além de mana, por isso fica em B."
+   "porque": "Pedra de 2 que cumpre o ramp sem erro; não faz nada além de mana, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura.",
+    "I": "Uma mana a mais.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "É a única pedra de duas; o ramp está um pouco abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Dragon's Hoard": {
    "notas": {
@@ -839,7 +1339,26 @@
    "porque": "Pedra que ganha um marcador a cada Dragão, fichas inclusive, e o converte em compra; fica em B porque compra no lugar da mana, uma por turno.",
    "papel": "recompensa",
    "papel_dupla": "Draw e Ramp",
-   "papel_por_que": "Cada Dragão que entra põe um marcador que vira carta; também gera mana."
+   "papel_por_que": "Cada Dragão que entra põe um marcador que vira carta; também gera mana.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada Dragão que entra, ficha inclusive, vira um marcador que compra carta.",
+    "I": "Uma mana a mais, ou uma carta por turno no lugar da mana.",
+    "T": "Três manas, no padrão.",
+    "Q": "Viva sempre: mana cedo, carta tarde.",
+    "R": "O Herald's Horn, do radar, barateia, mas compra menos; a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Carnelian Orb of Dragonkind": {
    "notas": {
@@ -856,7 +1375,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 3: {R}; gasto num Dragão, ele ganha ímpeto.",
-   "porque": "Pedra de 3 que dá ímpeto ao Dragão conjurado com ela; cumpre o ramp, mas custa mais que as pedras de 2 e o bônus é de uma criatura só."
+   "porque": "Pedra de 3 que dá ímpeto ao Dragão conjurado com ela; cumpre o ramp, mas custa mais que as pedras de 2 e o bônus é de uma criatura só.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra; o ímpeto vale para um Dragão só.",
+    "I": "Uma mana a mais.",
+    "T": "Três manas, no padrão.",
+    "Q": "Viva sempre.",
+    "R": "O Ruby Medallion, do radar, custa duas; o ramp um pouco abaixo da cota a segura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.7
   },
   "Cursed Mirror": {
    "notas": {
@@ -876,7 +1414,26 @@
    "porque": "Copiando um Dragão, entra como Dragão não ficha e dispara a Lathliss, e a ficha 5/5 fica; fora disso é só uma pedra de 3.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Entra como cópia de um Dragão, que não é ficha, e dispara a Lathliss."
+   "papel_por_que": "Entra como cópia de um Dragão, que não é ficha, e dispara a Lathliss.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra que entra como cópia de um Dragão e dispara a Lathliss.",
+    "I": "Uma mana a mais; a ficha pede a Lathliss e outro Dragão em campo.",
+    "T": "Três manas, no padrão.",
+    "Q": "Viva sempre: pedra cedo, Dragão tarde.",
+    "R": "Nenhuma outra pedra dispara a Lathliss."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "The Reaver Cleaver": {
    "notas": {
@@ -889,10 +1446,29 @@
    "sin_por_que": {
     "sin2": "Bônus de +1/+1 e atropelar para uma criatura só, por Equipamento."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "ALT",
    "faz": "Equipamento lendário de 3, equipar {3}: +1/+1, atropelar, e ao acertar, um Tesouro por dano.",
-   "porque": "Com o Hellkite Charger, combates infinitos, e com o Hellkite Tyrant vira vitória; fora do combo, equipar {3} é caro para o bônus."
+   "porque": "No Hellkite Charger, cada acerto rende 6 Tesouros, um a menos que o custo do combate extra: o laço só fecha com mais uma mana por volta ou com o Torbran em campo. Fora disso, equipar {3} é caro para o bônus.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte o dano de um Dragão em Tesouros; no Hellkite Charger, quase paga o combate extra.",
+    "I": "Não faz nada até equipar e conectar.",
+    "T": "Três manas e mais três para equipar.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta da lista troca dano por mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Horn of the Mark": {
    "notas": {
@@ -906,7 +1482,26 @@
    "porque": "Com as fichas da Lathliss, compra quase todo ataque; fica em B porque só acha criatura e depende de duas atacarem o mesmo jogador.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Ataque com duas criaturas ou mais olha cinco cartas e traz uma criatura."
+   "papel_por_que": "Ataque com duas criaturas ou mais olha cinco cartas e traz uma criatura.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As fichas da Lathliss fazem o ataque de dois, e a carta acha Dragão.",
+    "I": "Uma criatura entre as cinco do topo, a cada ataque.",
+    "T": "Duas manas, com a condição de atacar com duas.",
+    "Q": "Paridade e na frente.",
+    "R": "A compra está abaixo da cota, e esta se repete."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Belbe's Portal": {
    "notas": {
@@ -925,7 +1520,27 @@
    "faz": "Artefato de 5 do tipo que escolher. {3}, vira: põe uma criatura desse tipo da mão em campo.",
    "porque": "Põe um Dragão caro em campo por 3 a qualquer momento e dispara a Lathliss, mas custa 5 para entrar e pede Dragão na mão.",
    "papel": "habilita",
-   "papel_por_que": "Põe um Dragão da mão em campo sem conjurar: mais um gatilho da Lathliss por turno."
+   "papel_por_que": "Põe um Dragão da mão em campo sem conjurar: mais um gatilho da Lathliss por turno.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Põe um Dragão da mão em campo por {3}, e a Lathliss dispara.",
+    "I": "Não faz nada no turno em que entra.",
+    "T": "Cinco manas para começar a economizar.",
+    "Q": "Paridade e na frente, com Dragão na mão.",
+    "R": "O Dragonlord's Servant, do radar, barateia os Dragões por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Dragonlord's Servant",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Nyx Lotus": {
    "notas": {
@@ -936,7 +1551,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato lendário de 4, entra virado. Vira: mana de uma cor igual à sua devoção a ela.",
-   "porque": "Entra virado e só rende com vários permanentes vermelhos em campo; os Dragões têm {R}{R} no custo, mas é lento para quatro manas."
+   "porque": "Entra virado e só rende com vários permanentes vermelhos em campo; os Dragões têm {R}{R} no custo, mas é lento para quatro manas.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ramp; rende pela devoção ao vermelho.",
+    "I": "Entra virado: nada no turno em que desce.",
+    "T": "Quatro manas e virado.",
+    "Q": "Paridade e na frente, com permanentes vermelhas em campo.",
+    "R": "O Ruby Medallion, do radar, custa duas e vale desde o início; só a cota de ramp a segura."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Ruby Medallion",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Hedron Archive": {
    "notas": {
@@ -949,7 +1584,26 @@
    "rel": "MED",
    "faz": "Artefato de 4: {C}{C}; {2}, vira, sacrifique: compre duas.",
    "porque": "Pedra de 4 que vira compra depois; cara para o que faz, num deck que já tem pedras de 2 e 3.",
-   "prioridade": 10
+   "prioridade": 10,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura.",
+    "I": "Duas manas incolores a partir do turno seguinte.",
+    "T": "Quatro manas.",
+    "Q": "Paridade, na frente e atrás, quando vira duas cartas.",
+    "R": "Há equivalentes mais baratos; só a cota de ramp a segura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Crawlspace": {
    "notas": {},
@@ -960,7 +1614,30 @@
    "faz": "Artefato de 3: no máximo duas criaturas atacam você por combate.",
    "porque": "Defesa que não faz nada pelo plano: não acelera, não compra e não se liga aos Dragões, e ocupa a vaga de uma carta que avança a revoada.",
    "prioridade": 2,
-   "pacote": "removal"
+   "pacote": "removal",
+   "tier_anterior": "D",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Defende você, não a Lathliss; não avança nada do plano.",
+    "I": "Limita os ataques contra você a duas criaturas.",
+    "T": "Três manas.",
+    "Q": "Só atrás e na paridade.",
+    "R": "O Scourge of Valkas, do radar, entra no lugar e converte cada Dragão em dano."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Scourge of Valkas",
+   "confianca": "alta",
+   "indice": 0.75
   },
   "Dragon Tempest": {
    "notas": {
@@ -976,13 +1653,37 @@
     "sin1": "Não é Dragão, mas rende a cada Dragão que entra, ficha inclusive: dano igual ao número de Dragões.",
     "sin2": "Ímpeto para cada voadora que entra: as fichas da Lathliss atacam na hora."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Encantamento de 2. Criatura voadora sua entra: ímpeto. Dragão seu entra: X de dano em qualquer alvo, X os seus Dragões.",
    "porque": "Cada Dragão dispara duas vezes (ele e a ficha da Lathliss) e todos atacam na hora: é a peça que converte cada entrada em dano, o centro do plano.",
    "papel": "recompensa",
    "papel_dupla": "Multiplicadora (ímpeto aos voadores)",
-   "papel_por_que": "Cada Dragão que entra, ficha também, causa dano igual ao número de Dragões."
+   "papel_por_que": "Cada Dragão que entra, ficha também, causa dano igual ao número de Dragões.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o queimar: cada Dragão que entra causa dano igual ao número de Dragões, e as fichas atacam na hora.",
+    "I": "Encantamento que rende a partir do Dragão seguinte.",
+    "T": "Duas manas.",
+    "Q": "Desce no turno 2, vira remoção na paridade e atrás, e dano direto na frente.",
+    "R": "O Scourge of Valkas, do radar, faz o dano por cinco manas e não dá ímpeto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, as fichas da Lathliss esperam uma rodada para atacar e as entradas não causam dano: o queimar fica só no combate.",
+    "O Scourge of Valkas faz o mesmo dano, mas custa cinco manas, não dá ímpeto e morre como criatura.",
+    "No início (desce no turno 2), na paridade e atrás (cada Dragão mata uma criatura) e na frente (dano direto no jogador)."
+   ],
+   "indice": 2.8
   },
   "Molten Echoes": {
    "notas": {
@@ -995,12 +1696,31 @@
    "sin_por_que": {
     "sin1": "Não é Dragão, mas com Dragão escolhido copia cada Dragão não ficha que entra; a cópia é ficha e não dispara a Lathliss, mas repete os gatilhos de entrada."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 4 do tipo que escolher: criatura não ficha desse tipo entra, ficha cópia com ímpeto, exilada no fim do turno.",
    "porque": "Copia cada Dragão que entra: a cópia não dispara a Lathliss, mas dispara o Tempest e repete os efeitos de entrar (Tesouros, monarca).",
    "papel": "multiplica",
-   "papel_por_que": "Copia cada Dragão não ficha que entra, com ímpeto: dobra os efeitos de entrar."
+   "papel_por_que": "Copia cada Dragão não ficha que entra, com ímpeto: dobra os efeitos de entrar.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o duplicar: cada Dragão que entra ganha uma cópia com ímpeto.",
+    "I": "Não faz nada ao entrar; a cópia some no fim do turno e não dispara a Lathliss.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente; pede Dragão na mão.",
+    "R": "O Roaming Throne dobra as fichas, mas não repete os efeitos de entrada."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Gratuitous Violence": {
    "notas": {
@@ -1017,7 +1737,26 @@
    "faz": "Encantamento de 5: suas criaturas causam o dobro de dano.",
    "porque": "Dobra o dano das suas criaturas, só a seu favor, o que acelera a revoada; fica em B porque custa 5 e não faz nada sozinho.",
    "papel": "multiplica",
-   "papel_por_que": "Dobra o dano das suas criaturas: a revoada bate em dobro."
+   "papel_por_que": "Dobra o dano das suas criaturas: a revoada bate em dobro.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o queimar: dobra o dano das suas criaturas.",
+    "I": "Dobra a mesa que já existe; sozinho não faz nada.",
+    "T": "Cinco manas, no padrão dos dobradores.",
+    "Q": "Paridade e na frente.",
+    "R": "É o dobrador mais firme da lista: encantamento, e só a seu favor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Dictate of the Twin Gods": {
    "notas": {
@@ -1034,7 +1773,26 @@
    "faz": "Encantamento de 5 com lampejo: todo dano é dobrado.",
    "porque": "Dobra o dano da revoada e tem lampejo, mas dobra também o dano que você recebe; por isso fica atrás do Gratuitous Violence e do Fiendish Duo.",
    "papel": "multiplica",
-   "papel_por_que": "Dobra todo dano, o da revoada também; o dos oponentes também dobra."
+   "papel_por_que": "Dobra todo dano, o da revoada também; o dos oponentes também dobra.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dobra o dano da revoada, mas também o que você recebe.",
+    "I": "Com lampejo, entra no combate e dobra o ataque na hora.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Paridade e na frente; atrás, dobra o dano contra você.",
+    "R": "O Gratuitous Violence e o Fiendish Duo dobram só a seu favor."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Wild Wasteland": {
    "notas": {
@@ -1045,7 +1803,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 3: pule a compra; na manutenção, exila as duas do topo e você as joga no turno.",
-   "porque": "Uma carta a mais por turno num deck que precisa de compra; fica em B porque a carta exilada tem de ser jogada no mesmo turno."
+   "porque": "Uma carta a mais por turno num deck que precisa de compra; fica em B porque a carta exilada tem de ser jogada no mesmo turno.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Uma carta a mais por turno enquanto ficar.",
+    "T": "Três manas, mas a carta exilada tem de ser jogada no turno.",
+    "Q": "Início, paridade e atrás.",
+    "R": "A compra está abaixo da cota; o Bonehoard Dracosaur, do radar, faz o mesmo em corpo de Dragão."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.75
   },
   "The Legend of Roku": {
    "notas": {
@@ -1058,10 +1835,29 @@
    "sin_por_que": {
     "sin1": "Cria ficha de Dragão só pela ativação de {8} do verso, e a ficha não dispara a Lathliss."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Saga de 4: I, exila três e você as joga até o fim do próximo turno; II, uma mana de qualquer cor; III, vira uma criatura lendária Avatar.",
-   "porque": "Compra e mana ao longo de três turnos, mas devagar, e a ficha de Dragão do verso custa {8} e não dispara a Lathliss."
+   "porque": "Compra e mana ao longo de três turnos, mas devagar, e a ficha de Dragão do verso custa {8} e não dispara a Lathliss.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra e mana genéricas; a ficha de Dragão do verso custa {8}.",
+    "I": "Três cartas na entrada, para jogar até o fim do turno seguinte.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Início, paridade e atrás.",
+    "R": "A compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Rising of the Day": {
    "notas": {
@@ -1080,7 +1876,27 @@
    "porque": "Dá ímpeto a todas as fichas da Lathliss, mas o Dragon Tempest e o Enduring Courage já cobrem isso; o +1/+0 só pega nas lendárias.",
    "prioridade": 11,
    "papel": "multiplica",
-   "papel_por_que": "Todas as suas criaturas têm ímpeto: a ficha 5/5 ataca no turno em que entra."
+   "papel_por_que": "Todas as suas criaturas têm ímpeto: a ficha 5/5 ataca no turno em que entra.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ímpeto para o time; o +1/+0 só pega nas lendárias.",
+    "I": "Ímpeto que outras duas cartas já dão.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Scourge of Valkas, do radar, converte cada entrada em dano."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Scourge of Valkas",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Spiteful Banditry": {
    "notas": {
@@ -1093,7 +1909,26 @@
    "rel": "MED",
    "faz": "Encantamento X{R}{R}: X de dano a cada criatura; uma vez por turno, criaturas dos oponentes morrem, um Tesouro.",
    "porque": "Limpeza ajustável: com X até 4 as fichas 5/5 ficam, e ainda rende Tesouros; fica em C porque o deck já tem limpezas acima do necessário.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica; os Tesouros ajudam a pagar os Dragões.",
+    "I": "Limpa na medida do X e depois rende um Tesouro por turno.",
+    "T": "X flexível.",
+    "Q": "Início (com X = 0, pelos Tesouros), paridade e atrás.",
+    "R": "Há sete limpezas para uma cota de três a quatro."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Curse of Opulence": {
    "notas": {
@@ -1106,7 +1941,27 @@
    "rel": "MED",
    "faz": "Maldição de 1: o jogador encantado é atacado, você e quem o ataca criam um Ouro.",
    "porque": "Ouro barato, mas o Goldspan não o dobra por não ser Tesouro, e dá mana também a quem ataca o mesmo jogador.",
-   "prioridade": 12
+   "prioridade": 12,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ramp; o Ouro não é Tesouro, e o Goldspan Dragon não o dobra.",
+    "I": "Um Ouro por ataque, e também para o oponente que atacar o mesmo jogador.",
+    "T": "Uma mana, mas só rende atacando.",
+    "Q": "Paridade e na frente.",
+    "R": "O radar tem o Herald's Horn para a vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Herald's Horn",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Powerbalance": {
    "notas": {
@@ -1118,7 +1973,30 @@
    "rel": "BAX",
    "faz": "Encantamento de 2: um oponente conjura, você revela o topo e conjura grátis se o valor for igual.",
    "porque": "Raramente acerta: depende de o topo ter o mesmo valor da mágica do oponente, e não se liga aos Dragões nem ao plano.",
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 0,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Não se liga a nada do plano.",
+    "I": "Só acerta quando o topo tem o mesmo valor da mágica do oponente.",
+    "T": "Duas manas.",
+    "Q": "Só na paridade, e por sorte.",
+    "R": "O Ganax, Astral Hunter, do radar, entra no lugar e dá um Tesouro por Dragão."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Ganax, Astral Hunter",
+   "confianca": "alta",
+   "indice": 0.55
   },
   "War's Toll": {
    "notas": {},
@@ -1129,7 +2007,30 @@
    "faz": "Encantamento de 4: oponente vira um terreno para mana, vira todos; se uma criatura dele ataca, todas atacam.",
    "porque": "Fora do plano: trava a mana e força ataques dos oponentes, mas não acelera, não compra e não ajuda a revoada.",
    "prioridade": 4,
-   "pacote": "removal"
+   "pacote": "removal",
+   "tier_anterior": "D",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Quem usou terreno no próprio turno fica sem mana no seu; não avança a revoada.",
+    "I": "Atrapalha, mas não tira nada da mesa.",
+    "T": "Quatro manas por uma proteção indireta.",
+    "Q": "Só na paridade e na frente.",
+    "R": "O Terror of the Peaks, do radar, entra no lugar e converte cada ficha em dano."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Terror of the Peaks",
+   "confianca": "média",
+   "indice": 0.8
   },
   "Chaos Warp": {
    "notas": {
@@ -1137,10 +2038,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 3: o dono embaralha uma permanente no grimório e revela o topo; se for permanente, entra.",
-   "porque": "A resposta vermelha a qualquer permanente, num deck em que o dono viu falta de respostas; instantânea e barata, por isso é titular."
+   "porque": "A resposta vermelha a qualquer permanente, num deck em que o dono viu falta de respostas; instantânea e barata, por isso é titular.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É a única resposta da lista a encantamento e a qualquer permanente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Untimely Malfunction": {
    "notas": {
@@ -1158,7 +2078,26 @@
    "porque": "A única carta do deck que protege a Lathliss de uma remoção, e ainda quebra artefato; fica em B porque cada modo é pequeno.",
    "marcas": {
     "prot": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica, com dois outros modos.",
+    "I": "Uma carta por uma carta.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Três modos: há uso em qualquer momento.",
+    "R": "É a única proteção da Lathliss, para uma cota de três."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Sarkhan's Triumph": {
    "notas": {
@@ -1176,7 +2115,26 @@
    "faz": "Instantânea de 3: busca um Dragão.",
    "porque": "Acha o Dragão certo em velocidade de instantânea, no fim do turno de alguém; fica em B porque é só um tutor, sem corpo nem mana.",
    "papel": "habilita",
-   "papel_por_que": "Busca um Dragão no grimório: mais um gatilho da Lathliss garantido."
+   "papel_por_que": "Busca um Dragão no grimório: mais um gatilho da Lathliss garantido.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Existe por causa dos Dragões: busca o que a mesa pede.",
+    "I": "Vale o Dragão que busca.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É o único tutor da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Great Train Heist": {
    "notas": {
@@ -1194,7 +2152,26 @@
    "faz": "Instantânea {R} com escolhas pagas: desvira e há outro combate; +1/+0 e golpe primeiro; Tesouros por acerto.",
    "porque": "Combate a mais de instantânea, com +1/+0 e golpe primeiro para a revoada; fica em B porque é de uma vez só e cada modo custa.",
    "papel": "multiplica",
-   "papel_por_que": "Combate a mais e +1/+0 para o time num turno."
+   "papel_por_que": "Combate a mais e +1/+0 para o time num turno.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Um combate a mais para a revoada, com +1/+0 e golpe primeiro se sobrar mana.",
+    "I": "Dobra o ataque do turno, na hora.",
+    "T": "Quatro manas pelo combate extra, instantânea.",
+    "Q": "Paridade e na frente; pede mesa.",
+    "R": "É o combate extra mais barato da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Electrodominance": {
    "notas": {
@@ -1203,10 +2180,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Instantânea X{R}{R}: X de dano em qualquer alvo; conjure grátis uma mágica de valor até X da mão.",
-   "porque": "Remoção que ainda solta um Dragão em velocidade de instantânea, mas o X encarece e o deck já tem remoção acima da faixa."
+   "porque": "Remoção que ainda solta um Dragão em velocidade de instantânea, mas o X encarece e o deck já tem remoção acima da faixa.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção que desce um Dragão da mão em velocidade de instantânea.",
+    "I": "Dano num alvo e uma mágica de graça: duas por uma.",
+    "T": "O X encarece: cinco de dano custam sete manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra remoção da lista põe um Dragão em campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Demand Answers": {
    "notas": {
@@ -1214,10 +2210,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 2; custo adicional: sacrifique um artefato ou descarte. Compre duas.",
-   "porque": "Compra duas por 2, e um Tesouro paga o custo; cumpre, mas é compra pequena e de uma vez, fácil de trocar."
+   "porque": "Compra duas por 2, e um Tesouro paga o custo; cumpre, mas é compra pequena e de uma vez, fácil de trocar.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Duas cartas por uma carta ou um artefato.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "A compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Spikefield Hazard": {
    "notas": {
@@ -1228,7 +2243,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Instantânea {R}: 1 de dano. O verso é terreno virado.",
-   "porque": "Terreno quando falta, e o lado mágica só causa 1 de dano; está aqui pela vaga de terreno, não pela remoção."
+   "porque": "Terreno quando falta, e o lado mágica só causa 1 de dano; está aqui pela vaga de terreno, não pela remoção.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conta como terreno vermelho.",
+    "I": "Terreno ou 1 de dano.",
+    "T": "O terreno entra virado.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Carta de duas faces que conta na cota de terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Mizzium Mortars": {
    "notas": {
@@ -1236,7 +2270,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 2: 4 de dano numa criatura que não é sua; sobrecarga {3}{R}{R}{R}: em cada uma.",
    "porque": "Remoção barata e, com sobrecarga, limpeza só do lado deles: o tipo de limpeza que poupa os seus Dragões, como o dono pediu.",
@@ -1244,7 +2278,26 @@
     "poupa": 1
    },
    "massa": true,
-   "pontual": true
+   "pontual": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica; a sobrecarga poupa a revoada.",
+    "I": "Mata uma criatura por duas manas ou, por seis, limpa só o lado deles.",
+    "T": "Duas manas, e a sobrecarga é unilateral.",
+    "Q": "Viva sempre: remoção barata cedo, limpeza tarde.",
+    "R": "É a melhor limpeza unilateral da lista; as limpezas passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Vandalblast": {
    "notas": {
@@ -1258,7 +2311,26 @@
    "porque": "Responde a artefatos e, com sobrecarga, limpa os dos oponentes poupando os seus; fica em B porque só pega artefato.",
    "marcas": {
     "poupa": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica de artefato.",
+    "I": "Um artefato por uma mana ou, por cinco, todos os deles.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e atrás.",
+    "R": "É a única limpeza de artefatos da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Mob Verdict": {
    "notas": {
@@ -1267,14 +2339,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 4 com conselho secreto: cada voto num oponente causa 2 a ele e a cada criatura dele; cada voto em você compra uma carta.",
    "porque": "Limpeza que nunca acerta o seu lado e ainda pode comprar, mas o dano de 2 por voto só mata criatura pequena e depende da mesa.",
    "marcas": {
     "poupa": 1
    },
-   "massa": true
+   "massa": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica que não acerta o seu lado.",
+    "I": "2 de dano por voto: só mata criatura pequena, e a mesa decide.",
+    "T": "Quatro manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Há sete limpezas para uma cota de três a quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Collective Defiance": {
    "notas": {
@@ -1283,10 +2374,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 3 com escalada: troca de mão, 4 numa criatura, 3 num oponente.",
-   "porque": "Flexível: remoção, dano e troca de mão numa carta só; fica em B porque cada modo é pequeno e é feitiço."
+   "porque": "Flexível: remoção, dano e troca de mão numa carta só; fica em B porque cada modo é pequeno e é feitiço.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Cada modo é pequeno: 4 numa criatura, 3 num oponente.",
+    "T": "Três manas, de feitiço; cada modo a mais custa {1}.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Abrade, do radar, é instantâneo e custa duas."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Abrade",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Insurrection": {
    "notas": {
@@ -1302,7 +2413,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 8: toma todas as criaturas até o fim do turno, desviradas e com ímpeto.",
-   "porque": "O ataque final com a mesa inteira, mas custa 8 e não soma dano, só amplia o ataque; fica em B como finalizador."
+   "porque": "O ataque final com a mesa inteira, mas custa 8 e não soma dano, só amplia o ataque; fica em B como finalizador.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fecha com as criaturas dos outros; não usa o que a Lathliss faz.",
+    "I": "Vira o jogo.",
+    "T": "Oito manas.",
+    "Q": "Paridade, na frente e atrás: é a virada quando a mesa deles é maior.",
+    "R": "Nenhuma outra carta da lista vence a partir de uma mesa vazia."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Fury of the Horde": {
    "notas": {
@@ -1324,7 +2454,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "exilando duas cartas vermelhas da mão"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Um combate a mais para a revoada.",
+    "I": "Dobra o ataque do turno.",
+    "T": "Sete manas, ou duas cartas vermelhas da mão, que já é curta.",
+    "Q": "Paridade e na frente; pede mesa.",
+    "R": "O Great Train Heist faz o mesmo por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Overpowering Attack": {
    "notas": {
@@ -1336,7 +2485,7 @@
    "sin_por_que": {
     "sin2": "Um combate a mais, uma vez."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 5: desvira quem atacou; na fase principal, outro combate e outra fase principal.",
    "porque": "Combate a mais por 5, ou por 3 se a Lathliss acertou no turno; cumpre o fim do deck, mas é de uma vez só.",
@@ -1345,7 +2494,27 @@
    "custo_usual": {
     "cmc": 3,
     "como": "por freerunning, depois de a Lathliss acertar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Um combate a mais para a revoada.",
+    "I": "Dobra o ataque do turno.",
+    "T": "Cinco manas; três se a Lathliss conectou no turno.",
+    "Q": "Paridade e na frente; pede mesa.",
+    "R": "É a pior das três mágicas de combate extra, e o fechamento passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "The Immortal Sun",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Storm's Wrath": {
    "notas": {
@@ -1357,7 +2526,29 @@
    "rel": "MED",
    "faz": "Feitiço de 4: 4 de dano a cada criatura e planeswalker.",
    "porque": "A Lathliss e as fichas 5/5 ficam, mas os Dragões pequenos e o apoio morrem; mais uma limpeza num deck que já tem de sobra.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica: a Lathliss e as fichas 5/5 sobrevivem.",
+    "I": "Limpa a mesa, mas leva 11 das suas 24 criaturas, as de resistência até 4.",
+    "T": "Quatro manas.",
+    "Q": "Paridade e atrás.",
+    "R": "É simétrica e sobra: há sete limpezas para uma cota de três a quatro."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Pyroclasm": {
    "notas": {
@@ -1370,7 +2561,30 @@
    "faz": "Feitiço de 2: 2 de dano a cada criatura.",
    "porque": "Limpa o chão barato, mas leva junto os seus de apoio; o deck já tem limpezas que poupam o seu lado.",
    "massa": true,
-   "prioridade": 8
+   "prioridade": 8,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica; mata o Dragonspeaker Shaman e o Reckless Barbarian.",
+    "I": "Só mata criatura pequena.",
+    "T": "Duas manas.",
+    "Q": "Início e atrás, contra mesa de fichas.",
+    "R": "O Breath Weapon, do radar, faz o mesmo sem tocar em Dragão e é instantâneo."
+   },
+   "antissinergia": "leve",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Breath Weapon",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Faithless Looting": {
    "notas": {
@@ -1382,7 +2596,27 @@
    "rel": "MED",
    "faz": "Feitiço {R}: compre duas e descarte duas; recapitular {2}{R}.",
    "porque": "Filtro, não compra: troca duas cartas por duas, e num deck que pede compra em quantidade isso pouco avança.",
-   "prioridade": 6
+   "prioridade": 6,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Filtro genérico; o deck não usa o cemitério.",
+    "I": "Troca duas por duas: melhora a mão, não aumenta.",
+    "T": "Uma mana, e volta por três.",
+    "Q": "Início e paridade; com a mão vazia não ajuda.",
+    "R": "O Bonehoard Dracosaur, do radar, dá duas cartas por turno em corpo de Dragão."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Bonehoard Dracosaur",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Sundering Eruption": {
    "notas": {
@@ -1395,10 +2629,29 @@
    "sin_por_que": {
     "sin2": "Criaturas sem voar não bloqueiam no turno: tira bloqueadores de passagem."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 3: destrói um terreno, e criaturas sem voar não bloqueiam. O verso é terreno: pague 3 de vida ou entra virado.",
-   "porque": "Terreno quando falta; o lado mágica tira bloqueadores sem voar só de passagem, por isso está aqui pela vaga de terreno."
+   "porque": "Terreno quando falta; o lado mágica tira bloqueadores sem voar só de passagem, por isso está aqui pela vaga de terreno.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conta como terreno vermelho; o lado mágica destrói um terreno.",
+    "I": "Terreno, ou um terreno deles a menos.",
+    "T": "Desvirado por 3 de vida.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Carta de duas faces que conta na cota de terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Chain Reaction": {
    "notas": {
@@ -1414,7 +2667,29 @@
     "contra": 1
    },
    "massa": true,
-   "prioridade": 5
+   "prioridade": 5,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 3,
+    "Q": 0,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Com a revoada em campo, mata a Lathliss, as fichas e todos os seus Dragões.",
+    "I": "Vira a mesa.",
+    "T": "Quatro manas.",
+    "Q": "Só quando você está atrás e sem mesa.",
+    "R": "É das piores entre sete limpezas, para uma cota de três a quatro."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Reckless Endeavor": {
    "notas": {
@@ -1423,7 +2698,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Feitiço de 7: rola dois d12; um vira dano a cada criatura, o outro, Tesouros.",
    "porque": "Caro, sorteado e pode matar o seu lado: das limpezas do deck, é uma das duas que trabalham contra a Lathliss.",
@@ -1431,7 +2706,31 @@
     "contra": 1
    },
    "massa": true,
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 0,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Limpeza sorteada: dano alto mata a Lathliss e as fichas, dano baixo não limpa.",
+    "I": "Limpa e ainda dá Tesouros, se os dados ajudarem.",
+    "T": "Sete manas, e no dado.",
+    "Q": "Paridade e atrás.",
+    "R": "O Flame Sweep, do radar, custa três, é instantâneo e poupa os seus voadores."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Flame Sweep",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Browbeat": {
    "notas": {
@@ -1443,7 +2742,27 @@
    "rel": "BAX",
    "faz": "Feitiço de 3: alguém toma 5, ou um jogador compra três.",
    "porque": "O oponente escolhe: quase sempre alguém toma 5 e você não compra, então não resolve a falta de compra que o dono viu.",
-   "prioridade": 7
+   "prioridade": 7,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Qualquer jogador troca as suas três cartas por 5 de dano nele.",
+    "T": "Três manas, se a mesa deixar.",
+    "Q": "Só quando ninguém pode tomar 5.",
+    "R": "O radar tem o Dragonlord's Servant para a vaga; só a cota de compra a segura."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Dragonlord's Servant",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Mountain": {
    "notas": {},
@@ -1452,7 +2771,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base de mana de um deck mono-red com 32 terrenos para CMC médio de 3,8; cumpre o papel e nada mais, por isso fica em B."
+   "porque": "Base de mana de um deck mono-red com 32 terrenos para CMC médio de 3,8; cumpre o papel e nada mais, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: a do deck.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; liga a Arena of Glory."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Arena of Glory": {
    "notas": {
@@ -1467,7 +2805,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{R}; exaure: {R}{R}, e a criatura conjurada com ela ganha ímpeto.",
-   "porque": "Terreno que dá mana extra e ímpeto ao Dragão conjurado com ela sem custar vaga de mágica; entra desvirado com uma Mountain."
+   "porque": "Terreno que dá mana extra e ímpeto ao Dragão conjurado com ela sem custar vaga de mágica; entra desvirado com uma Mountain.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vermelho, e ímpeto para o Dragão conjurado com a mana dela.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado com Montanha; são 24.",
+    "Q": "Viva sempre.",
+    "R": "É o único terreno que faz um Dragão atacar no turno em que entra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Mines of Moria": {
    "notas": {
@@ -1478,7 +2835,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Lendário: {R}; virado sem criatura lendária; {3}{R}, vira, exile três do cemitério: dois Tesouros.",
-   "porque": "Tesouros só tarde, a {3}{R} e exilando o cemitério; entra desvirado com a Lathliss, mas o resto é lento."
+   "porque": "Tesouros só tarde, a {3}{R} e exilando o cemitério; entra desvirado com a Lathliss, mas o resto é lento.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: a do deck.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado sem criatura lendária, ou seja, no começo.",
+    "Q": "Viva sempre.",
+    "R": "O radar tem a War Room para a vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "War Room",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Abstergo Entertainment": {
    "notas": {},
@@ -1487,7 +2864,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Lendário: {C}; {1}, vira: qualquer cor; {3}, vira, exile: uma histórica do cemitério à mão e exila os cemitérios.",
-   "porque": "Recupera a Lathliss morta para a mão, mas exila os cemitérios e custa ativação; fora disso é terreno incolor."
+   "porque": "Recupera a Lathliss morta para a mão, mas exila os cemitérios e custa ativação; fora disso é terreno incolor.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; o vermelho custa {1} a mais.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas a cor é paga.",
+    "Q": "Viva sempre; tarde, devolve uma lendária ou artefato do cemitério.",
+    "R": "O Tyrite Sanctum, do radar, protege a Lathliss."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Tyrite Sanctum",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Barbarian Ring": {
    "notas": {},
@@ -1496,7 +2893,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{R} com 1 de dano; limiar: {R}, vira, sacrifique: 2 de dano.",
-   "porque": "Pouco faz: dói ao gerar mana e o dano de 2 pede limiar; vale só como vaga de terreno."
+   "porque": "Pouco faz: dói ao gerar mana e o dano de 2 pede limiar; vale só como vaga de terreno.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: a do deck.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas cobra 1 de vida por mana.",
+    "Q": "Viva sempre.",
+    "R": "A Mountain faz o mesmo sem cobrar vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Path of Ancestry": {
    "notas": {
@@ -1512,7 +2928,27 @@
    "rel": "MED",
    "faz": "Sempre virado: mana da identidade; Dragão conjurado com ela, vidência 1.",
    "porque": "Sempre entra virado, e a vidência com Dragão é pouco ganho; terreno lento num deck que precisa de mana no tempo certo.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vermelho, e vidência 1 ao conjurar Dragão.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "A Nykthos, Shrine to Nyx, do radar, entra desvirada e rende pela devoção."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Nykthos, Shrine to Nyx",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Spinerock Knoll": {
    "notas": {
@@ -1524,16 +2960,56 @@
    "rel": "MED",
    "faz": "Sempre virado: {R}; esconde uma carta e a joga grátis se um oponente levou 7 no turno.",
    "porque": "Entra virado, mas as fichas causam 7 fácil e liberam a carta escondida de graça; lento, por isso fica em C.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vermelho; a carta escondida sai de graça quando a revoada causa 7 num oponente.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "A carta escondida rende na paridade e na frente.",
+    "R": "O Castle Embereth, do radar, entra desvirado com Montanha."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Castle Embereth",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Temple of the False God": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "D",
    "rel": "MED",
    "faz": "{C}{C} com cinco terrenos.",
-   "porque": "Morto no começo, quando o deck mais precisa de mana; só depois de cinco terrenos acelera para os Dragões caros."
+   "porque": "Morto no começo, quando o deck mais precisa de mana; só depois de cinco terrenos acelera para os Dragões caros.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Só incolor.",
+    "I": "Duas manas, mas só a partir do quinto terreno.",
+    "T": "Não gera nada antes do quinto terreno.",
+    "Q": "Morta no início e quando você está atrás.",
+    "R": "O Haven of the Spirit Dragon, do radar, paga Dragões desde o turno 1."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Haven of the Spirit Dragon",
+   "confianca": "média",
+   "indice": 0.75
   },
   "Terrain Generator": {
    "notas": {},
@@ -1542,7 +3018,27 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{C}; {2}, vira: um básico da mão em campo, virado.",
-   "porque": "Lento: põe um básico da mão por {2} e só dá mana incolor; cumpre pouco como terreno."
+   "porque": "Lento: põe um básico da mão por {2} e só dá mana incolor; cumpre pouco como terreno.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Só incolor, num deck de {R}{R} e {R}{R}{R}.",
+    "I": "Um terreno por turno; por {2}, desce uma Mountain da mão.",
+    "T": "Desvirado.",
+    "Q": "Rende com básico sobrando na mão.",
+    "R": "A Cavern of Souls, do radar, dá vermelho aos Dragões e passa por anulação."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Cavern of Souls",
+   "confianca": "alta",
+   "indice": 1.3
   }
  },
  "radar": {
@@ -2576,7 +4072,7 @@
     "The Reaver Cleaver",
     "Hellkite Charger"
    ],
-   "texto": "A Cleaver no Charger: cada acerto paga em Tesouros os {5}{R}{R} do próximo combate. Combates infinitos. Commander Spellbook 3398-5039."
+   "texto": "A Cleaver no Charger: ele vira 6/6 com atropelar e cada acerto rende 6 Tesouros, um a menos que os {5}{R}{R} do próximo combate. Com o Torbran em campo o acerto rende 8 e os combates se repetem; sem ele, falta uma mana por volta."
   },
   {
    "nome": "Vitória do Tyrant",
@@ -2586,7 +4082,7 @@
     "Hellkite Charger",
     "Hellkite Tyrant"
    ],
-   "texto": "Os combates infinitos enchem a mesa de Tesouros: na manutenção, com 20 artefatos, o Tyrant vence."
+   "texto": "Os combates repetidos da Cleaver no Charger enchem a mesa de Tesouros: na manutenção, com 20 artefatos, o Tyrant vence."
   },
   {
    "nome": "Duas fichas por Dragão",
@@ -2763,5 +4259,14 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "02. TRIBAIS",
+  "conta": "A Lathliss em campo e um Dragão por turno (descer); cada Dragão vira dois ou três corpos, com a ficha 5/5 e as cópias (duplicar); as entradas e os ataques viram dano somado, dobrado e combates extras (queimar).",
+  "decisoes": [
+   "Nenhuma carta de estimação: tudo pode entrar em corte, as 24 Mountains também (14/10/2026)."
+  ]
  }
 }
