@@ -335,7 +335,7 @@
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos.",
     "sin2": "Motor de vida: o dano de combate das suas criaturas a um jogador vira vida, e com 15 acima do total inicial ela vence a partida."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/6 com voar e golpe duplo. Quando uma criatura sua causa dano de combate a um jogador, você e ele ganham essa quantidade de vida. No seu passo final, se você tem 15 de vida acima do total inicial, cada jogador que ela atacou no turno perde o jogo.",
    "porque": "Fecha o jogo aos 55 de vida, em combo com a Lyra, e todo dano de combate vira vida que liga os motores. O jogador atingido também ganha vida, o que atrasa a vitória por dano.",
@@ -345,7 +345,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ganho de vida em combate)",
-   "papel_por_que": "Fecha o jogo com 15 de vida acima do inicial, e o dano de combate do time já vira vida."
+   "papel_por_que": "Fecha o jogo com 15 de vida acima do inicial, e o dano de combate do time já vira vida.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Anjo que a Giada paga e engorda; o ganho de vida do combate leva aos 55.",
+    "I": "Golpe duplo que vira vida; a vitória pede chegar ao passo final com 55 de vida.",
+    "T": "Cinco manas, no padrão de um fechamento.",
+    "Q": "Paridade e na frente.",
+    "R": "É o único caminho de vitória fora do dano, e o deck tem só quatro fechamentos."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Angel of Jubilation": {
    "notas": {
@@ -359,12 +378,34 @@
    "sin_por_que": {
     "sin1": "Anjo que entra maior com a Giada; o +1/+1 vale para todas as criaturas que não são pretas, não é voltado aos Anjos."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "3/3 voador. Suas outras criaturas não pretas recebem +1/+1. Ninguém pode pagar vida nem sacrificar criaturas para conjurar mágicas ou ativar habilidades.",
    "porque": "Lorde de 4 manas para a mesa inteira, e ainda trava decks de sacrifício. Com ela em campo você também não ativa a Selfless Spirit nem o War Room, nem paga o custo alternativo do Flare of Fortitude.",
    "papel": "multiplica",
-   "papel_por_que": "Lorde: suas outras criaturas não pretas recebem +1/+1."
+   "papel_por_que": "Lorde: suas outras criaturas não pretas recebem +1/+1.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord: +1/+1 para as outras criaturas, e é Anjo que a Giada paga.",
+    "I": "O buff vale na hora, mas é só +1/+1 e some se ela sair.",
+    "T": "Quatro manas, com {W}{W}{W}.",
+    "Q": "Paridade e na frente.",
+    "R": "Há dois lords melhores na lista; ela proíbe Selfless Spirit, War Room e o custo alternativo do Flare of Fortitude."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Angel of Vitality": {
    "notas": {
@@ -379,7 +420,7 @@
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos.",
     "sin2": "Motor de vida: todo ganho de vida rende 1 a mais, e ela cresce com 25 ou mais de vida. Não dobra, então não chega a 3."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/2 voador. Sempre que você ganharia vida, ganha 1 a mais. Recebe +2/+2 enquanto você tiver 25 ou mais de vida.",
    "porque": "Anjo de 3 manas que em Commander já entra 4/4. O ponto extra faz o Bishop of Wings render 5 de vida, o bastante para ligar o Resplendent Angel sozinho.",
@@ -387,7 +428,26 @@
     "ganho": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Cada ganho de vida rende 1 a mais, e ela recebe +2/+2 com 25 de vida ou mais."
+   "papel_por_que": "Cada ganho de vida rende 1 a mais, e ela recebe +2/+2 com 25 de vida ou mais.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Soma 1 a cada ganho de vida: com o Bishop of Wings são 5, o que liga o Resplendent Angel.",
+    "I": "Um corpo; o ponto extra é pequeno.",
+    "T": "Três manas por um 4/4 voador com 25 de vida ou mais.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Seraph Sanctuary também completa o ponto que falta, sem gastar vaga de mágica."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Angelic Skirmisher": {
    "notas": {
@@ -411,7 +471,30 @@
    },
    "prioridade": 5,
    "papel": "habilita",
-   "papel_por_que": "Anjo que dá vínculo com a vida ao time a cada combate, alimentando os gatilhos de ganho de vida."
+   "papel_por_que": "Anjo que dá vínculo com a vida ao time a cada combate, alimentando os gatilhos de ganho de vida.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Dá vínculo com a vida ao time em cada combate, o que alimenta os gatilhos de vida.",
+    "I": "Não muda a mesa ao entrar; precisa ficar e atacar.",
+    "T": "Seis manas; a Lyra Dawnbringer dá vínculo aos Anjos por cinco, com +1/+1.",
+    "Q": "Paridade e na frente.",
+    "R": "O Exalted Sunborn, do radar, custa cinco, tem vínculo e dobra os Anjos criados."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Exalted Sunborn",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Archangel of Thune": {
    "notas": {
@@ -426,7 +509,7 @@
     "sin1": "Anjo que entra maior com a Giada; o efeito dele vale para todas as criaturas, não é voltado aos Anjos.",
     "sin2": "Converte vida em marcadores: cada ganho de vida põe +1/+1 em cada criatura sua, e o vínculo com a vida dele gera mais vida."
    },
-   "tier": "S",
+   "tier": "B",
    "rel": "INS",
    "faz": "3/4 com voar e vínculo com a vida. Sempre que você ganha vida, põe um marcador +1/+1 em cada criatura sua.",
    "porque": "Cada gatilho de vida vira um marcador na mesa inteira. Com Bishop of Wings, Seraph Sanctuary e o vínculo com a vida da Lyra, isso acontece várias vezes por turno.",
@@ -436,7 +519,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (vínculo com a vida)",
-   "papel_por_que": "Cada ganho de vida põe um marcador +1/+1 em cada criatura sua: converte vida em marcador."
+   "papel_por_que": "Cada ganho de vida põe um marcador +1/+1 em cada criatura sua: converte vida em marcador.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o crescer: cada ganho de vida vira um marcador em cada criatura sua.",
+    "I": "Motor que precisa ficar; nada acontece na entrada sem um ganho de vida.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Paridade, na frente e atrás (voador com vínculo com a vida segura o chão).",
+    "R": "A Lyra, Archangel of Dawn faz o mesmo por três, só para Anjos; fora da lista nada chega perto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Archangel of Tithes": {
    "notas": {
@@ -450,12 +552,31 @@
    "sin_por_que": {
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "3/5 voador. Desvirado, cobra {1} por criatura que atacar você ou seus planeswalkers. Atacando, cobra {1} por criatura que quiser bloquear.",
    "porque": "Imposto nas duas direções: desestimula ataques contra você e encarece os bloqueios. Sem vigilância, você escolhe uma das duas funções por turno.",
    "papel": "habilita",
-   "papel_por_que": "Corpo de Anjo voador que cobra {1} por atacante e por bloqueador."
+   "papel_por_que": "Corpo de Anjo voador que cobra {1} por atacante e por bloqueador.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anjo que a Giada paga; o imposto não cresce a mesa.",
+    "I": "Um corpo e um imposto de {1} por atacante.",
+    "T": "Quatro manas, com {W}{W}{W}.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "A proteção está acima da cota, e os Anjos de quatro têm par na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Avacyn, Angel of Hope": {
    "notas": {
@@ -469,13 +590,32 @@
    "sin_por_que": {
     "sin1": "Anjo que entra maior com a Giada; a indestrutibilidade vale para todas as suas permanentes, não é voltada aos Anjos."
    },
-   "tier": "S",
+   "tier": "B",
    "rel": "INS",
    "faz": "8/8 com voar, vigilância e indestrutível. Suas outras permanentes têm indestrutível.",
    "porque": "Com ela em campo, Austere Command, Vanquish the Horde e Split Up só destroem o lado dos oponentes. Oito manas, mas a Giada e os redutores pagam boa parte.",
    "papel": "habilita",
    "papel_dupla": "Proteção (indestrutível às permanentes)",
-   "papel_por_que": "Anjo 8/8 que torna indestrutíveis suas outras permanentes."
+   "papel_por_que": "Anjo 8/8 que torna indestrutíveis suas outras permanentes.",
+   "tier_anterior": "S",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o proteger: com ela, toda limpeza por destruição cai só nos outros.",
+    "I": "Voadora indestrutível, e as outras permanentes ficam indestrutíveis na hora.",
+    "T": "Oito manas; a Giada paga uma e os redutores, mais algumas.",
+    "Q": "Paridade, na frente e atrás, quando a mana chega.",
+    "R": "A Sephara cobre os voadores e as instantâneas cobrem um turno; a proteção está acima da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Battle Angels of Tyr": {
    "notas": {
@@ -492,16 +632,35 @@
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos.",
     "sin2": "Ganha 3 de vida só se o jogador atingido tem mais vida: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "4/4 com voar e miríade. Quando causa dano de combate a um jogador: você compra uma carta se ele tem mais cartas na mão que cada outro jogador; cria um Tesouro se ele controla mais terrenos; ganha 3 de vida se ele tem mais vida.",
-   "porque": "Ataca todos os oponentes de uma vez e cobra um bônus de cada um. As cópias são Anjos que entram em campo: recebem os marcadores da Giada e disparam Bishop of Wings e Righteous Valkyrie.",
+   "porque": "Ataca todos os oponentes de uma vez; cada bônus só sai contra o jogador que tem mais cartas, mais terrenos ou mais vida que todos os outros. As cópias são Anjos que entram em campo: recebem os marcadores da Giada e disparam Bishop of Wings e Righteous Valkyrie.",
    "marcas": {
     "ganho": 1
    },
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Anjo com miríade: as cópias são Anjos que entram; ao causar dano, pode comprar, criar Tesouro e ganhar 3."
+   "papel_por_que": "Anjo com miríade: as cópias são Anjos que entram; ao causar dano, pode comprar, criar Tesouro e ganhar 3.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As cópias da miríade são Anjos que entram: levam marcadores e disparam Bishop of Wings e Righteous Valkyrie.",
+    "I": "Ataca os três oponentes; carta, Tesouro e vida dependem de quem lidera em cada coisa.",
+    "T": "Quatro manas por um voador com miríade.",
+    "Q": "Paridade e na frente: só rende atacando.",
+    "R": "Nenhuma outra compra da lista traz mana junto; a compra está dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Bishop of Wings": {
    "notas": {
@@ -516,7 +675,7 @@
     "sin1": "Não é Anjo, mas existe por causa deles: 4 de vida a cada Anjo que entra e um Espírito voador a cada Anjo que morre.",
     "sin2": "Motor de ganho de vida: 4 por Anjo que entra, sem depender de combate."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "1/4. Sempre que um Anjo entra sob seu controle, você ganha 4 de vida. Sempre que um Anjo seu morre, cria um Espírito 1/1 voador.",
    "porque": "Quatro de vida por Anjo liga Valkyrie Harbinger, The Book of Exalted Deeds e Archangel of Thune sem depender de combate. Não é Anjo: não recebe a mana nem os marcadores da Giada.",
@@ -525,7 +684,31 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (vida para os gatilhos de ganho)",
-   "papel_por_que": "Cada Anjo que entra rende 4 de vida, e cada Anjo que morre vira um Espírito voador."
+   "papel_por_que": "Cada Anjo que entra rende 4 de vida, e cada Anjo que morre vira um Espírito voador.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o motor de vida: 4 por Anjo que entra, o que liga Livro, Harbinger, Thune e as duas Lyras.",
+    "I": "Motor que precisa ficar; corpo que bloqueia cedo.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre: desce antes da Giada, rende a cada Anjo e deixa Espíritos quando eles morrem.",
+    "R": "A Righteous Valkyrie custa três e a Seraph Sanctuary dá só 1 por Anjo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, os gatilhos de vida dependem de atacar com vínculo: Livro e Harbinger deixam de ligar no turno em que o Anjo entra.",
+    "A Righteous Valkyrie custa uma mana a mais e morre como criatura nas limpezas do mesmo jeito; a Seraph Sanctuary dá 1 de vida, não 4.",
+    "No início (turno 2), na paridade, na frente e atrás, quando a vida e os Espíritos compram tempo."
+   ],
+   "indice": 2.6
   },
   "Bruna, the Fading Light": {
    "notas": {
@@ -538,12 +721,31 @@
    "sin_por_que": {
     "sin1": "Anjo que traz de volta um Anjo ou Humano ao ser conjurada: efeito de uma vez só, não um motor."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "5/7 com voar e vigilância. Quando você a conjura, pode devolver um Anjo ou Humano do seu cemitério ao campo. Funde-se com a Gisela, the Broken Blade.",
    "porque": "Dois Anjos por uma carta, e o gatilho é de conjuração: vale mesmo se ela for anulada. Com a Gisela, vira a Brisela.",
    "papel": "habilita",
-   "papel_por_que": "Anjo que, ao ser conjurado, devolve um Anjo ou Humano do cemitério ao campo."
+   "papel_por_que": "Anjo que, ao ser conjurado, devolve um Anjo ou Humano do cemitério ao campo.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anjo que devolve outro Anjo do cemitério ao campo, de novo com os marcadores da Giada.",
+    "I": "Duas criaturas por uma carta, garantido na conjuração se houver alvo no cemitério.",
+    "T": "Sete manas.",
+    "Q": "Paridade, na frente e atrás, depois de uma limpeza.",
+    "R": "É uma das sete cartas de sete manas ou mais; a Emeria Shepherd, do radar, devolve uma permanente a cada terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Exemplar of Light": {
    "notas": {
@@ -559,7 +761,7 @@
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos.",
     "sin2": "Converte vida em marcador e marcador em carta: ganhou vida, recebe +1/+1; recebeu marcador, compra uma carta."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "3/3 voador. Sempre que você ganha vida, recebe um marcador +1/+1. Uma vez por turno, quando recebe um ou mais marcadores +1/+1, você compra uma carta.",
    "porque": "Com a Giada, já entra com marcadores e compra uma carta na chegada. Depois, qualquer ganho de vida vira carta, no seu turno e no dos oponentes.",
@@ -568,7 +770,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Cada ganho de vida vira marcador nela, e o marcador vira carta uma vez por turno."
+   "papel_por_que": "Cada ganho de vida vira marcador nela, e o marcador vira carta uma vez por turno.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Troca ganho de vida por carta, uma vez por turno, também nos turnos dos outros.",
+    "I": "Motor que precisa ficar; voador que cresce.",
+    "T": "Quatro manas, no padrão de uma compra recorrente.",
+    "Q": "Paridade, na frente e atrás, com uma fonte de vida em campo.",
+    "R": "É das poucas compras que não pedem ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Firemane Commando": {
    "notas": {
@@ -581,13 +802,32 @@
    "sin_por_que": {
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "4/3 voador. Sempre que você ataca com duas ou mais criaturas, compra uma carta. Quando outro jogador ataca com duas ou mais criaturas e nenhuma ataca você, ele compra uma carta.",
    "porque": "Compra por ataque em corpo de Anjo, mas é um dos três efeitos que pedem duas criaturas atacando, com Chivalric Alliance e Horn of the Mark, e não rende nada aos outros Anjos.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Corpo de Anjo voador que compra quando você ataca com duas ou mais criaturas."
+   "papel_por_que": "Corpo de Anjo voador que compra quando você ataca com duas ou mais criaturas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anjo que a Giada paga; a compra não se liga aos outros Anjos.",
+    "I": "Uma carta por turno de ataque com duas criaturas; precisa ficar.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "É uma das cinco compras que só rendem atacando, o que sobra depois de uma limpeza."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Gisela, the Broken Blade": {
    "notas": {
@@ -602,7 +842,7 @@
     "sin1": "Anjo que entra maior com a Giada e se funde com a Bruna, mas sem efeito voltado aos outros Anjos.",
     "sin2": "Vínculo com a vida: ganho de vida de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "4/3 com voar, iniciativa e vínculo com a vida. No seu passo final, se você é dono e controlador dela e da Bruna, as duas se fundem na Brisela, Voice of Nightmares: 9/10 que impede os oponentes de conjurar mágicas de custo 3 ou menos.",
    "porque": "Sozinha já é uma das melhores criaturas de 4 manas do branco, e o vínculo com a vida alimenta os motores. Com a Bruna, a Brisela tranca remoções baratas e anulações.",
@@ -610,7 +850,26 @@
     "ganho": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Anjo com iniciativa e vínculo com a vida: corpo da tribo que gera vida ao atacar."
+   "papel_por_que": "Anjo com iniciativa e vínculo com a vida: corpo da tribo que gera vida ao atacar.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anjo com vínculo com a vida: cada ataque dispara os gatilhos de vida; funde com a Bruna.",
+    "I": "Um corpo, mas dos melhores.",
+    "T": "Quatro manas por voar, iniciativa e vínculo com a vida.",
+    "Q": "Viva sempre: ataca cedo e bloqueia bem quando você está atrás.",
+    "R": "Os Anjos de quatro têm par na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Herald of Eternal Dawn": {
    "notas": {
@@ -624,14 +883,34 @@
    "sin_por_que": {
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "6/6 com lampejo e voar. Você não pode perder o jogo e seus oponentes não podem vencer o jogo.",
    "porque": "Com lampejo, entra em resposta ao ataque ou ao combo que ia acabar com você. Sete manas, pagas em parte pela Giada, em um topo de curva já disputado.",
    "prioridade": 9,
    "papel": "habilita",
    "papel_dupla": "Proteção (não pode perder)",
-   "papel_por_que": "Anjo 6/6 com lampejo; enquanto vive, você não perde o jogo."
+   "papel_por_que": "Anjo 6/6 com lampejo; enquanto vive, você não perde o jogo.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anjo que a Giada paga; não perder o jogo não cresce a mesa.",
+    "I": "Com lampejo, entra em resposta ao golpe que mataria você.",
+    "T": "Sete manas.",
+    "Q": "Atrás, e na frente como voador grande.",
+    "R": "Everybody Lives! segura o turno por duas manas e o Livro já traz a mesma trava; proteção acima da cota."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Emeria Shepherd",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Herald of War": {
    "notas": {
@@ -647,13 +926,32 @@
     "sin1": "Anjo que barateia os outros Anjos: cada marcador nele desconta 1 das mágicas de Anjo, e com a Giada ele já entra com marcadores.",
     "sin2": "Põe marcador em si mesmo a cada ataque: marcador de passagem."
    },
-   "tier": "S",
+   "tier": "B",
    "rel": "INS",
    "faz": "3/3 voador. Sempre que ataca, recebe um marcador +1/+1. Mágicas de Anjo e de Humano que você conjura custam {1} a menos para cada marcador +1/+1 nele.",
    "porque": "Com a Giada, já entra com marcadores e desconta os próximos Anjos na hora. Depois de dois ataques, os Anjos de 7 manas custam 3 ou 4.",
    "papel": "habilita",
    "papel_dupla": "Ramp (redutor de Anjos)",
-   "papel_por_que": "Cada ataque põe um marcador nele, e cada marcador baixa {1} das mágicas de Anjo."
+   "papel_por_que": "Cada ataque põe um marcador nele, e cada marcador baixa {1} das mágicas de Anjo.",
+   "tier_anterior": "S",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o descer: os marcadores que a Giada põe nele viram desconto nos Anjos na hora.",
+    "I": "Motor que precisa ficar; com a Giada já entra descontando 1.",
+    "T": "Cinco manas por um redutor; o Starnheim Aspirant desconta 2 por três.",
+    "Q": "Paridade e na frente.",
+    "R": "É o único desconto que cresce a cada ataque, e o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Inspiring Overseer": {
    "notas": {
@@ -674,7 +972,26 @@
    "porque": "Anjo de 3 manas que se paga na entrada. Depois da Giada no turno 2, é a melhor jogada de turno 3.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Anjo barato que compra uma carta e ganha 1 de vida ao entrar."
+   "papel_por_que": "Anjo barato que compra uma carta e ganha 1 de vida ao entrar.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anjo de três que entra depois da Giada; o ponto de vida dispara os conversores.",
+    "I": "Um corpo voador e uma carta, garantidos na entrada.",
+    "T": "Três manas.",
+    "Q": "Viva sempre: é barato e repõe a carta.",
+    "R": "Outras criaturas brancas compram ao entrar; só perdem o tipo Anjo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Linvala, Keeper of Silence": {
    "notas": {
@@ -688,12 +1005,31 @@
    "sin_por_que": {
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "3/4 voador. Habilidades ativadas das criaturas dos seus oponentes não podem ser ativadas.",
    "porque": "Desliga criaturas de mana, saídas de sacrifício e comandantes de habilidade ativada, só do lado deles. Um Anjo de 4 manas que também é peça de controle.",
    "papel": "habilita",
-   "papel_por_que": "Corpo de Anjo voador que trava habilidades ativadas das criaturas dos oponentes."
+   "papel_por_que": "Corpo de Anjo voador que trava habilidades ativadas das criaturas dos oponentes.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anjo que a Giada paga; a trava não cresce a mesa.",
+    "I": "Um corpo; o quanto trava depende das criaturas dos oponentes.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "Os Anjos de quatro têm par na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Lyra Dawnbringer": {
    "notas": {
@@ -717,7 +1053,31 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (vínculo com a vida aos Anjos)",
-   "papel_por_que": "Lorde de Anjos: +1/+1 e vínculo com a vida, que alimenta os gatilhos de ganho de vida."
+   "papel_por_que": "Lorde de Anjos: +1/+1 e vínculo com a vida, que alimenta os gatilhos de ganho de vida.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lord da tribo: +1/+1 e vínculo com a vida nos outros Anjos, o que liga os conversores de uma vez.",
+    "I": "Voar, iniciativa e vínculo com a vida; o buff e o vínculo dos outros valem no turno em que entra.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, onde ela segura a mesa.",
+    "R": "A Angelic Skirmisher dá vínculo por seis manas, sem o buff."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o vínculo com a vida fica só nos Anjos que o têm impresso: Thune e Lyra, Archangel of Dawn perdem um gatilho por Anjo que conecta.",
+    "A Angelic Skirmisher custa seis, não dá +1/+1 e é um corpo pior.",
+    "Na paridade e na frente, como lord; atrás, como o melhor bloqueador do deck."
+   ],
+   "indice": 2.4
   },
   "Lyra, Archangel of Dawn": {
    "notas": {
@@ -740,7 +1100,31 @@
     "paga": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Cada ganho de vida põe um marcador +1/+1 em cada Anjo seu: converte vida em marcador."
+   "papel_por_que": "Cada ganho de vida põe um marcador +1/+1 em cada Anjo seu: converte vida em marcador.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o crescer: cada ganho de vida vira um marcador em cada Anjo.",
+    "I": "Motor que precisa ficar.",
+    "T": "Três manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Archangel of Thune faz o mesmo por cinco manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, a vida só vira marcador com a Archangel of Thune, que chega dois turnos depois.",
+    "A Archangel of Thune custa cinco; o radar não tem outro conversor de vida em marcador para o time.",
+    "No início (turno 3, depois da Giada), na paridade e na frente."
+   ],
+   "indice": 2.4
   },
   "Resplendent Angel": {
    "notas": {
@@ -755,7 +1139,7 @@
     "sin1": "Anjo que cria Anjos em série: um 4/4 voador em todo turno em que você ganhar 5 de vida.",
     "sin2": "Recompensa do ganho de vida, com vínculo com a vida pago por mana: motor de um dos dois."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "3/3 voador. No passo final de cada turno, se você ganhou 5 ou mais de vida no turno, cria um Anjo 4/4 com voar e vigilância. Por {3}{W}{W}{W}: +2/+2 e vínculo com a vida até o fim do turno.",
    "porque": "Anjo de 3 manas que fabrica Anjos. Cinco de vida saem de um Bishop of Wings mais qualquer ponto extra, ou de um ataque com vínculo com a vida. Vale também nos turnos dos oponentes.",
@@ -764,7 +1148,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (cria Anjos)",
-   "papel_por_que": "Ganhar 5 de vida no turno vira um Anjo 4/4 voador no passo final."
+   "papel_por_que": "Ganhar 5 de vida no turno vira um Anjo 4/4 voador no passo final.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Troca vida por Anjos 4/4, que entram com os marcadores da Giada.",
+    "I": "Motor que precisa ficar; corpo voador.",
+    "T": "Três manas, mas pede 5 de vida no turno.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Livro pede 3 de vida e a Valkyrie Harbinger pede 4."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Righteous Valkyrie": {
    "notas": {
@@ -789,7 +1192,31 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Multiplicadora (+2/+2 ao time)",
-   "papel_por_que": "Cada Anjo que entra rende vida igual à resistência dele; com 7 de vida acima, o time recebe +2/+2."
+   "papel_por_que": "Cada Anjo que entra rende vida igual à resistência dele; com 7 de vida acima, o time recebe +2/+2.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada Anjo que entra rende vida igual à resistência, já com os marcadores; aos 47 vira lord de +2/+2.",
+    "I": "Motor que precisa ficar; corpo voador.",
+    "T": "Três manas.",
+    "Q": "Viva sempre: voadora no turno 3, vida quando você está atrás, lord na frente.",
+    "R": "O Bishop of Wings dá 4 fixos e não tem o buff."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o deck perde a fonte de vida que cresce com os marcadores da Giada e o lord mais barato da lista.",
+    "O Bishop of Wings rende 4 fixos por Anjo e não dá +2/+2; a Angel of Jubilation dá só +1/+1 por quatro manas.",
+    "No início, como voadora de três; na paridade e atrás, pela vida; na frente, como lord."
+   ],
+   "indice": 2.6
   },
   "Sanctuary Warden": {
    "notas": {
@@ -805,13 +1232,32 @@
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos.",
     "sin2": "Motor de marcadores: entra com dois de escudo e remove marcadores seus, inclusive os +1/+1 da Giada, para comprar e criar fichas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "5/5 voador que entra com dois marcadores de escudo. Quando entra ou ataca, você pode remover um marcador de uma criatura ou planeswalker seu para comprar uma carta e criar um Cidadão 1/1.",
    "porque": "Com a Giada, sobram marcadores +1/+1 para gastar: cada ataque vira uma carta e um corpo sem tocar nos escudos, que a protegem de duas remoções.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Anjo que, ao entrar ou atacar, troca um marcador por carta e ficha."
+   "papel_por_que": "Anjo que, ao entrar ou atacar, troca um marcador por carta e ficha.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Gasta um marcador da Giada por carta e ficha, sem tocar nos escudos.",
+    "I": "Uma carta e um corpo na entrada; entra com dois marcadores de escudo.",
+    "T": "Seis manas por uma compra.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É compra que já rende ao entrar, o que falta depois de uma limpeza."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Selfless Spirit": {
    "notas": {
@@ -822,7 +1268,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "2/1 voador. Sacrifique: suas criaturas ganham indestrutível até o fim do turno.",
-   "porque": "Proteção contra remoção em massa que fica em campo e não custa mana. É Clérigo: ao entrar, rende vida com a Righteous Valkyrie. Não funciona com Angel of Jubilation em campo."
+   "porque": "Proteção contra remoção em massa que fica em campo e não custa mana. É Clérigo: ao entrar, rende vida com a Righteous Valkyrie. Não funciona com Angel of Jubilation em campo.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o proteger: sacrificado, deixa a limpeza cair só nos outros.",
+    "I": "Salva a mesa inteira uma vez.",
+    "T": "Duas manas, e fica em campo sem pedir mana aberta.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Flawless Maneuver e Dawn's Truce fazem o mesmo; a proteção está acima da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Sephara, Sky's Blade": {
    "notas": {
@@ -837,7 +1302,7 @@
     "sin1": "Anjo que entra maior com a Giada; a indestrutibilidade vale para todas as criaturas com voar, não só para Anjos.",
     "sin2": "Vínculo com a vida: ganho de vida de passagem."
    },
-   "tier": "S",
+   "tier": "B",
    "rel": "INS",
    "faz": "7/7 com voar e vínculo com a vida. Pode ser conjurada por {W} virando quatro criaturas suas com voar. Suas outras criaturas com voar têm indestrutível.",
    "porque": "Quase toda criatura do deck voa: ela costuma custar uma mana e deixa a mesa inteira indestrutível. Anjos recém-chegados e fichas também servem para pagar.",
@@ -851,7 +1316,26 @@
    "custo_usual": {
     "cmc": 1,
     "como": "virando quatro voadores"
-   }
+   },
+   "tier_anterior": "S",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o proteger: os outros voadores ficam indestrutíveis enquanto ela estiver em campo.",
+    "I": "Voadora com vínculo com a vida, mas ela mesma morre na limpeza.",
+    "T": "Uma mana virando quatro voadores; sem eles, sete.",
+    "Q": "Paridade e na frente: pede a mesa já montada.",
+    "R": "A Avacyn cobre tudo, por oito manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Serra Paragon": {
    "notas": {
@@ -867,12 +1351,31 @@
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos.",
     "sin2": "Ganha 2 de vida quando a permanente que ela trouxe sai de novo: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "3/4 voador. Uma vez em cada turno seu, você pode jogar um terreno do cemitério ou conjurar dele uma permanente de custo 3 ou menos. Quando essa carta for do campo para o cemitério de novo, é exilada e você ganha 2 de vida.",
    "porque": "Recupera uma peça barata por turno: Bishop of Wings, Selfless Spirit, Starnheim Aspirant, Sol Ring, ou a Eiganjo depois de canalizada. É a principal fonte de recorrência do deck.",
    "papel": "habilita",
-   "papel_por_que": "Anjo que recupera do cemitério uma permanente de custo 3 ou menos, ou um terreno, a cada turno."
+   "papel_por_que": "Anjo que recupera do cemitério uma permanente de custo 3 ou menos, ou um terreno, a cada turno.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Reconjura do cemitério Bishop of Wings, Starnheim Aspirant, Righteous Valkyrie ou Selfless Spirit.",
+    "I": "Motor que precisa ficar; uma permanente de até 3 ou um terreno por turno.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, depois de uma limpeza.",
+    "R": "É a principal recorrência da lista; a Emeria Shepherd, do radar, custa sete."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Serra's Emissary": {
    "notas": {
@@ -886,13 +1389,32 @@
    "sin_por_que": {
     "sin1": "Anjo: entra maior com a Giada, mas não tem efeito voltado aos outros Anjos."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "7/7 voador. Ao entrar, escolha um tipo de carta: você e suas criaturas têm proteção contra esse tipo.",
    "porque": "Nomeando criatura, as criaturas dos oponentes não causam dano a você nem aos seus Anjos e não conseguem bloqueá-los: decks de combate ficam sem jogo. Nomeando mágica instantânea ou feitiço, protege a mesa das remoções.",
    "papel": "habilita",
    "papel_dupla": "Proteção (proteção contra um tipo)",
-   "papel_por_que": "Anjo 7/7 que dá a você e ao time proteção contra um tipo de carta."
+   "papel_por_que": "Anjo 7/7 que dá a você e ao time proteção contra um tipo de carta.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Anjo que a Giada paga; protege você e o time contra um tipo de carta.",
+    "I": "Nomeando criatura, ninguém bloqueia os seus Anjos nem causa dano de combate a você.",
+    "T": "Sete manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra carta protege você e a mesa ao mesmo tempo, de forma permanente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Sigarda's Vanguard": {
    "notas": {
@@ -912,7 +1434,27 @@
    "porque": "Os marcadores da Giada deixam os poderes diferentes e o golpe duplo pega quase a mesa toda. Fica no meio porque é um 3/3 de 5 manas que só rende no turno em que entra ou ataca.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (golpe duplo)",
-   "papel_por_que": "Anjo com lampejo; os marcadores da Giada deixam os poderes diferentes, e o golpe duplo pega vários."
+   "papel_por_que": "Anjo com lampejo; os marcadores da Giada deixam os poderes diferentes, e o golpe duplo pega vários.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Os marcadores da Giada deixam os poderes diferentes, e o golpe duplo pega vários.",
+    "I": "Golpe duplo em vários atacantes no turno em que entra, com lampejo.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Akroma's Will dá golpe duplo a todos; o radar tem a Angelic Field Marshal para a vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Angelic Field Marshal",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Starnheim Aspirant": {
    "notas": {
@@ -925,13 +1467,37 @@
    "sin_por_que": {
     "sin1": "Não é Anjo, mas existe por causa deles: mágicas de Anjo custam 2 a menos. A aceleração que ele dá já conta em Aceleradores, com nota 3."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "2/2. Mágicas de Anjo que você conjura custam {2} a menos.",
    "porque": "Com ele e a Giada em campo, um Anjo de 5 manas pede só dois terrenos. É o melhor redutor do deck, e é Clérigo para a Righteous Valkyrie.",
    "papel": "habilita",
    "papel_dupla": "Ramp (redutor de Anjos)",
-   "papel_por_que": "Mágicas de Anjo custam {2} a menos: mais Anjos por turno, e cada um entra maior."
+   "papel_por_que": "Mágicas de Anjo custam {2} a menos: mais Anjos por turno, e cada um entra maior.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o descer: com ele e a Giada, um Anjo de cinco manas pede dois terrenos.",
+    "I": "Motor que precisa ficar.",
+    "T": "Três manas que voltam como duas a cada Anjo.",
+    "Q": "Início, paridade e atrás, quando a reconstrução sai barata.",
+    "R": "O Herald's Horn desconta 1 e o Herald of War custa cinco; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, os treze custos de seis ou mais dependem só da Giada e a mão trava, que é o ponto de falha do deck.",
+    "O Herald's Horn desconta só 1; o Herald of War custa cinco e cresce atacando; o Urza's Incubator, do radar, seria a segunda cópia, não a troca.",
+    "No início (turno 3, depois da Giada), na paridade e atrás, na reconstrução depois de uma limpeza."
+   ],
+   "indice": 2.4
   },
   "Valkyrie Harbinger": {
    "notas": {
@@ -946,7 +1512,7 @@
     "sin1": "Anjo que cria Anjos em série: um 4/4 voador em todo turno em que você ganhar 4 de vida.",
     "sin2": "Motor de vida com vínculo com a vida, e recompensa do ganho de vida."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "4/5 com voar e vínculo com a vida. No passo final de cada turno, se você ganhou 4 ou mais de vida no turno, cria um Anjo 4/4 com voar e vigilância.",
    "porque": "O próprio ataque dela paga a condição. Um gatilho do Bishop of Wings também, inclusive no turno dos oponentes.",
@@ -956,7 +1522,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (cria Anjos)",
-   "papel_por_que": "Ganhar 4 de vida no turno vira um Anjo 4/4; o vínculo com a vida dela já ajuda a chegar lá."
+   "papel_por_que": "Ganhar 4 de vida no turno vira um Anjo 4/4; o vínculo com a vida dela já ajuda a chegar lá.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Troca vida por Anjos 4/4; o próprio vínculo com a vida dela paga a condição.",
+    "I": "Motor que precisa ficar; com o Bishop of Wings já cria um Anjo no turno em que entra.",
+    "T": "Seis manas.",
+    "Q": "Paridade, na frente e atrás (voadora com vínculo com a vida).",
+    "R": "O Livro e o Resplendent Angel fazem o mesmo por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Youthful Valkyrie": {
    "notas": {
@@ -971,12 +1556,31 @@
     "sin1": "Anjo que cresce a cada outro Anjo que entra, mas o ganho é só dela.",
     "sin2": "Põe marcador em si mesma: marcador de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "1/3 voador. Sempre que outro Anjo entra sob seu controle, recebe um marcador +1/+1.",
    "porque": "O Anjo mais barato do deck depois da Giada. Entra cedo, aumenta a contagem para os próximos e cresce com cada um.",
    "papel": "recompensa",
-   "papel_por_que": "Anjo de 2 manas que recebe um marcador +1/+1 a cada outro Anjo que entra."
+   "papel_por_que": "Anjo de 2 manas que recebe um marcador +1/+1 a cada outro Anjo que entra.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anjo de duas manas: aumenta a contagem da Giada cedo e cresce a cada Anjo que entra.",
+    "I": "Um corpo que cresce só ele.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Segovian Angel, do radar, faz a contagem por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Invasion of Gobakhan": {
    "notas": {
@@ -993,7 +1597,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Batalha. Ao entrar, olhe a mão de um oponente e exile uma carta que não seja terreno; ele ainda pode jogá-la, pagando {2} a mais. Derrotada, vira Lightshield Array: no seu passo final, marcador +1/+1 em cada criatura que atacou no turno; pode ser sacrificada para dar resistência a magia e indestrutível ao seu time.",
-   "porque": "Por 2 manas, atrasa a melhor carta de um oponente; derrotada com um ataque de 3, deixa em campo um sacrifício que torna só as suas criaturas indestrutíveis e com resistência a magia, em resposta à sua remoção em massa ou à de outro."
+   "porque": "Por 2 manas, atrasa a melhor carta de um oponente; derrotada com um ataque de 3, deixa em campo um sacrifício que torna só as suas criaturas indestrutíveis e com resistência a magia, em resposta à sua remoção em massa ou à de outro.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Derrotada, vira o Lightshield Array: sacrificado, dá indestrutível e resistência a magia às suas criaturas.",
+    "I": "Olha a mão de um oponente e encarece uma carta em {2}; a proteção vem depois.",
+    "T": "Duas manas, mas pede derrotar a batalha.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A proteção está acima da cota, e as instantâneas não pedem preparo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Akroma's Will": {
    "notas": {
@@ -1008,13 +1631,37 @@
    "sin_por_que": {
     "sin2": "Pode dar vínculo com a vida ao time: ganho de vida de passagem."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Instantânea. Escolha um, ou os dois se você controla um comandante: suas criaturas ganham voar, vigilância e golpe duplo; ou ganham vínculo com a vida, indestrutível e proteção contra todas as cores.",
    "porque": "Com a Giada em campo faz os dois modos: fecha o jogo em um ataque ou salva a mesa de uma remoção em massa. A melhor mágica do deck.",
    "papel": "multiplica",
    "papel_dupla": "Proteção (indestrutível ao time)",
-   "papel_por_que": "Voar e golpe duplo para o time inteiro dobram o dano dos Anjos já crescidos."
+   "papel_por_que": "Voar e golpe duplo para o time inteiro dobram o dano dos Anjos já crescidos.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Com a Giada faz os dois modos: fecha com golpe duplo ou salva a mesa com indestrutível.",
+    "I": "Vira o jogo: mata no ataque ou anula a limpeza de outro.",
+    "T": "Quatro manas, instantânea; os dois modos pedem a comandante em campo.",
+    "Q": "Na frente e na paridade, para fechar; atrás, para salvar a mesa.",
+    "R": "O deck tem só quatro fechamentos, e nenhum outro também protege."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, o fechamento volta a depender de vários turnos de ataque depois da limpeza, tempo para a mesa responder.",
+    "A Sigarda's Vanguard dá golpe duplo só a poderes diferentes e não protege; as proteções da lista não fecham o jogo.",
+    "Na paridade e na frente, como golpe final; atrás, como resposta a uma limpeza alheia."
+   ],
+   "indice": 2.4
   },
   "Austere Command": {
    "notas": {
@@ -1025,7 +1672,26 @@
    "rel": "MED",
    "faz": "Feitiço. Escolha dois: destruir todos os artefatos; todos os encantamentos; todas as criaturas de custo 3 ou menos; todas as criaturas de custo 4 ou mais.",
    "porque": "A mais flexível das cinco limpezas e a única resposta ampla a artefatos e encantamentos que não exila os seus. Custa 6, e o modo que poupa os Anjos grandes mata a Giada.",
-   "massa": 1
+   "massa": 1,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Com indestrutível na sua mesa, a limpeza cai só nos outros.",
+    "I": "Vira a mesa, e pega artefatos e encantamentos.",
+    "T": "Seis manas.",
+    "Q": "Atrás e na paridade.",
+    "R": "São cinco limpezas para uma cota de três a quatro, e esta é das mais caras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Clever Concealment": {
    "notas": {
@@ -1033,7 +1699,7 @@
     "sinergia": 1
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea com convocar. Qualquer número de permanentes suas que não sejam terreno saem de fase até o seu próximo turno.",
    "porque": "Virando os próprios Anjos para convocar, costuma sair de graça. Sair de fase protege de tudo, inclusive exílio e Farewell, e preserva os marcadores.",
@@ -1043,7 +1709,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "convocando com as criaturas"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o proteger: tira a sua mesa de fase, com os marcadores, até do Farewell.",
+    "I": "Salva tudo o que não é terreno, de destruição e de exílio.",
+    "T": "Quatro manas ou criaturas desviradas; depois de atacar, sobram poucas para convocar.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Só ela e o Teferi's Protection salvam a mesa de exílio."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Dawn's Truce": {
    "notas": {
@@ -1053,7 +1738,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Instantânea: você e suas permanentes ganham resistência a magia até o fim do turno. Se você prometer o presente, um oponente compra uma carta e suas permanentes também ganham indestrutível.",
-   "porque": "Proteção de 2 manas para a mesa inteira, contra remoção pontual e em massa. A carta para o oponente só é cobrada quando você precisa do indestrutível."
+   "porque": "Proteção de 2 manas para a mesa inteira, contra remoção pontual e em massa. A carta para o oponente só é cobrada quando você precisa do indestrutível.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o proteger: indestrutível e resistência a magia para a mesa inteira.",
+    "I": "Salva a mesa uma vez.",
+    "T": "Duas manas; o indestrutível custa uma carta para um oponente.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Flawless Maneuver e Selfless Spirit fazem o mesmo; a proteção está acima da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Emeria's Call": {
    "notas": {
@@ -1073,35 +1777,92 @@
    "porque": "Terreno no começo, dois Anjos no fim, e as fichas entram com os marcadores da Giada. Conta como fonte de terreno.",
    "gera": "W",
    "papel": "habilita",
-   "papel_por_que": "Cria dois Anjos 4/4 voadores de uma vez."
+   "papel_por_que": "Cria dois Anjos 4/4 voadores de uma vez.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fonte de branco; o feitiço cria dois Anjos, que entram com os marcadores da Giada.",
+    "I": "Terreno cedo, dois 4/4 voadores tarde.",
+    "T": "O terreno entra desvirado por 3 de vida; o feitiço custa sete.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Carta de duas faces que conta na cota de terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Everybody Lives!": {
    "notas": {
     "protecao": 2
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea: todas as criaturas ganham resistência a magia e indestrutível, e os jogadores ganham resistência a magia, até o fim do turno. Neste turno ninguém perde vida, perde o jogo nem vence o jogo.",
-   "porque": "Por 2 manas, em resposta, ninguém vence nem perde neste turno e nenhuma criatura morre destruída: é a resposta mais barata do deck a um combo ou à remoção em massa de um oponente. Salva também a mesa deles, então não deixa a sua remoção em massa unilateral, e no seu turno de ataque impede que você tire vida."
+   "porque": "Por 2 manas, em resposta, ninguém vence nem perde neste turno e nenhuma criatura morre destruída: é a resposta mais barata do deck a um combo ou à remoção em massa de um oponente. Salva também a mesa deles, então não deixa a sua remoção em massa unilateral, e no seu turno de ataque impede que você tire vida.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Salva também a mesa dos outros: não deixa a sua limpeza de um lado só.",
+    "I": "Anula o turno em que alguém venceria, ou uma limpeza alheia.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Atrás e na paridade.",
+    "R": "Teferi's Protection e Orim's Chant cobrem parte; a proteção está acima da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Farewell": {
    "notas": {
     "removal": 3
    },
    "sin": {},
-   "tier": "A",
+   "tier": "C",
    "rel": "ALT",
    "faz": "Feitiço. Escolha um ou mais: exilar todos os artefatos; todas as criaturas; todos os encantamentos; todos os cemitérios.",
    "porque": "O botão de reinício: exila em vez de destruir, e você escolhe o que fica. Em um deck que vive da própria mesa, é carta para quando você está atrás.",
-   "massa": 1
+   "massa": 1,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Exila: indestrutível não salva, só as duas cartas que tiram a mesa de fase.",
+    "I": "Reinício total, com escolha do que fica.",
+    "T": "Seis manas.",
+    "Q": "Atrás, e na paridade com a mesa fora de fase.",
+    "R": "São cinco limpezas para uma cota de três a quatro; é a única que exila e pega cemitérios."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Flare of Fortitude": {
    "notas": {
     "protecao": 3
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea. Você pode sacrificar uma criatura branca que não seja ficha em vez de pagar o custo. Até o fim do turno, seu total de vida não muda e suas permanentes ganham resistência a magia e indestrutível.",
    "porque": "Proteção total com os terrenos virados. O sacrifício ideal é um Anjo pequeno. Com Angel of Jubilation em campo, o custo alternativo fica proibido.",
@@ -1111,7 +1872,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "sacrificando uma criatura branca"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o proteger: indestrutível e resistência a magia para todas as suas permanentes.",
+    "I": "Salva a mesa uma vez, e a sua vida não muda no turno.",
+    "T": "De graça ao custo de sacrificar uma criatura branca que não é ficha; senão, quatro manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Há cópias mais baratas na lista, e a Angel of Jubilation proíbe o custo alternativo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Flawless Maneuver": {
    "notas": {
@@ -1119,7 +1899,7 @@
     "sinergia": 1
    },
    "sin": {},
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Instantânea. Se você controla um comandante, pode conjurá-la sem pagar o custo. Suas criaturas ganham indestrutível até o fim do turno.",
    "porque": "De graça com a Giada em campo. Transforma qualquer remoção em massa por destruição, sua ou dos outros, em efeito unilateral.",
@@ -1129,27 +1909,89 @@
    "custo_usual": {
     "cmc": 0,
     "como": "com o comandante em campo"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o proteger: com ele, a limpeza por destruição cai só nos outros.",
+    "I": "Salva todas as suas criaturas uma vez.",
+    "T": "De graça com a Giada em campo; sem ela, três manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "As outras cópias pedem mana aberta, uma carta ou um corpo em campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, a limpeza de um lado só exige guardar mana além da própria limpeza, e o turno de virada atrasa.",
+    "O Dawn's Truce custa duas manas e dá uma carta ao oponente; o Selfless Spirit precisa estar em campo antes; a Avacyn custa oito.",
+    "Na paridade e na frente, junto da sua limpeza; atrás, em resposta à limpeza de outro."
+   ],
+   "indice": 2.4
   },
   "Generous Gift": {
    "notas": {
     "removal": 3
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea: destrói qualquer permanente. O controlador ganha um Elefante 3/3.",
-   "porque": "Responde a qualquer coisa, inclusive terrenos. É a resposta universal do branco."
+   "porque": "Responde a qualquer coisa, inclusive terrenos. É a resposta universal do branco.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, e deixa um 3/3 para o dono.",
+    "T": "Três manas, instantânea.",
+    "Q": "Viva sempre: responde a qualquer permanente.",
+    "R": "A remoção pontual é fechada em quatro, e esta é a única que pega artefato e terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Get Lost": {
    "notas": {
     "removal": 3
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea: destrói uma criatura, encantamento ou planeswalker. O controlador cria duas fichas de Mapa.",
-   "porque": "Remoção de 2 manas em velocidade instantânea, com alvo amplo. Os Mapas são uma compensação pequena."
+   "porque": "Remoção de 2 manas em velocidade instantânea, com alvo amplo. Os Mapas são uma compensação pequena.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma; os dois Mapas pesam pouco.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "A remoção pontual é fechada em quatro; não pega artefato."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Orim's Chant": {
    "notas": {
@@ -1161,7 +2003,27 @@
    "rel": "BAX",
    "faz": "Instantânea: o jogador alvo não pode conjurar mágicas neste turno. Com reforço {W}, criaturas não podem atacar neste turno.",
    "porque": "Cala só o jogador alvo: numa mesa de quatro, os outros dois ainda respondem à sua remoção em massa. Com reforço, ninguém ataca no turno, o que pesa pouco num deck que aceita ser atacado.",
-   "prioridade": 6
+   "prioridade": 6,
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Cala um jogador por um turno; não protege a mesa.",
+    "I": "Um por um: os outros dois oponentes ainda respondem.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Na frente, para fechar, e atrás, contra um turno de combo.",
+    "R": "A proteção está acima da cota e esta é a pior cópia; o radar tem o Urza's Incubator para a vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Urza's Incubator",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Razorgrass Ambush": {
    "notas": {
@@ -1172,29 +2034,86 @@
    "rel": "MED",
    "faz": "Instantânea: 3 de dano em uma criatura atacante ou bloqueadora. O verso é um terreno que gera {W} e entra desvirado por 3 de vida.",
    "porque": "Vale pela flexibilidade: terreno de branco ou remoção de reserva. Não sobe porque 3 de dano só em atacante ou bloqueador resolve pouco, e o terreno cobra 3 de vida para entrar desvirado.",
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fonte de branco; a remoção é genérica.",
+    "I": "Terreno, ou 3 de dano em atacante ou bloqueador.",
+    "T": "O terreno entra desvirado por 3 de vida, ou virado.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Carta de duas faces que conta na cota de terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Sejiri Shelter": {
    "notas": {
     "protecao": 1
    },
    "sin": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Instantânea: uma criatura sua ganha proteção contra a cor que você escolher até o fim do turno. O verso é um terreno que entra virado e gera {W}.",
    "porque": "Salva a Giada ou um Anjo-chave de uma remoção pontual e ainda conta como terreno. Protege uma criatura só e o verso entra virado, por isso fica no meio.",
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Fonte de branco; a proteção salva uma criatura só.",
+    "I": "Terreno, ou proteção contra uma cor para uma criatura.",
+    "T": "O terreno entra sempre virado.",
+    "Q": "Nunca morre na mão: é terreno.",
+    "R": "Uma Snow-Covered Plains entra desvirada; já são quatro terrenos que entram virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Split Up": {
    "notas": {
     "removal": 2
    },
    "sin": {},
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "faz": "Feitiço. Escolha um: destruir todas as criaturas viradas, ou destruir todas as desviradas.",
    "porque": "Atacando sem vigilância e escolhendo as desviradas na segunda fase principal, mata as criaturas dos oponentes e poupa os seus atacantes: é a remoção em massa mais barata do deck. Leva junto as suas criaturas com vigilância e as que não atacaram.",
-   "massa": 1
+   "massa": 1,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Depois do ataque, destrói as desviradas e poupa os seus atacantes.",
+    "I": "Vira a mesa.",
+    "T": "Três manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "São cinco limpezas para uma cota de três a quatro; leva a Giada e quem tem vigilância."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.35
   },
   "Starnheim Unleashed": {
    "notas": {
@@ -1212,17 +2131,60 @@
    "faz": "Feitiço: cria um Anjo Guerreiro 4/4 com voar e vigilância. Com predizer, você paga {2} para guardá-la e a conjura depois por {X}{X}{W}, criando X Anjos.",
    "porque": "No fim do jogo vira vários Anjos que entram com os marcadores da Giada, mas pede mana em duas etapas para isso: no aperto é só um 4/4 por 4 manas.",
    "papel": "habilita",
-   "papel_por_que": "Cria um Anjo 4/4, ou X deles com predizer."
+   "papel_por_que": "Cria um Anjo 4/4, ou X deles com predizer.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cria Anjos, que entram com os marcadores da Giada.",
+    "I": "No piso, um 4/4 voador; com predizer e muita mana, vários.",
+    "T": "Quatro manas por um corpo.",
+    "Q": "Paridade, na frente e atrás, na reconstrução.",
+    "R": "Court of Grace e Emeria's Call também criam Anjos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Teferi's Protection": {
    "notas": {
     "protecao": 3
    },
    "sin": {},
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Instantânea. Até o seu próximo turno, seu total de vida não muda e você tem proteção contra tudo. Todas as suas permanentes saem de fase.",
-   "porque": "A melhor proteção do formato: nada alcança você nem a sua mesa por uma rodada inteira, e os marcadores voltam intactos."
+   "porque": "A melhor proteção do formato: nada alcança você nem a sua mesa por uma rodada inteira, e os marcadores voltam intactos.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o proteger: a mesa sai de fase com os marcadores, até contra o seu próprio Farewell.",
+    "I": "Nada alcança você nem a sua mesa por uma rodada inteira.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Clever Concealment salva a mesa, mas não a sua vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, só a Clever Concealment salva a mesa de exílio, e nada salva você de um turno de combo por dano ou dreno.",
+    "A Clever Concealment não protege o jogador; o Everybody Lives! protege também a mesa dos oponentes.",
+    "Na paridade e na frente, junto do Farewell ou de outra limpeza; atrás, contra o golpe que mataria você."
+   ],
+   "indice": 2.4
   },
   "Vanquish the Horde": {
    "caro_por_desenho": true,
@@ -1241,19 +2203,62 @@
    "custo_usual": {
     "cmc": 2,
     "como": "com a mesa cheia"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Com indestrutível na sua mesa, a limpeza cai só nos outros.",
+    "I": "Vira a mesa.",
+    "T": "Com a mesa cheia custa de duas a quatro manas.",
+    "Q": "Atrás e na paridade.",
+    "R": "São cinco limpezas para uma cota de três a quatro; sem proteção leva os seus Anjos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Winds of Abandon": {
    "notas": {
     "removal": 3
    },
    "sin": {},
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Feitiço: exila uma criatura que você não controla; o controlador busca um terreno básico, que entra virado. Com sobrecarga, por {4}{W}{W}, exila todas as criaturas que você não controla.",
    "porque": "Remoção de 2 manas no começo, remoção em massa unilateral no fim. Dar terrenos aos oponentes pouco importa quando a mesa deles some antes do seu ataque.",
    "massa": 1,
-   "pontual": 1
+   "pontual": 1,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É a limpeza que o plano pede: com sobrecarga, só os outros perdem as criaturas.",
+    "I": "Vira a mesa e abre o ataque, sem pedir proteção ao lado.",
+    "T": "Duas manas no alvo único; seis com sobrecarga, de um lado só.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É a única limpeza de um lado só sem ajuda; as outras quatro pedem proteção ou ataque antes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, toda limpeza de um lado só passa a pedir duas cartas ou um ataque antes.",
+    "O Winnowing, do radar, custa seis sem modo barato e depende dos tipos de criatura da mesa; o Split Up leva a Giada e quem tem vigilância.",
+    "Na paridade e atrás, como limpeza; na frente, para abrir o ataque final; cedo, tira uma criatura por duas manas."
+   ],
+   "indice": 2.5
   },
   "Conjurer's Mantle": {
    "notas": {
@@ -1267,10 +2272,29 @@
    "sin_por_que": {
     "sin1": "Com um Anjo equipado, acha outro Anjo entre as seis do topo: liga-se por tipo de criatura."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Equipamento: +1/+1 e vigilância; equipar {1}. Quando a criatura equipada ataca, olhe as seis cartas do topo e pegue uma que compartilhe um tipo de criatura com ela.",
-   "porque": "Em um Anjo, cada ataque acha outro Anjo entre seis cartas, e equipar custa 1. Fica no meio porque só rende atacando e se liga à tribo de passagem, pelo tipo da criatura equipada."
+   "porque": "Em um Anjo, cada ataque acha outro Anjo entre seis cartas, e equipar custa 1. Fica no meio porque só rende atacando e se liga à tribo de passagem, pelo tipo da criatura equipada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Em um Anjo, cada ataque procura outro Anjo entre seis cartas.",
+    "I": "Precisa de criatura, de equipar e de atacar.",
+    "T": "Duas manas e equipar por uma.",
+    "Q": "Paridade e na frente.",
+    "R": "É uma das cinco compras que só rendem atacando."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Dowsing Dagger": {
    "notas": {
@@ -1278,10 +2302,30 @@
     "buff": 1
    },
    "sin": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Ao entrar, um oponente cria duas Plantas 0/2 com defensor. Equipamento: +2/+1; equipar {2}. Quando a criatura equipada causa dano de combate a um jogador, pode se transformar em Lost Vale, terreno que gera três manas de uma cor.",
-   "porque": "As Plantas não bloqueiam voadores, então um Anjo equipado conecta sem esforço e a adaga vira três manas por turno. São 4 manas e um ataque até lá."
+   "porque": "As Plantas não bloqueiam voadores, então um Anjo equipado conecta sem esforço e a adaga vira três manas por turno. São 4 manas e um ataque até lá.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico.",
+    "I": "Três manas por turno depois de conectar; antes disso, nada.",
+    "T": "Duas manas, equipar por duas e um ataque que conecte.",
+    "Q": "Início e paridade.",
+    "R": "O ramp está abaixo da cota; o radar tem a The Mind Stone, que gera branco na hora."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "The Mind Stone",
+   "confianca": "média",
+   "indice": 1.4
   },
   "Herald's Horn": {
    "notas": {
@@ -1295,13 +2339,32 @@
    "sin_por_que": {
     "sin1": "Não é Anjo, mas existe por causa deles: com Anjo escolhido, barateia os Anjos e os põe na mão."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Escolha um tipo de criatura. Criaturas desse tipo custam {1} a menos. Na sua manutenção, olhe a carta do topo: se for uma criatura do tipo escolhido, você pode colocá-la na mão.",
    "porque": "Redutor e compra na mesma carta. Com 27 Anjos em 99 cartas, acerta o topo em cerca de um a cada quatro turnos.",
    "papel": "habilita",
    "papel_dupla": "Ramp (redutor de Anjos)",
-   "papel_por_que": "Escolhendo Anjo, baixa {1} de cada Anjo e põe na mão o Anjo do topo."
+   "papel_por_que": "Escolhendo Anjo, baixa {1} de cada Anjo e põe na mão o Anjo do topo.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Desconta {1} de cada Anjo e, às vezes, põe o Anjo do topo na mão.",
+    "I": "Uma mana a menos por Anjo.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e atrás.",
+    "R": "O ramp está abaixo da cota; o Urza's Incubator, do radar, desconta 2 pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Horn of the Mark": {
    "notas": {
@@ -1314,20 +2377,58 @@
    "sin_por_que": {
     "sin1": "Pega uma criatura entre as cinco do topo, e no deck quase todas são Anjos, mas o efeito não é voltado a eles."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Sempre que duas ou mais criaturas suas atacam um jogador, olhe as cinco cartas do topo e pegue uma criatura.",
-   "porque": "Com 30 criaturas no deck, cada ataque de duas ou mais acha uma entre as cinco do topo em 84% das vezes, e os Anjos voadores atacam com facilidade. Não rende com a mesa vazia, no começo ou depois de uma remoção em massa."
+   "porque": "Com 30 criaturas no deck, cada ataque de duas ou mais acha uma entre as cinco do topo em 84% das vezes, e os Anjos voadores atacam com facilidade. Não rende com a mesa vazia, no começo ou depois de uma remoção em massa.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra de criatura que qualquer deck de ataque usaria.",
+    "I": "Uma criatura entre cinco cartas, só quando duas atacam o mesmo jogador.",
+    "T": "Duas manas, com a condição de atacar.",
+    "Q": "Paridade e na frente.",
+    "R": "É uma das cinco compras que só rendem atacando."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Pearl Medallion": {
    "notas": {
     "ramp": 2
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Mágicas brancas que você conjura custam {1} a menos.",
-   "porque": "Em mono-branco, desconta quase todas as cartas do deck, e mais de uma por turno. Só não vale para os artefatos incolores."
+   "porque": "Em mono-branco, desconta quase todas as cartas do deck, e mais de uma por turno. Só não vale para os artefatos incolores.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: desconta toda mágica branca.",
+    "I": "Uma mana a menos por mágica.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota, e é a única pedra de duas da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Sol Ring": {
    "notas": {
@@ -1337,7 +2438,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Gera {C}{C}.",
-   "porque": "Duas manas por uma já no primeiro turno: adianta Herald's Horn, Pearl Medallion e os Anjos de 4 e 5 manas em um turno inteiro."
+   "porque": "Duas manas por uma já no primeiro turno: adianta Herald's Horn, Pearl Medallion e os Anjos de 4 e 5 manas em um turno inteiro.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: qualquer deck usaria.",
+    "I": "Duas manas a mais desde o turno 1.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma pedra rende igual, e o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.45
   },
   "Sword of the Animist": {
    "notas": {
@@ -1345,10 +2465,29 @@
     "buff": 1
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Equipamento: +1/+1; equipar {2}. Sempre que a criatura equipada ataca, você pode buscar um terreno básico e colocá-lo em campo virado.",
-   "porque": "Ramp que mono-branco quase não tem: um terreno a mais por ataque. Busca Planícies da neve, o que aproxima a Emeria, the Sky Ruin e a ativação do Faceless Haven."
+   "porque": "Ramp que mono-branco quase não tem: um terreno a mais por ataque. Busca Planícies da neve, o que aproxima a Emeria, the Sky Ruin e a ativação do Faceless Haven.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico; busca Snow-Covered Plains, o que aproxima a Emeria e o Faceless Haven.",
+    "I": "Um terreno a mais por ataque, enquanto houver criatura para carregar.",
+    "T": "Duas manas, equipar por duas e um ataque.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O ramp está abaixo da cota, e a lista não tem outra busca de terreno para o campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "The Book of Exalted Deeds": {
    "notas": {
@@ -1364,7 +2503,7 @@
     "sin1": "Não é Anjo, mas cria Anjos (um 3/3 voador por turno com 3 de vida ganha) e protege um Anjo com o marcador de iluminação.",
     "sin2": "Recompensa do ganho de vida: pede 3 de vida no turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "No seu passo final, se você ganhou 3 ou mais de vida no turno, cria um Anjo 3/3 voador. Por {W}{W}{W}, {T}, exilando o Livro: põe um marcador de iluminação em um Anjo, que ganha 'você não pode perder o jogo e seus oponentes não podem vencer o jogo'.",
    "porque": "Três de vida por turno é o piso deste deck: um Anjo por rodada. A segunda habilidade em um Faceless Haven ou Mutavault animado deixa a trava em um terreno, fora do alcance de quase toda remoção.",
@@ -1373,7 +2512,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (cria Anjos)",
-   "papel_por_que": "Ganhar 3 de vida no turno vira um Anjo 3/3 voador no passo final."
+   "papel_por_que": "Ganhar 3 de vida no turno vira um Anjo 3/3 voador no passo final.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Troca vida por um Anjo 3/3 em todo turno seu; no Mutavault ou no Faceless Haven, vira trava.",
+    "I": "Motor que precisa ficar; nada acontece sem 3 de vida no turno.",
+    "T": "Três manas, todas brancas, e a condição de ganhar 3 de vida.",
+    "Q": "Início, paridade e na frente.",
+    "R": "É o conversor que não morre nas limpezas de criatura; Resplendent e Harbinger fazem Anjos maiores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "The Immortal Sun": {
    "notas": {
@@ -1383,11 +2541,34 @@
     "especial": 1
    },
    "sin": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Jogadores não podem ativar habilidades de lealdade de planeswalkers. Você compra uma carta a mais no passo de compra, suas mágicas custam {1} a menos e suas criaturas recebem +1/+1.",
    "porque": "Faz um pouco de tudo: compra, redutor e lorde. Seis manas sem efeito imediato pesam em um topo de curva que já é cheio.",
-   "prioridade": 8
+   "prioridade": 8,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Um pouco de compra, de desconto e de buff, sem ligação com Anjos.",
+    "I": "Desconto e +1/+1 na hora; a carta extra só no turno seguinte.",
+    "T": "Seis manas.",
+    "Q": "Paridade e na frente.",
+    "R": "A Chronicle of Victory, do radar, custa o mesmo, dá +2/+2 aos Anjos e compra a cada Anjo conjurado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Chronicle of Victory",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "The One Ring": {
    "notas": {
@@ -1398,7 +2579,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Indestrutível. Ao entrar, se foi conjurado, você ganha proteção contra tudo até o seu próximo turno. {T}: põe um marcador de fardo e compra uma carta para cada marcador. Na sua manutenção, você perde 1 de vida por marcador.",
-   "porque": "O melhor motor de compra do formato: 1, 2, 3 cartas por turno. A vida que ele cobra, este deck repõe sem esforço."
+   "porque": "O melhor motor de compra do formato: 1, 2, 3 cartas por turno. A vida que ele cobra, este deck repõe sem esforço.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica; a vida que ele cobra o deck repõe.",
+    "I": "Proteção contra tudo por uma rodada e compra que cresce a cada turno.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Viva sempre: protege quando você está atrás e enche a mão depois de uma limpeza.",
+    "R": "Nenhuma outra compra da lista rende sem atacar nessa escala."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.45
   },
   "The Ozolith": {
    "notas": {
@@ -1412,12 +2612,31 @@
    "sin_por_que": {
     "sin2": "Motor de marcadores: guarda os marcadores das criaturas que saem e os passa para outra."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Sempre que uma criatura sua com marcadores deixa o campo, os marcadores vão para Argonath, Pillars of the Kings (The Ozolith). No início do combate no seu turno, você pode mover todos para uma criatura.",
    "porque": "Seguro para os marcadores da Giada: o Anjo morre, os marcadores ficam e mudam de corpo no combate seguinte. Uma mana.",
    "papel": "multiplica",
-   "papel_por_que": "Guarda os marcadores de quem sai do campo e os passa a outra criatura: os marcadores da Giada não se perdem."
+   "papel_por_que": "Guarda os marcadores de quem sai do campo e os passa a outra criatura: os marcadores da Giada não se perdem.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Guarda os marcadores da Giada quando o Anjo sai e os passa a outra criatura.",
+    "I": "Nada ao entrar; só rende quando uma criatura com marcadores deixa o campo.",
+    "T": "Uma mana.",
+    "Q": "Paridade e atrás, depois de perder criaturas.",
+    "R": "Nenhuma outra carta da lista salva os marcadores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Chivalric Alliance": {
    "notas": {
@@ -1425,11 +2644,34 @@
     "tokens": 1
    },
    "sin": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Sempre que você ataca com duas ou mais criaturas, compra uma carta. Por {2}, descartando uma carta: cria um Cavaleiro 2/2 branco e azul com vigilância.",
    "porque": "Compra barata nos turnos de ataque e troca os básicos que sobram da Land Tax por corpos, mas divide o papel com Firemane Commando e Horn of the Mark e não rende sem atacar.",
-   "prioridade": 7
+   "prioridade": 7,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica de deck de ataque.",
+    "I": "Uma carta por turno de ataque com duas criaturas.",
+    "T": "Duas manas, com a condição de atacar.",
+    "Q": "Paridade e na frente.",
+    "R": "O Folk Hero, do radar, custa o mesmo e compra a cada Anjo conjurado, sem atacar."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Folk Hero",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Court of Grace": {
    "notas": {
@@ -1443,13 +2685,32 @@
    "sin_por_que": {
     "sin1": "Não é Anjo, mas cria um Anjo 4/4 por turno enquanto você for o monarca."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Ao entrar, você vira o monarca. Na sua manutenção, cria um Espírito 1/1 voador; se você é o monarca, cria um Anjo 4/4 voador no lugar.",
    "porque": "Um Anjo 4/4 por turno, que entra com os marcadores da Giada, e uma carta extra enquanto a coroa for sua. Mesa de voadores defende bem a monarquia.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Como monarca, cria um Anjo 4/4 voador a cada manutenção."
+   "papel_por_que": "Como monarca, cria um Anjo 4/4 voador a cada manutenção.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o descer sem gastar mana: um Anjo 4/4 por manutenção, que entra com os marcadores da Giada.",
+    "I": "Você vira monarca ao entrar; os Anjos dependem de manter a coroa.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhum outro motor da lista cria Anjos sem pedir vida nem mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Darksteel Mutation": {
    "notas": {
@@ -1459,7 +2720,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Aura: a criatura encantada vira um Inseto artefato 0/1 indestrutível e perde todas as outras habilidades e tipos.",
-   "porque": "Neutraliza um comandante por 2 manas sem mandá-lo à zona de comando, mas só pega criatura e, como Aura, cai com qualquer remoção de encantamento."
+   "porque": "Neutraliza um comandante por 2 manas sem mandá-lo à zona de comando, mas só pega criatura e, como Aura, cai com qualquer remoção de encantamento.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma; cai com remoção de encantamento.",
+    "T": "Duas manas, em velocidade de feitiço.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "A remoção pontual é fechada em quatro; é a única que segura um comandante fora da zona de comando."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Land Tax": {
    "notas": {
@@ -1467,10 +2747,29 @@
     "draw": 2
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Na sua manutenção, se um oponente controla mais terrenos que você, busque até três terrenos básicos e ponha-os na mão.",
-   "porque": "Garante todas as jogadas de terreno e afina o grimório. É o que torna viáveis a Emeria, the Sky Ruin e o Terrain Generator."
+   "porque": "Garante todas as jogadas de terreno e afina o grimório. É o que torna viáveis a Emeria, the Sky Ruin e o Terrain Generator.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: garante os terrenos e enche a mão de Snow-Covered Plains.",
+    "I": "Até três básicos por manutenção, enquanto algum oponente tiver mais terrenos.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e atrás.",
+    "R": "Nenhuma outra carta da lista garante as jogadas de terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Luminarch Ascension": {
    "notas": {
@@ -1484,12 +2783,31 @@
    "sin_por_que": {
     "sin1": "Não é Anjo, mas cria Anjos 4/4 depois de quatro marcadores de missão."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "No passo final de cada oponente, se você não perdeu vida no turno, pode pôr um marcador de missão. Com quatro ou mais, {1}{W}: cria um Anjo 4/4 voador.",
    "porque": "Em mesa de quatro, liga em pouco mais de uma rodada se ninguém atacar você. Depois, cada 2 manas viram um Anjo que ainda entra com os marcadores da Giada. Atrai ataques: baixe com defesa em campo.",
    "papel": "habilita",
-   "papel_por_que": "Com quatro marcadores de missão, cria um Anjo 4/4 por {1}{W}, quantas vezes houver mana."
+   "papel_por_que": "Com quatro marcadores de missão, cria um Anjo 4/4 por {1}{W}, quantas vezes houver mana.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o descer: ligada, cada {1}{W} vira um Anjo 4/4, que entra com os marcadores da Giada.",
+    "I": "Nada na entrada; pede quatro fins de turno de oponente sem você perder vida.",
+    "T": "Duas manas, com condição que a mesa pode negar atacando você.",
+    "Q": "Início e na frente.",
+    "R": "Nenhum outro motor da lista transforma mana em Anjos sem limite."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Smothering Tithe": {
    "notas": {
@@ -1498,10 +2816,29 @@
     "especial": 2
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Sempre que um oponente compra uma carta, ele pode pagar {2}. Se não pagar, você cria um Tesouro.",
-   "porque": "Em mesa de quatro, rende três Tesouros ou mais por rodada. É a mana que paga os Anjos de 7 e 8."
+   "porque": "Em mesa de quatro, rende três Tesouros ou mais por rodada. É a mana que paga os Anjos de 7 e 8.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: é a mana que paga os Anjos de sete e oito.",
+    "I": "Um Tesouro por compra de oponente que não pagar {2}; precisa ficar.",
+    "T": "Quatro manas, mas rende mais que uma pedra.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O ramp está abaixo da cota, e a lista não tem outro motor de mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Bonders' Enclave": {
    "notas": {
@@ -1512,7 +2849,26 @@
    "rel": "MED",
    "faz": "Gera {C}. Por {3}, {T}: compra uma carta, se você controla uma criatura de poder 4 ou mais.",
    "porque": "Compra de reserva que os Anjos com marcadores ligam cedo, pelo poder 4. Fica no meio porque gera só incolor num deck de {W}{W} e cobra {3} mais o próprio terreno por carta.",
-   "gera": "C"
+   "gera": "C",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; compra de reserva que os Anjos com marcadores ligam.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Pesa nas mãos de {W}{W} do início.",
+    "R": "O War Room faz o mesmo sem pedir poder 4."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Cavern of Souls": {
    "notas": {
@@ -1529,7 +2885,26 @@
    "rel": "INS",
    "faz": "Escolha um tipo de criatura. Gera {C}, ou mana de qualquer cor só para criaturas desse tipo, que não podem ser anuladas.",
    "porque": "Nomeando Anjo, é fonte de branco para quase todas as criaturas do deck e as protege de anulações.",
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Branco para os Anjos, que não podem ser anulados.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Nenhum outro terreno protege os Anjos de anulação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Command Beacon": {
    "notas": {
@@ -1546,7 +2921,30 @@
    "faz": "Gera {C}. {T}, sacrifique: põe o seu comandante na mão a partir da zona de comando.",
    "porque": "Feito para comandantes caros. A Giada custa 2 e a taxa demora a pesar: na maioria dos jogos, é só mais um terreno incolor.",
    "gera": "C",
-   "prioridade": 11
+   "prioridade": 11,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; a Giada custa 2 e o imposto demora a pesar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Pesa nas mãos de {W}{W} do início.",
+    "R": "O Ancient Tomb, do radar, gera duas manas no lugar de uma."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Ancient Tomb",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Eiganjo, Seat of the Empire": {
    "notas": {
@@ -1557,7 +2955,26 @@
    "rel": "ALT",
    "faz": "Gera {W}. Canalizar por {2}{W}, descartando: 4 de dano em uma criatura atacante ou bloqueadora. Custa {1} a menos para cada criatura lendária sua.",
    "porque": "Terreno que vira remoção e não pode ser anulado como mágica. Entra desvirado e gera branco: não custa nada incluir.",
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Branco, e vira remoção de atacante ou bloqueador.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno de branco melhor: um básico perde a remoção."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Emeria, the Sky Ruin": {
    "notas": {
@@ -1570,7 +2987,26 @@
    "faz": "Entra virado e gera {W}. Na sua manutenção, se você controla sete ou mais Planícies, pode devolver uma criatura do seu cemitério ao campo.",
    "porque": "Com 16 Planícies em 99 cartas, você vê uma a cada seis compras: sete em campo é jogo muito longo, a não ser com Land Tax ou Sword of the Animist. Na maioria das partidas é uma Planície que entra virada.",
    "virado": 1,
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Branco; com sete Planícies devolve uma criatura do cemitério por turno.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre como terreno; a recorrência só chega em jogo longo.",
+    "R": "Uma Snow-Covered Plains entra desvirada; com 16 Planícies, sete em campo é raro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Faceless Haven": {
    "notas": {
@@ -1583,11 +3019,30 @@
    "sin_por_que": {
     "sin1": "Vira criatura com todos os tipos, Anjo inclusive, por um turno: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {C}. Por três manas de fontes da neve: vira uma criatura 4/3 com vigilância e todos os tipos de criatura até o fim do turno.",
    "porque": "Animado, é um Anjo: recebe o bônus da Lyra e pode ser o alvo de The Book of Exalted Deeds, que deixa a trava de 'você não pode perder o jogo' em um terreno. As Planícies da neve pagam a ativação.",
-   "gera": "C"
+   "gera": "C",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas animado é Anjo: alvo do Livro para a trava em um terreno.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Pesa nas mãos de {W}{W} do início.",
+    "R": "Só ele e o Mutavault guardam a trava do Livro em um terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Mikokoro, Center of the Sea": {
    "notas": {
@@ -1598,18 +3053,56 @@
    "rel": "MED",
    "faz": "Gera {C}. Por {2}, {T}: cada jogador compra uma carta.",
    "porque": "Compra de reserva num terreno, mas dá carta a todos os oponentes também e gera só incolor: ative no fim do turno de quem joga antes de você.",
-   "gera": "C"
+   "gera": "C",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; a compra vale para todos e alimenta a Smothering Tithe.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Pesa nas mãos de {W}{W} do início.",
+    "R": "War Room e Bonders' Enclave compram só para você."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Minas Tirith": {
    "notas": {
     "draw": 1
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Entra virado, a menos que você controle uma criatura lendária. Gera {W}. Por {1}{W}, {T}: compra uma carta, se você atacou com duas ou mais criaturas no turno.",
    "porque": "Com a Giada em campo entra desvirado, gera branco e vira compra nos turnos de ataque.",
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Branco, e compra nos turnos de ataque.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado com a Giada ou outra lendária em campo.",
+    "Q": "Viva sempre.",
+    "R": "Dentro da cota; um básico não compra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Mutavault": {
    "notas": {
@@ -1622,11 +3115,30 @@
    "sin_por_que": {
     "sin1": "Vira criatura com todos os tipos, Anjo inclusive: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {C}. Por {1}: vira uma criatura 2/2 com todos os tipos de criatura até o fim do turno.",
    "porque": "Animado é um Anjo: conta para os marcadores da Giada, recebe o bônus da Lyra e pode ser o alvo de The Book of Exalted Deeds. Escapa das remoções em massa feitas em velocidade de feitiço.",
-   "gera": "C"
+   "gera": "C",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas animado é Anjo: conta para a Giada e é alvo do Livro por {1}.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Pesa nas mãos de {W}{W} do início.",
+    "R": "É o alvo mais barato para a trava do Livro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Nykthos, Shrine to Nyx": {
    "notas": {
@@ -1634,11 +3146,30 @@
     "sinergia": 1
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {C}. Por {2}, {T}: gera mana de uma cor em quantidade igual à sua devoção a ela.",
    "porque": "Em mono-branco com Anjos de {W}{W} e {W}{W}{W}, dois ou três em campo já devolvem o investimento com folga.",
-   "gera": "C"
+   "gera": "C",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor; a devoção ao branco paga os Anjos caros.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; a habilidade custa {2}.",
+    "Q": "Pesa no início; rende com dois ou três Anjos em campo.",
+    "R": "O ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Path of Ancestry": {
    "notas": {
@@ -1651,12 +3182,31 @@
    "sin_por_que": {
     "sin1": "Vidência ao pagar criatura que compartilhe tipo com a Giada, que é Anjo: de passagem."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Entra virado e gera {W}. Quando essa mana paga uma criatura que compartilha um tipo com o comandante, vidência 1.",
    "porque": "Vidência a cada Anjo conjurado ajuda a achar o próximo. Entrar virado é o custo.",
    "virado": 1,
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Branco, com vidência a cada Anjo conjurado.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "Uma Snow-Covered Plains entra desvirada; já são quatro terrenos que entram virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Seraph Sanctuary": {
    "notas": {
@@ -1670,14 +3220,33 @@
     "sin1": "Terreno que ganha 1 de vida a cada Anjo que entra: liga-se aos Anjos de passagem.",
     "sin2": "Ganho de vida pequeno: 1 ao entrar e 1 por Anjo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {C}. Ao entrar, você ganha 1 de vida. Sempre que um Anjo entra sob seu controle, você ganha 1 de vida.",
    "porque": "Um ponto por Anjo parece pouco, mas é mais um gatilho para Archangel of Thune e Exemplar of Light, e completa os 5 do Resplendent Angel junto com o Bishop of Wings.",
    "gera": "C",
    "marcas": {
     "ganho": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas dá 1 de vida por Anjo que entra: mais um gatilho para os conversores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Pesa nas mãos de {W}{W} do início.",
+    "R": "É o único terreno que dispara os gatilhos de vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Snow-Covered Plains": {
    "notas": {},
@@ -1686,7 +3255,26 @@
    "rel": "MED",
    "faz": "Terreno básico da neve. Gera {W}.",
    "porque": "Planícies para a Emeria, the Sky Ruin e fontes da neve para o Faceless Haven. A quantidade de básicos é o ajuste fino da base de mana.",
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "A cor do deck; conta para a Emeria e paga o Faceless Haven.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; o Abandoned Air Temple, do radar, entra no lugar de uma cópia."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Terrain Generator": {
    "notas": {
@@ -1698,7 +3286,30 @@
    "faz": "Gera {C}. Por {2}, {T}: põe um terreno básico da sua mão em campo, virado.",
    "porque": "Só rende com a mão cheia de básicos, o que aqui depende da Land Tax. Sem ela, é um terreno incolor.",
    "gera": "C",
-   "prioridade": 12
+   "prioridade": 12,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; só rende com a mão cheia de básicos, o que pede a Land Tax.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Pesa nas mãos de {W}{W} do início.",
+    "R": "O Talon Gates of Madara, do radar, tira uma criatura de fase e gera cor por {1}."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Talon Gates of Madara",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Three Tree City": {
    "notas": {
@@ -1711,22 +3322,60 @@
    "sin_por_que": {
     "sin1": "Com Anjo escolhido, gera mana igual ao número de Anjos: liga-se por um tipo escolhido."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Escolha um tipo de criatura. Gera {C}. Por {2}, {T}: gera mana de uma cor em quantidade igual ao número de criaturas suas do tipo escolhido.",
    "porque": "Nomeando Anjo, com quatro em campo já rende mais do que custa. É o segundo Nykthos da base.",
-   "gera": "C"
+   "gera": "C",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; com Anjo nomeado, gera uma mana por Anjo em campo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; a habilidade custa {2}.",
+    "Q": "Pesa no início; só rende com quatro Anjos em campo.",
+    "R": "É o segundo Nykthos da base, e o que pede mais mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "War Room": {
    "notas": {
     "draw": 1
    },
    "sin": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {C}. Por {3}, {T} e 1 de vida: compra uma carta.",
    "porque": "Em mono-color custa só 1 de vida por carta. Com Angel of Jubilation em campo, não pode ser ativado.",
-   "gera": "C"
+   "gera": "C",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor; compra por {3} e 1 de vida, sem atacar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Pesa nas mãos de {W}{W} do início.",
+    "R": "É compra que não pede ataque nem criatura, o que falta depois de uma limpeza."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Windbrisk Heights": {
    "notas": {
@@ -1734,12 +3383,31 @@
     "especial": 1
    },
    "sin": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Esconderijo 4: entra virado e você exila, virada para baixo, uma das quatro cartas do topo. Gera {W}. Por {W}, {T}: jogue a carta exilada sem pagar o custo, se você atacou com três ou mais criaturas no turno.",
    "porque": "Um Anjo de 7 manas de graça quando três criaturas atacam, o que aqui é rotina a partir do meio do jogo. Entrar virado é o custo.",
    "virado": 1,
-   "gera": "W"
+   "gera": "W",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Branco; a carta escondida sai de graça com três atacantes.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "A carta escondida só rende com a mesa montada.",
+    "R": "Uma Snow-Covered Plains entra desvirada; já são quatro terrenos que entram virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.2
   }
  },
  "radar": {
@@ -2378,5 +4046,14 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "01. TOP",
+  "conta": "Descer Anjos em sequência, com a mana e os marcadores da Giada; crescer a mesa trocando ganho de vida por marcadores e mais Anjos; proteger só o seu lado enquanto a limpeza leva o dos outros, e atacar sozinha.",
+  "decisoes": [
+   "Remoção pontual fechada em quatro, por decisão sua (07/11/2026)."
+  ]
  }
 }
