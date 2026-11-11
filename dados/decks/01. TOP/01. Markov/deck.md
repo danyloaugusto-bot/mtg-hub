@@ -40,11 +40,11 @@ Aprovadas pelo dono em 15/10/2026 (régua completa no `tema.json`): Sinergia Pri
 
 ## Decisões do dono (15/10/2026)
 
-- **Sem pedras de mana** (Sol Ring, Signet, Talismans): a mana vem de terrenos e de Vampiro barato. Por isso o deck vai a 34 terrenos, com Marsh Flats e Bloodstained Mire.
+- **Sem pedras de mana** (Sol Ring, Signet, Talismans): a mana vem de terrenos e de Vampiro barato. O deck joga com 32 terrenos, por escolha do dono (09/11/2026); Marsh Flats e Bloodstained Mire estão no radar.
 - **Sem cartas de estimação**, por ora. O foil não marca estimação.
 - **Tutor só em criatura**, por ora: o Emeritus of Woe entra; Demonic e Vampiric Tutor, não.
 - **Toxic Deluge fica**: é o botão de reset, que resolve qualquer mesa, inclusive criatura indestrutível ou protegida.
-- **Tier S só para Vampiro** (regra que vale para todo deck tribal): Skullclamp, Shared Animosity e Isshin ficam em A.
+- **Tier S não depende de tribo** (a regra "S só para Vampiro" foi revogada pelo dono em 09/11/2026): a letra sai das cinco notas da tier list.
 
 ## Cartas de estimação
 
