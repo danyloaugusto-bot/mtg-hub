@@ -61,3 +61,4 @@
 
 - 09/11/2026: staples no radar pela regra do dono (só entram com buraco no critério ou no pacote, ou com sinergia própria; proteção genérica só onde proteção é agrupamento): Ancient Tomb, fica (entra): buraco em 8×8 Ramp.
 - 09/11/2026: radar: 2 cartas das coleções novas pelo /colecao (TRC 1, TRK 1; 0 entra, 0 avaliar, 2 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
+- 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 10 S, 9 A, 65 B, 16 C, 0 D, com a comandante; Archangel of Thune, Avacyn, Herald of War e Sephara foram de S para B; texto do Battle Angels of Tyr corrigido.
