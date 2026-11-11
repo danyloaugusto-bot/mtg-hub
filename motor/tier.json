@@ -1,0 +1,41 @@
+{
+ "versao": 1,
+ "decidido": "2026-11-10",
+ "_nota": "Régua da tier list (contexto/estrategias/tier-list.md). Pesos por grupo do deck, limites das letras e portão do S. Mudou um número, muda a versão: nunca em silêncio.",
+ "lentes": [
+  {"k": "E", "nome": "Encaixe", "pergunta": "A conta do deck depende dela?"},
+  {"k": "I", "nome": "Impacto", "pergunta": "O que muda na mesa quando ela resolve?"},
+  {"k": "T", "nome": "Taxa", "pergunta": "Custo, velocidade e condição contra o padrão da função."},
+  {"k": "Q", "nome": "Quadrantes", "pergunta": "Em quantos momentos do jogo ela está viva?"},
+  {"k": "R", "nome": "Reposição", "pergunta": "A que distância está o melhor substituto?"}
+ ],
+ "funcoes": {
+  "motor": "Motor",
+  "conversor": "Conversor",
+  "habilitador": "Habilitador",
+  "infraestrutura": "Infraestrutura",
+  "resposta": "Resposta",
+  "proteção": "Proteção",
+  "fechamento": "Fechamento"
+ },
+ "pesos": {
+  "01. TOP": {"E": 0.15, "I": 0.25, "T": 0.25, "Q": 0.20, "R": 0.15},
+  "02. TRIBAIS": {"E": 0.25, "I": 0.20, "T": 0.20, "Q": 0.15, "R": 0.20},
+  "03. CAOS": {"E": 0.30, "I": 0.20, "T": 0.15, "Q": 0.15, "R": 0.20},
+  "04. FORFUN": {"E": 0.30, "I": 0.20, "T": 0.15, "Q": 0.15, "R": 0.20}
+ },
+ "grupo_padrao": "02. TRIBAIS",
+ "_grupo_padrao": "05. DESEJO herda o grupo de destino (campo grupo do bloco tier_lista do deck); sem destino, o misto dos Tribais.",
+ "cortes": {"A": 2.20, "B": 1.60, "C": 1.00},
+ "portao_s": {"indice": 2.40, "lente_minima": 2, "antissinergia_maxima": "leve", "argumentos": 3},
+ "antissinergia": ["nenhuma", "leve", "material", "estrutural"],
+ "travas": {
+  "antissinergia estrutural": "D",
+  "antissinergia material": "B",
+  "win-more": "C",
+  "dependência ausente": "C",
+  "dependência dupla": "B",
+  "substituto nomeado melhor": "C"
+ },
+ "confianca": ["alta", "média", "baixa"]
+}
