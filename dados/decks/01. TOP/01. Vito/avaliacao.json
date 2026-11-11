@@ -310,7 +310,7 @@
      "para": "A mesma resposta em velocidade instantânea, para a peça que entra no turno de fechar."
     }
    ],
-   "limpezas": "Três: Toxic Deluge (reset ajustável, pago em vida que o deck repõe), Damnation e The Meathook Massacre, que depois fica drenando. Decisão do dono (08/11/2026): a Damnation fica mesmo com 31 criaturas, porque é preciso controlar a mesa até retomá-la. Boa quando Blood Artist, Vein Ripper ou a Meathook estão em campo (cada morte vira dreno e gatilho do Vito) e a mão está cheia pela Necropotence; ruim com a Necrodominance em campo e sem reconstrução na mão. A quarta, Blasphemous Edict, sai no radar.",
+   "limpezas": "Três: Toxic Deluge (reset ajustável, pago em vida que o deck repõe), Damnation e The Meathook Massacre, que depois fica drenando. Decisão do dono (08/11/2026): a Damnation fica mesmo com 27 criaturas, porque é preciso controlar a mesa até retomá-la. Boa quando Blood Artist, Vein Ripper ou a Meathook estão em campo (cada morte vira dreno e gatilho do Vito) e a mão está cheia pela Necropotence; ruim com a Necrodominance em campo e sem reconstrução na mão. A quarta, Blasphemous Edict, sai no radar.",
    "alvo": "O Vito mira a cada gatilho: sempre o jogador com mais recursos (cartas, mana, motor), não o de menos vida; e o alvo pode mudar no turno seguinte. O Preacher of the Schism ataca quem tem mais vida para criar a ficha e compra quando você tem mais vida: no meio do jogo, quem tem mais vida costuma ser o líder."
   }
  },
@@ -356,7 +356,26 @@
    "porque": "Cada morte é um ganho separado e um gatilho do Vito. Rende nas quatro limpezas da lista. O Kalitas troca por exílio a morte das criaturas não ficha dos oponentes, e a Necrodominance a das suas: cada um corta só parte dos gatilhos.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno a cada morte)",
-   "papel_por_que": "Cada criatura que morre vira 1 de vida, que o Vito converte em mais perda."
+   "papel_por_que": "Cada criatura que morre vira 1 de vida, que o Vito converte em mais perda.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada morte é 1 de vida ganho e um gatilho do Vito.",
+    "I": "1 por morte, num corpo 0/1 que precisa ficar em campo.",
+    "T": "Duas manas.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira dreno.",
+    "R": "O Vein Ripper faz mais, mas custa seis; a Falkenrath Noble do radar custa quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Bloodletter of Aclazotz": {
    "notas": {
@@ -372,12 +391,31 @@
     "sin1": "Dobra a perda de vida dos oponentes no seu turno, a do Vito incluída.",
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/4 voar. No seu turno, toda perda de vida de um oponente é dobrada.",
    "porque": "O multiplicador do plano sem combo: dobra o Vito, o Exsanguinate, o Gray Merchant e o Blood Tribute. Só no seu turno.",
    "papel": "multiplica",
-   "papel_por_que": "No seu turno, dobra toda perda de vida dos oponentes, inclusive a que o Vito causa."
+   "papel_por_que": "No seu turno, dobra toda perda de vida dos oponentes, inclusive a que o Vito causa.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dobra o sangrar: toda perda de vida deles no seu turno vale em dobro.",
+    "I": "Precisa ficar em campo; 2/4 voador.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "Os outros dobradores do radar (Gul Dukat, Archfiend of Despair) custam sete e oito manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Bloodline Keeper": {
    "notas": {
@@ -389,13 +427,32 @@
    "sin_por_que": {
     "sin2": "Vampiro que cria um Vampiro 2/2 voador por turno, só virando, e transformado é lorde de +2/+2 dos outros Vampiros."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "3/3 voar. Vira: cria um Vampiro 2/2 voador. Com cinco Vampiros, {B} transforma no Lord of Lineage (+2/+2 aos outros Vampiros).",
    "porque": "O único gerador recorrente de Vampiros. Paga o reforço de New Blood e Blood Tribute sem gastar atacante.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (vira lorde +2/+2)",
-   "papel_por_que": "Um Vampiro voador por turno: corpo para a tribo e para o vínculo em massa do Vito."
+   "papel_por_que": "Um Vampiro voador por turno: corpo para a tribo e para o vínculo em massa do Vito.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Um Vampiro voador por turno: corpo para os lords, para o New Blood e para o reforço do Blood Tribute.",
+    "I": "Motor que precisa sobreviver uma volta para virar.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás (bloqueador voador todo turno).",
+    "R": "É o único gerador recorrente de Vampiros da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Bloodthirsty Conqueror": {
    "notas": {
@@ -416,7 +473,26 @@
    "faz": "5/5 voar e toque mortífero. Sempre que um oponente perde vida, você ganha o mesmo tanto.",
    "porque": "O Exquisite Blood com corpo. O gatilho é obrigatório: com o Vito em campo, o laço começa sozinho. Fica na mão até a hora de apertar o botão.",
    "papel": "recompensa",
-   "papel_por_que": "Com o Vito, fecha o laço: a perda dos oponentes volta como ganho, que volta como perda."
+   "papel_por_que": "Com o Vito, fecha o laço: a perda dos oponentes volta como ganho, que volta como perda.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Peça do laço da lista: com o Vito, a Enduring Tenacity ou o Blight-Priest em campo.",
+    "I": "Com um conversor em campo, o primeiro ganho encerra o jogo; sozinho, cura a cada perda deles.",
+    "T": "Cinco manas, com corpo voador de toque mortífero.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Exquisite Blood faz o mesmo pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Captivating Vampire": {
    "notas": {
@@ -435,7 +511,26 @@
    "porque": "Um dos dois lordes fixos. O roubo pede cinco Vampiros desvirados, que só o Bloodline Keeper garante.",
    "papel": "multiplica",
    "papel_dupla": "Remoção (toma criatura)",
-   "papel_por_que": "Lorde +1/+1: os Vampiros com vínculo batem mais e dão mais vida para o Vito."
+   "papel_por_que": "Lorde +1/+1: os Vampiros com vínculo batem mais e dão mais vida para o Vito.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord: cada Vampiro com vínculo bate e ganha 1 a mais.",
+    "I": "Um corpo e um buff que depende da mesa; o roubo pede cinco Vampiros desvirados.",
+    "T": "Três manas, no padrão de lord.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Markov Baron é lord pelo mesmo custo e ainda tem vínculo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Creeping Bloodsucker": {
    "notas": {
@@ -450,13 +545,37 @@
     "sin1": "Motor sem combate: na sua manutenção, ganha 1 de vida por oponente num evento só, que o Vito devolve inteiro num alvo.",
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "1/2. Na sua manutenção, causa 1 de dano a cada oponente e você ganha o total.",
    "porque": "Em mesa de quatro são 3 de vida ganhos num evento, que o Vito devolve em quem você escolher: 6 de vida por turno por 2 manas.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno todo turno)",
-   "papel_por_que": "Na manutenção, tira 1 de cada oponente e ganha o total, que o Vito devolve num alvo."
+   "papel_por_que": "Na manutenção, tira 1 de cada oponente e ganha o total, que o Vito devolve num alvo.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o ganhar sem combate: 1 de dano em cada oponente e a mesma vida para você, todo turno.",
+    "I": "Motor que precisa ficar; em mesa de quatro são 3 de vida e mais 3 pelo Vito.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e na frente; atrás, um corpo pequeno não segura nada.",
+    "R": "A Screeching Soulbreaker do radar custa três e precisa atacar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, todo ganho de vida do começo depende de combate: é o único motor de turno que custa duas manas.",
+    "A Screeching Soulbreaker precisa atacar e ganha só 1; o Twilight Prophet só liga com dez permanentes.",
+    "No início (turno 2), na paridade e na frente, sem atacar e sem gastar mana."
+   ],
+   "indice": 2.4
   },
   "Crypt Ghast": {
    "notas": {
@@ -469,13 +588,32 @@
    "sin_por_que": {
     "sin1": "Motor sem combate: o extorquir, pago a cada mágica, faz cada oponente perder 1 e você ganhar o total, um gatilho do Vito por mágica."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/2 com extorquir. Sempre que você vira um Pântano por mana, gera {B} a mais.",
    "porque": "Dobra os 20 Snow-Covered Swamp e, com Urborg, todo terreno. Cada extorquir também dispara o Vito.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Extorquir: cada mágica pode virar vida para o Vito; e dobra a mana dos Pântanos."
+   "papel_por_que": "Extorquir: cada mágica pode virar vida para o Vito; e dobra a mana dos Pântanos.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp, e a extorsão ganha vida a cada mágica: um gatilho do Vito.",
+    "I": "Dobra a mana dos Pântanos enquanto ficar em campo.",
+    "T": "Quatro manas, mas devolve mais que uma pedra.",
+    "Q": "Paridade, na frente e atrás (a extorsão repõe vida).",
+    "R": "A Extraplanar Lens dobra por três manas, sem a extorsão."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Defiant Bloodlord": {
    "notas": {
@@ -500,7 +638,30 @@
    },
    "prioridade": 2,
    "papel": "recompensa",
-   "papel_por_que": "Outro Vito: cada ganho de vida vira perda de um oponente."
+   "papel_por_que": "Outro Vito: cada ganho de vida vira perda de um oponente.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 0,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Tem o texto do Vito: converte ganho em perda.",
+    "I": "Precisa ficar em campo; voador.",
+    "T": "Sete manas pelo que o Vito faz por três e a Enduring Tenacity por quatro.",
+    "Q": "Só na paridade longa e na frente.",
+    "R": "O Sanguine Bond tem o mesmo texto por cinco manas e não morre em limpeza de criaturas."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Sanguine Bond",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Enduring Tenacity": {
    "notas": {
@@ -513,7 +674,7 @@
    "sin_por_que": {
     "sin1": "Segunda cópia do texto do Vito, que volta como encantamento quando morre como criatura."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "4/3. Sempre que você ganha vida, um oponente alvo perde o mesmo tanto. Ao morrer como criatura, volta como encantamento.",
    "porque": "A segunda cópia barata do Vito, e a mais difícil de remover. Juntos, cada ganho vira duas perdas. Com Necrodominance, é exilada e não volta.",
@@ -521,7 +682,31 @@
     "conversor": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Outro Vito: cada ganho de vida vira perda; ao morrer, volta como encantamento."
+   "papel_por_que": "Outro Vito: cada ganho de vida vira perda; ao morrer, volta como encantamento.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o sangrar: o texto do Vito numa segunda carta.",
+    "I": "Precisa ficar, mas volta como encantamento quando morre; com o Vito, cada ganho vira duas perdas.",
+    "T": "Quatro manas; o mesmo texto custa cinco no Sanguine Bond e sete no Defiant Bloodlord.",
+    "Q": "Paridade, na frente e atrás, quando o Vito foi removido.",
+    "R": "O Sanguine Bond custa uma mana a mais e não tem corpo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o deck volta a depender só do Vito para converter: o Blight-Priest tira 1 por ganho e o Bloodlord custa sete.",
+    "O Sanguine Bond custa cinco manas e não tem corpo; o Defiant Bloodlord custa sete e morre em qualquer limpeza.",
+    "Na paridade, na frente e atrás: é o conversor que continua em campo depois da remoção ou da limpeza."
+   ],
+   "indice": 2.4
   },
   "Gifted Aetherborn": {
    "notas": {
@@ -544,7 +729,26 @@
     "vinculo": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Vínculo com a vida: cada dano que ela causa dispara o Vito."
+   "papel_por_que": "Vínculo com a vida: cada dano que ela causa dispara o Vito.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vínculo: ganha vida em combate, e cada dano é um gatilho do Vito.",
+    "I": "Um corpo.",
+    "T": "Duas manas por toque mortífero e vínculo.",
+    "Q": "Início, paridade e atrás (bloqueia e ganha vida).",
+    "R": "Há onze fontes de vínculo para uma cota de oito; o Vampire Nighthawk do radar ainda voa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Gray Merchant of Asphodel": {
    "notas": {
@@ -556,13 +760,32 @@
    "sin_por_que": {
     "sin1": "Ganho grande de uma vez: cada oponente perde vida pela devoção ao preto e você ganha o total, que o Vito devolve inteiro num alvo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/4. Ao entrar, cada oponente perde X, X igual à sua devoção ao preto, e você ganha o total.",
    "porque": "Um ganho grande num evento só, que o Vito repete inteiro num alvo. Devoção 6 em mesa de quatro: cada um perde 6 e um deles perde mais 18.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ganho do total)",
-   "papel_por_que": "Drena pela devoção, e o ganho volta pelo Vito: o mono preto rende o máximo."
+   "papel_por_que": "Drena pela devoção, e o ganho volta pelo Vito: o mono preto rende o máximo.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ganha e sangra numa entrada só: cada oponente perde a devoção e você ganha o total.",
+    "I": "Efeito grande e garantido na entrada; só vira o jogo com o Vito em campo.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Paridade, na frente e atrás (a cura).",
+    "R": "A Malakir Bloodwitch conta só Vampiros; a Zof Consumption do radar tira 4 fixos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Henrika Domnathi": {
    "notas": {
@@ -585,7 +808,27 @@
    "porque": "Três efeitos pequenos, um por turno, e o sacrifício pega você também: nenhum deles muda o jogo. A posição foi decidida com o dono.",
    "prioridade": 11,
    "papel": "habilita",
-   "papel_por_que": "Transformada, ganha vínculo e dá +1/+0 aos que têm vínculo (papel fraco)."
+   "papel_por_que": "Transformada, ganha vínculo e dá +1/+0 aos que têm vínculo (papel fraco).",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Só ganha vínculo depois de transformar, no terceiro combate.",
+    "I": "Três efeitos pequenos, um por turno, e o sacrifício pega você também.",
+    "T": "Quatro manas por um voador que demora a render.",
+    "Q": "Paridade e na frente.",
+    "R": "O radar tem duas cartas para a vaga: Stensian Sanguinist e Massacre Girl, Most Wanted."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Stensian Sanguinist",
+   "confianca": "média",
+   "indice": 1.0
   },
   "Indulgent Aristocrat": {
    "notas": {
@@ -610,7 +853,26 @@
    "prioridade": 7,
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (vínculo e saída de sacrifício)",
-   "papel_por_que": "Cada ativação põe um marcador +1/+1 em cada Vampiro: mais dano com vínculo."
+   "papel_por_que": "Cada ativação põe um marcador +1/+1 em cada Vampiro: mais dano com vínculo.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vínculo no turno 1; o sacrifício põe marcador em cada Vampiro.",
+    "I": "Um corpo pequeno.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e na frente; atrás, não segura nada.",
+    "R": "O Vampire of the Dire Moon faz o mesmo pelo mesmo custo, com toque mortífero."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "K'rrik, Son of Yawgmoth": {
    "caro_por_desenho": true,
@@ -625,7 +887,7 @@
    "sin_por_que": {
     "sin1": "Vínculo com a vida: ganho só em combate; pagar vida no lugar do {B} não conta aqui."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/2 vínculo. Cada {B} de um custo pode ser pago com 2 de vida. Cresce a cada mágica preta.",
    "porque": "Num deck que ganha vida, a vida vira mana. Deixa tutores e remoções quase de graça; no Exsanguinate, só o {B}{B} sai em vida, e o X segue em mana.",
@@ -638,7 +900,26 @@
    "custo_usual": {
     "cmc": 4,
     "como": "pagando os três {B} com 6 de vida"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Troca vida por mana preta, num deck que repõe vida; e tem vínculo.",
+    "I": "Deixa tutores e remoções quase de graça enquanto ficar em campo.",
+    "T": "Quatro manas e 6 de vida na prática.",
+    "Q": "Paridade e na frente; atrás, a vida não sobra.",
+    "R": "Nenhuma outra carta da lista troca vida por mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Kalitas, Traitor of Ghet": {
    "notas": {
@@ -654,7 +935,7 @@
     "sin1": "Vínculo com a vida num corpo 3/4: ganho só em combate.",
     "sin2": "Vampiro cujo efeito usa os outros: sacrifica outro Vampiro ou Zumbi para crescer, sem multiplicar a tribo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "3/4 vínculo. Criatura não ficha de oponente que morreria é exilada, e você cria um Zumbi 2/2.",
    "porque": "O melhor corpo com vínculo da lista e a única resposta a cemitério. Desliga o Blood Artist, o Vein Ripper e o ganho do Meathook pelas criaturas não ficha dos oponentes.",
@@ -663,7 +944,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção (exila as dos oponentes)",
-   "papel_por_que": "Vínculo, e cada criatura de oponente que morreria vira um Zumbi seu."
+   "papel_por_que": "Vínculo, e cada criatura de oponente que morreria vira um Zumbi seu.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Corpo com vínculo: ganha vida em combate, e cada dano é um gatilho do Vito.",
+    "I": "Precisa ficar; cada criatura deles que morreria vira um Zumbi seu.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás (bloqueia e cura).",
+    "R": "É a única resposta a cemitério da lista."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Malakir Bloodwitch": {
    "notas": {
@@ -684,7 +984,26 @@
    "porque": "Um Gray Merchant que conta a tribo, e o Vito devolve o ganho inteiro num alvo. Fica no meio porque, com poucos Vampiros em campo, entrega pouco por 5 manas.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ganho do total)",
-   "papel_por_que": "Ao entrar, drena um por Vampiro e ganha o total, que o Vito devolve num alvo."
+   "papel_por_que": "Ao entrar, drena um por Vampiro e ganha o total, que o Vito devolve num alvo.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dreno que conta os Vampiros em campo e ganha o total.",
+    "I": "Garantido na entrada, mas com dois ou três Vampiros entrega pouco.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Paridade e na frente; atrás, sem mesa, tira 1.",
+    "R": "O Gray Merchant of Asphodel faz mais pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Marauding Blight-Priest": {
    "notas": {
@@ -700,7 +1019,7 @@
     "sin1": "Converte cada ganho de vida em perda de 1 para cada oponente, e fecha laço com o Exquisite Blood.",
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "3/2. Sempre que você ganha vida, cada oponente perde 1.",
    "porque": "Converte ganho em perda para a mesa toda, 1 por evento. Também fecha laço com Exquisite Blood ou Conqueror.",
@@ -708,7 +1027,31 @@
     "conversor": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Cada ganho de vida tira 1 de cada oponente, somado ao Vito."
+   "papel_por_que": "Cada ganho de vida tira 1 de cada oponente, somado ao Vito.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o sangrar na mesa toda: cada ganho tira 1 de cada oponente; fecha o laço com Exquisite Blood.",
+    "I": "Motor que precisa ficar; cada vínculo é um evento separado.",
+    "T": "Três manas; o Epicure of Blood do radar faz o mesmo por cinco.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Epicure of Blood custa duas manas a mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ele, o deck não tem conversor que atinja os três oponentes de uma vez, nem conversor de três manas além do Vito.",
+    "O Epicure of Blood tem o mesmo texto por cinco manas; o Sanguine Bond mira um oponente só.",
+    "No início (turno 3, ao lado dos Vampiros de vínculo), na paridade e na frente."
+   ],
+   "indice": 2.4
   },
   "Markov Baron": {
    "notas": {
@@ -736,7 +1079,26 @@
    "custo_usual": {
     "cmc": 1,
     "como": "convocando com as criaturas"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lord com vínculo: ganha vida e aumenta o ganho dos outros Vampiros.",
+    "I": "Um corpo e um buff que depende da mesa.",
+    "T": "Três manas, e o convocar paga quase tudo com os Vampiros em campo.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Captivating Vampire não tem vínculo nem convocar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Nighthawk Scavenger": {
    "notas": {
@@ -759,7 +1121,26 @@
     "vinculo": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Vínculo num voador que cresce com os cemitérios dos oponentes: vida para o Vito."
+   "papel_por_que": "Vínculo num voador que cresce com os cemitérios dos oponentes: vida para o Vito.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vínculo com evasão: ganha vida em combate.",
+    "I": "Um corpo.",
+    "T": "Três manas, no padrão.",
+    "Q": "Voa, bloqueia com toque mortífero e cura: serve nos quatro momentos.",
+    "R": "O Qarsi Revenant tem as mesmas três habilidades e ainda rende do cemitério."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Nullpriest of Oblivion": {
    "notas": {
@@ -784,7 +1165,26 @@
    "prioridade": 8,
    "papel": "habilita",
    "papel_dupla": "Recursão (reforçada)",
-   "papel_por_que": "Vínculo com ameaça; reforçada, devolve uma criatura do cemitério ao campo."
+   "papel_por_que": "Vínculo com ameaça; reforçada, devolve uma criatura do cemitério ao campo.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vínculo e ameaça: ganha vida em combate.",
+    "I": "Um corpo; com o reforço, traz uma criatura de volta.",
+    "T": "Duas manas, ou seis com a reanimação.",
+    "Q": "Corpo de vínculo cedo e reanimação tarde: serve nos quatro momentos.",
+    "R": "Como vínculo tem pares; a reanimação só a Agadeem's Awakening repete."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Preacher of the Schism": {
    "notas": {
@@ -800,13 +1200,32 @@
     "sin1": "As fichas têm vínculo com a vida e a compra pede a maior vida da mesa: rende com vida alta, sem ganhar vida sozinha.",
     "sin2": "Vampiro que cria Vampiros 1/1, mas só atacando o jogador de mais vida, e não cria quando essa vida é a sua."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "2/4 toque mortífero. Atacando quem tem mais vida, cria um Vampiro 1/1 com vínculo. Atacando enquanto você tem mais vida, compra uma carta e perde 1.",
    "porque": "Num deck que ganha vida, você quase sempre tem a maior: ela compra todo turno. A ficha, por bater em quem tem mais vida, só vem quando não é você: as duas juntas, só no empate.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Cria Vampiros com vínculo atacando quem tem mais vida, e compra quando você lidera."
+   "papel_por_que": "Cria Vampiros com vínculo atacando quem tem mais vida, e compra quando você lidera.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra quando você tem mais vida, o que este deck costuma ter; senão cria um Vampiro com vínculo.",
+    "I": "Uma carta ou uma ficha por ataque; precisa atacar e sobreviver.",
+    "T": "Três manas; pede ataque.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhuma outra compra da lista vem num Vampiro de três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Qarsi Revenant": {
    "notas": {
@@ -829,7 +1248,26 @@
     "vinculo": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Voador com vínculo; do cemitério, dá vínculo, voar e toque mortífero a outra criatura."
+   "papel_por_que": "Voador com vínculo; do cemitério, dá vínculo, voar e toque mortífero a outra criatura.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vínculo com evasão: ganha vida em combate.",
+    "I": "Corpo com voar, toque mortífero e vínculo, e depois passa os três marcadores a outra criatura.",
+    "T": "Três manas, no padrão.",
+    "Q": "Voa, bloqueia e cura; tarde, rende do cemitério: serve nos quatro momentos.",
+    "R": "O Vampire Nighthawk do radar tem as mesmas habilidades, sem a segunda vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Sanguine Spy": {
    "notas": {
@@ -855,7 +1293,30 @@
    "prioridade": 3,
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Vínculo com ameaça, e saída de sacrifício que dispara Blood Artist e Vein Ripper."
+   "papel_por_que": "Vínculo com ameaça, e saída de sacrifício que dispara Blood Artist e Vein Ripper.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Vínculo e ameaça: ganha vida em combate.",
+    "I": "Um corpo; o sacrifício só dá vigiar 1.",
+    "T": "Três manas, e a compra pede cinco custos diferentes no cemitério.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Scheming Silvertongue custa duas, voa, tem vínculo e compra quando você ganha 2 de vida."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Scheming Silvertongue",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Twilight Prophet": {
    "notas": {
@@ -871,13 +1332,32 @@
     "sin1": "Motor sem combate: com a bênção da cidade, toda manutenção você ganha vida pelo valor de mana da carta revelada.",
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "ALT",
    "faz": "2/4 voar. Com dez permanentes, a cada manutenção revela o topo e compra; cada oponente perde o valor de mana dela e você ganha o mesmo.",
    "porque": "Compra e dreno numa carta, mas liga só no turno 6 ou 7. Melhora com o Top.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Com a bênção da cidade, compra, drena e ganha toda manutenção: outro gatilho do Vito."
+   "papel_por_que": "Com a bênção da cidade, compra, drena e ganha toda manutenção: outro gatilho do Vito.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra e dreno todo turno, sem combate, depois que liga.",
+    "I": "Motor que precisa ligar e sobreviver até a sua manutenção.",
+    "T": "Quatro manas e a condição de dez permanentes.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta da lista junta compra e dreno por turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.55
   },
   "Vampire of the Dire Moon": {
    "notas": {
@@ -901,7 +1381,26 @@
    },
    "prioridade": 9,
    "papel": "habilita",
-   "papel_por_que": "Vínculo de 1 mana: cada dano que ele causa dispara o Vito."
+   "papel_por_que": "Vínculo de 1 mana: cada dano que ele causa dispara o Vito.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vínculo no turno 1: ganha vida em combate.",
+    "I": "Um corpo pequeno.",
+    "T": "Uma mana por toque mortífero e vínculo.",
+    "Q": "Início, paridade e atrás (segura atacante grande).",
+    "R": "Há onze fontes de vínculo para uma cota de oito."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Vein Ripper": {
    "notas": {
@@ -916,13 +1415,32 @@
     "sin1": "Motor sem combate: cada criatura que morre faz um oponente perder 2 e você ganhar 2, um gatilho do Vito por morte.",
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "6/5 voar, ward (sacrificar uma criatura). Sempre que uma criatura morre, um oponente alvo perde 2 e você ganha 2.",
    "porque": "Cada criatura que morre, de qualquer lado, vira dreno de 2 e um gatilho do Vito: qualquer limpeza vira dano na mesa. O ward de sacrifício o protege.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno 2 a cada morte)",
-   "papel_por_que": "Cada criatura que morre vira 2 de vida, que o Vito converte em mais perda."
+   "papel_por_que": "Cada criatura que morre vira 2 de vida, que o Vito converte em mais perda.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada morte, de qualquer lado, é 2 de vida ganhos e um gatilho do Vito.",
+    "I": "Motor que precisa ficar; o ward de sacrifício ajuda.",
+    "T": "Seis manas.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira dreno.",
+    "R": "O Blood Artist faz metade por duas manas; nenhum outro traz o corpo voador com ward."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Sorin Markov": {
    "notas": {
@@ -942,7 +1460,26 @@
    "porque": "O −3 derruba o mais forte de 40 para 10, e qualquer ganho de 10 com o Vito termina. Seis manas e atrai a mesa.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (vida do oponente vira 10)",
-   "papel_por_que": "+2 todo turno: 2 de dano e 2 de vida, que o Vito converte."
+   "papel_por_que": "+2 todo turno: 2 de dano e 2 de vida, que o Vito converte.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O +2 ganha 2 de vida por turno; o −3 põe um oponente em 10.",
+    "I": "Efeito grande e garantido na entrada: o líder cai para 10.",
+    "T": "Seis manas.",
+    "Q": "Paridade, na frente e atrás (derruba quem vai ganhar).",
+    "R": "Nenhuma outra carta da lista muda o total de vida de um oponente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Sorin, Imperious Bloodlord": {
    "notas": {
@@ -958,13 +1495,32 @@
     "sin1": "Motor sem combate: um +1 sacrifica um Vampiro para ganhar 3 de vida, e o outro dá vínculo a uma criatura, o Vito incluído.",
     "sin2": "Não é Vampiro, mas existe por causa deles: marcador no Vampiro, sacrifica um Vampiro e põe Vampiro da mão em campo."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "ALT",
    "faz": "+1: toque mortífero e vínculo numa criatura sua, com marcador se for Vampiro. +1: sacrifica um Vampiro para 3 de dano e 3 de vida. −3: põe um Vampiro da mão em campo.",
    "porque": "Dá vínculo ao próprio Vito. O −3 desce o Vein Ripper ou o Conqueror no turno 3; com o Vito em campo, o Conqueror fecha o laço na hora.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "+1 dá vínculo, ou troca um Vampiro por 3 de dano e 3 de vida: gatilho do Vito todo turno."
+   "papel_por_que": "+1 dá vínculo, ou troca um Vampiro por 3 de dano e 3 de vida: gatilho do Vito todo turno.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá vínculo a uma criatura, troca um Vampiro por 3 de vida e põe Vampiro da mão em campo.",
+    "I": "Rende na entrada: o −3 desce o Vein Ripper ou o Bloodthirsty Conqueror.",
+    "T": "Três manas.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhuma outra carta da lista põe Vampiro em campo sem pagar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Dark Ritual": {
    "notas": {
@@ -973,10 +1529,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gera {B}{B}{B}.",
-   "porque": "Com um Pântano, põe o Vito no turno 1. No fim, soma três ao X."
+   "porque": "Com um Pântano, põe o Vito no turno 1. No fim, soma três ao X.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mana rápida: qualquer deck preto usaria.",
+    "I": "Três manas uma vez só; troca uma carta por tempo.",
+    "T": "Uma mana, instantânea.",
+    "Q": "No início adianta o Vito; no fim soma 3 ao X.",
+    "R": "Nenhuma outra mágica da lista dá mana na hora."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Deadly Rollick": {
    "notas": {
@@ -984,14 +1559,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Exila uma criatura. De graça se você controla um comandante.",
    "porque": "Exílio de criatura sem custo com o Vito em campo: deixa a mana livre para o resto do turno e responde até criatura indestrutível.",
    "custo_usual": {
     "cmc": 0,
     "como": "com o comandante em campo"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, em exílio.",
+    "T": "De graça com o Vito em campo; quatro manas sem ele.",
+    "Q": "De graça e instantânea: serve nos quatro momentos.",
+    "R": "É a única remoção em exílio da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Consuming Corruption": {
    "notas": {
@@ -1010,7 +1604,26 @@
    "porque": "Mata e ganha vida, e o Vito tira mais X de um oponente. Com Urborg, todo terreno conta.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Remove e ganha X, X igual aos Pântanos: o Vito devolve o ganho inteiro num oponente."
+   "papel_por_que": "Remove e ganha X, X igual aos Pântanos: o Vito devolve o ganho inteiro num oponente.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mata e ganha X de vida, que o Vito repete num oponente.",
+    "I": "Remoção e ganho grande na mesma carta.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra remoção da lista ganha vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Hatred": {
    "notas": {
@@ -1024,13 +1637,35 @@
    "sin_por_que": {
     "sin1": "Só rende com o vínculo de outra carta: numa criatura com vínculo, a vida paga volta como ganho grande."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Custo adicional: pague X de vida. A criatura alvo ganha +X/+0 até o fim do turno.",
    "porque": "Carta de estimação. No Vito com evasão, pagar 20 dá 21 de dano de comandante. Numa criatura com vínculo, a vida volta e o Vito a repete em outro.",
    "fora_do_corte": true,
    "papel": "multiplica",
-   "papel_por_que": "Numa criatura com vínculo, o +X/+0 vira um ganho enorme, que o Vito devolve."
+   "papel_por_que": "Numa criatura com vínculo, o +X/+0 vira um ganho enorme, que o Vito devolve.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Numa criatura com vínculo, a vida paga volta e o Vito a repete em outro oponente.",
+    "I": "Mata um jogador quando conecta; não faz nada se a criatura for bloqueada ou removida.",
+    "T": "Cinco manas, instantânea, mais a vida.",
+    "Q": "Só com vida de sobra: paridade e na frente.",
+    "R": "Nenhuma outra carta da lista dá 21 de dano de comandante."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "dependência dupla"
+   ],
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Imp's Mischief": {
    "notas": {
@@ -1044,7 +1679,26 @@
    "porque": "Uma das duas proteções reais do Vito. Só desvia mágica, não habilidade nem limpeza.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica: desvia a mágica de alvo único.",
+    "I": "Uma por uma; não desvia habilidade nem limpeza.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "São só três proteções na lista, no piso da cota de duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Slaughter Pact": {
    "notas": {
@@ -1052,10 +1706,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Custo 0: destrói uma criatura não preta. Na próxima manutenção, pague {2}{B} ou perca.",
-   "porque": "Remoção com tudo virado, e o K'rrik paga o {B} do pacto em vida. Fica no meio porque não pega criatura preta e o pagamento esquecido no turno seguinte perde o jogo."
+   "porque": "Remoção com tudo virado, e o K'rrik paga o {B} do pacto em vida. Fica no meio porque não pega criatura preta e o pagamento esquecido no turno seguinte perde o jogo.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Zero agora e três manas na manutenção seguinte; não pega criatura preta.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Deadly Rollick também sai de graça e exila; a Infernal Grasp mata qualquer criatura por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Infernal Grasp",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Vampiric Tutor": {
    "notas": {
@@ -1067,7 +1741,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Busca qualquer carta e põe no topo. Você perde 2.",
-   "porque": "Uma mana por qualquer carta, em velocidade instantânea: acha o Exsanguinate, a peça do laço ou a proteção do Vito na hora certa."
+   "porque": "Uma mana por qualquer carta, em velocidade instantânea: acha o Exsanguinate, a peça do laço ou a proteção do Vito na hora certa.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tutor: qualquer deck preto usaria.",
+    "I": "Vale a carta que busca, mas ela vai para o topo.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "É o tutor mais barato dos cinco e o único instantâneo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Withering Torment": {
    "notas": {
@@ -1078,7 +1771,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Destrói criatura ou encantamento. Você perde 2.",
-   "porque": "Uma das duas respostas a encantamento do deck, e instantânea; fica no meio porque custa 3 manas e 2 de vida numa troca de um por um."
+   "porque": "Uma das duas respostas a encantamento do deck, e instantânea; fica no meio porque custa 3 manas e 2 de vida numa troca de um por um.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Três manas, instantânea, e 2 de vida.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Uma das duas respostas a encantamento da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Hagra Mauling": {
    "notas": {
@@ -1089,7 +1801,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Destrói uma criatura. O verso é um terreno que entra virado.",
-   "porque": "Conta como fonte de terreno, com a remoção de bônus; o verso entra virado e a remoção é das mais simples da lista, por isso é substituível."
+   "porque": "Conta como fonte de terreno, com a remoção de bônus; o verso entra virado e a remoção é das mais simples da lista, por isso é substituível.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica que também conta como terreno.",
+    "I": "Uma por uma, ou um terreno.",
+    "T": "Quatro manas como remoção; o verso entra virado.",
+    "Q": "Nunca fica morta na mão: é terreno ou remoção.",
+    "R": "É a remoção mais cara das sete pontuais; como terreno, perde para o básico desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Malakir Rebirth": {
    "notas": {},
@@ -1101,7 +1832,26 @@
    "porque": "A outra proteção real do Vito, e ainda é fonte de terreno. Não funciona com Necrodominance.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica que também conta como terreno.",
+    "I": "Salva uma criatura de uma remoção.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Nunca fica morta na mão: é terreno ou proteção.",
+    "R": "São só três proteções na lista, no piso da cota de duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Beseech the Mirror": {
    "notas": {
@@ -1110,10 +1860,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Busca uma carta. Com barganha, conjura de graça se o valor de mana for 4 ou menos.",
-   "porque": "Tutor que já põe a carta em jogo. Fichas do Bloodline Keeper e do Black Market pagam a barganha."
+   "porque": "Tutor que já põe a carta em jogo. Fichas do Bloodline Keeper e do Black Market pagam a barganha.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Tutor: qualquer deck preto usaria.",
+    "I": "Vale a carta que busca; com a barganha, conjura de graça a de custo até 4.",
+    "T": "Quatro manas, com três pretas.",
+    "Q": "Viva sempre.",
+    "R": "É o quarto de cinco tutores; o Demonic Tutor busca por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Blasphemous Edict": {
    "caro_por_desenho": true,
@@ -1122,12 +1891,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "BAX",
    "faz": "{3}{B}{B}, ou {B} com treze criaturas em campo: cada jogador sacrifica treze criaturas.",
    "porque": "A quarta limpeza de um deck com 27 criaturas. Leva a sua mesa junto.",
    "massa": true,
-   "prioridade": 4
+   "prioridade": 4,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica.",
+    "I": "Vira a mesa: cada jogador sacrifica treze criaturas, as suas também.",
+    "T": "Cinco manas; sai por {B} com treze criaturas em campo.",
+    "Q": "Só atrás ou na paridade travada.",
+    "R": "É a quarta limpeza, no teto da cota de três a quatro; a Damnation custa quatro."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Blood Tribute": {
    "notas": {
@@ -1142,13 +1930,32 @@
     "sin1": "Ganho grande de uma vez: reforçado, você ganha metade da vida do alvo, que o Vito tira de novo.",
     "sin2": "Não é Vampiro e usa um Vampiro só como custo do reforço: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Reforço: vire um Vampiro. Um oponente perde metade da vida, arredondada para cima. Reforçado, você ganha o mesmo tanto.",
    "porque": "Com o Vito, mata um jogador: ele perde metade, você ganha a metade, o Vito tira o resto. O próprio Vito paga o reforço.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ganho do total, reforçada)",
-   "papel_por_que": "Tira metade da vida de um oponente; reforçada, o ganho volta pelo Vito noutro alvo."
+   "papel_por_que": "Tira metade da vida de um oponente; reforçada, o ganho volta pelo Vito noutro alvo.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Com o reforço, você ganha a metade da vida do alvo e o Vito tira o resto.",
+    "I": "Efeito grande e garantido; só tira o jogador da mesa com o Vito em campo.",
+    "T": "Seis manas, de feitiço; o reforço só pede virar um Vampiro.",
+    "Q": "Paridade, na frente e atrás (cura e derruba o líder).",
+    "R": "Nenhuma outra carta da lista tira metade da vida de um oponente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Damnation": {
    "notas": {
@@ -1156,11 +1963,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Destrói todas as criaturas.",
    "porque": "Limpeza de quatro manas. Com Vein Ripper ou Blood Artist, vira dreno.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica; com Blood Artist ou Vein Ripper em campo vira dreno.",
+    "I": "Vira a mesa, a sua junto.",
+    "T": "Quatro manas.",
+    "Q": "Só atrás ou na paridade travada.",
+    "R": "A cota é de três a quatro limpezas e esta é das três principais."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Demonic Tutor": {
    "notas": {
@@ -1172,7 +1998,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Busca qualquer carta para a mão.",
-   "porque": "Duas manas pela melhor carta em cada situação, direto na mão: acha o fechamento, a peça do laço ou a resposta que falta."
+   "porque": "Duas manas pela melhor carta em cada situação, direto na mão: acha o fechamento, a peça do laço ou a resposta que falta.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tutor: qualquer deck preto usaria.",
+    "I": "Vale a carta que busca, direto na mão.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "É o melhor tutor de feitiço; os outros custam mais ou cobram vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Exsanguinate": {
    "notas": {
@@ -1186,14 +2031,38 @@
    "sin_por_que": {
     "sin1": "Ganho grande de uma vez: cada oponente perde X e você ganha o total, que o Vito devolve inteiro num alvo."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Cada oponente perde X. Você ganha o total perdido.",
    "porque": "Carta de estimação e o fechamento natural. Em mesa de quatro, cada um perde X, você ganha 3X e o Vito tira mais 3X de um alvo.",
    "fora_do_corte": true,
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ganho do total)",
-   "papel_por_que": "Cada oponente perde X e você ganha o total, que o Vito devolve inteiro num alvo."
+   "papel_por_que": "Cada oponente perde X e você ganha o total, que o Vito devolve inteiro num alvo.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o fechar: cada oponente perde X, você ganha o total e o Vito repete num alvo.",
+    "I": "Com a mana grande da lista, termina a partida ou vira o jogo sozinho.",
+    "T": "X mais duas manas: rende na medida do que se paga.",
+    "Q": "Paridade, na frente e atrás (a cura).",
+    "R": "O Torment of Hailfire não ganha vida; a Zof Consumption do radar tira 4 fixos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ele, a mana de Cabal Coffers, Nykthos, Crypt Ghast e Extraplanar Lens perde o destino que também ganha vida.",
+    "O Torment of Hailfire não ganha vida e deixa o oponente escolher; a Zof Consumption tira 4 fixos por seis manas.",
+    "Na paridade, na frente e atrás: o X escolhe entre curar, pressionar e terminar."
+   ],
+   "indice": 2.4
   },
   "Feed the Swarm": {
    "notas": {
@@ -1204,7 +2073,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Destrói criatura ou encantamento de oponente. Você perde vida igual ao valor de mana.",
-   "porque": "A outra resposta a encantamento, por 2 manas; fica no meio por ser feitiço e cobrar em vida o valor de mana do alvo."
+   "porque": "A outra resposta a encantamento, por 2 manas; fica no meio por ser feitiço e cobrar em vida o valor de mana do alvo.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma.",
+    "T": "Duas manas, de feitiço, e cobra vida.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Uma das duas respostas a encantamento da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Grim Tutor": {
    "notas": {
@@ -1218,7 +2106,26 @@
    "faz": "Busca qualquer carta para a mão. Você perde 3.",
    "porque": "O mais dispensável dos cinco tutores quando o combo é plano B.",
    "prioridade": 10,
-   "fica": "Decisão do dono (08/11/2026): os tutores ficam."
+   "fica": "Decisão do dono (08/11/2026): os tutores ficam.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Tutor: qualquer deck preto usaria.",
+    "I": "Vale a carta que busca, direto na mão.",
+    "T": "Três manas e 3 de vida.",
+    "Q": "Viva sempre.",
+    "R": "O Demonic Tutor faz o mesmo por duas manas e sem vida; o Emeritus of Woe do radar traz corpo de Vampiro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Insatiable Avarice": {
    "notas": {
@@ -1235,7 +2142,26 @@
    "rel": "MED",
    "faz": "Escolha um ou os dois: por {2}, busca uma carta para o topo; por {B}{B}, um jogador compra três e perde 3.",
    "porque": "O quinto tutor, e com os dois modos busca e compra na hora. Fica no meio porque os dois modos juntos custam 5 e a busca vai para o topo, não para a mão.",
-   "fica": "Decisão do dono (08/11/2026, reforçada em 09/11): os tutores ficam; a Avarice é tutor, compra e perda de vida num alvo, e o dono a quer pela flexibilidade."
+   "fica": "Decisão do dono (08/11/2026, reforçada em 09/11): os tutores ficam; a Avarice é tutor, compra e perda de vida num alvo, e o dono a quer pela flexibilidade.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Tutor ou compra: qualquer deck preto usaria.",
+    "I": "Vale a carta que busca, ou três cartas.",
+    "T": "Três manas por modo, de feitiço; a busca vai para o topo.",
+    "Q": "Viva sempre.",
+    "R": "É o quinto tutor; o Vampiric Tutor põe no topo por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "New Blood": {
    "notas": {
@@ -1252,7 +2178,26 @@
    "rel": "INS",
    "faz": "Custo adicional: vire um Vampiro. Toma uma criatura de vez e troca um tipo dela por Vampiro.",
    "porque": "Carta de estimação. Rouba a melhor criatura da mesa, e ela passa a receber os lordes. O Vito paga o custo.",
-   "fora_do_corte": true
+   "fora_do_corte": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Roubo: a criatura passa a ler Vampiro e recebe os lords.",
+    "I": "Tira a melhor criatura deles e a põe do seu lado.",
+    "T": "Quatro manas, de feitiço, e pede virar um Vampiro.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "É o único roubo permanente da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Torment of Hailfire": {
    "notas": {
@@ -1265,13 +2210,32 @@
    "sin_por_que": {
     "sin1": "Os oponentes perdem vida sem você ganhar: soma à perda deles, mas não dispara o Vito."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "X vezes: cada oponente perde 3, a menos que sacrifique uma permanente não terreno ou descarte.",
    "porque": "O segundo fechamento de mana grande. Não ganha vida, mas o Bloodletter dobra.",
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Fecha o jogo com mana sobrando: perda de vida em massa, mesmo sem disparar o Vito."
+   "papel_por_que": "Fecha o jogo com mana sobrando: perda de vida em massa, mesmo sem disparar o Vito.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Fecha sem ganhar vida: não dispara o Vito.",
+    "I": "Com X alto, tira a vida, a mão ou a mesa de cada oponente.",
+    "T": "X mais duas manas: rende na medida do que se paga.",
+    "Q": "Paridade e na frente; atrás não cura.",
+    "R": "O Exsanguinate usa a mesma mana e ganha vida; o Morlun do radar ganha vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Toxic Deluge": {
    "notas": {
@@ -1283,7 +2247,26 @@
    "rel": "INS",
    "faz": "Pague X de vida: todas as criaturas ganham −X/−X.",
    "porque": "A limpeza mais flexível, paga com o recurso que o deck mais produz.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica, paga com a vida que o deck repõe.",
+    "I": "Vira a mesa, na medida certa.",
+    "T": "Três manas.",
+    "Q": "Só atrás ou na paridade travada.",
+    "R": "Nenhuma outra limpeza da lista custa três manas nem passa por indestrutível."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Agadeem's Awakening": {
    "notas": {},
@@ -1292,7 +2275,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Devolve do cemitério criaturas de valores de mana diferentes, até X. O verso é um terreno que entra desvirado por 3 de vida.",
-   "porque": "Fonte de terreno e a reconstrução depois de uma limpeza. Não funciona com Necrodominance."
+   "porque": "Fonte de terreno e a reconstrução depois de uma limpeza. Não funciona com Necrodominance.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Reconstrução genérica que também conta como terreno.",
+    "I": "Devolve várias criaturas de custos diferentes depois de uma limpeza.",
+    "T": "Terreno desvirado por 3 de vida; como mágica custa X mais três pretas.",
+    "Q": "Nunca fica morta na mão: é terreno ou reconstrução.",
+    "R": "É a única reconstrução em massa da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Arcane Signet": {
    "notas": {
@@ -1303,7 +2305,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Vira por {B}.",
-   "porque": "Uma mana a mais desde o turno 2, sem nada além disso: em mono-preto, o Jet Medallion pelo mesmo custo desconta quase toda mágica."
+   "porque": "Uma mana a mais desde o turno 2, sem nada além disso: em mono-preto, o Jet Medallion pelo mesmo custo desconta quase toda mágica.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura.",
+    "I": "Uma mana a mais.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O Jet Medallion custa o mesmo e desconta mais de uma mágica por turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Bolas's Citadel": {
    "notas": {
@@ -1317,10 +2338,29 @@
    "sin_por_que": {
     "sin1": "O sacrifício de dez permanentes tira 10 de cada oponente sem você ganhar: não dispara o Vito."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Joga do topo pagando vida em vez de mana. Sacrifica dez permanentes: cada oponente perde 10.",
-   "porque": "Troca vida por cartas e mana, num deck que repõe vida. Com o Top, uma carta por ponto de vida."
+   "porque": "Troca vida por cartas e mana, num deck que repõe vida. Com o Top, uma carta por ponto de vida.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Troca vida por cartas e mana, num deck que repõe vida.",
+    "I": "Joga do topo já no turno em que entra, e segue rendendo.",
+    "T": "Seis manas, com três pretas.",
+    "Q": "Paridade e na frente; atrás, a vida não sobra.",
+    "R": "A Necropotence compra mais barato, mas não paga o custo das cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Bontu's Monument": {
    "notas": {
@@ -1341,7 +2381,26 @@
    "porque": "Desconto nas 27 criaturas e um gatilho do Vito por criatura conjurada. Fica no meio porque não ajuda as mágicas que fecham o jogo.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Cada criatura conjurada dá 1 de vida, que o Vito converte; e barateia as criaturas pretas."
+   "papel_por_que": "Cada criatura conjurada dá 1 de vida, que o Vito converte; e barateia as criaturas pretas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada criatura conjurada ganha 1 de vida e tira 1 de cada oponente.",
+    "I": "Desconto nas criaturas pretas e um gatilho do Vito a cada criatura conjurada.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Herald's Horn desconta só Vampiros e não drena."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Extraplanar Lens": {
    "notas": {
@@ -1349,10 +2408,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Exila um terreno seu. Terrenos com o mesmo nome geram uma mana a mais, de qualquer jogador.",
-   "porque": "Com 20 Snow-Covered Swamp, dobra a mana. Ajuda também quem joga Pântano nevado."
+   "porque": "Com 20 Snow-Covered Swamp, dobra a mana. Ajuda também quem joga Pântano nevado.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp.",
+    "I": "Dobra os Snow-Covered Swamp; exila um terreno seu ao entrar.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Crypt Ghast dobra por quatro manas e morre em limpeza."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Herald's Horn": {
    "notas": {
@@ -1365,10 +2443,29 @@
    "sin_por_que": {
     "sin2": "Não é Vampiro, mas existe por causa deles: com Vampiro escolhido, barateia os Vampiros e os põe na mão."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Criaturas do tipo escolhido custam 1 a menos. Na manutenção, se o topo for do tipo, você o compra.",
-   "porque": "Desconto e compra nos 22 Vampiros, mas custa 3 sem efeito na hora e não ajuda as mágicas que fecham o jogo."
+   "porque": "Desconto e compra nos 22 Vampiros, mas custa 3 sem efeito na hora e não ajuda as mágicas que fecham o jogo.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ramp e compra só para os Vampiros.",
+    "I": "Nada na hora; desconto de 1 e uma carta quando o topo é Vampiro.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Bontu's Monument desconta toda criatura preta e ainda drena."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Jet Medallion": {
    "notas": {
@@ -1379,7 +2476,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Mágicas pretas custam 1 a menos.",
-   "porque": "Em mono-preto, desconta quase toda mágica do deck desde o turno 2, e mais de uma por turno."
+   "porque": "Em mono-preto, desconta quase toda mágica do deck desde o turno 2, e mais de uma por turno.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp: qualquer deck mono-preto usaria.",
+    "I": "Desconta cada mágica preta, mais de uma por turno.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "As outras pedras de duas manas dão uma mana só por turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3
   },
   "Mindcrank": {
    "notas": {
@@ -1397,7 +2513,27 @@
    "porque": "Só existe para o laço com Bloodchief Ascension, que é plano B.",
    "prioridade": 1,
    "papel": "recompensa",
-   "papel_por_que": "Cada perda de vida dos oponentes tritura; com a Bloodchief Ascension, fecha um laço."
+   "papel_por_que": "Cada perda de vida dos oponentes tritura; com a Bloodchief Ascension, fecha um laço.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 0,
+    "T": 3,
+    "Q": 0,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Peça da segunda linha, com a Bloodchief Ascension.",
+    "I": "Sozinha só tritura o grimório deles.",
+    "T": "Duas manas.",
+    "Q": "Só com a Bloodchief Ascension já com três marcadores.",
+    "R": "A Sanctum Seeker do radar entra na vaga e drena a cada Vampiro que ataca."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Sanctum Seeker",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Sensei's Divining Top": {
    "notas": {
@@ -1406,10 +2542,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "{1}: reordena as três do topo. Vira: compra e volta ao topo.",
-   "porque": "Arruma o topo para Twilight Prophet, Herald's Horn e a Citadel; com a Citadel, vira uma carta por ponto de vida."
+   "porque": "Arruma o topo para Twilight Prophet, Herald's Horn e a Citadel; com a Citadel, vira uma carta por ponto de vida.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Seleção: qualquer deck usaria.",
+    "I": "Arruma o topo; não soma carta.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma outra carta da lista arruma o topo para a Bolas's Citadel e o Twilight Prophet."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Shadowspear": {
    "notas": {
@@ -1421,7 +2576,7 @@
    "sin_por_que": {
     "sin1": "Dá vínculo com a vida a uma criatura por Equipamento, o Vito incluído: ganho só em combate."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Equipamento de 1: +1/+1, atropelar e vínculo. {1}: permanentes dos oponentes perdem hexproof e indestrutível.",
    "porque": "Vínculo a qualquer corpo por 1. No Vito, o dano dele vira ganho e dispara a si mesmo.",
@@ -1429,7 +2584,26 @@
     "vinculo": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Dá vínculo e atropelar a qualquer criatura: o dano vira vida para o Vito."
+   "papel_por_que": "Dá vínculo e atropelar a qualquer criatura: o dano vira vida para o Vito.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá vínculo a qualquer corpo, o Vito incluído.",
+    "I": "Um buff numa criatura só.",
+    "T": "Uma mana, e duas para equipar.",
+    "Q": "Início, paridade e na frente.",
+    "R": "É o único equipamento de vínculo da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Sol Ring": {
    "notas": {
@@ -1440,7 +2614,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Vira: dois incolores.",
-   "porque": "Duas manas por uma: põe o Vito no turno 2 e adianta o Exsanguinate no fim. A aceleração mais forte da lista."
+   "porque": "Duas manas por uma: põe o Vito no turno 2 e adianta o Exsanguinate no fim. A aceleração mais forte da lista.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: qualquer deck usaria.",
+    "I": "Duas manas a mais desde o turno 1.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma pedra rende igual."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.45
   },
   "Throne of Eldraine": {
    "notas": {
@@ -1453,7 +2646,26 @@
    "rel": "BAX",
    "faz": "Custa 5. Vira: quatro manas da cor escolhida, só para mágicas monocoloridas dessa cor. {3}, vira: compra duas.",
    "porque": "Ramp de turno 5, e a mana não paga a habilidade do Vito, artefato nem equipamento.",
-   "prioridade": 5
+   "prioridade": 5,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ramp; a mana só paga mágica preta.",
+    "I": "Quatro manas pretas por turno, ou duas cartas.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Cabal Coffers, Extraplanar Lens e Crypt Ghast já dão a mana grande, e mais cedo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Black Market Connections": {
    "notas": {
@@ -1472,7 +2684,26 @@
    "porque": "Compra, mana e corpo pagos em vida. O Shapeshifter é Vampiro para os lordes e para o New Blood.",
    "papel": "habilita",
    "papel_dupla": "Draw e Ramp",
-   "papel_por_que": "Um Shapeshifter por turno: corpo para a tribo e para o vínculo em massa do Vito."
+   "papel_por_que": "Um Shapeshifter por turno: corpo para a tribo e para o vínculo em massa do Vito.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra, Tesouro e um Shapeshifter por turno, que conta como Vampiro para os lords.",
+    "I": "Motor que rende todo turno a partir da sua próxima fase principal.",
+    "T": "Três manas, sem condição.",
+    "Q": "Início, paridade e na frente; atrás, a vida não sobra.",
+    "R": "Nenhuma outra compra da lista também dá mana e corpo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Bloodchief Ascension": {
    "notas": {
@@ -1485,13 +2716,37 @@
    "sin_por_que": {
     "sin1": "Motor sem combate: com três marcadores, cada carta que vai ao cemitério de um oponente pode drenar 2, um gatilho do Vito por carta."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Marcador no fim do turno em que um oponente perdeu 2 ou mais. Com três, cada carta que vai ao cemitério de um oponente pode custar 2 a ele e dar 2 a você.",
    "porque": "Liga em uma volta de mesa e drena sem parar. O gatilho é opcional.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno 2)",
-   "papel_por_que": "Com três marcadores, cada carta no cemitério de oponente dá 2 de vida, e o Vito converte."
+   "papel_por_que": "Com três marcadores, cada carta no cemitério de oponente dá 2 de vida, e o Vito converte.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ligada, ganha 2 e tira 2 a cada carta que vai ao cemitério deles; é peça da linha com o Mindcrank.",
+    "I": "Motor que precisa de três marcadores; encantamento, sobrevive às limpezas.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhum outro motor de ganho da lista custa uma mana nem escapa das limpezas de criaturas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ela, o deck perde o motor de ganho de uma mana e a segunda linha de combo, com o Mindcrank.",
+    "O Blood Artist custa duas, ganha 1 por morte e morre em qualquer limpeza.",
+    "No início (turno 1, juntando marcadores), na paridade e na frente."
+   ],
+   "indice": 2.4
   },
   "Exquisite Blood": {
    "notas": {
@@ -1509,7 +2764,26 @@
    "faz": "Sempre que um oponente perde vida, você ganha o mesmo tanto.",
    "porque": "A outra metade do laço. Com o Vito em campo, o primeiro ponto ganho encerra o jogo, queira ou não. Fica na mão como botão de emergência.",
    "papel": "recompensa",
-   "papel_por_que": "Com o Vito, fecha o laço de dreno: a perda dos oponentes vira ganho, e o ganho vira perda."
+   "papel_por_que": "Com o Vito, fecha o laço de dreno: a perda dos oponentes vira ganho, e o ganho vira perda.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Peça do laço da lista: com o Vito, a Enduring Tenacity ou o Blight-Priest em campo.",
+    "I": "Com um conversor em campo, o primeiro ganho encerra o jogo; sozinha, cura a cada perda deles.",
+    "T": "Cinco manas.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Bloodthirsty Conqueror faz o mesmo pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Necrodominance": {
    "notas": {
@@ -1522,7 +2796,29 @@
    "faz": "Pula a compra. No fim do turno, paga vida e compra o mesmo tanto. Mão máxima de cinco. Suas cartas que iriam ao cemitério são exiladas.",
    "porque": "Compra forte, que fica por decisão do dono (08/11/2026): mão cheia de respostas vale mais que as mortes no cemitério. Em campo, nada vai ao cemitério: Blood Artist, Vein Ripper e a Meathook só disparam com as mortes dos oponentes.",
    "prioridade": 6,
-   "fica": "Decisão do dono (08/11/2026, reforçada em 09/11): a Necrodominance fica; mão cheia de respostas vale mais que as mortes no cemitério."
+   "fica": "Decisão do dono (08/11/2026, reforçada em 09/11): a Necrodominance fica; mão cheia de respostas vale mais que as mortes no cemitério.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra: qualquer deck preto usaria.",
+    "I": "Enche a mão já no fim do turno em que entra, e de novo todo turno.",
+    "T": "Três manas; pula a compra do turno e limita a mão a cinco.",
+    "Q": "Início, paridade e na frente; atrás, a vida não sobra.",
+    "R": "A Necropotence faz o mesmo sem o exílio; desliga dez cartas da lista, três linhas, e nenhuma é o comandante."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Necropotence": {
    "notas": {
@@ -1533,7 +2829,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Pula a compra. Pague 1 de vida: a carta do topo vai para a mão no fim do turno.",
-   "porque": "O melhor motor de cartas do preto, pago com o que o deck repõe."
+   "porque": "O melhor motor de cartas do preto, pago com o que o deck repõe.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Compra: qualquer deck preto usaria.",
+    "I": "Quantas cartas quiser, no fim do turno em que entra.",
+    "T": "Três manas, 1 de vida por carta.",
+    "Q": "Início, paridade e na frente; atrás, a vida não sobra.",
+    "R": "Nenhuma outra compra da lista rende tanto por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.5
   },
   "The Meathook Massacre": {
    "notas": {
@@ -1546,14 +2861,38 @@
    "sin_por_que": {
     "sin1": "Motor sem combate: cada criatura de oponente que morre dá 1 de vida, um gatilho do Vito, e cada criatura sua que morre tira 1 de cada oponente."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "faz": "Ao entrar, todas as criaturas ganham −X/−X. Suas criaturas que morrem tiram 1 de cada oponente; as dos oponentes dão 1 de vida a você.",
    "porque": "Limpeza de tamanho ajustável que depois fica drenando: cada morte de oponente é um gatilho do Vito, e cada morte sua tira 1 de cada oponente.",
    "massa": true,
    "papel": "recompensa",
    "papel_dupla": "Remoção em massa",
-   "papel_por_que": "Cada criatura sua que morre drena; cada uma dos oponentes vira vida para o Vito."
+   "papel_por_que": "Cada criatura sua que morre drena; cada uma dos oponentes vira vida para o Vito.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Depois da limpeza fica drenando: cada morte deles é ganho seu, cada morte sua tira 1 de cada um.",
+    "I": "Vira a mesa na medida do X e continua em campo.",
+    "T": "X mais duas manas: rende na medida do que se paga.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhuma outra limpeza da lista ou do radar fica em campo drenando."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o deck fica com três limpezas e nenhuma rende depois de resolver.",
+    "A Damnation e a Toxic Deluge limpam e acabam; o Blood Artist drena, mas morre na mesma limpeza.",
+    "Atrás (limpeza), na paridade (X pequeno contra fichas) e na frente (dreno a cada morte)."
+   ],
+   "indice": 2.4
   },
   "Ancient Tomb": {
    "notas": {
@@ -1564,7 +2903,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Vira: duas incolores, com 2 de dano em você.",
-   "porque": "Duas manas num terreno: põe o Vito no turno 2, e os 2 de dano o deck repõe com folga."
+   "porque": "Duas manas num terreno: põe o Vito no turno 2, e os 2 de dano o deck repõe com folga.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Incolor.",
+    "I": "Duas manas num terreno.",
+    "T": "Desvirado; cobra 2 de vida, que o deck repõe.",
+    "Q": "Viva sempre.",
+    "R": "Nenhum outro terreno da lista dá duas manas sem condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Cabal Coffers": {
    "notas": {
@@ -1572,10 +2930,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "{2}, vira: {B} para cada Pântano.",
-   "porque": "O motor da mana grande. Com Urborg, conta todo terreno."
+   "porque": "O motor da mana grande. Com Urborg, conta todo terreno.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Paga o X do Exsanguinate e do Torment of Hailfire.",
+    "I": "Mana grande: uma preta por Pântano.",
+    "T": "Não dá mana sozinho e custa {2} para ativar: só rende com quatro Pântanos ou mais.",
+    "Q": "Paridade, na frente e atrás (paga a limpeza e a recompra).",
+    "R": "O Cabal Stronghold custa mais e conta só Pântano básico."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.9
   },
   "Cabal Stronghold": {
    "notas": {
@@ -1586,7 +2963,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Incolor. {3}, vira: {B} para cada Pântano básico.",
-   "porque": "Um Coffers pior: custa {3}, conta só Pântanos básicos, não lê Urborg nem Witch's Cottage, e sozinho gera incolor."
+   "porque": "Um Coffers pior: custa {3}, conta só Pântanos básicos, não lê Urborg nem Witch's Cottage, e sozinho gera incolor.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: a do deck.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas a mana grande custa {3}.",
+    "Q": "Vira mana grande só tarde.",
+    "R": "A Phyrexian Tower do radar dá {B}{B} por criatura sacrificada, e as mortes viram dreno."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Phyrexian Tower",
+   "confianca": "média",
+   "indice": 1.3
   },
   "Castle Locthwain": {
    "notas": {
@@ -1594,10 +2994,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Vira por {B}. {1}{B}{B}, vira: compra e perde vida igual à mão.",
-   "porque": "Compra num terreno que gera preto e entra desvirado com um Pântano: não custa nada na base, e a vida cobrada o deck repõe."
+   "porque": "Compra num terreno que gera preto e entra desvirado com um Pântano: não custa nada na base, e a vida cobrada o deck repõe.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: a do deck.",
+    "I": "Um terreno por turno; a compra custa três manas.",
+    "T": "Desvirado com um Pântano em campo.",
+    "Q": "Viva sempre.",
+    "R": "É o único terreno que compra dando preto, mas não conta como Pântano."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Mikokoro, Center of the Sea": {
    "notas": {
@@ -1609,7 +3028,30 @@
    "rel": "BAX",
    "faz": "Incolor. {2}, vira: cada jogador compra uma.",
    "porque": "Uma carta para você e três para a mesa. Troca natural: um 21º Snow-Covered Swamp.",
-   "prioridade": 12
+   "prioridade": 12,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor.",
+    "I": "Um terreno por turno; a compra dá uma carta a você e três à mesa.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "A Three Tree City do radar entra desvirada e dá uma preta por Vampiro."
+   },
+   "antissinergia": "leve",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Three Tree City",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Nykthos, Shrine to Nyx": {
    "notas": {
@@ -1617,10 +3059,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "{2}, vira: mana igual à devoção a uma cor.",
-   "porque": "Em mono-preto a devoção sobe rápido, e Nykthos vira várias manas de uma vez para o X do Exsanguinate e do Torment of Hailfire."
+   "porque": "Em mono-preto a devoção sobe rápido, e Nykthos vira várias manas de uma vez para o X do Exsanguinate e do Torment of Hailfire.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Paga o X do Exsanguinate e do Torment of Hailfire.",
+    "I": "Mana grande pela devoção ao preto.",
+    "T": "Desvirado, mas incolor, e custa {2} para ativar.",
+    "Q": "Paridade, na frente e no início como incolor.",
+    "R": "O Cabal Coffers faz o mesmo pelos Pântanos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Path of Ancestry": {
    "notas": {
@@ -1636,7 +3097,30 @@
    "rel": "MED",
    "faz": "Entra virada. Vira por {B}; scry 1 ao pagar criatura que divide tipo com o comandante.",
    "porque": "Terreno de preto que entra virado, com vidência pequena; num deck de 20 Snow-Covered Swamp, perde para o básico que a Extraplanar Lens dobra.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Preto, a cor do deck.",
+    "I": "Um terreno por turno; a vidência é pequena.",
+    "T": "Entra virado.",
+    "Q": "Atrasa um turno no início.",
+    "R": "O Snow-Covered Swamp entra desvirado e a Extraplanar Lens o dobra."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Snow-Covered Swamp",
+   "confianca": "alta",
+   "indice": 1.05
   },
   "Shizo, Death's Storehouse": {
    "notas": {},
@@ -1645,7 +3129,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Vira por {B}. {B}, vira: uma criatura lendária ganha medo.",
-   "porque": "A evasão do Vito para o Hatred. Medo não passa por criatura preta."
+   "porque": "A evasão do Vito para o Hatred. Medo não passa por criatura preta.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: a do deck.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Não conta como Pântano para o Cabal Coffers nem para a Extraplanar Lens."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Urborg, Tomb of Yawgmoth": {
    "notas": {
@@ -1656,7 +3159,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Todo terreno é Pântano.",
-   "porque": "Liga Coffers, Crypt Ghast e Consuming Corruption a todos os terrenos."
+   "porque": "Liga Coffers, Crypt Ghast e Consuming Corruption a todos os terrenos.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Faz de todo terreno um Pântano: liga Cabal Coffers, Crypt Ghast e Consuming Corruption.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Nenhum outro terreno da lista transforma os demais em Pântano."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "War Room": {
    "notas": {
@@ -1667,7 +3189,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Incolor. {3}, vira, 1 de vida: compra.",
-   "porque": "Compra num terreno por 1 de vida em mono-cor; fica no meio porque gera só incolor e cada carta custa {3}."
+   "porque": "Compra num terreno por 1 de vida em mono-cor; fica no meio porque gera só incolor e cada carta custa {3}.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor, com compra.",
+    "I": "Um terreno por turno; a compra custa três manas e 1 de vida.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "O Castle Locthwain compra dando preto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Witch's Cottage": {
    "notas": {},
@@ -1676,7 +3217,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Pântano. Desvirado com três outros Pântanos; então põe uma criatura do cemitério no topo.",
-   "porque": "Conta como Pântano para Coffers e Crypt Ghast e ainda resgata uma criatura; fica no meio porque no começo entra virado."
+   "porque": "Conta como Pântano para Coffers e Crypt Ghast e ainda resgata uma criatura; fica no meio porque no começo entra virado.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: a do deck.",
+    "I": "Um terreno por turno; desvirado, devolve uma criatura ao topo.",
+    "T": "Entra virado sem três outros Pântanos.",
+    "Q": "Viva sempre.",
+    "R": "Dos terrenos fora os básicos, é o único que já é Pântano."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Snow-Covered Swamp": {
    "notas": {},
@@ -1685,7 +3245,26 @@
    "tier": "B",
    "rel": "INS",
    "faz": "Básico nevado.",
-   "porque": "20 cópias, de propósito: com a Extraplanar Lens, só eles dobram."
+   "porque": "20 cópias, de propósito: com a Extraplanar Lens, só eles dobram.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: a do deck.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   }
  },
  "radar": {
@@ -2719,5 +4298,16 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "01. TOP",
+  "conta": "Ganhar vida com os Vampiros de vínculo e os drenos (ganhar); o Vito e as cópias do texto dele transformam cada ganho em perda de um oponente (sangrar); os drenos grandes, o ataque com vínculo e o laço terminam (fechar).",
+  "decisoes": [
+   "O Vito é midrange e a Damnation fica.",
+   "O laço com a Exquisite Blood é o plano B.",
+   "Grim Tutor, Insatiable Avarice e Necrodominance ficam por decisão sua; Hatred, Exsanguinate e New Blood são de estimação. A letra é honesta e nenhuma entra em corte."
+  ]
  }
 }
