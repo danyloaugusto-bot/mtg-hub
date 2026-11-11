@@ -155,14 +155,14 @@ with sync_playwright() as p:
     pt0 = placar_tela()
     pg.click('[data-tab="pk"]'); pg.wait_for_timeout(250)
     gks = [g["k"] for g in D["grupos"]]
-    R.ok("8×8: um quadro por agrupamento e um de Mana", pg.locator("#v-pk .kcol").count() in (NG + 1, NG + 2), pg.locator("#v-pk .kcol").count())
+    R.ok("8×8: um quadro por agrupamento, sem o de Mana", pg.locator("#v-pk .kcol").count() in (NG - 1, NG, NG + 1) and pg.locator('#v-pk [data-drop="pk:mana"]').count() == 0, pg.locator("#v-pk .kcol").count())
     R.ok("8×8: todas as cartas, menos o comandante, em algum quadro", pg.locator("#v-pk .kcol .chip").count() >= 1)
     caras = pg.evaluate("Array.from(document.querySelectorAll('#v-pk .pk-c > .chip')).map(e=>e.dataset.card)")
     porid = {c["id"]: c for c in D["cards"]}
     R.ok("8×8: a mais cara de cada pacote fica fora do plano (sem tier S, intocável ou custo que já cai)",
          all(porid[i]["cmc"] >= 4 and porid[i]["tier"] != "S" and porid[i]["rel"] != "INS" and not porid[i].get("cpd") for i in caras), caras)
     orig = next((k for k in gks if pg.locator('#v-pk [data-drop="pk:%s"] .chip' % k).count() > 0), None)
-    dest = next((k for k in gks if k != orig), None)
+    dest = next((k for k in gks if k != orig and pg.locator('#v-pk [data-drop="pk:%s"]' % k).count() > 0), None)
     if orig and dest:
         n_o = pg.locator('#v-pk [data-drop="pk:%s"] .chip' % orig).count(); n_d2 = pg.locator('#v-pk [data-drop="pk:%s"] .chip' % dest).count()
         cid = pg.get_attribute('#v-pk [data-drop="pk:%s"] .chip' % orig, "data-card")
