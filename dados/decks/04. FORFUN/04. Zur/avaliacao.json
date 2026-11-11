@@ -216,7 +216,7 @@
    {
     "tipo": "aristocratas",
     "resultado": "equilibrado",
-    "porque": "Taxa não para drenos, mas o Grasp of Fate e as Auras tiram os motores."
+    "porque": "Taxa não para drenos, mas as Auras tiram os motores, e o Grasp of Fate, do radar, também tiraria."
    },
    {
     "tipo": "spellslinger",
@@ -335,12 +335,31 @@
    "sin_por_que": {
     "sin1": "Põe de volta em campo, ao entrar e a cada ataque, uma permanente de valor até 3: os alvos do Zur voltam do cemitério sem passar pela mão."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Gigante 6/6 de 6 com vigilância. Ao entrar ou atacar, devolve do cemitério ao campo uma permanente de valor até 3.",
    "porque": "Quase todo o deck tem valor até 3: a cada ataque devolve ao campo um alvo do Zur que caiu, e ainda ajuda a fechar.",
    "papel": "habilita",
-   "papel_por_que": "Ao entrar e atacar, devolve do cemitério um alvo da busca do Zur, de valor até 3."
+   "papel_por_que": "Ao entrar e atacar, devolve do cemitério um alvo da busca do Zur, de valor até 3.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Devolve ao campo, ao entrar e a cada ataque, um alvo do Zur que caiu.",
+    "I": "Valor já na entrada, e de novo a cada ataque; 6/6 com vigilância.",
+    "T": "Seis manas, o topo da curva.",
+    "Q": "Paridade, na frente e atrás, quando reconstrói a mesa depois de uma limpeza.",
+    "R": "Só ele devolve um alvo do Zur ao campo a cada ataque; Crystal Chimes e Hall of Heliod's levam à mão ou ao topo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Consecrated Sphinx": {
    "notas": {
@@ -349,10 +368,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Esfinge 4/6 de 6 com voar. Um oponente compra: você pode comprar duas.",
-   "porque": "Com o Wedding Ring, compra infinita (Commander Spellbook 2022-3283); sozinha, já é a maior fonte de compra do deck."
+   "porque": "Com o Wedding Ring, compra infinita (Commander Spellbook 2022-3283); sozinha, já é a maior fonte de compra do deck.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Com o Dictate e o Wedding Ring da lista, cada compra deles vira duas suas.",
+    "I": "Duas cartas por compra de oponente, mas só depois de sobreviver uma volta.",
+    "T": "Seis manas, o topo da curva.",
+    "Q": "Paridade, na frente e atrás, quando repõe a mão.",
+    "R": "Nenhuma outra compra da lista ou do radar rende tanto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Teferi, Time Raveler": {
    "notas": {
@@ -375,7 +413,26 @@
    "porque": "No seu turno, ninguém responde com mágica ao ataque e à busca do Zur, e ainda taxa a mesa; habilidades ativadas ainda respondem.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Oponentes só conjuram como feitiço: o ataque e a busca do Zur passam sem resposta."
+   "papel_por_que": "Oponentes só conjuram como feitiço: o ataque e a busca do Zur passam sem resposta.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "No seu turno, ninguém responde com mágica ao ataque e à busca do Zur.",
+    "I": "Trava as instantâneas da mesa e, no −3, devolve uma ameaça e compra.",
+    "T": "Três manas por trava, remoção e compra.",
+    "Q": "Viva sempre: desce no turno 3 e segura a mesa no fim.",
+    "R": "Nenhuma outra carta da lista ou do radar tira as respostas da mesa no seu turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Alseid of Life's Bounty": {
    "notas": {
@@ -395,7 +452,26 @@
     "zur": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Encantamento de 1 que o Zur busca; sacrificado, dá proteção de cor ao Zur ou a um encantamento."
+   "papel_por_que": "Encantamento de 1 que o Zur busca; sacrificado, dá proteção de cor ao Zur ou a um encantamento.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Encantamento de 1 que o Zur busca: protege o Zur ou um encantamento de uma cor.",
+    "I": "Uso único: salva uma peça de uma remoção.",
+    "T": "Uma mana, e mais {1} para sacrificar.",
+    "Q": "Viva sempre: corpo com vínculo cedo, proteção depois.",
+    "R": "É a proteção mais barata que o Zur busca; o Vanishing, do radar, pede {U}{U} por uso."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Baleful Strix": {
    "notas": {
@@ -407,7 +483,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Pássaro artefato 1/1 de 2 com voar e toque mortífero; compra ao entrar.",
-   "porque": "Bloqueador barato que repõe a carta; cumpre o papel, mas não é encantamento e o Zur não o busca."
+   "porque": "Bloqueador barato que repõe a carta; cumpre o papel, mas não é encantamento e o Zur não o busca.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica com corpo; não é encantamento e o Zur não a busca.",
+    "I": "Repõe a carta e segura um atacante com toque mortífero.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "A compra está no topo da cota: doze cartas para dez a doze."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Sakashima the Impostor": {
    "notas": {
@@ -425,7 +520,26 @@
    "faz": "Humano Ladino lendário de 4 que entra como cópia de uma criatura, com o nome Sakashima; {2}{U}{U}: volta à mão no fim do turno.",
    "porque": "Copiando o Zur, ganha o gatilho de busca: dois encantamentos por combate. Fica em B porque depende de o Zur estar em campo.",
    "papel": "multiplica",
-   "papel_por_que": "Cópia do Zur: dois gatilhos de ataque, duas buscas por turno."
+   "papel_por_que": "Cópia do Zur: dois gatilhos de ataque, duas buscas por turno.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o buscar em dobro: copiando o Zur, ganha o gatilho de busca.",
+    "I": "Dois encantamentos por combate, mas só com o Zur em campo e os dois vivos.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, quando copia a maior criatura da mesa.",
+    "R": "O Wizard's Staff, do radar, dobra a busca por duas manas e equipar {1}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Silent Arbiter": {
    "notas": {
@@ -443,7 +557,29 @@
    "faz": "Construto artefato 1/5 de 4. Só uma criatura ataca e só uma bloqueia por combate.",
    "porque": "Segura mesa larga, mas limita você também, e não é encantamento: o Zur não o busca, e a Propaganda taxa sem travar você.",
    "papel": "habilita",
-   "papel_por_que": "Só uma criatura ataca por combate: a mesa não atropela você, e o Zur ataca sozinho de qualquer jeito."
+   "papel_por_que": "Só uma criatura ataca por combate: a mesa não atropela você, e o Zur ataca sozinho de qualquer jeito.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Trava simétrica: desliga o segundo Zur do Sakashima e o ataque do Sun Titan junto com o Zur.",
+    "I": "Uma criatura ataca e uma bloqueia por combate, para todos: mesa larga não atropela.",
+    "T": "Quatro manas, artefato que o Zur não busca.",
+    "Q": "Início, paridade e atrás, contra mesa larga.",
+    "R": "A taxa passou da cota (seis para quatro a cinco); o radar põe a Duelist's Heritage na vaga."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "média",
+   "indice": 1.15
   },
   "Nighthowler": {
    "notas": {
@@ -461,7 +597,26 @@
    "porque": "O Zur o busca, mas posto por ele entra só como criatura: a concessão, que o faria Aura no Zur, só vale conjurando.",
    "marcas": {
     "zur": 1
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Posto pelo Zur, entra só como criatura: a concessão no Zur só vale conjurando.",
+    "I": "Um corpo X/X, com X as criaturas nos cemitérios.",
+    "T": "Três manas como criatura; quatro para encantar o Zur.",
+    "Q": "Paridade, na frente e atrás, como bloqueador no jogo longo.",
+    "R": "O fechamento passou da cota (quatro para dois a três), e esta é a pior cópia."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.1
   },
   "Judge's Familiar": {
    "notas": {
@@ -474,7 +629,30 @@
    "rel": "BAX",
    "faz": "Pássaro 1/1 de 1 com voar. Sacrifique: anula instantânea ou feitiço, a menos que paguem {1}.",
    "porque": "Anulação de uso único e fraca, que só cobra {1}; não é encantamento e o Zur não a busca.",
-   "prioridade": 7
+   "prioridade": 7,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Anulação genérica; não é encantamento e o Zur não a busca.",
+    "I": "Anula uma mágica uma vez, a menos que paguem {1}.",
+    "T": "Uma mana.",
+    "Q": "Início e paridade; tarde, a taxa de {1} não segura nada.",
+    "R": "A Swan Song, do radar, anula de verdade por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Swan Song",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "All That Glitters": {
    "notas": {
@@ -495,7 +673,31 @@
     "zur": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "No Zur, +1/+1 por artefato ou encantamento: cada busca vira dano de comandante."
+   "papel_por_que": "No Zur, +1/+1 por artefato ou encantamento: cada busca vira dano de comandante.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o fechar: no Zur, cada pedra e cada encantamento vira +1/+1 de dano de comandante.",
+    "I": "Faz do Zur uma ameaça voadora que cresce a cada busca; precisa ficar.",
+    "T": "Duas manas, ou de graça pelo Zur no ataque.",
+    "Q": "Paridade, na frente e atrás, quando faz do Zur um bloqueador grande.",
+    "R": "A Ethereal Armor, do radar, conta só encantamentos; o deck tem duas peças que fazem o Zur bater, para quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o Zur é um 1/4: com a Combat Research, bate 2, e o dano de comandante sai do alcance.",
+    "A Ethereal Armor, do radar, conta só encantamentos e deixa as pedras de fora; a Steel of the Godhead dá +2/+2 fixo.",
+    "Na paridade e na frente, buscada no próprio ataque, já soma naquele combate; atrás, faz do Zur um bloqueador grande que voa."
+   ],
+   "indice": 2.65
   },
   "Propaganda": {
    "notas": {
@@ -522,7 +724,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Zur, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o cobrar: atacar você custa {2} por criatura.",
+    "I": "Segura a mesa toda volta enquanto ficar.",
+    "T": "Três manas, ou de graça na primeira busca do Zur.",
+    "Q": "Viva sempre: desce no turno 3 e protege a vantagem no fim.",
+    "R": "A Ghostly Prison, do radar, é idêntica."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.4
   },
   "Darksteel Mutation": {
    "notas": {
@@ -548,7 +769,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Zur, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Alvo comum da busca: posta pelo Zur, não mira e passa por hexproof e manto.",
+    "I": "Neutraliza um comandante sem mandá-lo à zona de comando.",
+    "T": "Duas manas, ou de graça pelo Zur.",
+    "Q": "Viva sempre: tira a ameaça cedo e o comandante tarde.",
+    "R": "A Grasp of Fate e a Banishing Light, do radar, exilam, e o comandante volta ao comando."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Imprisoned in the Moon": {
    "notas": {
@@ -561,7 +801,7 @@
    "sin_por_que": {
     "sin1": "Aura de valor 3 que funciona inteira posta pelo Zur; sem mirar, entra em criatura, terreno ou planeswalker com resistência a mágica."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Aura de 3: criatura, terreno ou planeswalker vira terreno incolor, sem outras habilidades.",
    "porque": "Remoção cirúrgica de criatura, terreno ou planeswalker; posta pelo Zur, não mira e passa por hexproof.",
@@ -574,7 +814,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Zur, sem conjurar"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca: posta pelo Zur, não mira e passa por hexproof.",
+    "I": "Criatura, terreno ou planeswalker vira terreno incolor, comandante incluído.",
+    "T": "Três manas de feitiço da mão, ou de graça pelo Zur.",
+    "Q": "Viva sempre: pega até o terreno-chave no início.",
+    "R": "A Banishing Light, do radar, não pega terreno, e o comandante exilado volta ao comando."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Greater Auramancy": {
    "notas": {
@@ -586,7 +845,7 @@
    "sin_por_que": {
     "sin1": "Encantamento de valor 2 que funciona inteiro posto pelo Zur: manto nos outros encantamentos e nas criaturas encantadas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 2: seus outros encantamentos e suas criaturas encantadas têm manto.",
    "porque": "Blinda os encantamentos e o Zur encantado. O manto barra as Auras que você conjura nele; as que o Zur busca não miram e entram.",
@@ -594,7 +853,26 @@
     "zur": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Manto aos seus encantamentos e ao Zur encantado: protege o motor e o que ele busca."
+   "papel_por_que": "Manto aos seus encantamentos e ao Zur encantado: protege o motor e o que ele busca.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca: manto nos seus encantamentos e no Zur encantado.",
+    "I": "Protege todos os encantamentos de remoção com alvo; barra as Auras que você conjura no Zur.",
+    "T": "Duas manas, ou de graça pelo Zur.",
+    "Q": "Início, paridade e na frente; não salva de limpeza.",
+    "R": "A Diplomatic Immunity, do radar, protege uma criatura só."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Reconnaissance": {
    "notas": {
@@ -607,7 +885,7 @@
    "sin_por_que": {
     "sin1": "Encantamento de valor 1 que funciona inteiro posto pelo Zur; depois da busca, tira o Zur do combate e o desvira."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Encantamento de 1. {0}: tira uma criatura sua atacante do combate e a desvira.",
    "porque": "O Zur ataca, busca e sai do combate antes dos bloqueios, sem custo: a busca de todo turno sem arriscar o comandante.",
@@ -615,7 +893,31 @@
     "zur": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Tira o Zur do combate e o desvira depois do gatilho: busca sem risco e fica para bloquear."
+   "papel_por_que": "Tira o Zur do combate e o desvira depois do gatilho: busca sem risco e fica para bloquear.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o atacar sem risco: o Zur ataca, busca e sai do combate antes dos bloqueios.",
+    "I": "Vale todo turno, por {0}; precisa ficar.",
+    "T": "Uma mana, ou de graça pelo Zur.",
+    "Q": "Paridade, atrás e na frente; no início, sem o Zur, não faz nada.",
+    "R": "O Vanishing, do radar, tira o Zur de fase por {U}{U} a cada uso, e ele não fica para bloquear."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ela, cada ataque expõe o Zur, um 1/4, aos bloqueios, e ele passa a volta da mesa virado.",
+    "O Vanishing, do radar, cobra {U}{U} por uso e some com o Zur até a sua volta; Lightning Greaves e Greater Auramancy não protegem de bloqueio.",
+    "Na paridade e atrás, busca sem arriscar o comandante; na frente, o Zur encantado bate e desvira depois do dano."
+   ],
+   "indice": 2.45
   },
   "Act of Authority": {
    "notas": {
@@ -644,7 +946,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Zur, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca: o exílio da entrada dispara posto pelo Zur.",
+    "I": "Exila um artefato ou encantamento; repetir na manutenção entrega a carta ao dono do alvo.",
+    "T": "Três manas, ou de graça pelo Zur.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Fracture faz o mesmo da mão por duas manas, instantânea."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Minimus Containment": {
    "notas": {
@@ -670,7 +991,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Zur, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca: posta pelo Zur, não mira e pega qualquer permanente não-terreno.",
+    "I": "Uma por uma; o dono ganha um Tesouro, e o comandante pode voltar ao comando.",
+    "T": "Três manas de feitiço da mão, ou de graça pelo Zur.",
+    "Q": "Viva sempre.",
+    "R": "A Banishing Light, do radar, exila sem dar Tesouro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Mystic Subdual": {
    "notas": {
@@ -693,7 +1033,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Alvo da busca: tira as habilidades e −2/−0 de uma criatura."
+   "papel_por_que": "Alvo da busca: tira as habilidades e −2/−0 de uma criatura.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca: posta pelo Zur, entra em criatura com hexproof.",
+    "I": "Apaga as habilidades, mas o corpo fica e ataca.",
+    "T": "Duas manas com lampejo da mão, ou de graça pelo Zur.",
+    "Q": "Viva sempre: com lampejo, responde da mão.",
+    "R": "A Darksteel Mutation faz o mesmo e ainda tira o corpo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Blind Obedience": {
    "notas": {
@@ -717,7 +1076,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Recompensa (extort)",
-   "papel_por_que": "Criaturas dos oponentes entram viradas: atacam você mais tarde enquanto o Zur ataca."
+   "papel_por_que": "Criaturas dos oponentes entram viradas: atacam você mais tarde enquanto o Zur ataca.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cobra em tempo: criaturas e artefatos dos oponentes entram virados.",
+    "I": "Atrasa uma volta cada atacante e pedra deles; o extort só rende pagando {W/B}.",
+    "T": "Duas manas, ou de graça pelo Zur.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhuma outra taxa da lista cobra em tempo; o Stasis, do radar, trava você também."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Combat Research": {
    "notas": {
@@ -741,7 +1119,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ward no Zur)",
-   "papel_por_que": "No Zur voador, cada dano de combate compra uma carta; lendário, ganha +1/+1 e ward {1}."
+   "papel_por_que": "No Zur voador, cada dano de combate compra uma carta; lendário, ganha +1/+1 e ward {1}.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "No Zur, que é lendário: +1/+1, ward {1} e uma carta por acerto.",
+    "I": "Uma carta por acerto; precisa que o Zur conecte e fique.",
+    "T": "Uma mana, ou de graça pelo Zur.",
+    "Q": "Paridade, na frente e atrás; o ward protege o Zur da remoção barata.",
+    "R": "A Ethereal Armor e a Steel of the Godhead, do radar, batem mais; faltam peças que façam o Zur bater."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Copy Enchantment": {
    "notas": {
@@ -763,7 +1160,26 @@
     "zur": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Entra como cópia do melhor encantamento em campo: um segundo Propaganda ou Phyrexian Arena."
+   "papel_por_que": "Entra como cópia do melhor encantamento em campo: um segundo Propaganda ou Phyrexian Arena.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca que vale o melhor encantamento em campo: segunda Propaganda ou segunda Aura de remoção.",
+    "I": "Dois por um com a mesa montada, ou a melhor peça de um oponente.",
+    "T": "Três manas, ou de graça pelo Zur.",
+    "Q": "Paridade, na frente e atrás; cedo, falta o que copiar.",
+    "R": "A Mirrormade, do radar, faz o mesmo e copia artefato também."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Dictate of Kruphix": {
    "notas": {
@@ -788,7 +1204,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Alvo da busca que compra a mais todo turno; a carta dada aos oponentes alimenta Underworld Dreams."
+   "papel_por_que": "Alvo da busca que compra a mais todo turno; a carta dada aos oponentes alimenta Underworld Dreams.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Liga o Underworld Dreams, o Consecrated Sphinx e o Ominous Seas: a compra a mais deles rende.",
+    "I": "Uma carta a mais por turno para você e para cada oponente.",
+    "T": "Três manas com lampejo, ou de graça pelo Zur.",
+    "Q": "Início, paridade e na frente.",
+    "R": "Nenhuma outra carta da lista dá compra à mesa toda."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Hissing Miasma": {
    "notas": {
@@ -812,7 +1247,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno a cada ataque)",
-   "papel_por_que": "Atacar você custa 1 de vida por criatura: segura a mesa enquanto o Zur ataca."
+   "papel_por_que": "Atacar você custa 1 de vida por criatura: segura a mesa enquanto o Zur ataca.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cobra em vida: cada criatura que ataca você tira 1 do dono.",
+    "I": "Pune o ataque, mas não o impede; precisa ficar.",
+    "T": "Três manas com {B}{B}, ou de graça pelo Zur.",
+    "Q": "Início, paridade e atrás.",
+    "R": "A Propaganda segura de verdade, e a taxa passou da cota: seis para quatro a cinco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Karmic Justice": {
    "notas": {
@@ -838,7 +1292,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Pune quem destrói suas não-criaturas: protege os encantamentos que o Zur pôs em campo."
+   "papel_por_que": "Pune quem destrói suas não-criaturas: protege os encantamentos que o Zur pôs em campo.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca que pune quem destrói os seus encantamentos.",
+    "I": "Dissuasão: troca a peça perdida por uma deles; não cobre exílio.",
+    "T": "Três manas, ou de graça pelo Zur.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Greater Auramancy protege antes da remoção; a Karmic Justice só responde depois."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Luminarch Ascension": {
    "notas": {
@@ -860,7 +1333,26 @@
     "zur": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Com a taxa segurando a mesa, ganha marcadores e vira Anjos 4/4: fecha o jogo."
+   "papel_por_que": "Com a taxa segurando a mesa, ganha marcadores e vira Anjos 4/4: fecha o jogo.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Transforma a taxa em exército: turno de oponente sem perder vida vira marcador.",
+    "I": "Com quatro marcadores, um Anjo 4/4 voador por {1}{W}; precisa ficar.",
+    "T": "Duas manas, ou de graça pelo Zur.",
+    "Q": "Paridade e na frente, quando a taxa segura a mesa.",
+    "R": "Nenhuma outra carta da lista ou do radar troca a taxa por criaturas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Parasitic Impetus": {
    "notas": {
@@ -875,7 +1367,7 @@
     "sin1": "Aura de valor 3 que funciona inteira posta pelo Zur, em qualquer criatura de oponente.",
     "sin2": "Goad que também tira vida: a criatura ataca os outros e, a cada ataque, o dono dela perde 2 e você ganha 2."
    },
-   "tier": "B",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Aura de 3: +2/+2 e goad; ao atacar, o controlador perde 2 e você ganha 2.",
    "porque": "A criatura dele bate nos outros e paga você a cada ataque: política e dreno numa Aura só, que o Zur põe de graça.",
@@ -888,7 +1380,31 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Zur, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o cobrar inteiro: a criatura dele ataca os outros e paga você a cada ataque.",
+    "I": "Tira um atacante de cima de você e drena 2 por ataque; precisa ficar.",
+    "T": "Três manas, ou de graça pelo Zur, em qualquer criatura de oponente.",
+    "Q": "Paridade, atrás e na frente; cedo, falta criatura na mesa deles.",
+    "R": "A Psychic Impetus dá o mesmo goad sem o dreno; o Killian, do radar, dá goad, mas é criatura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ela, o goad da lista não cobra ninguém: a Psychic Impetus e a Bloodthirsty Blade mandam atacar, mas não tiram vida.",
+    "A Psychic Impetus custa o mesmo e só dá vidência 2; o Killian, do radar, dá goad a cada encantamento, mas é criatura de três manas que precisa ficar.",
+    "Na paridade, atrás e na frente: a maior criatura da mesa bate nos outros, e cada ataque dela paga 2 a você."
+   ],
+   "indice": 2.45
   },
   "Phyrexian Arena": {
    "notas": {
@@ -909,7 +1425,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Alvo comum da busca: uma carta a mais todo turno."
+   "papel_por_que": "Alvo comum da busca: uma carta a mais todo turno.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo comum da busca: posta pelo Zur, funciona inteira.",
+    "I": "Uma carta por turno enquanto ficar.",
+    "T": "Três manas, ou de graça pelo Zur.",
+    "Q": "Início, paridade e atrás.",
+    "R": "A Dark Tutelage faz o mesmo na lista; o Rhystic Study, do radar, compra mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Underworld Dreams": {
    "notas": {
@@ -934,7 +1469,26 @@
    "custo_usual": {
     "cmc": 0,
     "como": "pelo Zur, sem conjurar"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Converte a compra a mais do Dictate e do Wedding Ring em dano.",
+    "I": "Sozinho, 1 de dano por oponente por rodada; precisa ficar.",
+    "T": "Da mão, {B}{B}{B} com sete terrenos pretos; de graça pelo Zur.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O fechamento passou da cota; o Grim Guardian, do radar, drena a cada encantamento."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Psychic Impetus": {
    "notas": {
@@ -957,7 +1511,26 @@
     "zur": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Goad numa criatura de oponente: ela ataca os outros, e você vidência 2."
+   "papel_por_que": "Goad numa criatura de oponente: ela ataca os outros, e você vidência 2.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Escolhe quem bate em quem: a criatura encantada ataca outro jogador todo combate.",
+    "I": "Tira um atacante de cima de você, e vidência 2 a cada ataque; precisa ficar.",
+    "T": "Três manas, ou de graça pelo Zur.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "A Parasitic Impetus faz o mesmo e ainda drena 2."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Shade's Form": {
    "notas": {
@@ -978,7 +1551,26 @@
     "zur": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Se o Zur morre, volta ao campo sob seu controle: o motor não para."
+   "papel_por_que": "Se o Zur morre, volta ao campo sob seu controle: o motor não para.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca: seguro no Zur, ou roubo na criatura de um oponente.",
+    "I": "Devolve o Zur uma vez se ele morrer; não cobre exílio.",
+    "T": "Três manas com {B}{B}, ou de graça pelo Zur.",
+    "Q": "Paridade, na frente e atrás; o {B} faz o Zur crescer.",
+    "R": "A Curator's Ward, do radar, protege antes e compra se o Zur cair."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Arguel's Blood Fast": {
    "notas": {
@@ -999,7 +1591,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Alvo da busca que vira compra paga com vida."
+   "papel_por_que": "Alvo da busca que vira compra paga com vida.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca: posto pelo Zur, funciona inteiro.",
+    "I": "Uma carta por {1}{B} e 2 de vida.",
+    "T": "Duas manas, e cada carta custa mana e vida.",
+    "Q": "Paridade e na frente; atrás, a vida pesa.",
+    "R": "A Phyrexian Arena compra sem gastar mana, e a compra está no topo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Dark Tutelage": {
    "notas": {
@@ -1011,7 +1622,7 @@
    "sin_por_que": {
     "sin1": "Encantamento de valor 3 que funciona inteiro posto pelo Zur."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 3: na manutenção, o topo vai para a mão e você perde vida igual ao valor.",
    "porque": "Compra contínua que o valor baixo do deck mantém barata em vida; repete a Phyrexian Arena com mais risco.",
@@ -1020,7 +1631,27 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Alvo da busca que compra uma carta por turno, pagando vida."
+   "papel_por_que": "Alvo da busca que compra uma carta por turno, pagando vida.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alvo da busca: posta pelo Zur, funciona inteira.",
+    "I": "Uma carta por turno enquanto ficar.",
+    "T": "Três manas, e vida pelo valor de cada carta revelada.",
+    "Q": "Início, paridade e atrás; com vida baixa, pesa.",
+    "R": "A Phyrexian Arena faz o mesmo com menos risco; o Rhystic Study, do radar, compra mais."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Rhystic Study",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Ominous Seas": {
    "notas": {
@@ -1033,7 +1664,7 @@
    "sin_por_que": {
     "sin1": "Encantamento de valor 2 que funciona inteiro posto pelo Zur; a ciclagem só vale da mão."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Encantamento de 2: um marcador por carta comprada; oito marcadores: um Kraken 8/8; ciclagem {2}.",
    "porque": "Fechamento lento que brilha com o Dictate e o Consecrated Sphinx; sem eles, o Kraken demora.",
@@ -1041,7 +1672,26 @@
     "zur": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Alvo da busca que vira Kraken 8/8 com as compras do deck."
+   "papel_por_que": "Alvo da busca que vira Kraken 8/8 com as compras do deck.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Com o Dictate e o Consecrated Sphinx, as compras viram um Kraken 8/8.",
+    "I": "Um Kraken a cada oito compras; demora sem as outras peças.",
+    "T": "Duas manas, ou de graça pelo Zur.",
+    "Q": "Paridade, na frente e atrás, quando cicla da mão.",
+    "R": "O fechamento passou da cota: quatro para dois a três."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Oppression": {
    "notas": {
@@ -1066,7 +1716,31 @@
    "prioridade": 5,
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Trava quem conjura; o Zur põe encantamentos sem conjurar e foge do próprio descarte."
+   "papel_por_que": "Trava quem conjura; o Zur põe encantamentos sem conjurar e foge do próprio descarte.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Trava simétrica: das 66 cartas que não são terreno, só as que o Zur põe escapam do descarte.",
+    "I": "Quem conjura descarta: trava a mesa toda.",
+    "T": "Três manas com {B}{B}, ou de graça pelo Zur.",
+    "Q": "Paridade e na frente, com a sua mão vazia.",
+    "R": "A Archnemesis, do radar, entra na vaga: política que não trava você."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Archnemesis",
+   "confianca": "média",
+   "indice": 1.15
   },
   "Out of Time": {
    "notas": {
@@ -1088,7 +1762,31 @@
     "zur": 1
    },
    "massa": true,
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "D",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Buscado no ataque, tira de fase o próprio Zur, que sai do combate e da mesa.",
+    "I": "Todas as criaturas saem de fase, as suas também, por um turno seu a cada criatura.",
+    "T": "Três manas, ou de graça pelo Zur.",
+    "Q": "Só atrás, e com o Zur fora de campo.",
+    "R": "A Grasp of Fate, do radar, entra na vaga: tira uma peça de cada oponente."
+   },
+   "antissinergia": "estrutural",
+   "travas": [
+    "antissinergia estrutural",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Grasp of Fate",
+   "confianca": "alta",
+   "indice": 0.85
   },
   "Sol Ring": {
    "notas": {
@@ -1096,10 +1794,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "faz": "Artefato de 1: {C}{C}.",
-   "porque": "A aceleração mais forte do deck: duas manas por uma, e o Zur chega no turno 3."
+   "porque": "A aceleração mais forte do deck: duas manas por uma, e o Zur chega no turno 3.",
+   "tier_anterior": "S",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: qualquer deck usaria.",
+    "I": "Duas manas a mais desde o turno 1.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma pedra rende igual."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Arcane Signet": {
    "notas": {
@@ -1107,10 +1824,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Artefato de 2: mana da identidade.",
-   "porque": "Pedra de cor por duas manas, sem condição, e dá o preto que só 7 terrenos geram."
+   "porque": "Pedra de cor por duas manas, sem condição, e dá o preto que só 7 terrenos geram.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura; dá o preto que só sete terrenos geram.",
+    "I": "Uma mana a mais, de qualquer cor do Zur.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "As pedras estão no topo da cota, mas esta dá as três cores por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Talisman of Hierarchy": {
    "notas": {
@@ -1118,10 +1854,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Artefato de 2: {C}, ou {W} ou {B} com 1 de dano.",
-   "porque": "Pedra de cor por duas manas que dá preto, a cor que só 7 terrenos do deck geram."
+   "porque": "Pedra de cor por duas manas que dá preto, a cor que só 7 terrenos do deck geram.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura; dá branco ou preto.",
+    "I": "Uma mana a mais.",
+    "T": "Duas manas; a cor custa 1 de vida.",
+    "Q": "Viva sempre.",
+    "R": "As pedras estão no topo da cota, mas é uma das que dão preto por duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Mind Stone": {
    "notas": {
@@ -1133,7 +1888,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 2: {C}; {1}, vira, sacrifique: compre.",
-   "porque": "Pedra barata que vira carta depois; incolor, não ajuda com o preto que falta."
+   "porque": "Pedra barata que vira carta depois; incolor, não ajuda com o preto que falta.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura incolor; não ajuda com o preto que falta.",
+    "I": "Uma mana a mais, e uma carta tarde.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre: tarde, vira carta.",
+    "R": "As pedras estão no topo da cota, e as de duas com cor rendem mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Chromatic Lantern": {
    "notas": {
@@ -1144,7 +1918,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Artefato de 3: qualquer cor; seus terrenos dão qualquer cor.",
-   "porque": "Conserta o preto que falta em toda a base, mas custa três manas, o que a segura em B."
+   "porque": "Conserta o preto que falta em toda a base, mas custa três manas, o que a segura em B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: conserta a cor.",
+    "I": "Todo terreno passa a dar qualquer cor, e o preto deixa de faltar.",
+    "T": "Três manas.",
+    "Q": "Viva sempre.",
+    "R": "Nenhuma outra pedra conserta a base inteira; o radar põe a Anthropological Mission na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Lightning Greaves": {
    "notas": {
@@ -1157,12 +1950,31 @@
    "sin_por_que": {
     "sin1": "Não é encantamento; dá ímpeto ao Zur, que ataca e busca no turno em que entra, e manto, que não barra as Auras que a busca põe sem mirar."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "ALT",
    "faz": "Equipamento de 2, equipar {0}: ímpeto e manto.",
    "porque": "O Zur ataca e busca no turno em que desce; o manto barra as suas Auras conjuradas nele, e só as da busca entram.",
    "papel": "habilita",
-   "papel_por_que": "Ímpeto e manto: o Zur ataca e busca no turno em que entra, sem alvo de remoção."
+   "papel_por_que": "Ímpeto e manto: o Zur ataca e busca no turno em que entra, sem alvo de remoção.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ímpeto: o Zur ataca e busca no turno em que entra, e na volta do comando.",
+    "I": "Ímpeto e manto na hora; o manto barra as Auras que você conjura no Zur.",
+    "T": "Duas manas, e equipar de graça.",
+    "Q": "Viva sempre: desce antes do Zur e o protege na volta.",
+    "R": "A Swiftfoot Boots, do radar, cobra {1} para equipar, mas não barra as suas Auras."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Bloodthirsty Blade": {
    "notas": {
@@ -1179,7 +1991,26 @@
    "faz": "Equipamento de 2: +2/+0 e goad; {1}: equipa uma criatura de oponente, como feitiço.",
    "porque": "Escolhe quem bate em quem por {1}, a política que o deck quer; não é encantamento e o Zur não a busca.",
    "papel": "habilita",
-   "papel_por_que": "Goad numa criatura de oponente: ela ataca outro jogador, não você com o Zur virado."
+   "papel_por_que": "Goad numa criatura de oponente: ela ataca outro jogador, não você com o Zur virado.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Escolhe quem bate em quem: goad que você muda de criatura por {1}.",
+    "I": "+2/+0 e goad numa criatura de oponente.",
+    "T": "Duas manas, e {1} para mudar de alvo.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "É o único goad da lista que muda de criatura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Wedding Ring": {
    "notas": {
@@ -1196,7 +2027,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Artefato de 4: conjurado, um oponente ganha uma cópia; ele compra ou ganha vida no turno dele, você também.",
-   "porque": "Presente político para um oponente e, com o Consecrated Sphinx, compra infinita; sem o combo, divide o ganho com ele."
+   "porque": "Presente político para um oponente e, com o Consecrated Sphinx, compra infinita; sem o combo, divide o ganho com ele.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Presente político para um oponente; com o Consecrated Sphinx, compra o grimório.",
+    "I": "Uma carta a mais por turno para você e para o oponente escolhido.",
+    "T": "Quatro manas, no padrão da compra recorrente.",
+    "Q": "Paridade, atrás (vira aliança) e na frente (o laço com o Sphinx).",
+    "R": "O Loran of the Third Path, do radar, dá o presente, mas não fecha o laço com o Sphinx."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Azorius Locket": {
    "notas": {
@@ -1208,7 +2058,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 3: {W} ou {U}; quatro manas híbridas, vira, sacrifique: compre duas.",
-   "porque": "Pedra de três manas que não dá preto; o deck tem pedras mais baratas à frente."
+   "porque": "Pedra de três manas que não dá preto; o deck tem pedras mais baratas à frente.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura; não dá preto.",
+    "I": "Uma mana a mais; tarde, duas cartas.",
+    "T": "Três manas.",
+    "Q": "Viva sempre: tarde, vira duas cartas.",
+    "R": "As pedras de duas da lista fazem mais por menos; as pedras estão no topo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Orzhov Locket": {
    "notas": {
@@ -1220,7 +2089,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 3: {W} ou {B}; quatro manas híbridas, vira, sacrifique: compre duas.",
-   "porque": "Pedra de três manas que dá preto, mas o Talisman of Hierarchy faz isso por duas."
+   "porque": "Pedra de três manas que dá preto, mas o Talisman of Hierarchy faz isso por duas.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura; dá preto.",
+    "I": "Uma mana a mais; tarde, duas cartas.",
+    "T": "Três manas.",
+    "Q": "Viva sempre: tarde, vira duas cartas.",
+    "R": "O Talisman of Hierarchy dá as mesmas cores por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Commander's Sphere": {
    "notas": {
@@ -1232,7 +2120,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 3: mana da identidade; sacrifique: compre.",
-   "porque": "Pedra de três manas; o Arcane Signet dá as mesmas cores por duas."
+   "porque": "Pedra de três manas; o Arcane Signet dá as mesmas cores por duas.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura; dá as três cores.",
+    "I": "Uma mana a mais; tarde, uma carta.",
+    "T": "Três manas.",
+    "Q": "Viva sempre: tarde, vira carta.",
+    "R": "O Arcane Signet dá as mesmas cores por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Decanter of Endless Water": {
    "notas": {
@@ -1243,7 +2150,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 3: sem limite de mão; qualquer cor.",
-   "porque": "Pedra de três manas, mais lenta que as de duas; o limite de mão raramente importa aqui."
+   "porque": "Pedra de três manas, mais lenta que as de duas; o limite de mão raramente importa aqui.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura; o fim do limite de mão quase nunca pesa.",
+    "I": "Uma mana a mais, de qualquer cor.",
+    "T": "Três manas.",
+    "Q": "Viva sempre.",
+    "R": "As pedras de duas da lista fazem o mesmo por menos; as pedras estão no topo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Mind's Eye": {
    "notas": {
@@ -1254,7 +2180,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Artefato de 5: um oponente compra, pague {1} e compre.",
-   "porque": "Cinco manas e mais mana a cada compra; casa com o Dictate e o Wedding Ring, mas é cara para o que rende."
+   "porque": "Cinco manas e mais mana a cada compra; casa com o Dictate e o Wedding Ring, mas é cara para o que rende.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica; rende mais com o Dictate e o Wedding Ring.",
+    "I": "Uma carta por {1} a cada compra de oponente; precisa ficar.",
+    "T": "Cinco manas, e mais mana por carta.",
+    "Q": "Paridade e na frente.",
+    "R": "A Mystic Remora, do radar, entra na vaga: o Zur a busca e ela compra pela taxa."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Mystic Remora",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Crawlspace": {
    "notas": {
@@ -1273,7 +2222,30 @@
    "porque": "Taxa de ataque que o Zur não busca, por ser artefato; a Propaganda faz o papel e vem de graça na busca.",
    "prioridade": 6,
    "papel": "habilita",
-   "papel_por_que": "Só duas criaturas atacam você por combate: segura a mesa enquanto o Zur ataca virado."
+   "papel_por_que": "Só duas criaturas atacam você por combate: segura a mesa enquanto o Zur ataca virado.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Taxa só contra você: no máximo duas criaturas atacam você por combate.",
+    "I": "Corta o ataque em massa, mas não cobra nada.",
+    "T": "Três manas, artefato que o Zur não busca.",
+    "Q": "Início, paridade e atrás.",
+    "R": "A Ghostly Prison, do radar, entra na vaga: o Zur a busca e ela cobra {2} por atacante."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Ghostly Prison",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Crystal Chimes": {
    "notas": {
@@ -1291,7 +2263,26 @@
    "porque": "Recursão lenta, que devolve à mão e não ao campo; o Sun Titan e o Hall of Heliod's Generosity fazem melhor.",
    "prioridade": 9,
    "papel": "habilita",
-   "papel_por_que": "Recursão: devolve à mão todos os encantamentos do cemitério, para o Zur e a mão reporem."
+   "papel_por_que": "Recursão: devolve à mão todos os encantamentos do cemitério, para o Zur e a mão reporem.",
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recupera encantamentos para a mão, não para o campo.",
+    "I": "Devolve à mão todos os encantamentos do cemitério de uma vez.",
+    "T": "Três manas, e mais três para usar.",
+    "Q": "Só atrás, depois de uma limpeza de encantamentos.",
+    "R": "O Sun Titan devolve ao campo; o radar põe o Wizard's Staff na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Prophetic Prism": {
    "notas": {
@@ -1304,7 +2295,30 @@
    "rel": "BAX",
    "faz": "Artefato de 2: compre ao entrar; {1}, vira: uma mana de qualquer cor.",
    "porque": "Filtro de cor, não ramp: troca uma mana por outra e repõe a carta, sem acelerar o Zur.",
-   "prioridade": 11
+   "prioridade": 11,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Filtro de cor: dá o preto, mas não acelera.",
+    "I": "Repõe a carta e conserta uma cor por turno.",
+    "T": "Duas manas, e {1} por uso.",
+    "Q": "Início, paridade e atrás, quando falta cor.",
+    "R": "O Talisman of Dominance, do radar, entra na vaga: dá azul ou preto e acelera."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Talisman of Dominance",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Mortify": {
    "notas": {
@@ -1315,7 +2329,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 3: destrói criatura ou encantamento.",
-   "porque": "Remoção instantânea que pega criatura ou encantamento; cumpre o papel, mas não é encantamento e o Zur não a busca."
+   "porque": "Remoção instantânea que pega criatura ou encantamento; cumpre o papel, mas não é encantamento e o Zur não a busca.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica; não é encantamento e o Zur não a busca.",
+    "I": "Uma por uma, criatura ou encantamento.",
+    "T": "Três manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "É uma das três remoções instantâneas, e a remoção pontual está dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Stroke of Midnight": {
    "notas": {
@@ -1326,7 +2359,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 3: destrói uma permanente não-terreno; o controlador ganha um Humano 1/1.",
-   "porque": "Remoção ampla de qualquer permanente não-terreno; fica em B por deixar um Humano ao dono e não vir pela busca."
+   "porque": "Remoção ampla de qualquer permanente não-terreno; fica em B por deixar um Humano ao dono e não vir pela busca.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma, de qualquer permanente não-terreno; o dono ganha um 1/1.",
+    "T": "Três manas, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "É a remoção instantânea mais ampla da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Fracture": {
    "notas": {
@@ -1337,7 +2389,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea {W}{B}: destrói artefato, encantamento ou planeswalker.",
-   "porque": "Remoção barata de artefato, encantamento ou planeswalker; não pega criatura, o que a segura em B."
+   "porque": "Remoção barata de artefato, encantamento ou planeswalker; não pega criatura, o que a segura em B.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Uma por uma: artefato, encantamento ou planeswalker.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Início, paridade e na frente; não pega criatura.",
+    "R": "É a resposta instantânea mais barata da lista a encantamento e a planeswalker."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Extinction Event": {
    "notas": {
@@ -1353,7 +2424,26 @@
    "rel": "ALT",
    "faz": "Feitiço de 4: escolha par ou ímpar; exila as criaturas desse valor.",
    "porque": "Escolhendo ímpar, limpa a mesa e o Zur (valor 4) fica: uma das duas limpezas que poupam o comandante.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Escolhendo ímpar, poupa o Zur, de valor 4.",
+    "I": "Exila metade da mesa, sem volta.",
+    "T": "Quatro manas.",
+    "Q": "Paridade, atrás e na frente, com o Zur poupado.",
+    "R": "Há sete limpezas para três a quatro; o Sculpted Sunburst poupa o Zur e limpa mais."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Sculpted Sunburst": {
    "notas": {
@@ -1370,7 +2460,26 @@
    "rel": "ALT",
    "faz": "Feitiço de 5: você escolhe uma criatura sua, e cada oponente uma dele de força igual ou menor; as outras são exiladas.",
    "porque": "Limpeza que poupa o Zur, escolhido como a sua criatura: sem Aura (força 1), cada oponente só guarda uma criatura de força até 1.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Poupa o Zur: sem Aura, de força 1, cada oponente só guarda uma criatura de força até 1.",
+    "I": "Vira a mesa e exila tudo o que não foi escolhido.",
+    "T": "Cinco manas, de feitiço.",
+    "Q": "Paridade, atrás e na frente, com o Zur poupado.",
+    "R": "É uma das duas limpezas que poupam o Zur; a Winds of Rath, do radar, só poupa o Zur encantado."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Brainstorm": {
    "notas": {
@@ -1381,7 +2490,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Instantânea de 1: compre três, devolva duas ao topo.",
-   "porque": "Filtro barato que acha a peça da vez; cumpre o papel, mas não compra a mais."
+   "porque": "Filtro barato que acha a peça da vez; cumpre o papel, mas não compra a mais.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: acha a peça da vez.",
+    "I": "Filtra três, mas não compra a mais.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "A compra está no topo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Sphinx's Revelation": {
    "notas": {
@@ -1389,10 +2517,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Instantânea X{W}{U}{U}: ganhe X e compre X.",
-   "porque": "Compra grande no fim do turno de alguém, com vida junto; é cara, por isso B."
+   "porque": "Compra grande no fim do turno de alguém, com vida junto; é cara, por isso B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "X cartas e X de vida, no fim do turno de alguém.",
+    "T": "Seis manas para comprar três.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A compra está no topo da cota, e a Phyrexian Arena rende mais por menos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Supreme Verdict": {
    "notas": {
@@ -1400,14 +2547,37 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 4 que não pode ser anulado: destrói todas as criaturas.",
    "porque": "Botão de emergência que não pode ser anulado, mas custa o Zur; o deck tem duas limpezas que o poupam.",
    "marcas": {
     "contra": 1
    },
-   "massa": true
+   "massa": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Leva o Zur e as outras oito criaturas da lista; o Zur volta com imposto de {2}.",
+    "I": "Vira a mesa, a sua também.",
+    "T": "Quatro manas, e não pode ser anulada.",
+    "Q": "Só quando você está atrás.",
+    "R": "Há sete limpezas para três a quatro; a Winds of Rath, do radar, poupa o Zur encantado."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "substituto": "Winds of Rath",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Ojutai's Command": {
    "notas": {
@@ -1420,7 +2590,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Instantânea de 4, dois modos: devolve criatura de valor até 2 do cemitério ao campo, ganhe 4, anule mágica de criatura ou compre.",
-   "porque": "Flexível, mas cara para cada modo; nenhum deles faz mais que as cartas dedicadas do deck."
+   "porque": "Flexível, mas cara para cada modo; nenhum deles faz mais que as cartas dedicadas do deck.",
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica; o retorno pega só criatura de valor até 2.",
+    "I": "Dois modos por carta: dois por um.",
+    "T": "Quatro manas, instantânea.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "Nenhum modo faz mais que as cartas dedicadas; o radar avalia a Promise of Loyalty na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Secret Rendezvous": {
    "notas": {
@@ -1436,7 +2625,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de 3: você e um oponente compram três.",
-   "porque": "Moeda de negociação: você escolhe quem também compra. Política de uma vez só, abaixo do Wedding Ring."
+   "porque": "Moeda de negociação: você escolhe quem também compra. Política de uma vez só, abaixo do Wedding Ring.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Acordo de uma vez: você escolhe quem também compra.",
+    "I": "Três cartas para você e três para o oponente escolhido.",
+    "T": "Três manas, de feitiço.",
+    "Q": "Paridade, atrás e na frente, como moeda de negociação.",
+    "R": "O Wedding Ring faz o presente todo turno, e a compra está no topo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Doomskar": {
    "notas": {
@@ -1452,7 +2660,29 @@
     "contra": 1
    },
    "massa": true,
-   "prioridade": 4
+   "prioridade": 4,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Leva o Zur e as outras oito criaturas da lista; o Zur volta com imposto de {2}.",
+    "I": "Vira a mesa, a sua também.",
+    "T": "Cinco manas, ou três depois de prenunciar.",
+    "Q": "Só quando você está atrás.",
+    "R": "Há sete limpezas para três a quatro; o Supreme Verdict faz o mesmo por quatro."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.25
   },
   "By Invitation Only": {
    "notas": {
@@ -1468,7 +2698,29 @@
     "contra": 1
    },
    "massa": true,
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Você sacrifica as suas também, e o Zur vai junto quando o número é alto.",
+    "I": "Vira a mesa e passa por indestrutível.",
+    "T": "Cinco manas.",
+    "Q": "Só quando você está atrás.",
+    "R": "Há sete limpezas para três a quatro, e esta é a pior das que levam o Zur."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.05
   },
   "Promise of Power": {
    "notas": {
@@ -1481,7 +2733,26 @@
    "rel": "BAX",
    "faz": "Feitiço de 5: compre cinco e perca 5, ou um Demônio voador X/X; entrelaçar {4}.",
    "porque": "Compra cara, de cinco manas e 5 de vida, num deck que já paga vida pela Phyrexian Arena e pela Dark Tutelage.",
-   "prioridade": 10
+   "prioridade": 10,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Cinco cartas por 5 de vida, ou um Demônio voador.",
+    "T": "Cinco manas, e nove para os dois modos.",
+    "Q": "Paridade e na frente; atrás, 5 de vida pesam.",
+    "R": "A compra está no topo da cota; o radar põe a Ethereal Armor na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Akroma's Blessing": {
    "notas": {
@@ -1493,7 +2764,30 @@
    "rel": "BAX",
    "faz": "Instantânea de 3: suas criaturas ganham proteção de uma cor; ciclagem {W}.",
    "porque": "Proteção cara e de uma vez; a Alseid e a Greater Auramancy protegem, e o Zur as busca.",
-   "prioridade": 8
+   "prioridade": 8,
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica; não é encantamento e o Zur não a busca.",
+    "I": "Proteção de uma cor ao time por um turno.",
+    "T": "Três manas, instantânea.",
+    "Q": "Viva sempre: cicla por {W}.",
+    "R": "A Flawless Maneuver, do radar, entra na vaga: sai de graça com o Zur em campo."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Flawless Maneuver",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Cleansing Nova": {
    "notas": {
@@ -1501,7 +2795,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 5: destrói todas as criaturas, ou todos os artefatos e encantamentos.",
    "porque": "Um modo mata o Zur, o outro destrói os seus encantamentos: os dois trabalham contra o deck.",
@@ -1509,7 +2803,31 @@
     "contra": 1
    },
    "massa": true,
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "D",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 0,
+    "I": 3,
+    "T": 2,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Um modo leva o Zur e as outras oito criaturas; o outro, os seus encantamentos e pedras.",
+    "I": "Vira a mesa, a sua também.",
+    "T": "Cinco manas.",
+    "Q": "Só quando você está atrás.",
+    "R": "A Winds of Rath, do radar, entra na vaga: poupa o Zur encantado."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Winds of Rath",
+   "confianca": "média",
+   "indice": 1.05
   },
   "Command Tower": {
    "notas": {},
@@ -1518,7 +2836,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Mana da identidade.",
-   "porque": "A melhor tri-terra: dá as três cores, inclusive o preto que só 7 terrenos geram."
+   "porque": "A melhor tri-terra: dá as três cores, inclusive o preto que só 7 terrenos geram.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As três cores, preto incluído.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno melhor para três cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Hall of Heliod's Generosity": {
    "notas": {
@@ -1533,7 +2870,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{C}; {1}{W}, vira: um encantamento do cemitério para o topo do grimório.",
-   "porque": "Recursão de encantamento na vaga de terreno; põe no topo, não em campo, por isso fica em B."
+   "porque": "Recursão de encantamento na vaga de terreno; põe no topo, não em campo, por isso fica em B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas devolve ao topo um alvo do Zur que caiu.",
+    "I": "Um terreno por turno; tarde, um encantamento de volta por turno.",
+    "T": "Desvirado; a recursão custa {1}{W}.",
+    "Q": "Incolor pesa nas mãos de três cores; tarde, recicla.",
+    "R": "É o único terreno da lista que recupera encantamento."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Hallowed Fountain": {
    "notas": {},
@@ -1542,7 +2898,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Plains Island: pague 2 ou entra virado.",
-   "porque": "Dual que entra desvirada pagando vida; cumpre o papel, mas não dá preto, a cor que falta."
+   "porque": "Dual que entra desvirada pagando vida; cumpre o papel, mas não dá preto, a cor que falta.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Branco e azul.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada por 2 de vida.",
+    "Q": "Viva sempre.",
+    "R": "Branco e azul sobram na base; o que falta é preto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Hengegate Pathway": {
    "notas": {},
@@ -1551,7 +2926,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{W} ou {U}, uma face.",
-   "porque": "Entra desvirada, mas dá só uma das duas cores por vez e não dá preto."
+   "porque": "Entra desvirada, mas você escolhe a face ao baixar: dá só branco ou só azul dali em diante, e não dá preto.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor só, branco ou azul, escolhida ao baixar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada.",
+    "Q": "Viva sempre.",
+    "R": "Branco e azul sobram na base; o que falta é preto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Island": {
    "notas": {},
@@ -1560,7 +2954,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base: entra desvirada e dá azul; cumpre o papel sem nada a mais."
+   "porque": "Base: entra desvirada e dá azul; cumpre o papel sem nada a mais.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o azul da Propaganda e das Auras.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Plains": {
    "notas": {},
@@ -1569,7 +2982,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base: entra desvirada e dá branco; cumpre o papel sem nada a mais."
+   "porque": "Base: entra desvirada e dá branco; cumpre o papel sem nada a mais.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o branco das Auras de remoção.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Swamp": {
    "notas": {},
@@ -1578,7 +3010,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "A fonte de preto que mais falta: só 7 terrenos do deck geram preto."
+   "porque": "A fonte de preto que mais falta: só 7 terrenos do deck geram preto.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o preto que só sete terrenos dão.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "As fontes de preto estão abaixo da cota: sete terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Port Town": {
    "notas": {},
@@ -1587,7 +3038,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{W} ou {U}; virado sem revelar Plains ou Island.",
-   "porque": "Quase sempre entra desvirada e dá as duas cores claras, mas não dá preto."
+   "porque": "Quase sempre entra desvirada e dá as duas cores claras, mas não dá preto.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Branco e azul.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada revelando Plains ou Island; a lista tem 20.",
+    "Q": "Viva sempre.",
+    "R": "Branco e azul sobram na base; o que falta é preto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Hall of Storm Giants": {
    "notas": {},
@@ -1596,7 +3066,30 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{U}; virado com dois ou mais outros terrenos; {5}{U}: vira um Gigante 7/7 com ward {3}.",
-   "porque": "Terreno que vira ameaça tarde, mas muitas vezes entra virado e não dá preto."
+   "porque": "Terreno que vira ameaça tarde, mas muitas vezes entra virado e não dá preto.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Uma cor só, azul.",
+    "I": "Um terreno por turno; tarde, um Gigante 7/7 com ward {3}.",
+    "T": "Entra virado com dois ou mais outros terrenos.",
+    "Q": "Viva sempre: tarde, vira ameaça.",
+    "R": "O Shizo, Death's Storehouse, do radar, entra na vaga: preto desvirado e medo para o Zur."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Shizo, Death's Storehouse",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Arcane Sanctum": {
    "notas": {
@@ -1608,7 +3101,30 @@
    "rel": "MED",
    "faz": "Sempre virado: {W}, {U} ou {B}.",
    "porque": "Uma das poucas fontes de preto, mas entra sempre virada e atrasa a curva.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "As três cores, preto incluído.",
+    "I": "Um terreno por turno.",
+    "T": "Entra sempre virada.",
+    "Q": "No início, atrasa a curva; depois, fixa as três cores.",
+    "R": "A Godless Shrine, do radar, entra na vaga: preto desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Godless Shrine",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Azorius Chancery": {
    "notas": {
@@ -1620,7 +3136,30 @@
    "rel": "MED",
    "faz": "Sempre virado; devolve um terreno; {W}{U}.",
    "porque": "Duas manas numa vaga, mas entra sempre virada e não dá preto.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Branco e azul.",
+    "I": "Duas manas numa vaga, mas devolve um terreno à mão.",
+    "T": "Entra sempre virada.",
+    "Q": "No início, atrasa a curva; tarde, rende dobrado.",
+    "R": "O Drowned Catacomb, do radar, entra na vaga: dá preto, quase sempre desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Drowned Catacomb",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Meticulous Archive": {
    "notas": {
@@ -1632,7 +3171,30 @@
    "rel": "MED",
    "faz": "Plains Island; sempre virado; ao entrar, surveil 1.",
    "porque": "Dual lenta: entra sempre virada, filtra pouco e não dá preto.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Branco e azul.",
+    "I": "Um terreno por turno, e vigiar 1.",
+    "T": "Entra sempre virada.",
+    "Q": "No início, atrasa a curva; depois, fixa duas cores.",
+    "R": "O Serra's Sanctum, do radar, entra na vaga: uma mana branca por encantamento."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Serra's Sanctum",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Myriad Landscape": {
    "notas": {
@@ -1644,7 +3206,30 @@
    "rel": "MED",
    "faz": "Sempre virado: {C}; {2}, vira, sacrifique: dois básicos do mesmo tipo, virados.",
    "porque": "Busca dois Swamps para o preto que falta, mas entra virada e é lenta.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas busca dois Swamps, o preto que falta.",
+    "I": "Dois básicos por uma carta.",
+    "T": "Entra virada, e {2} para buscar os dois, virados.",
+    "Q": "Início, paridade e atrás, quando falta terreno.",
+    "R": "A Watery Grave, do radar, entra na vaga: preto desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Watery Grave",
+   "confianca": "alta",
+   "indice": 1.15
   }
  },
  "radar": {
@@ -3053,5 +4638,16 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "04. FORFUN",
+  "conta": "O Zur ataca toda rodada (atacar); cada ataque busca e põe em campo, de graça, um encantamento de valor até 3 (buscar); a taxa e o goad fazem a mesa pagar para atacar você e brigar entre si, e o Zur encantado escolhe quem cai (cobrar).",
+  "decisoes": [
+   "Por decisão sua (14/10/2026), o deck não tem cartas de estimação.",
+   "Staples genéricas ficam de fora por decisão sua (09/11/2026); proteção genérica entra porque proteção é agrupamento deste deck.",
+   "Pela sua régua, o deck quer de três a quatro limpezas, de preferência unilaterais; hoje tem sete, e só duas poupam o Zur."
+  ]
  }
 }
