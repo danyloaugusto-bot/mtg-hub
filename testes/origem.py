@@ -116,7 +116,7 @@ for chave in ("cards", "cands", "combos"):
 # textos que o texto oficial desmentia, corrigidos com autorização do dono (15/10/2026): o que a carta faz (fx) ou o porquê (why)
 TEXTO_CORRIGIDO = {"High-Society Hunter", "Drivnod, Carnage Dominus", "Path of Ancestry", "Black Market Connections"}
 # cartas levadas ao radar depois do kit, com o ok do dono (16/10/2026, dos potenciais da página relida): o kit não as tem
-RADAR_NOVO = {"Crossway Troublemakers", "Pact of the Serpent",
+RADAR_NOVO = {"Mondrak, Glory Dominus", "Crossway Troublemakers", "Pact of the Serpent",
               # terrenos levados ao radar na revisão de terrenos de 09/11/2026 (pedido do dono)
               "Three Tree City", "Plaza of Heroes", "Takenuma, Abandoned Mire", "Eiganjo, Seat of the Empire"}
 # staples que saíram do radar pela regra do dono (09/11/2026): só entram com buraco no critério ou no pacote
