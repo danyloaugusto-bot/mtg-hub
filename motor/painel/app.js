@@ -2384,7 +2384,8 @@ function renderTier() {
 
 /* ============ 8×8 ============ */
 /* Cada carta conta em um só pacote: o de maior nota (empate: o primeiro da ordem). Terreno e carta dupla com terreno no verso
-   ficam em Mana. Mover uma carta aqui é só simulação: não muda as notas, o tier nem o placar. */
+   ficam fora desta aba (pedido do dono, 10/11/2026): só os agrupamentos do deck. Mover uma carta aqui é simulação, até o dono
+   salvar as posições (botão Salvar posições: o texto vai ao Claude, que grava o campo pacote com motor/pacotes.py). */
 var PKI = {}; G.forEach(function (g, i) { PKI[g.id] = i; });
 function pkNome(k) { return k === 'mana' ? 'Mana' : k === 'sem' ? 'Sem pacote' : G[PKI[k]].k; }
 function pkDef(c) {
@@ -2395,27 +2396,46 @@ function pkDef(c) {
 }
 function pkOf(c) {
   var k = S.pk[c.id] || c.pk0 || pkDef(c);
+  if (k === 'mana' && !(c.land || c.mdfc)) k = pkDef(c);   /* a coluna Mana saiu do 8×8: carta que não é terreno volta ao pacote dela */
   return (k === 'mana' || k === 'sem' || PKI[k] != null) ? k : pkDef(c);
 }
 function renderPk() {
   var all = deck(), cmds = [], body = [];
   all.forEach(function (c) { if (c.cmd) cmds.push(c); else body.push(c); });
-  // com dois comandantes, sobra uma vaga a menos: a teoria tira um terreno (34 de mana e 64 em pacotes)
-  var nMana = cmds.length > 1 ? 34 : 35;
   var cols = G.map(function (g, i) {
-    return { k: g.id, n: g.k, d: g.d, ref: g.ref || [8, 8], col: 'rgb(var(--g' + i + '))' };
+    return { k: g.id, i: i, n: g.k, d: g.d, ref: g.ref || [8, 8], col: 'rgb(var(--g' + i + '))' };
   });
-  cols.push({ k: 'mana', n: 'Mana', d: 'Terrenos e cartas duplas com terreno no verso.', ref: [nMana, nMana + 2], col: 'var(--gold)' });
-  var by = { sem: [] }; cols.forEach(function (c) { by[c.k] = []; });
+  /* os terrenos e as cartas com terreno no verso não aparecem aqui: só os agrupamentos do deck */
+  var by = { sem: [], mana: [] }; cols.forEach(function (c) { by[c.k] = []; });
   body.forEach(function (c) { by[pkOf(c)].push(c); });
+  var nTerr = 0; by.mana.forEach(function (c) { nTerr += c.q; });
+  /* agrupamento que neste deck só tem terrenos (o Mana do Markov, sem pedras) não vira quadro vazio: some, com um aviso */
+  var ocultos = [];
+  cols = cols.filter(function (g) {
+    if (by[g.k].length) return true;
+    var t = 0; by.mana.forEach(function (c) { if (gv(c, g.i) > 0) t += c.q; });
+    if (t) ocultos.push(g.n + ' (' + t + ' terrenos)');
+    return !t;
+  });
+  var nCols = cols.length;
   if (by.sem.length) cols.push({ k: 'sem', n: 'Sem pacote', d: 'Cartas sem nota em nenhum agrupamento. Arraste para um pacote.', ref: null, col: 'var(--mute)' });
   var out = cands().map(E).filter(function (c) { return !c.inDeck && c.verdict !== 'fora'; });
   var nMoved = Object.keys(S.pk).length, total = 0;
-  body.forEach(function (c) { total += c.q; });
+  body.forEach(function (c) { if (pkOf(c) !== 'mana') total += c.q; });
+  var movs = Object.keys(S.pk).map(function (id) { var c = byId(id); return c && pkOf(c) !== 'mana' ? c.n + ' > ' + pkNome(S.pk[id]) + ' [' + S.pk[id] + ']' : null; }).filter(Boolean).sort();
   var h = '<div class="tools"><p class="hint" style="flex:1;min-width:260px">Cada carta conta em um só pacote: o de maior nota (empate: o primeiro da ordem). ' +
-    'Arraste uma carta para outro pacote para ver o equilíbrio mudar. É só simulação: as notas, o tier e o placar não mudam.</p>' +
-    (nMoved ? '<button class="btn ghost" data-act="pk-reset" data-fid="pkr">Desfazer ' + pl(nMoved, 'simulação', 'simulações') + '</button>' : '') + '</div>';
-  h += '<p class="pk-tot"><b>' + total + '</b> cartas fora ' + (cmds.length > 1 ? 'os comandantes' : 'o comandante') + (cmds.length ? ' (' + cmds.map(function (c) { return esc(c.n); }).join(' e ') + ')' : '') + '. Referência da teoria: ' + nMana + ' de mana e 64 em oito pacotes de oito.</p>';
+    'Arraste uma carta para outro pacote para ver o equilíbrio mudar. As notas, o tier e o placar não mudam. A posição nova fica guardada neste navegador; para valer como oficial, use Salvar posições.</p>' +
+    (nMoved ? '<button class="btn" data-act="pk-salvar" data-fid="pks" aria-expanded="' + !!ui.pkSalvar + '">Salvar posições</button>' +
+      '<button class="btn ghost" data-act="pk-reset" data-fid="pkr">Desfazer ' + pl(nMoved, 'mudança', 'mudanças') + '</button>' : '') + '</div>';
+  if (nMoved && ui.pkSalvar) {
+    h += '<div class="pk-salvar"><p><b>' + pl(movs.length, 'carta mudou', 'cartas mudaram') + ' de pacote.</b> Copie o texto abaixo e cole na conversa com o Claude: ele grava as posições como oficiais e monta o painel de novo.</p>' +
+      '<textarea id="pk-out" readonly rows="' + Math.min(10, movs.length + 2) + '">' + esc('Salvar posições do 8×8\nDeck: ' + M.pasta + '\n' + movs.join('\n')) + '</textarea>' +
+      '<button class="btn" data-act="copy" data-t="pk-out" data-fid="pkc">Copiar</button></div>';
+  }
+  h += '<p class="pk-tot"><b>' + total + '</b> cartas em ' + NUM[nCols] + ' pacotes; a referência da teoria é 64, oito em cada. ' +
+    (nTerr ? 'Os ' + nTerr + ' terrenos' + (by.mana.some(function (c) { return c.mdfc && !c.land; }) ? ' (com as cartas de terreno no verso)' : '') + ' e ' : 'E ') +
+    (cmds.length > 1 ? 'os comandantes' : 'o comandante') + ' ficam fora desta aba.' +
+    (ocultos.length ? ' O agrupamento ' + esc(lista(ocultos)) + ' é feito só de terrenos neste deck e por isso não tem quadro.' : '') + '</p>';
   h += '<div class="pkg">' + cols.map(function (g) {
     var list = by[g.k].slice().sort(function (a, b) { return (TR[a.tier] - TR[b.tier]) || (pts(b) - pts(a)) || a.n.localeCompare(b.n); });
     var n = 0; list.forEach(function (c) { n += c.q; });
@@ -2430,7 +2450,7 @@ function renderPk() {
     var barata = cara ? maisBarata(cara, out) : null;
     var radar = out.filter(function (c) { return pkOf(c) === g.k; }).sort(function (a, b) { return TR[a.tier] - TR[b.tier]; }).slice(0, 4);
     var foot = '';
-    if (g.k !== 'mana' && g.k !== 'sem' && (fraca || radar.length || cara)) {
+    if (g.k !== 'sem' && (fraca || radar.length || cara)) {
       foot = '<div class="pk-foot">' +
         (fraca ? '<div class="pk-line pk-f"><span>Mais fraca</span>' + chip(fraca, { tier: true }) + relB(fraca.rel) + '</div>' : '') +
         (cara ? '<div class="pk-line pk-c"><span>Mais cara</span>' + chip(cara, { mana: true }) +
@@ -3116,8 +3136,8 @@ function renderDrawer() {
     return '<button data-act="set-rel" data-v="' + r.k + '" data-fid="sr' + r.k + '" aria-pressed="' + (c.rel === r.k) + '">' + r.l + '<small>' + r.n + '</small></button>';
   }).join('') + '</div>';
   if (V3) {
-    var pk = c.land ? 'mana' : pkOf(c), pkN = pk === 'mana' ? 'Mana' : pk === 'sem' ? 'sem pacote' : (G[gi(pk)] || {}).k || pk;
-    h += '<p class="dw-pk">No 8×8: <b>' + esc(pkN) + '</b>' + (S.pk[c.id] ? ' (movida por você)' : '') + ' <button class="linkish" data-act="go" data-v="pk">Ver no 8×8</button></p>';
+    var pk = c.land ? 'mana' : pkOf(c), pkN = pk === 'sem' ? 'sem pacote' : (G[gi(pk)] || {}).k || pk;
+    if (pk !== 'mana') h += '<p class="dw-pk">No 8×8: <b>' + esc(pkN) + '</b>' + (S.pk[c.id] ? ' (movida por você)' : '') + ' <button class="linkish" data-act="go" data-v="pk">Ver no 8×8</button></p>';
     var ps = c.cmd ? null : posicao(c);
     h += '<details class="dw-8 dw-c3"' + (ui.dwc3 ? ' open' : '') + '><summary><span class="dw-h3">Notas por critério<span class="dw-tot"><b>' + fmtP(pts3(c)) + '</b> pts' + (ps ? ' · ' + ps.n + 'ª de ' + ps.de + (c.inDeck ? '' : ' se entrar') : '') + '</span></span></summary><p class="dw-nota">' + resumoDw() + ' Mudar uma nota aqui é simulação: o placar, o gráfico e a aba Critérios refazem a conta.</p>' + reguaDw() + '<div class="steps">' + steps3 + '</div>' + cadW + '</details>';
     if (c.pp) h += '<p class="dw-pp">No plano: ' + ppB(c.pp) + (c.ppd ? ' <small>dupla função: ' + esc(c.ppd) + '</small>' : '') + (c.ppw ? '<br><small>' + esc(c.ppw) + '</small>' : '') + '</p>';
@@ -3403,7 +3423,8 @@ function act(a, t, ev) {
       else ui.sort = { k: t.dataset.k, d: (t.dataset.k === 'n' || t.dataset.k === 'tier' || t.dataset.k === 'rel') ? 1 : -1 };
       render(); break;
     case 'tier-type': ui.tierType = t.dataset.v; render(); break;
-    case 'pk-reset': S.pk = {}; commit('Simulação do 8×8 desfeita'); break;
+    case 'pk-reset': S.pk = {}; ui.pkSalvar = false; commit('Simulação do 8×8 desfeita'); break;
+    case 'pk-salvar': ui.pkSalvar = !ui.pkSalvar; render(); break;
     case 'tier-view': ui.tierView = t.dataset.v; render(); break;
     case 'gal-by': ui.galBy = t.dataset.v; render(); break;
     case 'img': S.img = !imgOn(); save(); render(); break;
