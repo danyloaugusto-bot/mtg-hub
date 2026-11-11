@@ -365,7 +365,31 @@
     "combo": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Zumbi de 1 que volta do cemitério enquanto houver Zumbi: morre e volta sem parar."
+   "papel_por_que": "Zumbi de 1 que volta do cemitério enquanto houver Zumbi: morre e volta sem parar.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o erguer no ritmo certo: volta do cemitério a cada morte, por {B}.",
+    "I": "Um 2/1 que não fica morto: cada volta é mais uma morte para cobrar.",
+    "T": "Uma mana, e uma mana a cada volta.",
+    "Q": "Desce no turno 1, alimenta as saídas, volta depois da limpeza e fecha no laço.",
+    "R": "Nenhum outro Zumbi da lista se conjura do cemitério por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele somem o laço com o Phyrexian Altar e a mana infinita com a Rooftop Storm e o Ashnod's Altar.",
+    "A Relentless Dead volta para a mão, custa {B}{B} e pede {B} a cada morte; o Prized Amalgam, do radar, não se conjura do cemitério.",
+    "No início como Zumbi de uma mana, na paridade como sacrifício repetível, atrás depois da limpeza e na frente fechando o laço."
+   ],
+   "indice": 2.8
   },
   "Diregraf Captain": {
    "notas": {
@@ -391,7 +415,31 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Multiplicadora (lorde +1/+1)",
-   "papel_por_que": "Cada outro Zumbi seu que morre drena 1."
+   "papel_por_que": "Cada outro Zumbi seu que morre drena 1.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o drenar: cada outro Zumbi que morre tira 1 de um oponente, fichas decayed inclusive.",
+    "I": "O +1/+1 na horda vale na hora; o dreno pede que ele fique em campo.",
+    "T": "Três manas, no padrão de um lord.",
+    "Q": "Paridade, na frente e atrás, onde o toque mortífero segura o chão.",
+    "R": "Único lord que drena; lords e drenos estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele o deck perde um dos quatro drenos da horda e um dos três lords, e o laço do Gravecrawler perde um jeito de vencer.",
+    "O Vengeful Dead, do radar, drena mas custa quatro e não é lord; o Death Baron é lord e não drena.",
+    "Na paridade como lord com toque mortífero, atrás segurando o chão e na frente cobrando cada sacrifício."
+   ],
+   "indice": 2.45
   },
   "Diregraf Colossus": {
    "notas": {
@@ -404,12 +452,31 @@
    "sin_por_que": {
     "sin1": "Zumbi que cria, por gatilho, uma ficha de Zumbi sem decayed a cada mágica de Zumbi."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "faz": "Zumbi Gigante 2/2 de 3, com um marcador +1/+1 por Zumbi no seu cemitério. Você conjura um Zumbi: uma ficha Zumbi 2/2 virada.",
    "porque": "Cada Zumbi conjurado vale dois, e a ficha não tem decayed: dispara a Wilhelt ao morrer. Com o Acererak e a Rooftop Storm, fichas sem fim.",
    "papel": "habilita",
-   "papel_por_que": "Cada mágica de Zumbi cria uma ficha Zumbi sem decayed."
+   "papel_por_que": "Cada mágica de Zumbi cria uma ficha Zumbi sem decayed.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o erguer: cada mágica de Zumbi traz uma ficha sem decayed, que dispara a Wilhelt ao morrer.",
+    "I": "Precisa ficar em campo e de Zumbis para conjurar depois dele.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, paridade e na frente; atrás, sem mágicas de Zumbi, rende pouco.",
+    "R": "A Necroduality copia ao entrar, mas custa quatro; o Headless Rider depende da morte."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Undead Augur": {
    "notas": {
@@ -430,7 +497,31 @@
    "porque": "A compra do deck: cada Zumbi que morre, fichas decayed incluídas, vira carta, e com a Wilhelt cada morte vale três. A compra é obrigatória: sacrifique-o antes de um laço infinito.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Cada Zumbi seu que morre compra uma carta."
+   "papel_por_que": "Cada Zumbi seu que morre compra uma carta.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o cobrar em carta: cada Zumbi que morre, ficha decayed inclusive, compra uma.",
+    "I": "Rende a cada morte e compra até quando ele mesmo morre.",
+    "T": "Duas manas por compra recorrente.",
+    "Q": "Desce no turno 2, rende na paridade e na frente, e transforma a limpeza alheia em mão cheia.",
+    "R": "O Midnight Reaper, do radar, custa três e não conta fichas; a compra está abaixo da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele as mortes deixam de virar cartas: sobram a compra do fim do turno da Wilhelt e a Kindred Discovery, de cinco manas.",
+    "O Midnight Reaper, do radar, custa três e só compra com criatura não-ficha; aqui a maioria das mortes é de ficha.",
+    "No início como Zumbi de duas manas, na paridade e na frente a cada sacrifício, e atrás quando a limpeza leva a horda."
+   ],
+   "indice": 2.8
   },
   "Acererak the Archlich": {
    "notas": {
@@ -445,7 +536,7 @@
    "sin_por_que": {
     "sin1": "Zumbi comum: volta à mão sozinho e só cria Zumbis atacando; não rende a cada outro Zumbi que morre."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Zumbi Mago lendário 5/5 de 3. Ao entrar, se você não completou a Tomb of Annihilation, volta à mão e você explora a masmorra. Ao atacar, cada oponente sacrifica uma criatura ou você ganha um Zumbi 2/2.",
    "porque": "Com a Rooftop Storm, entra de graça sem fim e vence pela masmorra. Sem ela, volta à mão e só rende atacando, por isso fica abaixo das peças S.",
@@ -453,7 +544,26 @@
     "combo": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Zumbi de 3 que volta à mão ao entrar: recast barato, mais um corpo e mais um gatilho do Diregraf Colossus."
+   "papel_por_que": "Zumbi de 3 que volta à mão ao entrar: recast barato, mais um corpo e mais um gatilho do Diregraf Colossus.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Metade do combo de duas cartas da lista: com a Rooftop Storm, entra e volta sem fim.",
+    "I": "Sem a Storm, volta à mão e avança um passo da masmorra.",
+    "T": "Três manas a cada entrada.",
+    "Q": "Paridade, passo a passo na masmorra, e na frente, fechando.",
+    "R": "Nenhum outro Zumbi volta sozinho à mão ao entrar: sem ele a Rooftop Storm não fecha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Carrion Feeder": {
    "notas": {
@@ -468,7 +578,7 @@
     "sin1": "Zumbi comum, sem efeito a cada outro Zumbi que morre.",
     "sin2": "Saída de sacrifício grátis, instantânea e repetível."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Zumbi 1/1 de 1 que não bloqueia. Sacrifique uma criatura: um marcador +1/+1 nele.",
    "porque": "Saída de sacrifício de graça, instantânea e repetível, por uma mana, e ainda é Zumbi: alimenta a Wilhelt e as cobranças por morte.",
@@ -476,7 +586,26 @@
     "saida": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Zumbi de 1 e saída de sacrifício sem custo, em velocidade instantânea."
+   "papel_por_que": "Zumbi de 1 e saída de sacrifício sem custo, em velocidade instantânea.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o matar: saída de sacrifício grátis e instantânea.",
+    "I": "Um 1/1 que não bloqueia; a saída sozinha só lhe dá marcadores.",
+    "T": "Uma mana, sem custo de ativação.",
+    "Q": "Paridade, na frente e atrás, sacrificando em resposta.",
+    "R": "Os dois altares fazem o mesmo e ainda dão mana; as saídas passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Gray Merchant of Asphodel": {
    "notas": {
@@ -488,13 +617,32 @@
    "sin_por_que": {
     "sin1": "Zumbi comum: o dreno vem da devoção ao preto, não dos outros Zumbis."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Zumbi 2/4 de 5. Ao entrar, cada oponente perde vida igual à sua devoção ao preto, e você ganha o total.",
    "porque": "Dreno grande numa mesa preta, e com a Necroduality drena duas vezes. É Zumbi, mas não rende a cada outra morte.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (Zumbi)",
-   "papel_por_que": "Dreno pela devoção ao preto; com Necroduality e recursão de Zumbis, drena de novo."
+   "papel_por_que": "Dreno pela devoção ao preto; com Necroduality e recursão de Zumbis, drena de novo.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Drena pela devoção ao preto, não pelas mortes; rende de novo com a Necroduality e a recursão.",
+    "I": "Garantido na entrada, e devolve vida a você.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, pela vida que devolve.",
+    "R": "Os drenos estão abaixo da cota; nenhum outro rende já na entrada."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Headless Rider": {
    "notas": {
@@ -515,7 +663,26 @@
    "porque": "Com a Wilhelt, cada Zumbi de carta que morre vira duas fichas, e ele mesmo deixa uma ao morrer.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (fichas Zumbi sem decayed)",
-   "papel_por_que": "Cada Zumbi não-ficha seu que morre vira uma ficha 2/2, que também alimenta a Wilhelt."
+   "papel_por_que": "Cada Zumbi não-ficha seu que morre vira uma ficha 2/2, que também alimenta a Wilhelt.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o erguer: cada Zumbi de carta que morre deixa uma ficha sem decayed, além da ficha da Wilhelt.",
+    "I": "Precisa ficar em campo; se morrer, ele mesmo deixa uma ficha.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira fichas.",
+    "R": "Só a Wilhelt faz parecido; nenhuma outra carta da lista repõe o Zumbi de carta que morre."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Murderous Rider": {
    "notas": {
@@ -527,13 +694,32 @@
    "sin_por_que": {
     "sin1": "Zumbi comum; vai para o fundo do grimório ao morrer, mas a morte dispara a Wilhelt antes."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Zumbi Cavaleiro 2/3 de 3 com vínculo. A aventura Swift End destrói criatura ou planeswalker, e você perde 2.",
    "porque": "Remoção de criatura ou planeswalker que depois ainda entra como Zumbi; a morte dele dispara a Wilhelt antes de ir para o fundo do grimório.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Zumbi com vínculo que chega depois de matar algo."
+   "papel_por_que": "Zumbi com vínculo que chega depois de matar algo.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção que depois entra como Zumbi com vínculo: mais um corpo para a Wilhelt.",
+    "I": "Dois por um: mata criatura ou planeswalker e deixa um 2/3.",
+    "T": "Três manas, instantânea, e 2 de vida.",
+    "Q": "Viva nos quatro momentos.",
+    "R": "A remoção está no piso da cota; é a única que deixa corpo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Plague Belcher": {
    "notas": {
@@ -548,7 +734,7 @@
     "sin1": "Zumbi que tira 1 de vida de cada oponente a cada outro Zumbi que morre.",
     "sin2": "Os marcadores −1/−1 matam uma criatura sua uma vez, e o dreno só rende com a morte."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "faz": "Zumbi Fera 5/4 de 3 com ameaça. Ao entrar, dois marcadores −1/−1 numa criatura sua. Outro Zumbi seu morre: cada oponente perde 1.",
    "porque": "Dreno em toda a mesa a cada Zumbi que morre, num 5/4 de três manas; os marcadores matam uma ficha decayed, que já drena ao morrer.",
@@ -558,7 +744,31 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (mata um Zumbi seu ao entrar)",
-   "papel_por_que": "Cada outro Zumbi seu que morre drena 1 de cada oponente."
+   "papel_por_que": "Cada outro Zumbi seu que morre drena 1 de cada oponente.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o drenar: cada outro Zumbi que morre tira 1 de cada oponente.",
+    "I": "Precisa ficar em campo; os marcadores matam uma ficha na entrada e já cobram 1 da mesa.",
+    "T": "Três manas por um 5/4 com ameaça e dreno em todos.",
+    "Q": "Paridade, na frente e atrás, como corpo grande.",
+    "R": "Único dreno por morte que pega os três oponentes; os drenos estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele o laço do Gravecrawler mata um oponente por vez, pelo Captain, e não a mesa inteira.",
+    "O Vengeful Dead, do radar, faz o mesmo dreno por quatro manas num corpo 3/2.",
+    "Na paridade como 5/4 com ameaça, atrás como bloqueador e na frente fechando os laços."
+   ],
+   "indice": 2.65
   },
   "Relentless Dead": {
    "notas": {
@@ -582,7 +792,26 @@
     "combo": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Volta à mão ao morrer e devolve outro Zumbi do cemitério ao campo."
+   "papel_por_que": "Volta à mão ao morrer e devolve outro Zumbi do cemitério ao campo.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Une matar e erguer: ao morrer volta à mão e devolve outro Zumbi ao campo.",
+    "I": "Um 2/2 com ameaça; o valor chega quando morre, pago em mana.",
+    "T": "Duas manas, mais {B} e X a cada morte.",
+    "Q": "Início, paridade e na frente; atrás só rende com mana aberta.",
+    "R": "O Gravecrawler volta sozinho, mas não devolve outro Zumbi; peça de três laços."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Sidisi, Undead Vizier": {
    "notas": {
@@ -597,7 +826,7 @@
     "sin1": "Zumbi comum, sem efeito voltado aos outros Zumbis.",
     "sin2": "Explorar sacrifica uma criatura uma vez, como custo do tutor."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Zumbi Cobra lendária 4/6 de 5 com toque mortífero e exploit; explorando, busca qualquer carta.",
    "porque": "Tutor e Zumbi na mesma vaga: come uma ficha decayed e busca a peça do combo que falta.",
@@ -606,7 +835,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Tutor",
-   "papel_por_que": "Zumbi que sacrifica outro ao entrar e busca qualquer carta."
+   "papel_por_que": "Zumbi que sacrifica outro ao entrar e busca qualquer carta.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica uma ficha ao entrar e busca a peça do laço que falta.",
+    "I": "Tutor sem restrição, e fica um 4/6 com toque mortífero.",
+    "T": "Cinco manas por um tutor.",
+    "Q": "Paridade, na frente e atrás, buscando a limpeza.",
+    "R": "O Grim Servant busca só até a devoção; a Diabolic Intent, do radar, custa duas e não deixa corpo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Undead Warchief": {
    "notas": {
@@ -619,7 +867,7 @@
    "sin_por_que": {
     "sin1": "Zumbi lorde e redutor: fica em 2, porque não mexe no ciclo de morte da Wilhelt."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Zumbi 1/1 de 4. Suas mágicas de Zumbi custam {1} a menos; seus Zumbis +2/+1.",
    "porque": "O lord mais forte do deck, +2/+1 na horda, e ainda barateia cada Zumbi em uma mana.",
@@ -628,7 +876,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Lorde +2/+1 que barateia os Zumbis em {1}."
+   "papel_por_que": "Lorde +2/+1 que barateia os Zumbis em {1}.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Barateia cada Zumbi em uma mana e dá +2/+1 à horda; não mexe no ciclo de morte.",
+    "I": "O bônus vale na hora, mas ele precisa ficar em campo.",
+    "T": "Quatro manas por um lord que também acelera.",
+    "Q": "Paridade, na frente e atrás, barateando a reconstrução.",
+    "R": "Death Baron e Lord of the Accursed, do radar, custam três; os lords estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Zul Ashur, Lich Lord": {
    "notas": {
@@ -647,7 +914,26 @@
    "faz": "Zumbi Bruxo lendário 2/2 de 2 com ward (pague 2 de vida). Vira: você pode conjurar uma criatura Zumbi do seu cemitério neste turno.",
    "porque": "Recursão a cada turno por duas manas: recompra um Zumbi do cemitério, num deck que mata os seus Zumbis de propósito.",
    "papel": "habilita",
-   "papel_por_que": "Todo turno, conjura um Zumbi do cemitério."
+   "papel_por_que": "Todo turno, conjura um Zumbi do cemitério.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o erguer todo turno: um Zumbi do cemitério conjurado de novo.",
+    "I": "Precisa ficar em campo e desvirar; o ward de 2 de vida ajuda.",
+    "T": "Duas manas, mas cada volta paga o custo do Zumbi.",
+    "Q": "Início, paridade e atrás, refazendo a mesa.",
+    "R": "Gisa and Geralf, do radar, fazem o mesmo por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Champion of the Perished": {
    "notas": {
@@ -666,7 +952,26 @@
    "porque": "As fichas contam, e com o Army of the Damned ganha treze marcadores; mas cresce só ele, sem mexer no ciclo de morte da Wilhelt.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (cresce a cada Zumbi que entra)",
-   "papel_por_que": "Zumbi de 1 que alimenta a Wilhelt e cresce com as fichas dela."
+   "papel_por_que": "Zumbi de 1 que alimenta a Wilhelt e cresce com as fichas dela.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Zumbi de uma mana para as saídas; cresce com cada Zumbi que entra, só ele.",
+    "I": "Um corpo.",
+    "T": "Uma mana.",
+    "Q": "Início, e na frente, quando as fichas o fazem crescer.",
+    "R": "Qualquer Zumbi de uma mana cumpre; o Cryptbreaker, do radar, ainda cria fichas e compra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Cleaver Skaab": {
    "notas": {
@@ -683,7 +988,7 @@
     "sin1": "Zumbi que copia Zumbis em fichas sem decayed, mas por ativação paga, não por gatilho.",
     "sin2": "Saída de sacrifício repetível e instantânea, que troca o Zumbi por duas cópias."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "ALT",
    "faz": "Zumbi Horror 2/4 de 4. {3}, vira, sacrifique outro Zumbi: duas fichas cópia dele.",
    "porque": "Saída de sacrifício instantânea que troca um Zumbi por duas cópias sem decayed, que disparam a Wilhelt; custa três a cada uso, por isso não sobe.",
@@ -692,7 +997,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (duas cópias do Zumbi sacrificado)",
-   "papel_por_que": "Sacrifica um Zumbi e devolve duas cópias: morte para a Wilhelt e corpos a mais."
+   "papel_por_que": "Sacrifica um Zumbi e devolve duas cópias: morte para a Wilhelt e corpos a mais.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica um Zumbi e devolve duas cópias sem decayed, mas a {3} por uso.",
+    "I": "Precisa desvirar; duas cópias do Plague Belcher ou do Gray Merchant pesam.",
+    "T": "Quatro manas e mais três a cada ativação.",
+    "Q": "Paridade e na frente.",
+    "R": "As saídas passaram da cota, e os altares sacrificam de graça."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Eternal Skylord": {
    "notas": {
@@ -705,13 +1029,32 @@
    "sin_por_que": {
     "sin1": "Zumbi que dá voar às fichas de Zumbi: evasão, fora do ciclo de morte."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Zumbi Mago 3/3 de 5. Ao entrar, amass Zombies 2. Suas fichas de Zumbi têm voar.",
    "porque": "Dá voar às fichas de Zumbi, mas custa cinco e fica fora do ciclo de morte: evasão, não motor.",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (fichas de Zumbi voam)",
-   "papel_por_que": "Zumbi que põe um Exército em campo."
+   "papel_por_que": "Zumbi que põe um Exército em campo.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Dá voar só às fichas de Zumbi: ajuda o combate, não o ciclo de morte.",
+    "I": "Dois corpos: um 3/3 e um Exército 2/2.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "É a terceira carta de voar e a pior: Hordewing Skaab e Geralf dão voar a todos os Zumbis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.0
   },
   "Fell Stinger": {
    "notas": {
@@ -735,7 +1078,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Zumbi que sacrifica outro ao entrar e compra duas."
+   "papel_por_que": "Zumbi que sacrifica outro ao entrar e compra duas.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica uma ficha ao entrar e compra duas cartas.",
+    "I": "Duas cartas e um 3/2 com toque mortífero, garantidos na entrada.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, como bloqueador que repõe a mão.",
+    "R": "A compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Geralf, Visionary Stitcher": {
    "notas": {
@@ -751,7 +1113,7 @@
     "sin1": "Não é Zumbi, mas dá voar aos Zumbis e troca criatura de carta por um Zumbi sem decayed.",
     "sin2": "Saída de sacrifício repetível e instantânea, para criatura que não é ficha."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Humano Mago lendário 1/4 de 3. Seus Zumbis têm voar. {U}, vira, sacrifique outra criatura não-ficha: uma ficha Zumbi X/X, X a resistência dela.",
    "porque": "Dá voar aos Zumbis e transforma criatura de carta em Zumbi sem decayed, mas não é Zumbi e não sacrifica ficha.",
@@ -760,7 +1122,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (Zumbis voam)",
-   "papel_por_que": "Saída de sacrifício que cria uma ficha Zumbi sem decayed."
+   "papel_por_que": "Saída de sacrifício que cria uma ficha Zumbi sem decayed.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá voar aos Zumbis e troca criatura de carta por um Zumbi sem decayed; não sacrifica ficha.",
+    "I": "O voar vale na hora; a saída pede que ele fique e desvire.",
+    "T": "Três manas, e {U} por ativação.",
+    "Q": "Paridade e na frente.",
+    "R": "O Hordewing Skaab também dá voar a todos, e as saídas passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Ghoulcaller Gisa": {
    "notas": {
@@ -784,7 +1165,26 @@
     "saida": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Sacrifica uma criatura e cria X Zumbis sem decayed."
+   "papel_por_que": "Sacrifica uma criatura e cria X Zumbis sem decayed.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mata e ergue na mesma ativação: uma ficha decayed sacrificada vira dois Zumbis sem decayed.",
+    "I": "Precisa ficar em campo e desvirar; rende muito a cada turno.",
+    "T": "Cinco manas, e só ativa na volta seguinte.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra saída da lista multiplica corpos assim."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Gleaming Overseer": {
    "notas": {
@@ -797,13 +1197,32 @@
    "sin_por_que": {
     "sin1": "Zumbi que protege as fichas de Zumbi e lhes dá ameaça, fora do ciclo de morte."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Zumbi Mago 1/4 de 3. Ao entrar, amass Zombies 1. Suas fichas de Zumbi têm resistência a magia e ameaça.",
    "porque": "Protege as fichas de Zumbi e lhes dá ameaça, mas fica fora do ciclo de morte: apoio, não motor.",
    "papel": "habilita",
    "papel_dupla": "Proteção (fichas com resistência a magia)",
-   "papel_por_que": "Zumbi que põe um Exército em campo e protege as fichas de Zumbi."
+   "papel_por_que": "Zumbi que põe um Exército em campo e protege as fichas de Zumbi.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dois corpos de Zumbi para as saídas; a ameaça nas fichas ajuda só o combate.",
+    "I": "Um 1/4 e um Exército 1/1.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início, como bloqueador, e paridade.",
+    "R": "Qualquer Zumbi de três manas com efeito na entrada cumpre o papel."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Grim Servant": {
    "notas": {
@@ -822,7 +1241,26 @@
    "porque": "Tutor num Zumbi: acha a peça do laço que falta, mas o alcance depende da devoção ao preto e custa 3 de vida.",
    "papel": "habilita",
    "papel_dupla": "Tutor",
-   "papel_por_que": "Zumbi que busca uma carta ao entrar."
+   "papel_por_que": "Zumbi que busca uma carta ao entrar.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Busca a peça do laço, até o valor da sua devoção ao preto.",
+    "I": "Um tutor limitado e um 3/2 com ameaça.",
+    "T": "Quatro manas e 3 de vida.",
+    "Q": "Paridade, na frente e atrás, se a devoção alcançar a resposta.",
+    "R": "A compra e os tutores estão abaixo da cota; a Diabolic Intent, do radar, busca sem limite."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Hordewing Skaab": {
    "notas": {
@@ -836,12 +1274,31 @@
    "sin_por_que": {
     "sin1": "Zumbi que dá voar aos outros Zumbis: evasão, sem render a cada Zumbi que morre."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "ALT",
    "faz": "Zumbi Horror 3/3 de 5 com voar; seus outros Zumbis voam. Zumbis seus causam dano de combate: pode comprar e descartar uma por oponente atingido.",
    "porque": "Dá voar a toda a horda e filtra cartas a cada oponente atingido, mas custa cinco e não mexe no ciclo de morte.",
    "papel": "multiplica",
-   "papel_por_que": "Dá voar a todos os seus Zumbis: o exército de fichas passa por cima."
+   "papel_por_que": "Dá voar a todos os seus Zumbis: o exército de fichas passa por cima.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá voar a todos os Zumbis: é combate, não o ciclo de morte.",
+    "I": "O voar vale na hora, num 3/3 voador que ainda filtra a mão.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Geralf dá o mesmo voar por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.2
   },
   "Mirkwood Bats": {
    "notas": {
@@ -854,15 +1311,34 @@
    "sin_por_que": {
     "sin2": "Só rende com as fichas criadas e sacrificadas, sem matar nem devolver."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "ALT",
    "faz": "Morcego 2/3 de 4 com voar. Você cria ou sacrifica uma ficha: cada oponente perde 1.",
-   "porque": "Cada ficha drena ao nascer e de novo se for sacrificada, e com o Diregraf Colossus as fichas drenam em série. Não é Zumbi, por isso não passa de B.",
+   "porque": "Cada ficha drena ao nascer e de novo se for sacrificada, e com o Diregraf Colossus as fichas drenam em série. Não é Zumbi.",
    "marcas": {
     "dreno": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Cada ficha criada ou sacrificada drena 1: as fichas da Wilhelt drenam duas vezes."
+   "papel_por_que": "Cada ficha criada ou sacrificada drena 1: as fichas da Wilhelt drenam duas vezes.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o drenar: cada ficha criada ou sacrificada tira 1 de cada oponente.",
+    "I": "Precisa ficar em campo; cada ficha da Wilhelt drena ao nascer e ao ser sacrificada.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "Único dreno que cobra a ficha duas vezes; os drenos estão abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Sidisi, Regent of the Mire": {
    "notas": {
@@ -886,7 +1362,26 @@
    },
    "pacote": "sacrificio",
    "papel": "habilita",
-   "papel_por_que": "Sacrifica uma criatura e devolve outra, maior, do cemitério, toda vez."
+   "papel_por_que": "Sacrifica uma criatura e devolve outra, maior, do cemitério, toda vez.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Une matar e erguer: sacrifica uma criatura e devolve do cemitério uma de valor um a mais.",
+    "I": "Precisa desvirar, e o valor da criatura sacrificada limita o que volta.",
+    "T": "Duas manas, mas só como feitiço.",
+    "Q": "Paridade e na frente.",
+    "R": "As saídas passaram da cota; a volta em escada é o que ela tem de próprio."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Unstoppable Slasher": {
    "notas": {
@@ -906,7 +1401,26 @@
    "faz": "Zumbi Assassino 2/3 de 3 com toque mortífero. Dano de combate a um jogador: ele perde metade da vida. Morrendo sem marcadores, volta virado com dois marcadores de atordoamento.",
    "porque": "Tira meia vida de um oponente se conectar e volta uma vez ao morrer, mas depende de combate num deck que fecha por dreno e laço.",
    "papel": "habilita",
-   "papel_por_que": "Zumbi que volta uma vez ao morrer e tira metade da vida de quem atinge."
+   "papel_por_que": "Zumbi que volta uma vez ao morrer e tira metade da vida de quem atinge.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Morre, volta e morre de novo: duas mortes de Zumbi numa carta.",
+    "I": "Um 2/3 com toque mortífero; a meia vida só sai se conectar.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início e atrás como bloqueador, e paridade.",
+    "R": "Depende de combate num deck que fecha por dreno e laço."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Tainted Adversary": {
    "notas": {
@@ -918,12 +1432,32 @@
    "sin_por_que": {
     "sin1": "Zumbi comum; as fichas que cria têm decayed e não disparam a Wilhelt."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Zumbi 2/3 de 2 com toque mortífero. Ao entrar, pague {2}{B} quantas vezes quiser: um marcador +1/+1 nele e duas fichas Zumbi decayed por vez.",
    "porque": "As fichas decayed não disparam a Wilhelt, mas alimentam o Augur, o Captain e o Belcher; precisa de muita mana para render.",
    "papel": "habilita",
-   "papel_por_que": "Zumbi que cria fichas decayed para o sacrifício do fim do turno."
+   "papel_por_que": "Zumbi que cria fichas decayed para o sacrifício do fim do turno.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As fichas têm decayed: não disparam a Wilhelt, mas alimentam o Augur, o Captain e o Belcher.",
+    "I": "Um 2/3 com toque mortífero; as fichas custam {2}{B} a cada par.",
+    "T": "Duas manas, ou cinco com duas fichas.",
+    "Q": "Início como bloqueador, paridade e na frente, onde gasta a mana que sobra.",
+    "R": "O radar põe o Cemetery Reaper na vaga: lord que cria fichas sem decayed."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Cemetery Reaper",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Liliana's Reaver": {
    "notas": {
@@ -936,13 +1470,36 @@
    "sin_por_que": {
     "sin1": "Zumbi comum; a ficha de Zumbi depende de conectar, sem gatilho a cada mágica ou turno."
    },
-   "tier": "C",
+   "tier": "D",
    "rel": "BAX",
    "faz": "Zumbi 4/3 de 4 com toque mortífero. Dano de combate a um jogador: ele descarta, e você ganha um Zumbi 2/2 virado.",
    "porque": "Quatro manas por um Zumbi que só cria ficha se conectar, sem ligação com o ciclo de morte.",
    "prioridade": 5,
    "papel": "habilita",
-   "papel_por_que": "Zumbi que cria outro Zumbi a cada dano de combate."
+   "papel_por_que": "Zumbi que cria outro Zumbi a cada dano de combate.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Só cria ficha se conectar; fica fora do ciclo de morte.",
+    "I": "Um 4/3 com toque mortífero.",
+    "T": "Quatro manas, e depende do combate.",
+    "Q": "Paridade e na frente.",
+    "R": "É o pior gerador de fichas da lista; o Cryptbreaker, do radar, cria e compra por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Cryptbreaker",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Blood Scrivener": {
    "notas": {
@@ -960,7 +1517,30 @@
    "porque": "O deck quase nunca fica de mão vazia, com a Wilhelt e o Augur comprando: o efeito dela quase não dispara.",
    "prioridade": 2,
    "papel": "habilita",
-   "papel_por_que": "Zumbi de 2 que paga o sacrifício do fim do turno (papel fraco)."
+   "papel_por_que": "Zumbi de 2 que paga o sacrifício do fim do turno (papel fraco).",
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Só compra com a mão vazia, e a Wilhelt e o Augur mantêm a mão cheia.",
+    "I": "Um 2/1.",
+    "T": "Duas manas, com uma condição que quase não acontece.",
+    "Q": "Início, como corpo, e atrás sem mão.",
+    "R": "É a pior fonte de compra da lista; o radar põe o Death Baron na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Death Baron",
+   "confianca": "alta",
+   "indice": 0.8
   },
   "Cyclonic Rift": {
    "notas": {
@@ -972,7 +1552,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Instantânea de 2: devolve uma permanente que não é sua; sobrecarga {6}{U}: todas.",
-   "porque": "Abre a mesa no turno do fechamento e, com sobrecarga, devolve tudo dos oponentes sem tocar na sua horda."
+   "porque": "Abre a mesa no turno do fechamento e, com sobrecarga, devolve tudo dos oponentes sem tocar na sua horda.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Resposta genérica.",
+    "I": "Devolve uma permanente; com sobrecarga, a mesa deles inteira, e a sua horda fica.",
+    "T": "Duas manas, instantânea; sete com sobrecarga.",
+    "Q": "Viva nos quatro momentos.",
+    "R": "É a única limpeza de um lado só e a única resposta a artefato da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Army of the Damned": {
    "notas": {
@@ -985,12 +1584,31 @@
    "sin_por_que": {
     "sin1": "Não é Zumbi, mas cria treze fichas de Zumbi sem decayed."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 8: treze fichas Zumbi 2/2 viradas; flashback {7}{B}{B}{B}.",
    "porque": "Treze Zumbis sem decayed, treze gatilhos futuros da Wilhelt, e ainda tem flashback: o maior lote de fichas do deck.",
    "papel": "habilita",
-   "papel_por_que": "Treze Zumbis sem decayed: cada um que morre vira ficha da Wilhelt."
+   "papel_por_que": "Treze Zumbis sem decayed: cada um que morre vira ficha da Wilhelt.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Treze Zumbis sem decayed de uma vez: treze fichas futuras da Wilhelt.",
+    "I": "Treze corpos numa mágica, e de novo com o flashback.",
+    "T": "Oito manas.",
+    "Q": "Paridade e atrás, depois da limpeza.",
+    "R": "É o maior lote de fichas da lista; nada perto disso por menos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Baleful Mastery": {
    "notas": {
@@ -998,7 +1616,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 4, ou de 2 dando uma carta a um oponente: exila criatura ou planeswalker.",
    "porque": "Remoção instantânea que exila criatura ou planeswalker por duas manas: tira do caminho o que a horda não resolve.",
@@ -1006,7 +1624,26 @@
    "custo_usual": {
     "cmc": 2,
     "como": "pagando {1}{B} e dando uma carta a um oponente"
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Um por um, e exila.",
+    "T": "Duas manas, instantânea, dando uma carta a um oponente.",
+    "Q": "Viva nos quatro momentos.",
+    "R": "É a única remoção pontual que exila; a remoção está no piso da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Go for the Throat": {
    "notas": {
@@ -1014,10 +1651,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 2: destrói criatura que não é artefato.",
-   "porque": "Remoção instantânea de duas manas para quase qualquer criatura: o controle de mesa barato que a fase do meio pede."
+   "porque": "Remoção instantânea de duas manas para quase qualquer criatura: o controle de mesa barato que a fase do meio pede.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Um por um.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Viva nos quatro momentos.",
+    "R": "A remoção está no piso da cota: são nove cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Lich-Knights' Conquest": {
    "notas": {
@@ -1031,7 +1687,7 @@
    "sin_por_que": {
     "sin2": "Sacrifica e devolve do cemitério ao campo numa vez só, em massa."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 5: sacrifique artefatos, encantamentos ou fichas; devolva do cemitério ao campo o mesmo número de criaturas.",
    "porque": "Troca fichas por criaturas de carta do cemitério de uma vez: cada ficha decayed sacrificada traz uma de volta.",
@@ -1039,7 +1695,26 @@
     "saida": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Sacrifica fichas e devolve o mesmo número de criaturas do cemitério."
+   "papel_por_que": "Sacrifica fichas e devolve o mesmo número de criaturas do cemitério.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mata e ergue numa mágica: cada ficha sacrificada devolve uma criatura do cemitério.",
+    "I": "Várias criaturas de volta de uma vez, na medida das fichas.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Paridade e na frente; pede fichas em campo e cemitério cheio.",
+    "R": "É a única que troca fichas decayed por criaturas de carta em lote."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Reanimate": {
    "notas": {
@@ -1056,7 +1731,26 @@
    "faz": "Feitiço de 1: uma criatura de qualquer cemitério para o seu campo; você perde vida igual ao valor dela.",
    "porque": "Recursão por uma mana, de qualquer cemitério, num deck que enche o próprio cemitério de Zumbis.",
    "papel": "habilita",
-   "papel_por_que": "Recursão de uma vez, por 1 de mana (papel fraco)."
+   "papel_por_que": "Recursão de uma vez, por 1 de mana (papel fraco).",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ergue por uma mana, de qualquer cemitério.",
+    "I": "A melhor criatura de qualquer cemitério direto no campo.",
+    "T": "Uma mana e vida igual ao valor da criatura.",
+    "Q": "Paridade, na frente e atrás; no início falta cemitério.",
+    "R": "Nenhuma outra recursão da lista custa uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Toxic Deluge": {
    "notas": {
@@ -1064,11 +1758,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Feitiço de 3: pague X de vida; todas as criaturas −X/−X.",
    "porque": "A limpeza que escolhe o tamanho: X pequeno mata as fichas dos oponentes e poupa quem tem resistência maior.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica, e a que escolhe o tamanho: X até 2 poupa a Wilhelt.",
+    "I": "Vira a mesa, na medida que você escolher.",
+    "T": "Três manas.",
+    "Q": "Atrás e na paridade travada.",
+    "R": "É a melhor das quatro limpezas; a cota é de três a quatro."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Victimize": {
    "notas": {
@@ -1089,7 +1802,26 @@
     "saida": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Sacrifica uma criatura e devolve duas."
+   "papel_por_que": "Sacrifica uma criatura e devolve duas.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mata e ergue numa mágica: uma ficha sacrificada devolve duas criaturas.",
+    "I": "Dois corpos do cemitério e mais uma morte para cobrar.",
+    "T": "Três manas por duas reanimações.",
+    "Q": "Paridade, na frente e atrás; pede uma criatura em campo e duas no cemitério.",
+    "R": "A Lich-Knights' Conquest custa cinco; o Reanimate devolve uma só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Empty the Laboratory": {
    "notas": {
@@ -1105,7 +1837,7 @@
     "sin1": "Não é Zumbi, mas troca Zumbis sacrificados por Zumbis do grimório.",
     "sin2": "Sacrifica de uma vez, como custo, sem devolver do cemitério."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Feitiço de X+2: sacrifique X Zumbis e revele cartas até achar X criaturas Zumbi, que entram no campo.",
    "porque": "Troca fichas por Zumbis de carta do grimório, e cada sacrifício dispara a Wilhelt; precisa de mesa cheia e mana alta para valer.",
@@ -1113,7 +1845,26 @@
     "saida": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Sacrifica X Zumbis (X gatilhos da Wilhelt) e põe X Zumbis do grimório em campo."
+   "papel_por_que": "Sacrifica X Zumbis (X gatilhos da Wilhelt) e põe X Zumbis do grimório em campo.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica X Zumbis e põe em campo X Zumbis do grimório.",
+    "I": "Troca fichas por Zumbis de carta, sem escolher quais.",
+    "T": "X mais duas manas, e pede mesa cheia.",
+    "Q": "Paridade e na frente.",
+    "R": "A Lich-Knights' Conquest faz a troca pelo cemitério, onde você escolhe o que volta."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Malakir Rebirth": {
    "notas": {
@@ -1128,7 +1879,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 1: perca 2; a criatura volta ao campo virada se morrer neste turno. Verso: terreno virado de {B}.",
-   "porque": "Salva uma peça do combo por uma mana, ou entra como terreno: soma-se aos 33 terrenos da lista, abaixo dos 35 de referência."
+   "porque": "Salva uma peça do combo por uma mana, ou entra como terreno: soma-se aos 33 terrenos da lista, abaixo dos 35 de referência.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A criatura morre e volta: salva a Wilhelt ou a peça do laço, e a morte ainda é cobrada.",
+    "I": "Um por um.",
+    "T": "Uma mana, instantânea, e 2 de vida.",
+    "Q": "Nunca é carta morta: na pior hipótese é terreno, que entra virado.",
+    "R": "A proteção está no piso da cota: são duas cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Rise of the Dread Marn": {
    "notas": {
@@ -1148,7 +1918,26 @@
    "porque": "Resposta à limpeza: a horda volta na mesma hora em Zumbis sem decayed. Depende das mortes do turno, por isso Flex.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (fichas Zumbi sem decayed)",
-   "papel_por_que": "Uma ficha Zumbi por criatura não-ficha que morreu no turno."
+   "papel_por_que": "Uma ficha Zumbi por criatura não-ficha que morreu no turno.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ergue depois da limpeza: uma ficha de Zumbi sem decayed por criatura não-ficha morta no turno.",
+    "I": "Refaz a mesa na mesma hora, na medida das mortes do turno.",
+    "T": "{B} com prenunciar, instantânea.",
+    "Q": "Atrás, e na paridade depois de um turno de muitas mortes.",
+    "R": "É a única resposta instantânea à limpeza; a proteção está no piso da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Withering Torment": {
    "notas": {
@@ -1159,7 +1948,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Instantânea de 3: destrói criatura ou encantamento; você perde 2.",
-   "porque": "Remoção instantânea que pega criatura ou encantamento, por três manas e 2 de vida."
+   "porque": "Remoção instantânea que pega criatura ou encantamento, por três manas e 2 de vida.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica.",
+    "I": "Um por um, em criatura ou encantamento.",
+    "T": "Três manas, instantânea, e 2 de vida.",
+    "Q": "Viva nos quatro momentos.",
+    "R": "É a única resposta pontual a encantamento, além da Cyclonic Rift."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Living Death": {
    "notas": {
@@ -1173,13 +1981,36 @@
    "sin_por_que": {
     "sin2": "Sacrifica todas as criaturas e devolve as do cemitério, numa vez só."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "faz": "Feitiço de 5: cada jogador exila as criaturas do cemitério, sacrifica as do campo e põe as exiladas no campo.",
    "porque": "Simétrica: devolve também as criaturas dos oponentes, e com a Wilhelt é armadilha.",
    "papel": "habilita",
    "papel_dupla": "Remoção (limpeza)",
-   "papel_por_que": "Sacrifica seus Zumbis de uma vez (gatilhos da Wilhelt) e devolve o cemitério."
+   "papel_por_que": "Sacrifica seus Zumbis de uma vez (gatilhos da Wilhelt) e devolve o cemitério.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica a sua mesa, Wilhelt inclusive, e devolve o cemitério; os três oponentes também recebem os deles.",
+    "I": "Troca a mesa pelo cemitério, para os quatro jogadores.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Atrás e na paridade, só com o seu cemitério bem maior que o deles.",
+    "R": "Lich-Knights' Conquest e Awakening Hall devolvem só o seu lado; o radar põe o Noxious Ghoul na vaga."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "substituto": "Noxious Ghoul",
+   "confianca": "baixa",
+   "indice": 1.65
   },
   "Damnation": {
    "notas": {
@@ -1187,12 +2018,35 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "BAX",
    "faz": "Feitiço de 4: destrói todas as criaturas.",
-   "porque": "Limpeza simétrica num deck de mesa larga: leva a horda junto, e o deck já tem três limpezas para um teto de duas.",
+   "porque": "Limpeza simétrica num deck de mesa larga: leva a horda junto, e o deck tem quatro limpezas, no teto da cota de três a quatro.",
    "massa": true,
-   "prioridade": 4
+   "prioridade": 4,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Limpeza genérica que destrói a Wilhelt e a horda inteira, sem regeneração.",
+    "I": "Vira a mesa, a sua junto.",
+    "T": "Quatro manas.",
+    "Q": "Atrás e na paridade travada.",
+    "R": "É a quarta limpeza, no teto da cota; o radar põe o Accursed Marauder na vaga."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "substituto": "Accursed Marauder",
+   "confianca": "baixa",
+   "indice": 1.6
   },
   "Necrotic Hex": {
    "notas": {
@@ -1207,7 +2061,7 @@
     "sin1": "Não é Zumbi, mas cria seis fichas de Zumbi sem decayed.",
     "sin2": "Sacrifica as suas uma vez, num efeito para todos."
    },
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Feitiço de 7: cada jogador sacrifica seis criaturas; você cria seis fichas Zumbi 2/2 viradas.",
    "porque": "Sete manas para um efeito simétrico: as seis fichas não compensam os seis Zumbis seus que vão junto.",
@@ -1215,7 +2069,31 @@
    "prioridade": 1,
    "papel": "habilita",
    "papel_dupla": "Remoção (limpeza)",
-   "papel_por_que": "Seis sacrifícios seus para a Wilhelt e seis Zumbis novos."
+   "papel_por_que": "Seis sacrifícios seus para a Wilhelt e seis Zumbis novos.",
+   "tier_anterior": "D",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Você também sacrifica seis: com sete criaturas ou mais a Wilhelt fica, e chegam seis Zumbis sem decayed.",
+    "I": "Cada oponente perde seis criaturas, e você troca seis por seis.",
+    "T": "Sete manas.",
+    "Q": "Atrás e na paridade.",
+    "R": "É a pior das quatro limpezas; o radar põe o The Scarab God na vaga."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "The Scarab God",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Phyrexian Altar": {
    "notas": {
@@ -1239,7 +2117,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Saída de sacrifício sem custo que gera mana de qualquer cor."
+   "papel_por_que": "Saída de sacrifício sem custo que gera mana de qualquer cor.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o matar: saída grátis e instantânea, e cada morte vira uma mana de qualquer cor.",
+    "I": "Liga as mortes na hora; sozinho não faz nada.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, sacrificando em resposta à limpeza.",
+    "R": "Só ele dá mana de cor para os laços, mas as saídas passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Sol Ring": {
    "notas": {
@@ -1250,7 +2147,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Artefato de 1: {C}{C}.",
-   "porque": "Põe a Wilhelt no turno 3: a aceleração mais forte e mais barata do deck."
+   "porque": "Põe a Wilhelt no turno 3: a aceleração mais forte e mais barata do deck.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Duas manas a mais por turno: a Wilhelt desce no turno 3.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre.",
+    "R": "Nada acelera tanto por uma mana, e o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Arcane Signet": {
    "notas": {
@@ -1258,10 +2174,29 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Artefato de 2: mana da identidade.",
-   "porque": "Pedra de duas manas que dá as duas cores e adianta a Wilhelt um turno."
+   "porque": "Pedra de duas manas que dá as duas cores e adianta a Wilhelt um turno.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno, nas duas cores.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota: são seis pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Ashnod's Altar": {
    "notas": {
@@ -1275,7 +2210,7 @@
    "sin_por_que": {
     "sin2": "Saída de sacrifício grátis, instantânea e repetível."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Artefato de 3. Sacrifique uma criatura: {C}{C}.",
    "porque": "Saída de sacrifício que dá duas manas: com o Gravecrawler e a Rooftop Storm, mana incolor e mortes infinitas.",
@@ -1285,7 +2220,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Saída de sacrifício sem custo: o Zumbi morre quando você quer e ainda dá mana."
+   "papel_por_que": "Saída de sacrifício sem custo: o Zumbi morre quando você quer e ainda dá mana.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o matar: saída grátis e instantânea, e cada morte vira {C}{C}.",
+    "I": "Liga as mortes na hora; sozinho não faz nada.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, sacrificando em resposta à limpeza.",
+    "R": "Par do Phyrexian Altar, que dá mana de cor; as saídas passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Cursecloth Wrappings": {
    "notas": {
@@ -1311,7 +2265,26 @@
    "pacote": "buff",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (lorde +1/+1)",
-   "papel_por_que": "Todo turno, uma criatura do cemitério volta como ficha Zumbi sem decayed."
+   "papel_por_que": "Todo turno, uma criatura do cemitério volta como ficha Zumbi sem decayed.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ergue uma criatura do cemitério por turno, como ficha de Zumbi sem decayed, e dá +1/+1 aos Zumbis.",
+    "I": "O +1/+1 vale na hora; a recursão pede o custo de mana da criatura.",
+    "T": "Quatro manas por lord e recursão juntos.",
+    "Q": "Paridade, na frente e atrás, recomprando do cemitério.",
+    "R": "Os lords estão abaixo da cota; a Patchwork Banner, do radar, dá o bônus mas não recorre."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Dimir Signet": {
    "notas": {
@@ -1322,7 +2295,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Artefato de 2. {1}, vira: {U}{B}.",
-   "porque": "Pedra de duas manas que dá as duas cores; cumpre o ramp, sem ligação com os Zumbis."
+   "porque": "Pedra de duas manas que dá as duas cores; cumpre o ramp, sem ligação com os Zumbis.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno, nas duas cores.",
+    "T": "Duas manas; pede {1} para ativar.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota; o Herald's Horn, do radar, disputa a vaga."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Talisman of Dominance": {
    "notas": {
@@ -1333,7 +2325,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "Artefato de 2: {C}, ou {U} ou {B} com 1 de dano.",
-   "porque": "Pedra de duas manas que dá as duas cores, a 1 de dano; cumpre o ramp, sem ligação com os Zumbis."
+   "porque": "Pedra de duas manas que dá as duas cores, a 1 de dano; cumpre o ramp, sem ligação com os Zumbis.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana genérica.",
+    "I": "Uma mana a mais por turno: incolor, ou azul ou preto por 1 de dano.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre.",
+    "R": "O ramp está abaixo da cota: são seis pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Urza's Incubator": {
    "notas": {
@@ -1352,7 +2363,26 @@
    "porque": "Ramp tribal: cada Zumbi sai duas manas mais barato, e o deck é quase todo Zumbi.",
    "papel": "multiplica",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Zumbis custam {2} a menos: mais corpos por turno."
+   "papel_por_que": "Zumbis custam {2} a menos: mais corpos por turno.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada Zumbi de carta sai duas manas mais barato: a Wilhelt custa {U}{B}.",
+    "I": "Não rende na entrada; depois, vale duas manas a cada Zumbi.",
+    "T": "Três manas, no padrão de uma pedra.",
+    "Q": "Início, paridade e atrás, barateando a reconstrução.",
+    "R": "O Herald's Horn, do radar, reduz só uma; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Wand of Orcus": {
    "notas": {
@@ -1366,12 +2396,31 @@
    "sin_por_que": {
     "sin1": "Não é Zumbi, mas dá toque mortífero aos Zumbis e cria fichas de Zumbi sem decayed."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Equipamento lendário de 3, equipar {3}: ao atacar ou bloquear, a equipada e seus Zumbis ganham toque mortífero; dano de combate a um jogador: um Zumbi 2/2 por ponto.",
    "porque": "Num Zumbi voador, cada ataque vira horda, mas pede seis manas entre conjurar e equipar e depende de conectar.",
    "papel": "habilita",
-   "papel_por_que": "Cria um Zumbi por ponto de dano de combate e dá toque mortífero aos Zumbis."
+   "papel_por_que": "Cria um Zumbi por ponto de dano de combate e dá toque mortífero aos Zumbis.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cria um Zumbi sem decayed por ponto de dano, mas só se a equipada conectar.",
+    "I": "Não faz nada sem equipar e atacar.",
+    "T": "Três manas e mais três para equipar.",
+    "Q": "Paridade e na frente.",
+    "R": "Qualquer gerador de fichas da lista rende sem depender do combate."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Crowded Crypt": {
    "notas": {
@@ -1392,7 +2441,26 @@
    "porque": "Pedra que vira horda tarde, mas as fichas têm decayed e não disparam a Wilhelt.",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Junta marcadores a cada morte e vira um lote de Zumbis decayed para o sacrifício do fim do turno."
+   "papel_por_que": "Junta marcadores a cada morte e vira um lote de Zumbis decayed para o sacrifício do fim do turno.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra de {B}; as fichas que cria têm decayed e chegam por seis manas.",
+    "I": "Uma mana a mais por turno.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início e paridade como pedra; na frente vira um lote de fichas.",
+    "R": "Pedra comum de três, mas o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Pyre of Heroes": {
    "notas": {
@@ -1416,7 +2484,27 @@
    },
    "prioridade": 6,
    "papel": "habilita",
-   "papel_por_que": "Sacrifica um Zumbi e busca o Zumbi seguinte da curva, como feitiço."
+   "papel_por_que": "Sacrifica um Zumbi e busca o Zumbi seguinte da curva, como feitiço.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica um Zumbi e busca para o campo o Zumbi seguinte da curva.",
+    "I": "Um tutor para o campo por turno; a ficha, de valor 0, busca um Zumbi de uma mana.",
+    "T": "Duas manas, mais duas por uso, e só como feitiço.",
+    "Q": "Paridade e na frente.",
+    "R": "É a pior saída de um papel acima da cota; o radar põe o Lord of the Accursed na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Lord of the Accursed",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Midnight Clock": {
    "notas": {
@@ -1425,11 +2513,35 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Artefato de 3: {U}; no 12º marcador, embaralha mão e cemitério e compra sete.",
    "porque": "Pedra lenta, sem ligação com Zumbis, e a recarga de sete cartas embaralha o cemitério que o deck usa.",
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Pedra de {U}; no 12º marcador embaralha a mão e o cemitério inteiro, que a recursão usa.",
+    "I": "Uma mana a mais por turno, e sete cartas novas quando dispara.",
+    "T": "Três manas, no padrão.",
+    "Q": "Início e paridade como pedra; atrás, as sete cartas ajudam.",
+    "R": "É a pior pedra; o radar põe o Skullclamp na vaga, e a Patchwork Banner ainda dá +1/+1."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material",
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Skullclamp",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Rooftop Storm": {
    "notas": {
@@ -1442,7 +2554,7 @@
    "sin_por_que": {
     "sin1": "Não é Zumbi, mas deixa as mágicas de criatura Zumbi saírem por {0}."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "faz": "Encantamento de 6: suas mágicas de criatura Zumbi podem custar {0}.",
    "porque": "Com o Acererak, vence; com o Gravecrawler e o Ashnod's Altar, mana infinita. É o que deixa os Zumbis saírem de graça nos laços.",
@@ -1451,7 +2563,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Zumbis custam {0}: com Gravecrawler e um altar, o ciclo de morte vira laço."
+   "papel_por_que": "Zumbis custam {0}: com Gravecrawler e um altar, o ciclo de morte vira laço.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Zumbis por {0}: é a peça de três laços da lista, o do Acererak inclusive.",
+    "I": "Não rende na entrada; depois, a mão de Zumbis sai de graça.",
+    "T": "Seis manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Nenhuma outra carta deixa os Zumbis saírem de graça: sem ela o Acererak não fecha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Dictate of Erebos": {
    "notas": {
@@ -1470,7 +2601,26 @@
    "porque": "Cada ficha decayed vira um edito: é o controle de mesa que a fase do meio pede, e tem lampejo.",
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Cada criatura sua que morre faz cada oponente sacrificar uma."
+   "papel_por_que": "Cada criatura sua que morre faz cada oponente sacrificar uma.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cobra as mortes em remoção: cada criatura sua que morre é um edito em cada oponente.",
+    "I": "Com as saídas e as fichas decayed, esvazia a mesa deles e fica em campo.",
+    "T": "Cinco manas, com lampejo.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Grave Pact, do radar, custa quatro, mas {1}{B}{B}{B} e sem lampejo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Kindred Discovery": {
    "notas": {
@@ -1483,13 +2633,32 @@
    "sin_por_que": {
     "sin1": "Não é Zumbi, mas com Zumbi escolhido compra a cada Zumbi que entra ou ataca."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 5: escolhido um tipo, compre sempre que uma criatura sua desse tipo entra ou ataca.",
    "porque": "Compra a cada Zumbi que entra ou ataca, fichas incluídas. A compra é obrigatória: num laço infinito, compra o grimório.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Compra a cada Zumbi que entra ou ataca, inclusive as fichas da Wilhelt."
+   "papel_por_que": "Compra a cada Zumbi que entra ou ataca, inclusive as fichas da Wilhelt.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Cada Zumbi que entra ou ataca compra uma carta, fichas inclusive.",
+    "I": "Não rende na entrada; depois, cada ficha da Wilhelt é uma carta.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "Só ela compra na entrada dos Zumbis, e a compra está abaixo da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Liliana, Death's Majesty": {
    "notas": {
@@ -1505,12 +2674,31 @@
     "sin1": "Não é Zumbi, mas cria fichas de Zumbi sem decayed e reanima como Zumbi.",
     "sin2": "Reanima uma vez, e de novo só depois de vários turnos de lealdade."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Planeswalker de 5. +1: uma ficha Zumbi 2/2 e moa duas; −3: uma criatura do seu cemitério volta como Zumbi; −7: destrói as criaturas que não são Zumbi.",
    "porque": "Um Zumbi sem decayed por turno e recursão de criatura como Zumbi; o −7 ainda poupa a horda.",
    "papel": "habilita",
-   "papel_por_que": "Uma ficha Zumbi por turno e reanimação como Zumbi."
+   "papel_por_que": "Uma ficha Zumbi por turno e reanimação como Zumbi.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ergue um Zumbi sem decayed por turno, ou devolve uma criatura do cemitério.",
+    "I": "Uma ficha na entrada, e ela fica; ou uma reanimação na hora.",
+    "T": "Cinco manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, reanimando.",
+    "R": "O Thomil, the Destroyer, do radar, cria a ficha mas não reanima."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Necroduality": {
    "notas": {
@@ -1523,7 +2711,7 @@
    "sin_por_que": {
     "sin1": "Não é Zumbi, mas copia cada Zumbi de carta que entra, em ficha sem decayed."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "faz": "Encantamento de 4: Zumbi seu não-ficha entra, uma ficha cópia dele.",
    "porque": "Cada Zumbi de carta que entra vira dois, e a cópia não tem decayed; com a Relentless Dead e um altar, combo, e com o Gray Merchant, dreno em dobro.",
@@ -1531,7 +2719,26 @@
     "combo": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Copia cada Zumbi não-ficha que entra: dobra corpos e gatilhos de entrada."
+   "papel_por_que": "Copia cada Zumbi não-ficha que entra: dobra corpos e gatilhos de entrada.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o erguer em dobro: cada Zumbi de carta que entra vem com uma cópia sem decayed.",
+    "I": "Não rende na entrada; depois, cada Zumbi vale dois.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente.",
+    "R": "O Diregraf Colossus dá uma ficha 2/2, não a cópia; peça dos laços da Relentless Dead."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Necropotence": {
    "notas": {
@@ -1542,7 +2749,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 3 ({B}{B}{B}): pule a compra; pague 1 de vida: uma carta, que vai para a mão no seu passo final.",
-   "porque": "Compra em massa paga com vida: a fonte de cartas mais forte do deck."
+   "porque": "Compra em massa paga com vida: a fonte de cartas mais forte do deck.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: qualquer deck preto usaria.",
+    "I": "Quantas cartas quiser, no fim do turno em que entra.",
+    "T": "Três manas, 1 de vida por carta.",
+    "Q": "Início, paridade e na frente; atrás, a vida não sobra.",
+    "R": "Nenhuma outra compra da lista rende tanto por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Rhystic Study": {
    "notas": {
@@ -1553,7 +2779,26 @@
    "tier": "A",
    "rel": "ALT",
    "faz": "Encantamento de 3: oponente conjura, você compra, a menos que ele pague {1}.",
-   "porque": "Compra constante no turno dos outros, a cada mágica que o oponente não paga."
+   "porque": "Compra constante no turno dos outros, a cada mágica que o oponente não paga.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica.",
+    "I": "Uma carta a cada mágica que o oponente não paga; precisa ficar em campo.",
+    "T": "Três manas.",
+    "Q": "Viva sempre.",
+    "R": "Única compra no turno dos outros, e a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Dreadhorde Invasion": {
    "notas": {
@@ -1572,7 +2817,26 @@
    "faz": "Encantamento de 2: na manutenção, perca 1 e amass Zombies 1; ficha Zumbi de força 6 ou mais atacando ganha vínculo.",
    "porque": "O Exército é um Zumbi sem decayed que cresce todo turno e, ao morrer, dispara a Wilhelt; custa 1 de vida por turno e é um corpo só.",
    "papel": "habilita",
-   "papel_por_que": "Um Exército Zumbi que cresce todo turno, pronto para ser sacrificado."
+   "papel_por_que": "Um Exército Zumbi que cresce todo turno, pronto para ser sacrificado.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Um Exército de Zumbi sem decayed por turno: sacrificado, nasce outro na manutenção seguinte.",
+    "I": "Um corpo pequeno por turno, a partir da manutenção seguinte.",
+    "T": "Duas manas, e 1 de vida por turno.",
+    "Q": "Início, paridade e atrás, um corpo por turno.",
+    "R": "A Endless Ranks of the Dead custa quatro e pede mesa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Endless Ranks of the Dead": {
    "notas": {
@@ -1590,7 +2854,26 @@
    "faz": "Encantamento de 4: na manutenção, fichas Zumbi 2/2 em número igual à metade dos seus Zumbis.",
    "porque": "Fichas sem decayed todo turno, em número que cresce com a horda; precisa de mesa para render.",
    "papel": "habilita",
-   "papel_por_que": "Fichas Zumbi sem decayed toda manutenção, em número crescente."
+   "papel_por_que": "Fichas Zumbi sem decayed toda manutenção, em número crescente.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fichas sem decayed toda manutenção, na metade dos Zumbis em campo.",
+    "I": "Precisa de uma volta e de pelo menos dois Zumbis.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente; sem mesa não rende.",
+    "R": "O Thomil, the Destroyer, do radar, disputa a vaga com uma ficha fixa por turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Funeral Room // Awakening Hall": {
    "notas": {
@@ -1603,7 +2886,7 @@
    "sin_por_que": {
     "sin2": "A Awakening Hall devolve ao campo todas as criaturas do cemitério, numa vez só; a Funeral Room só rende com a morte."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "faz": "Sala de 3: criatura sua morre, cada oponente perde 1 e você ganha 1. A outra porta, de 8, devolve ao campo todas as criaturas do seu cemitério.",
    "porque": "Dreno a cada criatura que morre, e a vida que devolve paga o Augur nos laços; é dreno genérico, e o dono prefere o temático de Zumbi.",
@@ -1617,7 +2900,27 @@
    "custo_usual": {
     "cmc": 3,
     "como": "conjurando só a Funeral Room"
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É o drenar: cada criatura sua que morre tira 1 de cada oponente e devolve 1 a você.",
+    "I": "Precisa ficar, mas é encantamento; a vida paga o Augur.",
+    "T": "Três manas; a outra porta custa oito.",
+    "Q": "Paridade, na frente e atrás, quando a outra porta devolve o cemitério.",
+    "R": "O Plague Belcher drena igual; os drenos estão abaixo da cota, e o radar põe o Vengeful Dead na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Vengeful Dead",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Command Tower": {
    "notas": {},
@@ -1626,7 +2929,26 @@
    "tier": "A",
    "rel": "INS",
    "faz": "Mana da identidade.",
-   "porque": "A melhor dual do deck: dá as duas cores, desvirada, sem custo nenhum."
+   "porque": "A melhor dual do deck: dá as duas cores, desvirada, sem custo nenhum.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não há terreno melhor para duas cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Barad-dûr": {
    "notas": {
@@ -1637,7 +2959,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{B}; virado sem criatura lendária; {X}{X}{B}, vira: amass Orcs X, se uma criatura morreu no turno.",
-   "porque": "Entra desvirado com a Wilhelt em campo, mas as fichas que cria são Orc, não Zumbi."
+   "porque": "Entra desvirado com a Wilhelt em campo, mas as fichas que cria são Orc, não Zumbi.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; as fichas que cria são Orc, não Zumbi.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado com criatura lendária em campo; a lista tem seis, além da Wilhelt.",
+    "Q": "Viva sempre.",
+    "R": "Um Swamp entra sempre desvirado, mas não vira corpo no fim do jogo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Choked Estuary": {
    "notas": {},
@@ -1646,7 +2987,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{U} ou {B}; virado sem revelar Island ou Swamp.",
-   "porque": "Dual que entra quase sempre desvirada: cumpre bem a base de mana."
+   "porque": "Dual que entra quase sempre desvirada: cumpre bem a base de mana.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado se você revelar Island ou Swamp da mão.",
+    "Q": "Viva sempre.",
+    "R": "Dual sem custo de vida; perde só quando a mão não tem básico."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Clearwater Pathway": {
    "notas": {},
@@ -1655,7 +3015,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{U} ou {B}, uma face.",
-   "porque": "Entra sempre desvirada, mas você escolhe uma das duas cores ao jogá-la."
+   "porque": "Entra sempre desvirada, mas você escolhe uma das duas cores ao jogá-la.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Azul ou preto, escolhido ao jogar.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "A cor fica presa à face escolhida; as duals do radar dão as duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Darkslick Shores": {
    "notas": {},
@@ -1664,7 +3043,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{U} ou {B}; virado com mais de dois outros terrenos.",
-   "porque": "Dual desvirada no começo do jogo, quando a cor mais importa; depois do terceiro terreno, entra virada."
+   "porque": "Dual desvirada no começo do jogo, quando a cor mais importa; depois do terceiro terreno, entra virada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado só até o terceiro terreno.",
+    "Q": "Viva sempre.",
+    "R": "No início é a melhor dual da lista; depois entra virada."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Darkwater Catacombs": {
    "notas": {},
@@ -1673,7 +3071,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{1}, vira: {U}{B}.",
-   "porque": "Filtra as duas cores e entra desvirado, mas pede outra mana para ativar."
+   "porque": "Filtra as duas cores e entra desvirado, mas pede outra mana para ativar.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores de uma vez, filtrando outra mana.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas pede {1} para gerar.",
+    "Q": "Viva sempre.",
+    "R": "Qualquer dual desvirada do radar gera sem pedir outra mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Dimir Aqueduct": {
    "notas": {
@@ -1681,11 +3098,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "faz": "Sempre virado; devolve um terreno; {U}{B}.",
    "porque": "Duas manas numa vaga, mas entra sempre virado e devolve um terreno à mão.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, numa vaga só.",
+    "I": "Duas manas por virada, depois de devolver um terreno à mão.",
+    "T": "Entra virado e atrasa um terreno.",
+    "Q": "Pesa na mão curta do início.",
+    "R": "São sete terrenos virados; o radar põe a Phyrexian Tower na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Phyrexian Tower",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Exotic Orchard": {
    "notas": {},
@@ -1694,7 +3131,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Uma cor que os terrenos dos oponentes gerem.",
-   "porque": "Dá uma cor dos terrenos dos oponentes: depende da mesa, então não garante azul nem preto."
+   "porque": "Dá uma cor dos terrenos dos oponentes: depende da mesa, então não garante azul nem preto.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, se os terrenos da mesa derem.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "A cor depende dos oponentes; as duals do radar não dependem."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Gloomlake Verge": {
    "notas": {},
@@ -1703,7 +3159,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{U}; {B} com Island ou Swamp.",
-   "porque": "Sempre desvirada, e o preto vem com Island ou Swamp em campo: dual quase sem custo."
+   "porque": "Sempre desvirada, e o preto vem com Island ou Swamp em campo: dual quase sem custo.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores; o preto pede Island ou Swamp em campo.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Dual quase sem custo; só a Command Tower é melhor na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Island": {
    "notas": {},
@@ -1712,7 +3187,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base da mana azul, e conta para a Choked Estuary e a Gloomlake Verge; dá uma cor só."
+   "porque": "Base da mana azul, e conta para a Choked Estuary e a Gloomlake Verge; dá uma cor só.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o azul, a segunda.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; liga Choked Estuary, Gloomlake Verge e Sunken Hollow."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "River of Tears": {
    "notas": {},
@@ -1721,7 +3215,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{U}; {B} se você jogou terreno no turno.",
-   "porque": "Desvirado, mas o preto vem só no turno em que você joga terreno."
+   "porque": "Desvirado, mas o preto vem só no turno em que você joga terreno.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Azul; preto só no turno em que você joga terreno.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, mas a cor depende da jogada de terreno.",
+    "Q": "Viva sempre.",
+    "R": "Qualquer dual desvirada do radar dá as duas cores sem essa condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Shipwreck Marsh": {
    "notas": {},
@@ -1730,7 +3243,26 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{U} ou {B}; virado com menos de dois outros terrenos.",
-   "porque": "Dual desvirada do turno 3 em diante; só os primeiros turnos a seguram."
+   "porque": "Dual desvirada do turno 3 em diante; só os primeiros turnos a seguram.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado do terceiro terreno em diante.",
+    "Q": "Viva sempre.",
+    "R": "Par da Darkslick Shores: uma cobre o início, a outra o resto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Sunken Hollow": {
    "notas": {},
@@ -1739,7 +3271,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Island Swamp; virado com menos de dois básicos.",
-   "porque": "Com só 10 básicos, entra virado no começo do jogo; depois cumpre como dual."
+   "porque": "Com só 10 básicos, entra virado no começo do jogo; depois cumpre como dual.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, e tem os tipos Island e Swamp.",
+    "I": "Um terreno por turno.",
+    "T": "Virado sem dois básicos, e a lista só tem dez.",
+    "Q": "Viva sempre.",
+    "R": "Os tipos Island e Swamp ligam o Tainted Isle e a Gloomlake Verge."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Swamp": {
    "notas": {},
@@ -1748,7 +3299,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "Básico.",
-   "porque": "Base da mana preta, a cor principal do deck, e liga o Tainted Isle e as duais que pedem Swamp; dá uma cor só."
+   "porque": "Base da mana preta, a cor principal do deck, e liga o Tainted Isle e as duais que pedem Swamp; dá uma cor só.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor: o preto, a principal.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado.",
+    "Q": "Viva sempre.",
+    "R": "Básico, dentro da cota; paga {B}{B}{B} da Necropotence e liga o Tainted Isle."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Tainted Isle": {
    "notas": {},
@@ -1757,7 +3327,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{C}; {U} ou {B} com Swamp.",
-   "porque": "Sete Swamps e a Sunken Hollow quase sempre a deixam dar cor, mas sem Swamp em campo ela só dá incolor."
+   "porque": "Seis Swamps e a Sunken Hollow quase sempre a deixam dar cor, mas sem Swamp em campo ela só dá incolor.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, com Swamp em campo; sem ele, incolor.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; a cor pede um dos seis Swamps ou a Sunken Hollow.",
+    "Q": "Viva sempre.",
+    "R": "Qualquer dual desvirada do radar dá cor sem depender de Swamp."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Unclaimed Territory": {
    "notas": {},
@@ -1770,7 +3359,26 @@
    "tier": "B",
    "rel": "MED",
    "faz": "{C}; qualquer cor para criaturas do tipo escolhido.",
-   "porque": "Escolhendo Zombie, colore quase todo o deck, mas só para criaturas: não paga as mágicas que não são Zumbi."
+   "porque": "Escolhendo Zombie, colore quase todo o deck, mas só para criaturas: não paga as mágicas que não são Zumbi.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor para criatura Zumbi; incolor para o resto.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, sem condição.",
+    "Q": "Viva sempre.",
+    "R": "Não paga as mágicas que não são Zumbi; uma dual desvirada paga tudo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Accursed Duneyard": {
    "notas": {
@@ -1785,7 +3393,26 @@
    "tier": "C",
    "rel": "MED",
    "faz": "{C}; {2}, vira: regenera um Zumbi, ou outro morto-vivo.",
-   "porque": "Protege a peça-chave com regeneração, mas dá só incolor e cada uso custa duas manas."
+   "porque": "Protege a peça-chave com regeneração, mas dá só incolor e cada uso custa duas manas.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor; a regeneração protege um Zumbi, não avança a conta.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; regenerar custa {2}.",
+    "Q": "Viva sempre.",
+    "R": "São quatro terrenos incolores numa lista com custos {B}{B} e {B}{B}{B}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Bojuka Bog": {
    "notas": {
@@ -1798,7 +3425,26 @@
    "rel": "MED",
    "faz": "Sempre virado: {B}; ao entrar, exila o cemitério de um jogador.",
    "porque": "Ódio de cemitério pontual, mas entra sempre virado e dá só preto.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; exila um cemitério ao entrar.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "É a única resposta a cemitério da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Hostile Hostel": {
    "notas": {
@@ -1816,7 +3462,26 @@
    "porque": "Saída de sacrifício cara e só como feitiço, num deck que já tem altares grátis; e dá só incolor.",
    "marcas": {
     "saida": 1
-   }
+   },
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas mata um Zumbi por turno: saída de sacrifício numa vaga de terreno.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado; a saída custa {1} e só funciona como feitiço.",
+    "Q": "Viva sempre.",
+    "R": "As saídas passaram da cota; a Lazotep Quarry, do radar, sacrifica em velocidade instantânea e dá cor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5
   },
   "Mortuary Mire": {
    "notas": {
@@ -1833,7 +3498,27 @@
    "rel": "MED",
    "faz": "Sempre virado: {B}; ao entrar, uma criatura do cemitério para o topo do grimório.",
    "porque": "Recursão lenta: a criatura volta ao topo do grimório, e o terreno entra sempre virado.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma cor; devolve uma criatura do cemitério ao topo do grimório, uma vez.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "São sete terrenos virados; o radar põe o Unholy Grotto na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Unholy Grotto",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Path of Ancestry": {
    "notas": {
@@ -1849,7 +3534,27 @@
    "rel": "MED",
    "faz": "Sempre virado: mana da identidade; vidência 1 ao conjurar com ela criatura que divide tipo com a Wilhelt (Zumbi ou Guerreiro).",
    "porque": "Dá qualquer cor, mas entra sempre virado; a vidência com Zumbi é de passagem.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As duas cores; vidência 1 ao pagar Zumbi ou Guerreiro.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "São sete terrenos virados; o radar avalia o Field of the Dead na vaga."
+   },
+   "antissinergia": "nenhuma",
+   "substituto": "Field of the Dead",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Temple of Deceit": {
    "notas": {
@@ -1862,17 +3567,63 @@
    "rel": "MED",
    "faz": "Sempre virado: {U} ou {B}; vidência 1.",
    "porque": "Dual com vidência, mas entra sempre virada: uma das sete que atrasam a mana do deck.",
-   "virado": true
+   "virado": true,
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, com vidência 1 ao entrar.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre.",
+    "R": "A Drowned Catacomb, do radar, dá as mesmas cores e entra desvirada com Island ou Swamp."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Drowned Catacomb",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Esper Panorama": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "{C}; {1}, vira, sacrifique: um básico virado.",
    "porque": "Só 10 básicos para buscar, e é lento e incolor: perde para qualquer dual.",
-   "prioridade": 1
+   "prioridade": 1,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; troca-se por uma Island ou um Swamp.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado como incolor; a troca custa {1} e o básico entra virado.",
+    "Q": "Incolor pesa na mão curta do início.",
+    "R": "A Lazotep Quarry, do radar, dá cor ao sacrificar criatura e ainda é saída de sacrifício."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Lazotep Quarry",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Lonely Sandbar": {
    "notas": {
@@ -1881,12 +3632,35 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado: {U}; ciclagem {U}.",
    "porque": "Terreno sempre virado de uma cor só; a ciclagem não compensa a vaga num deck de duas cores.",
    "virado": true,
-   "prioridade": 2
+   "prioridade": 2,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Uma cor, a segunda.",
+    "I": "Um terreno por turno.",
+    "T": "Entra virado.",
+    "Q": "Viva sempre: no fim do jogo cicla por {U}.",
+    "R": "A Watery Grave, do radar, dá as duas cores e pode entrar desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Watery Grave",
+   "confianca": "alta",
+   "indice": 1.1
   },
   "Myriad Landscape": {
    "notas": {
@@ -1894,12 +3668,35 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "D",
+   "tier": "C",
    "rel": "BAX",
    "faz": "Sempre virado: {C}; {2}, vira, sacrifique: dois básicos do mesmo tipo, virados.",
    "porque": "Três manas para virar dois terrenos, entra virado e dá só incolor.",
    "virado": true,
-   "prioridade": 3
+   "prioridade": 3,
+   "tier_anterior": "D",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Incolor; troca-se por dois básicos do mesmo tipo.",
+    "I": "Um terreno que vira dois, por {2}.",
+    "T": "Entra virado.",
+    "Q": "Incolor e virado pesa na mão curta do início.",
+    "R": "A Underground Sea, do radar, dá as duas cores sempre desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "substituto nomeado melhor"
+   ],
+   "substituto": "Underground Sea",
+   "confianca": "alta",
+   "indice": 1.15
   }
  },
  "radar": {
@@ -3139,5 +4936,18 @@
    }
   ],
   "revisado": "2026-10-18"
+ },
+ "tier_lista": {
+  "versao": 1,
+  "feito": "2026-11-11",
+  "grupo": "02. TRIBAIS",
+  "conta": "Os altares e as saídas de sacrifício matam Zumbis de propósito (matar); a Wilhelt, a recursão e as fichas repõem cada corpo (erguer); o Augur, o Captain, o Belcher e os laços cobram cada morte em carta e dreno (drenar).",
+  "decisoes": [
+   "Por decisão sua, o tema 1 é Zumbis, de carta ou de ficha, e o tema 2 são as fichas gerando valor: compra, dano, recorrência e recursão.",
+   "Por decisão sua, a temática Zumbi vem antes das cartas genéricas de dreno por morte.",
+   "Por decisão sua (09/11/2026), o deck leva de três a quatro limpezas, de preferência de um lado só.",
+   "The Scarab God e Lazotep Quarry são sugestões suas e estão no radar como entra.",
+   "Você não informou carta de estimação neste deck."
+  ]
  }
 }
