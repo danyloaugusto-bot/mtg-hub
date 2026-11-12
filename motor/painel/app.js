@@ -3107,14 +3107,22 @@ function outrosHtml(c) {
 }
 /* onde mais renderia (09/11/2026, pedido do dono): os três outros decks de maior ganho, pela conta do Encaixe; o detalhe
    (quem sai, faixa, CMC) segue na caixa Encaixe, mais abaixo */
+/* a letra da carta em outro deck: a da tier list, se ela está na lista de lá; a estimada, se está no radar (dono, 10/11/2026) */
+function letraOutro(x) {
+  if (!x.t) return '';
+  if (x.vd === 'fora') return ' <small class="enc-av">no radar de lá como fora</small>';
+  return ' <span class="tb sm t' + esc(x.t) + '" title="' + (x.to === 'lista' ? (x.tn ? 'Tier na lista daquele deck, pela tier list' : 'Tier na lista daquele deck') : 'Tier estimado no radar daquele deck') + '">' +
+    esc(x.t) + '</span>' + (x.to === 'radar' ? '<small class="enc-av"> no radar</small>' : '');
+}
 function ondeRende(c) {
-  var L = ((D.encaixe || {})[c.id] || []).filter(function (x) { return x.p !== M.pasta && !x.j && x.g > 0; }).slice(0, 3);
+  var todos = ((D.encaixe || {})[c.id] || []).filter(function (x) { return x.p !== M.pasta; });
+  var L = todos.filter(function (x) { return !x.j && x.g > 0; }).slice(0, 3);
   if (!L.length) return '<h3>Onde mais renderia</h3><p class="dw-out-n">Em nenhum outro deck seu ela ganha espaço.</p>';
   return '<h3>Onde mais renderia</h3><ol class="dw-rende">' + L.map(function (x) {
     var inf = (D.encaixe_decks || {})[x.p] || {};
-    return '<li><b>' + esc(x.n) + '</b>' + (inf.c ? ' <small>' + esc(inf.c) + '</small>' : '') + ' <span class="enc-g pos">+' + fmtP(x.g) + '</span>' +
+    return '<li><b>' + esc(x.n) + '</b>' + (inf.c ? ' <small>' + esc(inf.c) + '</small>' : '') + ' <span class="enc-g pos">+' + fmtP(x.g) + '</span>' + letraOutro(x) +
       (x.a ? '' : ' <small class="enc-av">sinergia ainda não avaliada: o número é um piso</small>') + '</li>';
-  }).join('') + '</ol><p class="dw-out-n">Ganho no placar daquele deck se ela entrasse no lugar da carta mais fraca de lá. O detalhe está na caixa Encaixe, mais abaixo.</p>';
+  }).join('') + '</ol><p class="dw-out-n">Ganho no placar daquele deck se ela entrasse no lugar da carta mais fraca de lá; a letra aparece quando ela já está no radar de lá. O detalhe está na caixa Encaixe, mais abaixo.</p>';
 }
 function renderDrawer() {
   var el = $('#drawer'), c = ui.drawer ? byId(ui.drawer) : null;
