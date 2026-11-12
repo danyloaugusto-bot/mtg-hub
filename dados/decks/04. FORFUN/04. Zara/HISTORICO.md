@@ -35,3 +35,4 @@
 - 09/11/2026: staples no radar pela regra do dono (só entram com buraco no critério ou no pacote, ou com sinergia própria; proteção genérica só onde proteção é agrupamento): Chaos Warp, fora (avaliar antes).
 - 09/11/2026: radar: 21 cartas das coleções novas pelo /colecao (FRA 1, FRC 1, MBC 3, TRC 8, TRK 8; 7 entra, 8 avaliar, 6 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 2 S, 10 A, 49 B, 26 C, 13 D, com a comandante; Mob Rule em S; os dois Niv-Mizzet (estimação) de A para C; mágicas Izzet com Encaixe 0, pela homenagem do deck; textos do Kitnap e do Sol Ring corrigidos.
+- 12/11/2026: radar: Thassa, Deep-Dwelling com letra S (era A), pela tier list; segue entra no lugar do Nevinyrral's Disk.
