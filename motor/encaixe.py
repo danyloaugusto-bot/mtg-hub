@@ -168,12 +168,30 @@ def para_painel(d, pasta, painel):
     """Encaixe de cada carta do deck e do radar em todos os decks v3, em chaves curtas, para a gaveta do painel."""
     cad = dados.ler_cadastro()
     ds = [m for m in decks_v3() if m["pasta"] != pasta] + [dict(d, pasta=pasta, painel=painel)]
+    # a letra que a carta já tem em cada deck (pedido do dono, 10/11/2026): na lista, a da tier list; no radar, a estimada
+    letras = {}
+    for m in ds:
+        lt = letras.setdefault(m["pasta"], {})
+        for x in m["cards"]:
+            if not x.get("cmd"):
+                for nome in {x["n"], x.get("on") or x["n"]}:
+                    lt[nome] = dict(t=x["tier"], o="lista", nv=1 if x.get("tl") else 0)
+        for x in m["cands"]:
+            for nome in {x["n"], x.get("on") or x["n"]}:
+                lt.setdefault(nome, dict(t=x["tier"], o="radar", nv=0, vd=x.get("verdict")))
     out = {}
     for c in d["cards"] + d["cands"]:
         if c.get("cmd"):
             continue
-        r = ranking(c.get("on", c["n"]), ds, cad, dict(cmc=c["cmc"], land=c.get("land"), mdfc=c.get("mdfc")), n=None)
-        out[c["id"]] = [dict(p=g["deck"], n=g["painel"], g=g["ganho"], v=g["valor"], s=g["sai"], vs=g["valor_sai"], c=g["cobre"],
-                             a=1 if g["avaliada"] else 0, j=1 if g["ja_no_deck"] else 0,
-                             **({"dc": g["d_cmc"], "da": g["d_acel"]} if "d_cmc" in g else {})) for g in r]
+        nome = c.get("on", c["n"])
+        r = ranking(nome, ds, cad, dict(cmc=c["cmc"], land=c.get("land"), mdfc=c.get("mdfc")), n=None)
+        out[c["id"]] = []
+        for g in r:
+            x = dict(p=g["deck"], n=g["painel"], g=g["ganho"], v=g["valor"], s=g["sai"], vs=g["valor_sai"], c=g["cobre"],
+                     a=1 if g["avaliada"] else 0, j=1 if g["ja_no_deck"] else 0,
+                     **({"dc": g["d_cmc"], "da": g["d_acel"]} if "d_cmc" in g else {}))
+            lt = (letras.get(g["deck"]) or {}).get(nome) or (letras.get(g["deck"]) or {}).get(c["n"])
+            if lt:
+                x.update(t=lt["t"], to=lt["o"], tn=lt["nv"], **({"vd": lt["vd"]} if lt.get("vd") == "fora" else {}))
+            out[c["id"]].append(x)
     return out
