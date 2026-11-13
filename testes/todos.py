@@ -3,7 +3,8 @@
 
     python testes/todos.py --deck "02. Clavileño"
 
-O teste de origem só roda para o Clavileño, que é o deck do painel que deu origem ao motor.
+O teste de origem (testes/origem.py) comparava o Clavileño com o painel do kit que deu origem ao motor. Saiu da bateria em
+13/11/2026, quando o dono trocou quatro cartas do deck: a lista deixou de ser a do kit. Ele ainda roda à mão.
 """
 import os, subprocess, sys
 import comum
@@ -11,7 +12,7 @@ import comum
 a = comum.argumentos("Todos os testes de um deck")
 comum.html(a.deck, montar=not a.sem_montar)
 aqui = os.path.dirname(os.path.abspath(__file__))
-testes = ["contrato.py", "regressao.py", "publicada.py", "layout.py"] + (["origem.py"] if a.deck == "02. Clavileño" else [])
+testes = ["contrato.py", "regressao.py", "publicada.py", "layout.py"]
 falhou = []
 for t in testes:
     r = subprocess.run([sys.executable, "-B", os.path.join(aqui, t), "--deck", a.deck, "--sem-montar"], capture_output=True, text=True, encoding="utf-8")
