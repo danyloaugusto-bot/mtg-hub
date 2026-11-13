@@ -46,3 +46,4 @@
 - 09/11/2026: staples no radar pela regra do dono (só entram com buraco no critério ou no pacote, ou com sinergia própria; proteção genérica só onde proteção é agrupamento): Cyclonic Rift, fica (avaliar): buraco em limpezas (2, a regra pede 3 a 4).
 - 09/11/2026: bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 8 S, 10 A, 62 B, 18 C, 2 D, com o comandante; precon intacto, sem troca recomendada; sete cartas do radar de entra para avaliar; combo do Davros com a Wound Reflection e textos de Darkwater Catacombs e Shadowblood Ridge corrigidos.
+- 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 8 cartas do radar com corte novo.
