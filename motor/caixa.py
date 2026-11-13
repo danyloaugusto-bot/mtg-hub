@@ -970,6 +970,16 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
         card["valor"] = round(sum(c["usd"] or 0 for c in card["copias"]), 2)
         cartas.append(card)
 
+    # pasta nos destinos (a Preta P, pedido do dono de 13/11/2026): cada carta leva os três melhores decks pela tier list,
+    # com a letra, quem sai, o que falta e o porquê, como na gaveta do painel
+    if origem != CAIXA:
+        import destinos   # aqui dentro: o destinos importa o caixa
+        if origem in destinos.PASTAS:
+            dst = destinos.para_nomes([c["n"] for c in cartas])
+            for card in cartas:
+                x = dst.get(card["n"].split(" // ")[0])
+                if x is not None:
+                    card["dst"] = x
     resumo = dict(lido=hoje, listas=resumo_listas, linhas=sum(x["linhas"] for x in resumo_listas),
                   cartas=len(cartas), copias=sum(c["q"] for c in cartas), nao_encontradas=nao_encontradas,
                   ilegiveis=[r for x in resumo_listas for r in x["ilegiveis"]], sem_cadastro=sem_cadastro,
