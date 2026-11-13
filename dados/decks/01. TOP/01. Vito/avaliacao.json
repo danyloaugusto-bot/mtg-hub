@@ -194,7 +194,7 @@
    "turnos": "8 em diante",
    "plano": "Ganhar drenando e batendo. Por {3}{B}{B}, o Vito dá vínculo ao time inteiro, e cada criatura que causa dano é um gatilho próprio, com alvo próprio. Gray Merchant, Malakir Bloodwitch e Exsanguinate drenam a mesa inteira; o Bloodletter of Aclazotz dobra a perda no seu turno; Coffers, Urborg, Crypt Ghast, Extraplanar Lens e Nykthos pagam o X. O laço com Exquisite Blood fica como plano B.",
    "fortes": [
-    "Fechamentos sem combo: o ataque com vínculo, os drenos de mesa (Gray Merchant, Malakir Bloodwitch, Exsanguinate, Torment of Hailfire) e os golpes num jogador (Blood Tribute, Sorin Markov, Hatred).",
+    "Fechamentos sem combo: o ataque com vínculo, os drenos de mesa (Gray Merchant, Malakir Bloodwitch, Exsanguinate) e os golpes num jogador (Blood Tribute, Sorin Markov, Hatred).",
     "Cinco fontes de mana grande para o X."
    ],
    "fracos": [
@@ -236,7 +236,7 @@
    {
     "tipo": "spellslinger",
     "resultado": "equilibrado",
-    "porque": "Torment of Hailfire e Exsanguinate punem a mão cheia, mas o deck não anula nada."
+    "porque": "O Exsanguinate pune a mão cheia, mas o deck não anula nada."
    },
    {
     "tipo": "ramp",
@@ -292,10 +292,6 @@
     {
      "carta": "Deadly Rollick",
      "para": "A criatura que fecha o jogo do oponente (comandante voltron, peça de combo com corpo): de graça com o Vito em campo, exila até indestrutível."
-    },
-    {
-     "carta": "Slaughter Pact",
-     "para": "A criatura não preta que mata alguém no turno, com toda a sua mana virada."
     },
     {
      "carta": "Imp's Mischief",
@@ -1700,37 +1696,6 @@
    "confianca": "alta",
    "indice": 1.85
   },
-  "Slaughter Pact": {
-   "notas": {
-    "removal": 2
-   },
-   "sin": {},
-   "sin_por_que": {},
-   "tier": "C",
-   "rel": "MED",
-   "faz": "Custo 0: destrói uma criatura não preta. Na próxima manutenção, pague {2}{B} ou perca.",
-   "porque": "Remoção com tudo virado, e o K'rrik paga o {B} do pacto em vida. Fica no meio porque não pega criatura preta e o pagamento esquecido no turno seguinte perde o jogo.",
-   "tier_anterior": "B",
-   "funcao": "resposta",
-   "lentes": {
-    "E": 1,
-    "I": 1,
-    "T": 2,
-    "Q": 2,
-    "R": 1
-   },
-   "lentes_por_que": {
-    "E": "Remoção genérica.",
-    "I": "Uma por uma.",
-    "T": "Zero agora e três manas na manutenção seguinte; não pega criatura preta.",
-    "Q": "Paridade, na frente e atrás.",
-    "R": "A Deadly Rollick também sai de graça e exila; a Infernal Grasp mata qualquer criatura por duas manas."
-   },
-   "antissinergia": "nenhuma",
-   "substituto": "Infernal Grasp",
-   "confianca": "média",
-   "indice": 1.45
-  },
   "Vampiric Tutor": {
    "notas": {
     "draw": 3,
@@ -2053,7 +2018,7 @@
     "I": "Com a mana grande da lista, termina a partida ou vira o jogo sozinho.",
     "T": "X mais duas manas: rende na medida do que se paga.",
     "Q": "Paridade, na frente e atrás (a cura).",
-    "R": "O Torment of Hailfire não ganha vida; a Zof Consumption do radar tira 4 fixos."
+    "R": "A Zof Consumption do radar tira 4 fixos; nenhum outro X da lista pega a mesa toda."
    },
    "antissinergia": "nenhuma",
    "confianca": "média",
@@ -2093,39 +2058,6 @@
    "antissinergia": "nenhuma",
    "confianca": "alta",
    "indice": 1.6
-  },
-  "Grim Tutor": {
-   "notas": {
-    "draw": 2,
-    "combos": 1
-   },
-   "sin": {},
-   "sin_por_que": {},
-   "tier": "B",
-   "rel": "MED",
-   "faz": "Busca qualquer carta para a mão. Você perde 3.",
-   "porque": "O mais dispensável dos cinco tutores quando o combo é plano B.",
-   "prioridade": 10,
-   "fica": "Decisão do dono (08/11/2026): os tutores ficam.",
-   "tier_anterior": "B",
-   "funcao": "habilitador",
-   "lentes": {
-    "E": 1,
-    "I": 2,
-    "T": 2,
-    "Q": 3,
-    "R": 1
-   },
-   "lentes_por_que": {
-    "E": "Tutor: qualquer deck preto usaria.",
-    "I": "Vale a carta que busca, direto na mão.",
-    "T": "Três manas e 3 de vida.",
-    "Q": "Viva sempre.",
-    "R": "O Demonic Tutor faz o mesmo por duas manas e sem vida; o Emeritus of Woe do radar traz corpo de Vampiro."
-   },
-   "antissinergia": "nenhuma",
-   "confianca": "alta",
-   "indice": 1.9
   },
   "Insatiable Avarice": {
    "notas": {
@@ -2198,44 +2130,6 @@
    "antissinergia": "nenhuma",
    "confianca": "alta",
    "indice": 1.85
-  },
-  "Torment of Hailfire": {
-   "notas": {
-    "removal": 1,
-    "vida": 2
-   },
-   "sin": {
-    "sin1": 1
-   },
-   "sin_por_que": {
-    "sin1": "Os oponentes perdem vida sem você ganhar: soma à perda deles, mas não dispara o Vito."
-   },
-   "tier": "B",
-   "rel": "ALT",
-   "faz": "X vezes: cada oponente perde 3, a menos que sacrifique uma permanente não terreno ou descarte.",
-   "porque": "O segundo fechamento de mana grande. Não ganha vida, mas o Bloodletter dobra.",
-   "papel": "recompensa",
-   "papel_dupla": "Remoção",
-   "papel_por_que": "Fecha o jogo com mana sobrando: perda de vida em massa, mesmo sem disparar o Vito.",
-   "tier_anterior": "A",
-   "funcao": "fechamento",
-   "lentes": {
-    "E": 2,
-    "I": 3,
-    "T": 2,
-    "Q": 1,
-    "R": 1
-   },
-   "lentes_por_que": {
-    "E": "Fecha sem ganhar vida: não dispara o Vito.",
-    "I": "Com X alto, tira a vida, a mão ou a mesa de cada oponente.",
-    "T": "X mais duas manas: rende na medida do que se paga.",
-    "Q": "Paridade e na frente; atrás não cura.",
-    "R": "O Exsanguinate usa a mesma mana e ganha vida; o Morlun do radar ganha vida."
-   },
-   "antissinergia": "nenhuma",
-   "confianca": "alta",
-   "indice": 1.9
   },
   "Toxic Deluge": {
    "notas": {
@@ -2635,38 +2529,6 @@
    "confianca": "alta",
    "indice": 2.45
   },
-  "Throne of Eldraine": {
-   "notas": {
-    "ramp": 2,
-    "draw": 1
-   },
-   "sin": {},
-   "sin_por_que": {},
-   "tier": "C",
-   "rel": "BAX",
-   "faz": "Custa 5. Vira: quatro manas da cor escolhida, só para mágicas monocoloridas dessa cor. {3}, vira: compra duas.",
-   "porque": "Ramp de turno 5, e a mana não paga a habilidade do Vito, artefato nem equipamento.",
-   "prioridade": 5,
-   "tier_anterior": "C",
-   "funcao": "infraestrutura",
-   "lentes": {
-    "E": 1,
-    "I": 2,
-    "T": 1,
-    "Q": 1,
-    "R": 1
-   },
-   "lentes_por_que": {
-    "E": "Ramp; a mana só paga mágica preta.",
-    "I": "Quatro manas pretas por turno, ou duas cartas.",
-    "T": "Cinco manas.",
-    "Q": "Paridade e na frente.",
-    "R": "Cabal Coffers, Extraplanar Lens e Crypt Ghast já dão a mana grande, e mais cedo."
-   },
-   "antissinergia": "nenhuma",
-   "confianca": "alta",
-   "indice": 1.25
-  },
   "Black Market Connections": {
    "notas": {
     "ramp": 1,
@@ -2944,7 +2806,7 @@
     "R": 3
    },
    "lentes_por_que": {
-    "E": "Paga o X do Exsanguinate e do Torment of Hailfire.",
+    "E": "Paga o X do Exsanguinate e do Morlun.",
     "I": "Mana grande: uma preta por Pântano.",
     "T": "Não dá mana sozinho e custa {2} para ativar: só rende com quatro Pântanos ou mais.",
     "Q": "Paridade, na frente e atrás (paga a limpeza e a recompra).",
@@ -3062,7 +2924,7 @@
    "tier": "B",
    "rel": "ALT",
    "faz": "{2}, vira: mana igual à devoção a uma cor.",
-   "porque": "Em mono-preto a devoção sobe rápido, e Nykthos vira várias manas de uma vez para o X do Exsanguinate e do Torment of Hailfire.",
+   "porque": "Em mono-preto a devoção sobe rápido, e Nykthos vira várias manas de uma vez para o X do Exsanguinate e do Morlun.",
    "tier_anterior": "A",
    "funcao": "infraestrutura",
    "lentes": {
@@ -3073,7 +2935,7 @@
     "R": 2
    },
    "lentes_por_que": {
-    "E": "Paga o X do Exsanguinate e do Torment of Hailfire.",
+    "E": "Paga o X do Exsanguinate e do Morlun.",
     "I": "Mana grande pela devoção ao preto.",
     "T": "Desvirado, mas incolor, e custa {2} para ativar.",
     "Q": "Paridade, na frente e no início como incolor.",
@@ -3265,6 +3127,162 @@
    "antissinergia": "nenhuma",
    "confianca": "alta",
    "indice": 2.05
+  },
+  "Sanctum Seeker": {
+   "notas": {
+    "vamp_c": 3,
+    "vida": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin1": "Motor: cada Vampiro que ataca faz cada oponente perder 1 e você ganhar 1, um gatilho do Vito por atacante.",
+    "sin2": "Vampiro que rende a cada Vampiro que ataca: o dreno cresce com a tribo."
+   },
+   "tier": "B",
+   "rel": "ALT",
+   "faz": "Vampiro 3/4. Sempre que um Vampiro seu ataca, cada oponente perde 1 e você ganha 1.",
+   "porque": "O fechamento pelo ataque: cada Vampiro que ataca drena cada oponente em 1, e cada 1 ganho é um gatilho do Vito, com alvo próprio.",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (dreno a cada ataque)",
+   "papel_por_que": "Cada Vampiro que ataca dá 1 de vida, um gatilho do Vito por atacante.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada Vampiro que ataca é 1 de vida ganho e um gatilho do Vito, além de 1 de perda em cada oponente.",
+    "I": "Com a mesa de Vampiros, cada ataque vira um dreno de mesa; precisa ficar em campo e atacar.",
+    "T": "Quatro manas por um 3/4 que rende a partir do primeiro ataque.",
+    "Q": "Forte na frente e na paridade; atrás, sem atacantes, é só um 3/4.",
+    "R": "As Crossway Troublemakers do radar dão vínculo aos atacantes, mas custam 6 e dependem de conectar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
+  },
+  "Emeritus of Woe": {
+   "notas": {
+    "draw": 3,
+    "vamp_s": 2
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "faz": "Vampiro 5/4 de 4. Entra preparado com uma cópia de Demonic Tutor por {1}{B}.",
+   "porque": "Tutor que conta como Vampiro: entra preparado com uma cópia de Demonic Tutor por {1}{B} e fica um 5/4 na mesa, que se prepara de novo nos turnos com duas mortes. Entrou no lugar do Grim Tutor (12/11/2026).",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Busca a peça que falta e ainda é um Vampiro para os lordes.",
+    "I": "Uma busca sem restrição e um corpo 5/4.",
+    "T": "Quatro manas pelo corpo e mais duas pela busca: seis no total, com um 5/4 de sobra.",
+    "Q": "Vivo em todo momento: busca a resposta atrás e o fechamento na frente, e o corpo segura a mesa.",
+    "R": "O Demonic Tutor da lista faz a busca por duas manas, sem corpo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
+  },
+  "Morlun, Devourer of Spiders": {
+   "notas": {
+    "vamp_c": 2,
+    "vida": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande de uma vez: entra causando X de dano com vínculo a um oponente, e o Vito devolve os X em outro.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro {X}{B}{B} com vínculo. Entra com X marcadores e causa X de dano a um oponente.",
+   "porque": "O dano ao entrar tem vínculo: ganha X e o Vito tira mais X de outro oponente. No começo é um Vampiro de duas manas com vínculo. Entrou no lugar do Torment of Hailfire (12/11/2026).",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (vínculo)",
+   "papel_por_que": "Ao entrar, X de dano com vínculo: o ganho de X volta pelo Vito noutro oponente.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro com vínculo, e o dano de X ao entrar é ganho de X para o Vito converter.",
+    "I": "X de dano num oponente e X de perda em outro pelo Vito; depois, um corpo com vínculo do tamanho de X.",
+    "T": "X mais duas manas: rende na medida do que se paga.",
+    "Q": "Serve no turno 2 como Vampiro com vínculo e no fim como dreno de X.",
+    "R": "A lista tem vários Vampiros com vínculo, e o Exsanguinate é o X que pega a mesa toda."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.05
+  },
+  "Scheming Silvertongue": {
+   "notas": {
+    "vamp_s": 2,
+    "vida": 2,
+    "draw": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Recompensa o ganho: em todo turno em que você ganha 2 de vida, prepara um Sign in Blood; o vínculo com voar alimenta isso.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "faz": "Vampiro 1/3 voar e vínculo, de 2. Se você ganhou 2 ou mais no turno, prepara uma cópia de Sign in Blood.",
+   "porque": "Vínculo com evasão por duas manas e uma compra que o deck liga quase todo turno: ganhou 2 de vida, prepara um Sign in Blood.",
+   "papel": "recompensa",
+   "papel_dupla": "Habilitadora (vínculo)",
+   "papel_por_que": "Se você ganhou 2 ou mais no turno, prepara um Sign in Blood: o ganho vira compra.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro com voar e vínculo; o ganho de 2 no turno prepara a compra.",
+    "I": "Um 1/3 e duas cartas por {B}{B} nos turnos em que o deck ganha vida.",
+    "T": "Duas manas por voar, vínculo e compra repetível.",
+    "Q": "Bom no começo e na paridade; atrás, sem ganho de vida, não compra.",
+    "R": "Nenhum outro Vampiro de duas manas da lista compra cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   }
  },
  "radar": {
@@ -3297,30 +3315,6 @@
    "veredito": "fora",
    "faz": "Equipamento: hexproof e pressa. Equipar 1.",
    "porque": "Fica de fora por decisão do dono (09/11/2026): proteção genérica de comandante só entra em deck voltron, que só vence com o comandante em campo. Este deck segue sem ela."
-  },
-  "Scheming Silvertongue": {
-   "notas": {
-    "vamp_s": 2,
-    "vida": 2,
-    "draw": 1
-   },
-   "sin": {
-    "sin1": 2,
-    "sin2": 1
-   },
-   "sin_por_que": {
-    "sin1": "Recompensa o ganho: em todo turno em que você ganha 2 de vida, prepara um Sign in Blood; o vínculo com voar alimenta isso.",
-    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
-   },
-   "tier": "B",
-   "rel": "MED",
-   "veredito": "entra",
-   "faz": "Vampiro 1/3 voar e vínculo, de 2. Se você ganhou 2 ou mais no turno, prepara uma cópia de Sign in Blood.",
-   "porque": "Vínculo com evasão e uma compra que o deck liga quase todo turno. Você já tem (Caixa e Preta P). Sai o Sanguine Spy, Vampiro por Vampiro.",
-   "sai": "Sanguine Spy",
-   "papel": "recompensa",
-   "papel_dupla": "Habilitadora (vínculo)",
-   "papel_por_que": "Se você ganhou 2 ou mais no turno, prepara um Sign in Blood: o ganho vira compra."
   },
   "Stensian Sanguinist": {
    "notas": {
@@ -3418,70 +3412,6 @@
    "papel": "habilita",
    "papel_por_que": "Ganha 3 a cada criatura de oponente que morre ou descarte: 3 de perda pelo Vito."
   },
-  "Morlun, Devourer of Spiders": {
-   "notas": {
-    "vamp_c": 2,
-    "vida": 2
-   },
-   "sin": {
-    "sin1": 2,
-    "sin2": 1
-   },
-   "sin_por_que": {
-    "sin1": "Ganho grande de uma vez: entra causando X de dano com vínculo a um oponente, e o Vito devolve os X em outro.",
-    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
-   },
-   "tier": "B",
-   "rel": "MED",
-   "veredito": "avaliar",
-   "faz": "Vampiro {X}{B}{B} com vínculo. Entra com X marcadores e causa X de dano a um oponente.",
-   "porque": "O dano tem vínculo: ganha X e o Vito tira mais X de outro oponente. Você já tem (Preta P). Fica como avaliar no lugar do Torment of Hailfire, o outro X, que não dispara o Vito; o Nullpriest, que ele tirava antes, é um dos Vampiros de começo do plano do dono (08/11/2026).",
-   "sai": "Torment of Hailfire",
-   "papel": "recompensa",
-   "papel_dupla": "Habilitadora (vínculo)",
-   "papel_por_que": "Ao entrar, X de dano com vínculo: o ganho de X volta pelo Vito noutro oponente."
-  },
-  "Emeritus of Woe": {
-   "notas": {
-    "draw": 3,
-    "vamp_s": 2
-   },
-   "sin": {
-    "sin2": 1
-   },
-   "sin_por_que": {
-    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
-   },
-   "tier": "A",
-   "rel": "ALT",
-   "veredito": "entra",
-   "faz": "Vampiro 5/4 de 4. Entra preparado com uma cópia de Demonic Tutor por {1}{B}.",
-   "porque": "Os tutores ficam, por decisão do dono (08/11/2026), e este é um tutor que conta como Vampiro: entra preparado com uma cópia de Demonic Tutor e fica um 5/4 na mesa, que se prepara de novo nos turnos com duas mortes. Você já tem (Preta P). Sai o Grim Tutor, a mesma busca sem corpo.",
-   "sai": "Grim Tutor"
-  },
-  "Sanctum Seeker": {
-   "notas": {
-    "vamp_c": 3,
-    "vida": 2
-   },
-   "sin": {
-    "sin1": 2,
-    "sin2": 3
-   },
-   "sin_por_que": {
-    "sin1": "Motor: cada Vampiro que ataca faz cada oponente perder 1 e você ganhar 1, um gatilho do Vito por atacante.",
-    "sin2": "Vampiro que rende a cada Vampiro que ataca: o dreno cresce com a tribo."
-   },
-   "tier": "A",
-   "rel": "ALT",
-   "veredito": "entra",
-   "faz": "Vampiro 3/4. Sempre que um Vampiro seu ataca, cada oponente perde 1 e você ganha 1.",
-   "porque": "O fechamento que o dono descreveu: cada Vampiro que ataca drena cada oponente em 1, e cada 1 ganho é um gatilho do Vito. Você já tem (Caixa). Sai o Mindcrank, que só existe para o laço da Bloodchief Ascension.",
-   "sai": "Mindcrank",
-   "papel": "habilita",
-   "papel_dupla": "Recompensa (dreno a cada ataque)",
-   "papel_por_que": "Cada Vampiro que ataca dá 1 de vida, um gatilho do Vito por atacante."
-  },
   "Aetherflux Reservoir": {
    "notas": {
     "combos": 3
@@ -3556,8 +3486,8 @@
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Vampiro 5/5 de 6. Vampiros seus que atacam têm toque mortífero e vínculo. Quando um Vampiro seu morre, você pode pagar 2 de vida para comprar uma carta.",
-   "porque": "É o ataque que o dono quer: cada Vampiro que ataca ganha vínculo, e cada um é um gatilho próprio do Vito, com alvo próprio. Você já tem (Caixa). Sai o Throne of Eldraine, ramp de turno 5 cuja mana não paga a habilidade do Vito.",
-   "sai": "Throne of Eldraine",
+   "porque": "É o ataque que o dono quer: cada Vampiro que ataca ganha vínculo, e cada um é um gatilho próprio do Vito, com alvo próprio. Você já tem (Caixa). Sai o Mindcrank, que só existe para o laço da Bloodchief Ascension.",
+   "sai": "Mindcrank",
    "papel": "habilita",
    "papel_dupla": "Draw (Vampiro que morre)",
    "papel_por_que": "Vampiros que atacam ganham vínculo: cada ataque vira vida para o Vito."
@@ -3848,6 +3778,24 @@
    "faz": "Voa; oponentes não ganham vida e, a cada fim de turno, perdem de novo a vida que perderam no turno.",
    "porque": "Dobra a perda de vida dos oponentes (sinergia 3), mas o único corte do mesmo papel seria a Defiant Bloodlord, peça do laço; deck perto do teto.",
    "origem": "coleção FRC (2026-11-09)"
+  },
+  "Olivia's Wrath": {
+   "notas": {
+    "removal": 3
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Não é Vampiro e conta os Vampiros para a limpeza: liga-se à tribo de passagem."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Feitiço de 5: cada criatura que não é Vampiro ganha −X/−X, X o número dos seus Vampiros.",
+   "porque": "Limpeza de um lado só num deck com 27 Vampiros. Pela regra do dono (3 a 4 limpezas, de preferência unilaterais), entraria no lugar da Blasphemous Edict, a única das quatro que leva a sua mesa junto. As suas cópias estão no Markov, no Clavileño e no Strefan.",
+   "massa": true,
+   "sai": "Blasphemous Edict"
   }
  },
  "combos": [
@@ -4307,7 +4255,7 @@
   "decisoes": [
    "O Vito é midrange e a Damnation fica.",
    "O laço com a Exquisite Blood é o plano B.",
-   "Grim Tutor, Insatiable Avarice e Necrodominance ficam por decisão sua; Hatred, Exsanguinate e New Blood são de estimação. A letra é honesta e nenhuma entra em corte."
+   "Insatiable Avarice e Necrodominance ficam por decisão sua; Hatred, Exsanguinate e New Blood são de estimação. A letra é honesta e nenhuma entra em corte."
   ]
  }
 }
