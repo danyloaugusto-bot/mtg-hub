@@ -41,6 +41,7 @@ VETOS = {"01. Markov": (_pedra, "sem pedras de mana")}   # deck.md do Markov, de
 NUNCA = {"Sol Ring", "Arcane Signet", "Tergrid, God of Fright"}
 LOTE = 30
 TOP = 3
+PASTAS = ("Preta P",)   # pastas cujas cartas também ganham destinos (pedido do dono, 13/11/2026); a Preta P é lista do projeto
 
 
 class ErroDestinos(Exception):
@@ -105,7 +106,7 @@ def _textos():
             pt = v.get("power") is not None and "%s/%s" % (v.get("power"), v.get("toughness")) or " // ".join(
                 "%s/%s" % (f.get("power"), f.get("toughness")) for f in faces if f.get("power") is not None) or None
             _TEXTOS[n] = dict(custo=v.get("mana_cost") or " // ".join(f.get("mana_cost", "") for f in faces), tipo=v.get("type_line"), texto=txt,
-                              **({"forca_resistencia": pt} if pt else {}))
+                              leg=v.get("leg"), **({"forca_resistencia": pt} if pt else {}))
             _TEXTOS.setdefault(n.split(" // ")[0], _TEXTOS[n])
     return _TEXTOS
 
@@ -130,6 +131,24 @@ def universo():
                 continue
             u = out.setdefault(nome, dict(carta=c, decks=[]))
             u["decks"].append(m["pasta"])
+    # as cartas das pastas em PASTAS (Preta P), também as que já estão em deck (a cópia da pasta tem destino próprio)
+    tx = _textos()
+    for pasta in PASTAS:
+        copias, _ = caixa.ler_pasta(pasta)
+        for cp in copias:
+            nome = _base(cp["nome"])
+            if nome in BASICOS or nome in NUNCA or encaixe.identidade(nome) is None:
+                continue
+            if (tx.get(nome) or {}).get("leg") == "banned":   # banida no Commander não vai a deck nenhum (Dockside, Mana Crypt)
+                continue
+            if nome not in out:
+                tipo = (tx.get(nome) or {}).get("tipo") or ""
+                frente, _, verso = tipo.partition(" // ")
+                land = "Land" in frente
+                out[nome] = dict(carta=dict(n=nome, land=land, mdfc=bool(verso and "Land" in verso and not land)), decks=[])
+            ps = out[nome].setdefault("pastas", [])
+            if pasta not in ps:
+                ps.append(pasta)
     _UNI = out
     return out
 
@@ -530,6 +549,54 @@ def _gravar_lentes(j, avisar):
 
 # ---------------------------------------------------------------- painel
 
+def _lista_destinos(nome, carta, d, cad):
+    """Os três melhores destinos da carta (letra da tier list, ganho, quem sai, o que falta, porquê), na ordem do painel:
+    a letra manda e o ganho desempata; D e os decks que recusaram a carta ficam fora. None sem as sinergias completas."""
+    t3 = top(nome, d, cad, carta)
+    if t3 is None:
+        return None
+    le = (d["cartas"].get(nome) or {}).get("lentes") or {}
+    todos = ranking(nome, d, cad, carta) or []
+    # deck em que o radar já recusou a carta (veredito fora, decisão tomada) não é destino
+    Dk = {m["pasta"]: m for m in encaixe.decks_v3()}
+    recusa = {z["pasta"] for z in todos if ((_no_radar(Dk[z["pasta"]], nome) or {}).get("verdict") == "fora")
+              or (z["pasta"] in VETOS and VETOS[z["pasta"]][0](nome))}
+    cands = [z for z in todos if z["pasta"] in le and z["pasta"] not in recusa] + [z for z in t3 if z["pasta"] not in le and z["pasta"] not in recusa]
+    out = []
+    for z in cands:
+        y = dict(p=z["pasta"], n=z["painel"], g=z["ganho"], s=z["sai"], st=z["sai_tier"], f=["%s %d/%d" % (f["k"], f["n"], f["min"]) for f in z["falta"]])
+        l = le.get(z["pasta"])
+        if l:
+            ix, lt = _letra(l, z["pasta"])
+            y.update(t=lt, ix=ix, fn=l["funcao"], w=l["porque"])
+        out.append(y)
+    # a letra manda e o ganho desempata (o placar não vê encaixe: deck de uma cor só, por exemplo); D não é destino
+    ordem = "SABCD"
+    out = [y for y in out if y.get("t") != "D"]
+    out.sort(key=lambda y: (ordem.index(y["t"]) if y.get("t") else 4, -y["g"]))
+    return out[:TOP]
+
+
+def para_nomes(nomes):
+    """Os destinos de cartas avulsas, pelo nome (as cópias de uma pasta): {nome: [destinos]}, para a página da pasta mostrar a
+    mesma tier list da gaveta do painel. Carta fora dos destinos (sem deck nem pasta em PASTAS) fica de fora."""
+    d = ler()
+    if not d["cartas"]:
+        return {}
+    cad = dados.ler_cadastro()
+    uni = universo()
+    out = {}
+    for nome in nomes:
+        nome = _base(nome)
+        u = uni.get(nome)
+        if u is None or nome in out:
+            continue
+        lst = _lista_destinos(nome, u["carta"], d, cad)
+        if lst is not None:
+            out[nome] = lst
+    return out
+
+
 def para_painel(dk, pasta):
     """Para cada carta do deck: os três melhores destinos (letra, ganho, quem sai, o que falta, porquê) e, aqui, a melhor carta
     do radar para a vaga dela. Só com as sinergias completas; senão, None e o painel mostra a conta antiga."""
@@ -546,28 +613,9 @@ def para_painel(dk, pasta):
         x = {}
         if nome in NUNCA:
             continue
-        t3 = top(nome, d, cad, c)
-        if t3 is not None:
-            le = (d["cartas"].get(nome) or {}).get("lentes") or {}
-            todos = ranking(nome, d, cad, c) or []
-            # deck em que o radar já recusou a carta (veredito fora, decisão tomada) não é destino
-            Dk = {m["pasta"]: m for m in encaixe.decks_v3()}
-            recusa = {z["pasta"] for z in todos if ((_no_radar(Dk[z["pasta"]], nome) or {}).get("verdict") == "fora")
-                      or (z["pasta"] in VETOS and VETOS[z["pasta"]][0](nome))}
-            cands = [z for z in todos if z["pasta"] in le and z["pasta"] not in recusa] + [z for z in t3 if z["pasta"] not in le and z["pasta"] not in recusa]
-            x["d"] = []
-            for z in cands:
-                y = dict(p=z["pasta"], n=z["painel"], g=z["ganho"], s=z["sai"], st=z["sai_tier"], f=["%s %d/%d" % (f["k"], f["n"], f["min"]) for f in z["falta"]])
-                l = le.get(z["pasta"])
-                if l:
-                    ix, lt = _letra(l, z["pasta"])
-                    y.update(t=lt, ix=ix, fn=l["funcao"], w=l["porque"])
-                x["d"].append(y)
-            # a letra manda e o ganho desempata (o placar não vê encaixe: deck de uma cor só, por exemplo); D não é destino
-            ordem = "SABCD"
-            x["d"] = [y for y in x["d"] if y.get("t") != "D"]
-            x["d"].sort(key=lambda y: (ordem.index(y["t"]) if y.get("t") else 4, -y["g"]))
-            x["d"] = x["d"][:TOP]
+        lst = _lista_destinos(nome, c, d, cad)
+        if lst is not None:
+            x["d"] = lst
         # se ela sair daqui: a melhor do radar (entra ou avaliar) que divide a função com ela, pelo ganho sobre ela
         top_c = max(c["s3"][2:]) if c.get("s3") else 0
         fun = [i for i in range(2, len(c["s3"])) if top_c and c["s3"][i] == top_c]
