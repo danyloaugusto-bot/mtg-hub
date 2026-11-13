@@ -4385,6 +4385,28 @@
      "indice": 1.6,
      "em": "2026-11-12",
      "sai": "Sinister Waltz"
+    },
+    "02. Zumbis": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 0
+     },
+     "lentes_por_que": {
+      "E": "Cada acerto traz Zumbis do cemitério sem decayed: alimenta o erguer quando conecta.",
+      "I": "7/6 voador; se conectar, o d20 devolve várias criaturas baratas. Precisa sobreviver e acertar.",
+      "T": "Sete manas sem desconto; só o Reanimate e o Victimize a trazem por menos.",
+      "Q": "Paridade e na frente, com criaturas nos cemitérios.",
+      "R": "O deck tem 29 cartas de recursão, muito acima da faixa de 5 a 10."
+     },
+     "porque": "Recursão grande, mas cara e presa a um acerto, num deck que já sobra em recursão. Sai a Liliana's Reaver, Zumbi 4/3 que só rende quando conecta.",
+     "tier": "C",
+     "indice": 1.25,
+     "em": "2026-11-12",
+     "sai": "Liliana's Reaver"
     }
    }
   },
@@ -4971,13 +4993,13 @@
       "I": "Corpo voador de golpe duplo, mas o dano de combate não fica.",
       "T": "Cinco manas por um corpo sem efeito ao entrar.",
       "Q": "Só vale com a mesa estável e ela atacando.",
-      "R": "Sai o Deflecting Palm; qualquer criatura com evasão rende mais aqui."
+      "R": "Qualquer criatura com evasão rende mais aqui."
      },
-     "porque": "Aqui ela atrapalha: cada dano de combate devolve a mesma vida ao oponente, e a execução do Ezio pede o jogador em 10. Sairia o Deflecting Palm, mas o deck perde com a troca.",
      "antissinergia": "estrutural",
      "travas": [
       "antissinergia estrutural"
      ],
+     "porque": "Cada dano de combate devolve a mesma vida ao oponente, e a execução do Ezio pede o jogador em 10: desliga o fechamento. Sairia o Deflecting Palm, e o deck perde.",
      "tier": "D",
      "indice": 0.7,
      "em": "2026-11-12",
@@ -7083,13 +7105,13 @@
       "I": "Lampejo e time indestrutível; virada, tira 3 de cada oponente.",
       "T": "Cinco manas, com lampejo.",
       "Q": "Viva na paridade, atrás, na frente e como resposta.",
-      "R": "Resiliência em 2, faixa a partir de 5: sobe."
+      "R": "Resiliência em 2, faixa a partir de 5."
      },
-     "porque": "Cobre a falta de proteção com um time indestrutível em lampejo, mas, quando vira, os 3 de dano matam os Assassinos pequenos: material. Sai o Deflecting Palm.",
      "travas": [
       "antissinergia material"
      ],
      "antissinergia": "material",
+     "porque": "Cobre a falta de proteção com um time indestrutível em lampejo, mas, quando vira, os 3 de dano matam o Ezio (3/2) e os Assassinos pequenos: material. Sai o Deflecting Palm.",
      "tier": "B",
      "indice": 2.25,
      "em": "2026-11-12",
@@ -7109,13 +7131,13 @@
       "I": "Lampejo e time indestrutível; virada, tira 3 de cada oponente.",
       "T": "Cinco manas, com lampejo.",
       "Q": "Viva na paridade, atrás, na frente e como resposta.",
-      "R": "Resiliência na faixa."
+      "R": "Resiliência em 7, na faixa."
      },
-     "porque": "Segura uma limpeza em lampejo, mas, quando vira, os 3 de dano matam as fichas 1/1 de Vampiro: material. Sai a March of the Canonized.",
      "travas": [
       "antissinergia material"
      ],
      "antissinergia": "material",
+     "porque": "Segura uma limpeza em lampejo, mas, quando vira, os 3 de dano matam as fichas 1/1 de Vampiro; o Edgar 4/4 fica: material. Sai a March of the Canonized.",
      "tier": "B",
      "indice": 2.15,
      "em": "2026-11-12",
@@ -7135,13 +7157,13 @@
       "I": "Lampejo e time indestrutível; virada, tira 3 de cada oponente.",
       "T": "Cinco manas, com lampejo.",
       "Q": "Viva na paridade, atrás, na frente e como resposta.",
-      "R": "Resiliência na faixa."
+      "R": "Resiliência em 9, na faixa."
      },
-     "porque": "Anjo que segura a limpeza em lampejo, mas, quando vira, os 3 de dano matam a Marchesa e os Assassinos: material. Sai o Thaumatic Compass.",
      "travas": [
       "antissinergia material"
      ],
      "antissinergia": "material",
+     "porque": "Segura a limpeza em lampejo, mas, quando vira, os 3 de dano matam a Marchesa (3/3) e os Assassinos: material. Sai o Thaumatic Compass.",
      "tier": "B",
      "indice": 1.85,
      "em": "2026-11-12",
@@ -8294,7 +8316,7 @@
     }
    },
    "em": "2026-11-12",
-   "extras_em": "2026-11-12",
+   "extras_em": "2026-11-13",
    "lentes": {
     "03. Master Of Evil": {
      "funcao": "fechamento",
@@ -8320,30 +8342,6 @@
      "em": "2026-11-12",
      "sai": "Don't Blink"
     },
-    "01. Vito": {
-     "funcao": "fechamento",
-     "lentes": {
-      "E": 2,
-      "I": 3,
-      "T": 1,
-      "Q": 3,
-      "R": 2
-     },
-     "lentes_por_que": {
-      "E": "Ganha 3 de vida a cada entrada e ataque, que o Vito devolve em perda.",
-      "I": "Remove, faz descartar, drena 3 e compra, toda vez.",
-      "T": "Oito manas.",
-      "Q": "Viva em todo momento.",
-      "R": "Falta compra, 9 contra 10."
-     },
-     "antissinergia": "nenhuma",
-     "travas": [],
-     "porque": "Cada ataque drena 3, e o Vito transforma os 3 de vida ganhos em mais 3 de perda. Sai o Slaughter Pact.",
-     "tier": "A",
-     "indice": 2.2,
-     "em": "2026-11-12",
-     "sai": "Slaughter Pact"
-    },
     "02. Elfos": {
      "funcao": "fechamento",
      "lentes": {
@@ -8367,6 +8365,30 @@
      "indice": 1.65,
      "em": "2026-11-12",
      "sai": "Lothlórien Blade"
+    },
+    "02. Turtle Power!": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 1,
+      "I": 3,
+      "T": 1,
+      "Q": 2,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Ameaça genérica, sem ficha nem marcador.",
+      "I": "Ao entrar e a cada ataque: edito, descarte, dreno de 3, carta e vida.",
+      "T": "Oito manas.",
+      "Q": "Vive na paridade e na frente.",
+      "R": "Resiliência em 3 e dano em 1, abaixo da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Ameaça grande que cobre o dano e a resiliência que faltam. Sai a Shredder's Technique.",
+     "tier": "B",
+     "indice": 1.75,
+     "em": "2026-11-13",
+     "sai": "Shredder's Technique"
     }
    }
   },
@@ -11184,26 +11206,21 @@
      "funcao": "motor",
      "lentes": {
       "E": 3,
-      "I": 3,
-      "T": 2,
+      "I": 2,
+      "T": 1,
       "Q": 2,
       "R": 2
      },
      "lentes_por_que": {
-      "E": "Cópia da Zara sem ser lendária: cada cópia atacando rouba de uma mão.",
-      "I": "Com o myriad, rouba uma criatura de cada oponente por ataque.",
-      "T": "Seis manas.",
-      "Q": "Paridade, na frente e atrás.",
-      "R": "Não há outro clone de comandante sem lendária na lista."
+      "E": "Cópia da Zara sem ser lendária: mais um gatilho de ataque por turno.",
+      "I": "Uma criatura roubada a mais por volta, se sobreviver; as fichas do myriad não disparam.",
+      "T": "Seis manas e sem ímpeto.",
+      "Q": "Paridade, atrás e na frente.",
+      "R": "O Clone da lista copia a Zara, mas morre pela regra de lendárias."
      },
-     "argumentos_s": [
-      "Sem ela, a Zara rouba de uma mão por ataque; com ela, de todas.",
-      "O Sakashima's Will rouba uma vez; a cópia com myriad repete todo ataque.",
-      "Na paridade e na frente multiplica o roubo; atrás, rouba os bloqueadores dos outros."
-     ],
-     "porque": "Copia a Zara sem a regra de lendárias, e o myriad faz cada oponente entregar uma criatura por ataque. Sai o Mirror Sheen, que quase não rende.",
-     "tier": "S",
-     "indice": 2.5,
+     "porque": "Copia a Zara sem ser lendária e rouba mais uma criatura por ataque; as fichas do myriad entram atacando sem ser declaradas e não disparam a Zara. Sai o Mirror Sheen.",
+     "tier": "B",
+     "indice": 2.15,
      "em": "2026-11-12",
      "sai": "Mirror Sheen"
     },
@@ -11211,26 +11228,21 @@
      "funcao": "motor",
      "lentes": {
       "E": 3,
-      "I": 3,
-      "T": 2,
+      "I": 2,
+      "T": 1,
       "Q": 2,
-      "R": 2
+      "R": 1
      },
      "lentes_por_que": {
-      "E": "Cópia do Zur sem ser lendária: cada cópia atacando busca um encantamento.",
-      "I": "Com o myriad, uma busca por oponente a cada ataque.",
-      "T": "Seis manas.",
-      "Q": "Paridade, na frente e atrás.",
-      "R": "O Sakashima the Impostor dobra a busca, mas sem myriad."
+      "E": "Cópia do Zur sem ser lendária: mais uma busca por ataque.",
+      "I": "Um encantamento a mais por volta, se sobreviver; as fichas do myriad não disparam.",
+      "T": "Seis manas e sem ímpeto.",
+      "Q": "Paridade, atrás e na frente.",
+      "R": "O Sakashima the Impostor da lista faz o mesmo por quatro manas."
      },
-     "argumentos_s": [
-      "Sem ela, o Zur busca um encantamento por ataque; com ela, um por oponente.",
-      "O Sakashima the Impostor só dobra; o myriad multiplica pelo número de oponentes.",
-      "Na paridade e na frente monta a mesa de taxa rápido; atrás, as buscas repõem respostas."
-     ],
-     "porque": "Copia o Zur, e cada cópia do myriad que ataca busca mais um encantamento. Sai o Nighthowler.",
-     "tier": "S",
-     "indice": 2.5,
+     "porque": "Copia o Zur e busca mais um encantamento por ataque; as fichas do myriad entram atacando e não disparam o gatilho, e o Sakashima the Impostor já faz isso mais barato. Sai o Nighthowler.",
+     "tier": "B",
+     "indice": 1.95,
      "em": "2026-11-12",
      "sai": "Nighthowler"
     },
@@ -11912,7 +11924,7 @@
       0
      ],
      "pq": {
-      "sin1": "Criatura de força 6 com voar: tira 3 ou mais sozinha ao conectar, nota 2."
+      "sin1": "6/6 com voar no cache: criatura de força 3 ou mais com evasão liga o Davros sozinha, nota 2."
      }
     },
     "03. Valgavoth": {
@@ -11952,28 +11964,6 @@
    "em": "2026-11-12",
    "extras_em": "2026-11-12",
    "lentes": {
-    "03. Master Of Evil": {
-     "funcao": "fechamento",
-     "lentes": {
-      "E": 2,
-      "I": 3,
-      "T": 1,
-      "Q": 1,
-      "R": 2
-     },
-     "lentes_por_que": {
-      "E": "Voador que conecta e liga o Davros sozinho.",
-      "I": "Ao conectar, limpa a mesa do oponente atingido.",
-      "T": "Sete manas, caro.",
-      "Q": "Vive na paridade e na frente.",
-      "R": "Remoção em 15, acima; fechamento ainda cabe."
-     },
-     "porque": "Conecta pelo ar, liga o Davros e limpa a mesa do atingido. Sai o Don't Blink, resposta estreita. O deck é precon intacto: a lista não muda.",
-     "tier": "B",
-     "indice": 1.9,
-     "em": "2026-11-12",
-     "sai": "Don't Blink"
-    },
     "02. Lobos": {
      "funcao": "fechamento",
      "lentes": {
@@ -12017,6 +12007,28 @@
      "indice": 1.6,
      "em": "2026-11-12",
      "sai": "The Animus"
+    },
+    "03. Master Of Evil": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "6/6 com voar: conecta e liga o Davros sozinho.",
+      "I": "Ao conectar, limpa a mesa do atingido, mas só ataca no turno seguinte.",
+      "T": "Sete manas, caro para a função.",
+      "Q": "Vive na paridade e na frente.",
+      "R": "Sai o Don't Blink, carta D; remoção já em 15."
+     },
+     "porque": "Voa, conecta e liga o Davros sozinho, e cada acerto limpa a mesa do atingido; custa sete manas e só ataca no turno seguinte. Sai o Don't Blink, resposta estreita. O deck é precon intacto: a lista não muda.",
+     "tier": "B",
+     "indice": 1.7,
+     "em": "2026-11-12",
+     "sai": "Don't Blink"
     }
    }
   },
@@ -13011,6 +13023,28 @@
      "indice": 0.9,
      "em": "2026-11-12",
      "sai": "Mirror Sheen"
+    },
+    "02. Humanos": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "É o fechar com buff: +1/+1 por Humano em campo, para cada Humano.",
+      "I": "Bônus grande e fixo, mas só conta quem já está em campo quando entra.",
+      "T": "Cinco manas, acima do padrão de um lord.",
+      "Q": "Paridade e na frente; sem mesa, entra vazio.",
+      "R": "O buff já passa da cota (10 cartas, faixa até 8); o Vanquisher's Banner dá +1/+1 pelo mesmo custo."
+     },
+     "porque": "Com a mesa larga de Humanos e fichas, vira +4/+4 ou mais para todos de uma vez. Sai o Duelist's Heritage, golpe duplo para um atacante por combate.",
+     "tier": "B",
+     "indice": 1.7,
+     "em": "2026-11-12",
+     "sai": "Duelist's Heritage"
     }
    }
   },
@@ -15938,11 +15972,8 @@
     "02. Strefan": {
      "sin": [
       0,
-      1
-     ],
-     "pq": {
-      "sin2": "Dobra o dano de combate, sem fazer ninguém perder vida sozinha: 1."
-     }
+      0
+     ]
     },
     "02. Turtle Power!": {
      "sin": [
@@ -16085,6 +16116,28 @@
      "indice": 1.7,
      "em": "2026-11-12",
      "sai": "Mirror Sheen"
+    },
+    "02. Strefan": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 1,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Golpe duplo para quem ataca, sem Sangue nem perda de vida a mais.",
+      "I": "Dobra o dano de combate do time.",
+      "T": "Cinco manas, sem efeito ao entrar.",
+      "Q": "Vive na paridade e na frente.",
+      "R": "Dano em 13, acima da faixa."
+     },
+     "porque": "Golpe duplo dobra o dano do ataque, mas o Strefan cria Sangue por jogador ferido, não pelo tamanho do dano. Sai a Alesha, Who Laughs at Fate.",
+     "tier": "C",
+     "indice": 1.2,
+     "em": "2026-11-12",
+     "sai": "Alesha, Who Laughs at Fate"
     }
    }
   },
@@ -18863,14 +18916,14 @@
       "I": "O time inteiro cresce a cada conexão, se ela conectar.",
       "T": "Três manas por um 4/4 com atropelar.",
       "Q": "Viva no desenvolvimento, na paridade e na frente.",
-      "R": "Evasão em 3, abaixo da faixa, e nenhum proliferar repetível no deck."
+      "R": "Evasão em 3, abaixo da faixa, e nenhum proliferar repetível na lista."
      },
-     "porque": "Cada golpe dela soma um marcador em todo o time, e o deck não tem outro proliferar repetível. Sai o Leonardo, Leader in Blue.",
      "argumentos_s": [
       "Sem ela, os marcadores só crescem pelas fichas do Leonardo; ela soma um em cada criatura marcada a cada golpe.",
-      "Os multiplicadores do deck (Arcade Cabinet, Level Up, Turtle Van) dobram uma vez ou numa criatura só; nenhum prolifera todo turno.",
-      "Atua cedo como 4/4 de três manas com atropelar, e na frente faz o time inteiro crescer a cada conexão."
+      "Os multiplicadores da lista (Arcade Cabinet, Level Up, Turtle Van) dobram numa criatura só; nenhum prolifera todo turno.",
+      "Atua cedo como 4/4 de três manas com atropelar, e na frente faz o time crescer a cada conexão."
      ],
+     "porque": "Cada golpe dela soma um marcador em todo o time, e o atropelar ajuda a conectar; a lista não tem outro proliferar repetível. Sai o Leonardo, Leader in Blue.",
      "tier": "S",
      "indice": 2.65,
      "em": "2026-11-12",
@@ -25526,14 +25579,14 @@
       "I": "Imbloqueável e resguardo no Okaun.",
       "T": "Duas manas e equipar {1} em lendária.",
       "Q": "Vive na paridade, atrás e na frente.",
-      "R": "Evasão em 2, abaixo da faixa de 6."
+      "R": "Evasão em 2, abaixo da faixa; o Whispersilk Cloak faz par."
      },
-     "porque": "No Okaun, cada moeda vencida vira dano que ninguém bloqueia, por três manas no total. Sai o Crash Through, atropelar de um turno.",
      "argumentos_s": [
-      "Sem ela, o Okaun dobrado para no bloqueio, e o conectar depende de atropelar de um turno.",
-      "Os substitutos custam mais: equipar caro ou pagar a cada ataque, e nenhum dá resguardo junto.",
+      "Sem ela, o Okaun dobrado depende do Whispersilk Cloak ou do Rogue's Passage para não parar no bloqueio.",
+      "O Cloak custa equipar {2} e o manto impede as próprias mágicas no Okaun; o Rogue's Passage cobra {4} por ataque.",
       "Atua na paridade e na frente como fechamento, e atrás protege o Okaun com resguardo."
      ],
+     "porque": "No Okaun, cada moeda vencida vira dano que ninguém bloqueia, por equipar {1}, sem o manto que impede as próprias mágicas. Sai o Crash Through, atropelar de um turno.",
      "tier": "S",
      "indice": 2.45,
      "em": "2026-11-12",
@@ -36910,13 +36963,13 @@
      },
      "lentes_por_que": {
       "E": "Cada ficha do Krenko dá +1/+1 a todos os Goblins: multiplica a horda.",
-      "I": "Com a horda dobrada, cada Goblin vira uma ameaça letal.",
-      "T": "Cinco manas, o padrão de um fechamento que vence o jogo.",
+      "I": "Com a horda dobrada, cada Goblin vira ameaça letal.",
+      "T": "Cinco manas, o padrão de um fechamento.",
       "Q": "Viva na paridade e na frente.",
-      "R": "Amplificador na faixa, com lordes no deck."
+      "R": "Amplificador em 11, acima da faixa."
      },
-     "porque": "Com a horda do Krenko, cada ficha soma +1/+1 a todas as outras: é um lorde que cresce sozinho. Sai o Chainsaw, que mexe numa criatura só.",
      "antissinergia": "leve",
+     "porque": "Com a horda do Krenko, cada ficha soma +1/+1 às outras; o bônus vale também para os tipos dos oponentes, leve. Sai a Chainsaw.",
      "tier": "A",
      "indice": 2.25,
      "em": "2026-11-12",
@@ -41894,9 +41947,12 @@
     },
     "04. Zara": {
      "sin": [
-      0,
+      2,
       0
-     ]
+     ],
+     "pq": {
+      "sin1": "Como monarca, copia uma Aura de roubo da lista (Mind Control, Domestication): a régua dá 2 a quem copia Aura de roubo."
+     }
     },
     "04. Zur": {
      "sin": [
@@ -41933,28 +41989,6 @@
      "em": "2026-11-12",
      "sai": "Prophetic Prism"
     },
-    "04. Zara": {
-     "funcao": "motor",
-     "lentes": {
-      "E": 2,
-      "I": 2,
-      "T": 2,
-      "Q": 2,
-      "R": 3
-     },
-     "lentes_por_que": {
-      "E": "Como monarca, copia a Aura de roubo e toma outra criatura.",
-      "I": "Compra de monarca e uma cópia por manutenção.",
-      "T": "Quatro manas.",
-      "Q": "Viva em paridade e na frente.",
-      "R": "Compra abaixo da faixa (8 de 10); sai o Parallel Thoughts, letra D."
-     },
-     "porque": "Copiar uma Aura de roubo, como Mind Control, toma mais uma criatura a cada manutenção. Sai o Parallel Thoughts, e o deck sobe na compra, onde está abaixo da faixa.",
-     "tier": "A",
-     "indice": 2.2,
-     "em": "2026-11-12",
-     "sai": "Parallel Thoughts"
-    },
     "04. Assassin Creed": {
      "funcao": "motor",
      "lentes": {
@@ -41976,6 +42010,28 @@
      "indice": 1.9,
      "em": "2026-11-12",
      "sai": "Apple of Eden, Isu Relic"
+    },
+    "04. Zara": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 3
+     },
+     "lentes_por_que": {
+      "E": "Como monarca, copia o Mind Control ou a Domestication e toma outra criatura.",
+      "I": "Compra de monarca e uma cópia por manutenção.",
+      "T": "Quatro manas.",
+      "Q": "Viva na paridade e na frente.",
+      "R": "Compra em 8, abaixo da faixa de 10."
+     },
+     "porque": "Como monarca, copia o Mind Control ou a Domestication da lista a cada manutenção e toma mais uma criatura; a coroa ainda compra. Sai o Parallel Thoughts, carta D.",
+     "tier": "A",
+     "indice": 2.2,
+     "em": "2026-11-12",
+     "sai": "Parallel Thoughts"
     }
    }
   },
@@ -44861,11 +44917,11 @@
     },
     "03. Valgavoth": {
      "sin": [
-      2,
+      1,
       0
      ],
      "pq": {
-      "sin1": "Virada para mana no turno do oponente, tira vida dele sem custo, mas bate em você também."
+      "sin1": "Vira uma vez por rodada: só o oponente da vez dispara o Valgavoth, de passagem, 1."
      }
     },
     "04. Assassin Creed": {
@@ -44934,28 +44990,6 @@
      "em": "2026-11-12",
      "sai": "Deflecting Palm"
     },
-    "03. Valgavoth": {
-     "funcao": "infraestrutura",
-     "lentes": {
-      "E": 3,
-      "I": 2,
-      "T": 2,
-      "Q": 2,
-      "R": 1
-     },
-     "lentes_por_que": {
-      "E": "Virada para mana no turno do oponente, tira 1 dele e dispara o Valgavoth.",
-      "I": "Ramp que dispara o comandante em todo turno, e vira voador.",
-      "T": "Três manas, entra virada.",
-      "Q": "Vale cedo e tarde.",
-      "R": "Aceleradores com 14, acima da faixa."
-     },
-     "porque": "Cada uso no turno do oponente dispara o Valgavoth, e a vida que custa é recurso. Sai o Not Dead After All.",
-     "tier": "B",
-     "indice": 2.1,
-     "em": "2026-11-12",
-     "sai": "Not Dead After All"
-    },
     "02. Humanos": {
      "funcao": "infraestrutura",
      "lentes": {
@@ -44978,6 +45012,50 @@
      "indice": 1.75,
      "em": "2026-11-12",
      "sai": "Windborn Muse"
+    },
+    "03. Valgavoth": {
+     "funcao": "infraestrutura",
+     "lentes": {
+      "E": 1,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Vira uma vez por rodada: só o oponente da vez dispara o Valgavoth.",
+      "I": "Mana de qualquer cor e um gatilho por rodada; virada, voa.",
+      "T": "Três manas, entra virada.",
+      "Q": "Vale cedo e tarde.",
+      "R": "Aceleradores em 14, acima da faixa."
+     },
+     "porque": "Virada no turno de um oponente, dispara o Valgavoth uma vez por rodada, e a vida que custa é recurso. Sai o Not Dead After All.",
+     "tier": "C",
+     "indice": 1.5,
+     "em": "2026-11-12",
+     "sai": "Not Dead After All"
+    },
+    "04. Zara": {
+     "funcao": "infraestrutura",
+     "lentes": {
+      "E": 1,
+      "I": 1,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Mana de qualquer cor para um deck com aceleradores em 9 de 10, mas a conta da Zara (espiar, recrutar, ficar) não passa por ela.",
+      "I": "Uma mana a mais e 1 de vida de cada jogador por uso; virar exige todo mundo com 10 ou menos.",
+      "T": "Três manas por uma pedra que entra virada: abaixo do padrão da função.",
+      "Q": "Útil no começo e no meio; no fim, se virar, o 1/4 com voar e toque mortífero tira 3 de cada oponente por ataque.",
+      "R": "Qualquer pedra de mana do mesmo custo faz o mesmo papel."
+     },
+     "porque": "Ajuda na mana, que está em 9 de 10, mas é só uma pedra que entra virada e a Zara não ganha nada com a perda de vida da mesa. Sai o Firemind's Research (D), que pede mágicas instantâneas que o deck mal tem.",
+     "tier": "C",
+     "indice": 1.3,
+     "em": "2026-11-12",
+     "sai": "Firemind's Research"
     }
    }
   },
@@ -46305,24 +46383,24 @@
    "extras_em": "2026-11-12",
    "lentes": {
     "04. Zur": {
-     "funcao": "motor",
+     "funcao": "habilitador",
      "lentes": {
-      "E": 3,
+      "E": 2,
       "I": 2,
       "T": 3,
       "Q": 2,
       "R": 1
      },
      "lentes_por_que": {
-      "E": "É o cobrar: a mesa ataca o amaldiçoado e não você.",
-      "I": "Um Zumbi 2/2 seu a cada ataque ao amaldiçoado, se ficar.",
+      "E": "Recompensa quem ataca o amaldiçoado: alimenta o cobrar.",
+      "I": "Um Zumbi 2/2 seu a cada ataque ao amaldiçoado.",
       "T": "Três manas; o Zur põe de graça.",
       "Q": "Desenvolvimento, paridade e na frente.",
       "R": "A lista já tem Propaganda e os dois Impetus para a mesma função."
      },
-     "porque": "O Zur busca de graça, e cada ataque ao amaldiçoado vira um Zumbi seu. Sai a Akroma's Blessing, proteção de uma vez.",
-     "tier": "A",
-     "indice": 2.25,
+     "porque": "O Zur a busca de graça, e cada ataque ao amaldiçoado vira um Zumbi seu; política útil, sem mudar o jogo sozinha. Sai a Akroma's Blessing.",
+     "tier": "B",
+     "indice": 1.95,
      "em": "2026-11-12",
      "sai": "Akroma's Blessing"
     },
@@ -46542,12 +46620,12 @@
      },
      "lentes_por_que": {
       "E": "Joga do exílio a cada acerto, ao lado da coleção.",
-      "I": "Carta extra a cada criatura que conecta.",
+      "I": "Carta extra a cada criatura que conecta no amaldiçoado.",
       "T": "Três manas.",
       "Q": "Vive na frente.",
-      "R": "Draw em 13, acima."
+      "R": "Draw em 13, acima da faixa."
      },
-     "porque": "Cada acerto no amaldiçoado dá mais uma carta do oponente para jogar. Sai o Wheel of Fate.",
+     "porque": "Cada acerto no amaldiçoado dá mais uma carta dele para jogar, também a quem mais o atacar. Sai o Wheel of Fate.",
      "tier": "B",
      "indice": 1.65,
      "em": "2026-11-12",
@@ -57037,9 +57115,12 @@
     },
     "04. Queen": {
      "sin": [
-      0,
+      1,
       0
-     ]
+     ],
+     "pq": {
+      "sin1": "Tutor de qualquer carta, que pode buscar uma Corte: a régua dá 1 a quem busca encantamento."
+     }
     },
     "04. Zur": {
      "sin": [
@@ -57119,6 +57200,28 @@
      "indice": 2.0,
      "em": "2026-11-12",
      "sai": "Army of the Damned"
+    },
+    "04. Queen": {
+     "funcao": "infraestrutura",
+     "lentes": {
+      "E": 1,
+      "I": 2,
+      "T": 3,
+      "Q": 2,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Tutor que acha a Corte ou o fechamento que falta.",
+      "I": "Tutor sem restrição: vale a carta que busca.",
+      "T": "Duas manas e uma criatura, como o Assassino da Marchesa.",
+      "Q": "Desenvolvimento, paridade e atrás.",
+      "R": "O único tutor da lista é o Idyllic Tutor."
+     },
+     "porque": "Tutor de duas manas que busca a Corte ou o fechamento, pago com uma criatura; a lista só tem o Idyllic Tutor. Sai o Master of Ceremonies.",
+     "tier": "B",
+     "indice": 1.85,
+     "em": "2026-11-12",
+     "sai": "Master of Ceremonies"
     }
    }
   },
@@ -61120,6 +61223,50 @@
      "indice": 1.2,
      "em": "2026-11-12",
      "sai": "Not Dead After All"
+    },
+    "02. Dragões": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Cada Dragão conjurado põe um marcador, e as fichas 5/5 da Lathliss também crescem.",
+      "I": "Entra sem marcador: nada na hora.",
+      "T": "Quatro manas para começar do zero.",
+      "Q": "Paridade e na frente, com Dragões na mão.",
+      "R": "O buff já passa da cota (11 cartas, faixa até 8)."
+     },
+     "porque": "Cresce devagar, um marcador por Dragão conjurado, num deck que já sobra em buff. Sai o Overpowering Attack, combate extra de cinco manas.",
+     "tier": "C",
+     "indice": 1.25,
+     "em": "2026-11-12",
+     "sai": "Overpowering Attack"
+    },
+    "02. Humanos": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Cada Humano conjurado põe um marcador; as fichas Humanas ganham o bônus, mas não somam marcador.",
+      "I": "Entra sem marcador: nada na hora.",
+      "T": "Quatro manas para começar do zero.",
+      "Q": "Paridade e na frente, com Humanos na mão.",
+      "R": "O buff já passa da cota (10 cartas, faixa até 8); o Vanquisher's Banner dá +1/+1 na hora e compra."
+     },
+     "porque": "Começa do zero e só sobe com Humano conjurado, e as fichas do deck não somam. Sai o Duelist's Heritage, golpe duplo para um atacante por combate.",
+     "tier": "C",
+     "indice": 1.25,
+     "em": "2026-11-12",
+     "sai": "Duelist's Heritage"
     }
    }
   },
@@ -62788,6 +62935,28 @@
      "indice": 1.4,
      "em": "2026-11-12",
      "sai": "Lazav, Dimir Mastermind"
+    },
+    "01. Markov": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Vampiro de três que dispara a eminência e, ao acertar, põe marcador em cada atacante: é o coroar.",
+      "I": "Voa e golpeia primeiro, então os marcadores chegam antes do dano normal; precisa sobreviver e acertar.",
+      "T": "Três manas, no padrão.",
+      "Q": "Início, paridade e na frente.",
+      "R": "O buff passa muito da cota (17 cartas, faixa até 8)."
+     },
+     "porque": "Vampiro barato que gera ficha pela eminência e cresce a horda inteira a cada acerto, junto com o ataque do Edgar. Sai o Coat of Arms, que também cresce a mesa dos outros.",
+     "tier": "B",
+     "indice": 2.0,
+     "em": "2026-11-12",
+     "sai": "Coat of Arms"
     }
    }
   },
@@ -62903,30 +63072,8 @@
     }
    },
    "em": "2026-11-12",
-   "extras_em": "2026-11-12",
+   "extras_em": "2026-11-13",
    "lentes": {
-    "01. Vito": {
-     "funcao": "motor",
-     "lentes": {
-      "E": 2,
-      "I": 2,
-      "T": 2,
-      "Q": 3,
-      "R": 2
-     },
-     "lentes_por_que": {
-      "E": "Cada Pântano ganha 2 de vida, e o Vito tira 2 de um oponente.",
-      "I": "Compra ou dano e vida a cada Pântano.",
-      "T": "Quatro manas.",
-      "Q": "Compra cedo, remoção atrás, dreno na frente.",
-      "R": "Compra com 9 na faixa de 10."
-     },
-     "porque": "Num deck só preto, cada Pântano compra ou vira 2 de dano e 2 de vida, que o Vito converte. Sai o Slaughter Pact.",
-     "tier": "A",
-     "indice": 2.2,
-     "em": "2026-11-12",
-     "sai": "Slaughter Pact"
-    },
     "04. Assassin Creed": {
      "funcao": "motor",
      "lentes": {
@@ -62970,6 +63117,54 @@
      "indice": 1.7,
      "em": "2026-11-12",
      "sai": "Don't Blink"
+    },
+    "02. Elfos": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 1,
+      "I": 1,
+      "T": 1,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Valor genérico, fora dos Elfos e da ativação da Lathril.",
+      "I": "Só oito Swamps: dispara poucas vezes.",
+      "T": "Quatro manas por um 3/3 que pede Swamp depois.",
+      "Q": "Vive na paridade e atrás.",
+      "R": "Compra em 10, no piso da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Com oito Swamps entre Forests, dispara pouco. Sai a Lothlórien Blade, Equipamento caro.",
+     "tier": "C",
+     "indice": 1.15,
+     "em": "2026-11-13",
+     "sai": "Lothlórien Blade"
+    },
+    "01. Vito": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 3,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Cada Swamp vira 2 de dano e 2 de vida, que o Vito devolve num oponente.",
+      "I": "Carta ou dreno a cada terreno; precisa ficar em campo.",
+      "T": "Quatro manas por um 3/3 que rende já no próximo terreno.",
+      "Q": "Compra atrás, tira bloqueador na paridade, drena na frente.",
+      "R": "Compra em 9, abaixo da faixa de 10."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Com vinte Swamps e Urborg, cada terreno é carta ou dreno dobrado pelo Vito. Sai o Herald's Horn, que só compra Vampiro no topo.",
+     "tier": "A",
+     "indice": 2.2,
+     "em": "2026-11-13",
+     "sai": "Herald's Horn"
     }
    }
   },
@@ -66553,6 +66748,173 @@
     }
    }
   },
+  "Emeritus of Woe": {
+   "sin": {
+    "02. Elfos": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Evelyn": {
+     "sin": [
+      2,
+      0
+     ],
+     "pq": {
+      "sin1": "Vampiro que entra e enche a coleção, sem pôr outro Vampiro em campo."
+     }
+    },
+    "02. Kaalia": {
+     "sin": [
+      2,
+      0
+     ],
+     "pq": {
+      "sin1": "Entra preparada, e a mágica acoplada busca e põe na mão o Anjo, Demônio ou Dragão que falta."
+     }
+    },
+    "02. Turtle Power!": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Zumbis": {
+     "sin": [
+      0,
+      1
+     ],
+     "pq": {
+      "sin2": "Fica preparada quando duas criaturas morrem no turno: só rende com a morte, sem matar nem devolver."
+     }
+    },
+    "03. Lynde": {
+     "sin": [
+      1,
+      0
+     ],
+     "pq": {
+      "sin1": "A mágica acoplada é tutor de qualquer carta, que pode buscar a Maldição que falta."
+     }
+    },
+    "03. Master Of Evil": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. Valgavoth": {
+     "sin": [
+      0,
+      1
+     ],
+     "pq": {
+      "sin2": "A mágica acoplada busca qualquer carta, Demônio também: efeito que vale para outros tipos."
+     }
+    },
+    "04. Assassin Creed": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "04. Queen": {
+     "sin": [
+      1,
+      0
+     ],
+     "pq": {
+      "sin1": "A mágica acoplada busca qualquer carta uma vez, inclusive uma Corte."
+     }
+    },
+    "04. Zur": {
+     "sin": [
+      1,
+      0
+     ],
+     "pq": {
+      "sin1": "A mágica acoplada busca um encantamento uma vez, para a mão: de passagem."
+     }
+    }
+   },
+   "em": "2026-11-13",
+   "extras_em": "2026-11-13",
+   "lentes": {
+    "02. Kaalia": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 1,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "A cópia do Demonic Tutor põe na mão o Anjo, Demônio ou Dragão que a Kaalia vai trazer.",
+      "I": "Tutor sem restrição vale a carta que busca; o 5/4 vem junto.",
+      "T": "Quatro manas pelo corpo e duas pela busca: seis no total, e a Kaalia não a põe em campo.",
+      "Q": "Busca a carga cedo, a resposta atrás e o fechamento na frente.",
+      "R": "Recurso em 11, acima da faixa, com Demonic Counsel e Raise the Draugr na lista."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Busca a carga certa e ainda deixa um 5/4, mas custa seis manas no total e não entra pela Kaalia. Sai o Thrilling Encore, que só rende depois de mortes no turno.",
+     "tier": "B",
+     "indice": 1.75,
+     "em": "2026-11-13",
+     "sai": "Thrilling Encore"
+    },
+    "04. Zur": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 1,
+      "I": 2,
+      "T": 1,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Tutor comum: o Zur já busca os encantamentos a cada ataque.",
+      "I": "Busca qualquer carta e deixa um 5/4.",
+      "T": "Seis manas no total para corpo e busca.",
+      "Q": "Busca o que o momento pede, em qualquer fase do jogo.",
+      "R": "Recurso em 7, dentro da faixa, e o próprio Zur faz o grosso da busca."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Acha a peça que faltar, mas o Zur já busca o que o deck mais quer. Sai o Akroma's Blessing, proteção de uma vez.",
+     "tier": "C",
+     "indice": 1.5,
+     "em": "2026-11-13",
+     "sai": "Akroma's Blessing"
+    },
+    "01. Markov": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Vampiro que dispara a eminência e busca o lord ou a peça que falta.",
+      "I": "Tutor sem restrição e um corpo 5/4 que conta para os lords.",
+      "T": "Quatro manas pelo Vampiro e duas pela busca.",
+      "Q": "Busca a resposta atrás e o fechamento na frente; o corpo segura a mesa.",
+      "R": "Recurso em 17, bem acima da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "É tutor em criatura, como o deck pede, e vira ficha pela eminência. Sai o Faithless Looting, que troca cartas sem ganhar nenhuma.",
+     "tier": "B",
+     "indice": 2.05,
+     "em": "2026-11-13",
+     "sai": "Faithless Looting"
+    }
+   }
+  },
   "Empty the Laboratory": {
    "sin": {
     "02. Evelyn": {
@@ -68539,6 +68901,28 @@
      "indice": 1.2,
      "em": "2026-11-12",
      "sai": "Wishclaw Talisman"
+    },
+    "02. Zumbis": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 0
+     },
+     "lentes_por_que": {
+      "E": "Devolve X Zumbis do cemitério de uma vez, sem decayed.",
+      "I": "Duas ou mais criaturas de volta, se o cemitério tiver.",
+      "T": "Sete manas para duas criaturas; o milagre depende de ser a primeira compra do turno.",
+      "Q": "Paridade e atrás, depois de uma limpeza.",
+      "R": "O deck tem 29 cartas de recursão, e o Living Death já faz a volta em massa."
+     },
+     "porque": "Recursão em massa cara, num deck que já sobra em recursão. Sai a Liliana's Reaver, Zumbi 4/3 que só rende quando conecta.",
+     "tier": "C",
+     "indice": 1.25,
+     "em": "2026-11-12",
+     "sai": "Liliana's Reaver"
     }
    }
   },
@@ -68645,32 +69029,8 @@
     }
    },
    "em": "2026-11-12",
-   "extras_em": "2026-11-12",
+   "extras_em": "2026-11-13",
    "lentes": {
-    "01. Vito": {
-     "funcao": "resposta",
-     "lentes": {
-      "E": 2,
-      "I": 2,
-      "T": 2,
-      "Q": 3,
-      "R": 1
-     },
-     "lentes_por_que": {
-      "E": "Remoção que ganha X de vida, e o Vito devolve em perda.",
-      "I": "Mata a criatura e drena X pelo Vito.",
-      "T": "X flexível, instantânea.",
-      "Q": "Viva em todo momento, até contra cemitério.",
-      "R": "Remoção acima da faixa, 16."
-     },
-     "antissinergia": "nenhuma",
-     "travas": [],
-     "porque": "Remove e ganha X de vida, que o Vito transforma em perda de um oponente. Sai o Slaughter Pact, que não mata preto.",
-     "tier": "B",
-     "indice": 2.05,
-     "em": "2026-11-12",
-     "sai": "Slaughter Pact"
-    },
     "02. Elfos": {
      "funcao": "resposta",
      "lentes": {
@@ -68718,6 +69078,30 @@
      "indice": 1.7,
      "em": "2026-11-12",
      "sai": "Fatal Push"
+    },
+    "02. Turtle Power!": {
+     "funcao": "resposta",
+     "lentes": {
+      "E": 1,
+      "I": 2,
+      "T": 2,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Remoção comum, fora das Tartarugas e dos marcadores.",
+      "I": "Mata criatura de qualquer tamanho ou limpa cemitérios.",
+      "T": "X mais uma mana, instantânea.",
+      "Q": "Os dois modos servem em todo momento.",
+      "R": "Remoção em 10, dentro da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Remoção flexível e instantânea. Sai a Shredder's Technique, que só fica barata com atacante não bloqueado.",
+     "tier": "B",
+     "indice": 1.7,
+     "em": "2026-11-13",
+     "sai": "Shredder's Technique"
     }
    }
   },
@@ -69549,13 +69933,13 @@
       "R": 1
      },
      "lentes_por_que": {
-      "E": "Taxa que vira carta: alimenta o verbo cobrar.",
+      "E": "Taxa que, não paga, vira carta: alimenta o cobrar.",
       "I": "Uma carta ou {1} de taxa por turno de cada oponente.",
       "T": "Uma mana.",
       "Q": "Forte cedo e na paridade; fraca tarde.",
-      "R": "O Zur busca taxas melhores."
+      "R": "É criatura: o Zur não a busca, e ele busca taxas melhores."
      },
-     "porque": "Taxa barata que vira carta, como a Rhystic Study em pequeno. Sai o Prophetic Prism.",
+     "porque": "Taxa barata que vira carta, mas é criatura e o Zur não a busca. Sai o Prophetic Prism.",
      "tier": "B",
      "indice": 1.75,
      "em": "2026-11-12",
@@ -74690,6 +75074,28 @@
      "indice": 1.3,
      "em": "2026-11-12",
      "sai": "Scheming Symmetry"
+    },
+    "02. Clavileño": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 2,
+      "Q": 2,
+      "R": 0
+     },
+     "lentes_por_que": {
+      "E": "Vampiro voador que ataca e pode ser abençoado; a volta pede duas fichas de Sangue, e só a Voldaren Estate faz Sangue no deck.",
+      "I": "Um 3/1 que não bloqueia; a ficha de Sangue depende de conectar.",
+      "T": "Três manas, no padrão; a volta custa {B} e duas fichas.",
+      "Q": "Início, paridade e na frente; atrás, não bloqueia.",
+      "R": "Recursão muito acima da cota (25 cartas, faixa até 10)."
+     },
+     "porque": "Aqui quase não há Sangue para a volta, e sobra um 3/1 que não bloqueia. Sai a March of the Canonized, fichas 1/1 com vínculo.",
+     "tier": "C",
+     "indice": 1.4,
+     "em": "2026-11-12",
+     "sai": "March of the Canonized"
     }
    }
   },
@@ -78223,6 +78629,28 @@
      "indice": 1.85,
      "em": "2026-11-12",
      "sai": "Chainsaw"
+    },
+    "02. Strefan": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 1,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Dobra o dano, mas o Strefan conta quem perdeu vida, não quanto.",
+      "I": "Dobra todo dano nos oponentes enquanto vive.",
+      "T": "Seis manas por um 5/5.",
+      "Q": "Vive na paridade e na frente.",
+      "R": "Dano em 13, acima da faixa."
+     },
+     "porque": "Dobra o dano nos oponentes, mas o Strefan cria uma ficha por jogador ferido, não por ponto de vida: a conta não cresce. Sai a Alesha, Who Laughs at Fate.",
+     "tier": "C",
+     "indice": 1.2,
+     "em": "2026-11-12",
+     "sai": "Alesha, Who Laughs at Fate"
     }
    }
   },
@@ -81440,13 +81868,13 @@
       "R": 1
      },
      "lentes_por_que": {
-      "E": "O Zur busca, mas o deck tem pouco Equipamento.",
-      "I": "Equipar de graça uma vez por turno.",
+      "E": "O Zur a põe inteira, mas a lista tem dois Equipamentos.",
+      "I": "Devolve um Equipamento e equipa de graça uma vez por turno.",
       "T": "Três manas, ou de graça pelo Zur.",
-      "Q": "Pouco vivo.",
-      "R": "Há alvos de busca melhores."
+      "Q": "Só vale com Equipamento no cemitério ou em campo.",
+      "R": "Há alvos de busca melhores para o Zur."
      },
-     "porque": "Posta pelo Zur, funciona, mas há pouco Equipamento. Sai o Akroma's Blessing.",
+     "porque": "O Zur a põe inteira, mas a lista só tem a Bloodthirsty Blade e a Lightning Greaves para devolver ou equipar. Sai a Akroma's Blessing.",
      "tier": "C",
      "indice": 1.15,
      "em": "2026-11-12",
@@ -97680,7 +98108,7 @@
       "I": "6/5 voadora com atropelar que toma os artefatos ao conectar.",
       "T": "Seis manas.",
       "Q": "Paridade e na frente.",
-      "R": "O deck não tem evasão: 0, faixa a partir de 6."
+      "R": "Evasão em 0, faixa a partir de 6."
      },
      "porque": "Voadora que rouba de vez os artefatos de quem leva dano, num deck sem evasão. Sai o Dissipation Field.",
      "tier": "A",
@@ -97967,8 +98395,8 @@
       "R": 2
      },
      "lentes_por_que": {
-      "E": "Na Zara, uma cópia com ímpeto por turno, e cada uma ataca e recruta.",
-      "I": "Mais um atacante que rouba a cada volta.",
+      "E": "Uma Zara com ímpeto por combate, e cada uma ataca e recruta.",
+      "I": "As fichas ficam: mais um roubo por volta, crescendo.",
       "T": "Quatro manas e equipar {5}: lento.",
       "Q": "Vive na paridade e na frente.",
       "R": "Poucas cartas dobram o ataque da Zara."
@@ -97989,8 +98417,8 @@
       "R": 2
      },
      "lentes_por_que": {
-      "E": "Na Kaalia, uma cópia com ímpeto por turno, e cada uma põe uma carga.",
-      "I": "Duas ou mais cargas por ataque, crescendo a cada volta.",
+      "E": "Uma Kaalia com ímpeto por combate, e cada uma põe uma carga.",
+      "I": "As fichas ficam: mais uma carga por volta, crescendo.",
       "T": "Quatro manas e equipar {5}.",
       "Q": "Vive na paridade e na frente.",
       "R": "Poucas cartas multiplicam o gatilho da Kaalia."
@@ -98011,17 +98439,171 @@
       "R": 2
      },
      "lentes_por_que": {
-      "E": "No Zur, uma cópia com ímpeto por turno, e cada ataque busca um encantamento.",
-      "I": "Uma busca a mais por volta, crescendo.",
+      "E": "Um Zur com ímpeto por combate, e cada ataque busca um encantamento.",
+      "I": "As fichas ficam: mais uma busca por volta, crescendo.",
       "T": "Quatro manas e equipar {5}.",
       "Q": "Vive na paridade e na frente.",
-      "R": "Poucas cartas dobram a busca do Zur."
+      "R": "Só o Sakashima the Impostor dobra a busca na lista."
      },
-     "porque": "Cada combate cria um Zur com ímpeto, e cada ataque busca mais um encantamento. Sai o Akroma's Blessing, proteção de um turno.",
+     "porque": "Cada combate cria um Zur com ímpeto, e cada ataque busca mais um encantamento. Sai a Akroma's Blessing, proteção de um turno.",
      "tier": "A",
      "indice": 2.35,
      "em": "2026-11-12",
      "sai": "Akroma's Blessing"
+    },
+    "03. Valgavoth": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Uma cópia do Valgavoth por turno, com ímpeto: cada cópia compra e cresce com a primeira perda de cada oponente.",
+      "I": "Nada na hora; montado, cada cópia soma uma carta por oponente ferido. Depende de quem carrega sobreviver.",
+      "T": "Quatro manas e equipar {5}.",
+      "Q": "Paridade e na frente.",
+      "R": "Nenhuma carta da lista copia criatura; a função motor já tem peças fortes."
+     },
+     "porque": "Cada cópia não lendária do Valgavoth compra a própria carta a cada primeira perda dos oponentes. Sai o Unstoppable Slasher, Zumbi de toque mortífero que não é Demônio.",
+     "tier": "B",
+     "indice": 2.0,
+     "em": "2026-11-12",
+     "sai": "Unstoppable Slasher"
+    },
+    "02. Turtle Power!": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "A cópia é a ficha do turno, que dispara o Leonardo, e repete a melhor criatura.",
+      "I": "Nada na hora; depois, uma cópia com ímpeto por turno, se quem carrega sobreviver.",
+      "T": "Quatro manas e equipar {5}.",
+      "Q": "Paridade e na frente.",
+      "R": "Fichas e marcadores já sobram (23 cartas de buff), e a recursão está no topo da faixa."
+     },
+     "porque": "Faz a ficha do turno e copia uma Tartaruga forte, mas pede nove manas para começar, num deck que já faz ficha de sobra. Sai a Leonardo's Technique, que devolve até duas criaturas pequenas.",
+     "tier": "C",
+     "indice": 1.45,
+     "em": "2026-11-12",
+     "sai": "Leonardo's Technique"
+    },
+    "03. Master Of Evil": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Uma cópia do Davros por turno: cada uma cria o próprio Dalek e dá mais uma escolha vilanesca.",
+      "I": "Nada na hora; montado, dobra o Davros a cada turno, se ele sobreviver.",
+      "T": "Quatro manas e equipar {5}.",
+      "Q": "Paridade e na frente.",
+      "R": "O Auton Soldier e o Zygon Infiltrator já copiam criatura, mas nenhum repete todo turno."
+     },
+     "porque": "Cada cópia do Davros transforma a mesma perda de 3 em mais um Dalek e mais uma escolha. Sai o Don't Blink, que só barra criatura vinda do exílio. O deck é precon intacto: a lista não muda.",
+     "tier": "B",
+     "indice": 1.8,
+     "em": "2026-11-12",
+     "sai": "Don't Blink"
+    },
+    "01. Vito": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Uma cópia não lendária do Vito por turno: cada ganho de vida vira perda mais uma vez.",
+      "I": "Nada na hora; montado, multiplica cada dreno, se o Vito sobreviver.",
+      "T": "Quatro manas e equipar {5}, lento para o deck.",
+      "Q": "Paridade e na frente.",
+      "R": "A Enduring Tenacity já repete o texto do Vito, e a Marauding Blight-Priest converte cada ganho."
+     },
+     "porque": "Cada cópia converte o ganho de vida de novo, mas o preparo de nove manas pesa num deck rápido. Sai o Sanguine Spy, Vampiro de vínculo com compra condicionada.",
+     "tier": "C",
+     "indice": 1.55,
+     "em": "2026-11-12",
+     "sai": "Sanguine Spy"
+    },
+    "01. Markov": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Cada cópia do Edgar tem eminência e o gatilho de ataque: mais uma ficha por Vampiro conjurado e mais marcadores.",
+      "I": "Nada na hora; montado, multiplica o Edgar a cada turno, se ele sobreviver.",
+      "T": "Quatro manas e equipar {5}, num deck sem pedras de mana.",
+      "Q": "Paridade e na frente.",
+      "R": "Só o Kindred Charge também copia, e por um turno."
+     },
+     "porque": "Cada Edgar a mais dobra as fichas da eminência e os marcadores do ataque. Sai o Faithless Looting, filtro que custa cartas.",
+     "tier": "B",
+     "indice": 1.7,
+     "em": "2026-11-12",
+     "sai": "Faithless Looting"
+    },
+    "04. Ken": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Equipamento que vai no Ken; cada cópia 4/2 com ímpeto também conjura feitiço de graça ao causar dano.",
+      "I": "Nada na hora; as cópias entram sem os outros Equipamentos e morrem fácil no bloqueio.",
+      "T": "Quatro manas e equipar {5}.",
+      "Q": "Paridade e na frente.",
+      "R": "Equipamento e buff muito acima da cota (25 cartas), e combates extras sobram na lista."
+     },
+     "porque": "As cópias do Ken entram nuas, sem as armas que fazem o dano dele. Sai o Fear of Missing Out, combate extra com delírio.",
+     "tier": "C",
+     "indice": 1.5,
+     "em": "2026-11-12",
+     "sai": "Fear of Missing Out"
+    },
+    "02. Humanos": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Cada cópia do Greymond é um Humano a mais e outro +2/+2 para todos os Humanos.",
+      "I": "Nada na hora; montado, empilha um +2/+2 por turno, se o Greymond sobreviver.",
+      "T": "Quatro manas e equipar {5}.",
+      "Q": "Paridade e na frente.",
+      "R": "O buff já passa da cota (10 cartas, faixa até 8)."
+     },
+     "porque": "No Greymond, cada cópia não lendária soma outro +2/+2 aos Humanos. Sai a Storm Herd, dez manas por Pégasos.",
+     "tier": "B",
+     "indice": 1.7,
+     "em": "2026-11-12",
+     "sai": "Storm Herd"
     }
    }
   },
@@ -100836,12 +101418,12 @@
      },
      "lentes_por_que": {
       "E": "Cada sacrifício é ganho de vida que o Vito converte.",
-      "I": "1 de dreno por turno.",
-      "T": "Terreno desvirado, sem custo.",
+      "I": "1 de dreno por criatura sacrificada.",
+      "T": "Terreno desvirado.",
       "Q": "Vivo do meio ao fim.",
-      "R": "Sai uma carta C."
+      "R": "Sai o Mikokoro, carta C."
      },
-     "porque": "Cada sacrifício é 1 de vida que o Vito converte em perda. Sai o Mikokoro, que dá carta a todos.",
+     "porque": "Cada sacrifício é 1 de vida que o Vito converte em perda de um oponente. Sai o Mikokoro, que dá carta a todos.",
      "tier": "B",
      "indice": 2.0,
      "em": "2026-11-12",
@@ -100868,6 +101450,28 @@
      "indice": 1.8,
      "em": "2026-11-12",
      "sai": "Soulstone Sanctuary"
+    },
+    "03. K'rrik": {
+     "funcao": "infraestrutura",
+     "lentes": {
+      "E": 1,
+      "I": 1,
+      "T": 3,
+      "Q": 2,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Incolor, mas cada sacrifício devolve 1 de vida para pagar o K'rrik.",
+      "I": "Saída de sacrifício e 1 de vida por criatura.",
+      "T": "Terreno desvirado.",
+      "Q": "Vivo do meio ao fim.",
+      "R": "Sai o Temple of the False God, carta D."
+     },
+     "porque": "Terreno desvirado que troca uma criatura por 1 de vida, de volta para pagar o K'rrik, e serve de saída de sacrifício. Sai o Temple of the False God, que só gera mana com cinco terrenos.",
+     "tier": "B",
+     "indice": 1.65,
+     "em": "2026-11-12",
+     "sai": "Temple of the False God"
     }
    }
   },
@@ -103355,11 +103959,11 @@
       "Q": "Viva atrás e na paridade.",
       "R": "Limpeza sem par na lista."
      },
-     "porque": "Leva também os artefatos e encantamentos que fazem fichas e marcadores. Sai a Shredder's Technique.",
+     "antissinergia": "estrutural",
      "travas": [
       "antissinergia estrutural"
      ],
-     "antissinergia": "estrutural",
+     "porque": "Leva também os artefatos e encantamentos que fazem fichas e marcadores, como Coin of Mastery, Ninja Pizza e High Score. Sai a Shredder's Technique.",
      "tier": "D",
      "indice": 1.75,
      "em": "2026-11-12",
@@ -103381,11 +103985,11 @@
       "Q": "Viva atrás e na paridade.",
       "R": "Limpeza sem par na lista."
      },
-     "porque": "Zera a mesa e leva a Kaalia, mas as cargas ficam na mão. Sai o Fatal Push.",
+     "antissinergia": "material",
      "travas": [
       "antissinergia material"
      ],
-     "antissinergia": "material",
+     "porque": "Zera a mesa e leva a Kaalia, mas as cargas ficam na mão e o motor do deck é criatura: material. Sai o Fatal Push.",
      "tier": "B",
      "indice": 1.75,
      "em": "2026-11-12",
@@ -103398,22 +104002,22 @@
       "I": 3,
       "T": 1,
       "Q": 2,
-      "R": 2
+      "R": 3
      },
      "lentes_por_que": {
       "E": "Limpeza que qualquer deck branco usaria.",
       "I": "Destrói toda permanente que não é terreno.",
       "T": "Seis manas, três com a mesa cheia.",
       "Q": "Viva atrás e na paridade.",
-      "R": "Limpeza sem par na lista."
+      "R": "Uma limpeza só, o Supreme Verdict, contra três a quatro."
      },
-     "porque": "Zera a mesa, com o Ezio e os Assassinos juntos. Sai The Animus.",
+     "antissinergia": "estrutural",
      "travas": [
-      "antissinergia material"
+      "antissinergia estrutural"
      ],
-     "antissinergia": "material",
-     "tier": "B",
-     "indice": 1.75,
+     "porque": "Leva também a Brotherhood Regalia e a Coastal Piracy, que fazem a conexão e a execução, além do Ezio. Sai The Animus.",
+     "tier": "D",
+     "indice": 1.95,
      "em": "2026-11-12",
      "sai": "The Animus"
     }
@@ -104338,6 +104942,28 @@
      "indice": 1.65,
      "em": "2026-11-12",
      "sai": "Champion of the Perished"
+    },
+    "02. Humanos": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Lord de +1/+1 para os Humanos; por {3}, procura Humano entre as três do topo.",
+      "I": "+1/+1 modesto, mas é artefato e fica depois da limpeza.",
+      "T": "Três manas, no padrão.",
+      "Q": "Paridade, na frente e atrás, quando acha Humano para refazer a mesa.",
+      "R": "O buff já passa da cota (10 cartas, faixa até 8); o Vanquisher's Banner faz parecido."
+     },
+     "porque": "Lord barato que ainda cava Humano, mas é só +1/+1 num deck cheio de buff. Sai o Duelist's Heritage, golpe duplo para um atacante por combate.",
+     "tier": "B",
+     "indice": 1.6,
+     "em": "2026-11-12",
+     "sai": "Duelist's Heritage"
     }
    }
   },
@@ -106861,6 +107487,28 @@
      "indice": 2.1,
      "em": "2026-11-12",
      "sai": "Coat of Arms"
+    },
+    "02. Clavileño": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 3,
+      "I": 1,
+      "T": 3,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Saída de sacrifício que mata o abençoado na hora certa e põe marcador em cada Vampiro.",
+      "I": "Um 1/1 com vínculo; cada uso custa {2} e uma criatura.",
+      "T": "Uma mana.",
+      "Q": "Início, paridade e na frente.",
+      "R": "Viscera Seer e Phyrexian Altar já sacrificam sem custo de mana."
+     },
+     "porque": "Por uma mana, mais uma saída de sacrifício para virar o abençoado em carta e Demônio quando você quer. Sai o Lithoform Engine, quatro manas e mais {2} por cópia.",
+     "tier": "B",
+     "indice": 2.05,
+     "em": "2026-11-12",
+     "sai": "Lithoform Engine"
     }
    },
    "extras_em": "2026-11-12"
@@ -111462,6 +112110,50 @@
      "indice": 2.0,
      "em": "2026-11-12",
      "sai": "Demon Bolt"
+    },
+    "02. Clavileño": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Ataca e pode ser abençoado; sacrifica outro Vampiro em velocidade instantânea por {2}{B}.",
+      "I": "Precisa ficar; cada criatura deles que morreria vira um Zumbi seu.",
+      "T": "Quatro manas, no padrão.",
+      "Q": "Paridade, na frente e atrás (bloqueia e cura).",
+      "R": "Viscera Seer e Phyrexian Altar sacrificam sem custo de mana."
+     },
+     "porque": "Saída de sacrifício cara, mas com vínculo e Zumbis a cada limpeza do deck. Sai o New Blood, roubo de criatura que pede virar um Vampiro.",
+     "tier": "B",
+     "indice": 1.8,
+     "em": "2026-11-12",
+     "sai": "New Blood"
+    },
+    "02. Zumbis": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Sacrifica Zumbi em velocidade instantânea, e cada morte sem decayed dispara a Wilhelt.",
+      "I": "Precisa ficar; cada criatura deles que morreria vira um Zumbi 2/2 seu, sem decayed.",
+      "T": "Quatro manas, no padrão.",
+      "Q": "Paridade, na frente e atrás (bloqueia e cura).",
+      "R": "Nenhuma outra carta da lista transforma as mortes dos oponentes em Zumbis."
+     },
+     "porque": "Cada criatura deles que morre vira Zumbi seu, e ele ainda é saída de sacrifício. Sai a Liliana's Reaver, Zumbi que só rende quando conecta.",
+     "tier": "B",
+     "indice": 2.0,
+     "em": "2026-11-12",
+     "sai": "Liliana's Reaver"
     }
    },
    "extras_em": "2026-11-12"
@@ -112091,12 +112783,12 @@
      },
      "lentes_por_que": {
       "E": "Combate a mais toda volta: a Zara rouba duas vezes.",
-      "I": "Dois ataques por turno; depende de sobreviver.",
+      "I": "Dois ataques por turno; depende de a Karlach sobreviver.",
       "T": "Cinco manas.",
       "Q": "Paridade e frente.",
-      "R": "Amplificador abaixo da faixa."
+      "R": "Amplificador em 3, abaixo da faixa."
      },
-     "porque": "Todo turno a Zara ataca duas vezes e traz duas criaturas dos oponentes. Sai o Mirror Sheen.",
+     "porque": "Todo turno a Zara ataca duas vezes e traz duas criaturas dos oponentes, enquanto a Karlach viver. Sai o Mirror Sheen.",
      "tier": "A",
      "indice": 2.3,
      "em": "2026-11-12",
@@ -112118,7 +112810,7 @@
       "Q": "Paridade e frente.",
       "R": "Poucos combates extras repetíveis."
      },
-     "porque": "Todo turno a Kaalia ataca duas vezes e põe duas cargas. Sai o Two-Handed Axe.",
+     "porque": "Todo turno a Kaalia ataca duas vezes e põe duas cargas, enquanto a Karlach viver. Sai o Two-Handed Axe.",
      "tier": "A",
      "indice": 2.25,
      "em": "2026-11-12",
@@ -114107,6 +114799,28 @@
      "indice": 1.65,
      "em": "2026-11-12",
      "sai": "Cathartic Reunion"
+    },
+    "02. Goblins": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 3,
+      "I": 3,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Copia cada Goblin com ímpeto: dobra a horda que ataca, e as cópias que vão para o exílio viram munição de sacrifício.",
+      "I": "Dobra o ataque no turno em que resolve.",
+      "T": "Seis manas, de feitiço.",
+      "Q": "Paridade e na frente; sem horda, rende pouco.",
+      "R": "Fechamentos sobram: Shared Animosity, Goblin War Strike e Fiery Emancipation."
+     },
+     "porque": "Com a horda do Krenko em campo, dobra os atacantes com ímpeto, e as cópias alimentam a Goblin Bombardment antes do exílio. Sai o Faithless Looting, filtro que custa cartas.",
+     "tier": "B",
+     "indice": 1.9,
+     "em": "2026-11-12",
+     "sai": "Faithless Looting"
     }
    }
   },
@@ -117940,7 +118654,7 @@
       "Q": "Vale cedo e na paridade.",
       "R": "Amplificador com 12 e resiliência com 20, acima da faixa."
      },
-     "porque": "Cresce a cada vida ganha, como a Giada pede. Sai o Orim's Chant.",
+     "porque": "Cresce a cada vida ganha, como a Giada pede, mas só nele mesmo. Sai o Orim's Chant.",
      "tier": "B",
      "indice": 1.7,
      "em": "2026-11-12",
@@ -121303,9 +122017,7 @@
       "Q": "Vive na paridade e na frente.",
       "R": "Amplificador em 3, abaixo da faixa."
      },
-     "porque": "Por {2}, copia o gatilho de ataque da Zara e traz duas criaturas da mão do defensor no mesmo ataque; também copia mágica de roubo. Sai o Mirror Sheen, que só copia mágica que mira você.",
-     "antissinergia": "nenhuma",
-     "travas": [],
+     "porque": "Por {2}, copia o gatilho de ataque da Zara e traz duas criaturas da mão do defensor; também copia mágica de roubo. Sai o Mirror Sheen, que só copia mágica que mira você.",
      "tier": "A",
      "indice": 2.35,
      "em": "2026-11-12",
@@ -121327,9 +122039,7 @@
       "Q": "Vive na paridade e na frente.",
       "R": "Amplificador em 1, abaixo da faixa."
      },
-     "porque": "Copia o gatilho da manutenção da Lynde: repassa outra Maldição e compra mais duas; por {4}, uma Maldição conjurada vira duas. Sai o Lazav, Dimir Mastermind, que só copia criatura que vai ao cemitério dos oponentes.",
-     "antissinergia": "nenhuma",
-     "travas": [],
+     "porque": "Copia o gatilho da manutenção da Lynde: repassa outra Maldição e compra mais duas. Sai o Lazav, Dimir Mastermind, que só copia criatura que vai ao cemitério dos oponentes.",
      "tier": "A",
      "indice": 2.35,
      "em": "2026-11-12",
@@ -121352,12 +122062,54 @@
       "R": "Amplificador em 1, abaixo da faixa."
      },
      "porque": "Por {2}, copia o gatilho de ataque do Zur: dois encantamentos buscados por ataque. Sai o Nighthowler, que o Zur busca mas entra sem a concessão.",
-     "antissinergia": "nenhuma",
-     "travas": [],
      "tier": "A",
      "indice": 2.35,
      "em": "2026-11-12",
      "sai": "Nighthowler"
+    },
+    "02. Strefan": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 3,
+      "I": 1,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Copia o gatilho de fim de turno do Strefan, mais Sangue por jogador, ou o de ataque.",
+      "I": "Nada ao entrar; cada cópia custa {2} e virar.",
+      "T": "Quatro manas, e mais {2} por uso.",
+      "Q": "Paridade e na frente.",
+      "R": "O Roaming Throne já dobra os dois gatilhos sem custo."
+     },
+     "porque": "Dobra o Sangue do Strefan, mas cobra {2} por vez, e o Roaming Throne faz isso de graça. Sai a Alesha, que devolve criatura pequena do cemitério.",
+     "tier": "C",
+     "indice": 1.5,
+     "em": "2026-11-12",
+     "sai": "Alesha, Who Laughs at Fate"
+    },
+    "01. Markov": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Copia o ataque do Edgar, mais marcadores, ou a eminência, uma vez por turno.",
+      "I": "Nada ao entrar; cada cópia custa {2} e virar.",
+      "T": "Quatro manas e mais {2} por uso, num deck sem pedras.",
+      "Q": "Paridade e na frente.",
+      "R": "O Roaming Throne já dobra os gatilhos, e o buff passa muito da cota."
+     },
+     "porque": "Dobra um gatilho por turno a preço alto, num deck de curva baixa e sem pedras. Sai o Coat of Arms, que também cresce a mesa dos outros.",
+     "tier": "C",
+     "indice": 1.15,
+     "em": "2026-11-12",
+     "sai": "Coat of Arms"
     }
    }
   },
@@ -124616,13 +125368,10 @@
       "I": "Cada mágica não criatura custa 2 de vida a quem conjura.",
       "T": "Duas manas, ou {1} e 2 de vida.",
       "Q": "Viva no desenvolvimento, na paridade e na frente.",
-      "R": "Dano acima da faixa, 15."
+      "R": "Dano em 15, acima da faixa."
      },
-     "antissinergia": "material",
-     "travas": [
-      "antissinergia material"
-     ],
-     "porque": "Drena a mesa a cada mágica não criatura, mas cobra o mesmo de você, e o deck já paga vida com o K'rrik. Sai o Barbed Servitor.",
+     "antissinergia": "leve",
+     "porque": "Drena a mesa a cada mágica não criatura e cobra 2 de vida de cada uma das suas 48; pelo tema aprovado, vida é mana neste deck, e a cobrança fica leve. Sai o Barbed Servitor.",
      "tier": "B",
      "indice": 1.95,
      "em": "2026-11-12",
@@ -126114,6 +126863,28 @@
      "indice": 0.95,
      "em": "2026-11-12",
      "sai": "Blind Obedience"
+    },
+    "02. Strefan": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Cada ganho de vida fere todos os oponentes, mais jogadores para o Sangue do Strefan; as fontes de ganho são poucas.",
+      "I": "Um 3/2; o dreno depende de ficar e de ganhar vida.",
+      "T": "Três manas, no padrão.",
+      "Q": "Início, paridade e na frente.",
+      "R": "Dano muito acima da cota (13 cartas, faixa até 8)."
+     },
+     "porque": "Com Creeping Bloodsucker, Vein Ripper e Bontu's Monument, cada ganho fere a mesa toda. Sai a Lobelia, que cobra artefato para drenar 2.",
+     "tier": "B",
+     "indice": 1.6,
+     "em": "2026-11-12",
+     "sai": "Lobelia, Defender of Bag End"
     }
    },
    "extras_em": "2026-11-12"
@@ -128147,28 +128918,6 @@
      "indice": 2.0,
      "em": "2026-11-12",
      "sai": "Infernal Offering"
-    },
-    "01. Vito": {
-     "funcao": "resposta",
-     "lentes": {
-      "E": 1,
-      "I": 3,
-      "T": 2,
-      "Q": 2,
-      "R": 1
-     },
-     "lentes_por_que": {
-      "E": "Perda de vida sem ganho: não dispara o Vito.",
-      "I": "Limpa as pequenas dos oponentes e drena.",
-      "T": "Seis manas num deck preto.",
-      "Q": "Vivo atrás e na paridade.",
-      "R": "Há outras remoções."
-     },
-     "porque": "Limpeza unilateral num deck preto, sem passar pelo Vito. Sai o Slaughter Pact.",
-     "tier": "B",
-     "indice": 1.95,
-     "em": "2026-11-12",
-     "sai": "Slaughter Pact"
     }
    }
   },
@@ -129507,43 +130256,127 @@
       "R": 1
      },
      "lentes_por_que": {
-      "E": "Shapeshifter Goblin: cada ficha do Krenko entra 2/2.",
+      "E": "Lord de cada ficha do Krenko: a horda nasce 2/2 e bate maior.",
       "I": "Dobra a força de cada horda que nasce.",
-      "T": "Duas manas por um lorde da horda.",
+      "T": "Duas manas por um lord da horda.",
       "Q": "Viva no desenvolvimento, na paridade e na frente.",
-      "R": "Há outros lordes no deck."
+      "R": "Amplificador em 11, acima da faixa."
      },
-     "antissinergia": "nenhuma",
-     "travas": [],
-     "porque": "Cada ficha do Krenko entra 2/2, e a horda dobra já maior. Sai a Chainsaw.",
+     "porque": "Nomeando Goblin, cada ficha do Krenko entra 2/2, e a horda dobra já maior. Sai a Chainsaw.",
      "tier": "A",
      "indice": 2.25,
      "em": "2026-11-12",
      "sai": "Chainsaw"
     },
     "01. Vito": {
-     "funcao": "motor",
+     "funcao": "habilitador",
      "lentes": {
-      "E": 3,
+      "E": 1,
       "I": 2,
       "T": 3,
       "Q": 2,
       "R": 1
      },
      "lentes_por_que": {
-      "E": "Shapeshifter Vampiro: cada Vampiro que entra ganha marcador.",
-      "I": "Cresce a horda inteira, fichas inclusive.",
-      "T": "Duas manas por um lorde.",
+      "E": "Lord dos Vampiros que entram, mas não ganha vida nem a converte.",
+      "I": "Cresce cada Vampiro e ficha que entra.",
+      "T": "Duas manas.",
       "Q": "Viva no desenvolvimento, na paridade e na frente.",
-      "R": "Há outros lordes no deck."
+      "R": "Amplificador em 5, na faixa."
      },
-     "antissinergia": "nenhuma",
-     "travas": [],
-     "porque": "Cada Vampiro e ficha entram maiores por duas manas. Sai a Henrika Domnathi.",
-     "tier": "A",
-     "indice": 2.25,
+     "porque": "Cada Vampiro e ficha entram maiores, mas o marcador não ganha vida nem a converte: é lord, não a conta do Vito. Sai a Henrika Domnathi.",
+     "tier": "B",
+     "indice": 1.95,
      "em": "2026-11-12",
      "sai": "Henrika Domnathi"
+    },
+    "01. Giada": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 3,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Vira Anjo: soma na contagem da Giada e põe um marcador a mais em cada Anjo que entra depois.",
+      "I": "Um 2/1 que só cresce quem entra depois.",
+      "T": "Duas manas.",
+      "Q": "Início, paridade e na frente.",
+      "R": "Marcadores e buff passam da cota (12 cartas, faixa até 8)."
+     },
+     "porque": "Cada Anjo seguinte entra com dois marcadores a mais, um dele e um da Giada. Sai a Dowsing Dagger, ramp que só vira terreno depois de dano em combate.",
+     "tier": "B",
+     "indice": 1.85,
+     "em": "2026-11-12",
+     "sai": "Dowsing Dagger"
+    },
+    "02. Turtle Power!": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 1,
+      "I": 1,
+      "T": 3,
+      "Q": 1,
+      "R": 0
+     },
+     "lentes_por_que": {
+      "E": "Marcador só nas Tartarugas que entram depois; a conta já põe marcador no time inteiro pelo Leonardo.",
+      "I": "Um 2/1 que não toca em quem já está em campo.",
+      "T": "Duas manas.",
+      "Q": "Início e paridade.",
+      "R": "O deck tem 23 cartas de buff e marcador, quase o triplo da cota."
+     },
+     "porque": "O deck já cresce o time inteiro a cada ficha; um marcador por Tartaruga que entra soma pouco. Sai o Leonardo, Leader in Blue, que só rende pelo sneak.",
+     "tier": "C",
+     "indice": 1.2,
+     "em": "2026-11-12",
+     "sai": "Leonardo, Leader in Blue"
+    },
+    "01. Markov": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 3,
+      "Q": 2,
+      "R": 0
+     },
+     "lentes_por_que": {
+      "E": "Nomeando Vampiro, cada ficha da eminência e cada Vampiro entra com marcador.",
+      "I": "Um 2/1 que só cresce quem entra depois.",
+      "T": "Duas manas.",
+      "Q": "Início, paridade e na frente.",
+      "R": "O buff passa do dobro da cota (17 cartas, faixa até 8)."
+     },
+     "porque": "As fichas 1/1 da eminência entram 2/2, mas o deck já sobra em lord. Sai o Coat of Arms, que também cresce a mesa dos outros.",
+     "tier": "B",
+     "indice": 1.7,
+     "em": "2026-11-12",
+     "sai": "Coat of Arms"
+    },
+    "02. Lobos": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 1,
+      "I": 1,
+      "T": 3,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Marcador só num tipo, e a matilha tem dois.",
+      "I": "Um marcador em cada Lobo que entra.",
+      "T": "Duas manas.",
+      "Q": "Viva no desenvolvimento, na paridade e na frente.",
+      "R": "Amplificador em 17, muito acima da faixa."
+     },
+     "porque": "Conta como Lobo, mas o marcador vale para um tipo só, e o deck já tem amplificador de sobra. Sai o Obelisk of Urd, que tem o mesmo limite de tipo.",
+     "tier": "C",
+     "indice": 1.55,
+     "em": "2026-11-12",
+     "sai": "Obelisk of Urd"
     }
    }
   },
@@ -132805,11 +133638,11 @@
     },
     "04. Assassin Creed": {
      "sin": [
-      3,
+      2,
       0
      ],
      "pq": {
-      "sin1": "Changeling é Assassino, e a ativação torna Assassino o resto do time, como o Roshan da régua."
+      "sin1": "Changeling é Assassino e ganha o freerunning; o tipo no time só vem pagando X, até o fim do turno, sem efeito voltado aos Assassinos: 2."
      }
     },
     "04. Ken": {
@@ -132834,33 +133667,6 @@
    "em": "2026-11-12",
    "extras_em": "2026-11-12",
    "lentes": {
-    "04. Assassin Creed": {
-     "funcao": "fechamento",
-     "lentes": {
-      "E": 3,
-      "I": 3,
-      "T": 2,
-      "Q": 2,
-      "R": 2
-     },
-     "lentes_por_que": {
-      "E": "Changeling é Assassino e torna Assassino o time: toda conexão abre o freerunning.",
-      "I": "Com mana, o time inteiro vira X/X e leva a mesa aos 10 da execução.",
-      "T": "Três manas, mais X por ativação.",
-      "Q": "Corpo pequeno cedo; na paridade e na frente fecha o jogo.",
-      "R": "Sai uma carta C; nenhum substituto faz as duas coisas."
-     },
-     "porque": "Torna o time inteiro Assassino e X/X: qualquer conexão abre o freerunning e põe a mesa na execução. Sai o Shay Cormac, que só tira proteções.",
-     "argumentos_s": [
-      "Sem ela, só os Assassinos de verdade abrem o freerunning; com ela, qualquer ficha ou criatura conecta como Assassino.",
-      "Nenhum lorde do deck dá ao mesmo tempo o tipo e o tamanho X/X ao time inteiro.",
-      "Atua na paridade, quebrando a mesa num ataque, e na frente, fechando a execução; cedo é só um corpo."
-     ],
-     "tier": "S",
-     "indice": 2.5,
-     "em": "2026-11-12",
-     "sai": "Shay Cormac"
-    },
     "02. Kaalia": {
      "funcao": "fechamento",
      "lentes": {
@@ -132926,6 +133732,28 @@
      "indice": 1.8,
      "em": "2026-11-12",
      "sai": "Leonardo, Leader in Blue"
+    },
+    "04. Assassin Creed": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 2,
+      "I": 3,
+      "T": 2,
+      "Q": 2,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Changeling é Assassino e sai pelo freerunning; o tipo no time só vem pagando X.",
+      "I": "Com mana, o time inteiro vira X/X e leva a mesa aos 10 da execução.",
+      "T": "Três manas, mais X por ativação.",
+      "Q": "Corpo pequeno cedo; fecha na paridade e na frente.",
+      "R": "Sai o Shay Cormac, carta C; nenhum pump de time na lista."
+     },
+     "porque": "Changeling, sai por {B}{B} no freerunning; pagando X, o time vira X/X e Assassino até o fim do turno e leva a mesa à execução. Sai o Shay Cormac, que só tira proteções.",
+     "tier": "A",
+     "indice": 2.2,
+     "em": "2026-11-12",
+     "sai": "Shay Cormac"
     }
    }
   },
@@ -135805,6 +136633,209 @@
      "indice": 1.85,
      "em": "2026-11-12",
      "sai": "Overpowering Attack"
+    }
+   }
+  },
+  "Morlun, Devourer of Spiders": {
+   "sin": {
+    "01. Markov": {
+     "sin": [
+      2,
+      1
+     ],
+     "pq": {
+      "sin1": "Vampiro que dispara a eminência, sem efeito voltado aos outros Vampiros.",
+      "sin2": "Marcadores só em si mesmo, ao entrar."
+     }
+    },
+    "02. Clavileño": {
+     "sin": [
+      2,
+      0
+     ],
+     "pq": {
+      "sin1": "Vampiro comum, que ataca e pode ser abençoado."
+     }
+    },
+    "02. Elfos": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Evelyn": {
+     "sin": [
+      2,
+      0
+     ],
+     "pq": {
+      "sin1": "Vampiro que entra e enche a coleção, sem pôr outro Vampiro em campo."
+     }
+    },
+    "02. Kaalia": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Strefan": {
+     "sin": [
+      2,
+      1
+     ],
+     "pq": {
+      "sin1": "Vampiro que o Strefan pode pôr em campo da mão, embora entre com X igual a 0.",
+      "sin2": "Um oponente perde X de vida uma vez, ao entrar: de passagem."
+     }
+    },
+    "02. Turtle Power!": {
+     "sin": [
+      0,
+      1
+     ],
+     "pq": {
+      "sin2": "Põe marcadores só em si mesmo, uma vez."
+     }
+    },
+    "02. Zumbis": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. K'rrik": {
+     "sin": [
+      1,
+      1
+     ],
+     "pq": {
+      "sin1": "Tem X, que é genérico: no máximo 1, o K'rrik só paga o {B}{B}.",
+      "sin2": "Vínculo com a vida numa criatura, que ganha X ao causar o dano de entrada."
+     }
+    },
+    "03. Lynde": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. Master Of Evil": {
+     "sin": [
+      2,
+      0
+     ],
+     "pq": {
+      "sin1": "Com X de 3 ou mais, tira 3 de um oponente no seu turno, sem escolha dele: liga o Davros sozinho."
+     }
+    },
+    "03. Tergrid": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. Valgavoth": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "04. Assassin Creed": {
+     "sin": [
+      0,
+      1
+     ],
+     "pq": {
+      "sin2": "Tira vida de um oponente uma vez, ao entrar: de passagem."
+     }
+    },
+    "04. Queen": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "04. Zur": {
+     "sin": [
+      0,
+      0
+     ]
+    }
+   },
+   "em": "2026-11-13",
+   "extras_em": "2026-11-13",
+   "lentes": {
+    "03. Master Of Evil": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Com X de 3 ou mais, tira 3 de um oponente no seu turno e liga o Davros.",
+      "I": "X de dano ao entrar e um corpo com vínculo do tamanho de X.",
+      "T": "X mais duas manas: rende na medida do que se paga.",
+      "Q": "Pequeno no começo, dreno grande no fim, e o vínculo segura a corrida atrás.",
+      "R": "Dano em 9, acima da faixa de 3 a 8."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Liga o Davros sozinho ao entrar com X de 3 ou mais e fica como corpo com vínculo. Sai The Master, Formed Anew, cópia que depende de exilar criatura sua. O deck é precon intacto: a lista não muda.",
+     "tier": "B",
+     "indice": 1.95,
+     "em": "2026-11-13",
+     "sai": "The Master, Formed Anew"
+    },
+    "03. Lynde": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 0,
+      "I": 2,
+      "T": 2,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Não põe Maldição em campo, não gira o ciclo da Lynde e não mexe em quem ataca quem.",
+      "I": "X de dano num oponente e um corpo com vínculo.",
+      "T": "X mais duas manas.",
+      "Q": "Escala com a mana: vive cedo e tarde.",
+      "R": "Dano em 6, dentro da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Dano e corpo genéricos, fora do ciclo das Maldições. Sai o Lazav, Dimir Mastermind, que pouco faz no deck.",
+     "tier": "C",
+     "indice": 1.35,
+     "em": "2026-11-13",
+     "sai": "Lazav, Dimir Mastermind"
+    },
+    "02. Evelyn": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Vampiro que entra e enche a coleção da Evelyn.",
+      "I": "X de dano num oponente e um corpo com vínculo do tamanho de X.",
+      "T": "X mais duas manas.",
+      "Q": "Pequeno cedo, dreno grande no fim, vínculo atrás.",
+      "R": "Dano em 4, dentro da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Vampiro que enche a coleção e fecha com X de dano. Sai a Blade of the Bloodchief, Equipamento que só cresce com mortes.",
+     "tier": "B",
+     "indice": 1.95,
+     "em": "2026-11-13",
+     "sai": "Blade of the Bloodchief"
     }
    }
   },
@@ -139741,24 +140772,22 @@
     "02. Evelyn": {
      "funcao": "resposta",
      "lentes": {
-      "E": 2,
+      "E": 1,
       "I": 3,
       "T": 2,
       "Q": 2,
       "R": 2
      },
      "lentes_por_que": {
-      "E": "Rouba de vez, e a criatura pode virar Vampiro pela troca de tipo.",
+      "E": "Rouba de vez, mas a criatura não entra e não enche a coleção.",
       "I": "Toma a melhor criatura da mesa para sempre.",
       "T": "Quatro manas e um Vampiro virado, como feitiço.",
       "Q": "Vive na paridade, atrás e na frente.",
       "R": "Remoção em 10, na faixa; roubo de vez é raro."
      },
-     "porque": "Rouba de vez a melhor criatura da mesa por quatro manas, e a troca de tipo pode fazê-la Vampiro; o custo pede um Vampiro desvirado. Sai o Demon Bolt, 4 de dano numa criatura.",
-     "antissinergia": "nenhuma",
-     "travas": [],
-     "tier": "A",
-     "indice": 2.2,
+     "porque": "Rouba de vez a melhor criatura da mesa por quatro manas e um Vampiro virado, mas ela não entra e não enche a coleção. Sai o Demon Bolt, 4 de dano numa criatura.",
+     "tier": "B",
+     "indice": 1.95,
      "em": "2026-11-12",
      "sai": "Demon Bolt"
     },
@@ -143169,6 +144198,28 @@
      "indice": 1.5,
      "em": "2026-11-12",
      "sai": "Shay Cormac"
+    },
+    "02. Humanos": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "+2/+2 para os Humanos, e a mesa larga paga o convocar.",
+      "I": "+2/+2 na hora para todos os Humanos, somado ao do Greymond.",
+      "T": "Seis manas no papel, duas ou três na prática com convocar.",
+      "Q": "Paridade e na frente.",
+      "R": "O buff já passa da cota (10 cartas, faixa até 8)."
+     },
+     "porque": "Com a mesa larga, sai por quase nada e dobra o bônus do Greymond. Sai o Duelist's Heritage, golpe duplo para um atacante por combate.",
+     "tier": "B",
+     "indice": 1.65,
+     "em": "2026-11-12",
+     "sai": "Duelist's Heritage"
     }
    }
   },
@@ -144092,27 +145143,28 @@
      "em": "2026-11-12",
      "sai": "Feed the Swarm"
     },
-    "01. Vito": {
+    "02. Evelyn": {
      "funcao": "resposta",
      "lentes": {
       "E": 2,
-      "I": 3,
+      "I": 2,
       "T": 3,
       "Q": 1,
       "R": 1
      },
      "lentes_por_que": {
-      "E": "Vinte e três Vampiros: a limpeza poupa o time.",
-      "I": "Limpa a mesa dos outros.",
-      "T": "Cinco manas, unilateral.",
-      "Q": "Só atrás e na paridade.",
-      "R": "Seria a quinta limpeza, acima da cota."
+      "E": "A tribo paga a limpeza: −X/−X em quem não é Vampiro, e o deck tem 31 Vampiros com a Evelyn.",
+      "I": "Limpa só o lado deles; o X depende da sua mesa.",
+      "T": "Cinco manas, e é de um lado só.",
+      "Q": "Paridade e na frente; atrás, com poucos Vampiros, o X é pequeno.",
+      "R": "A Crippling Fear já faz −3/−3 de um lado só, e as limpezas estão no teto da cota."
      },
-     "porque": "Com vinte e três Vampiros, vira limpeza unilateral. Mas o deck já tem quatro limpezas; sai o Slaughter Pact, remoção pontual.",
+     "porque": "Limpeza de um lado só; morrem junto Etali, Nalfeshnee e o que a Evelyn roubou fora da tribo. Sai a Demon Bolt, remoção pontual de 4 de dano.",
+     "antissinergia": "leve",
      "tier": "B",
-     "indice": 2.15,
+     "indice": 1.85,
      "em": "2026-11-12",
-     "sai": "Slaughter Pact"
+     "sai": "Demon Bolt"
     }
    }
   },
@@ -144689,16 +145741,16 @@
      },
      "lentes_por_que": {
       "E": "Como terreno, dá só branco, uma cor de cinco.",
-      "I": "Limpa tudo que não é terreno, incluindo o seu lado.",
+      "I": "Limpa tudo que não é terreno, o seu lado junto.",
       "T": "Oito manas pela limpeza; como terreno, entra virado.",
       "Q": "A limpeza só vale muito atrás.",
-      "R": "A remoção está na faixa."
+      "R": "Remoção em 10, na faixa."
      },
      "antissinergia": "estrutural",
      "travas": [
       "antissinergia estrutural"
      ],
-     "porque": "A limpeza leva o Leonardo e todos os marcadores; como terreno, entra virado. Não vale a Shredder's Technique.",
+     "porque": "A limpeza leva também os artefatos e encantamentos que fazem as fichas, como Coin of Mastery e Ninja Pizza; a face de terreno é uma Planície virada. Não vale a Shredder's Technique.",
      "tier": "D",
      "indice": 1.35,
      "em": "2026-11-12",
@@ -144715,16 +145767,16 @@
      },
      "lentes_por_que": {
       "E": "Como terreno, dá branco, uma das duas cores.",
-      "I": "Limpa tudo que não é terreno, incluindo os Equipamentos do Ken.",
+      "I": "Limpa tudo que não é terreno, os Equipamentos do Ken junto.",
       "T": "Oito manas pela limpeza; como terreno, entra virado.",
       "Q": "A limpeza só vale muito atrás.",
-      "R": "A remoção está na faixa."
+      "R": "Remoção em 12, na faixa."
      },
      "antissinergia": "estrutural",
      "travas": [
       "antissinergia estrutural"
      ],
-     "porque": "Destrói os Equipamentos que são o plano do Ken. Como terreno, troca com o Scavenger Grounds sem ganho.",
+     "porque": "A limpeza destrói os Equipamentos, que são o motor do Ken; a face de terreno é uma Planície virada. Troca com o Scavenger Grounds sem ganho.",
      "tier": "D",
      "indice": 1.35,
      "em": "2026-11-12",
@@ -144741,17 +145793,17 @@
      },
      "lentes_por_que": {
       "E": "Como terreno, dá branco, uma das três cores.",
-      "I": "Limpa tudo que não é terreno, incluindo a Kaalia e as cargas.",
-      "T": "Oito manas pela limpeza.",
+      "I": "Limpa tudo que não é terreno, a Kaalia junto.",
+      "T": "Oito manas pela limpeza; como terreno, entra virado.",
       "Q": "Só vale muito atrás.",
-      "R": "O deck tem remoção sobrando."
+      "R": "Remoção em 17, muito acima da faixa."
      },
-     "antissinergia": "estrutural",
+     "antissinergia": "material",
      "travas": [
-      "antissinergia estrutural"
+      "antissinergia material"
      ],
-     "porque": "A limpeza leva a Kaalia e as cargas junto. Não vale o Fatal Push.",
-     "tier": "D",
+     "porque": "A limpeza leva a Kaalia e as cargas em campo, mas as da mão ficam, e o motor do deck é criatura: material. Não vale o Fatal Push.",
+     "tier": "C",
      "indice": 1.15,
      "em": "2026-11-12",
      "sai": "Fatal Push"
@@ -148378,6 +149430,50 @@
      "indice": 1.5,
      "em": "2026-11-12",
      "sai": "Mirror Sheen"
+    },
+    "02. Dragões": {
+     "funcao": "infraestrutura",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 2,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Pedra de qualquer cor que ainda dá +1/+1 aos Dragões, fichas inclusive.",
+      "I": "Uma mana a mais e +1/+1 em corpos que já são grandes.",
+      "T": "Três manas, no padrão.",
+      "Q": "Viva sempre: pedra cedo, buff tarde.",
+      "R": "Aceleradores e buff passam da cota (19 e 11 cartas)."
+     },
+     "porque": "Acelera o Dragão seguinte e soma força, mas o deck já sobra em ramp e buff. Sai o Overpowering Attack, combate extra de cinco manas.",
+     "tier": "B",
+     "indice": 1.75,
+     "em": "2026-11-12",
+     "sai": "Overpowering Attack"
+    },
+    "02. Humanos": {
+     "funcao": "infraestrutura",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 3,
+      "R": 3
+     },
+     "lentes_por_que": {
+      "E": "Pedra que também é lord dos Humanos.",
+      "I": "Uma mana a mais e +1/+1 na mesa larga.",
+      "T": "Três manas, no padrão.",
+      "Q": "Viva sempre: pedra cedo, lord tarde.",
+      "R": "O deck tem 7 aceleradores, abaixo da faixa de 10, e nenhuma outra pedra dá buff."
+     },
+     "porque": "Cobre a falta de ramp do deck (7 aceleradores, faixa a partir de 10) e ainda dá +1/+1 aos Humanos. Sai o Duelist's Heritage, golpe duplo para um atacante por combate.",
+     "tier": "A",
+     "indice": 2.35,
+     "em": "2026-11-12",
+     "sai": "Duelist's Heritage"
     }
    }
   },
@@ -159464,6 +160560,28 @@
      "indice": 1.85,
      "em": "2026-11-12",
      "sai": "The Master, Formed Anew"
+    },
+    "02. Goblins": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Desvira a horda e dá um combate a mais; o Krenko desvirado ativa de novo.",
+      "I": "Efeito grande, mas não ataca no turno em que entra e precisa conectar.",
+      "T": "Seis manas, e depende do dano dele.",
+      "Q": "Paridade e na frente.",
+      "R": "Nenhuma carta do deck dá combate extra."
+     },
+     "porque": "A horda ataca duas vezes, e o Krenko pode dobrar de novo entre os combates. Sai a Chainsaw, 3 de dano que vira Equipamento.",
+     "tier": "B",
+     "indice": 1.9,
+     "em": "2026-11-12",
+     "sai": "Chainsaw"
     }
    }
   },
@@ -165820,6 +166938,28 @@
      "indice": 1.55,
      "em": "2026-11-12",
      "sai": "Leonardo's Technique"
+    },
+    "02. Clavileño": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 3,
+      "T": 0,
+      "Q": 1,
+      "R": 0
+     },
+     "lentes_por_que": {
+      "E": "Devolve todos os Vampiros do seu cemitério e as criaturas dos outros.",
+      "I": "Vira o jogo quando resolve.",
+      "T": "Nove manas.",
+      "Q": "Só atrás ou na paridade tardia.",
+      "R": "Recursão muito acima da cota (25 cartas); o Victimize já devolve duas por três manas."
+     },
+     "porque": "Vira o jogo, mas custa nove manas num deck que já sobra em recursão. Sai a March of the Canonized, fichas 1/1 com vínculo.",
+     "tier": "C",
+     "indice": 1.25,
+     "em": "2026-11-12",
+     "sai": "March of the Canonized"
     }
    }
   },
@@ -167340,11 +168480,11 @@
     },
     "04. Fynn": {
      "sin": [
-      3,
+      2,
       0
      ],
      "pq": {
-      "sin1": "Nomeando Humano, o gatilho do Fynn dispara duas vezes: quatro venenos por acerto, multiplica os gatilhos."
+      "sin1": "Não dá toque mortífero, mas nomeando Humano o gatilho do Fynn dispara duas vezes: soma veneno ao golpe, 2."
      }
     },
     "04. Ken": {
@@ -167409,28 +168549,6 @@
      "em": "2026-11-12",
      "sai": "Mirror Sheen"
     },
-    "04. Fynn": {
-     "funcao": "motor",
-     "lentes": {
-      "E": 3,
-      "I": 2,
-      "T": 2,
-      "Q": 2,
-      "R": 2
-     },
-     "lentes_por_que": {
-      "E": "Nomeando Humano, o gatilho do Fynn dispara duas vezes: quatro venenos por acerto.",
-      "I": "Corta pela metade o número de acertos até os dez venenos, enquanto vive.",
-      "T": "Quatro manas, com resguardo {2}.",
-      "Q": "Rende do desenvolvimento à frente.",
-      "R": "Amplificador acima da faixa, mas nenhum outro dobra o Fynn."
-     },
-     "porque": "Nomeando Humano, cada acerto com toque mortífero dá quatro venenos em vez de dois. Sai a Colossification, Aura de sete manas que vira a criatura.",
-     "tier": "A",
-     "indice": 2.3,
-     "em": "2026-11-12",
-     "sai": "Colossification"
-    },
     "04. Zur": {
      "funcao": "motor",
      "lentes": {
@@ -167452,6 +168570,104 @@
      "indice": 2.3,
      "em": "2026-11-12",
      "sai": "Nighthowler"
+    },
+    "01. Vito": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 2,
+      "Q": 1,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Nomeando Vampiro, o gatilho do Vito dispara duas vezes: cada ganho vira o dobro de perda.",
+      "I": "Dobra na hora se o Vito está em campo; depende de ficar, com ward {2}.",
+      "T": "Quatro manas, no padrão.",
+      "Q": "Paridade e na frente; atrás, é só um 4/4.",
+      "R": "Nenhuma outra carta da lista dobra gatilho."
+     },
+     "porque": "Dobra o Vito e os outros Vampiros de gatilho, como a Marauding Blight-Priest. Sai a Henrika Domnathi, de três modos que se gastam.",
+     "tier": "B",
+     "indice": 1.95,
+     "em": "2026-11-12",
+     "sai": "Henrika Domnathi"
+    },
+    "02. Zumbis": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 3
+     },
+     "lentes_por_que": {
+      "E": "Nomeando Zumbi, a Wilhelt, o Undead Augur, o Plague Belcher e o Diregraf Captain disparam duas vezes.",
+      "I": "Dobra na hora tudo o que já está em campo; depende de ficar, com ward {2}.",
+      "T": "Quatro manas, no padrão.",
+      "Q": "Paridade, na frente e atrás: dobra também a compra de fim de turno da Wilhelt.",
+      "R": "O deck tem 3 cartas de buff, abaixo da faixa de 4, e nenhum outro dobrador de gatilho."
+     },
+     "porque": "Nomeando Zumbi, cada morte paga em dobro: duas fichas da Wilhelt, duas cartas do Augur e dois drenos. Cobre o buff que falta (3, faixa a partir de 4); sai o Champion of the Perished, que só cresce a si mesmo.",
+     "argumentos_s": [
+      "Sem ela, cada morte de Zumbi rende um gatilho de cada peça; com ela, dois de carta e de dreno.",
+      "Nenhuma carta da lista dobra gatilho, e o deck está abaixo da cota de buff.",
+      "Atua na paridade, na frente e atrás, porque dobra também a compra de fim de turno da Wilhelt."
+     ],
+     "tier": "S",
+     "indice": 2.45,
+     "em": "2026-11-12",
+     "sai": "Champion of the Perished"
+    },
+    "04. Fynn": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Nomeando Humano, o gatilho do Fynn dispara duas vezes: quatro venenos por acerto.",
+      "I": "Corta pela metade os acertos até os dez venenos, enquanto vive.",
+      "T": "Quatro manas, com resguardo {2}.",
+      "Q": "Rende do desenvolvimento à frente.",
+      "R": "Amplificador acima da faixa, mas nenhum outro dobra o Fynn."
+     },
+     "porque": "Não dá toque mortífero, mas nomeando Humano o gatilho do Fynn dispara duas vezes: quatro venenos por acerto. Sai a Colossification, Aura de sete manas que vira a criatura.",
+     "tier": "A",
+     "indice": 2.3,
+     "em": "2026-11-12",
+     "sai": "Colossification"
+    },
+    "02. Kaalia": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 3
+     },
+     "lentes_por_que": {
+      "E": "Escolhendo Humano, a Kaalia (Human Cleric) é do tipo, e o gatilho de ataque dela dispara duas vezes: duas cargas da mão por ataque, que é a conta do deck.",
+      "I": "Com duas cargas na mão, o ataque põe dois Anjos, Demônios ou Dragões de graça; com uma só, o segundo gatilho não acha nada.",
+      "T": "Quatro manas por um 4/4 com ward {2} que não faz nada sozinho no turno em que entra.",
+      "Q": "Só rende com a Kaalia em campo e cargas na mão; no fim do jogo, com a mão vazia, é um 4/4.",
+      "R": "A lista não tem Isshin, Aurelia nem Combat Celebrant: nenhuma outra carta dobra o gatilho de ataque da Kaalia."
+     },
+     "porque": "Escolhendo Humano, a Kaalia vira do tipo e cada ataque dela dispara duas vezes: duas cargas da mão de graça, e nada na lista faz isso hoje. Sai o Two-Handed Axe (D), equipamento que só dobra o dano de quem ataca.",
+     "argumentos_s": [
+      "Dobra o gatilho de ataque da comandante: cada ataque da Kaalia põe duas cargas da mão em vez de uma.",
+      "Nada na lista faz isso hoje: sem Isshin, Aurelia nem Combat Celebrant, ela é a única que dobra o motor do deck.",
+      "Com ward {2} e corpo 4/4, não morre para qualquer remoção barata e ainda bloqueia."
+     ],
+     "tier": "S",
+     "indice": 2.45,
+     "em": "2026-11-12",
+     "sai": "Two-Handed Axe"
     }
    }
   },
@@ -167949,17 +169165,17 @@
      },
      "lentes_por_que": {
       "E": "Cada feitiço que o Ken conjura de graça causa 5 de dano a você.",
-      "I": "Dano repetível para todos.",
+      "I": "1 de dano em cada jogador por manutenção.",
       "T": "Duas manas.",
       "Q": "Viva pouco.",
-      "R": "Sai a Risk Factor."
+      "R": "Sai a Risk Factor, carta C."
      },
-     "porque": "Aqui ela pune o próprio Ken: cada feitiço de graça do acerto custa 5 de vida a você. Sai a Risk Factor, e o deck perde.",
-     "antissinergia": "estrutural",
+     "antissinergia": "material",
      "travas": [
-      "antissinergia estrutural"
+      "antissinergia material"
      ],
-     "tier": "D",
+     "porque": "Cobra 5 de vida a cada feitiço de graça do acerto do Ken, sem desligá-lo: material. Sai a Risk Factor, e o deck perde.",
+     "tier": "C",
      "indice": 1.0,
      "em": "2026-11-12",
      "sai": "Risk Factor"
@@ -170010,6 +171226,28 @@
      "indice": 2.15,
      "em": "2026-11-12",
      "sai": "Shredder's Technique"
+    },
+    "03. K'rrik": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Um oponente perde metade da vida de uma vez, e o K'rrik paga o {B}{B} com 4 de vida.",
+      "I": "Golpe grande, mas num oponente só.",
+      "T": "Com o K'rrik, metade da vida de um oponente sai por três manas e 4 de vida.",
+      "Q": "Paridade, na frente e atrás.",
+      "R": "Remoção e dano muito acima da cota (24 e 15 cartas)."
+     },
+     "porque": "Tira metade da vida de quem lidera por três manas e 4 de vida, e ainda pode cortar mesa ou mão. Sai a Infernal Offering, que dá carta e criatura também ao oponente.",
+     "tier": "B",
+     "indice": 1.8,
+     "em": "2026-11-12",
+     "sai": "Infernal Offering"
     }
    }
   },
@@ -171095,6 +172333,216 @@
     }
    }
   },
+  "Sanctum Seeker": {
+   "sin": {
+    "02. Elfos": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Kaalia": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Turtle Power!": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Zumbis": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. K'rrik": {
+     "sin": [
+      2,
+      2
+     ],
+     "pq": {
+      "sin1": "Custa {2}{B}{B}: o K'rrik paga metade com vida.",
+      "sin2": "Drena cada oponente e devolve vida a cada Vampiro que ataca, de forma repetível."
+     }
+    },
+    "03. Lynde": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. Master Of Evil": {
+     "sin": [
+      1,
+      0
+     ],
+     "pq": {
+      "sin1": "Tira 1 de cada oponente ao atacar, sem chegar a 3 sozinha e sem evasão: de passagem."
+     }
+    },
+    "03. Tergrid": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. Valgavoth": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "04. Assassin Creed": {
+     "sin": [
+      0,
+      2
+     ],
+     "pq": {
+      "sin2": "Cada ataque dela tira 1 de cada oponente: perda de vida repetível."
+     }
+    },
+    "04. Queen": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "04. Zur": {
+     "sin": [
+      0,
+      0
+     ]
+    }
+   },
+   "em": "2026-11-13",
+   "extras_em": "2026-11-13",
+   "lentes": {
+    "04. Assassin Creed": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 1,
+      "I": 1,
+      "T": 1,
+      "Q": 1,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Aproxima a mesa dos 10 da execução, mas o deck quase não tem Vampiros.",
+      "I": "Só o próprio ataque dela drena 1 de cada oponente, e ela precisa sobreviver.",
+      "T": "Quatro manas por um 3/4 sem evasão.",
+      "Q": "Só rende na frente, atacando.",
+      "R": "Dano em 3, no piso da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Sem Vampiros no deck, drena 1 por volta, e só se atacar. Sai o Deflecting Palm, prevenção de uma vez.",
+     "tier": "C",
+     "indice": 1.2,
+     "em": "2026-11-13",
+     "sai": "Deflecting Palm"
+    },
+    "03. K'rrik": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 2,
+      "Q": 2,
+      "R": 0
+     },
+     "lentes_por_que": {
+      "E": "Cada Vampiro que ataca drena a mesa e devolve vida ao K'rrik.",
+      "I": "O deck tem quatro Vampiros: dreno pequeno, e ela precisa ficar em campo.",
+      "T": "{2}{B}{B}, com metade paga em vida pelo K'rrik.",
+      "Q": "Paridade e na frente; atrás, sem ataque, é um 3/4.",
+      "R": "Dano em 15, muito acima da faixa, com Exsanguinate e Gray Merchant na lista."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Drena pouco num deck com quatro Vampiros, onde o dano já sobra. Sai o Barbed Servitor, que compra só ao conectar.",
+     "tier": "C",
+     "indice": 1.4,
+     "em": "2026-11-13",
+     "sai": "Barbed Servitor"
+    },
+    "04. Queen": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 0,
+      "I": 1,
+      "T": 1,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Não dá a coroa, não a retoma e não protege de ataque.",
+      "I": "Drena 1 só quando ela mesma ataca.",
+      "T": "Quatro manas por um 3/4 sem evasão.",
+      "Q": "Só rende atacando, na frente.",
+      "R": "Dano em 8, no teto da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Fora da coroa e da fortaleza, e o deck não tem Vampiros para o dreno. Sai a Blind Obedience, que trava a mesa e drena pelo extort.",
+     "tier": "D",
+     "indice": 0.7,
+     "em": "2026-11-13",
+     "sai": "Blind Obedience"
+    },
+    "01. Markov": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Cada Vampiro da horda que ataca tira 1 de cada oponente e devolve 1 de vida.",
+      "I": "Com a horda, cada ataque vira dreno de mesa; precisa ficar em campo.",
+      "T": "Quatro manas por um 3/4 que rende a partir do primeiro ataque.",
+      "Q": "Forte na frente e na paridade; atrás, sem atacantes, é só um 3/4.",
+      "R": "Dano em 5, dentro da faixa; nenhum outro drena a cada atacante."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "As fichas da eminência atacam em massa, e cada uma drena a mesa. Sai o Vito, Fanatic of Aclazotz, que depende de sacrifícios que o deck faz pouco.",
+     "tier": "B",
+     "indice": 2.15,
+     "em": "2026-11-13",
+     "sai": "Vito, Fanatic of Aclazotz"
+    },
+    "02. Strefan": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "O ataque do Strefan, que é Vampiro, faz cada oponente perder vida: Sangue de todos no fim do turno.",
+      "I": "Garante as fichas que pagam o Strefan a cada ataque; precisa ficar em campo.",
+      "T": "Quatro manas por um 3/4.",
+      "Q": "Paridade e na frente; atrás, sem ataque, não rende.",
+      "R": "Creeping Bloodsucker e Glass-Cast Heart já fazem o Sangue por outro caminho."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Cada ataque de Vampiro tira vida de toda a mesa e enche o Strefan de Sangue. Sai a Lobelia, Defender of Bag End, que depende de sacrificar artefato.",
+     "tier": "B",
+     "indice": 2.05,
+     "em": "2026-11-13",
+     "sai": "Lobelia, Defender of Bag End"
+    }
+   }
+  },
   "Sanguine Bond": {
    "sin": {
     "01. Markov": {
@@ -171494,6 +172942,28 @@
      "indice": 1.8,
      "em": "2026-11-12",
      "sai": "Tarrian's Journal"
+    },
+    "02. Clavileño": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 3,
+      "I": 1,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Saída de sacrifício por {1}, em velocidade instantânea: mata o abençoado na hora certa.",
+      "I": "Um 2/3 com vínculo e ameaça; o sacrifício só dá vigiar 1.",
+      "T": "Três manas, e {1} por uso.",
+      "Q": "Início, paridade e na frente.",
+      "R": "Viscera Seer e Phyrexian Altar já sacrificam sem custo de mana."
+     },
+     "porque": "Mais uma saída de sacrifício para virar o abençoado em carta e Demônio. Sai a Treacherous Greed, que pede sacrificar quem causou dano no turno.",
+     "tier": "B",
+     "indice": 1.85,
+     "em": "2026-11-12",
+     "sai": "Treacherous Greed"
     }
    },
    "extras_em": "2026-11-12"
@@ -172368,6 +173838,177 @@
      "indice": 0.95,
      "em": "2026-11-12",
      "sai": "Ash Barrens"
+    }
+   }
+  },
+  "Scheming Silvertongue": {
+   "sin": {
+    "02. Elfos": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Evelyn": {
+     "sin": [
+      2,
+      0
+     ],
+     "pq": {
+      "sin1": "Vampiro que entra e enche a coleção, sem pôr outro Vampiro em campo."
+     }
+    },
+    "02. Kaalia": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Turtle Power!": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "02. Zumbis": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. K'rrik": {
+     "sin": [
+      2,
+      1
+     ],
+     "pq": {
+      "sin1": "Custa {1}{B}: o K'rrik paga metade com vida, e a mágica acoplada {B}{B} sai toda em vida.",
+      "sin2": "Vínculo com a vida numa criatura."
+     }
+    },
+    "03. Lynde": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. Master Of Evil": {
+     "sin": [
+      1,
+      0
+     ],
+     "pq": {
+      "sin1": "Criatura que não é artefato, com voar e menos de 3 de força."
+     }
+    },
+    "03. Tergrid": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "03. Valgavoth": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "04. Assassin Creed": {
+     "sin": [
+      0,
+      1
+     ],
+     "pq": {
+      "sin2": "Voar só em si mesma: evasão de passagem."
+     }
+    },
+    "04. Queen": {
+     "sin": [
+      0,
+      0
+     ]
+    },
+    "04. Zur": {
+     "sin": [
+      0,
+      0
+     ]
+    }
+   },
+   "em": "2026-11-13",
+   "extras_em": "2026-11-13",
+   "lentes": {
+    "04. Assassin Creed": {
+     "funcao": "infraestrutura",
+     "lentes": {
+      "E": 0,
+      "I": 1,
+      "T": 2,
+      "Q": 1,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Não é Assassino, e o voar com 1 de força quase não conecta.",
+      "I": "A compra só vem nos turnos em que você ganha 2 de vida, raros aqui.",
+      "T": "Duas manas por um 1/3 voador.",
+      "Q": "Vive na paridade, e só quando o deck ganha vida.",
+      "R": "Compra em 9, abaixo da faixa de 10."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Cobre um pouco da compra que falta, mas só prepara com ganho de vida. Sai a Apple of Eden, Isu Relic, que custa 4 de vida e um turno.",
+     "tier": "C",
+     "indice": 1.05,
+     "em": "2026-11-13",
+     "sai": "Apple of Eden, Isu Relic"
+    },
+    "03. Master Of Evil": {
+     "funcao": "infraestrutura",
+     "lentes": {
+      "E": 1,
+      "I": 1,
+      "T": 2,
+      "Q": 1,
+      "R": 3
+     },
+     "lentes_por_que": {
+      "E": "Voadora de 1 de força: só tira vida no seu turno de passagem.",
+      "I": "A compra depende de ganhar 2 de vida no turno.",
+      "T": "Duas manas por um 1/3 voador; a cópia custa {B}{B} em três cores.",
+      "Q": "Vive na paridade.",
+      "R": "Compra em 6, muito abaixo da faixa de 10."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Cobre parte da compra que falta, mas a cópia só sai com ganho de vida. Sai The Toymaker's Trap, que depende de palpite. O deck é precon intacto: a lista não muda.",
+     "tier": "C",
+     "indice": 1.55,
+     "em": "2026-11-13",
+     "sai": "The Toymaker's Trap"
+    },
+    "03. K'rrik": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 3,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "O vínculo e os drenos do deck preparam a cópia, e o K'rrik a paga com 4 de vida.",
+      "I": "Duas cartas nos turnos em que você ganha 2 de vida, se ela sobreviver.",
+      "T": "Duas manas, e a cópia sai toda em vida.",
+      "Q": "Paridade e na frente; atrás, sem ganho de vida, não compra.",
+      "R": "Compra em 11, dentro da faixa, com Phyrexian Arena e Sign in Blood na lista."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "O deck ganha vida quase todo turno, e a compra sai paga em vida. Sai o Barbed Servitor, que compra só ao conectar.",
+     "tier": "B",
+     "indice": 1.75,
+     "em": "2026-11-13",
+     "sai": "Barbed Servitor"
     }
    }
   },
@@ -176173,30 +177814,8 @@
     }
    },
    "em": "2026-11-12",
-   "extras_em": "2026-11-12",
+   "extras_em": "2026-11-13",
    "lentes": {
-    "01. Vito": {
-     "funcao": "resposta",
-     "lentes": {
-      "E": 2,
-      "I": 2,
-      "T": 1,
-      "Q": 2,
-      "R": 1
-     },
-     "lentes_por_que": {
-      "E": "Ganho grande de uma vez, que o Vito devolve num oponente.",
-      "I": "Cada oponente sacrifica a maior criatura.",
-      "T": "Sete manas; a loucura pede descarte que o deck mal tem.",
-      "Q": "Viva em paridade e atrás.",
-      "R": "Remoção acima da faixa (16 de 12)."
-     },
-     "porque": "Cada oponente perde a maior criatura, e o ganho de vida vira perda pelo Vito. Sai o Slaughter Pact, que não pega criatura preta.",
-     "tier": "B",
-     "indice": 1.6,
-     "em": "2026-11-12",
-     "sai": "Slaughter Pact"
-    },
     "03. Valgavoth": {
      "funcao": "resposta",
      "lentes": {
@@ -176240,6 +177859,52 @@
      "indice": 1.3,
      "em": "2026-11-12",
      "sai": "Lothlórien Blade"
+    },
+    "03. Tergrid": {
+     "funcao": "resposta",
+     "lentes": {
+      "E": 2,
+      "I": 3,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Cada oponente sacrifica a maior criatura, e a Tergrid traz as que não são ficha; é uma vez só.",
+      "I": "Até três criaturas, as maiores de cada um, e vida igual à maior força.",
+      "T": "Sete manas, ou {2}{B} e 8 de vida pela loucura quando o deck descarta.",
+      "Q": "Paridade, na frente e atrás.",
+      "R": "Remoção muito acima da cota (32 cartas); Sheoldred's Edict e Death Cloud também forçam sacrifício."
+     },
+     "porque": "Com a Tergrid, cada oponente entrega a melhor criatura para você. Sai a Liliana, Heretical Healer, que pede criatura sua morrendo para virar.",
+     "tier": "B",
+     "indice": 2.0,
+     "em": "2026-11-12",
+     "sai": "Liliana, Heretical Healer"
+    },
+    "02. Evelyn": {
+     "funcao": "resposta",
+     "lentes": {
+      "E": 1,
+      "I": 2,
+      "T": 1,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Não é Vampiro; só a loucura liga com os descartes do deck.",
+      "I": "Cada oponente sacrifica a maior criatura, e você ganha a força dela.",
+      "T": "Sete manas, ou {2}{B} e 8 de vida por loucura.",
+      "Q": "Vive na paridade e atrás.",
+      "R": "Remoção em 10, dentro da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Edito em todos que custa caro e só fica barato com descarte. Sai o Demon Bolt, remoção de 3.",
+     "tier": "C",
+     "indice": 1.35,
+     "em": "2026-11-13",
+     "sai": "Demon Bolt"
     }
    }
   },
@@ -178102,30 +179767,6 @@
      "indice": 1.55,
      "em": "2026-11-12",
      "sai": "Lothlórien Blade"
-    },
-    "01. Vito": {
-     "funcao": "motor",
-     "lentes": {
-      "E": 2,
-      "I": 2,
-      "T": 2,
-      "Q": 2,
-      "R": 1
-     },
-     "lentes_por_que": {
-      "E": "Devolve um Vampiro de vínculo ou dreno por volta.",
-      "I": "Reanima toda manutenção e cobra sacrifício, se sobreviver.",
-      "T": "Sete manas num deck só preto.",
-      "Q": "Viva na paridade, atrás e na frente.",
-      "R": "Recurso acima da faixa, 12."
-     },
-     "antissinergia": "nenhuma",
-     "travas": [],
-     "porque": "Traz de volta um dreno ou um Vampiro de vínculo toda manutenção, e o Vito converte a vida. Sai o Slaughter Pact.",
-     "tier": "B",
-     "indice": 1.85,
-     "em": "2026-11-12",
-     "sai": "Slaughter Pact"
     }
    }
   },
@@ -181497,7 +183138,7 @@
       0
      ],
      "pq": {
-      "sin1": "Força 5 com voar, e as fichas 5/5 voadoras também: tira 3 sozinha ao conectar, nota 2."
+      "sin1": "5/5 com voar no cache, e as fichas 5/5 voam: força 3 ou mais com evasão, nota 2."
      }
     },
     "03. Valgavoth": {
@@ -181531,28 +183172,6 @@
    "em": "2026-11-12",
    "extras_em": "2026-11-12",
    "lentes": {
-    "03. Master Of Evil": {
-     "funcao": "fechamento",
-     "lentes": {
-      "E": 2,
-      "I": 3,
-      "T": 1,
-      "Q": 1,
-      "R": 3
-     },
-     "lentes_por_que": {
-      "E": "Voador que liga o Davros, e as fichas 5/5 também.",
-      "I": "Coroa e um Dragão por turno enquanto monarca.",
-      "T": "Sete manas, caro.",
-      "Q": "Vive na paridade e na frente.",
-      "R": "Compra em 6, abaixo da faixa."
-     },
-     "porque": "A coroa compra e os Dragões voadores ligam o Davros todo turno. Sai o Don't Blink. O deck é precon intacto: a lista não muda.",
-     "tier": "B",
-     "indice": 2.1,
-     "em": "2026-11-12",
-     "sai": "Don't Blink"
-    },
     "02. Kaalia": {
      "funcao": "fechamento",
      "lentes": {
@@ -181596,6 +183215,28 @@
      "indice": 1.8,
      "em": "2026-11-12",
      "sai": "Apple of Eden, Isu Relic"
+    },
+    "03. Master Of Evil": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 2,
+      "I": 3,
+      "T": 1,
+      "Q": 1,
+      "R": 3
+     },
+     "lentes_por_que": {
+      "E": "5/5 com voar, e as fichas 5/5 também voam: cada uma liga o Davros.",
+      "I": "Coroa ao entrar e um Dragão por manutenção enquanto monarca.",
+      "T": "Sete manas, caro.",
+      "Q": "Vive na paridade e na frente.",
+      "R": "Compra em 6, abaixo da faixa de 10."
+     },
+     "porque": "A coroa compra já no fim do turno, e os Dragões 5/5 voadores ligam o Davros a cada ataque. Sai o Don't Blink. O deck é precon intacto: a lista não muda.",
+     "tier": "B",
+     "indice": 2.1,
+     "em": "2026-11-12",
+     "sai": "Don't Blink"
     }
    }
   },
@@ -181931,34 +183572,16 @@
       0,
       0
      ]
+    },
+    "01. Vito": {
+     "sin": [
+      0,
+      0
+     ]
     }
    },
-   "em": "2026-11-12",
+   "em": "2026-11-13",
    "lentes": {
-    "02. Kaalia": {
-     "funcao": "resposta",
-     "lentes": {
-      "E": 1,
-      "I": 1,
-      "T": 2,
-      "Q": 2,
-      "R": 0
-     },
-     "lentes_por_que": {
-      "E": "Remoção que qualquer deck preto usaria.",
-      "I": "Destrói uma criatura que não é preta.",
-      "T": "De graça agora, {2}{B} na manutenção seguinte.",
-      "Q": "Paridade e atrás.",
-      "R": "Remoção em 17, muito acima da faixa."
-     },
-     "antissinergia": "nenhuma",
-     "travas": [],
-     "porque": "O deck já tem remoção de sobra. Sai o Fatal Push, que só pega criatura barata.",
-     "tier": "C",
-     "indice": 1.15,
-     "em": "2026-11-12",
-     "sai": "Fatal Push"
-    },
     "02. Elfos": {
      "funcao": "resposta",
      "lentes": {
@@ -181969,44 +183592,70 @@
       "R": 1
      },
      "lentes_por_que": {
-      "E": "Remoção genérica.",
-      "I": "Destrói uma criatura que não é preta.",
+      "E": "Remoção comum, fora dos Elfos.",
+      "I": "Mata uma criatura que não é preta.",
       "T": "De graça agora, {2}{B} na manutenção seguinte.",
-      "Q": "Paridade e atrás.",
-      "R": "A remoção está em 12, no topo da faixa."
+      "Q": "Vive na paridade e atrás.",
+      "R": "Remoção em 12, no teto da faixa."
      },
      "antissinergia": "nenhuma",
      "travas": [],
-     "porque": "Remoção de graça no turno, mas cobra {2}{B} depois e não pega criatura preta. Sai a Lothlórien Blade, equipamento que só fere ao atacar.",
+     "porque": "Remoção de graça no turno, paga depois. Sai a Lothlórien Blade, Equipamento caro.",
      "tier": "C",
      "indice": 1.35,
-     "em": "2026-11-12",
+     "em": "2026-11-13",
      "sai": "Lothlórien Blade"
+    },
+    "02. Kaalia": {
+     "funcao": "resposta",
+     "lentes": {
+      "E": 1,
+      "I": 1,
+      "T": 2,
+      "Q": 2,
+      "R": 0
+     },
+     "lentes_por_que": {
+      "E": "Remoção comum, fora das cargas.",
+      "I": "Mata uma criatura que não é preta.",
+      "T": "De graça agora, {2}{B} na manutenção seguinte.",
+      "Q": "Abre caminho na paridade e responde atrás.",
+      "R": "Remoção em 17, bem acima da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Mais uma remoção num deck que já sobra nelas. Sai o Fatal Push, que só mata criatura barata.",
+     "tier": "C",
+     "indice": 1.15,
+     "em": "2026-11-13",
+     "sai": "Fatal Push"
     },
     "02. Turtle Power!": {
      "funcao": "resposta",
      "lentes": {
       "E": 1,
-      "I": 2,
+      "I": 1,
       "T": 2,
       "Q": 2,
       "R": 1
      },
      "lentes_por_que": {
-      "E": "Remoção de qualquer deck preto.",
-      "I": "Mata criatura não preta.",
-      "T": "De graça agora, três manas na volta.",
-      "Q": "Viva na paridade, atrás e na frente.",
-      "R": "Remoção na faixa; a Shredder's Technique cobre."
+      "E": "Remoção comum, fora das Tartarugas.",
+      "I": "Mata uma criatura que não é preta.",
+      "T": "De graça agora, {2}{B} na manutenção seguinte.",
+      "Q": "Vive na paridade e atrás.",
+      "R": "Remoção em 10, dentro da faixa."
      },
-     "porque": "Remoção sem mana no turno, paga depois. Sai a Shredder's Technique, que faz o mesmo papel.",
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Remoção de graça no turno, paga depois. Sai a Shredder's Technique.",
      "tier": "C",
-     "indice": 1.55,
-     "em": "2026-11-12",
+     "indice": 1.35,
+     "em": "2026-11-13",
      "sai": "Shredder's Technique"
     }
    },
-   "extras_em": "2026-11-12"
+   "extras_em": "2026-11-13"
   },
   "Slayers' Stronghold": {
    "sin": {
@@ -182911,18 +184560,18 @@
       "R": 3
      },
      "lentes_por_que": {
-      "E": "Tesouro no turno dos oponentes: ficha que aciona o Leonardo e mana de qualquer cor.",
-      "I": "Mana e fichas toda volta, sem eles pagarem.",
-      "T": "Quatro manas, preço padrão de um motor.",
+      "E": "O Leonardo dispara com qualquer ficha, Tesouro incluído: ficha no turno dos oponentes é o verbo marcar.",
+      "I": "Tesouro e marcador no time a cada volta, se não pagarem {2}.",
+      "T": "Quatro manas, o padrão de um motor.",
       "Q": "Vive no desenvolvimento, na paridade e na frente.",
-      "R": "Aceleração em 9, abaixo da faixa: a função pede mais."
+      "R": "Aceleração em 9, abaixo da faixa de 10."
      },
-     "porque": "Cada Tesouro no turno dos oponentes aciona o Leonardo e ainda paga as cinco cores. Sai o Cultivate, ramp de uma vez só.",
      "argumentos_s": [
-      "Sem ela, o deck perde a ficha garantida no turno dos oponentes e a mana das cinco cores ao mesmo tempo.",
+      "Sem ela, o deck perde a ficha certa no turno dos oponentes e a mana das cinco cores ao mesmo tempo.",
       "O Cultivate e as pedras dão cor, mas não dão ficha; os geradores de ficha não dão mana.",
-      "Atua no desenvolvimento como ramp, na paridade como motor e na frente pagando os multiplicadores."
+      "Atua no desenvolvimento como ramp, na paridade como motor do Leonardo e na frente pagando os multiplicadores."
      ],
+     "porque": "O Leonardo dispara com qualquer ficha que entra, Tesouro incluído: cada Tesouro no turno dos oponentes vira marcador no time e paga as cinco cores. Sai o Cultivate, ramp de uma vez só.",
      "tier": "S",
      "indice": 2.45,
      "em": "2026-11-12",
@@ -185714,6 +187363,28 @@
      "indice": 2.0,
      "em": "2026-11-12",
      "sai": "The Master, Formed Anew"
+    },
+    "02. Turtle Power!": {
+     "funcao": "conversor",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 2,
+      "Q": 1,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Cópia não lendária do Leonardo: cada ficha põe marcador no time duas vezes por turno.",
+      "I": "Rende no mesmo turno, mas pede o Leonardo ou outra peça forte em campo.",
+      "T": "Quatro manas, no padrão.",
+      "Q": "Paridade e na frente: sem criatura boa em campo, não tem o que copiar.",
+      "R": "Marcadores muito acima da cota (23 cartas de buff)."
+     },
+     "porque": "Copiando o Leonardo, a ficha do turno vira dois marcadores no time inteiro. Sai o Leonardo, Leader in Blue, que só rende pelo sneak.",
+     "tier": "B",
+     "indice": 1.9,
+     "em": "2026-11-12",
+     "sai": "Leonardo, Leader in Blue"
     }
    }
   },
@@ -198105,32 +199776,8 @@
     }
    },
    "em": "2026-11-12",
-   "extras_em": "2026-11-12",
+   "extras_em": "2026-11-13",
    "lentes": {
-    "01. Vito": {
-     "funcao": "resposta",
-     "lentes": {
-      "E": 2,
-      "I": 2,
-      "T": 2,
-      "Q": 2,
-      "R": 1
-     },
-     "lentes_por_que": {
-      "E": "O ganho de vida vira perda de um oponente pelo Vito.",
-      "I": "Em mono preto, o X são quase todos os terrenos.",
-      "T": "Quatro manas, instantânea.",
-      "Q": "Vive na paridade, atrás e na frente.",
-      "R": "Remoção em 16, acima da faixa."
-     },
-     "porque": "Em mono preto, o X são quase todos os terrenos: mata uma criatura grande, e o ganho de vida vira perda de um oponente pelo Vito. Sai o Slaughter Pact.",
-     "antissinergia": "nenhuma",
-     "travas": [],
-     "tier": "B",
-     "indice": 1.85,
-     "em": "2026-11-12",
-     "sai": "Slaughter Pact"
-    },
     "02. Elfos": {
      "funcao": "resposta",
      "lentes": {
@@ -198178,6 +199825,54 @@
      "indice": 1.15,
      "em": "2026-11-12",
      "sai": "Fatal Push"
+    },
+    "02. Turtle Power!": {
+     "funcao": "resposta",
+     "lentes": {
+      "E": 0,
+      "I": 1,
+      "T": 1,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Não mexe nas Tartarugas nem nos marcadores.",
+      "I": "Só dois Swamps em cinco cores: dano pequeno.",
+      "T": "Quatro manas por um X baixo.",
+      "Q": "Vive na paridade e atrás.",
+      "R": "Remoção em 10, dentro da faixa."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Em cinco cores, quase não há Swamps para contar. Sai a Shredder's Technique.",
+     "tier": "D",
+     "indice": 0.9,
+     "em": "2026-11-13",
+     "sai": "Shredder's Technique"
+    },
+    "01. Vito": {
+     "funcao": "resposta",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Ganho de vida do tamanho dos Swamps, que o Vito devolve inteiro num oponente.",
+      "I": "Mata quase qualquer criatura com vinte Swamps e Urborg.",
+      "T": "Quatro manas, instantânea.",
+      "Q": "Vive na paridade e atrás.",
+      "R": "Remoção em 14, acima da faixa, com Consuming Corruption na lista."
+     },
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Num deck de Swamps, mata quase tudo e vira dreno pelo Vito. Sai a Henrika Domnathi, que gasta um modo por combate.",
+     "tier": "B",
+     "indice": 1.85,
+     "em": "2026-11-13",
+     "sai": "Henrika Domnathi"
     }
    }
   },
@@ -207875,6 +209570,28 @@
      "indice": 0.7,
      "em": "2026-11-12",
      "sai": "Akroma's Blessing"
+    },
+    "02. Clavileño": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "O abençoado morre, dá carta e Demônio, e o Morcego o traz de volta para ser abençoado de novo.",
+      "I": "Precisa ficar; o ward de descarte ajuda, e o Morcego tem de acertar.",
+      "T": "Seis manas, mais {1} por Vampiro que volta.",
+      "Q": "Paridade, na frente e atrás, quando a limpeza vira Morcegos.",
+      "R": "Recursão muito acima da cota (25 cartas, faixa até 10)."
+     },
+     "porque": "Fecha o ciclo do Clavileño: cada abençoado que morre volta por um Morcego. Sai a March of the Canonized, fichas 1/1 com vínculo.",
+     "tier": "B",
+     "indice": 1.85,
+     "em": "2026-11-12",
+     "sai": "March of the Canonized"
     }
    }
   },
@@ -208667,78 +210384,93 @@
       0,
       0
      ]
+    },
+    "01. Vito": {
+     "sin": [
+      1,
+      0
+     ],
+     "pq": {
+      "sin1": "Perda de vida dos oponentes sem ganho seu, que não dispara o Vito, como a régua cita."
+     }
     }
    },
-   "em": "2026-11-12",
+   "em": "2026-11-13",
    "lentes": {
     "04. Assassin Creed": {
      "funcao": "fechamento",
      "lentes": {
       "E": 1,
-      "I": 3,
-      "T": 2,
-      "Q": 2,
-      "R": 1
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 2
      },
      "lentes_por_que": {
-      "E": "Leva a mesa aos 10 da execução, ou esvazia a mão e a mesa deles.",
-      "I": "Com X grande, tira vida, carta ou permanente de todos.",
-      "T": "X mais {B}{B}: o padrão de um fechamento de X.",
-      "Q": "Vale na paridade e na frente.",
-      "R": "O deck tem nove fechamentos."
+      "E": "Leva a mesa aos 10 da execução, mas os oponentes escolhem pagar.",
+      "I": "Com X grande, esvazia a mesa ou tira muita vida.",
+      "T": "Pede muita mana para valer.",
+      "Q": "Só vive na frente, com mana sobrando.",
+      "R": "Dano em 3, no piso da faixa."
      },
-     "porque": "Fechamento de X que leva a mesa aos 10 do Ezio. Sai o Deflecting Palm.",
-     "tier": "B",
-     "indice": 1.75,
-     "em": "2026-11-12",
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Fecha a mesa com X grande, mas cobra muita mana. Sai o Deflecting Palm, prevenção de uma vez.",
+     "tier": "C",
+     "indice": 1.4,
+     "em": "2026-11-13",
      "sai": "Deflecting Palm"
     },
     "03. Valgavoth": {
      "funcao": "fechamento",
      "lentes": {
       "E": 0,
-      "I": 3,
-      "T": 2,
-      "Q": 2,
-      "R": 1
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 0
      },
      "lentes_por_que": {
-      "E": "É feitiço: a perda acontece no seu turno e não dispara o Valgavoth.",
-      "I": "Com X grande, tira vida, carta ou permanente de todos.",
-      "T": "X mais {B}{B}: o padrão de um fechamento de X.",
-      "Q": "Vale na paridade e na frente.",
-      "R": "O dano está em 24, muito acima da faixa."
+      "E": "Feitiço do seu turno: não dispara o Valgavoth.",
+      "I": "Com X grande, esvazia a mesa ou tira muita vida.",
+      "T": "Pede muita mana para valer.",
+      "Q": "Só vive na frente.",
+      "R": "Dano em 24, muito acima da faixa."
      },
-     "porque": "Fecha a partida, mas no seu turno, sem disparar o Valgavoth. Sai o Not Dead After All.",
-     "tier": "C",
-     "indice": 1.5,
-     "em": "2026-11-12",
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Tira vida só no seu turno, quando o Valgavoth não compra. Sai o Not Dead After All, truque de uma vez.",
+     "tier": "D",
+     "indice": 0.7,
+     "em": "2026-11-13",
      "sai": "Not Dead After All"
     },
     "04. Queen": {
      "funcao": "fechamento",
      "lentes": {
       "E": 1,
-      "I": 3,
-      "T": 2,
-      "Q": 2,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
       "R": 1
      },
      "lentes_por_que": {
-      "E": "Fecha a partida, mas não mexe na coroa.",
-      "I": "Com X grande, tira vida, carta ou permanente de todos.",
-      "T": "X mais {B}{B}: o padrão de um fechamento de X.",
-      "Q": "Vale na paridade e na frente.",
-      "R": "O deck tem sete fechamentos."
+      "E": "Fechamento genérico, fora da coroa.",
+      "I": "Com X grande, esvazia a mesa ou tira muita vida.",
+      "T": "Pede muita mana para valer.",
+      "Q": "Só vive na frente.",
+      "R": "Dano em 8, no teto da faixa."
      },
-     "porque": "Fechamento num deck que acha cartas com a coroa e chega a muita mana. Sai a Blind Obedience.",
-     "tier": "B",
-     "indice": 1.75,
-     "em": "2026-11-12",
+     "antissinergia": "nenhuma",
+     "travas": [],
+     "porque": "Fecha com a mana que as cartas a mais trazem, mas não mexe na coroa. Sai a Blind Obedience.",
+     "tier": "C",
+     "indice": 1.2,
+     "em": "2026-11-13",
      "sai": "Blind Obedience"
     }
    },
-   "extras_em": "2026-11-12"
+   "extras_em": "2026-11-13"
   },
   "Torment of Scarabs": {
    "sin": {
@@ -220655,6 +222387,28 @@
      "indice": 1.7,
      "em": "2026-11-12",
      "sai": "Leonardo's Technique"
+    },
+    "02. Zumbis": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 2,
+      "T": 2,
+      "Q": 3,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Traz uma criatura de qualquer cemitério em toda manutenção; cedo, é −3/−3.",
+      "I": "−3/−3 por duas manas, ou uma criatura por turno de qualquer cemitério.",
+      "T": "Duas manas de feitiço; o encantamento custa sete.",
+      "Q": "Viva sempre: remoção cedo e atrás, motor na paridade e na frente.",
+      "R": "Recursão muito acima da cota (29 cartas)."
+     },
+     "porque": "Remoção barata cedo e uma criatura de volta por turno depois. Sai a Liliana's Reaver, Zumbi que só rende quando conecta.",
+     "tier": "B",
+     "indice": 1.95,
+     "em": "2026-11-12",
+     "sai": "Liliana's Reaver"
     }
    }
   },
@@ -221060,11 +222814,11 @@
     },
     "03. Valgavoth": {
      "sin": [
-      2,
+      1,
       0
      ],
      "pq": {
-      "sin1": "Dada a um oponente, ele perde vida no próprio fim de turno, toda volta, mas só um oponente: nível 2."
+      "sin1": "Dada a um oponente, só esse perde vida no próprio fim de turno: um gatilho por rodada, de passagem, 1."
      }
     },
     "04. Assassin Creed": {
@@ -221095,28 +222849,6 @@
    "em": "2026-11-12",
    "extras_em": "2026-11-12",
    "lentes": {
-    "03. Valgavoth": {
-     "funcao": "motor",
-     "lentes": {
-      "E": 2,
-      "I": 2,
-      "T": 2,
-      "Q": 2,
-      "R": 2
-     },
-     "lentes_por_que": {
-      "E": "Dado a um oponente, ele perde vida no próprio fim de turno.",
-      "I": "Dispara o Valgavoth toda volta desse oponente.",
-      "T": "Quatro manas.",
-      "Q": "Viva em todo momento.",
-      "R": "Poucas cartas fazem isso sozinhas."
-     },
-     "porque": "Dado a um oponente, ele perde vida no próprio fim de turno e dispara o Valgavoth toda volta. Sai o Not Dead After All.",
-     "tier": "B",
-     "indice": 2.0,
-     "em": "2026-11-12",
-     "sai": "Not Dead After All"
-    },
     "04. Zur": {
      "funcao": "conversor",
      "lentes": {
@@ -221160,6 +222892,50 @@
      "indice": 1.5,
      "em": "2026-11-12",
      "sai": "Apple of Eden, Isu Relic"
+    },
+    "03. Valgavoth": {
+     "funcao": "motor",
+     "lentes": {
+      "E": 1,
+      "I": 2,
+      "T": 2,
+      "Q": 2,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Dado a um oponente, só esse perde vida no próprio fim de turno.",
+      "I": "Um gatilho do Valgavoth por rodada, e o goad manda o 2/5 bater nos outros.",
+      "T": "Quatro manas.",
+      "Q": "Viva em todo momento.",
+      "R": "Poucas cartas fazem isso sozinhas."
+     },
+     "porque": "Dado a um oponente, ele compra e perde vida no próprio fim de turno, e o Valgavoth dispara uma vez por rodada. Sai o Not Dead After All.",
+     "tier": "B",
+     "indice": 1.7,
+     "em": "2026-11-12",
+     "sai": "Not Dead After All"
+    },
+    "03. Lynde": {
+     "funcao": "habilitador",
+     "lentes": {
+      "E": 2,
+      "I": 1,
+      "T": 2,
+      "Q": 2,
+      "R": 1
+     },
+     "lentes_por_que": {
+      "E": "Dado a um oponente, fica provocado: mais uma criatura atacando outro jogador, que é como a Lynde fecha pelo atrito.",
+      "I": "Um 2/5 provocado e, no fim do turno de quem o controla, uma compra que custa vida igual ao tamanho da mão.",
+      "T": "Quatro manas por um efeito modesto, no padrão.",
+      "Q": "Rende no meio do jogo, com a mesa já montada; cedo é só um corpo, no fim pesa pouco.",
+      "R": "Outras formas de provocar ou de fazer a mesa se atacar fariam o mesmo papel."
+     },
+     "porque": "Vai para um oponente provocado e ataca outro jogador, como o fim por atrito da Lynde pede, e quem o controla perde vida a cada fim de turno. Carta boa, não excelente. Sai o Powerbalance (D), que depende de acertar o mesmo custo no topo.",
+     "tier": "B",
+     "indice": 1.6,
+     "em": "2026-11-12",
+     "sai": "Powerbalance"
     }
    }
   },
@@ -223165,13 +224941,13 @@
       "R": 3
      },
      "lentes_por_que": {
-      "E": "O K'rrik paga o {B} e o {B}{B} com vida, e a ativação sai por 6 de vida e cinco manas.",
-      "I": "O K'rrik grande conecta e o jogador perde.",
-      "T": "Duas de vida para conjurar, quatro para equipar.",
+      "E": "O K'rrik paga com vida o {B}, o {B}{B} de equipar e o {B}{B}{B} da ativação.",
+      "I": "Com a ativação, o acerto vence o jogo; falta conectar sem evasão.",
+      "T": "2 de vida para conjurar, 4 para equipar.",
       "Q": "Rende cedo e no fim.",
-      "R": "Amplificador e evasão com 0."
+      "R": "Amplificador em 0, abaixo da faixa."
      },
-     "porque": "No K'rrik, quase tudo se paga com vida, e a conexão com a ativação vence o jogo. Sai o Barbed Servitor.",
+     "porque": "A ativação sai por cinco manas e 6 de vida, e o acerto do K'rrik vence o jogo; o deck tem evasão 0, e conectar é o risco. Sai o Barbed Servitor.",
      "tier": "A",
      "indice": 2.35,
      "em": "2026-11-12",
@@ -226348,20 +228124,21 @@
      "lentes": {
       "E": 3,
       "I": 2,
-      "T": 2,
+      "T": 1,
       "Q": 2,
       "R": 2
      },
      "lentes_por_que": {
-      "E": "Proteção contínua e imbloqueável na Kaalia: é a conta do deck.",
-      "I": "A Kaalia ataca todo turno sem remoção pontual.",
-      "T": "Três manas e equipar {2}.",
-      "Q": "Vivo cedo, na paridade e na frente.",
-      "R": "Sai uma carta D."
+      "E": "Manto contínuo deixa a Kaalia viva para atacar: é o verbo atacar.",
+      "I": "Segura a remoção pontual; o imbloqueável pouco importa, o gatilho é no ataque.",
+      "T": "Três manas e equipar {2}, sem ímpeto: botas fazem mais por menos.",
+      "Q": "Vive cedo, na paridade e na frente.",
+      "R": "Sai o Resolute Archangel, carta D; resiliência em 10."
      },
-     "porque": "A Kaalia fica com manto e sem bloqueio: cada ataque põe uma carga. Sai o Resolute Archangel, carta D.",
-     "tier": "A",
-     "indice": 2.25,
+     "antissinergia": "leve",
+     "porque": "Deixa a Kaalia viva para atacar, mas sem ímpeto, e o manto impede equipar nela o Embercleave e o Two-Handed Axe. Sai o Resolute Archangel, carta D.",
+     "tier": "B",
+     "indice": 2.05,
      "em": "2026-11-12",
      "sai": "Resolute Archangel"
     },
@@ -228683,6 +230460,28 @@
      "indice": 0.9,
      "em": "2026-11-12",
      "sai": "Blind Obedience"
+    },
+    "03. K'rrik": {
+     "funcao": "fechamento",
+     "lentes": {
+      "E": 3,
+      "I": 2,
+      "T": 1,
+      "Q": 1,
+      "R": 2
+     },
+     "lentes_por_que": {
+      "E": "Dobra no fim de cada turno a vida que os oponentes perderam, drenos e extort inclusive.",
+      "I": "Rende já no fim do turno em que entra, e em todos depois.",
+      "T": "Seis manas; o K'rrik troca só um {B} por 2 de vida.",
+      "Q": "Paridade e na frente: precisa que eles já percam vida.",
+      "R": "Nenhuma outra carta dobra a perda, mas o dano já passa da cota (15 cartas)."
+     },
+     "porque": "Cada dreno volta em dobro no fim do turno, em todos os turnos. Sai o Barbed Servitor, que custa vida sua a cada acerto.",
+     "tier": "B",
+     "indice": 2.0,
+     "em": "2026-11-12",
+     "sai": "Barbed Servitor"
     }
    }
   },
