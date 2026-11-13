@@ -3114,7 +3114,48 @@ function letraOutro(x) {
   return ' <span class="tb sm t' + esc(x.t) + '" title="' + (x.to === 'lista' ? (x.tn ? 'Tier na lista daquele deck, pela tier list' : 'Tier na lista daquele deck') : 'Tier estimado no radar daquele deck') + '">' +
     esc(x.t) + '</span>' + (x.to === 'radar' ? '<small class="enc-av"> no radar</small>' : '');
 }
+/* destinos (12/11/2026, pedido do dono): os três melhores decks para a carta, fora os que já a têm, cada um com a letra da
+   tier list naquele deck, o ganho contra a carta da mesma função que sairia, o que falta lá e o porquê; e, aqui, a melhor do
+   radar para a vaga dela (motor/destinos.py) */
+function nomeCrit(k) {
+  var g = (D.criterios || []).filter(function (x) { return x.k === k; })[0];
+  return g ? (g.curto || g.nome) : k;
+}
+function destinosHtml(c, X) {
+  var h = '<h3>Onde mais renderia</h3>';
+  if (!X.d || !X.d.length) {
+    h += '<p class="dw-out-n">Não cabe em nenhum outro deck seu: a identidade de cor não deixa, ou todos já a têm.</p>';
+  } else {
+    h += '<ol class="dw-rende dst">' + X.d.map(function (x) {
+      var inf = (D.encaixe_decks || {})[x.p] || {};
+      var lt = x.t ? '<span class="tb sm t' + esc(x.t) + '" title="Tier que ela teria lá, pela tier list (índice ' + fmtP(x.ix) + ')">' + esc(x.t) + '</span>'
+        : '<small class="enc-av">letra ainda não avaliada</small>';
+      var sai = x.s ? 'No lugar de <b>' + esc(x.s) + '</b>' + (x.st ? ' (' + esc(x.st) + ')' : '') + '.' : '';
+      var falta = (x.f || []).length ? ' Falta lá: ' + x.f.map(function (s) { var p = s.split(' '); return esc(nomeCrit(p[0])) + ' ' + esc(p[1]); }).join(', ') + '.' : '';
+      return '<li><b>' + esc(x.n) + '</b>' + (inf.c ? ' <small>' + esc(inf.c) + '</small>' : '') + ' ' + lt +
+        ' <span class="enc-g ' + (x.g > 0 ? 'pos' : x.g < 0 ? 'neg' : '') + '">' + (x.g > 0 ? '+' : '') + fmtP(x.g) + '</span>' +
+        '<span class="dst-l">' + sai + falta + '</span>' + (x.w ? '<span class="dst-w">' + esc(x.w) + '</span>' : '') + '</li>';
+    }).join('') + '</ol><p class="dw-out-n">A letra é a que ela teria naquele deck pela tier list; o número, o ganho no placar de lá contra a carta da mesma função que sairia. A letra manda na ordem e o ganho desempata; destino D não aparece.</p>';
+  }
+  return h + seSairHtml(c, X);
+}
+function seSairHtml(c, X) {
+  var h = '';
+  if (X && X.r && c.inDeck) {
+    h += '<h3>Se ela sair daqui</h3><p class="dw-out-n">A melhor do radar para a vaga: <button class="lnk" data-card="' + esc(X.r.id) + '">' + esc(X.r.n) + '</button>' +
+      (X.r.t ? ' <span class="tb sm t' + esc(X.r.t) + '" title="Tier estimado no radar">' + esc(X.r.t) + '</span>' : '') +
+      ' (' + (X.r.v === 'entra' ? 'entra' : 'avaliar') + '), ' + (X.r.g > 0 ? '+' : '') + fmtP(X.r.g) + ' no placar.</p>';
+  }
+  return h;
+}
 function ondeRende(c) {
+  var X = (D.destinos || {})[c.id];
+  // carta de estimação fica no deck: nada de sugerir outro destino (regra do dono)
+  if (c.inDeck && (c.pet || c.nocut)) return '<h3>Onde mais renderia</h3><p class="dw-out-n">Carta de estimação: fica neste deck.</p>';
+  if (X && X.d) return destinosHtml(c, X);
+  return ondeRendeEnc(c) + seSairHtml(c, X);
+}
+function ondeRendeEnc(c) {
   var todos = ((D.encaixe || {})[c.id] || []).filter(function (x) { return x.p !== M.pasta; });
   var L = todos.filter(function (x) { return !x.j && x.g > 0; }).slice(0, 3);
   if (!L.length) return '<h3>Onde mais renderia</h3><p class="dw-out-n">Em nenhum outro deck seu ela ganha espaço.</p>';
