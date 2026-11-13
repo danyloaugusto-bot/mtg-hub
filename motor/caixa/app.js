@@ -775,7 +775,7 @@ function gaveta(c) {
     if (e.des) obs.push('Desejo: deck ainda não montado');
     if (!e.a) obs.push('a avaliar');
     return '<tr' + (i === 0 ? ' class="top"' : '') + '><td><b>' + esc(d.c || e.p) + '</b> <small class="dim">' + esc(d.n || '') + '</small></td><td>' + mana((d.i || '').split('').map(function (k) { return '{' + k + '}'; }).join('')) + '</td>' +
-      '<td class="cx-et">' + tierEnc(e) + '</td>' +
+      '<td class="cx-et">' + tierEnc(e, c) + '</td>' +
       '<td class="n num ' + (e.g > 0 ? 'cx-pos' : 'cx-neg') + '" data-v="' + e.g + '">' + sinal(e.g) + (e.a ? '' : '<span class="cx-ast">*</span>') + '</td><td class="n num" data-v="' + e.v + '">' + fmt(e.v) + '</td>' +
       '<td class="cx-pe">' + preenche(c, e) + '</td>' +
       '<td>' + (e.j ? 'já está no deck' : 'sai ' + esc(e.s || '—') + ' (' + fmt(e.vs) + ')') + '</td><td><small class="dim">' + esc(obs.join(' · ')) + '</small></td></tr>';
@@ -807,12 +807,30 @@ function gaveta(c) {
       (c.tx.velha ? '. <b>O texto oficial mudou depois da tradução: vale o inglês.</b>' : '; na dúvida, vale o inglês.') + '</p></div>' : '') +
     '<div class="cx-bx"><div><h3>Valor</h3><ul>' + valor + '</ul></div><div><h3>Onde já está</h3><ul>' + onde + '</ul></div><div><h3>Quem pede no radar</h3><ul>' + radar + '</ul></div>' +
     '<div><h3>Mais jogada com (EDHREC)</h3><ul>' + edh + '</ul></div><div><h3>Nas pastas</h3><ul>' + pastas + '</ul></div><div><h3>Na lista de compras</h3><ul>' + compra + '</ul></div></div>' +
+    destinosCx(c) +
     '<h3 class="sub">Em qual deck rende mais</h3><div class="cx-tw" style="background:none;box-shadow:none"><table class="tbl cx-enc" data-nosort><thead><tr><th>Deck</th><th>Cores</th><th>Tier</th><th class="n">Ganho</th><th class="n">Vale</th><th>Preenche (o deck hoje)</th><th>Quem sai</th><th></th></tr></thead><tbody>' + encRows + '</tbody></table></div>' + verTodos +
     '<p class="cx-nt">Ganho: o valor da carta nos critérios do deck, com saturação, menos o da carta de menor valor que sairia. Asterisco: sinergia ainda não avaliada naquele deck, o número é piso. ' +
-    'Tier: o do deck ou do radar; com ≈, estimado pelo valor da carta contra o valor mediano de cada tier do deck, no máximo A (S só com avaliação). ' +
+    'Tier: o da tier list, quando a carta tem os destinos avaliados; senão, o do deck ou do radar; com ≈, estimado pelo valor da carta contra o valor mediano de cada tier do deck, no máximo A (S só com avaliação). ' +
     'Preenche: os critérios em que a carta tem nota 2 ou 3 e quantas cartas o deck já tem neles contra a faixa da régua (▼ abaixo: a carta tapa um buraco e vale 1,5×; ▲ acima: vale 0,5×); ' +
     'embaixo, o quadro do 8×8 com o mesmo papel, contra a referência dele (8 quando o agrupamento não tem faixa). Os quadros de tema não têm par: a sinergia é que conta.</p>' +
     sugBox + cps + '</div></div>';
+}
+/* destinos (13/11/2026, pedido do dono): nas pastas que entram nos destinos (a Preta P), os três melhores decks pela tier list,
+   como na gaveta do painel: a letra que ela teria lá, o ganho contra a carta da mesma função que sairia, o que falta lá e o porquê */
+function critNome(k) { var x = CR.filter(function (y) { return y.k === k; })[0]; return x ? x.curto : k; }
+function destinosCx(c) {
+  if (!c.dst) return '';
+  var h = '<h3 class="sub">Onde mais renderia (tier list)</h3>';
+  if (!c.dst.length) return h + '<p class="cx-nt">Nenhum deck seu com letra C ou melhor para ela: a identidade de cor não deixa, todos já a têm ou ela não rende em nenhum.</p>';
+  return h + '<ol class="cx-dst">' + c.dst.map(function (x) {
+    var d = DECKS[x.p] || {};
+    var lt = x.t ? '<span title="Tier que ela teria lá, pela tier list (índice ' + fmt(x.ix) + ')">' + tierB(x.t) + '</span>' : '<small class="dim">letra ainda não avaliada</small>';
+    var sai = x.s ? 'No lugar de <b>' + esc(x.s) + '</b>' + (x.st ? ' (' + esc(x.st) + ')' : '') + '.' : '';
+    var falta = (x.f || []).length ? ' Falta lá: ' + x.f.map(function (s) { var p = s.split(' '); return esc(critNome(p[0])) + ' ' + esc(p[1]); }).join(', ') + '.' : '';
+    return '<li><div class="cx-dst-h"><b>' + esc(d.c || x.n) + '</b> <small class="dim">' + esc(d.n || x.n) + '</small> ' + lt +
+      ' <span class="num ' + (x.g > 0 ? 'cx-pos' : x.g < 0 ? 'cx-neg' : '') + '">' + sinal(x.g) + '</span></div>' +
+      '<span class="cx-dst-l">' + sai + falta + '</span>' + (x.w ? '<span class="cx-dst-w">' + esc(x.w) + '</span>' : '') + '</li>';
+  }).join('') + '</ol><p class="cx-nt">A letra é a que ela teria naquele deck pela tier list; o número, o ganho no placar de lá contra a carta da mesma função que sairia. A letra manda na ordem e o ganho desempata; destino D não aparece.</p>';
 }
 function trilha(s) {
   var nomeR = function (t) { return t === 'Guardar' ? nomeD('guardar') : t; };
@@ -825,7 +843,9 @@ function trilha(s) {
 var SIMF = { ab: '▼ abaixo', de: 'dentro', ac: '▲ acima' };
 function faixaTxt(a, b) { return a === b ? String(a) : a + '–' + b; }
 function estado(n, a, b) { return n < a ? 'ab' : n > b ? 'ac' : 'de'; }
-function tierEnc(e) {
+function tierEnc(e, c) {
+  var dl = c && c.dst ? c.dst.filter(function (x) { return x.p === e.p && x.t; })[0] : null;   // a letra da tier list vence a estimada
+  if (dl) return '<span title="Tier list (índice ' + fmt(dl.ix) + ')">' + tierB(dl.t) + '</span>';
   if (!e.T) return '<span class="dim">—</span>';
   if (e.T.charAt(0) !== '~') return tierB(e.T);
   return '<span class="cx-te" title="estimado pelo valor da carta contra as cartas do deck; S só com avaliação">≈ ' + tierB(e.T.slice(1)) + '</span>';
