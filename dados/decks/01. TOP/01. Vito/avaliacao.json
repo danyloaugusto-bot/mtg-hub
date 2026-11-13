@@ -3553,7 +3553,7 @@
    "veredito": "entra",
    "sai": "Mikokoro, Center of the Sea",
    "faz": "Terreno lendário. Ao entrar, escolha um tipo de criatura. Gera {C}; por {2} e virando, gera uma mana da cor escolhida para cada criatura sua do tipo escolhido.",
-   "porque": "Com Vampiro escolhido e a mesa cheia de vampirinhos, vira seis, oito, dez manas pretas num terreno só: o X do Exsanguinate e do Torment cresce com a tribo. Entra desvirado. Sai o Mikokoro, que dá uma carta a você e três à mesa.",
+   "porque": "Com Vampiro escolhido e a mesa cheia de vampirinhos, vira seis, oito, dez manas pretas num terreno só: o X do Exsanguinate e do Morlun cresce com a tribo. Entra desvirado. Sai o Mikokoro, que dá uma carta a você e três à mesa.",
    "papel_dupla": "Ramp",
    "papel_por_que": "Terreno que gera uma mana preta por Vampiro: a tribo vira mana para o X."
   },
@@ -3796,6 +3796,738 @@
    "porque": "Limpeza de um lado só num deck com 27 Vampiros. Pela regra do dono (3 a 4 limpezas, de preferência unilaterais), entraria no lugar da Blasphemous Edict, a única das quatro que leva a sua mesa junto. As suas cópias estão no Markov, no Clavileño e no Strefan.",
    "massa": true,
    "sai": "Blasphemous Edict"
+  },
+  "Sheoldred, the Apocalypse": {
+   "notas": {
+    "vida": 3
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor de ganho que não depende de combate: 2 de vida a cada carta que você compra, um gatilho do Vito por compra."
+   },
+   "tier": "S",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Criatura 4/5 de 4, toque mortífero. Você ganha 2 a cada carta que compra; cada oponente perde 2 a cada carta que ele compra.",
+   "porque": "Cada compra sua vira 2 de vida e um gatilho do Vito; cada compra deles custa 2. Pune a mesa toda e segura o chão. Sai o Vein Ripper, motor de seis manas que só rende com morte.",
+   "sai": "Vein Ripper",
+   "papel": "habilita",
+   "papel_dupla": "Recompensa (perda a cada compra deles)",
+   "papel_por_que": "Ganha 2 a cada compra sua: um gatilho do Vito por carta comprada.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Alimenta o ganhar toda compra, e cada compra dos oponentes já é sangrar.",
+    "I": "Muda a mesa enquanto vive: 4 de vida por turno seu e 2 a menos por compra deles.",
+    "T": "Quatro manas por um 4/5 com toque mortífero e dois motores.",
+    "Q": "Viva em todo momento: cedo segura o chão, atrás estabiliza, na frente acelera o fim.",
+    "R": "Nenhum motor da lista ganha vida por compra; o Vein Ripper pede morte e custa seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.45,
+   "argumentos_s": [
+    "Sem ela, a compra do Black Market Connections, do Castle Locthwain e da Bolas's Citadel não vira vida nem gatilho do Vito.",
+    "O Vein Ripper e o Blood Artist dependem de morte; ela rende só com a compra natural do turno.",
+    "No turno 4 segura a mesa, atrás cura 2 por compra, na frente cobra 2 de cada compra deles."
+   ],
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Starscape Cleric": {
+   "notas": {
+    "combos": 3,
+    "vida": 3
+   },
+   "sin": {
+    "sin1": 3
+   },
+   "sin_por_que": {
+    "sin1": "Converte ganho de vida em perda dos oponentes, como uma segunda cópia do Vito; com a Exquisite Blood ou o Bloodthirsty Conqueror fecha um laço infinito."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Morcego 2/1 de 2, voa e não pode bloquear. Sempre que você ganha vida, cada oponente perde 1. Prole por mais {2}{B}: entra também uma cópia 1/1.",
+   "porque": "Cada ganho de vida tira 1 de cada oponente, além do que o Vito tira. Com a Exquisite Blood ou o Bloodthirsty Conqueror em campo, é laço infinito: um segundo caminho de combo por duas manas. Sai a Sanguine Spy, o Vampiro mais fraco da lista.",
+   "sai": "Sanguine Spy",
+   "papel": "recompensa",
+   "papel_dupla": "Combo (laço com Exquisite Blood)",
+   "papel_por_que": "Todo ganho de vida vira perda de cada oponente, ao lado do Vito.",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o sangrar: cada ganho de vida vira perda em todos os oponentes.",
+    "I": "Com a Exquisite Blood ou o Conqueror, ganha o jogo; sozinha, dreno de mesa a cada ganho, se sobreviver.",
+    "T": "Duas manas, voa, e a prole dá uma segunda cópia.",
+    "Q": "Cedo, na paridade e na frente; atrás não bloqueia.",
+    "R": "Há seis conversores na lista, acima da cota; o Sanguine Bond do radar faz o papel por cinco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Witch of the Moors": {
+   "notas": {
+    "removal": 2,
+    "draw": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Recompensa o turno em que você ganha vida: no seu fim de turno, cada oponente sacrifica uma criatura e você devolve uma à mão."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Criatura 4/4 de 5, toque mortífero. No seu fim de turno, se você ganhou vida no turno, cada oponente sacrifica uma criatura e você devolve até uma criatura do seu cemitério à mão.",
+   "porque": "O deck ganha vida todo turno, então ela liga sempre: um sacrifício em cada oponente e uma criatura de volta à mão, todo turno seu, já no turno em que entra. Sai a Withering Torment, remoção de uma vez só.",
+   "sai": "Withering Torment",
+   "papel": "recompensa",
+   "papel_dupla": "Remoção (sacrifício em cada oponente)",
+   "papel_por_que": "Transforma o ganho de vida do turno em remoção e recursão.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Alimenta o controle da mesa toda vez que o deck ganha vida, o que é quase todo turno.",
+    "I": "Já no turno em que entra, cada oponente sacrifica e você recupera uma criatura.",
+    "T": "Cinco manas por um 4/4 com toque mortífero e um gatilho por turno.",
+    "Q": "Paridade, atrás e na frente; no começo ainda não cabe.",
+    "R": "Nenhuma carta da lista faz cada oponente sacrificar todo turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Sorin the Mirthless": {
+   "notas": {
+    "draw": 3,
+    "vida": 1,
+    "removal": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "No −7, causa 13 de dano e você ganha 13 de vida: ganho grande de uma vez, que o Vito devolve inteiro.",
+    "sin2": "Não é Vampiro e cria Vampiros: o −2 faz uma ficha de Vampiro 2/3 voadora com vínculo."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "entra",
+   "faz": "Planeswalker de 4. +1: olha o topo e pode pô-lo na mão, perdendo vida igual ao valor. −2: ficha de Vampiro 2/3 voadora com vínculo. −7: 13 de dano em qualquer alvo e 13 de vida.",
+   "porque": "Uma carta a mais todo turno, paga em vida, ou um Vampiro voador com vínculo para os lordes. O deck está abaixo da cota de compra (9 de 10 a 12). Sai o Herald's Horn, que barateia e às vezes compra um Vampiro.",
+   "sai": "Herald's Horn",
+   "papel": "habilita",
+   "papel_dupla": "Draw (+1 todo turno)",
+   "papel_por_que": "A ficha voadora com vínculo dispara o Vito em cada dano.",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Enche a mão todo turno e cria Vampiros com vínculo.",
+    "I": "Uma carta por turno ou um voador com vínculo; o −7 fecha.",
+    "T": "Quatro manas por vantagem todo turno, padrão de planeswalker.",
+    "Q": "Cedo compra, atrás faz bloqueador, na frente vira dreno de 13.",
+    "R": "A compra está abaixo da cota; o Herald's Horn só compra Vampiro do topo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Champion of Dusk": {
+   "notas": {
+    "draw": 3,
+    "vamp_c": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Vampiro cujo efeito conta os outros Vampiros: compra uma carta por Vampiro seu, sem multiplicá-los."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "entra",
+   "faz": "Vampiro 4/4 de 5. Ao entrar, você compra X cartas e perde X de vida, X o número dos seus Vampiros.",
+   "porque": "Com a mesa de Vampiros, compra quatro ou cinco de uma vez, e a vida paga volta pelo vínculo. Cobre o buraco de compra (9 de 10 a 12) sem sair da tribo. Sai a Twilight Prophet, que só compra com a bênção da cidade.",
+   "sai": "Twilight Prophet",
+   "papel": "recompensa",
+   "papel_por_que": "Compra uma carta por Vampiro: a tribo vira mão.",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Recarrega a mão a partir da tribo, para o meio de jogo.",
+    "I": "Quatro ou cinco cartas numa mesa média, mais um 4/4.",
+    "T": "Cinco manas e vida, que no deck é recurso.",
+    "Q": "Paridade, na frente e reabastecendo atrás; cedo, com poucos Vampiros, rende pouco.",
+    "R": "A compra está abaixo da cota, e a Twilight Prophet depende de dez permanentes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Moseo, Vein's New Dean": {
+   "notas": {
+    "draw": 2,
+    "vida": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Recompensa o turno em que você ganha vida: devolve ao campo uma criatura de valor de mana até a vida ganha; a ficha de Peste ainda ganha 1 ao atacar."
+   },
+   "tier": "A",
+   "rel": "ALT",
+   "veredito": "avaliar",
+   "faz": "Criatura lendária 2/1 de 3, voa. Ao entrar, cria uma Peste 1/1 que ganha 1 de vida ao atacar. No seu fim de turno, se ganhou vida, devolve do cemitério ao campo uma criatura de valor de mana até a vida ganha no turno.",
+   "porque": "O deck ganha vida todo turno, então ele reanima uma criatura por turno, de graça. Carta nova, ainda sem leitura da comunidade com o Vito; vale testar no lugar do Nullpriest of Oblivion, que reanima uma vez só.",
+   "sai": "Nullpriest of Oblivion",
+   "papel": "recompensa",
+   "papel_por_que": "Transforma o ganho de vida do turno em uma criatura de volta ao campo.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Liga em quase todo turno, porque o deck ganha vida sempre.",
+    "I": "Uma criatura de volta ao campo por turno, se ele sobreviver.",
+    "T": "Três manas por um voador e uma reanimação por turno.",
+    "Q": "Paridade, atrás e na frente; cedo o cemitério ainda está vazio.",
+    "R": "O Nullpriest of Oblivion reanima uma vez, pagando o kicker de oito."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "baixa",
+   "indice": 2.25,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Vampire Nocturnus": {
+   "notas": {
+    "vamp_c": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Lorde: com o topo preto, ele e os outros Vampiros ganham +2/+1 e voar."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Vampiro 3/3 de 4. Jogue com o topo revelado; com o topo preto, ele e os seus Vampiros têm +2/+1 e voar.",
+   "porque": "Dá voar à tribo inteira, e o deck está abaixo da cota de evasão (4 de 6 a 12): é o que faz o ataque com vínculo conectar. O topo é preto na maior parte do tempo, mas não sempre. Sai o Captivating Vampire, o outro lorde.",
+   "sai": "Captivating Vampire",
+   "papel": "multiplica",
+   "papel_por_que": "Voar e +2/+1 aos Vampiros: mais dano com vínculo por ataque.",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "O ataque da tribo com vínculo passa por cima da mesa.",
+    "I": "Time voando com +2/+1, quando o topo é preto e ele sobrevive.",
+    "T": "Quatro manas, BBB, um 3/3 que cresce.",
+    "Q": "Na frente e na paridade; atrás e cedo pesa pouco.",
+    "R": "Evasão abaixo da cota, e nenhuma carta da lista dá voar ao time."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Vengeful Bloodwitch": {
+   "notas": {
+    "vamp_c": 2,
+    "vida": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor de ganho que não depende de combate: ganha 1 a cada criatura sua que morre, um gatilho do Vito por morte.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "avaliar",
+   "faz": "Vampiro 1/1 de 2. Quando ela ou outra criatura sua morre, um oponente alvo perde 1 e você ganha 1.",
+   "porque": "Vampiro barato de dreno, como o dono pede: cada morte sua vira 1 de vida e um gatilho do Vito. Faz menos que o Blood Artist, que conta toda criatura. Alternativa à Starscape Cleric para sair a Sanguine Spy, sem tirar um Vampiro.",
+   "sai": "Sanguine Spy",
+   "papel": "habilita",
+   "papel_por_que": "Cada morte sua é 1 de vida: um gatilho do Vito.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada morte sua alimenta o ganhar.",
+    "I": "1 de dreno por morte; não muda a mesa sozinha.",
+    "T": "Duas manas, sem custo por gatilho.",
+    "Q": "Cedo, na paridade e depois de uma limpeza.",
+    "R": "O Blood Artist e o Vein Ripper já fazem o papel, e melhor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Bloodthirsty Aerialist": {
+   "notas": {
+    "vamp_c": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Recompensa o ganho de vida: um marcador +1/+1 a cada ganho, sem ganhar vida.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Vampiro 2/3 de 3, voa. Sempre que você ganha vida, recebe um marcador +1/+1.",
+   "porque": "A de maior sinergia na comunidade fora do deck (+40, +55 nos Vampiros), mas só cresce: não ganha vida nem tira. Carta boa, não marvada.",
+   "papel": "recompensa",
+   "papel_por_que": "Cresce a cada ganho de vida.",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cresce com o ganho, mas não alimenta nenhum verbo.",
+    "I": "Um voador que fica grande se sobreviver.",
+    "T": "Três manas por um voador 2/3.",
+    "Q": "Cedo, na paridade e na frente.",
+    "R": "Os voadores de vínculo da lista e do radar fazem mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Cordial Vampire": {
+   "notas": {
+    "vamp_c": 3
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Marcador +1/+1 em cada Vampiro a cada criatura que morre: multiplica a tribo."
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Vampiro 1/1 de 2. Quando ele ou outra criatura morre, cada Vampiro seu recebe um marcador +1/+1.",
+   "porque": "Cresce a tribo a cada morte, mas não ganha vida nem drena; o Indulgent Aristocrat já faz o papel com vínculo.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Amplia a tribo, que é quem ataca com vínculo.",
+    "I": "Marcadores aos poucos, se sobreviver.",
+    "T": "Duas manas, BB, por um 1/1.",
+    "Q": "Na paridade e na frente.",
+    "R": "O Indulgent Aristocrat faz o mesmo e tem vínculo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Veinwitch Coven": {
+   "notas": {
+    "vamp_c": 2,
+    "draw": 1
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Recompensa o ganho de vida: a cada ganho, paga {B} e devolve uma criatura à mão.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Vampiro 3/3 de 3, ameaça. Sempre que você ganha vida, pode pagar {B} para devolver uma criatura do cemitério à mão.",
+   "porque": "Recursão paga a cada ganho de vida; a Witch of the Moors e o Moseo do radar fazem mais pelo mesmo gatilho.",
+   "papel": "recompensa",
+   "papel_por_que": "Cada ganho de vida pode virar uma criatura de volta.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Rende com o ganho de vida, que o deck faz todo turno.",
+    "I": "Uma criatura de volta à mão, pagando mana.",
+    "T": "Três manas por um 3/3 com ameaça.",
+    "Q": "Na paridade, atrás e na frente.",
+    "R": "Witch of the Moors e Moseo do radar fazem mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Kalastria Highborn": {
+   "notas": {
+    "vamp_c": 2,
+    "vida": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor de ganho que não depende de combate: a cada Vampiro seu que morre, paga {B} para drenar 2.",
+    "sin2": "Vampiro cujo efeito usa os outros Vampiros: cada morte de Vampiro seu é um dreno."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Vampiro 2/2 de 2. Quando ele ou outro Vampiro seu morre, pode pagar {B}: um jogador alvo perde 2 e você ganha 2.",
+   "porque": "Dreno por morte de Vampiro, pagando mana a cada vez; o Blood Artist faz de graça e conta toda criatura.",
+   "papel": "habilita",
+   "papel_por_que": "Cada Vampiro que morre pode virar 2 de vida.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada morte de Vampiro alimenta o ganhar.",
+    "I": "2 de dreno por morte, pagando {B}.",
+    "T": "Duas manas, mais {B} por gatilho.",
+    "Q": "Cedo, na paridade e depois de uma limpeza.",
+    "R": "Blood Artist e Vein Ripper fazem de graça."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Vraan, Executioner Thane": {
+   "notas": {
+    "vamp_c": 2,
+    "vida": 2
+   },
+   "sin": {
+    "sin1": 2,
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin1": "Motor de ganho que não depende de combate: drena 2 de cada oponente quando suas criaturas morrem, uma vez por turno.",
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Vampiro lendário 2/2 de 2. Quando outras criaturas suas morrem, cada oponente perde 2 e você ganha 2, uma vez por turno.",
+   "porque": "Um gatilho por turno só; o Blood Artist e o Vein Ripper rendem a cada morte. Boa, não marvada.",
+   "papel": "habilita",
+   "papel_por_que": "Uma morte por turno vira vida para o Vito.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Mortes viram ganho de vida.",
+    "I": "Um dreno de 2 por turno, no máximo.",
+    "T": "Duas manas.",
+    "Q": "Cedo, na paridade e depois de uma limpeza.",
+    "R": "Blood Artist e Vein Ripper rendem mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Drana, Liberator of Malakir": {
+   "notas": {
+    "vamp_s": 2
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Vampiro sem efeito voltado aos outros Vampiros: os marcadores vão a toda criatura que ataca, não só aos Vampiros."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Vampira lendária 2/3 de 3, voa e golpe primeiro. Quando causa dano de combate a um jogador, cada criatura sua que ataca recebe um marcador +1/+1.",
+   "porque": "Cresce o ataque, mas não ganha vida nem drena; o Vampire Nocturnus do radar resolve melhor a falta de evasão.",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ajuda o ataque, sem tocar no ganho de vida.",
+    "I": "Marcadores no ataque, se ela conectar e sobreviver.",
+    "T": "Três manas por voar e golpe primeiro.",
+    "Q": "Cedo, na paridade e na frente.",
+    "R": "Evasão abaixo da cota, mas o Nocturnus cobre mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Patron of the Vein": {
+   "notas": {
+    "vamp_c": 3,
+    "removal": 2
+   },
+   "sin": {
+    "sin2": 3
+   },
+   "sin_por_que": {
+    "sin2": "Marcador +1/+1 em cada Vampiro a cada criatura de oponente que morre: multiplica a tribo."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Vampiro 4/4 de 6, voa. Ao entrar, destrói uma criatura de oponente. Quando uma criatura de oponente morre, exila-a e cada Vampiro seu recebe um marcador +1/+1.",
+   "porque": "Remoção com corpo e buff da tribo, mas custa seis num deck de CMC 3,16 e não ganha vida.",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remove e cresce a tribo.",
+    "I": "Uma remoção e um voador 4/4.",
+    "T": "Seis manas.",
+    "Q": "Na paridade, atrás e na frente.",
+    "R": "Consuming Corruption e Deadly Rollick removem mais barato."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Crypt Incursion": {
+   "notas": {
+    "removal": 1,
+    "vida": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Ganho grande de uma vez: 3 de vida por criatura exilada, que o Vito devolve inteiro num alvo."
+   },
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Instantânea de 3. Exila todas as criaturas do cemitério de um jogador; você ganha 3 por carta exilada.",
+   "porque": "Ódio a cemitério com ganho grande, mas depende do cemitério alheio; o deck não tem buraco de remoção.",
+   "papel": "habilita",
+   "papel_por_que": "Ganho de vida grande de uma vez.",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O ganho vira dreno pelo Vito.",
+    "I": "Depende de quanto há no cemitério alvo.",
+    "T": "Três manas, instantânea.",
+    "Q": "Na paridade, atrás e na frente.",
+    "R": "Remoção dentro da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Well of Lost Dreams": {
+   "notas": {
+    "draw": 2
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Recompensa o ganho de vida: a cada ganho, paga X para comprar X."
+   },
+   "tier": "C",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Artefato de 4. Sempre que você ganha vida, pode pagar X, até a vida ganha, para comprar X cartas.",
+   "porque": "Compra a cada ganho, mas cobra mana duas vezes; o Champion of Dusk e o Sorin the Mirthless do radar cobrem a compra melhor.",
+   "papel": "recompensa",
+   "papel_por_que": "Ganho de vida vira compra, pagando mana.",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Liga com o ganho de vida do deck.",
+    "I": "Cartas na medida da mana que sobra.",
+    "T": "Quatro manas e mais X por uso.",
+    "Q": "Na paridade, atrás e na frente.",
+    "R": "Compra abaixo da cota, mas há opções melhores no radar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Phyrexian Arena": {
+   "notas": {
+    "draw": 3
+   },
+   "sin": {},
+   "sin_por_que": {},
+   "tier": "B",
+   "rel": "MED",
+   "veredito": "fora",
+   "faz": "Encantamento de 3. Na sua manutenção, você compra uma carta e perde 1 de vida.",
+   "porque": "Staple de compra, sem sinergia com o Vito. O buraco de compra (9 de 10 a 12) vai para o Champion of Dusk e o Sorin the Mirthless, que rendem com a tribo.",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura que qualquer deck preto usaria.",
+    "I": "Uma carta a mais por turno.",
+    "T": "Três manas.",
+    "Q": "Cedo, na paridade e atrás.",
+    "R": "Compra abaixo da cota, mas o radar tem opções da tribo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
+  },
+  "Demon's Horn": {
+   "notas": {
+    "vida": 1
+   },
+   "sin": {
+    "sin1": 2
+   },
+   "sin_por_que": {
+    "sin1": "Motor de ganho que não depende de combate: 1 de vida a cada mágica preta de qualquer jogador, um gatilho do Vito por vez."
+   },
+   "tier": "C",
+   "rel": "BAX",
+   "veredito": "fora",
+   "faz": "Artefato de 2. Sempre que um jogador conjura uma mágica preta, você pode ganhar 1.",
+   "porque": "Um gatilho do Vito por mágica preta, mas não faz mais nada: ocupa vaga de carta que muda o jogo.",
+   "papel": "habilita",
+   "papel_por_que": "Cada mágica preta é 1 de vida.",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Alimenta o ganhar a cada mágica sua.",
+    "I": "1 de vida por vez.",
+    "T": "Duas manas por um efeito pequeno.",
+    "Q": "Cedo e na paridade.",
+    "R": "Os motores de ganho da lista rendem mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4,
+   "origem": "comunidade EDHREC e edh.wiki (2026-11-13)"
   }
  },
  "combos": [
