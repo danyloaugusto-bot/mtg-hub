@@ -80,14 +80,9 @@ def resolver(pasta):
         lados = encaixe._lados(r)
         base = [c for c in m["cards"] if not _protegida(c, combo) and not _demonio_preso(pasta, c, r)
                 and c["id"] not in usados and encaixe._lados(c) & lados]
-        ultimo = False
         if not base:
-            # último recurso, para não repetir corte: terreno que busca outro, se é só isso que o protege
-            base = [c for c in m["cards"] if destinos._busca_terreno(c) and not _travada(c, combo)
-                    and c["id"] not in usados and encaixe._lados(c) & lados]
-            ultimo = bool(base)
-        if not base:
-            out.append((r["n"], atual["n"] if atual else r["sai"], None, "nenhum corte livre do mesmo lado", None))
+            # sem corte livre, nada se força (dono, 13/11/2026): a carta fica sem corte e, se era entra, vira avaliar
+            out.append((_chave(r), _chave(atual) if atual else r["sai"], None, "nenhum corte livre do mesmo lado", None))
             continue
         top = max(r["s3"][2:]) if r.get("s3") else 0
         fun = [i for i in range(2, len(r["s3"])) if top and r["s3"][i] == top]
@@ -99,8 +94,6 @@ def resolver(pasta):
         motivo = ("%s é Demônio e só sai por outro Demônio" % atual["n"]) if demonio else \
                  _porque_protegida(atual, combo) if atual is not None and _protegida(atual, combo) else \
                  ("%s já é o corte de uma carta de letra mais alta" % (atual["n"] if atual else r["sai"]))
-        if ultimo:
-            motivo += "; %s busca outro terreno, mas é o único corte de terreno ainda livre (último recurso)" % novo["n"]
         out.append((_chave(r), _chave(atual) if atual else r["sai"], _chave(novo), motivo, novo["n"]))
     return out
 
@@ -112,10 +105,16 @@ def gravar(pasta, mudancas):
     R = a["radar"]
     for n, antes, depois, motivo, impresso in mudancas:
         x = R.get(n)
-        if x is None or depois is None or depois == antes:
+        if x is None or depois == antes:
             continue
-        x["sai"] = depois
-        nota = "Corte pelo critério do dono (13/11/2026): sai %s, porque %s." % (impresso, motivo)
+        if depois is None:
+            x.pop("sai", None)
+            if x.get("veredito") == "entra":
+                x["veredito"] = "avaliar"
+            nota = "Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força."
+        else:
+            x["sai"] = depois
+            nota = "Corte pelo critério do dono (13/11/2026): sai %s, porque %s." % (impresso, motivo)
         p = (x.get("porque") or "").rstrip()
         x["porque"] = (p + " " + nota).strip() if nota not in p else p
     with io.open(arq, "w", encoding="utf-8", newline="\n") as f:
@@ -136,7 +135,7 @@ def main():
         print("%s: sai %s -> %s (%s)" % (n, antes, depois or "sem corte livre", motivo))
     if a.gravar:
         gravar(a.deck, mud)
-        print("gravado: %d cartas do radar" % sum(1 for x in mud if x[2]))
+        print("gravado: %d cartas do radar" % sum(1 for x in mud if x[2] != x[1]))
 
 
 if __name__ == "__main__":
