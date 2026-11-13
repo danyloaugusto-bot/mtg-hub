@@ -408,6 +408,78 @@ def dossie_lentes(arq, deck=None, tamanho=LOTE, avisar=print, parte=None):
     return out
 
 
+def dossie_pares(entrada, arq, avisar=print):
+    """Revisão: o dossiê das lentes para pares escolhidos ({carta: [pasta, ...]}), com ou sem lente gravada."""
+    with open(entrada, encoding="utf-8") as fh:
+        pares = json.load(fh)
+    d = ler()
+    cad = dados.ler_cadastro()
+    tx = _textos()
+    uni = universo()
+    D = {m["pasta"]: m for m in encaixe.decks_v3()}
+    lote = []
+    for nome, pastas in pares.items():
+        u = uni.get(nome)
+        if not u:
+            raise ErroDestinos("%s não está em nenhum deck" % nome)
+        rk = {z["pasta"]: z for z in (ranking(nome, d, cad, u["carta"]) or [])}
+        le = (d["cartas"].get(nome) or {}).get("lentes") or {}
+        sins = (d["cartas"].get(nome) or {}).get("sin") or {}
+        destinos = []
+        for p in pastas:
+            z = rk.get(p)
+            if not z:
+                raise ErroDestinos("%s: %s não é destino possível (cores, já tem a carta ou sem sinergia completa)" % (nome, p))
+            m = D[p]
+            st = tx.get(z["sai"]) or {}
+            destinos.append(dict(pasta=p, ficha=_ficha_deck(m), sinergia=dict(zip(("sin1", "sin2"), z["sin"])),
+                                 sinergia_por_que=(sins.get(p) or {}).get("pq"), ganho=z["ganho"],
+                                 falta_no_deck=["%s: %d, faixa a partir de %d" % (f["k"], f["n"], f["min"]) for f in z["falta"]],
+                                 sai=dict(nome=z["sai"], tier=z["sai_tier"], texto=st.get("texto")) if z["sai"] else None,
+                                 no_radar=(_no_radar(m, nome) or {}).get("verdict"), lente_gravada=le.get(p)))
+        t = tx.get(nome) or {}
+        lote.append(dict(nome=nome, custo=t.get("custo"), tipo=t.get("tipo"), texto=t.get("texto"), forca_resistencia=t.get("forca_resistencia"),
+                         cadastro=(cad.get(nome) or {}).get("n"), esta_em=u["decks"], destinos=destinos))
+    out = dict(etapa="revisao", gerado=_hoje(), regua=dict(lentes=tier.regua()["lentes"], funcoes=list(tier.regua()["funcoes"]),
+               pesos=tier.regua()["pesos"], cortes=tier.regua()["cortes"], portao_s=tier.regua()["portao_s"], travas=tier.regua()["travas"]),
+               cartas=lote, responder="mesmo formato do --lentes; cada par respondido substitui a lente gravada")
+    with open(arq, "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, indent=1)
+    avisar("destinos, revisão: %d cartas, %d pares" % (len(lote), sum(len(x["destinos"]) for x in lote)))
+    return out
+
+
+def corrigir_sinergias(arq, avisar=print):
+    """Revisão: troca a sinergia já gravada aqui de um par ({carta: {pasta: {sin, sin_por_que}}}) e apaga a lente dele, para refazer.
+    A sinergia que vem do radar ou da Caixa do deck não muda por aqui."""
+    with open(arq, encoding="utf-8") as fh:
+        j = json.load(fh)
+    universo()
+    with _Trava():
+        d = ler()
+        n = 0
+        for nome, x in j.items():
+            if nome.startswith("_"):
+                continue
+            e = d["cartas"].get(nome) or {}
+            for p, y in x.items():
+                if p not in (e.get("sin") or {}):
+                    raise ErroDestinos("%s, %s: sinergia não gravada nos destinos (vem do deck ou não existe)" % (nome, p))
+                sin, pq = y.get("sin") or {}, y.get("sin_por_que") or {}
+                for k in ("sin1", "sin2"):
+                    v = sin.get(k, 0)
+                    if not isinstance(v, int) or isinstance(v, bool) or not 0 <= v <= 3:
+                        raise ErroDestinos("%s, %s: %s=%r; a nota vai de 0 a 3" % (nome, p, k, v))
+                    if v and not str(pq.get(k) or "").strip():
+                        raise ErroDestinos("%s, %s: falta o porquê de %s" % (nome, p, k))
+                e["sin"][p] = dict(sin=[sin.get("sin1", 0), sin.get("sin2", 0)], **({"pq": {k: pq[k] for k in ("sin1", "sin2") if sin.get(k)}} if any(sin.values()) else {}))
+                (e.get("lentes") or {}).pop(p, None)
+                n += 1
+        gravar(d)
+    avisar("destinos: %d sinergias corrigidas (as lentes desses pares saíram, para refazer)" % n)
+    return n
+
+
 def gravar_lentes(arq, avisar=print):
     with open(arq, encoding="utf-8") as fh:
         j = json.load(fh)
@@ -559,6 +631,8 @@ def main():
     ap.add_argument("--parte", help="k/n: só as cartas da parte k (de 0 a n-1), para agentes em paralelo sem repetir carta")
     ap.add_argument("--status", action="store_true")
     ap.add_argument("--carta")
+    ap.add_argument("--dossie-pares", nargs=2, metavar=("PARES", "ARQ"), help="revisão: dossiê das lentes de pares {carta: [pasta]}")
+    ap.add_argument("--corrigir-sinergias", metavar="ARQ", help="revisão: troca sinergias gravadas aqui e apaga a lente do par")
     a = ap.parse_args()
     parte = tuple(int(x) for x in a.parte.split("/")) if a.parte else None
     try:
@@ -572,6 +646,10 @@ def main():
             gravar_lentes(a.lentes)
         elif a.carta:
             mostrar(a.carta)
+        elif a.dossie_pares:
+            dossie_pares(*a.dossie_pares)
+        elif a.corrigir_sinergias:
+            corrigir_sinergias(a.corrigir_sinergias)
         else:
             status()
     except ErroDestinos as e:
