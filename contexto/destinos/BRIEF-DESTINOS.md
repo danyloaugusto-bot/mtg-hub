@@ -1,6 +1,6 @@
 # Tarefa: destinos das cartas (MTG Hub)
 
-Projeto em `C:\Projetos\mtg-hub`. O dono clica numa carta de um deck e quer saber **em que outro deck dele ela renderia mais**: os três melhores, cada um com a letra da tier list, o ganho no placar, quem sairia e o porquê (pedido de 12/11/2026). Você faz isso para uma parte das cartas, em duas etapas, pelo `motor/destinos.py`. Ele grava só em `dados/destinos/destinos.json`. **Você não grava mais nada no projeto**: só os seus arquivos de resposta na pasta de rascunho indicada. Não faça commit, não monte painel, não mexa em `decklist.txt`, `tema.json`, `avaliacao.json` nem `dados/cartas.json`.
+Projeto em `C:\Projetos\mtg-hub`. O dono clica numa carta de um deck e quer saber **em que outro deck dele ela renderia mais**: os três melhores, cada um com a letra da tier list, o ganho no placar, quem sairia e o porquê (pedido de 12/11/2026). Desde 13/11/2026, as cartas da pasta física Preta P também entram (`esta_em` vazio quando ela não está em deck nenhum: todo deck nas cores dela é alvo). Você faz isso para uma parte das cartas, em duas etapas, pelo `motor/destinos.py`. Ele grava só em `dados/destinos/destinos.json`. **Você não grava mais nada no projeto**: só os seus arquivos de resposta na pasta de rascunho indicada. Não faça commit, não monte painel, não mexa em `decklist.txt`, `tema.json`, `avaliacao.json` nem `dados/cartas.json`.
 
 Em Git Bash, todo comando termina com `< /dev/null`, e o Python roda com `PYTHONIOENCODING=utf-8`.
 
