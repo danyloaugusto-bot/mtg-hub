@@ -38,3 +38,4 @@
 - 09/11/2026: staples no radar pela regra do dono (só entram com buraco no critério ou no pacote, ou com sinergia própria; proteção genérica só onde proteção é agrupamento): Beast Within, fica (entra): buraco em Remoção.
 - 09/11/2026: radar: 2 cartas das coleções novas pelo /colecao (FRA 1, TRK 1; 0 entra, 2 avaliar, 0 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 3 S, 12 A, 47 B, 33 C, 5 D, com o comandante; Immerwolf e Werewolf Pack Leader em S; textos do Fires of Yavimaya e do Immerwolf corrigidos.
+- 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 6 cartas do radar com corte novo.
