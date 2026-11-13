@@ -32,3 +32,4 @@
 - 09/11/2026: leitura de terrenos com mínimo 32 e nota: escolha do dono, deck curvado (criatura de custo X no turno X), abaixo da cota de 33 a 35.
 - 09/11/2026: radar: 1 cartas das coleções novas pelo /colecao (TRC 1; 0 entra, 1 avaliar, 0 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 5 S, 13 A, 59 B, 22 C, 1 D, com o comandante; ficha corrigida (32 terrenos, sem a regra de S só para Vampiro) e textos de Windbrisk Heights, Dragonskull Summit, Bloodlord of Vaasgoth e das proteções corrigidos.
+- 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 8 cartas do radar com corte novo.
