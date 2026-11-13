@@ -51,3 +51,4 @@
 - 09/11/2026: staples no radar pela regra do dono (só entram com buraco no critério ou no pacote, ou com sinergia própria; proteção genérica só onde proteção é agrupamento): Swords to Plowshares, fora (entra antes).
 - 09/11/2026: radar: 3 cartas das coleções novas pelo /colecao (FRC 1, TRC 1, TRK 1; 1 entra, 1 avaliar, 1 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 6 S, 13 A, 58 B, 21 C, 2 D, com o comandante; Stroke of Midnight foi de A para C; texto da Crackdown corrigido.
+- 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 8 cartas do radar com corte novo.
