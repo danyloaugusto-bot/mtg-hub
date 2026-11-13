@@ -40,3 +40,4 @@
 - 09/11/2026: staples no radar pela regra do dono (só entram com buraco no critério ou no pacote, ou com sinergia própria; proteção genérica só onde proteção é agrupamento): Ancient Tomb, fora (entra antes).
 - 09/11/2026: radar: 10 cartas das coleções novas pelo /colecao (FRA 4, MBC 1, TRC 5; 0 entra, 10 avaliar, 0 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 3 S, 4 A, 56 B, 32 C, 5 D, com a comandante; combo Cutelo e Charger corrigido: o laço só fecha com o Torbran em campo ou mais uma mana por volta.
+- 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 8 cartas do radar com corte novo.
