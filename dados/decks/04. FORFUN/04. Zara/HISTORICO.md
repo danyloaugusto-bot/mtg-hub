@@ -37,3 +37,4 @@
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 2 S, 10 A, 49 B, 26 C, 13 D, com a comandante; Mob Rule em S; os dois Niv-Mizzet (estimação) de A para C; mágicas Izzet com Encaixe 0, pela homenagem do deck; textos do Kitnap e do Sol Ring corrigidos.
 - 12/11/2026: radar: Thassa, Deep-Dwelling com letra S (era A), pela tier list; segue entra no lugar do Nevinyrral's Disk.
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 14 cartas do radar com corte novo.
+- 13/11/2026: sem corte forçado (decisão do dono): Volcanic Island fica sem corte, como avaliar, até abrir vaga de terreno.
