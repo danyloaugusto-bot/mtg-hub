@@ -37,3 +37,4 @@
 - 09/11/2026: radar: 2 cartas das coleções novas pelo /colecao (FRC 2; 0 entra, 2 avaliar, 0 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 7 S, 10 A, 54 B, 20 C, 9 D, com o comandante; Font of Agonies (estimação) em S, Call to the Void (estimação) e Platinum Angel em D; textos da Charcoal Diamond e da Heraldic Banner corrigidos.
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 10 cartas do radar com corte novo.
+- 13/11/2026: sem corte forçado (decisão do dono): Deserted Temple fica sem corte, como avaliar, até abrir vaga de terreno.
