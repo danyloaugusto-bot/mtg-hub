@@ -169,7 +169,8 @@ def _consultar(c, pedidos, faltam, hoje, avisar):
                     # o número do colecionador é sensível a maiúsculas no Scryfall (promo "1P" difere de "1p")
                     ids.append((i, {"set": p["set"].lower(), "collector_number": str(p["num"])}))
                 else:
-                    ids.append((i, {"name": p["name"]}))
+                    # pela face da frente: o Scryfall passou a recusar "A // B" na busca por nome (visto em 15/11/2026)
+                    ids.append((i, {"name": p["name"].split(" // ")[0]}))
             nao = []
             for n in range(0, len(ids), 75):
                 lote = ids[n:n + 75]
