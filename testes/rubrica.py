@@ -13,7 +13,7 @@ sys.dont_write_bytecode = True
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(RAIZ, "motor"))
 import comum  # noqa: E402
-import dados, hub  # noqa: E402
+import dados, destinos, hub  # noqa: E402
 
 R = comum.Relatorio("rubrica da pontuação v3")
 with open(os.path.join(RAIZ, "motor", "pontuacao.json"), encoding="utf-8") as f:
@@ -129,8 +129,12 @@ def ganho_mao(nome, pasta, ls):
     n2 = {k: sum(c["q"] for c in m["cards"] if c["s3"][i] >= SAT.get("conta_com_nota_minima", 2)) for i, k in enumerate(CRIT)}
     mult = {k: SAT["abaixo"] if n2[k] < FAIXA[k][0] else SAT["acima"] if n2[k] > FAIXA[k][1] else SAT["dentro"] for k in CRIT}
     val = lambda nt, ml=None: sum(PESO[k] * PN[v] * (ml[k] if ml else 1) for k, v in nt.items() if v)
-    # terreno troca com terreno, mágica com mágica; a MDFC está nos dois grupos e, entrando, troca com qualquer um
-    cands = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and lados(c) & ls and c["q"] == 1]
+    # terreno troca com terreno, mágica com mágica; a MDFC entrando troca com qualquer um, mas só sai por quem também joga
+    # como terreno (dono, 15/11/2026); nunca saem S, A, fica, peça de combo nem terreno que busca outro (as regras do destinos.corte)
+    combo = {i for cb in m.get("combos") or [] for i in cb.get("p") or []}
+    cands = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and not c.get("fica") and lados(c) & ls and c["q"] == 1
+             and c.get("tier") not in ("S", "A") and c["id"] not in combo and not destinos._busca_terreno(c)
+             and not (c.get("mdfc") and "terra" not in ls)]
     sai = min(cands, key=lambda c: (val(dict(zip(CRIT, c["s3"]))), c["n"]))
     return round(val(notas_mao(nome, pasta), mult) - val(dict(zip(CRIT, sai["s3"]))), 2), sai["n"]
 
