@@ -34,3 +34,4 @@
 - 09/11/2026: radar: 1 cartas das coleções novas pelo /colecao (FRA 1; 1 entra, 0 avaliar, 0 fora), com o selo de coleção e o filtro no radar; bloco "A história" na Visão geral (historia.md, resumo do mtg.wiki ou da Wikipedia); "Onde mais renderia" na gaveta de cada carta.
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 2 S, 7 A, 58 B, 28 C, 5 D, com o comandante; Goblin Bombardment em S; Skullclamp e Thornbite Staff, só no radar, sairiam S e B; textos de Marvin, Raid Bombardment, Breeches e Sol Ring corrigidos.
 - 12/11/2026: radar: Skullclamp com letra S (era A), pela tier list; segue entra no lugar da Lavabrink Floodgates.
+- 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/krenko-mob-boss/goblins.json): 25 cartas de sinergia +10 ou mais, 8 novas (as maiores: Sting, the Glinting Dagger (+30), Boggart Shenanigans (+27), Patriar's Seal (+25)); 2 saíram da lista. Nada foi ao radar.
