@@ -32,7 +32,7 @@ var LAB = null, MAXFIX = null, FOLGA = 1.5, FAIXA_VIS = false, FXS = null;
 function LB(i, v) { return LAB ? LAB[i] : v; }
 /* ao lado do número de cada critério: ▲ acima da faixa da régua, ▼ abaixo (vale para todo desenho, com ou sem a faixa desenhada) */
 function FX(i) { var x = FXS && FXS[i]; return x ? '<tspan class="fx-s fx-' + x + '">' + (x === 'a' ? ' ▲' : ' ▼') + '</tspan>' : ''; }
-function ctrLongo(st) { return fmtP(st.total).length > 4 ? ' longo' : ''; }
+function ctrLongo(st) { var n = fmtP(st.total).length; return n > 6 ? ' longo longo2' : n > 4 ? ' longo' : ''; }   /* 1.080,5 não cabe no medalhão a 34px (rebranding, 14/11/2026) */
 var IPET = (function () { for (var i = 0; i < NG; i++) if (G[i].pet) return i; return -1; })();
 var NUM = ['zero', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
 var MK = D.marcadores || {};
