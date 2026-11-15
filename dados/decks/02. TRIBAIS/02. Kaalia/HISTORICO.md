@@ -34,3 +34,4 @@
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 4 S, 7 A, 57 B, 26 C, 6 D, com a comandante; Avacyn, Gisela e Balefire Dragon em S; Balor, Piru, Strixhaven Stadium e Master of Cruelties corrigidos.
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 22 cartas do radar com corte novo.
 - 13/11/2026: sem corte forçado (decisão do dono): Hall of Echoes fica sem corte, como avaliar, até abrir vaga de terreno.
+- 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/kaalia-of-the-vast/aggro.json): 25 cartas de sinergia +10 ou mais, 13 novas (as maiores: Bloodthirster (+25), Phyrexian Arena (+24), Hall of the Bandit Lord (+20)); 7 saíram da lista. Nada foi ao radar.
