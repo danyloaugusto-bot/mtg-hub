@@ -42,3 +42,4 @@
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 3 S, 9 A, 63 B, 17 C, 8 D, com o comandante; Bloated Contaminator e Flesh Burrower em S; Myriad Landscape de B para D; textos da Courage in Crisis e de dois terrenos do radar corrigidos.
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 6 cartas do radar com corte novo.
 - 13/11/2026: sem corte forçado (decisão do dono): Rogue's Passage (era entra), Access Tunnel e Mirrex ficam sem corte, como avaliar, até abrir vaga de terreno. Placar com as trocas 826,5.
+- 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/fynn-the-fangbearer/deathtouch.json): 25 cartas de sinergia +10 ou mais, 3 novas (as maiores: Carnivorous Canopy (+35), Noxious Assault (+35), Frog Butler (+33)); 3 saíram da lista. Nada foi ao radar.
