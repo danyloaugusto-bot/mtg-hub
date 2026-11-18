@@ -230,9 +230,25 @@ def _ler_arquivos(caminhos, nome_de):
 
 
 def ler_listas(base=None):
-    """Todas as listas de dados/caixa/listas/, com o resumo da importação de cada uma."""
+    """Todas as listas de dados/caixa/listas/, com o resumo da importação de cada uma. Cada subpasta é um lugar físico (a caixa onde
+    as cartas estão: "Caixa Solta", um bundle, uma caixa de madeira; pedido do dono, 16/11/2026): a lista dentro dela leva o nome
+    "<lugar>/<arquivo>" e cada cópia ganha "lugar". Arquivo solto na raiz fica sem lugar."""
     d = os.path.join(pasta_caixa(base), "listas")
-    return _ler_arquivos([os.path.join(d, a) for a in sorted(os.listdir(d))] if os.path.isdir(d) else [], os.path.basename)
+    if not os.path.isdir(d):
+        return _ler_arquivos([], os.path.basename)
+    caminhos = []
+    for a in sorted(os.listdir(d)):
+        p = os.path.join(d, a)
+        if os.path.isdir(p):
+            caminhos += [os.path.join(p, b) for b in sorted(os.listdir(p)) if os.path.isfile(os.path.join(p, b))]
+        else:
+            caminhos.append(p)
+    copias, resumo = _ler_arquivos(caminhos, lambda p: os.path.relpath(p, d).replace(os.sep, "/"))
+    for c in copias:
+        c["lugar"] = c["lista"].split("/")[0] if "/" in c["lista"] else ""
+    for x in resumo:
+        x["lugar"] = x["arquivo"].split("/")[0] if "/" in x["arquivo"] else ""
+    return copias, resumo
 
 
 def pastas_lista():
@@ -851,7 +867,7 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
                       data=r.get("consultado"), avisos=list(avisos), lista=c["lista"], linha=c["linha"], ent=c.get("ent"))
             if c.get("proxy"):
                 cp["proxy"] = 1
-            for k in ("selos", "rar", "compra"):
+            for k in ("selos", "rar", "compra", "lugar"):
                 if c.get(k):
                     cp[k] = c[k]
             if ant.get("ant") is not None:   # o preço da atualização anterior: o placar de cada origem soma a variação
@@ -884,6 +900,7 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
         v["copias"] = resto
 
     cartas, sem_cadastro = [], []
+    npts = nomes_pt()
     for nome, v in sorted(por_carta.items()):
         if not v["copias"]:
             continue
@@ -959,6 +976,14 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
                     em_decks=em_decks, radares=radares, pastas=nas_pastas, compra=na_compra, enc=enc, edh=edh,
                     sid=r.get("id"), iset=r.get("set"), inum=r.get("num"), image=r.get("image", True), pet=1 if pet.get(ch) else 0,
                     ban=1 if ban else 0, leg=r.get("leg"), ilegal=1 if r.get("leg") == "not_legal" else 0)
+        # lista da LigaMagic (16/11/2026): carta dividida, de preparar e aventura vão com o nome completo ("Grave Researcher // Reanimate");
+        # as que se transformam e as MDFC, com o da frente; ficha fica fora
+        if r.get("layout") in ("split", "prepare", "adventure", "flip", "aftermath") and " // " in (r.get("name") or ""):
+            card["nl"] = r["name"]
+        if r.get("layout") in ("token", "double_faced_token", "emblem"):
+            card["tok"] = 1
+        if npts.get(nome):
+            card["npt"] = npts[nome]   # o nome impresso em português (cache/nomes-pt.json), só referência: a LigaMagic não reconhece todos
         t = trad.get(nome)
         if t and t.get("pt"):
             card["tx"] = {"pt": t["pt"]}
@@ -993,6 +1018,56 @@ def montar(avisar=print, base=None, rede=True, fonte_edhrec=None, origem=None):
                 decks={p: dict(n=d["painel"], c=d["curto"], i=d["ident"], g=d["grupo"], desejo=1 if d["desejo"] else 0,
                                precon=1 if d["precon"] else 0, **({"nc": perfis[p]["nc"], "pk": perfis[p]["pk"]} if p in perfis else {}))
                        for p, d in decks.items()})
+
+
+# ---------------------------------------------------------------- o nome em português (lista da LigaMagic)
+
+ARQ_NOMES_PT = os.path.join(dados.RAIZ, "cache", "nomes-pt.json")
+
+
+def nomes_pt():
+    """{nome em inglês: nome impresso em português, ou None quando não há impressão em pt}, lido do Scryfall por buscar_nomes_pt."""
+    try:
+        with open(ARQ_NOMES_PT, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+def buscar_nomes_pt(avisar=print):
+    """Busca no Scryfall o nome em português das cartas da Caixa e das pastas que ainda não estão no cache: primeiro a mesma
+    edição e número em pt, depois qualquer impressão em pt da carta. Uma chamada por vez, com 100 ms de intervalo."""
+    import scryfall, time, urllib.parse
+    cache = nomes_pt()
+    alvos = {}
+    for o in origens():
+        for c in montar(avisar=lambda *x: None, rede=False, origem=o)["cartas"]:
+            if c["n"] not in cache and c["n"] not in alvos:
+                alvos[c["n"]] = (c["iset"].lower(), c["inum"]) if c.get("iset") and c.get("inum") else None
+    achou = 0
+    for n, imp in alvos.items():
+        pt = None
+        if imp:
+            try:
+                r = scryfall._get("https://api.scryfall.com/cards/%s/%s/pt" % (imp[0], urllib.parse.quote(imp[1])))
+                pt = r.get("printed_name") or None
+            except scryfall.ErroScryfall:
+                pt = None
+            time.sleep(0.1)
+        if not pt:
+            q = urllib.parse.quote('!"%s" lang:pt' % n.split(" // ")[0])
+            try:
+                r = scryfall._get("https://api.scryfall.com/cards/search?q=%s&unique=prints&include_multilingual=true" % q)
+                pt = next((x.get("printed_name") for x in r.get("data") or [] if x.get("lang") == "pt" and x.get("printed_name")), None)
+            except scryfall.ErroScryfall:
+                pt = None
+            time.sleep(0.1)
+        cache[n] = pt
+        achou += 1 if pt else 0
+    os.makedirs(os.path.dirname(ARQ_NOMES_PT), exist_ok=True)
+    with open(ARQ_NOMES_PT, "w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(dict(sorted(cache.items())), ensure_ascii=False, indent=1) + "\n")
+    return dict(consultadas=len(alvos), com_pt=achou, sem_pt=len(alvos) - achou)
 
 
 # ---------------------------------------------------------------- a sugestão, cópia a cópia
@@ -1779,8 +1854,15 @@ def main():
     ap.add_argument("--traducoes-faltando", metavar="ARQUIVO", help="grava as cartas da Caixa e das pastas que ainda não têm tradução")
     ap.add_argument("--gravar-traducoes", metavar="ARQUIVO", help="grava em dados/traducoes.json as traduções de um JSON {nome: texto}")
     ap.add_argument("--precos", action="store_true", help="consulta o Scryfall de novo (ignora a validade de 7 dias) para a Caixa e as pastas, ou só --origem; atualiza a PTAX e monta a página")
+    ap.add_argument("--nomes-pt", action="store_true", help="busca no Scryfall o nome em português das cartas da Caixa e das pastas (lista da LigaMagic) e monta a página")
     ap.add_argument("--origem", help="uma pasta (dados/pastas/<pasta>.txt) no lugar da Caixa, para --importar-banco, --aplicar e --marcar")
     a = ap.parse_args()
+    if a.nomes_pt:
+        r = buscar_nomes_pt()
+        print("nomes em português: %d consultadas, %d com nome pt, %d sem impressão em pt" % (r["consultadas"], r["com_pt"], r["sem_pt"]))
+        import build
+        build.montar_caixa("embutidas")
+        return
     if a.precos:
         if a.origem and a.origem not in origens():
             raise SystemExit("origem desconhecida: %s (origens: %s)" % (a.origem, ", ".join(origens())))
