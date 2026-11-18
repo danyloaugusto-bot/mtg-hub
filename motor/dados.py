@@ -830,6 +830,11 @@ def montar(pasta, atualizar_scryfall=False, avisar=print):
         copias[e["name"]] = copias.get(e["name"], 0) + e["q"]
     for n, a in radar_av.items():
         conferir_avaliacao(a, n + " (radar)", grupos, marcadores, radar=True)
+        erro_tier = tier.conferir(a, n + " (radar)", grupo_tier)   # tier list do radar pelo método (15/11/2026)
+        if erro_tier:
+            raise ErroDeck(erro_tier)
+        if "lentes" in a:
+            a["_tl"] = tier.para_painel(a, grupo_tier)
         if a.get("sai") and a["sai"] not in cartas_av:
             raise ErroDeck("%s (radar): 'sai' aponta para %s, que não está no deck" % (n, a["sai"]))
         # a troca tira a carta inteira do deck: com um básico de dez cópias, saem as dez
