@@ -3369,7 +3369,7 @@
     "sin1": "Fábrica de Lobos: uma ficha de Lobo ao entrar e a cada vez que volta para a frente.",
     "sin2": "Rende a cada transformação, nos dois sentidos: Lobo e vida para um lado, dano para o outro."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "veredito": "entra",
    "faz": "Lobisomem antigo de 4. Ao entrar ou virar para a frente: um Lobo 2/2 e 2 de vida. Verso: atropelar; ao virar, 2 de dano num oponente e 2 numa criatura.",
@@ -3377,7 +3377,26 @@
    "sai": "Dire-Strain Rampage",
    "papel": "habilita",
    "papel_dupla": "Recompensa (dano e vida a cada transformação)",
-   "papel_por_que": "Lobisomem antigo que cria um Lobo e 2 de vida ao entrar e a cada volta ao dia."
+   "papel_por_que": "Lobisomem antigo que cria um Lobo e 2 de vida ao entrar e a cada volta ao dia.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem Humano que o Tovolar vira na manutenção e fábrica de Lobo: cria uma ficha ao entrar e a cada volta para a frente.",
+    "I": "Dois corpos da matilha e 2 de vida na hora; o dano do verso e os Lobos seguintes pedem que ele fique e que a face mude.",
+    "T": "Quatro manas por dois corpos, no padrão; o ciclo depende de quantas mágicas a mesa conjura.",
+    "Q": "Paridade, na frente e atrás (dois bloqueadores e vida); no início é caro.",
+    "R": "O Mayor of Avabruck faz um Lobo por volta à noite por duas manas, e o Tovolar's Huntmaster traz três corpos; nenhum rende nos dois sentidos da transformação."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Kruin Outlaw": {
    "notas": {
@@ -3395,7 +3414,7 @@
     "sin1": "Lobisomem que dá ameaça aos Lobisomens no verso: bônus de evasão, não lorde nem fábrica de Lobos.",
     "sin2": "Lobisomem Humano antigo que o Tovolar transforma: o verso tem golpe duplo."
    },
-   "tier": "S",
+   "tier": "B",
    "rel": "INS",
    "veredito": "entra",
    "faz": "Lobisomem antigo de 3 com iniciativa. Verso: golpe duplo, e seus Werewolves têm ameaça.",
@@ -3406,7 +3425,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (ameaça aos Lobisomens à noite)",
-   "papel_por_que": "Lobisomem antigo que o Tovolar vira: golpe duplo e ameaça à tribo."
+   "papel_por_que": "Lobisomem antigo que o Tovolar vira: golpe duplo e ameaça à tribo.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "No verso dá ameaça aos Lobisomens, e o golpe duplo compra duas com o Tovolar; mas a ameaça não alcança os Lobos nem as fichas de Lobo.",
+    "I": "Entra como corpo com iniciativa; a ameaça em massa e o golpe duplo pedem a noite.",
+    "T": "Três manas, com {R}{R} num deck de base verde.",
+    "Q": "Início (conta para os três), paridade e na frente; atrás é só um corpo.",
+    "R": "A Gruul War Chant dá ameaça a todo atacante sem pedir a noite; aqui só metade da matilha ganha, mas a evasão em massa tem só quatro cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Pyreheart Wolf": {
    "notas": {
@@ -3421,7 +3459,7 @@
    "sin_por_que": {
     "sin1": "Lobo que dá ameaça ao time a cada ataque: bônus de evasão, não lorde nem fábrica de Lobos."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "veredito": "entra",
    "faz": "Lobo 1/1 de 3. Ao atacar, suas criaturas ganham ameaça. Persistir.",
@@ -3432,7 +3470,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (ameaça ao time ao atacar)",
-   "papel_por_que": "Lobo com persistir; ao atacar, todas as suas criaturas ganham ameaça."
+   "papel_por_que": "Lobo com persistir; ao atacar, todas as suas criaturas ganham ameaça.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobo que conta para os três e, ao atacar, dá ameaça a todas as suas criaturas: a matilha conecta e o Tovolar compra.",
+    "I": "Não muda a mesa ao entrar; a ameaça em massa vem no primeiro ataque, e o undying o devolve uma vez.",
+    "T": "Três manas por evasão em massa repetível, sem pedir a noite; ele mesmo precisa atacar.",
+    "Q": "Início (conta para os três), paridade e na frente; depois de uma limpeza volta sozinho.",
+    "R": "A Gruul War Chant faz o mesmo por quatro e sem atacar; a lista tem só quatro cartas de evasão em massa."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Howlpack Resurgence": {
    "notas": {
@@ -3445,7 +3502,7 @@
    "sin_por_que": {
     "sin1": "Não é Lobo, mas existe por causa deles: +1/+1 e atropelar para Lobos e Lobisomens."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "veredito": "entra",
    "faz": "Encantamento de 3 com lampejo. Wolves e Werewolves seus +1/+1 e atropelar.",
@@ -3455,7 +3512,26 @@
     "evm": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Lorde +1/+1 e atropelar aos Lobos e Lobisomens, com lampejo."
+   "papel_por_que": "Lorde +1/+1 e atropelar aos Lobos e Lobisomens, com lampejo.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "+1/+1 e atropelar para Lobos e Lobisomens, os dois tipos da matilha: o dano passa e o Tovolar compra.",
+    "I": "Vale na hora e tem lampejo: entra no meio do combate, depois dos bloqueios.",
+    "T": "Três manas, no padrão de um lord, sem pedir a noite.",
+    "Q": "Paridade e na frente; sem matilha em campo não faz nada.",
+    "R": "O Hound Tamer só dá atropelar à noite e o Full Moon's Rise só aos Lobisomens; mas não é corpo e não conta para os três."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Heroic Intervention": {
    "notas": {
@@ -3471,7 +3547,26 @@
    "sai": "Asceticism",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Staple de proteção, mas aqui proteção é pacote do deck e a limpeza é o ponto de falha; com o seu Blasphemous Act, a matilha fica de pé.",
+    "I": "Salva a mesa inteira de uma limpeza ou de uma remoção, por um turno só.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Na frente, protegendo a matilha, e atrás, junto do seu Blasphemous Act; fora disso fica na mão.",
+    "R": "O Asceticism não segura limpeza e o Full Moon's Rise só regenera os Lobisomens: nenhuma carta da lista responde à limpeza deles."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Torgal, A Fine Hound": {
    "notas": {
@@ -3484,7 +3579,7 @@
    "sin_por_que": {
     "sin1": "Lobo comum que gera mana: conta para os três e compra ao conectar, sem ser lorde nem fábrica de Lobos."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "veredito": "entra",
    "faz": "Lobo 2/2 de 2. Vira: mana de qualquer cor. Seu primeiro Humano conjurado no turno entra com marcadores por Dog e Wolf.",
@@ -3492,7 +3587,26 @@
    "sai": "Fearless Pup",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Lobo de 2 que conta para os três e gera mana de qualquer cor."
+   "papel_por_que": "Lobo de 2 que conta para os três e gera mana de qualquer cor.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobo de turno 2 que conta para os três e gera mana de qualquer cor; os Lobisomens Humanos entram com marcador por Lobo seu.",
+    "I": "Um corpo pequeno e uma mana a mais por turno.",
+    "T": "Duas manas por corpo da matilha e ramp nas duas cores.",
+    "Q": "Início, paridade e na frente; atrás é só a mana.",
+    "R": "O Scorned Villager faz o mesmo papel por duas manas, e o Kessig Naturalist ainda vira lord."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Duskwatch Recruiter": {
    "notas": {
@@ -3509,7 +3623,7 @@
     "sin1": "Lobisomem comum: conta para os três da noite e compra ao conectar, sem ser lorde nem fábrica de Lobos.",
     "sin2": "Lobisomem Humano antigo que o Tovolar transforma: o verso barateia as criaturas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Lobisomem antigo de 2. {2}{G}: cava uma criatura nas três do topo. Verso: suas criaturas custam {1} a menos.",
@@ -3517,7 +3631,26 @@
    "sai": "Goblin Anarchomancer",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Lobisomem antigo que cava criaturas; à noite, barateia as criaturas."
+   "papel_por_que": "Lobisomem antigo que cava criaturas; à noite, barateia as criaturas.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem Humano de turno 2 que o Tovolar vira; cava criatura sem conjurar, o que não traz o dia, e no verso barateia as criaturas.",
+    "I": "O corpo conta na hora; a carta por ativação e o desconto pedem que ele fique.",
+    "T": "Duas manas no corpo e três por ativação, que olha só três cartas.",
+    "Q": "Viva sempre: corpo cedo, destino da mana na paridade, atrás e na frente.",
+    "R": "A compra fora do Tovolar é só o Werewolf Pack Leader e o Augur of Autumn, e nenhuma é pia de mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Nightpack Ambusher": {
    "notas": {
@@ -3540,7 +3673,26 @@
    "sai": "Gruul Cluestone",
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (Lobo 2/2 no fim de turno)",
-   "papel_por_que": "Lorde +1/+1 dos Lobos e Lobisomens, com lampejo."
+   "papel_por_que": "Lorde +1/+1 dos Lobos e Lobisomens, com lampejo.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobo lord dos dois tipos e fábrica de Lobo: um 2/2 no fim de cada turno seu sem conjurar, o mesmo que traz a noite.",
+    "I": "O +1/+1 vale na hora, com lampejo, até no meio do combate; a ficha pede turno sem mágica.",
+    "T": "Quatro manas, uma a mais que o Immerwolf, com {G}{G}.",
+    "Q": "Paridade, na frente e atrás (bloqueador com lampejo e ficha por volta); no início é caro.",
+    "R": "O Immerwolf é lord por três e trava a noite; o Mayor of Avabruck é lord e fábrica por duas, mas só à noite."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Avabruck Caretaker": {
    "notas": {
@@ -3557,7 +3709,7 @@
     "sin1": "Lobisomem comum: os marcadores valem para qualquer criatura, não só para a matilha.",
     "sin2": "Tem dia e noite: à noite protege as suas permanentes e põe marcadores em todas as suas criaturas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Lobisomem de 6 com resistência a magia. No seu combate, dois marcadores noutra criatura. Verso: suas outras permanentes têm resistência a magia, e dois marcadores em cada criatura (Daybound).",
@@ -3568,7 +3720,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (marcadores em todos à noite)",
-   "papel_por_que": "Lobisomem que conta para os três; à noite protege tudo e põe dois marcadores em cada criatura."
+   "papel_por_que": "Lobisomem que conta para os três; à noite protege tudo e põe dois marcadores em cada criatura.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem que conta para os três; à noite dá hexproof às outras permanentes e dois marcadores em cada criatura por combate.",
+    "I": "De dia, dois marcadores numa criatura por turno; o efeito em massa pede a noite, e o hexproof próprio ajuda a ficar.",
+    "T": "Seis manas, o topo da curva, ao lado de Hollowhenge Overlord e Tovolar's Huntmaster.",
+    "Q": "Paridade e na frente; atrás, seis manas por um corpo.",
+    "R": "O Asceticism dá hexproof às criaturas por cinco, sem corpo; nenhum dos dois segura limpeza."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Toski, Bearer of Secrets": {
    "notas": {
@@ -3581,14 +3752,33 @@
    "sin_por_que": {
     "sin1": "Compra quando qualquer criatura sua conecta, somando com o Tovolar, mas não cita Lobos: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Esquilo lendário de 4, indestrutível, não pode ser anulado, ataca todo combate. Sempre que uma criatura sua causa dano de combate a um jogador, compre.",
    "porque": "Soma com o Tovolar: cada lobo que conecta compra duas. Não é lobo.",
    "sai": "Cathartic Reunion",
    "papel": "recompensa",
-   "papel_por_que": "Compra quando qualquer criatura sua conecta, somando com o Tovolar."
+   "papel_por_que": "Compra quando qualquer criatura sua conecta, somando com o Tovolar.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Repete o verbo comprar: cada Lobo que conecta compra mais uma. Não é Lobo: não conta para os três nem recebe os lords.",
+    "I": "Fica em campo (indestrutível, não pode ser anulado), mas só compra quando o dano chega ao jogador.",
+    "T": "Quatro manas, e é obrigado a atacar todo combate.",
+    "Q": "Paridade, na frente e depois de uma limpeza, que ele atravessa; no início é caro.",
+    "R": "O Tovolar já faz isso da zona de comando; fora dele, a compra da lista está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Ohran Frostfang": {
    "notas": {
@@ -3603,14 +3793,33 @@
    "sin_por_que": {
     "sin1": "Compra quando qualquer criatura sua conecta, somando com o Tovolar, mas não cita Lobos: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Cobra 2/6 de 5. Atacantes seus têm toque mortífero; sempre que uma criatura sua causa dano de combate a um jogador, compre.",
    "porque": "Terceiro motor de compra, e bloquear a matilha vira perder criatura. Não é lobo.",
    "sai": "Storm the Festival",
    "papel": "recompensa",
-   "papel_por_que": "Compra quando qualquer criatura conecta, somando com o Tovolar; toque mortífero nos atacantes."
+   "papel_por_que": "Compra quando qualquer criatura conecta, somando com o Tovolar; toque mortífero nos atacantes.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra por criatura que conecta, somando com o Tovolar, e o toque mortífero nos atacantes desestimula o bloqueio. Não é Lobo.",
+    "I": "O toque mortífero vale no primeiro ataque; a compra pede que ele fique e que o dano chegue.",
+    "T": "Cinco manas, uma a mais que o Toski, sem a proteção dele.",
+    "Q": "Paridade e na frente; atrás e no início não faz nada.",
+    "R": "É a terceira cópia da compra por conectar, depois do Tovolar e do Toski do radar; só segura pela compra abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Craterhoof Behemoth": {
    "notas": {
@@ -3619,7 +3828,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Fera 5/5 de 8 com ímpeto. Ao entrar, suas criaturas ganham atropelar e +X/+X, X o número delas.",
@@ -3629,7 +3838,26 @@
     "evm": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Fecha o jogo: +X/+X e atropelar, X o número de criaturas da matilha."
+   "papel_por_que": "Fecha o jogo: +X/+X e atropelar, X o número de criaturas da matilha.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Fechamento de mesa larga, e a matilha é larga: atropelar e +X/+X em todos. Não é Lobo e não mexe na contagem.",
+    "I": "Resolve e o ataque daquele turno decide a mesa.",
+    "T": "Oito manas, com {G}{G}{G}: a carta mais cara da lista.",
+    "Q": "Na frente e na paridade com mesa larga; atrás, fica na mão.",
+    "R": "O fechamento da lista é lento: Unnatural Growth e os anthems pequenos não matam num turno só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Overwhelming Stampede": {
    "notas": {
@@ -3638,7 +3866,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Feitiço de 5: suas criaturas ganham atropelar e +X/+X, X a maior força entre elas.",
@@ -3648,7 +3876,26 @@
     "evm": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Fecha o jogo: +X/+X e atropelar à matilha, X a maior força."
+   "papel_por_que": "Fecha o jogo: +X/+X e atropelar à matilha, X a maior força.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Atropelar e pump em massa para a matilha conectar e fechar. Não é da tribo.",
+    "I": "O X é a maior força em campo: com os Lobos pequenos de dia rende menos; à noite ou com o pump do Tovolar derruba um jogador.",
+    "T": "Cinco manas, de feitiço.",
+    "Q": "Na frente e na paridade com mesa larga.",
+    "R": "A lista não tem pump em massa de um turno; o Craterhoof do radar faz mais por oito."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Arlinn Kord": {
    "notas": {
@@ -3665,7 +3912,7 @@
     "sin1": "Não é Lobo, mas cria uma ficha de Lobo a cada vez que transforma para o verso.",
     "sin2": "Transforma pela própria habilidade, sem a noite: de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Planeswalker de 4. +1: +2/+2, vigilância e ímpeto numa criatura. 0: um Lobo 2/2 e transforma. Verso: +1/+1 e atropelar no time; −1: 3 de dano.",
@@ -3676,7 +3923,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "O 0 cria um Lobo 2/2 e transforma; o verso dá +1/+1 e atropelar ao time."
+   "papel_por_que": "O 0 cria um Lobo 2/2 e transforma; o verso dá +1/+1 e atropelar ao time.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cria Lobo sem conjurar, dá ímpeto a um corpo e, no verso, +1/+1 e atropelar para a mesa. Não é corpo da matilha.",
+    "I": "Um Lobo na hora; o atropelar em massa vem na volta seguinte, se ela sobreviver.",
+    "T": "Quatro manas, no padrão de planeswalker.",
+    "Q": "Paridade, na frente e atrás (ficha para bloquear e 3 de dano); no início é cara.",
+    "R": "A Arlinn, the Pack's Hope já faz dois Lobos de uma vez; esta soma o atropelar em massa, que a lista tem pouco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Moonmist": {
    "notas": {
@@ -3692,7 +3958,7 @@
     "sin1": "Não é Lobo nem Lobisomem, mas existe por causa deles: só eles causam dano de combate no turno.",
     "sin2": "Transforma os Lobisomens Humanos antigos, como o Tovolar na manutenção."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Instantânea de 2: transforma todos os Humans; previne o dano de combate de quem não é Wolf nem Werewolf.",
@@ -3700,7 +3966,26 @@
    "sai": "Fog",
    "papel": "habilita",
    "papel_dupla": "Proteção (previne o dano dos outros)",
-   "papel_por_que": "Transforma todos os Lobisomens Humanos na hora, sem esperar a noite."
+   "papel_por_que": "Transforma todos os Lobisomens Humanos na hora, sem esperar a noite.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Névoa que poupa a matilha: só Lobos e Lobisomens causam dano de combate, e os Lobisomens Humanos antigos viram.",
+    "I": "Decide um combate: o seu ataque não perde corpos, ou o ataque deles não causa dano.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Atrás, diante de um ataque, e na frente, no ataque decisivo; fora disso fica na mão.",
+    "R": "Fog e Moment's Peace previnem o dano dos dois lados; esta é de um lado só. Não segura limpeza."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.05
   },
   "Moonlight Hunt": {
    "notas": {
@@ -3712,7 +3997,7 @@
    "sin_por_que": {
     "sin1": "Não é Lobo, mas existe por causa deles: cada Lobo e Lobisomem seu causa dano numa criatura."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Instantânea de 2: cada Wolf e Werewolf seu causa dano igual à força numa criatura de oponente.",
@@ -3720,7 +4005,26 @@
    "sai": "Spellbook",
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Cada Lobo e Lobisomem seu causa dano numa criatura: rende com a matilha grande."
+   "papel_por_que": "Cada Lobo e Lobisomem seu causa dano numa criatura: rende com a matilha grande.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção que escala com a matilha: cada Lobo e Lobisomem causa dano igual à força, sem levar dano de volta.",
+    "I": "Uma criatura por uma carta.",
+    "T": "Duas manas, instantânea; pede Lobos em campo.",
+    "Q": "Paridade e na frente; atrás, sem matilha, é carta morta.",
+    "R": "O Khalni Ambush luta com um corpo só e leva dano de volta; Chaos Warp custa três."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Beast Within": {
    "notas": {
@@ -3728,12 +4032,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "C",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Instantânea de 3: destrói uma permanente; o controlador ganha uma Fera 3/3.",
    "porque": "Remoção instantânea de qualquer coisa. Está também no Fynn.",
-   "sai": "Bramblecrush"
+   "sai": "Bramblecrush",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica, sem ligação com a matilha.",
+    "I": "Uma permanente por uma carta, e o dono dela ganha um 3/3 que bloqueia Lobo.",
+    "T": "Três manas, instantânea, qualquer permanente: a mesma faixa do Chaos Warp.",
+    "Q": "Paridade, atrás e na frente.",
+    "R": "O Chaos Warp já responde a qualquer permanente; esta é a segunda cópia, com a interação na ponta de baixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.55
   },
   "The Great Henge": {
    "notas": {
@@ -3743,13 +4066,32 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Artefato de 9, X a menos (X a maior força entre suas criaturas). Vira: {G}{G} e 2 de vida. Criatura não-ficha que entra ganha um marcador e compra.",
    "porque": "Com um 5/5 em campo, custa quatro: ramp e compra por corpo.",
    "sai": "Decanter of Endless Water",
-   "caro_por_desenho": true
+   "caro_por_desenho": true,
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Ramp e compra sem ligação com a matilha: a conta não depende dela, e as fichas de Lobo não disparam a compra.",
+    "I": "{G}{G} na hora, e cada criatura que não é ficha entra maior e compra uma carta.",
+    "T": "Custa nove menos a maior força em campo: com os Lobos pequenos de dia sai por seis ou sete; só à noite barateia de verdade.",
+    "Q": "Paridade, na frente e atrás, onde recompõe a mão; no início não desce.",
+    "R": "Nenhuma carta da lista junta ramp e compra, e a compra fora do Tovolar está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Nature's Lore": {
    "notas": {
@@ -3762,7 +4104,26 @@
    "veredito": "avaliar",
    "faz": "Feitiço de 2: um terreno Forest para o campo desvirado.",
    "porque": "Ramp de duas no lugar do de três; acha o Highland Forest e os duais do radar. Corte pelo critério do dono (13/11/2026): sai Lightning Greaves, porque Roiling Regrowth já é o corte de uma carta de letra mais alta.",
-   "sai": "Lightning Greaves"
+   "sai": "Lightning Greaves",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico, sem ligação com a matilha.",
+    "I": "Um terreno a mais, que pode entrar desvirado e ser a Highland Forest ou uma dual com tipo Forest.",
+    "T": "Duas manas: põe o Tovolar no turno 3 com sobra.",
+    "Q": "Início, paridade e atrás; na frente é compra fraca.",
+    "R": "O ramp de terreno da lista custa três (Cultivate, Roiling Regrowth); de duas, só as pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Talisman of Impulse": {
    "notas": {
@@ -3775,7 +4136,26 @@
    "veredito": "avaliar",
    "faz": "Artefato de 2: {C}, ou {R} ou {G} com 1 de dano.",
    "porque": "Pedra de duas nas cores. Corte pelo critério do dono (13/11/2026): sai Rhonas's Monument, porque Mystic Skull já é o corte de uma carta de letra mais alta.",
-   "sai": "Rhonas's Monument"
+   "sai": "Rhonas's Monument",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Pedra de mana, sem ligação com a matilha.",
+    "I": "Uma mana a mais, nas duas cores ao custo de 1 de vida.",
+    "T": "Duas manas, entra desvirada.",
+    "Q": "Viva sempre, como toda pedra de duas.",
+    "R": "Arcane Signet, Gruul Signet e Mind Stone já ocupam a faixa de duas, e o ramp está na cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Bejeweled Warg": {
    "notas": {
@@ -3798,7 +4178,26 @@
    "sai": "Ascendant Packleader",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Lobo de 2 com atropelar que conta para os três e cria Tesouro ao conectar."
+   "papel_por_que": "Lobo de 2 com atropelar que conta para os três e cria Tesouro ao conectar.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobo de turno 2 que conta para os três e tem atropelar: conecta e compra com o Tovolar.",
+    "I": "Um corpo; ao conectar rende um Tesouro ou um marcador num Lobo.",
+    "T": "Duas manas por corpo com atropelar, no padrão.",
+    "Q": "Início, paridade e na frente; atrás é um corpo pequeno.",
+    "R": "Os Lobos baratos da lista (Ascendant Packleader, Fearless Pup, Snarling Wolf) não têm evasão nem rendem ao conectar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Reckless Stormseeker": {
    "notas": {
@@ -3822,7 +4221,26 @@
    "porque": "O mesmo ímpeto da Halana and Alena, mas contando como lobo. Corte pelo critério do dono (13/11/2026): sai Roiling Regrowth, porque Halana and Alena, Partners já é o corte de uma carta de letra mais alta.",
    "sai": "Roiling Regrowth",
    "papel": "habilita",
-   "papel_por_que": "Lobisomem que conta para os três e dá ímpeto a uma criatura a cada combate."
+   "papel_por_que": "Lobisomem que conta para os três e dá ímpeto a uma criatura a cada combate.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem que conta para os três e dá ímpeto a um corpo por combate; à noite soma +2/+0 e atropelar.",
+    "I": "Vale no turno em que entra: ele mesmo ou outro Lobo ataca com ímpeto e pode comprar.",
+    "T": "Três manas, no padrão; um alvo por turno.",
+    "Q": "Início (conta para os três), paridade e na frente.",
+    "R": "Rhythm of the Wild e Fires of Yavimaya dão ímpeto a todos, mas não são corpo; a Halana and Alena custa quatro e não é da tribo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Beast Whisperer": {
    "notas": {
@@ -3835,7 +4253,26 @@
    "veredito": "avaliar",
    "faz": "Elfo de 4. Sempre que você conjura uma criatura, compre.",
    "porque": "Compra que não depende de conectar. Sugerido pela fonte A.",
-   "sai": "Mind Stone"
+   "sai": "Mind Stone",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica de deck de criaturas; não é Lobo, não conta para os três e não compra com o Tovolar.",
+    "I": "Uma carta por criatura conjurada, se ficar em campo.",
+    "T": "Quatro manas, com {G}{G}, num corpo frágil.",
+    "Q": "Paridade, atrás e na frente, enquanto houver criatura na mão; no início é lento.",
+    "R": "A compra fora do Tovolar está abaixo da cota; o Augur of Autumn faz parecido por três."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.75
   },
   "Ill-Tempered Loner": {
    "notas": {
@@ -3860,7 +4297,26 @@
    "porque": "Pune bloqueio e limpeza. Sugerido pela fonte C.",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Lobisomem que conta para os três e devolve o dano que recebe."
+   "papel_por_que": "Lobisomem que conta para os três e devolve o dano que recebe.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem que conta para os três; à noite, todo dano em permanente sua vira dano em qualquer alvo, e o Blasphemous Act passa a matar a mesa deles.",
+    "I": "Ao entrar é só um corpo que devolve o dano que leva; o efeito grande pede a noite.",
+    "T": "Quatro manas, com {R}{R}.",
+    "Q": "Paridade, na frente e atrás, junto de uma limpeza sua; no início é caro.",
+    "R": "Nenhuma carta da lista pune bloqueio nem aproveita as limpezas simétricas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Shared Animosity": {
    "notas": {
@@ -3872,13 +4328,32 @@
    "sin_por_que": {
     "sin1": "Rende com atacantes do mesmo tipo, Lobos com Lobos e Lobisomens com Lobisomens: de passagem."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Encantamento de 3. Cada criatura sua que ataca ganha +1/+0 por outra atacante que divide um tipo com ela.",
    "porque": "Lobos com lobos e lobisomens com lobisomens. Sugerido pela fonte C. Está também na Evelyn.",
    "papel": "multiplica",
-   "papel_por_que": "Atacantes ganham +1/+0 por outro atacante do mesmo tipo: matilha grande bate muito."
+   "papel_por_que": "Atacantes ganham +1/+0 por outro atacante do mesmo tipo: matilha grande bate muito.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Conta só atacantes do mesmo tipo, e a matilha tem dois: Lobo soma com Lobo e Lobisomem com Lobisomem.",
+    "I": "Pump grande num ataque largo, já no turno em que entra, mas sem atropelar.",
+    "T": "Três manas, só no ataque.",
+    "Q": "Na frente e na paridade com mesa larga.",
+    "R": "Unnatural Growth e Berserkers' Onslaught multiplicam a matilha inteira; o pacote de pressão já passou da conta."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Cemetery Prowler": {
    "notas": {
@@ -3899,7 +4374,26 @@
    "porque": "Lobo de três com corpo e um pouco de interação. Sugerido pela fonte C.",
    "papel": "habilita",
    "papel_dupla": "Remoção (cemitério)",
-   "papel_por_que": "Lobo 3/4 que conta para os três e exila do cemitério ao entrar ou atacar."
+   "papel_por_que": "Lobo 3/4 que conta para os três e exila do cemitério ao entrar ou atacar.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobo que conta para os três; exilando uma criatura de um cemitério, barateia em {1} as criaturas da matilha.",
+    "I": "Um corpo com vigilância e uma carta exilada de cemitério; o desconto pede que ele fique.",
+    "T": "Três manas, com {G}{G}, no padrão.",
+    "Q": "Início (conta para os três), paridade e na frente.",
+    "R": "Nenhum Lobo da lista barateia mágicas nem mexe em cemitério; o Dire Wolf Prowler, de três, é só corpo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Unnatural Moonrise": {
    "notas": {
@@ -3921,7 +4415,26 @@
    "porque": "Só vale quando faltam os três lobos. Primeiro do banco da fonte B.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Faz virar noite na hora e dá compra ao conectar a uma criatura."
+   "papel_por_que": "Faz virar noite na hora e dá compra ao conectar a uma criatura.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Faz a noite sem os três Lobos na manutenção, e um corpo ganha atropelar e compra ao conectar.",
+    "I": "Uma noite, que dura até alguém conjurar duas mágicas, e um pump pequeno num alvo.",
+    "T": "Duas manas, com flashback por quatro.",
+    "Q": "Início e reconstrução, quando faltam os três Lobos; com a matilha formada o Tovolar já faz a noite.",
+    "R": "Nenhuma carta da lista traz a noite sem os três Lobos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Stomping Ground": {
    "notas": {},
@@ -3932,7 +4445,26 @@
    "veredito": "avaliar",
    "faz": "Mountain Forest: {R} ou {G}; pague 2 de vida ou entra virado.",
    "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste. Corte pelo critério do dono (13/11/2026): sai Oran-Rief, the Vastwood, porque Gruul Guildgate já é o corte de uma carta de letra mais alta.",
-   "sai": "Oran-Rief, the Vastwood"
+   "sai": "Oran-Rief, the Vastwood",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno das duas cores.",
+    "I": "Um terreno; os tipos Mountain e Forest deixam o Nature's Lore e a Wooded Foothills do radar acharem.",
+    "T": "Desvirado por 2 de vida.",
+    "Q": "Viva sempre.",
+    "R": "A lista tem quatro duais desviradas e sete terrenos sempre virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Cinder Glade": {
    "notas": {},
@@ -3943,7 +4475,26 @@
    "veredito": "entra",
    "faz": "Mountain Forest: {R} ou {G}; virado sem dois básicos.",
    "porque": "Você já tem (Caixa): dual com os tipos Montanha e Floresta, desvirada com dois básicos (a lista tem 16), que o Cultivate e o Roiling Regrowth acham. Sai o Temple of Abandon, que sempre entra virado. Passou de avaliar a entra pela regra do dono (08/11/2026): desvirado no lugar de virado, e preferência ao que ele já tem.",
-   "sai": "Temple of Abandon"
+   "sai": "Temple of Abandon",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno das duas cores.",
+    "I": "Um terreno, com os tipos Mountain e Forest.",
+    "T": "Desvirado só com dois básicos em campo: no turno 1 ou 2 entra virado.",
+    "Q": "Viva sempre.",
+    "R": "A lista tem quatro duais desviradas e sete terrenos sempre virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Karplusan Forest": {
    "notas": {},
@@ -3954,7 +4505,26 @@
    "veredito": "avaliar",
    "faz": "{C}, ou {R} ou {G} com 1 de dano.",
    "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste.",
-   "sai": "Tranquil Thicket"
+   "sai": "Tranquil Thicket",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno das duas cores.",
+    "I": "Um terreno.",
+    "T": "Sempre desvirado; a mana colorida custa 1 de vida.",
+    "Q": "Viva sempre.",
+    "R": "A lista tem quatro duais desviradas e sete terrenos sempre virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Cragcrown Pathway": {
    "notas": {},
@@ -3965,7 +4535,26 @@
    "veredito": "avaliar",
    "faz": "Terreno de duas faces: {R} ou {G}, desvirado.",
    "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste.",
-   "sai": "Forgotten Cave"
+   "sai": "Forgotten Cave",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá a cor que faltar das duas, escolhida ao jogar.",
+    "I": "Um terreno.",
+    "T": "Sempre desvirado, sem custo.",
+    "Q": "Viva sempre.",
+    "R": "Depois de jogado é um terreno de uma cor só, como um básico, e o Cultivate não o acha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Wooded Foothills": {
    "notas": {},
@@ -3976,7 +4565,26 @@
    "veredito": "avaliar",
    "faz": "Pague 1 de vida e sacrifique: um Mountain ou Forest para o campo.",
    "porque": "Desvirado no lugar de um terreno sempre virado. Base de mana: avaliar até o teste. Corte pelo critério do dono (13/11/2026): sai Castle Embereth, porque Oran-Rief, the Vastwood já é o corte de uma carta de letra mais alta.",
-   "sai": "Castle Embereth"
+   "sai": "Castle Embereth",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Busca Mountain ou Forest: acerta qualquer das duas cores, e as duas de uma vez com a Highland Forest.",
+    "I": "Um terreno, o que faltar.",
+    "T": "Desvirado, por 1 de vida.",
+    "Q": "Viva sempre.",
+    "R": "A lista tem quatro duais desviradas e sete terrenos sempre virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Rogue's Passage": {
    "notas": {
@@ -3989,7 +4597,26 @@
    "veredito": "avaliar",
    "faz": "Terreno: {C}. {4}, vira: uma criatura não pode ser bloqueada.",
    "porque": "Evasão num terreno, no lugar de um incolor que só tira o limite da mão. Está também em quatro decks. O Field of Ruin, que ela tirava antes, sai pela Boseiju.",
-   "sai": "Reliquary Tower"
+   "sai": "Reliquary Tower",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas serve ao conectar: um Lobo imbloqueável compra com o Tovolar.",
+    "I": "Um terreno; a evasão é de uma criatura por vez.",
+    "T": "Desvirado; a ativação custa quatro e mais o próprio terreno.",
+    "Q": "Viva sempre.",
+    "R": "Kessig Wolf Run e Skarrg, the Rage Pits já dão atropelar num terreno, por menos mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Cavern of Souls": {
    "notas": {
@@ -4034,14 +4661,33 @@
    "sin_por_que": {
     "sin2": "Faz virar noite quando você quer, e rende a cada troca de dia e noite."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Artefato lendário de 3. Vira: qualquer cor; {3}, vira: troca dia e noite, como feitiço; a cada troca, ganhe 1 e pode comprar e descartar.",
    "porque": "Põe a noite quando o Tovolar quer, e cada troca ainda filtra a mão. Potencial do edh.wiki, o de maior sinergia (+78%).",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Troca dia e noite quando você quer, para os Lobisomens virarem."
+   "papel_por_que": "Troca dia e noite quando você quer, para os Lobisomens virarem.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Liga a noite por ativação, sem os três Lobos, e é pedra de mana de qualquer cor.",
+    "I": "A mana vale na hora; cada troca de dia e noite, de qualquer jogador, dá 1 de vida e filtra uma carta.",
+    "T": "Três manas na pedra, e mais três, só no seu turno, para trocar.",
+    "Q": "Início (ramp), paridade e atrás (filtro); na frente, com a noite travada, é só uma pedra.",
+    "R": "Nenhuma carta da lista traz a noite por ativação; como pedra de três, a lista já tem melhores de duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Howling Moon": {
    "notas": {
@@ -4062,7 +4708,26 @@
    "faz": "Encantamento de 3. No seu combate, +2/+2 num Lobo ou Lobisomem seu; oponente conjura a segunda mágica do turno: um Lobo 2/2.",
    "porque": "Lobos justo quando a segunda mágica deles traria o dia. Potencial do edh.wiki (+70%).",
    "papel": "habilita",
-   "papel_por_que": "Cria Lobos 2/2 no turno dos oponentes, fechando os três da manutenção."
+   "papel_por_que": "Cria Lobos 2/2 no turno dos oponentes, fechando os três da manutenção.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cria um Lobo na segunda mágica de cada oponente, a mesma que traz o dia, e dá +2/+2 a um Lobo ou Lobisomem por combate. Não é corpo.",
+    "I": "O +2/+2 vale no primeiro combate; os Lobos dependem de os oponentes conjurarem duas mágicas.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, com fichas no turno deles; no início é lenta.",
+    "R": "O Lurking Predators também rende com as mágicas deles, mas custa seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Village Watch": {
    "notas": {
@@ -4077,14 +4742,33 @@
     "sin1": "Lobisomem que dá ímpeto à matilha à noite: bônus menor, não lorde nem fábrica de Lobos.",
     "sin2": "Tem dia e noite: à noite os Lobos e Lobisomens ganham ímpeto."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Lobisomem de 5 com ímpeto e dia. À noite: Lobos e Lobisomens seus têm ímpeto.",
    "porque": "A matilha ataca no turno em que entra. Potencial do edh.wiki (+68%).",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (ímpeto à matilha à noite)",
-   "papel_por_que": "Lobisomem que conta para os três; à noite, Lobos e Lobisomens têm ímpeto."
+   "papel_por_que": "Lobisomem que conta para os três; à noite, Lobos e Lobisomens têm ímpeto.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem que conta para os três; à noite dá ímpeto a Lobos e Lobisomens.",
+    "I": "Um corpo com ímpeto; o ímpeto da matilha pede a noite.",
+    "T": "Cinco manas por um efeito que a lista tem por três.",
+    "Q": "Paridade e na frente.",
+    "R": "Rhythm of the Wild e Fires of Yavimaya dão ímpeto a todos por três manas, sem pedir a noite."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Instigator Gang": {
    "notas": {
@@ -4105,7 +4789,26 @@
    "porque": "Fecha o jogo à noite. Potencial do edh.wiki (+63%).",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (+3/+0 aos atacantes à noite)",
-   "papel_por_que": "Lobisomem antigo que o Tovolar vira e que fortalece todo o ataque."
+   "papel_por_que": "Lobisomem antigo que o Tovolar vira e que fortalece todo o ataque.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem Humano que o Tovolar vira; os atacantes ganham +1/+0, e +3/+0 no verso.",
+    "I": "O +1/+0 vale na hora; o +3/+0, que fecha, pede a noite, e não dá atropelar aos outros.",
+    "T": "Quatro manas, no padrão de um anthem com corpo.",
+    "Q": "Paridade e na frente.",
+    "R": "Os anthems da lista são pequenos (Sylvan Anthem, Icon of Ancestry, Obelisk of Urd) e nenhum é corpo da matilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Thornspire Verge": {
    "notas": {},
@@ -4116,7 +4819,26 @@
    "veredito": "entra",
    "sai": "Gruul Guildgate",
    "faz": "Terreno. Gera {R}; ou gera {G}, se você controla uma Montanha ou uma Floresta.",
-   "porque": "Você já tem (Caixa): dual desvirada que dá vermelho sempre e verde com qualquer básico, no lugar do Gruul Guildgate, que sempre entra virado. Um dos sete terrenos lentos a menos num deck que quer o Tovolar no turno 3."
+   "porque": "Você já tem (Caixa): dual desvirada que dá vermelho sempre e verde com qualquer básico, no lugar do Gruul Guildgate, que sempre entra virado. Um dos sete terrenos lentos a menos num deck que quer o Tovolar no turno 3.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno das duas cores: vermelho sempre, verde com uma Mountain ou Forest em campo.",
+    "I": "Um terreno.",
+    "T": "Sempre desvirado, sem custo de vida.",
+    "Q": "Viva sempre.",
+    "R": "A lista tem quatro duais desviradas e sete terrenos sempre virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Mutavault": {
    "notas": {
@@ -4130,14 +4852,33 @@
     "sin1": "Animado, tem todos os tipos de criatura e conta como Lobo e Lobisomem: é o terceiro da manutenção e compra com o Tovolar ao conectar, sem ser lorde.",
     "sin2": "Vira criatura na sua manutenção por {1}, antes do gatilho do Tovolar, sem conjurar nada: fecha os três da noite sem trazer o dia, de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Path of Ancestry",
    "faz": "Terreno. Gera {C}. Por {1}: vira uma criatura 2/2 com todos os tipos de criatura até o fim do turno. Continua sendo um terreno.",
    "porque": "O terceiro lobo da manutenção por {1}, sem conjurar e sem gastar vaga de mágica: anime-o na manutenção, antes do gatilho do Tovolar, e a noite cai; à noite recebe os lordes e ataca para comprar. Como terreno, escapa das limpezas dos oponentes e das suas. Entra desvirado. Sai o Path of Ancestry, que entra virado e só dá vidência nos lobisomens Humanos.",
-   "papel_dupla": "Lobo (terreno que vira criatura)",
-   "papel_por_que": "Terreno que vira um Lobo 2/2 para a contagem da noite e para conectar."
+   "papel_por_que": "Terreno que por {1} vira um 2/2 de todos os tipos: ataca como Lobo, recebe os lords e compra com o Tovolar ao conectar, e sobrevive às limpezas.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor, mas serve ao conectar: por {1} vira um 2/2 de todos os tipos, que recebe os lords e compra com o Tovolar.",
+    "I": "Um terreno e um atacante por turno; a animação acaba no fim do turno, então não está de pé quando a manutenção começa.",
+    "T": "Desvirado, e {1} por ativação.",
+    "Q": "Viva sempre: mana cedo, corpo depois de uma limpeza.",
+    "R": "Nenhum outro terreno vira corpo da matilha; Kessig Wolf Run e Skarrg já são utilitários incolores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15,
+   "papel": "habilita"
   },
   "Boseiju, Who Endures": {
    "notas": {
@@ -4152,7 +4893,26 @@
    "faz": "Terreno lendário. Gera {G}. Canalizar, por {1}{G} e descartando-o: destrói um artefato, encantamento ou terreno não básico de um oponente, que pode buscar um terreno com tipo básico; custa {1} a menos por criatura lendária sua.",
    "porque": "Interação que não ocupa vaga de mágica: por duas manas, em velocidade instantânea, tira o encantamento que trava a matilha ou o artefato-motor do oponente, e com o Tovolar em campo custa {G}. Entra desvirado e gera verde. Sai o Field of Ruin, incolor e simétrico.",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Terreno que, descartado, destrói artefato, encantamento ou terreno não básico."
+   "papel_por_que": "Terreno que, descartado, destrói artefato, encantamento ou terreno não básico.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Terreno de uma cor só; a remoção não tem ligação com a matilha.",
+    "I": "É terreno ou, descartado, destrói artefato, encantamento ou terreno não básico de um oponente.",
+    "T": "Desvirado; a canalização custa {1}{G}, ou {G} com o Tovolar em campo.",
+    "Q": "Viva sempre.",
+    "R": "Nenhum terreno da lista é resposta; o Field of Ruin só pega terreno e dá básico a todos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Game Trail": {
    "notas": {},
@@ -4163,7 +4923,26 @@
    "veredito": "avaliar",
    "sai": "Highland Forest",
    "faz": "Terreno. Ao entrar, você pode revelar uma carta de Montanha ou Floresta da mão; se não revelar, entra virado. Gera {R} ou {G}.",
-   "porque": "Você já tem (Caixa): com 16 básicos na lista, quase sempre entra desvirada, no lugar da Highland Forest, que sempre entra virada. Fica como avaliar porque depende da mão; o Cultivate e o Roiling Regrowth não a acham, como também não achavam a Highland Forest."
+   "porque": "Você já tem (Caixa): com 16 básicos na lista, quase sempre entra desvirada, no lugar da Highland Forest, que sempre entra virada. Fica como avaliar porque depende da mão; o Cultivate e o Roiling Regrowth não a acham, como também não achavam a Highland Forest.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno das duas cores.",
+    "I": "Um terreno.",
+    "T": "Desvirado só se você revelar uma Mountain ou Forest da mão.",
+    "Q": "Viva sempre.",
+    "R": "A lista tem quatro duais desviradas e sete terrenos sempre virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Castle Garenbrig": {
    "notas": {
@@ -4177,7 +4956,26 @@
    "faz": "Entra virado se você não controla uma Floresta. Gera {G}. Por {2}{G}{G} e virando: gera seis {G}, só para mágicas de criatura ou habilidades de criaturas.",
    "porque": "Dois a mais a cada ativação, e seis manas verdes pagam o Tovolar's Huntmaster, a Arlinn ou duas criaturas no mesmo turno; o X do Kessig Wolf Run não entra, porque é habilidade de terreno. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: no lugar de uma Forest.",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Terreno que gera seis manas para criaturas."
+   "papel_por_que": "Terreno que gera seis manas para criaturas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno de uma cor só; a mana extra só paga criaturas e habilidades de criaturas.",
+    "I": "Um terreno; ativado, rende duas manas a mais para descer os corpos de seis.",
+    "T": "Desvirado com uma Forest em campo; a ativação custa quatro e o próprio terreno.",
+    "Q": "Viva sempre.",
+    "R": "Nenhum terreno da lista acelera, mas o ramp já está na cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Mizzium Mortars": {
    "notas": {
@@ -4192,7 +4990,26 @@
    "faz": "Feitiço de {1}{R}: causa 4 de dano a uma criatura que você não controla. Sobrecarga {3}{R}{R}{R}: em vez de uma, cada criatura que você não controla.",
    "porque": "A limpeza de um lado só que o deck não tem: com sobrecarga, 4 de dano em cada criatura dos oponentes e a matilha fica de pé. Regra do dono (08/11/2026): três a quatro limpezas por deck, de preferência unilaterais. Sai o Roiling Regrowth, ramp de um terreno a mais por três manas, que o Nature's Lore do radar também tira. Corte pelo critério do dono (13/11/2026): sai Chaos Warp, porque Roiling Regrowth já é o corte de uma carta de letra mais alta.",
    "papel_dupla": "Remoção (em massa)",
-   "papel_por_que": "Limpeza que só pega o lado dos oponentes."
+   "papel_por_que": "Limpeza que só pega o lado dos oponentes.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Remoção sem ligação com a matilha, mas serve ao plano B do deck sem matar os Lobos.",
+    "I": "Com sobrecarga, 4 de dano em cada criatura dos oponentes e a matilha fica de pé; não mata os corpos grandes.",
+    "T": "Duas manas no modo pontual, de feitiço; a sobrecarga custa seis, com {R}{R}{R} num deck de base verde.",
+    "Q": "Paridade, atrás e na frente, abrindo o caminho do ataque.",
+    "R": "As duas limpezas da lista matam a própria matilha, e a cota é de três a quatro, de preferência de um lado só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Edgar, Moonlit Sovereign": {
    "notas": {},
@@ -4204,13 +5021,34 @@
     "sin1": "Lobisomem comum, que conta para os três da noite, sem ser lorde nem fábrica de Lobos.",
     "sin2": "Rende quando você passa o turno sem conjurar, o mesmo que traz a noite, e tem lampejo."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Lampejo; ganha dois marcadores +1/+1 no fim do turno em que você não conjurou; por {4}{G}, um marcador em cada criatura sua que já tem marcador: duas vezes Amplificador.",
    "porque": "Lobisomem com lampejo que conta para os três da noite; sai uma tier C.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Halana and Alena, Partners"
+   "sai": "Halana and Alena, Partners",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lobisomem com lampejo: entra no turno alheio e conta para os três; cresce nos turnos em que você não conjura.",
+    "I": "Um corpo; os marcadores ficam só nele, e a habilidade paga quase não acha outros alvos nesta lista.",
+    "T": "Cinco manas por um corpo sem evasão; a habilidade custa mais cinco.",
+    "Q": "Paridade, na frente e atrás, como bloqueador com lampejo.",
+    "R": "O Spirit of the Hunt fecha os três com lampejo por três manas, e o Hollowhenge Overlord faz muito mais por seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4,
+   "papel": "habilita",
+   "papel_por_que": "Lobisomem com lampejo: entra no turno de um oponente e conta para os três da manutenção, sem conjurar no seu turno."
   },
   "Dominion Infiltration": {
    "notas": {},
@@ -4220,13 +5058,34 @@
    "sin_por_que": {
     "sin1": "Pela régua, 2 é 'carta que não é Lobo nem Lobisomem mas cria Lobos': as fichas com metamorfo e ímpeto são Lobos e compram com o Tovolar ao conectar, mas somem antes da manutenção que conta os três."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de X: cria de uma vez X fichas que copiam criaturas de oponentes, com metamorfo e ímpeto, exiladas na próxima etapa final.",
    "porque": "As cópias são Lobos com ímpeto e compram com o Tovolar ao conectar (Sinergia Primária 2, valor 12,5 contra 0 da Mystic Skull), mas somem antes da manutenção e não ajudam a fazer a noite. (veredito da consulta do dono)",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Mystic Skull"
+   "sai": "Mystic Skull",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As cópias são de todos os tipos e compram com o Tovolar ao conectar, mas são exiladas no fim do turno e não contam para os três.",
+    "I": "X atacantes com ímpeto por um turno; a qualidade depende do que os oponentes têm em campo.",
+    "T": "{R}{R}{R} mais X num deck de base verde, de feitiço.",
+    "Q": "Paridade e atrás, quando a mesa deles é melhor que a sua.",
+    "R": "A lista já tem pressão de sobra, e o efeito some no fim do turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.2,
+   "papel": "habilita",
+   "papel_por_que": "As cópias têm todos os tipos e ímpeto: atacam como Lobos e compram com o Tovolar ao conectar, mas só por um turno."
   }
  },
  "combos": [
@@ -4443,7 +5302,7 @@
     "por_que": "Compra quando Lobos e Lobisomens conectam e vira noite com três deles: recompensa a matilha. Precisa de muitos corpos da tribo."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
