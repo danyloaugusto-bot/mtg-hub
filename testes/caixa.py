@@ -119,6 +119,16 @@ R.ok("importação: CSV com ; e cabeçalho em português, coluna desconhecida li
 R.ok("importação: não encontrada fica de fora, com a linha original",
      [x["orig"] for x in r["nao_encontradas"]] == ["1 Carta Que Nao Existe de Jeito Nenhum"], r["nao_encontradas"])
 R.ok("importação: linha ilegível listada", len(r["ilegiveis"]) == 1 and "não é uma linha" in r["ilegiveis"][0]["orig"], r["ilegiveis"])
+# lugar físico (16/11/2026): cada subpasta de listas/ é um lugar; a lista vira "<lugar>/<arquivo>" e o arquivo da raiz fica sem lugar
+tl = caixa_em({"solta.txt": "1 Hero's Downfall (SLD) 312\n"})
+os.makedirs(os.path.join(tl, "listas", "Bundle X"))
+with open(os.path.join(tl, "listas", "Bundle X", "b.txt"), "w", encoding="utf-8") as f:
+    f.write("2 Hero's Downfall (SLD) 312\n")
+cl, rl = caixa.ler_listas(tl)
+R.ok("lugar: a subpasta é o lugar da cópia; o arquivo solto fica sem lugar",
+     sorted((c["lista"], c["lugar"], c["q"]) for c in cl) == [("Bundle X/b.txt", "Bundle X", 2), ("solta.txt", "", 1)]
+     and sorted(x["lugar"] for x in rl) == ["", "Bundle X"], [(c["lista"], c.get("lugar")) for c in cl])
+shutil.rmtree(tl, ignore_errors=True)
 R.ok("decisão aplicada: a cópia sai da caixa", carta(cx, "Loyal Inventor") is None)
 cr = carta(cx, "Cryptothrall")
 R.ok("decisão pendente: fica presa à cópia", cr and cr["copias"][0].get("decisao", {}).get("destino") == "venda")
