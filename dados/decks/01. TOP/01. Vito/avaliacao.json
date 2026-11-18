@@ -3300,14 +3300,33 @@
    "sin_por_que": {
     "sin1": "Segunda cópia do texto do Vito, num encantamento que sobrevive às limpezas de criaturas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Encantamento de 5: sempre que você ganha vida, um oponente alvo perde o mesmo tanto.",
    "porque": "O texto do Vito dois manas mais barato que o Bloodlord, e sobrevive às limpezas. Passou de entra a avaliar por decisão do dono (08/11/2026): o espaço vai para Vampiros, e o Bloodlord é Vampiro com o mesmo texto.",
    "sai": "Defiant Bloodlord",
    "papel": "recompensa",
-   "papel_por_que": "Outro Vito: cada ganho de vida vira perda de um oponente."
+   "papel_por_que": "Outro Vito: cada ganho de vida vira perda de um oponente.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o sangrar: o texto do Vito num encantamento, cada ganho de vida vira perda de um oponente alvo.",
+    "I": "Com o Vito em campo, cada ganho vira duas perdas; sozinho não faz nada até o deck ganhar vida.",
+    "T": "Cinco manas sem corpo; a Enduring Tenacity faz o mesmo por quatro e o Vito por três.",
+    "Q": "Paridade, na frente e atrás, quando o Vito foi removido: sobrevive às limpezas de criaturas.",
+    "R": "O deck já tem o Vito, a Enduring Tenacity e o Marauding Blight-Priest; seria o conversor mais caro depois do Defiant Bloodlord."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Swiftfoot Boots": {
    "notas": {},
@@ -3341,7 +3360,26 @@
    "sai": "Bontu's Monument",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ganho do total)",
-   "papel_por_que": "Com dano de combate, prepara um Exsanguinate, e o ganho volta pelo Vito."
+   "papel_por_que": "Com dano de combate, prepara um Exsanguinate, e o ganho volta pelo Vito.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que guarda uma cópia do Exsanguinate, o fechamento natural do deck; só prepara pelo ataque.",
+    "I": "A cópia do Exsanguinate muda o jogo, mas pede que ele fique em campo e que a criatura com toque mortífero cause dano a um jogador.",
+    "T": "Duas manas pelo corpo 2/2 sem vínculo; a cópia ainda custa {X}{B}{B} e depende de um ataque que conecte.",
+    "Q": "Início (Vampiro de turno 2), paridade e na frente; atrás, sem ataque, não prepara.",
+    "R": "Só o próprio Exsanguinate faz o mesmo dreno; nenhuma outra carta da lista o repete."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Defiling Daemogoth": {
    "notas": {
@@ -3392,7 +3430,26 @@
    "porque": "Mais um Vampiro barato com vínculo, como o dono quer: voa, segura com toque mortífero e dispara o Vito a cada dano. Sai a Blasphemous Edict, a quarta limpeza, que leva a sua mesa junto. Corte pelo critério do dono (13/11/2026): sai Nighthawk Scavenger, porque Blasphemous Edict fica por decisão do dono.",
    "sai": "Nighthawk Scavenger",
    "papel": "habilita",
-   "papel_por_que": "Voador com vínculo: cada dano que ele causa dispara o Vito."
+   "papel_por_que": "Voador com vínculo: cada dano que ele causa dispara o Vito.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vínculo com evasão: ganha vida em combate e dispara o Vito a cada dano.",
+    "I": "Um corpo 2/3; 2 de vida por ataque, sem mais nada.",
+    "T": "Três manas, no padrão dos Vampiros de vínculo.",
+    "Q": "Voa, bloqueia com toque mortífero e cura: serve nos quatro momentos.",
+    "R": "O Qarsi Revenant tem as mesmas três habilidades e ainda rende do cemitério; o Nighthawk Scavenger faz o mesmo e cresce."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Sangromancer": {
    "notas": {
@@ -3484,7 +3541,7 @@
     "sin1": "Régua 1: vínculo com a vida que só ganha vida em combate, aqui dado aos Vampiros que atacam.",
     "sin2": "Régua 2: o efeito usa os outros Vampiros (vínculo e toque mortífero ao atacar, compra quando morrem), sem multiplicá-los."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Vampiro 5/5 de 6. Vampiros seus que atacam têm toque mortífero e vínculo. Quando um Vampiro seu morre, você pode pagar 2 de vida para comprar uma carta.",
@@ -3492,7 +3549,26 @@
    "sai": "Henrika Domnathi",
    "papel": "habilita",
    "papel_dupla": "Draw (Vampiro que morre)",
-   "papel_por_que": "Vampiros que atacam ganham vínculo: cada ataque vira vida para o Vito."
+   "papel_por_que": "Vampiros que atacam ganham vínculo: cada ataque vira vida para o Vito.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá vínculo e toque mortífero a todo Vampiro que ataca: cada um vira um gatilho próprio do Vito.",
+    "I": "Com a mesa de pé, o ataque inteiro ganha vida; precisa ficar em campo e ter Vampiros para atacar.",
+    "T": "Seis manas, sem efeito ao entrar.",
+    "Q": "Paridade e na frente; depois de uma limpeza, a compra por Vampiro morto ajuda a reconstruir.",
+    "R": "O Vito já dá vínculo ao time por {3}{B}{B}, e oito Vampiros da lista já têm vínculo; só a compra por morte é nova."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Epicure of Blood": {
    "notas": {
@@ -3515,7 +3591,26 @@
    "porque": "O dreno da mesa inteira que o dono pediu: cada vínculo da tribo vira 1 de perda para cada oponente, dois manas mais barato que o Bloodlord. Com o Exquisite Blood também fecha o laço. Corte pelo critério do dono (13/11/2026): sai Bontu's Monument, porque Defiant Bloodlord já é o corte de uma carta de letra mais alta. Corte pelo critério do dono (13/11/2026): sai Crypt Ghast, porque Bontu's Monument já é o corte de uma carta de letra mais alta. Corte pelo critério do dono (13/11/2026): sai Morlun, Devourer of Spiders, porque Crypt Ghast fica por decisão do dono.",
    "sai": "Morlun, Devourer of Spiders",
    "papel": "recompensa",
-   "papel_por_que": "Cada ganho de vida vira perda de cada oponente: outro conversor, espalhado pela mesa."
+   "papel_por_que": "Cada ganho de vida vira perda de cada oponente: outro conversor, espalhado pela mesa.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o sangrar na mesa toda: cada ganho tira 1 de cada oponente, e fecha o laço com a Exquisite Blood.",
+    "I": "Motor que precisa ficar em campo; cada vínculo é um evento separado.",
+    "T": "Cinco manas pelo texto que o Marauding Blight-Priest tem por três.",
+    "Q": "Paridade e na frente; atrás, o corpo 4/4 ainda bloqueia.",
+    "R": "O Marauding Blight-Priest faz o mesmo por duas manas a menos; seria só a segunda cópia."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Falkenrath Noble": {
    "notas": {
@@ -3530,7 +3625,7 @@
     "sin1": "Motor sem combate: cada criatura que morre faz um jogador perder 1 e você ganhar 1, um gatilho do Vito por morte.",
     "sin2": "Vampiro sem efeito voltado aos outros Vampiros: conta para os lordes e para a Malakir Bloodwitch."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Vampiro 2/2 voar, de 4. Sempre que ele ou outra criatura morre, um jogador alvo perde 1 e você ganha 1.",
@@ -3538,7 +3633,26 @@
    "sai": "Imp's Mischief",
    "papel": "habilita",
    "papel_dupla": "Recompensa (dreno a cada morte)",
-   "papel_por_que": "Cada criatura que morre vira 1 de vida, que o Vito converte em mais perda."
+   "papel_por_que": "Cada criatura que morre vira 1 de vida, que o Vito converte em mais perda.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada morte é 1 de vida ganho e um gatilho do Vito, num Vampiro.",
+    "I": "1 por morte, num 2/2 voador que precisa ficar em campo.",
+    "T": "Quatro manas pelo que o Blood Artist faz por duas.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza vira dreno.",
+    "R": "O Blood Artist faz o mesmo por duas manas e o Vein Ripper drena 2 por morte."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Three Tree City": {
    "notas": {
@@ -3550,14 +3664,33 @@
    "sin_por_que": {
     "sin2": "Não é Vampiro, mas existe por causa deles: com Vampiro escolhido, gera uma mana por Vampiro seu."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Mikokoro, Center of the Sea",
    "faz": "Terreno lendário. Ao entrar, escolha um tipo de criatura. Gera {C}; por {2} e virando, gera uma mana da cor escolhida para cada criatura sua do tipo escolhido.",
    "porque": "Com Vampiro escolhido e a mesa cheia de vampirinhos, vira seis, oito, dez manas pretas num terreno só: o X do Exsanguinate e do Morlun cresce com a tribo. Entra desvirado. Sai o Mikokoro, que dá uma carta a você e três à mesa.",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Terreno que gera uma mana preta por Vampiro: a tribo vira mana para o X."
+   "papel_por_que": "Terreno que gera uma mana preta por Vampiro: a tribo vira mana para o X.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Terreno utilitário que lê a tribo: uma mana preta por Vampiro seu, para o X do Exsanguinate e do Morlun.",
+    "I": "Com quatro ou cinco Vampiros em campo, vira mana grande num terreno só; sem mesa, é um incolor.",
+    "T": "Entra desvirado, mas gera só {C} sozinho e a mana grande custa {2}.",
+    "Q": "Desenvolvimento como incolor, paridade e na frente; atrás, sem Vampiros, não rende.",
+    "R": "O deck já tem cinco fontes de mana grande: Cabal Coffers, Nykthos, Crypt Ghast, Extraplanar Lens e Cabal Stronghold."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Faceless Haven": {
    "notas": {
@@ -3569,14 +3702,33 @@
    "sin_por_que": {
     "sin2": "Animada, tem todos os tipos de criatura e conta como Vampiro: recebe os lordes e conta para a Malakir Bloodwitch, sem efeito voltado aos outros Vampiros."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Path of Ancestry",
    "faz": "Terreno de neve. Gera {C}. Por {S}{S}{S} (mana de fonte de neve), vira uma criatura 4/3 com vigilância e todos os tipos de criatura até o fim do turno.",
    "porque": "Os 20 Snow-Covered Swamp pagam a neve com folga, e ela vira um Vampiro 4/3 que recebe os lordes e ataca com o resto da tribo (no radar, o Sanctum Seeker drena por ela e a Crossway lhe dá vínculo); como terreno, escapa das limpezas de criaturas. Entra desvirado. Sai o Path of Ancestry, que entra virado e só dá vidência.",
    "papel_dupla": "Vampiro (terreno que vira criatura)",
-   "papel_por_que": "Terreno que vira um Vampiro 4/3 para atacar com a tribo."
+   "papel_por_que": "Terreno que vira um Vampiro 4/3 para atacar com a tribo.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno incolor que vira Vampiro 4/3: recebe os lords e ataca com a tribo, mas não ganha vida sozinho.",
+    "I": "Um atacante 4/3 com vigilância por turno, sem vínculo próprio.",
+    "T": "Entra desvirado e gera só {C}; virar criatura custa três manas de neve a cada turno.",
+    "Q": "É terreno em qualquer momento, e depois de uma limpeza é o corpo que sobra para atacar.",
+    "R": "É o único terreno-criatura da lista; os 20 Snow-Covered Swamp pagam a neve."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Phyrexian Tower": {
    "notas": {
@@ -3591,7 +3743,26 @@
    "faz": "Terreno lendário. Gera {C}; virando e sacrificando uma criatura, gera {B}{B}.",
    "porque": "Saída de sacrifício que paga: cada criatura sacrificada vira {B}{B} e dispara Blood Artist, Vein Ripper e a Meathook, que o Vito converte; também salva o valor de uma criatura que seria exilada ou roubada. Sai o Cabal Stronghold, que rende com os Pântanos básicos, mas repete a mana grande que Coffers, Nykthos, Crypt Ghast, Extraplanar Lens e a Three Tree City já dão. Corte pelo critério do dono (13/11/2026): sai Nykthos, Shrine to Nyx, porque Cabal Stronghold já é o corte de uma carta de letra mais alta.",
    "papel_dupla": "Ramp (saída de sacrifício)",
-   "papel_por_que": "Terreno que troca uma criatura por {B}{B} e dispara os gatilhos de morte."
+   "papel_por_que": "Terreno que troca uma criatura por {B}{B} e dispara os gatilhos de morte.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno incolor com saída de sacrifício: a morte dispara Blood Artist, Vein Ripper e a Meathook, que o Vito converte.",
+    "I": "Uma mana a mais ao custo de uma criatura, uma vez por turno.",
+    "T": "Entra desvirado e o sacrifício não custa mana.",
+    "Q": "É terreno em qualquer momento; atrás, responde a exílio e roubo sacrificando a criatura.",
+    "R": "É a única saída de sacrifício sem custo de mana da lista; o Indulgent Aristocrat cobra {2}."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.05
   },
   "Witch's Clinic": {
    "notas": {
@@ -3603,14 +3774,33 @@
    "sin_por_que": {
     "sin1": "Vínculo com a vida no comandante, que só ganha vida em combate."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "sai": "Shizo, Death's Storehouse",
    "faz": "Gera {C}. Por {2} e virando, um comandante alvo ganha vínculo com a vida até o fim do turno.",
    "porque": "Vínculo no Vito todo turno, por {2}: com o Hatred, o dano volta como vida mesmo se ele for bloqueado, e o Vito tira o mesmo tanto de outro oponente. Fica como avaliar no lugar do Shizo, que dá medo ao Vito para o Hatred passar; o deck já tem a Shadowspear para o vínculo.",
-   "papel_dupla": "Vínculo no comandante",
-   "papel_por_que": "Dá vínculo ao Vito: cada dano dele vira ganho e gatilho."
+   "papel_por_que": "Dá vínculo ao Vito por {2}: o dano dele vira ganho de vida e dispara a própria conversão, como a Shadowspear.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Terreno incolor que dá vínculo só ao Vito: ganha vida em combate, com um corpo 1/3.",
+    "I": "O Vito bate por 1: sem o Hatred, é 1 de vida por turno.",
+    "T": "Entra desvirado, mas gera só {C} e o vínculo custa {2} a cada turno.",
+    "Q": "É terreno em qualquer momento; a habilidade só vale com o Vito em campo e atacando.",
+    "R": "A Shadowspear dá vínculo permanente por 1, e o próprio Vito dá vínculo ao time."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45,
+   "papel": "habilita"
   },
   "Takenuma, Abandoned Mire": {
    "notas": {},
@@ -3622,7 +3812,26 @@
    "faz": "Terreno lendário de preto, desvirado. Canalizar, por {3}{B} e descartando-o: tritura três e devolve uma criatura ou planeswalker do cemitério à mão; custa {1} a menos por criatura lendária sua.",
    "porque": "Gera {B} como um Pântano e, tarde, vira recursão: devolve o Vein Ripper ou o Gray Merchant, por {2}{B} com o Vito em campo. Não é Pântano: Coffers e Crypt Ghast só o contam com o Urborg. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de um dos 20 Snow-Covered Swamp.",
    "papel_dupla": "Recursão",
-   "papel_por_que": "Terreno que, descartado, devolve uma criatura do cemitério à mão."
+   "papel_por_que": "Terreno que, descartado, devolve uma criatura do cemitério à mão.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fonte de preto, a cor única do deck.",
+    "I": "Tarde, devolve uma criatura ou planeswalker à mão: um Gray Merchant ou um Vein Ripper de volta.",
+    "T": "Entra desvirado e gera {B}, mas não é Pântano nem de neve: a Extraplanar Lens não o dobra e Coffers só o conta com Urborg.",
+    "Q": "Terreno cedo e recursão tarde ou depois de uma limpeza: serve nos quatro momentos.",
+    "R": "Entraria no lugar de um dos 20 Snow-Covered Swamp; a recursão em terreno a lista só tem no Witch's Cottage e na Agadeem's Awakening."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Zof Consumption": {
    "notas": {
@@ -3634,14 +3843,33 @@
    "sin_por_que": {
     "sin1": "Ganho de 4 de uma vez, que o Vito devolve inteiro num alvo."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de {4}{B}{B}: cada oponente perde 4 e você ganha 4. O verso é Zof Bloodbog, terreno de preto que entra virado.",
    "porque": "Dreno que é terreno quando falta terreno: na mesa de quatro, cada oponente perde 4 e o Vito tira mais 4 de um deles. O verso entra virado. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de um dos 20 Snow-Covered Swamp.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ganho de 4)",
-   "papel_por_que": "Cada oponente perde 4 e o ganho volta pelo Vito noutro."
+   "papel_por_que": "Cada oponente perde 4 e o ganho volta pelo Vito noutro.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ganho de 4 de uma vez, que o Vito devolve inteiro num alvo, e dreno de 4 em cada oponente.",
+    "I": "4 em cada oponente e mais 4 pelo Vito: fere, não fecha.",
+    "T": "Seis manas por um dreno fixo de 4; o verso entra virado.",
+    "Q": "Terreno quando falta terreno e dreno quando sobra mana: serve nos quatro momentos.",
+    "R": "Exsanguinate, Gray Merchant e Malakir Bloodwitch drenam mais pela mesma mana ou menos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.55
   },
   "Hall of Echoes": {
    "notas": {},
@@ -3651,13 +3879,34 @@
    "sin_por_que": {
     "sin1": "Conversão 3: vira uma segunda cópia do Vito até o fim do turno ('the legend rule doesn't apply'), e cada ganho de vida tira o dobro dos oponentes, como a régua descreve no nível 3."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno que vira cópia de uma criatura sua por 5 de mana.",
    "porque": "Segunda cópia do Vito por {5} no turno; o laço com o Exquisite Blood já é infinito, então só ajuda sem o laço montado. Corte pelo critério do dono (13/11/2026): sai Cabal Stronghold, porque Path of Ancestry já é o corte de uma carta de letra mais alta.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Cabal Stronghold"
+   "sai": "Cabal Stronghold",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno incolor que vira cópia do Vito até o fim do turno: um segundo conversor em campo, sem regra de lenda.",
+    "I": "No turno do dreno grande, cada ganho vira duas perdas; não repete efeito de entrada e pede uma criatura sua em campo.",
+    "T": "Entra desvirado, mas gera só {C} e a cópia custa {5} a cada turno.",
+    "Q": "É terreno cedo; a cópia só vale na paridade longa e na frente, com mana sobrando.",
+    "R": "Nenhuma outra carta da lista copia criatura, e por ser terreno escapa das limpezas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.75,
+   "papel": "multiplica",
+   "papel_por_que": "Vira cópia do Vito até o fim do turno: cada ganho de vida passa a valer duas perdas."
   },
   "Massacre Girl, Most Wanted": {
    "notas": {},
@@ -3667,13 +3916,34 @@
    "sin_por_que": {
     "sin1": "Motor de ganho de vida fora de combate: um gatilho do Vito a cada morte, como o Blood Artist."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "A cada outra criatura ou planeswalker seu que morre, 1 de dano num oponente e 1 de vida para você; ganha marcador +1/+1 quando oponente toma dano fora de combate.",
    "porque": "Um gatilho do Vito a cada morte, como o Blood Artist; disputa a vaga com a Henrika (C), num deck perto do teto. Corte pelo critério do dono (13/11/2026): sai Twilight Prophet, porque Henrika Domnathi já é o corte de uma carta de letra mais alta.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Twilight Prophet"
+   "sai": "Twilight Prophet",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada morte de criatura sua é 1 de vida ganho e um gatilho do Vito; não é Vampiro.",
+    "I": "1 de dano e 1 de vida por morte, só das suas criaturas, e precisa ficar em campo.",
+    "T": "Cinco manas pelo que o Blood Artist faz por duas, e ele ainda conta as mortes dos oponentes.",
+    "Q": "Paridade e atrás, quando a limpeza leva a sua mesa e vira dreno.",
+    "R": "Blood Artist e Vein Ripper já cobrem o gatilho por morte, de qualquer lado."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.35,
+   "papel": "habilita",
+   "papel_por_que": "Cada morte de criatura sua é 1 de vida ganho e um gatilho do Vito, como o Blood Artist."
   },
   "Screeching Soulbreaker": {
    "notas": {},
@@ -3713,13 +3983,35 @@
    "sin_por_que": {
     "sin1": "Dobra a perda de vida dos oponentes e devolve em vida o que eles perderam, o que dispara o Vito; nota 3 da régua (dobra, como Bloodletter of Aclazotz, e fecha o laço, como Exquisite Blood)."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Em cada fim de turno, cada oponente perde de novo toda a vida que perdeu no turno: dobra a perda, em todos, todo turno (Dano Direto 3, como Wound Reflection); você ganha essa mesma vida, ganho repetível que depende da perda dos outros (Resiliência 2); ameaça na própria criatura (Evasão 1).",
    "porque": "Dobra a perda de vida dos oponentes e devolve tudo em vida, e cada ganho dispara o Vito de novo (sin1 3); valor 25 contra 16,5 do K'rrik, a comparável de 7 manas mais fraca e que não converte vida. (veredito da consulta do dono) Nos decks de Vampiros, criatura que não é Vampiro fica como avaliar (dono, 13/11/2026: a lista deve seguir a tribo).",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "K'rrik, Son of Yawgmoth"
+   "sai": "K'rrik, Son of Yawgmoth",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dobra o sangrar em todo fim de turno e devolve tudo em vida, que o Vito converte de novo.",
+    "I": "Já rende no fim do turno em que entra, mas só repete a perda que o deck causou e morre para qualquer remoção.",
+    "T": "Sete manas com {B}{B}{B}; o Bloodletter of Aclazotz dobra a perda por quatro.",
+    "Q": "Só na paridade longa e na frente.",
+    "R": "O Bloodletter of Aclazotz dobra só no seu turno e não devolve vida; nenhum outro da lista faz as duas coisas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.7,
+   "papel": "multiplica",
+   "papel_dupla": "habilita",
+   "papel_por_que": "Em todo fim de turno repete a perda de vida dos oponentes, como o Bloodletter of Aclazotz, e o ganho que vem junto dispara o Vito de novo."
   },
   "Sickbay": {
    "notas": {},
@@ -3797,7 +4089,26 @@
    "faz": "Feitiço de 5: cada criatura que não é Vampiro ganha −X/−X, X o número dos seus Vampiros.",
    "porque": "Limpeza de um lado só num deck com 27 Vampiros. Pela regra do dono (3 a 4 limpezas, de preferência unilaterais), entraria no lugar da Blasphemous Edict, a única das quatro que leva a sua mesa junto. As suas cópias estão no Markov, no Clavileño e no Strefan. Corte pelo critério do dono (13/11/2026): sai Feed the Swarm, porque Blasphemous Edict fica por decisão do dono.",
    "massa": true,
-   "sai": "Feed the Swarm"
+   "sai": "Feed the Swarm",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Limpeza que lê a tribo: −X/−X em quem não é Vampiro, X o número dos seus Vampiros.",
+    "I": "Com cinco Vampiros em campo limpa a mesa dos outros e deixa a sua; com dois ou três, só leva as criaturas pequenas.",
+    "T": "Cinco manas, feitiço, e o tamanho depende da sua mesa.",
+    "Q": "Paridade e na frente, quando há Vampiros em campo; atrás, sem mesa, não faz nada.",
+    "R": "Seria a única limpeza unilateral: Damnation, Toxic Deluge, Blasphemous Edict e a Meathook levam a sua mesa junto."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Sheoldred, the Apocalypse": {
    "notas": {
@@ -4979,7 +5290,7 @@
     "por_que": "Converte cada ganho de vida em perda de um oponente: recompensa o que o deck faz. Precisa de muitas fontes de ganho de vida (habilitadoras)."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
