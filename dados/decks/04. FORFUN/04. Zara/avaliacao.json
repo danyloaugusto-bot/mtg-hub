@@ -3271,7 +3271,31 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Encerra o turno com a devolução da Zara na pilha: a roubada fica, de forma repetível."
+   "papel_por_que": "Encerra o turno com a devolução da Zara na pilha: a roubada fica, de forma repetível.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o ficar repetível: com a devolução da Zara na pilha, termina o turno e a emprestada fica.",
+    "I": "Não faz nada ao entrar; rende a partir do primeiro ataque da Zara, e daí toda rodada.",
+    "T": "Duas manas, e {1} por uso.",
+    "Q": "Paridade, na frente e atrás, sempre que a Zara ataca; sem ela em campo, não faz nada.",
+    "R": "Os sete conversores da lista são de uso único e a cota é dez; a Thassa, do radar, custa o dobro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, toda emprestada volta à mão do dono na etapa final, a menos que você gaste um conversor de uso único por turno.",
+    "Clone, Fling e Fated Infatuation seguram uma emprestada e acabam; a Sundial repete todo turno por {1}, e ainda salva o Alchemist's Gambit.",
+    "Desce no turno 2 sem atrasar a Zara; na paridade e na frente, cada ataque vira uma criatura a mais; atrás, fica com a melhor criatura da mão de quem lidera."
+   ],
+   "indice": 2.65
   },
   "Thassa, Deep-Dwelling": {
    "notas": {
@@ -3293,7 +3317,31 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Pisca a roubada na sua etapa final, e ela volta sua, todo turno."
+   "papel_por_que": "Pisca a roubada na sua etapa final, e ela volta sua, todo turno.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o ficar a cada turno: na sua etapa final, pisca a emprestada, que volta como sua.",
+    "I": "Uma emprestada por turno fica de vez e repete o efeito de entrar; precisa de uma criatura para piscar.",
+    "T": "Quatro manas, sem custo por uso.",
+    "Q": "Paridade, na frente e atrás; indestrutível e quase nunca criatura, sobrevive às limpezas da lista.",
+    "R": "Nenhum conversor da lista repete, e a cota está em sete para dez; a Sundial, do radar, não repete o efeito de entrar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, o roubo da Zara some na etapa final: a lista só tem sete conversores, todos de uso único.",
+    "O Conjurer's Closet faz o mesmo por cinco e morre para remoção de artefato; a Thassa é indestrutível e passa pelo Blasphemous Act e pelo Nevinyrral's Disk.",
+    "Na paridade e na frente, cada ataque da Zara deixa uma criatura; atrás, pisca o Dominus ou um clone para repetir o efeito, e por {3}{U} vira um bloqueador."
+   ],
+   "indice": 2.5
   },
   "Conjurer's Closet": {
    "notas": {
@@ -3305,7 +3353,7 @@
    "sin_por_que": {
     "sin2": "Pisca a roubada no seu fim de turno, todo turno, e ela volta como sua."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Artefato de 5. Na sua etapa final, pode exilar uma criatura sua e devolvê-la.",
@@ -3315,7 +3363,26 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Pisca a roubada na sua etapa final, e ela volta sua, todo turno."
+   "papel_por_que": "Pisca a roubada na sua etapa final, e ela volta sua, todo turno.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Outro ficar a cada turno: pisca a emprestada na sua etapa final, e ela volta sua.",
+    "I": "Uma emprestada por turno fica de vez; não faz nada sem criatura para piscar.",
+    "T": "Cinco manas, o mesmo custo da Zara.",
+    "Q": "Paridade, na frente e atrás, com a Zara atacando.",
+    "R": "A Thassa, do radar, faz o mesmo por quatro e é indestrutível; fica pela cota baixa de conversores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Goblin Bombardment": {
    "notas": {
@@ -3340,7 +3407,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Sacrifica a roubada antes de ela voltar: 1 de dano em qualquer alvo."
+   "papel_por_que": "Sacrifica a roubada antes de ela voltar: 1 de dano em qualquer alvo.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica a emprestada antes de ela voltar: vira dano, e a carta vai para o cemitério do dono.",
+    "I": "1 de dano por criatura, a qualquer momento; cada ataque da Zara custa de vez uma criatura a alguém.",
+    "T": "Duas manas, e sacrificar não custa mana.",
+    "Q": "Paridade, na frente e atrás, sempre que há criatura roubada em campo.",
+    "R": "É a única saída de sacrifício repetível; o Fling e a Kazuul's Fury servem uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.35
   },
   "Phyrexian Altar": {
    "notas": {
@@ -3365,7 +3451,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Sacrifica a roubada antes de ela voltar e gera mana de qualquer cor."
+   "papel_por_que": "Sacrifica a roubada antes de ela voltar e gera mana de qualquer cor.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica a emprestada antes de ela voltar, por uma mana de qualquer cor.",
+    "I": "Uma mana por criatura: pouco, mas tira a carta da mão do dono.",
+    "T": "Três manas, sem custo por uso.",
+    "Q": "Paridade, na frente e atrás, com criatura roubada em campo.",
+    "R": "A Goblin Bombardment, do radar, faz dano por duas manas; a lista não tem saída repetível."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Helm of the Host": {
    "notas": {
@@ -3379,14 +3484,33 @@
    "sin_por_que": {
     "sin1": "Na Zara, cria em todo combate uma Zara não lendária com ímpeto: dobra o ataque da Zara a cada turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Equipamento lendário de 4, equipar {5}. No seu combate, ficha cópia não lendária da equipada, com ímpeto.",
    "porque": "Uma Zara a mais por turno: dois empréstimos por ataque, acumulando. Equipe antes do Clout. Fonte B.",
    "sai": "Parallel Thoughts",
    "papel": "multiplica",
-   "papel_por_que": "Cópia não lendária da Zara a cada combate, com ímpeto: mais um ataque e mais um roubo."
+   "papel_por_que": "Cópia não lendária da Zara a cada combate, com ímpeto: mais um ataque e mais um roubo.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cópia da Zara por combate, com ímpeto: cada cópia ataca e recruta também.",
+    "I": "Dobra o roubo e acumula, mas só a partir do combate seguinte a equipar.",
+    "T": "Quatro manas e equipar {5}: nove até a primeira cópia.",
+    "Q": "Só na paridade e na frente, com a Zara em campo e mana sobrando.",
+    "R": "O Wizard's Staff, do radar, dobra o gatilho por cinco manas ao todo; a lista não tem dobrador."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Wizard's Staff": {
    "notas": {
@@ -3405,7 +3529,26 @@
    "porque": "Na Zara, por equipar {3}: duas criaturas por ataque. B a recusou achando que só equipa Mago; o texto tem os dois custos.",
    "sai": "Goblin Electromancer",
    "papel": "multiplica",
-   "papel_por_que": "Na Zara, o gatilho de ataque dispara duas vezes: duas criaturas da mão do defensor."
+   "papel_por_que": "Na Zara, o gatilho de ataque dispara duas vezes: duas criaturas da mão do defensor.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dobra o gatilho de ataque da Zara: duas criaturas recrutadas por ataque.",
+    "I": "Um roubo a mais todo turno, depois de equipar; nada no turno em que entra.",
+    "T": "Duas manas e equipar {3} na Zara, que não é Mago.",
+    "Q": "Paridade, na frente e atrás; nos dois Niv-Mizzet, que são Magos, equipa por {1} e dobra o disparo.",
+    "R": "A Lwaxana Troi, do radar, faz o mesmo, mas é criatura; a lista não tem dobrador de gatilho."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Port Razer": {
    "notas": {
@@ -3418,14 +3561,33 @@
    "sin_por_que": {
     "sin1": "Cada acerto dele desvira tudo e dá outro combate: outro ataque da Zara, a cada turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Orc Pirata 4/4 de 5. Causa dano de combate a um jogador: desvira suas criaturas e há outro combate; não ataca um jogador que já atacou no turno.",
    "porque": "Outro combate é outro ataque da Zara, e as emprestadas desviram. Com o Helm of the Host, combates infinitos (Commander Spellbook 1548-1692). Fontes A e C.",
    "sai": "Goblin Flectomancer",
    "papel": "multiplica",
-   "papel_por_que": "Ao causar dano, desvira tudo e dá outro combate: a Zara ataca outro jogador."
+   "papel_por_que": "Ao causar dano, desvira tudo e dá outro combate: a Zara ataca outro jogador.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Outro combate é outro ataque da Zara e outro recrutamento, todo turno em que conecta.",
+    "I": "Desvira suas criaturas e dá mais um combate, mas só se o 4/4 sem evasão causar dano.",
+    "T": "Cinco manas, e precisa conectar no combate.",
+    "Q": "Só na paridade e na frente, com um oponente sem bloqueador.",
+    "R": "A lista não tem combate extra; o Alchemist's Gambit dá um turno, uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Swiftfoot Boots": {
    "notas": {
@@ -3455,7 +3617,7 @@
    "sin_por_que": {
     "sin1": "Toma o controle de uma criatura de oponente, de vez."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Aura de 5: ao entrar, desvira até cinco terrenos; você controla a criatura encantada.",
@@ -3468,7 +3630,26 @@
    "caro_por_desenho": true,
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Toma de vez uma criatura e desvira até cinco terrenos."
+   "papel_por_que": "Toma de vez uma criatura e desvira até cinco terrenos.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez a melhor criatura em campo, e ela fica.",
+    "I": "Dois por um, e os cinco terrenos desviram para a anulação ou outra mágica.",
+    "T": "Cinco manas que voltam ao entrar: sai de graça.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Mind Control e a Kitnap fazem o roubo, sem devolver a mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Agent of Treachery": {
    "notas": {
@@ -3483,7 +3664,7 @@
    "sin_por_que": {
     "sin1": "Rouba de vez qualquer permanente e compra três em cada fim de turno seu com três permanentes de outros donos: recompensa o roubo todo turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Humano Ladino de 7. Ao entrar, toma uma permanente, para sempre; na sua etapa final, com três permanentes que não são suas, compre três.",
@@ -3495,7 +3676,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Recompensa (compra três com permanentes alheias)",
-   "papel_por_que": "Toma de vez uma permanente e compra três a cada turno em que você tem três de outros donos."
+   "papel_por_que": "Toma de vez uma permanente e compra três a cada turno em que você tem três de outros donos.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Toma de vez qualquer permanente, e recompensa quem controla três que não são suas.",
+    "I": "Um roubo de vez ao entrar; as três cartas por turno pedem três permanentes roubadas.",
+    "T": "Sete manas.",
+    "Q": "Só no fim do jogo, na paridade e atrás.",
+    "R": "O Mind Control toma só criatura; nenhuma carta da lista paga por ficar com o roubado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Ghostly Flicker": {
    "notas": {
@@ -3518,7 +3718,26 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Pisca a roubada uma vez, e ela volta sua."
+   "papel_por_que": "Pisca a roubada uma vez, e ela volta sua.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pisca a emprestada antes da etapa final, e ela volta sua.",
+    "I": "Fica com uma roubada e repete o efeito de entrar de mais uma peça.",
+    "T": "Três manas, instantânea.",
+    "Q": "Paridade, na frente e atrás; também tira a Zara da remoção mirada.",
+    "R": "Os clones fazem papel parecido; fica pela cota baixa de conversores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Mind Stone": {
    "notas": {
@@ -3532,7 +3751,26 @@
    "veredito": "entra",
    "faz": "Artefato de 2: {C}; {1}, vira, sacrifique: compre.",
    "porque": "Pedra que acelera a Zara, no lugar de um redutor que só serve a mágicas. Fonte B. Corte pelo critério do dono (13/11/2026): sai Midnight Clock, porque Vadrik, Astral Archmage já é o corte de uma carta de letra mais alta.",
-   "sai": "Midnight Clock"
+   "sai": "Midnight Clock",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra genérica: acelera a Zara, não mexe no roubo.",
+    "I": "Uma mana incolor por turno.",
+    "T": "Duas manas.",
+    "Q": "Viva o jogo todo: no fim, vira uma carta.",
+    "R": "A lista tem seis pedras para uma cota de dez; os Signets dão cor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Steam Vents": {
    "notas": {},
@@ -3543,7 +3781,26 @@
    "veredito": "entra",
    "faz": "Island Mountain: pague 2 ou entra virado.",
    "porque": "As duas cores, desvirado, no lugar de terreno incolor. Fontes A e B.",
-   "sai": "Encroaching Wastes"
+   "sai": "Encroaching Wastes",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, e é Island e Mountain.",
+    "I": "Um terreno.",
+    "T": "Desvirado por 2 de vida.",
+    "Q": "Vivo o jogo todo.",
+    "R": "Só o Command Tower dá as duas cores desvirado na lista; a Shivan Reef, do radar, faz parecido."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Sulfur Falls": {
    "notas": {},
@@ -3554,7 +3811,26 @@
    "veredito": "entra",
    "faz": "Terreno: {U} ou {R}; virado sem Island ou Mountain.",
    "porque": "Quase sempre desvirado, com 20 básicos. Fontes A e B.",
-   "sai": "Vivid Crag"
+   "sai": "Vivid Crag",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno.",
+    "T": "Desvirado com uma Island ou Mountain, que a lista tem de sobra.",
+    "Q": "Vivo o jogo todo; só no turno 1 entra virado.",
+    "R": "Só o Command Tower dá as duas cores desvirado na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Shivan Reef": {
    "notas": {},
@@ -3565,7 +3841,26 @@
    "veredito": "entra",
    "faz": "Terreno: {C}, ou {U} ou {R} com 1 de dano.",
    "porque": "Desvirado sempre. Fontes A e B.",
-   "sai": "Vivid Creek"
+   "sai": "Vivid Creek",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno.",
+    "T": "Sempre desvirado; a cor custa 1 de dano.",
+    "Q": "Vivo o jogo todo.",
+    "R": "Só o Command Tower dá as duas cores desvirado na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Strionic Resonator": {
    "notas": {
@@ -3586,7 +3881,26 @@
    "faz": "Artefato de 2. {2}, vira: copia um gatilho seu.",
    "porque": "Copia o gatilho da Zara, ou o da Thassa. Fonte B.",
    "papel": "multiplica",
-   "papel_por_que": "Copia o gatilho de ataque da Zara: mais uma criatura da mão do defensor."
+   "papel_por_que": "Copia o gatilho de ataque da Zara: mais uma criatura da mão do defensor.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Copia o gatilho de ataque da Zara: uma criatura a mais por ataque.",
+    "I": "Um roubo a mais por turno, pagando; nada no turno em que entra.",
+    "T": "Duas manas, e {2} a cada cópia.",
+    "Q": "Paridade, na frente e atrás; copia também o gatilho do Dominus of Fealty.",
+    "R": "O Wizard's Staff e a Lwaxana Troi, do radar, dobram o gatilho sem pagar todo turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Gilded Drake": {
    "notas": {
@@ -3609,7 +3923,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Troca o controle dele por uma criatura de oponente, de vez."
+   "papel_por_que": "Troca o controle dele por uma criatura de oponente, de vez.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez uma criatura em campo, em troca do Draco.",
+    "I": "Fica com a melhor criatura da mesa; o oponente ganha um 3/3 voador.",
+    "T": "Duas manas.",
+    "Q": "Paridade, na frente e atrás, com alvo que valha a troca.",
+    "R": "O Mind Control e a Kitnap custam o dobro ou mais."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Control Magic": {
    "notas": {
@@ -3622,7 +3955,7 @@
    "sin_por_que": {
     "sin1": "Toma o controle de uma criatura de oponente, de vez."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Aura de 4: você controla a criatura encantada.",
@@ -3633,7 +3966,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma de vez uma criatura."
+   "papel_por_que": "Toma de vez uma criatura.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez a melhor criatura em campo.",
+    "I": "Dois por um: tira a ameaça deles e põe do seu lado.",
+    "T": "Quatro manas, o padrão do roubo de vez.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Mind Control, da lista, faz o mesmo por cinco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Bribery": {
    "notas": {
@@ -3656,7 +4008,26 @@
     "fica": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Põe em campo, sua, a melhor criatura do grimório de um oponente."
+   "papel_por_que": "Põe em campo, sua, a melhor criatura do grimório de um oponente.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Põe em campo, de vez, uma criatura do grimório de um oponente.",
+    "I": "A melhor criatura do deck dele; depende do que ele joga.",
+    "T": "Cinco manas, feitiço.",
+    "Q": "Paridade, na frente e atrás; não depende da mesa nem da mão deles.",
+    "R": "Nenhuma carta da lista rouba do grimório; o Mind Control toma só o que já está em campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Vedalken Shackles": {
    "notas": {
@@ -3669,7 +4040,7 @@
    "sin_por_que": {
     "sin1": "Toma o controle de uma criatura de novo a cada turno, sozinho: troca de alvo quando quiser, enquanto houver Islands."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Artefato de 3. {2}, vira: toma uma criatura de força até o número de Islands seus, enquanto ficar virado.",
@@ -3679,7 +4050,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma uma criatura enquanto ficar virado, e pode tomar outra quando quiser."
+   "papel_por_que": "Toma uma criatura enquanto ficar virado, e pode tomar outra quando quiser.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta de novo a cada turno, sem a Zara.",
+    "I": "Toma uma criatura enquanto ficar virado, e troca de alvo quando quiser.",
+    "T": "Três manas e {2} por uso; a força do alvo é limitada pelas Islands, e a lista tem 12.",
+    "Q": "Paridade, na frente e atrás: em velocidade instantânea, toma o atacante.",
+    "R": "O Dominus of Fealty toma qualquer permanente, por cinco; o Shackles é mais barato e limitado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Deadeye Navigator": {
    "notas": {
@@ -3700,7 +4090,26 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Pisca a roubada pareada quando quiser, e ela volta sua."
+   "papel_por_que": "Pisca a roubada pareada quando quiser, e ela volta sua.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pareado com a emprestada, pisca-a por {1}{U} e ela volta sua, todo turno.",
+    "I": "Fica com uma roubada por turno; precisa estar em campo antes do ataque.",
+    "T": "Seis manas, e {1}{U} a cada pisca.",
+    "Q": "Só no fim do jogo, na paridade e na frente.",
+    "R": "A Thassa, do radar, faz o mesmo por quatro e sem pagar; fica pela cota baixa de conversores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Ashnod's Altar": {
    "notas": {
@@ -3724,7 +4133,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Sacrifica a roubada antes de ela voltar e gera {C}{C}."
+   "papel_por_que": "Sacrifica a roubada antes de ela voltar e gera {C}{C}.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica a emprestada antes de ela voltar, por {C}{C}.",
+    "I": "Duas manas incolores por criatura, e a carta sai da mão do dono.",
+    "T": "Três manas, sem custo por uso.",
+    "Q": "Paridade, na frente e atrás, com criatura roubada em campo.",
+    "R": "A Goblin Bombardment, do radar, faz dano por duas manas; a lista não tem saída repetível."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Coercive Recruiter": {
    "notas": {
@@ -3746,7 +4174,26 @@
     "rouba": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toma uma criatura por um turno quando ele ou outro Pirata seu entra, como a Zara."
+   "papel_por_que": "Toma uma criatura por um turno quando ele ou outro Pirata seu entra, como a Zara.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta uma criatura por um turno ao entrar; a Zara é Pirata, mas só dispara quando volta do comando.",
+    "I": "Um roubo de um turno, que volta ao dono sem conversor.",
+    "T": "Cinco manas por um Act of Treason com corpo.",
+    "Q": "Só na paridade e na frente, no turno do ataque.",
+    "R": "O Act of Treason faz o mesmo roubo por três."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Captivating Crew": {
    "notas": {
@@ -3768,7 +4215,26 @@
     "rouba": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toma uma criatura de oponente por um turno, toda vez que pagar {3}{R}."
+   "papel_por_que": "Toma uma criatura de oponente por um turno, toda vez que pagar {3}{R}.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 0,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta de novo a cada turno, sem a Zara.",
+    "I": "Uma criatura por um turno a cada ativação; sem conversor, ela volta.",
+    "T": "Quatro manas e {3}{R} por roubo, só como feitiço: oito até o primeiro.",
+    "Q": "Só no jogo longo, na paridade e na frente.",
+    "R": "O Dominus of Fealty rouba todo turno sem pagar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Zealous Conscripts": {
    "notas": {
@@ -3790,7 +4256,26 @@
     "rouba": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Ao entrar, toma uma permanente por um turno, desvirada e com ímpeto."
+   "papel_por_que": "Ao entrar, toma uma permanente por um turno, desvirada e com ímpeto.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta qualquer permanente por um turno, ao entrar.",
+    "I": "Um roubo de um turno e um 3/3 com ímpeto.",
+    "T": "Cinco manas.",
+    "Q": "Só na paridade e na frente, no turno do ataque.",
+    "R": "O Act of Treason rouba a criatura por três; a lista não tem pisca para repetir a entrada."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Insurrection": {
    "notas": {
@@ -3812,7 +4297,26 @@
     "rouba": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toma todas as criaturas por um turno, com ímpeto: fecha o jogo."
+   "papel_por_que": "Toma todas as criaturas por um turno, com ímpeto: fecha o jogo.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 0,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O recrutar em massa completo: todas as criaturas, desviradas e com ímpeto.",
+    "I": "Vira o jogo: a mesa inteira ataca por você.",
+    "T": "Oito manas.",
+    "Q": "Só no fim do jogo, com a mesa cheia.",
+    "R": "O Mob Rule, da lista, faz quase o mesmo por seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Mass Mutiny": {
    "notas": {
@@ -3825,7 +4329,7 @@
    "sin_por_que": {
     "sin1": "Toma uma criatura de cada oponente de uma vez, com ímpeto para atacar."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de 5: uma criatura de cada oponente até o fim do turno, desviradas e com ímpeto.",
@@ -3834,7 +4338,26 @@
     "rouba": 1
    },
    "papel": "habilita",
-   "papel_por_que": "Toma uma criatura de cada oponente por um turno, com ímpeto."
+   "papel_por_que": "Toma uma criatura de cada oponente por um turno, com ímpeto.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta até uma criatura de cada oponente, desviradas e com ímpeto.",
+    "I": "Três atacantes por um turno; sem conversor, voltam.",
+    "T": "Cinco manas, feitiço.",
+    "Q": "Só na paridade e na frente, no turno do ataque.",
+    "R": "O Mob Rule toma todas de uma faixa de força por seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Blatant Thievery": {
    "notas": {
@@ -3848,7 +4371,7 @@
    "sin_por_que": {
     "sin1": "Toma de vez uma permanente de cada oponente de uma vez."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de 7: toma uma permanente de cada oponente, para sempre.",
@@ -3859,7 +4382,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Toma de vez uma permanente de cada oponente."
+   "papel_por_que": "Toma de vez uma permanente de cada oponente.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez uma permanente de cada oponente, de qualquer tipo.",
+    "I": "Três roubos que ficam: tira a melhor peça de cada mesa.",
+    "T": "Sete manas, com {U}{U}{U}.",
+    "Q": "Só no fim do jogo, na paridade e atrás.",
+    "R": "A Mass Manipulation pede oito manas para duas e só pega criatura ou planeswalker."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Stolen Strategy": {
    "notas": {
@@ -3879,7 +4421,26 @@
    "porque": "Jogar com as cartas deles, literalmente; mas cinco manas. Fontes A e C.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Toda manutenção, exila o topo de cada oponente e deixa você conjurar essas cartas."
+   "papel_por_que": "Toda manutenção, exila o topo de cada oponente e deixa você conjurar essas cartas.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conjura as cartas do topo dos oponentes, todo turno.",
+    "I": "Três cartas ao acaso por turno, só mágicas, e você ainda paga o custo; precisa ficar.",
+    "T": "Cinco manas, e rende a partir da manutenção seguinte.",
+    "Q": "Só no jogo longo, na paridade e na frente.",
+    "R": "Nenhuma carta da lista joga com o grimório deles."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.5
   },
   "Spark Double": {
    "notas": {
@@ -3894,7 +4455,7 @@
     "sin1": "Copiando a Zara, sem ser lendária: duas Zaras atacando, dois roubos a cada turno.",
     "sin2": "Ou copia a roubada, e a cópia fica."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Ilusão de 4 que entra como cópia de uma criatura ou planeswalker seu, não lendária, com um marcador a mais.",
@@ -3904,7 +4465,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Recompensa (copia a roubada)",
-   "papel_por_que": "Cópia não lendária da Zara: dois gatilhos de roubo por combate."
+   "papel_por_que": "Cópia não lendária da Zara: dois gatilhos de roubo por combate.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Segunda Zara, não lendária: dois ataques e dois recrutamentos por turno; ou copia a emprestada, e a cópia fica.",
+    "I": "Uma cópia com um marcador a mais; a da Zara só rouba no turno seguinte.",
+    "T": "Quatro manas, no padrão de um clone.",
+    "Q": "Paridade, na frente e atrás; só copia criatura sua.",
+    "R": "O Clone não copia a Zara, por ser lendária; o Dominion Saboteur, do radar, copia por cinco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3
   },
   "Phyrexian Metamorph": {
    "notas": {
@@ -3928,7 +4508,26 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Entra como cópia de qualquer criatura, como a roubada, e a cópia fica."
+   "papel_por_que": "Entra como cópia de qualquer criatura, como a roubada, e a cópia fica.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia a emprestada na segunda fase principal, e a cópia fica.",
+    "I": "Uma cópia da melhor criatura ou do melhor artefato em campo.",
+    "T": "Três manas e 2 de vida.",
+    "Q": "Paridade, na frente e atrás: copia qualquer criatura ou artefato da mesa.",
+    "R": "Clone e Quasiduplicate fazem o mesmo; fica pela cota baixa de conversores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Breeches, Eager Pillager": {
    "notas": {
@@ -3948,7 +4547,26 @@
    "porque": "A Zara é Pirata: cada ataque dela dá um Tesouro ou tira um bloqueador. Fonte D.",
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "A Zara é Pirata: cada ataque dela dá Tesouro, tira um bloqueador ou exila o topo."
+   "papel_por_que": "A Zara é Pirata: cada ataque dela dá Tesouro, tira um bloqueador ou exila o topo.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Rende quando a Zara ataca, por ela ser Pirata, sem roubar nada.",
+    "I": "Um Tesouro, um bloqueador a menos ou uma carta do seu topo por ataque de Pirata.",
+    "T": "Três manas.",
+    "Q": "Paridade e na frente, com a Zara atacando; sozinho, é um 3/3.",
+    "R": "O Mind Stone, do radar, acelera sem depender de ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Kari Zev's Expertise": {
    "notas": {
@@ -3971,7 +4589,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Toma uma criatura por um turno e conjura grátis uma mágica de até 2."
+   "papel_por_que": "Toma uma criatura por um turno e conjura grátis uma mágica de até 2.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta uma criatura ou veículo por um turno.",
+    "I": "Um roubo de um turno e uma mágica de valor até 2 de graça.",
+    "T": "Três manas, com o brinde.",
+    "Q": "Só na paridade e na frente, no turno do ataque.",
+    "R": "O Act of Treason, da lista, faz o mesmo roubo pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Relentless Assault": {
    "notas": {
@@ -3990,7 +4627,26 @@
    "faz": "Feitiço de 4: desvira quem atacou no turno; outro combate e outra fase principal.",
    "porque": "Outro ataque da Zara, e as emprestadas atacam de novo. Fonte D; banco de B.",
    "papel": "multiplica",
-   "papel_por_que": "Desvira quem atacou e dá outro combate: a Zara ataca e rouba de novo."
+   "papel_por_que": "Desvira quem atacou e dá outro combate: a Zara ataca e rouba de novo.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Mais um ataque da Zara, uma vez: outro recrutamento.",
+    "I": "Uma criatura a mais e as emprestadas atacam de novo, num turno só.",
+    "T": "Quatro manas, feitiço.",
+    "Q": "Só na paridade e na frente, com a Zara já tendo atacado.",
+    "R": "A World at War, do radar, repete no turno seguinte por uma mana a mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Chaos Warp": {
    "notas": {
@@ -4014,7 +4670,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Artefato de 2: {C}; sem limite de mão.",
-   "porque": "Pedra; o Reliquary Tower já tira o limite. Fonte B."
+   "porque": "Pedra; o Reliquary Tower já tira o limite. Fonte B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pedra genérica: acelera a Zara, não mexe no roubo.",
+    "I": "Uma mana incolor por turno; o limite de mão pouco importa aqui.",
+    "T": "Duas manas.",
+    "Q": "Viva o jogo todo.",
+    "R": "A lista tem seis pedras para uma cota de dez; os Signets dão cor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Volcanic Island": {
    "notas": {},
@@ -4024,7 +4699,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Island Mountain, sempre desvirado.",
-   "porque": "A melhor dual, e cara. Fonte B. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força."
+   "porque": "A melhor dual, e cara. Fonte B. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores, e é Island e Mountain.",
+    "I": "Um terreno.",
+    "T": "Sempre desvirado, sem custo.",
+    "Q": "Vivo o jogo todo.",
+    "R": "O Steam Vents, do radar, faz quase o mesmo por 2 de vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Training Center": {
    "notas": {},
@@ -4034,7 +4728,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: {U} ou {R}; virado com menos de dois oponentes.",
-   "porque": "Desvirado em mesa de quatro. Fonte A."
+   "porque": "Desvirado em mesa de quatro. Fonte A.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno.",
+    "T": "Desvirado com dois ou mais oponentes, o normal da mesa.",
+    "Q": "Vivo o jogo todo; só no fim, com um oponente, entra virado.",
+    "R": "Só o Command Tower dá as duas cores desvirado na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Stormcarved Coast": {
    "notas": {},
@@ -4044,7 +4757,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: {U} ou {R}; virado sem dois outros terrenos.",
-   "porque": "Desvirado do turno 3 em diante. Fonte A."
+   "porque": "Desvirado do turno 3 em diante. Fonte A.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "As duas cores.",
+    "I": "Um terreno.",
+    "T": "Virado nos dois primeiros turnos; desvirado depois.",
+    "Q": "Vivo o jogo todo.",
+    "R": "Só o Command Tower dá as duas cores desvirado na lista; a Sulfur Falls, do radar, é mais rápida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Lightning Greaves": {
    "notas": {
@@ -4178,14 +4910,33 @@
    "sin_por_que": {
     "sin1": "Rende quando a Zara, Pirata, acerta um oponente, sem roubar: um Tesouro por oponente atingido."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Sereia Pirata lendária 2/2 de 3 com voar. Piratas seus causam dano aos oponentes: um Tesouro por oponente atingido.",
    "porque": "A Zara é Pirata: cada ataque que conecta paga um Tesouro, e o Malcolm voa junto. Sem a Zara batendo, não faz nada. Potencial do edh.wiki (+44%).",
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "A Zara é Pirata: cada oponente que ela atinge dá um Tesouro."
+   "papel_por_que": "A Zara é Pirata: cada oponente que ela atinge dá um Tesouro.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Rende quando a Zara acerta, por ela ser Pirata, sem roubar nada.",
+    "I": "Um Tesouro por oponente ferido por Piratas; os dois voam.",
+    "T": "Três manas.",
+    "Q": "Paridade e na frente; no começo, ele mesmo ataca e paga um Tesouro.",
+    "R": "O Mind Stone, do radar, acelera sem depender de dano."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "High Market": {
    "notas": {
@@ -4207,7 +4958,26 @@
    },
    "papel": "recompensa",
    "papel_por_que": "Terreno que sacrifica a roubada antes de ela voltar, por 1 de vida (papel fraco).",
-   "sai": "Desolate Lighthouse"
+   "sai": "Desolate Lighthouse",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno incolor que serve ao ficar: sacrifica a emprestada antes de ela voltar.",
+    "I": "1 de vida, e a criatura vai para o cemitério do dono em vez da mão.",
+    "T": "Entra desvirado, e sacrificar não custa mana.",
+    "Q": "Vivo o jogo todo, na vaga de terreno.",
+    "R": "A lista não tem saída de sacrifício repetível; mas é mais um terreno sem cor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Thud": {
    "notas": {
@@ -4231,7 +5001,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Sacrifica a roubada e causa dano igual à força dela."
+   "papel_por_que": "Sacrifica a roubada e causa dano igual à força dela.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Sacrifica a emprestada antes de ela voltar, e a força dela vira dano.",
+    "I": "Dano igual à força da roubada em qualquer alvo.",
+    "T": "Uma mana.",
+    "Q": "Feitiço: só no seu turno, com criatura grande em campo.",
+    "R": "O Fling faz o mesmo como instantânea; fica pela cota baixa de conversores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Breeches, Brazen Plunderer": {
    "notas": {
@@ -4250,7 +5039,26 @@
    "porque": "A Zara é Pirata: cada ataque que conecta leva também uma carta do grimório de quem apanhou. O Breeches, Eager Pillager, já no radar, faz papel parecido por 3. Potencial do edh.wiki (+41%).",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Quando a Zara ou outro Pirata acerta, exila o topo de cada atingido e você joga essas cartas."
+   "papel_por_que": "Quando a Zara ou outro Pirata acerta, exila o topo de cada atingido e você joga essas cartas.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Joga a carta do topo de quem a Zara feriu, com mana de qualquer cor.",
+    "I": "Uma carta ao acaso por oponente ferido, só no turno, e você ainda paga; precisa ficar.",
+    "T": "Quatro manas.",
+    "Q": "Só na paridade e na frente, com um Pirata conectando.",
+    "R": "Nenhuma carta da lista joga com o grimório deles."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Protean Raider": {
    "notas": {
@@ -4275,7 +5083,26 @@
     "conv": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Depois do ataque da Zara, entra como cópia de qualquer criatura, como a roubada, e fica."
+   "papel_por_que": "Depois do ataque da Zara, entra como cópia de qualquer criatura, como a roubada, e fica.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia a emprestada na segunda fase principal, e a cópia fica.",
+    "I": "Uma cópia de qualquer criatura em campo.",
+    "T": "Três manas, uma a menos que o Clone; o ataque da Zara cumpre a incursão.",
+    "Q": "Paridade, na frente e atrás, desde que você tenha atacado no turno.",
+    "R": "Clone e Quasiduplicate fazem o mesmo; fica pela cota baixa de conversores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Riverglide Pathway": {
    "notas": {},
@@ -4286,7 +5113,26 @@
    "veredito": "entra",
    "sai": "Izzet Boilerworks",
    "faz": "Terreno de duas faces: a frente gera {U}, o verso gera {R}. Você escolhe a face ao jogá-lo; entra desvirado.",
-   "porque": "A cor que faltar, desvirada e sem custo, no lugar do Izzet Boilerworks, que entra virado e devolve um terreno à mão: o deck quer a Zara no turno 5 sem perder um turno de mana."
+   "porque": "A cor que faltar, desvirada e sem custo, no lugar do Izzet Boilerworks, que entra virado e devolve um terreno à mão: o deck quer a Zara no turno 5 sem perder um turno de mana.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "A cor que faltar, azul ou vermelha, escolhida ao jogar.",
+    "I": "Um terreno.",
+    "T": "Sempre desvirado, sem custo.",
+    "Q": "Vivo o jogo todo.",
+    "R": "Steam Vents e Shivan Reef, do radar, dão as duas cores ao mesmo tempo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Hanweir Battlements": {
    "notas": {
@@ -4304,8 +5150,27 @@
    "sai": "Temple of Epiphany",
    "faz": "Gera {C}. Por {R} e virando: uma criatura alvo ganha ímpeto até o fim do turno. Por {3}{R}{R}, virando: se você possui e controla este terreno e uma criatura chamada Hanweir Garrison, exile-os e funda-os em Hanweir, the Writhing Township.",
    "porque": "Ímpeto para a Zara no turno em que ela desce, sem depender do Clout: o primeiro roubo vem um turno antes, e a emprestada já ataca. Entra desvirado no lugar do Temple of Epiphany, que entra virado por uma vidência.",
-   "papel_dupla": "Ímpeto para a Zara",
-   "papel_por_que": "Terreno que dá ímpeto à Zara: o roubo começa no turno em que ela entra."
+   "papel_por_que": "Dá ímpeto à Zara no turno em que ela desce: o primeiro roubo vem um turno antes, sem depender do Clout.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno incolor que serve ao recrutar: ímpeto para a Zara no turno em que desce.",
+    "I": "O primeiro roubo vem um turno antes.",
+    "T": "Entra desvirado; o ímpeto custa {R} e o próprio terreno, sete manas com a Zara.",
+    "Q": "Vivo o jogo todo, na vaga de terreno.",
+    "R": "Só o Clout of the Dominus dá ímpeto à Zara; mas é mais um terreno sem cor."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.95,
+   "papel": "habilita"
   },
   "Riptide Laboratory": {
    "notas": {
@@ -4313,14 +5178,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "entra",
    "sai": "Reliquary Tower",
    "faz": "Gera {C}. Por {1}{U} e virando: devolve um Mago que você controla à mão do dono.",
    "porque": "Salva da remoção os dois Niv-Mizzet, cartas de estimação e fechamento do deck, e o Archmage Emeritus: a fraqueza do fim de jogo, os Niv-Mizzet atraindo a primeira remoção, ganha resposta numa vaga de terreno. Incolor por incolor, no lugar do Reliquary Tower, que só importa com a mão acima de sete.",
    "papel_dupla": "Proteção dos Niv-Mizzet",
-   "papel_por_que": "Terreno que devolve o Mago à mão em resposta à remoção."
+   "papel_por_que": "Terreno que devolve o Mago à mão em resposta à remoção.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Terreno incolor; protege os Magos, que estão fora do roubo, e a Zara não é Mago.",
+    "I": "Salva um Niv-Mizzet da remoção, devolvendo-o à mão.",
+    "T": "Entra desvirado; {1}{U} por uso.",
+    "Q": "Paridade e atrás, com um Mago em campo; no resto, é terreno incolor.",
+    "R": "Reliquary Tower e Desolate Lighthouse são utilitários incolores do mesmo nível."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.15
   },
   "Hall of Echoes": {
    "notas": {},
@@ -4330,13 +5214,34 @@
    "sin_por_que": {
     "sin1": "Roubo 3: a cópia da Zara que ataca tem o próprio gatilho, o que dobra o roubo no turno, como o Spark Double na régua."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Terreno que vira cópia de uma criatura sua por 5 de mana.",
    "porque": "A cópia da Zara que ataca rouba de novo; troca terreno incolor por terreno incolor (a Encroaching Wastes já é o corte da Steam Vents).",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Temple of the False God"
+   "sai": "Temple of the False God",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno incolor que serve ao recrutar: vira cópia da Zara, ataca e rouba de novo.",
+    "I": "Um roubo a mais no turno em que você paga.",
+    "T": "Entra desvirado; {5} a cada cópia.",
+    "Q": "Vivo o jogo todo como terreno; a cópia só no fim.",
+    "R": "Nenhum terreno da lista copia a Zara; o Shore Leave Planet, do radar, entra virado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8,
+   "papel": "multiplica",
+   "papel_por_que": "Vira cópia da Zara por {5}, e a cópia ataca e rouba de novo."
   },
   "Dominion Saboteur": {
    "notas": {},
@@ -4348,13 +5253,35 @@
     "sin1": "Entra como cópia não lendária da Zara: dobra o ataque e o gatilho dela a cada turno, o 3 da régua (Spark Double).",
     "sin2": "Copia uma criatura sua ou qualquer criatura, inclusive a roubada, e a cópia fica: o 2 da régua (Clone, Spark Double)."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Entra como cópia não lendária de qualquer artefato ou criatura em campo, com os mesmos marcadores do original: um clone, como o Clone.",
    "porque": "Faz tudo o que o Clone faz e ainda copia a Zara sem a regra de lendárias, dobrando o roubo a cada ataque (sinergia 3/2); valor 20,5 contra 8 do Clone, o clone mais fraco da curva. (veredito da consulta do dono)",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Clone"
+   "sai": "Clone",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia a emprestada, e a cópia fica; ou copia a Zara sem ser lendário, e o roubo dobra.",
+    "I": "Uma cópia de qualquer criatura ou artefato; a da Zara só rouba no turno seguinte.",
+    "T": "Cinco manas, uma acima do Clone.",
+    "Q": "Paridade, na frente e atrás: copia qualquer criatura da mesa.",
+    "R": "O Clone não copia a Zara; o Spark Double, do radar, copia por quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15,
+   "papel": "recompensa",
+   "papel_dupla": "multiplica",
+   "papel_por_que": "Copia a emprestada e a cópia fica; ou copia a Zara sem ser lendário e dobra o roubo."
   },
   "Lwaxana Troi, Charming Guest": {
    "notas": {},
@@ -4370,7 +5297,28 @@
    "faz": "Por {2} e virando, faz cada habilidade disparada de outra criatura sua disparar uma vez a mais enquanto ela ficar virada, e ela pode não desvirar: um dobrador de gatilhos de uma criatura só, como o Strionic Resonator e o Roaming Throne.",
    "porque": "Dobra o gatilho de ataque da Zara: duas criaturas roubadas por ataque. Vale 18 contra 5,5 do Goblin Flectomancer, a mais fraca do mesmo papel, e o Roubo do deck está abaixo da faixa. (veredito da consulta do dono) Corte pelo critério do dono (13/11/2026): sai Vadrik, Astral Archmage, porque Glasspool Mimic é tier A.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Vadrik, Astral Archmage"
+   "sai": "Vadrik, Astral Archmage",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dobra o gatilho de ataque da Zara: duas criaturas recrutadas por ataque.",
+    "I": "Um roubo a mais todo turno enquanto ficar virada; é um corpo frágil.",
+    "T": "Duas manas e {2} uma vez só; vira apenas no turno seguinte.",
+    "Q": "Paridade, na frente e atrás; dobra também o gatilho do Dominus of Fealty.",
+    "R": "O Wizard's Staff, do radar, faz o mesmo e resiste às limpezas de criatura; a lista não tem dobrador."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3,
+   "papel": "multiplica",
+   "papel_por_que": "Dobra o gatilho de ataque da Zara: duas criaturas recrutadas por ataque."
   },
   "Worf, Intelligence Contractor": {
    "notas": {},
@@ -4380,13 +5328,34 @@
    "sin_por_que": {
     "sin1": "Pela régua, 3 é 'toma várias permanentes de oponentes de uma vez, de vez ou com ímpeto para atacar': o Worf toma uma criatura de cada oponente, desvirada e com ímpeto; o limite de valor até 3 pesa no veredito, não na régua. Sinergia Secundária 0: não fica com as roubadas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Criatura 3/2: ao entrar, toma até o fim do turno até uma criatura de valor até 3 de cada oponente, desvirada e com ímpeto; vira remoção só com uma saída de sacrifício.",
    "porque": "Roubo de várias criaturas de uma vez com ímpeto (Sinergia Primária 3) num deck abaixo da faixa de roubo, valor 19 contra 5,5 do Goblin Flectomancer, que no mesmo custo só desvia mágica; a ressalva é que só pega criatura de valor até 3 e devolve no fim do turno. (veredito da consulta do dono)",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Malevolent Hermit"
+   "sai": "Malevolent Hermit",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta até uma criatura de cada oponente, desviradas e com ímpeto.",
+    "I": "Só pega criatura de valor até 3, por um turno; sem conversor, voltam.",
+    "T": "Três manas por até três roubos e um corpo.",
+    "Q": "Só na paridade e na frente, com alvos pequenos na mesa.",
+    "R": "O Mob Rule toma as grandes ou as pequenas, todas, por seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.9,
+   "papel": "habilita",
+   "papel_por_que": "Toma até uma criatura de cada oponente por um turno, com ímpeto: matéria-prima para os conversores."
   },
   "The Caretaker": {
    "notas": {},
@@ -4411,13 +5380,35 @@
    "sin_por_que": {
     "sin1": "Pela régua, 2 é 'toma o controle de uma permanente de oponente, por um turno ou de vez': o 3rd Rule rouba uma permanente não terreno; não chega a 3, que pede várias de uma vez ou de novo a cada turno. Sinergia Secundária 0: o roubo de vez fica em 0 ali, pela régua."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Feitiço modal: rouba de vez qualquer permanente não terreno de um oponente, que compra três; ou entrega uma permanente sua a um oponente para comprar três.",
    "porque": "O deck está abaixo da faixa de roubo (16 cartas) e a carta toma de vez qualquer permanente não terreno, à sua escolha (valor 15,5), contra a Order of Succession (4,5), que só rouba criatura e ainda entrega uma sua escolhida pelo vizinho; o preço é o oponente comprar três. (veredito da consulta do dono) Corte pelo critério do dono (13/11/2026): sai Firemind's Research, porque Order of Succession é peça de combo do deck.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Firemind's Research"
+   "sai": "Firemind's Research",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta de vez qualquer permanente que não é terreno.",
+    "I": "Fica com a melhor peça da mesa, mas o dono compra três; no outro modo, entrega a emprestada e compra três.",
+    "T": "Cinco manas, feitiço, e dá três cartas ao oponente.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "O Mind Control só toma criatura; o Steal Enchantment, só encantamento."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Toma de vez qualquer permanente que não é terreno; no outro modo, entrega a emprestada e compra três."
   },
   "The Wrath of Khan": {
    "notas": {},
@@ -4427,13 +5418,35 @@
    "sin_por_que": {
     "sin1": "Pela régua, 2 é 'toma o controle de uma permanente de oponente, por um turno' (Act of Treason): o capítulo I toma a criatura até o fim do turno, desvirada e com ímpeto, mas só se ela sobreviver aos 4 de dano. Sinergia Secundária 0: não copia, não sacrifica nem pisca a roubada."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Saga: 4 de dano numa criatura de oponente, que vem para você até o fim do turno se sobreviver; depois troca uma carta da mão por uma compra; e cada oponente sacrifica uma permanente não ficha: remoção duas vezes, uma delas à escolha dele.",
    "porque": "O deck está abaixo da faixa de roubo e a Saga dá três coisas por 3 manas: mata uma criatura pequena ou toma uma grande com ímpeto no turno, filtra uma carta e faz cada oponente sacrificar uma permanente (valor 14,5); a Mirror Sheen, do mesmo custo, vale 1 e não rouba nada. (veredito da consulta do dono)",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Browbeat"
+   "sai": "Browbeat",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recruta por um turno a criatura que sobrevive aos 4 de dano; no resto, é remoção.",
+    "I": "Mata uma pequena ou toma uma grande, filtra uma carta e cada oponente sacrifica uma permanente.",
+    "T": "Três manas, mas o último capítulo demora dois turnos.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A lista tem pouca remoção pontual além do roubo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0,
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Toma por um turno a criatura que sobrevive aos 4 de dano; senão, mata; e cada oponente sacrifica uma permanente."
   },
   "Ensign Pavel Chekov": {
    "notas": {},
@@ -4443,13 +5456,32 @@
    "sin_por_que": {
     "sin1": "Põe em campo terrenos dos grimórios dos oponentes, uma vez: \"põe em campo cartas dos grimórios deles, uma vez\" é 2."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Ao entrar, um terreno de cada oponente fica jogável do exílio: garante descidas de terreno.",
    "porque": "Põe em campo terrenos dos grimórios dos oponentes, uma vez: \"põe em campo cartas dos grimórios deles, uma vez\" é 2. Ganho de +14.2; disputa com Archmage Emeritus (tier B). Corte pelo critério do dono (13/11/2026): sai Arcane Signet, porque Archmage Emeritus já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Arcane Signet"
+   "sai": "Arcane Signet",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Usa cartas dos oponentes, mas só terrenos: garante a descida, não é roubo que pese.",
+    "I": "Até três terrenos jogáveis do exílio, um por turno.",
+    "T": "Quatro manas, e não acelera.",
+    "Q": "Início, paridade e atrás, quando faltam terrenos.",
+    "R": "O Arcane Signet acelera a Zara por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.15
   },
   "Vulcan Mind-Meld": {
    "notas": {},
@@ -4465,7 +5497,29 @@
    "faz": "Você pode jogar duas cartas do topo de um oponente; ele pode jogar uma do seu.",
    "porque": "Conjura cartas do grimório de um oponente, uma vez: nível 2. Ganho de +14.2; disputa com Telepathy (tier B).",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Telepathy"
+   "sai": "Telepathy",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Joga duas cartas do topo de um oponente, com mana de qualquer tipo.",
+    "I": "Duas cartas ao acaso para você, e uma sua para ele.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e atrás, como compra barata.",
+    "R": "A Telepathy, pela mesma mana, prepara todo ataque da Zara."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.75,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Joga duas cartas do topo de um oponente, com mana de qualquer tipo."
   },
   "Colossal Clone Master": {
    "notas": {},
@@ -4492,13 +5546,34 @@
    "sin_por_que": {
     "sin1": "Pela régua, 2 é 'toma o controle de uma permanente de oponente, por um turno' (Act of Treason): a Grilka toma uma criatura qualquer, desvirada e com ímpeto. Sinergia Secundária 0: não fica com a roubada."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Criatura 5/5 de 6 manas: ao entrar, toma uma criatura de oponente até o fim do turno, desvirada, com atropelar e ímpeto, e ela cria Tesouros do tamanho do dano de combate a um jogador; vira remoção só com saída de sacrifício.",
    "porque": "Rouba qualquer criatura por um turno, com ímpeto e atropelar, e deixa um 5/5 (Sinergia Primária 2, valor 15,5 contra 9,5 da Domestication, que rouba de vez mas só segura criatura de força até 3); a 6 manas, compete com Worf, The Wrath of Khan e Rules of Acquisition, que roubam mais barato. (veredito da consulta do dono)",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Domestication"
+   "sai": "Domestication",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recruta uma criatura por um turno, ao entrar.",
+    "I": "A roubada ataca com atropelar e paga Tesouros pelo dano; fica um 5/5.",
+    "T": "Seis manas.",
+    "Q": "Só no fim do jogo, na paridade e na frente.",
+    "R": "O Act of Treason rouba por três; o Mind Control fica com a criatura por cinco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.5,
+   "papel": "habilita",
+   "papel_por_que": "Toma uma criatura por um turno, com atropelar e ímpeto, e ela paga Tesouros pelo dano."
   },
   "Lieutenant Nyota Uhura": {
    "notas": {},
@@ -4508,13 +5583,34 @@
    "sin_por_que": {
     "sin1": "Conjura carta do grimório de um oponente, a cada turno que pagar a ativação: o 2 de 'conjura cartas dos grimórios deles, uma vez ou a cada turno'."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Por {4} e virando, todo turno, exila do topo de um oponente uma carta por nome de terreno seu e conjura de graça uma instantânea ou feitiço entre elas: repetível, mas com ativação cara e só acha instantânea ou feitiço.",
    "porque": "Roubo no 2 (conjura do grimório deles todo turno que pagar), num deck abaixo da faixa de roubo; o deck tem 13 nomes de terreno, então a ativação olha várias cartas. Valor 13,5 contra 5,5 do Goblin Flectomancer, a criatura de três manas mais fraca, que só desvia mágica (roubo 1). (veredito da consulta do dono)",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Archmage Emeritus"
+   "sai": "Archmage Emeritus",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Conjura de graça uma instantânea ou feitiço do grimório de um oponente, todo turno.",
+    "I": "Uma mágica ao acaso por ativação; precisa ficar e só vira no turno seguinte.",
+    "T": "Três manas e {4} por uso.",
+    "Q": "Só no jogo longo, na paridade e na frente.",
+    "R": "Nenhuma carta da lista joga com o grimório deles."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.5,
+   "papel": "habilita",
+   "papel_por_que": "Conjura de graça uma instantânea ou feitiço do grimório de um oponente, todo turno que pagar {4}."
   },
   "World at War": {
    "notas": {},
@@ -4524,13 +5620,34 @@
    "sin_por_que": {
     "sin1": "Dá à Zara mais um ataque, uma vez (e de novo no rebound), como o Relentless Assault: nível 2."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Depois da segunda fase principal, um combate e uma fase principal a mais, que desviram quem atacou; o rebound repete no turno seguinte.",
    "porque": "Dá à Zara mais um ataque, uma vez (e de novo no rebound), como o Relentless Assault: nível 2. Ganho de +20.2; disputa com Domestication (tier C). Corte pelo critério do dono (13/11/2026): sai Leyline of Resonance, porque Domestication já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Leyline of Resonance"
+   "sai": "Leyline of Resonance",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mais um ataque da Zara, e outro no turno seguinte pelo rebote.",
+    "I": "Dois combates extras em dois turnos: duas criaturas a mais recrutadas.",
+    "T": "Cinco manas, feitiço.",
+    "Q": "Só na paridade e na frente, com a Zara atacando.",
+    "R": "A lista não tem combate extra; o Alchemist's Gambit dá um turno, uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.7,
+   "papel": "multiplica",
+   "papel_por_que": "Mais um ataque da Zara, e outro no turno seguinte pelo rebote: duas criaturas a mais."
   },
   "Own the Day": {
    "notas": {},
@@ -4540,13 +5657,34 @@
    "sin_por_que": {
     "sin1": "Dá à Zara mais um ataque, uma vez, o 2 da régua com o Relentless Assault."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Desvira as criaturas que atacaram e dá um combate e uma fase principal a mais, uma vez; o battlefront tira {1} do custo por oponente atacado no turno.",
    "porque": "Dá à Zara um segundo ataque e um segundo roubo, e o Roubo está abaixo da faixa (ganho +15,75); mas com a Zara atacando um só oponente custa 5, e o Relentless Assault faz o mesmo por 4. Contra o Parallel Thoughts (3) a troca é boa. (veredito da consulta do dono)",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Invoke the Winds"
+   "sai": "Invoke the Winds",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Mais um ataque da Zara, uma vez.",
+    "I": "Uma criatura a mais e as emprestadas atacam de novo, num turno só.",
+    "T": "Seis manas; cinco depois de a Zara atacar um oponente.",
+    "Q": "Só na paridade e na frente, com a Zara já tendo atacado.",
+    "R": "O Relentless Assault, do radar, faz o mesmo por quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3,
+   "papel": "multiplica",
+   "papel_por_que": "Mais um ataque da Zara, uma vez, e as emprestadas atacam de novo."
   },
   "Combat Celebrant": {
    "notas": {},
@@ -4577,7 +5715,28 @@
    "faz": "Põe em campo uma criatura do grimório de um oponente, com marcador.",
    "porque": "Põe em campo carta do grimório de oponente, uma vez (como Bribery). Ganho de +14.2; disputa com Domestication (tier C). Corte pelo critério do dono (13/11/2026): sai Supreme Will, porque Domestication já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Supreme Will"
+   "sai": "Supreme Will",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Põe em campo, de vez, uma criatura do grimório de um oponente.",
+    "I": "A melhor entre as primeiras criaturas reveladas de cada oponente, com um marcador.",
+    "T": "Cinco manas, feitiço.",
+    "Q": "Paridade, na frente e atrás; não depende da mesa nem da mão deles.",
+    "R": "A Bribery, do radar, escolhe a criatura pelo mesmo custo; o Mind Control toma a melhor em campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65,
+   "papel": "habilita",
+   "papel_por_que": "Põe em campo, de vez, uma criatura do grimório de um oponente."
   },
   "Shore Leave Planet": {
    "notas": {},
@@ -4587,13 +5746,34 @@
    "sin_por_que": {
     "sin1": "Cópia não lendária da Zara que ataca e rouba de novo, pagando {4}{U} a cada vez."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno que entra virado e, por {4}{U}, vira cópia de uma criatura sua até o fim do turno: não pontua nos critérios da carta.",
    "porque": "Cópia não lendária da Zara que ataca e rouba de novo, pagando {4}{U} a cada vez. Ganho de +11.2; disputa com Desolate Lighthouse (tier C). Corte pelo critério do dono (13/11/2026): sai Castle Vantress, porque Desolate Lighthouse já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Castle Vantress"
+   "sai": "Castle Vantress",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Terreno azul que serve ao recrutar: vira cópia da Zara, ataca e rouba de novo.",
+    "I": "Um roubo a mais no turno em que você paga.",
+    "T": "Entra virado; {4}{U} a cada cópia.",
+    "Q": "Terreno o jogo todo, mas virado; a cópia só no fim.",
+    "R": "O Hall of Echoes, do radar, faz o mesmo e entra desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45,
+   "papel": "multiplica",
+   "papel_por_que": "Vira cópia não lendária da Zara por {4}{U}, que ataca e rouba de novo."
   },
   "Synthetic Destiny": {
    "notas": {},
@@ -4603,13 +5783,37 @@
    "sin_por_que": {
     "sin2": "Instantânea que exila a roubada antes da devolução e põe criaturas suas em campo no lugar: converte a roubada uma vez, nível 2."
    },
-   "tier": "B",
+   "tier": "D",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Instantânea: exila as suas criaturas e, na etapa final, põe em campo o mesmo número de criaturas do topo do grimório; em resposta a uma limpeza, salva o número de criaturas.",
    "porque": "Instantânea que exila a roubada antes da devolução e põe criaturas suas em campo no lugar: converte a roubada uma vez, nível 2. Ganho de +10.2; disputa com Invoke the Winds (tier B). Corte pelo critério do dono (13/11/2026): sai Izzet Charm, porque Invoke the Winds já é o corte de uma carta de letra mais alta.",
    "origem": "coleção FRC (2026-11-09)",
-   "sai": "Izzet Charm"
+   "sai": "Izzet Charm",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 0,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Exila a emprestada antes de ela voltar, mas leva a Zara junto.",
+    "I": "Troca as suas criaturas por outras do topo; a lista só tem 11 criaturas.",
+    "T": "Seis manas.",
+    "Q": "Só em resposta a uma limpeza ou na etapa final, com a mesa cheia.",
+    "R": "A Ghostly Flicker, do radar, fica com a roubada por três manas sem tirar a Zara."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "média",
+   "indice": 0.85,
+   "papel": "recompensa",
+   "papel_por_que": "Exila a emprestada antes de ela voltar e põe criaturas suas em campo na etapa final."
   },
   "Dragon's Smile": {
    "notas": {},
@@ -4876,7 +6080,7 @@
     "por_que": "A cada ataque, põe em campo uma criatura da mão do defensor: ela é o motor do roubo. Precisa de proteção, ímpeto e de um plano B de roubo nas 99, e de quem converta a roubada antes que ela volte."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
