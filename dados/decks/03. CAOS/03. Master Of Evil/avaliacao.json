@@ -3666,7 +3666,7 @@
    "sin_por_que": {
     "sin1": "Com um artefato seu, causa 3 ao controlador da criatura destruída, sem escolha dele."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Instantânea 1BR: destrói uma criatura; se você controla um artefato, causa 3 de dano ao controlador dela.",
@@ -3674,7 +3674,26 @@
    "sai": "Feed the Swarm",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Destrói uma criatura e, com artefato em campo, tira 3 do dono: liga o Davros."
+   "papel_por_que": "Destrói uma criatura e, com artefato em campo, tira 3 do dono: liga o Davros.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Destrói a criatura e, com um artefato seu em campo, causa 3 ao controlador: liga o Davros sozinha, sem escolha do oponente.",
+    "I": "Troca de um por um, com 3 de dano em um oponente só.",
+    "T": "Três manas, instantânea, em duas cores.",
+    "Q": "Viva do início ao fim: remove o bloqueador ou a ameaça e ainda tira os 3 no seu turno.",
+    "R": "O Exterminate! já remove, tira 3 e se copia por Dalek; e a resposta é o papel mais cheio da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Maestros Charm": {
    "notas": {
@@ -3688,7 +3707,7 @@
    "sin_por_que": {
     "sin1": "Num modo, cada oponente perde 3 de uma vez, sem escolha."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Instantânea UBR, escolha uma: olha as cinco do topo, uma vai para a mão e o resto para o cemitério; cada oponente perde 3 e você ganha 3; 5 de dano a criatura ou planeswalker.",
@@ -3696,7 +3715,26 @@
    "sai": "Cyber Conversion",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Modo de dreno tira 3 de cada oponente; os outros são remoção ou filtro."
+   "papel_por_que": "Modo de dreno tira 3 de cada oponente; os outros são remoção ou filtro.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O modo de dreno tira 3 de cada oponente sem escolha deles: o Davros dá a escolha vilanesca aos três no mesmo turno.",
+    "I": "Um efeito por vez: os 3 de cada oponente, 5 de dano numa criatura ou uma carta escolhida entre cinco.",
+    "T": "Três manas, instantânea, mas pede as três cores.",
+    "Q": "Os três modos cobrem todo momento: seleção no início, remoção atrás, dreno na paridade e na frente.",
+    "R": "Nenhuma carta da lista tira 3 de todos os oponentes por três manas, mas a resposta já passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Loyal Subordinate": {
    "notas": {
@@ -3709,14 +3747,38 @@
    "sin_por_que": {
     "sin1": "Com o Davros em campo, tira 3 de cada oponente em todo combate seu, sozinha."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "3/3 de 3 com ameaça. Lieutenant: no início do combate, se você controla o comandante, cada oponente perde 3.",
    "porque": "Liga o Davros em todo turno em que ele está em campo. Barata. Referência.",
    "sai": "Don't Blink",
    "papel": "habilita",
-   "papel_por_que": "Com o comandante em campo, tira 3 de cada oponente todo combate seu."
+   "papel_por_que": "Com o comandante em campo, tira 3 de cada oponente todo combate seu.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Com o Davros em campo, cada oponente perde 3 no início do seu combate: Dalek e três escolhas vilanescas todo turno, sem atacar.",
+    "I": "Depende de o Davros estar em campo e de ela sobreviver; sem ele, é só um 3/3 com ameaça.",
+    "T": "Três manas por um 3/3 com ameaça e o gatilho.",
+    "Q": "Início, paridade e na frente; atrás, sem o Davros em campo, não vira a mesa.",
+    "R": "Os motores da lista precisam atacar e conectar para tirar os 3; nenhum tira de todos os oponentes sem combate. O papel já passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ela, o gatilho do Davros depende de um ataque conectar: um bloqueio em dupla ou uma mesa travada e o turno passa sem Dalek nem escolha.",
+    "O Dalek Squadron e a Cyberman Patrol tiram os 3 pelo combate, de um oponente por vez; nenhuma carta da lista tira 3 de cada oponente sem atacar.",
+    "No início (turno 3, como 3/3 com ameaça), na paridade e na frente: em todo turno em que o Davros está em campo, antes mesmo dos bloqueios."
+   ],
+   "indice": 2.45
   },
   "Court of Ambition": {
    "notas": {
@@ -3730,7 +3792,7 @@
    "sin_por_que": {
     "sin1": "Na sua manutenção, cada oponente perde 3 ou 6, a menos que descarte: perda que ele pode recusar."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Você vira o monarca. Na manutenção: cada oponente perde 3, a menos que descarte uma carta; se você é o monarca, perde 6, a menos que descarte duas.",
@@ -3738,7 +3800,26 @@
    "sai": "The Toymaker's Trap",
    "papel": "habilita",
    "papel_dupla": "Draw (monarca)",
-   "papel_por_que": "Na sua manutenção, cada oponente perde 3 ou 6, mas pode descartar no lugar."
+   "papel_por_que": "Na sua manutenção, cada oponente perde 3 ou 6, mas pode descartar no lugar.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Na sua manutenção, cada oponente perde 3 ou descarta (6 ou duas cartas com o monarca): liga o Davros só se o oponente aceitar perder a vida.",
+    "I": "O monarca compra já no primeiro fim de turno, e a mão dos três oponentes encolhe todo turno; a perda de vida é recusável.",
+    "T": "Quatro manas, {B}{B} num deck de três cores.",
+    "Q": "Início, paridade e na frente; atrás, o monarca muda de mão no primeiro ataque.",
+    "R": "A The Toymaker's Trap aperta com sorteio e se apaga; nada na lista cobra a mão dos três oponentes todo turno."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Brudiclad, Telchor Engineer": {
    "notas": {
@@ -3751,7 +3832,7 @@
    "sin_por_que": {
     "sin1": "Torna todas as fichas cópias de um Dalek 3/3 com ameaça, e com ímpeto: força e evasão para o exército de fichas."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "6 manas. Suas fichas de criatura têm pressa. No início do combate, cria uma Myr 2/1 artefato; você pode escolher uma ficha, e as outras viram cópia dela.",
@@ -3759,7 +3840,26 @@
    "sai": "Renegade Silent",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (ímpeto e cópias de fichas)",
-   "papel_por_que": "Ficha por combate, ímpeto às fichas e todas viram cópia do Dalek."
+   "papel_por_que": "Ficha por combate, ímpeto às fichas e todas viram cópia do Dalek.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cria uma Myr por combate e pode transformar as fichas em cópias de um Dalek 3/3 com ameaça; as fichas do deck já são quase todas Daleks e Cybermen.",
+    "I": "No turno em que entra, rende uma ficha com ímpeto que vira Dalek; o resto depende das fichas que já estão na mesa.",
+    "T": "Seis manas, em duas cores.",
+    "Q": "Paridade e na frente; pede fichas em campo.",
+    "R": "A Cybermen Squadron e a The Cyber-Controller já fecham com o exército inteiro, e o Davros já cria um Dalek por turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.5
   },
   "Thopter Spy Network": {
    "notas": {
@@ -3772,7 +3872,7 @@
    "sin_por_que": {
     "sin1": "Os Thopters 1/1 voadores são corpos de artefato menores que 3/3."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "2UU. Na manutenção, se você controla um artefato, cria um Thopter 1/1 voador. Quando criaturas artefato suas causam dano a um jogador, você compra.",
@@ -3780,7 +3880,26 @@
    "sai": "The Master, Formed Anew",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (Tóptero voador por turno)",
-   "papel_por_que": "Compra quando criaturas artefato causam dano de combate a um jogador."
+   "papel_por_que": "Compra quando criaturas artefato causam dano de combate a um jogador.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra quando criaturas artefato suas causam dano de combate a um jogador, que é o que o exército de Daleks já faz para ligar o Davros.",
+    "I": "Um Thopter 1/1 voador por manutenção e uma carta por jogador atingido; nada no turno em que entra.",
+    "T": "Quatro manas, {U}{U}.",
+    "Q": "Paridade, na frente e atrás: o Thopter de cada turno segura o chão do ar enquanto a compra não vem.",
+    "R": "A compra do deck é curta e a do Davros depende da escolha do oponente; a Great Intelligence's Plan é a única compra forte da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Tezzeret, Master of the Bridge": {
    "notas": {
@@ -3802,7 +3921,26 @@
    "sai": "Hunted by The Family",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "O +2 tira X de cada oponente, X igual aos seus artefatos."
+   "papel_por_que": "O +2 tira X de cada oponente, X igual aos seus artefatos.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O +2 causa X a cada oponente, X igual aos seus artefatos: com três artefatos, liga o Davros para os três oponentes todo turno.",
+    "I": "Rende no turno em que entra, mas é planeswalker: o resto do valor depende de sobreviver ao ataque de três oponentes.",
+    "T": "Seis manas, em duas cores.",
+    "Q": "Paridade, na frente e atrás: o +2 também devolve vida e o −3 recupera um artefato do cemitério.",
+    "R": "Nenhuma carta da lista tira vida de todos os oponentes por número de artefatos; os motores já passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Strionic Resonator": {
    "notas": {
@@ -3824,7 +3962,26 @@
    "porque": "Copia o gatilho do Davros no fim do turno: outro Dalek e outra escolha. Também copia o Dalek Emperor e o Missy. Referência.",
    "sai": "Commander's Sphere",
    "papel": "multiplica",
-   "papel_por_que": "Copia o gatilho do Davros ou de outro gatilho do plano."
+   "papel_por_que": "Copia o gatilho do Davros ou de outro gatilho do plano.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia o gatilho de fim de turno do Davros: outro Dalek e outra rodada de escolha vilanesca.",
+    "I": "Sozinho não faz nada: precisa de um gatilho na pilha e de {2} a cada uso.",
+    "T": "Duas manas para entrar e mais duas por cópia.",
+    "Q": "Paridade e na frente, com o Davros ou outro vilão em campo; atrás e no início é carta morta.",
+    "R": "O Auton Soldier copia o Davros inteiro, mas por seis manas; nenhuma outra carta copia gatilho."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Steel Overseer": {
    "notas": {
@@ -3844,7 +4001,26 @@
    "porque": "Cresce todas as criaturas artefato, uma vez por turno. Referência.",
    "sai": "Clockwork Droid",
    "papel": "multiplica",
-   "papel_por_que": "Marcador +1/+1 em cada criatura artefato a cada turno."
+   "papel_por_que": "Marcador +1/+1 em cada criatura artefato a cada turno.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Um marcador +1/+1 em cada criatura artefato por turno: os corpos menores que 3 passam a tirar os 3 do Davros.",
+    "I": "Nada no turno em que entra, um marcador por vez, e morre para qualquer remoção.",
+    "T": "Duas manas.",
+    "Q": "Início e na frente; pede exército em campo e tempo.",
+    "R": "A The Cyber-Controller dá +1/+1 ao exército de uma vez, e os Daleks já são 3/3."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Skorpekh Lord": {
    "notas": {
@@ -3864,7 +4040,26 @@
    "porque": "Dá ameaça e +1/+0 a todo o exército, e volta do cemitério. Referência. Corte pelo critério do dono (13/11/2026): sai Cybership, porque Zygon Infiltrator já é o corte de uma carta de letra mais alta.",
    "sai": "Cybership",
    "papel": "multiplica",
-   "papel_por_que": "Lorde +1/+0 e ameaça para as outras criaturas artefato."
+   "papel_por_que": "Lorde +1/+0 e ameaça para as outras criaturas artefato.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord das criaturas artefato: +1/+0 e ameaça, o que leva os corpos de força 2 aos 3 de dano com evasão.",
+    "I": "O buff vale no turno em que entra e o unearth traz o lord de volta por mais um ataque.",
+    "T": "Três manas.",
+    "Q": "Início, paridade e na frente; atrás, +1/+0 não segura a mesa.",
+    "R": "Os Daleks já têm ameaça e a The Cyber-Controller já dá +1/+1; a Cyberman Patrol faz o bloqueio custar vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Their Name Is Death": {
    "notas": {
@@ -3918,7 +4113,26 @@
    "veredito": "avaliar",
    "faz": "1/4 de 4 manas: seus artefatos têm resistência a mágica; na manutenção, se você controla o artefato de maior custo (ou empatado), compra uma carta.",
    "porque": "Deck cheio de artefatos (Daleks, Cybermen, pedras) com pouca compra: protege o exército e compra quase todo turno. Referência: o precon fica como está. Corte pelo critério do dono (13/11/2026): sai The Master, Mesmerist, porque The Master, Formed Anew já é o corte de uma carta de letra mais alta.",
-   "sai": "The Master, Mesmerist"
+   "sai": "The Master, Mesmerist",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O Davros é criatura artefato: Padeem dá resistência a mágica a ele e a todo o exército de Daleks e Cybermen.",
+    "I": "Fecha a remoção com alvo enquanto fica em campo; a compra depende de ter o artefato de maior custo da mesa.",
+    "T": "Quatro manas por um 1/4 que não é artefato e não se protege.",
+    "Q": "Paridade, na frente e atrás; no início ainda não há o que proteger.",
+    "R": "As Lightning Greaves protegem uma criatura só; a proteção da lista tem duas cartas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Rakdos, Lord of Riots": {
    "notas": {
@@ -3938,7 +4152,26 @@
    "faz": "6/6 voar e atropelar de BBRR, que só pode ser conjurado se um oponente perdeu vida no turno, e cada mágica de criatura sua custa 1 a menos por ponto de vida que os oponentes perderam no turno.",
    "porque": "Depois do ataque dos Daleks, entra barato e faz o resto do exército sair de graça, e o corpo de 6 voando conecta; o Renegade Silent puxava uma criatura e saía de fase sem tirar vida de ninguém. Corte pelo critério do dono (13/11/2026): sai Vashta Nerada, porque Renegade Silent já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
-   "papel_por_que": "Só sai e só barateia criaturas depois que os oponentes perderam vida: o plano paga o custo."
+   "papel_por_que": "Só sai e só barateia criaturas depois que os oponentes perderam vida: o plano paga o custo.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Troca a vida que os oponentes perderam no turno por desconto nas criaturas, e o 6/6 voador com atropelar tira os 3 sozinho.",
+    "I": "Entra depois do combate e barateia o resto da mão de criaturas; o desconto depende de ele ficar em campo.",
+    "T": "Quatro manas por um 6/6, mas {B}{B}{R}{R} em deck de três cores e só depois de um oponente perder vida.",
+    "Q": "Paridade e na frente; atrás, sem dano no turno, nem pode ser conjurado.",
+    "R": "Nenhuma carta da lista desconta criaturas pela vida perdida; o Time Reaper é o corpo evasivo mais próximo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "J. Jonah Jameson": {
    "notas": {
@@ -3958,7 +4191,26 @@
    "porque": "Daleks e Davros têm ameaça, então cada ataque do exército vira Tesouro; o The Master, Formed Anew era um clone caro de montar que rendia pouco. Corte pelo critério do dono (13/11/2026): sai Wayfarer's Bauble, porque The Master, Formed Anew já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Cada ataque de criatura com ameaça (Daleks e Davros) vira Tesouro: paga pelo ataque do exército."
+   "papel_por_que": "Cada ataque de criatura com ameaça (Daleks e Davros) vira Tesouro: paga pelo ataque do exército.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Davros e Daleks têm ameaça: cada um que ataca vira um Tesouro, que também é artefato.",
+    "I": "Ao entrar, tira um bloqueador do caminho com suspeita; os Tesouros dependem de ele ficar em campo e de haver ataque.",
+    "T": "Três manas.",
+    "Q": "Início, paridade e na frente; atrás, sem ataque, não gera mana.",
+    "R": "O ramp já tem dez cartas, a cota cheia; o Sol Ring e os Talismãs aceleram sem depender de ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Kaito, Bane of Nightmares": {
    "notas": {
@@ -3971,14 +4223,33 @@
    "sin_por_que": {
     "sin1": "Nota 2: criatura de força 3 ou mais com evasão ou ímpeto; o ninjutsu a põe atacando sem bloqueio."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "sai": "The Beast, Deathless Prince",
    "faz": "Planeswalker de 4 com ninjutsu, que no seu turno é uma criatura 3/4 com resistência a magia; o 0 faz vidência 2 e compra uma carta por oponente que perdeu vida no turno, e o −2 vira uma criatura e põe dois marcadores de atordoamento nela.",
    "porque": "Depois do combate, o 0 compra até três por turno com a vida que o exército tirou, e o deck tem pouca compra; o The Beast valia só pelo roubo do turno em que era conjurado.",
    "papel": "recompensa",
-   "papel_por_que": "O 0 compra uma carta por oponente que perdeu vida no turno: paga pelo dano do exército."
+   "papel_por_que": "O 0 compra uma carta por oponente que perdeu vida no turno: paga pelo dano do exército.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O 0 compra uma carta por oponente que perdeu vida no turno: troca o dano do exército por mão, e no seu turno ele é um 3/4 que ataca.",
+    "I": "Entra depois do combate e já compra de uma a três cartas; é planeswalker, e o resto depende de sobreviver.",
+    "T": "Quatro manas em duas cores, ou três pelo ninjutsu.",
+    "Q": "Paridade, na frente e atrás: o −2 vira uma criatura e a segura com dois marcadores de atordoamento.",
+    "R": "A compra do deck é curta e a do Davros depende da escolha do oponente; a Great Intelligence's Plan é a única compra forte da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Waste Not": {
    "notas": {
@@ -3995,7 +4266,26 @@
    "faz": "Encantamento de 2: cada descarte de oponente vira um Zumbi 2/2 (criatura), BB (terreno) ou uma carta (outra mágica).",
    "porque": "O descarte que o oponente escolhe na escolha vilanesca do Davros passa a render para você também; o Day of the Moon dependia dos nomes em campo e não ajudava o plano.",
    "papel": "recompensa",
-   "papel_por_que": "Cada descarte de oponente, como o da escolha vilanesca, vira ficha, mana ou carta."
+   "papel_por_que": "Cada descarte de oponente, como o da escolha vilanesca, vira ficha, mana ou carta.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Só rende quando o oponente escolhe descartar na escolha vilanesca; com ela em campo, ele tende a escolher a outra opção.",
+    "I": "Nada ao entrar; o retorno é um Zumbi, {B}{B} ou uma carta por descarte, quando houver descarte.",
+    "T": "Duas manas.",
+    "Q": "Paridade e na frente, com o Davros disparando; atrás e no início não faz nada.",
+    "R": "Nenhuma carta da lista paga pelo descarte do oponente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.5
   },
   "Geth's Grimoire": {
    "notas": {
@@ -4004,14 +4294,36 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "sai": "Vislor Turlough",
    "faz": "Artefato de 4: sempre que um oponente descarta uma carta, você pode comprar uma.",
    "porque": "Com ele, a escolha vilanesca do Davros dá carta nos dois lados (você compra ou ele descarta e você compra); o Don't Blink era resposta a um efeito que quase nunca aparece. Corte pelo critério do dono (13/11/2026): sai Vislor Turlough, porque Don't Blink já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
-   "papel_por_que": "Cada descarte de oponente, como o da escolha vilanesca, compra uma carta."
+   "papel_por_que": "Cada descarte de oponente, como o da escolha vilanesca, compra uma carta.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Na escolha do Davros o oponente decide: com o Grimoire em campo, ele escolhe 'você compra' e o artefato não acrescenta nada.",
+    "I": "Nada ao entrar; só compra quando um oponente descarta, e a lista quase não força descarte.",
+    "T": "Quatro manas por um efeito que depende de outra carta.",
+    "Q": "Paridade e na frente, e só com descarte acontecendo.",
+    "R": "A Great Intelligence's Plan e o próprio Davros compram sem depender de descarte."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "dependência ausente"
+   ],
+   "confianca": "média",
+   "indice": 1.0
   },
   "Entropic Battlecruiser": {
    "notas": {
@@ -4025,7 +4337,7 @@
    "sin_por_que": {
     "sin1": "Nota 2: com 8 marcadores, cada ataque faz cada oponente descartar e perder 3, sem escolha dele."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "sai": "Ensnared by the Mara",
@@ -4033,7 +4345,26 @@
    "porque": "Três Daleks na estação bastam para cada ataque tirar 3 de cada oponente sem escolha dele, e o descarte da escolha vilanesca passa a custar 3; o Zygon Infiltrator era um truque de 3 manas que raramente decidia. Corte pelo critério do dono (13/11/2026): sai Ensnared by the Mara, porque Zygon Infiltrator já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (tira 3 ao atacar)",
-   "papel_por_que": "Cada descarte de oponente vira perda de 3, inclusive o da escolha vilanesca do Davros."
+   "papel_por_que": "Cada descarte de oponente vira perda de 3, inclusive o da escolha vilanesca do Davros.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Com um marcador, o descarte do oponente custa 3 de vida; com oito, cada ataque força descarte ou 3 de vida em cada oponente.",
+    "I": "Nada ao entrar: precisa virar criaturas suas na estação, como feitiço, antes de render.",
+    "T": "Quatro manas mais 8 de força virada, ou seja, três Daleks que deixam de atacar naquele turno.",
+    "Q": "Paridade e na frente; pede exército em campo e um turno sem atacar com ele.",
+    "R": "O Dalek Drone e o Dalek Squadron tiram os 3 atacando, sem preparo; os motores já passaram da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.3
   },
   "Raiders' Wake": {
    "notas": {
@@ -4046,38 +4377,95 @@
    "sin_por_que": {
     "sin1": "Nota 1: de passagem, tira 2 no seu turno, abaixo dos 3 que ligam o Davros."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "sai": "Snuff Out",
    "faz": "Encantamento de 4: cada descarte de oponente tira 2 dele, e no seu fim de turno, se você atacou, um oponente alvo descarta uma carta.",
    "porque": "Todo turno de ataque vira descarte e perda de 2, e o descarte da escolha vilanesca deixa de sair barato; a The Toymaker's Trap dependia de sorteio e se apagava no primeiro acerto do oponente. Corte pelo critério do dono (13/11/2026): sai Snuff Out, porque The Toymaker's Trap já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
-   "papel_por_que": "Depois do ataque, força um descarte, e cada descarte de oponente tira 2: o ataque e a escolha vilanesca drenam."
+   "papel_por_que": "Depois do ataque, força um descarte, e cada descarte de oponente tira 2: o ataque e a escolha vilanesca drenam.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada descarte tira 2, não 3: sozinho não liga o Davros, e o descarte do raid só vem no fim do turno.",
+    "I": "Uma carta e 2 de vida de um oponente só por turno de ataque.",
+    "T": "Quatro manas.",
+    "Q": "Paridade e na frente; sem atacar, o raid não dispara.",
+    "R": "A Sycorax Commander e a Midnight Crusader Shuttle já apertam a mão dos oponentes, com escolha vilanesca."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Spire of Industry": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Terreno. Gera {C}; virando e pagando 1 de vida, gera uma mana de qualquer cor, só se você controla um artefato.",
    "porque": "Num deck de Daleks, Cybermen e pedras, você controla um artefato desde o turno 2: fonte das três cores que entra desvirada, no lugar do Path of Ancestry, que entra virado e cuja vidência quase não dispara (o Davros é Alien Cientista, não Dalek). Referência: o precon fica como está.",
-   "sai": "Path of Ancestry"
+   "sai": "Path of Ancestry",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Gera qualquer uma das três cores do deck.",
+    "I": "É um terreno: fixa cor, não muda a mesa.",
+    "T": "Entra desvirado; a cor custa 1 de vida e pede um artefato seu, o que o deck tem desde a primeira pedra.",
+    "Q": "Viva em todos os momentos.",
+    "R": "A Command Tower faz o mesmo sem custo; dez terrenos da lista sempre entram virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Talon Gates of Madara": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Portão. Ao entrar, até uma criatura alvo sai de fase. Gera {C}, ou uma mana de qualquer cor por {1}. Por {4}, você o põe da mão em campo, a qualquer momento.",
    "porque": "A proteção que o Davros não tem: por {4}, sai da mão em resposta à remoção e tira o Davros de fase, salvando até do exílio; e ainda fixa qualquer cor. Entra no lugar do Thriving Moor, que entra virado. Referência: o precon fica como está.",
    "sai": "Thriving Moor",
    "papel_dupla": "Proteção (sai de fase)",
-   "papel_por_que": "Terreno de estrutura que tira o Davros de fase em resposta a uma remoção."
+   "papel_por_que": "Terreno de estrutura que tira o Davros de fase em resposta a uma remoção.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fixa qualquer cor e serve ao ponto de falha do deck: tira o Davros de fase em resposta à remoção.",
+    "I": "Por {4}, entra da mão a qualquer momento e salva uma criatura, ou tira um bloqueador ou atacante de um oponente do caminho.",
+    "T": "Entra desvirado, mas a mana colorida custa {1}: como fonte de cor é lenta.",
+    "Q": "Viva em todos os momentos: terreno no início, proteção depois.",
+    "R": "Nenhum terreno da lista protege o comandante; fora dele, a proteção tem as Lightning Greaves e a Propaganda."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Sulfurous Springs": {
    "notas": {},
@@ -4088,7 +4476,26 @@
    "veredito": "avaliar",
    "faz": "Terreno. Gera {C}; ou {B} ou {R}, causando 1 de dano a você.",
    "porque": "Preto e vermelho desvirados desde o turno 1, no lugar do Temple of Malice, que entra virado para uma vidência. Referência: o precon fica como está.",
-   "sai": "Temple of Malice"
+   "sai": "Temple of Malice",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Gera {B} ou {R}, duas das três cores.",
+    "I": "É um terreno: fixa cor, não muda a mesa.",
+    "T": "Sempre entra desvirado; a cor custa 1 de dano.",
+    "Q": "Viva em todos os momentos.",
+    "R": "A Haunted Ridge e a Dragonskull Summit dão as mesmas cores, mas com condição para entrar desviradas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Underground River": {
    "notas": {},
@@ -4099,7 +4506,26 @@
    "veredito": "avaliar",
    "faz": "Terreno. Gera {C}; ou {U} ou {B}, causando 1 de dano a você.",
    "porque": "Azul e preto desvirados desde o turno 1, no lugar do Temple of Deceit, que entra virado para uma vidência. Referência: o precon fica como está.",
-   "sai": "Temple of Deceit"
+   "sai": "Temple of Deceit",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Gera {U} ou {B}, duas das três cores.",
+    "I": "É um terreno: fixa cor, não muda a mesa.",
+    "T": "Sempre entra desvirado; a cor custa 1 de dano.",
+    "Q": "Viva em todos os momentos.",
+    "R": "O Shipwreck Marsh e a Drowned Catacomb dão as mesmas cores, mas com condição para entrar desvirados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Shivan Reef": {
    "notas": {},
@@ -4110,7 +4536,26 @@
    "veredito": "avaliar",
    "faz": "Terreno. Gera {C}; ou {U} ou {R}, causando 1 de dano a você.",
    "porque": "Azul e vermelho desvirados desde o turno 1, no lugar do Temple of Epiphany, que entra virado para uma vidência. Referência: o precon fica como está.",
-   "sai": "Temple of Epiphany"
+   "sai": "Temple of Epiphany",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Gera {U} ou {R}, duas das três cores.",
+    "I": "É um terreno: fixa cor, não muda a mesa.",
+    "T": "Sempre entra desvirado; a cor custa 1 de dano.",
+    "Q": "Viva em todos os momentos.",
+    "R": "A Fiery Islet e a Stormcarved Coast dão as mesmas cores; a Islet também entra desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Blightstep Pathway": {
    "notas": {},
@@ -4121,7 +4566,26 @@
    "veredito": "avaliar",
    "faz": "Terreno de duas faces: Blightstep Pathway gera {B}; Searstep Pathway gera {R}. Você escolhe a face ao jogar.",
    "porque": "Preto ou vermelho desvirado, no lugar do Canyon Slough, que sempre entra virado; a ciclagem do Slough é o único custo da troca. Referência: o precon fica como está.",
-   "sai": "Canyon Slough"
+   "sai": "Canyon Slough",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá {B} ou {R}, à sua escolha ao jogar: duas das três cores.",
+    "I": "É um terreno: fixa cor, não muda a mesa.",
+    "T": "Sempre entra desvirado, sem custo de vida.",
+    "Q": "Viva em todos os momentos.",
+    "R": "Depois de jogado, gera uma cor só; a Haunted Ridge e a Dragonskull Summit dão as duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Cyclonic Rift": {
    "notas": {
@@ -4136,7 +4600,26 @@
    "porque": "A limpeza unilateral que o precon não tem: com sobrecarga, a mesa inteira dos oponentes volta para a mão no fim do turno deles e o seu exército de artefatos fica em pé para o ataque com myriad. Pela régua do dono, o deck quer 3 a 4 limpezas; o precon tem duas. No lugar do Don't Blink, resposta a um efeito raro. Referência: o precon fica como está. Corte pelo critério do dono (13/11/2026): sai Zygon Infiltrator, porque Don't Blink já é o corte de uma carta de letra mais alta.",
    "sai": "Zygon Infiltrator",
    "papel_dupla": "Remoção em massa",
-   "papel_por_que": "Limpeza unilateral: só a mesa dos oponentes volta para a mão."
+   "papel_por_que": "Limpeza unilateral: só a mesa dos oponentes volta para a mão.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Staple genérica: não toca a perda de vida nem a escolha vilanesca; só abre a mesa para o ataque.",
+    "I": "Com sobrecarga, devolve todas as permanentes não terreno dos oponentes e o seu exército de artefatos fica em pé.",
+    "T": "Duas manas no modo pontual, sete na sobrecarga, sempre instantânea.",
+    "Q": "Viva em todos os momentos: resposta barata no início, virada de mesa atrás, abertura para o ataque na frente.",
+    "R": "O deck tem duas limpezas e nenhuma unilateral: o Blasphemous Act leva também o seu exército."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   }
  },
  "combos": [
@@ -4329,7 +4812,7 @@
     "por_que": "Converte a perda de 3 de vida do oponente em Dalek 3/3 e escolha vilanesca no fim do turno: o deck precisa de muitas habilitadoras que tirem 3 no seu turno."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
