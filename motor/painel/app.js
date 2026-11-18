@@ -2919,7 +2919,26 @@ function radFiltro(c) {
   if (ui.rn && !(c.nova && (ui.rn === '*' || c.nova.k === ui.rn))) return false;
   if (ui.rt && GROUP_OF[c.t] !== ui.rt && c.g !== ui.rt) return false;
   if (ui.rg !== undefined && ui.rg !== '' && pacoteDe(c) !== +ui.rg) return false;
+  if (ui.rl === 'off' && c.t === 'ter') return false;   /* terrenos desligados (pedido do dono, 15/11/2026) */
   return true;
+}
+/* O que o dono mudou no radar neste navegador, em texto para colar na conversa com o Claude (15/11/2026), como o Salvar posições do 8×8:
+   trocas feitas, vereditos e tiers mexidos, cartas adicionadas à mão e cartas tiradas do deck sem troca. */
+function radMudancas() {
+  var ls = [], emTroca = {};
+  S.swaps.forEach(function (s) {
+    var a = byId(s.i), b = s.o ? byId(s.o) : null; if (!a) return;
+    if (s.o) emTroca[s.o] = 1;
+    ls.push('Troca: entra ' + a.n + ' | sai ' + (b ? b.n : 'ninguém') + (s.m ? ' | motivo: ' + s.m : ''));
+  });
+  D.cands.forEach(function (c) {
+    var o = S.ov[c.id]; if (!o) return;
+    if (o.verdict && o.verdict !== c.verdict) ls.push('Veredito: ' + c.n + ' > ' + o.verdict + ' (era ' + c.verdict + ')');
+    if (o.tier && o.tier !== c.tier) ls.push('Tier: ' + c.n + ' > ' + o.tier + ' (era ' + c.tier + ')');
+  });
+  S.custom.forEach(function (c) { ls.push('Nova no radar: ' + c.n); });
+  D.cards.forEach(function (c) { if (S.out[c.id] && !emTroca[c.id]) ls.push('Saiu do deck: ' + c.n); });
+  return ls;
 }
 function radCtl(lista) {
   var cores = {}, tipos = {};
@@ -2937,6 +2956,7 @@ function radCtl(lista) {
     sel('rc', 'Cor', ui.rc, [{ k: '', n: 'Todas' }].concat(COLS.filter(function (c) { return cores[c.k]; }).map(function (c) { return { k: c.k, n: c.n }; }))) +
     sel('rt', 'Tipo', ui.rt, [{ k: '', n: 'Todos' }].concat(TG.filter(function (g) { return tipos[g.k]; }).map(function (g) { return { k: g.k, n: g.n }; }))) +
     sel('rg', 'Pacote 8×8', ui.rg, [{ k: '', n: 'Todos' }].concat(G.map(function (g, i) { return { k: String(i), n: g.sh || g.k }; }))) +
+    (lista.some(function (c) { return c.t === 'ter'; }) ? '<button class="btn ghost rad-terr" data-act="rad-terr" data-fid="radterr" aria-pressed="' + (ui.rl !== 'off') + '">Terrenos: ' + (ui.rl === 'off' ? 'desligados' : 'ligados') + '</button>' : '') +
     '</div>';
 }
 /* Isoladas no tema (09/11/2026, regra do dono): carta do deck com pouca sinergia (as duas somadas até 1), que não é tier S ou A,
@@ -2969,7 +2989,19 @@ function renderRadar() {
   var main = main0.filter(radFiltro);
   var h = '<p class="hint">Cartas fora do deck que valem acompanhar. Ao colocar uma no deck você escolhe quem sai, e todos os gráficos passam a refletir a troca. Quem você deixa de fora desce para a lista abaixo, com a nota e o motivo guardados. A pergunta de sempre: a carta é boa, ou é boa ' + (artigo() === 'a' ? 'na' : 'no') + ' ' + esc(M.curto || 'comandante') + '?</p>';
   h += radCtl(main0);
-  h += '<p class="pn-note rad-n">' + (main.length === main0.length ? main.length + ' cartas no radar' : main.length + ' de ' + main0.length + ' cartas, pelo filtro') + '.</p>';
+  var nTerr = main0.filter(function (c) { return c.t === 'ter'; }).length;
+  h += '<p class="pn-note rad-n">' + (main.length === main0.length ? main.length + ' cartas no radar' : main.length + ' de ' + main0.length + ' cartas, pelo filtro') +
+    (ui.rl === 'off' && nTerr ? ' (' + nTerr + (nTerr === 1 ? ' terreno oculto' : ' terrenos ocultos') + ')' : '') + '.</p>';
+  var mud = radMudancas();
+  if (mud.length) {
+    h += '<div class="rad-salvar"><p class="pn-note">' + (mud.length === 1 ? '1 mudança sua' : mud.length + ' mudanças suas') + ' no radar, guardadas só neste navegador.</p>' +
+      '<button class="btn" data-act="rad-salvar" data-fid="rads" aria-expanded="' + !!ui.radSalvar + '">Salvar mudanças</button></div>';
+    if (ui.radSalvar) {
+      h += '<div class="pk-salvar"><p class="hint">Copie o texto e cole na conversa com o Claude: ele grava as mudanças no projeto.</p>' +
+        '<textarea id="rad-out" readonly rows="' + Math.min(14, mud.length + 4) + '">' + esc('Salvar mudanças do Radar\nDeck: ' + M.pasta + '\n' + mud.join('\n')) + '</textarea>' +
+        '<button class="btn" data-act="copy" data-t="rad-out" data-fid="radc">Copiar</button></div>';
+    }
+  }
   h += '<div class="cands">' + main.map(candCard).join('') + '</div>';
   if (!main.length) h += '<p class="pn-note">Nenhuma carta com esse filtro.</p>';
   if (no.length) {
@@ -3515,6 +3547,8 @@ function act(a, t, ev) {
     case 'tier-type': ui.tierType = t.dataset.v; render(); break;
     case 'pk-reset': S.pk = {}; ui.pkSalvar = false; commit('Simulação do 8×8 desfeita'); break;
     case 'pk-salvar': ui.pkSalvar = !ui.pkSalvar; render(); break;
+    case 'rad-terr': ui.rl = ui.rl === 'off' ? '' : 'off'; render(); o = $('[data-act="rad-terr"]'); if (o) o.focus(); break;
+    case 'rad-salvar': ui.radSalvar = !ui.radSalvar; render(); break;
     case 'tier-view': ui.tierView = t.dataset.v; render(); break;
     case 'gal-by': ui.galBy = t.dataset.v; render(); break;
     case 'img': S.img = !imgOn(); save(); render(); break;
