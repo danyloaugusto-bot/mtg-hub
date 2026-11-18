@@ -3769,12 +3769,33 @@
    "sin_por_que": {
     "sin1": "Toma todas as criaturas com ímpeto, que podem retomar a coroa no ataque, mas não a dá por si."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Feitiço de 8: desvira e toma todas as criaturas até o fim do turno, com pressa.",
    "porque": "O fechamento de quem ficou atrás da fortaleza vendo os outros montarem exércitos.",
-   "sai": "Blasphemous Edict"
+   "sai": "Blasphemous Edict",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o executar de quem ficou atrás da fortaleza: toma os exércitos que a mesa montou, e o dano devolve a coroa.",
+    "I": "Toma todas as criaturas com ímpeto por um turno: costuma matar um ou dois jogadores.",
+    "T": "Oito manas, com {R}{R}{R}, num deck de três cores.",
+    "Q": "Só com a mesa dos outros cheia; cedo e contra mesa vazia, é carta morta.",
+    "R": "Os fechamentos passam da cota: Ruinous Ultimatum, Forth Eorlingas! e a Approach já encerram."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.7,
+   "papel": "recompensa",
+   "papel_por_que": "É o que a fortaleza rende no fim: os exércitos que a mesa montou sem conseguir atacar você viram seus por um turno, com ímpeto, e o dano devolve a coroa."
   },
   "Palace Jailer": {
    "notas": {
@@ -3787,7 +3808,7 @@
    "sin_por_que": {
     "sin1": "Dá a coroa ao entrar, e a criatura exilada só volta quando um oponente toma a coroa: rende quando a coroa muda de mão."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "2/2 de 4. Ao entrar, você vira o monarca e exila uma criatura de oponente até um oponente virar o monarca.",
@@ -3795,7 +3816,26 @@
    "sai": "Knights of the Black Rose",
    "papel": "habilita",
    "papel_dupla": "Remoção (exila até perder a coroa)",
-   "papel_por_que": "Dá a coroa e exila uma criatura enquanto ela ficar com você."
+   "papel_por_que": "Dá a coroa e exila uma criatura enquanto ela ficar com você.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá a coroa uma vez e exila uma criatura de oponente enquanto a coroa não for para um oponente.",
+    "I": "Coroa e remoção numa carta, mas a criatura volta quando um oponente toma a coroa, e a coroa troca de mão toda rodada.",
+    "T": "Quatro manas, no padrão das fontes de coroa.",
+    "Q": "Paridade, atrás para retomar a coroa, e na frente.",
+    "R": "As fontes de coroa passam da cota (20); o Custodi Lich também junta coroa e remoção, por cinco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Queen Mother Ramonda": {
    "notas": {
@@ -3810,7 +3850,7 @@
     "sin1": "Dá a coroa ao entrar; a proibição só vale com a coroa e não rende a cada volta.",
     "sin2": "Enquanto você é o monarca, criaturas de força 2 ou menos não atacam você: proíbe parte dos ataques."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "3/5 de 5. Ao entrar, você vira o monarca. Com a coroa, criaturas de poder 2 ou menos não atacam você.",
@@ -3818,7 +3858,26 @@
    "sai": "Master of Ceremonies",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (fracas não atacam você)",
-   "papel_por_que": "Dá a coroa e, com ela, criaturas de poder 2 ou menos não atacam você."
+   "papel_por_que": "Dá a coroa e, com ela, criaturas de poder 2 ou menos não atacam você.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Coroar e blindar numa carta: dá a coroa e, com ela, criatura de poder 2 ou menos não ataca você.",
+    "I": "A coroa, um corpo e a porta fechada para as fichas, que são quem rouba a coroa; os grandes ainda passam.",
+    "T": "Cinco manas, com {W}{W}.",
+    "Q": "Paridade, na frente e atrás, quando retoma a coroa; sem a coroa, a proibição desliga.",
+    "R": "Nenhuma carta da lista proíbe ataque; o Champions of Minas Tirith cobra por combate, por seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Trouble in Pairs": {
    "notas": {
@@ -3833,7 +3892,7 @@
     "sin1": "Compra quando um oponente monarca compra a segunda carta do turno, sem mexer na coroa.",
     "sin2": "Compra quando atacam você com duas criaturas ou mais, sem impedir o ataque."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Encantamento de 4. Compra quando um oponente ataca você com duas ou mais, compra a segunda carta ou conjura a segunda mágica no turno.",
@@ -3841,7 +3900,26 @@
    "sai": "Decanter of Endless Water",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Compra quando o oponente compra a segunda carta, como a do monarca, ou ataca você com duas."
+   "papel_por_que": "Compra quando o oponente compra a segunda carta, como a do monarca, ou ataca você com duas.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: rende com a segunda carta ou a segunda mágica dos oponentes, sem mexer na coroa.",
+    "I": "Uma ou mais cartas por rodada da mesa, de forma contínua, e é encantamento: sobrevive às limpezas de criatura.",
+    "T": "Quatro manas, com {W}{W}.",
+    "Q": "Viva sempre: não depende da coroa nem de mesa.",
+    "R": "Fora da coroa, o deck só compra com Esper Sentinel, The One Ring e Skullclamp."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Disrupt Decorum": {
    "notas": {
@@ -3861,7 +3939,26 @@
    "porque": "Um turno inteiro da mesa batendo em si mesma.",
    "sai": "Duelist's Heritage",
    "papel": "multiplica",
-   "papel_por_que": "Goad em massa: a mesa toda ataca outro jogador e a coroa fica com você."
+   "papel_por_que": "Goad em massa: a mesa toda ataca outro jogador e a coroa fica com você.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Manda a mesa inteira bater em outro jogador por uma volta: é o blindar pela política.",
+    "I": "Goad em todas as criaturas dos outros: uma volta sem ataque a você e com a mesa se desgastando; depois acaba.",
+    "T": "Quatro manas, feitiço.",
+    "Q": "Paridade, atrás e na frente, desde que haja criaturas na mesa.",
+    "R": "A Nelly Borca faz goad todo turno e o Take the Bait salva um combate; a política já tem peças."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Gleaming Splendor": {
    "notas": {
@@ -3877,7 +3974,7 @@
     "sin1": "Tesouro quando um oponente compra a segunda carta do turno, como a do monarca, sem mexer na coroa.",
     "sin2": "Por {2}{W}, dá cartas a dois jogadores: presente de passagem."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Encantamento de 2. Tesouro quando um oponente compra a segunda carta do turno. {2}{W}: dois jogadores compram uma cada.",
@@ -3885,7 +3982,26 @@
    "sai": "Thaumatic Compass",
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Tesouro quando um oponente compra a segunda carta, como a do monarca."
+   "papel_por_que": "Tesouro quando um oponente compra a segunda carta, como a do monarca.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Ramp condicional: só liga com a segunda compra de um oponente, sem mexer na coroa.",
+    "I": "Um Tesouro de vez em quando; a compra para dois jogadores é moeda de política pequena.",
+    "T": "Duas manas.",
+    "Q": "Início e paridade; sem oponente que compre duas por turno, não rende.",
+    "R": "Os três Talismãs e a Arcane Signet dão mana certa pelo mesmo custo; o ramp abaixo da faixa segura o 1."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Godless Shrine": {
    "notas": {},
@@ -3896,7 +4012,26 @@
    "veredito": "entra",
    "faz": "Plains Swamp. Desvirada por 2 de vida.",
    "porque": "Branco e preto, e alvo para o Snarl. Terra por terra.",
-   "sai": "Reliquary Tower"
+   "sai": "Reliquary Tower",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Duas cores do deck, branco e preto, num terreno.",
+    "I": "Um terreno por turno, sem efeito a mais.",
+    "T": "Desvirada por 2 de vida, e tem os tipos que o Shineshadow Snarl revela.",
+    "Q": "Viva sempre: conserta a cor em qualquer momento do jogo.",
+    "R": "Fica no nível de Luxury Suite e Vault of Champions; o deck tem seis terrenos que sempre entram virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Sacred Foundry": {
    "notas": {},
@@ -3907,7 +4042,26 @@
    "veredito": "entra",
    "faz": "Mountain Plains. Desvirada por 2 de vida.",
    "porque": "Vermelho e branco. Terra por terra. Corte pelo critério do dono (13/11/2026): sai Cave of the Frost Dragon, porque Field of Ruin já é o corte de uma carta de letra mais alta.",
-   "sai": "Cave of the Frost Dragon"
+   "sai": "Cave of the Frost Dragon",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Duas cores do deck, vermelho e branco, num terreno.",
+    "I": "Um terreno por turno, sem efeito a mais.",
+    "T": "Desvirada por 2 de vida.",
+    "Q": "Viva sempre: conserta a cor em qualquer momento do jogo.",
+    "R": "Fica no nível de Luxury Suite e Vault of Champions; o deck tem seis terrenos que sempre entram virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Mangara, the Diplomat": {
    "notas": {
@@ -3920,12 +4074,31 @@
    "sin_por_que": {
     "sin2": "Compra quando atacam você com duas criaturas ou mais, sem impedir o ataque."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "2/4 vínculo. Compra quando duas ou mais criaturas atacam você e na segunda mágica de um oponente.",
    "porque": "Motor independente da coroa. Corte pelo critério do dono (13/11/2026): sai Marchesa's Decree, porque Take the Bait é peça de combo do deck.",
-   "sai": "Marchesa's Decree"
+   "sai": "Marchesa's Decree",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: rende quando duas ou mais atacam você, e a fortaleza existe para isso não acontecer.",
+    "I": "Uma carta na segunda mágica de um oponente; é um 2/4 que precisa ficar em campo e morre nas suas limpezas.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e atrás; contra mesa que joga uma mágica por turno, rende pouco.",
+    "R": "A Trouble in Pairs, do radar, faz o mesmo e mais, como encantamento; no deck, o Esper Sentinel cobra por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Tamiyo, Upriser Crowned": {
    "notas": {
@@ -3941,7 +4114,7 @@
     "sin1": "Dá a coroa ao entrar; o castigo só vale com a coroa e não rende a cada volta.",
     "sin2": "Com a coroa, vira e atordoa quem causa dano de combate a você: castigo só depois do dano."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "3/5 voar, golpe duplo e pressa, de 6. Ao entrar, você vira o monarca. Com a coroa, quem causa dano de combate a você é virado e atordoado.",
@@ -3949,7 +4122,26 @@
    "sai": "Emberwilde Captain",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (atordoa quem lhe bate)",
-   "papel_por_que": "Dá a coroa ao entrar; quem lhe causa dano com ela é virado e atordoado."
+   "papel_por_que": "Dá a coroa ao entrar; quem lhe causa dano com ela é virado e atordoado.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá a coroa uma vez; com ela, quem causa dano de combate a você fica virado e atordoado, mas a coroa já foi.",
+    "I": "A coroa e um 3/5 com voar, golpe duplo e ímpeto, que retoma a coroa no turno em que entra.",
+    "T": "Seis manas.",
+    "Q": "Paridade, na frente e atrás: voar e ímpeto retomam a coroa.",
+    "R": "Nenhuma fonte de coroa da lista voa com ímpeto; o Archon of Coronation voa, sem ímpeto, pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Inkshield": {
    "notas": {
@@ -3970,7 +4162,26 @@
    "sai": "Path of Peril",
    "papel": "multiplica",
    "papel_dupla": "Fichas",
-   "papel_por_que": "Previne o dano de combate em você num turno e vira o ataque em Inklings."
+   "papel_por_que": "Previne o dano de combate em você num turno e vira o ataque em Inklings.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Previne o dano de combate a você num turno: a coroa fica, e o ataque vira Inklings voadores.",
+    "I": "Um combate salvo e um exército 2/1 voador do tamanho do ataque; contra ataque pequeno, rende pouco.",
+    "T": "Cinco manas guardadas na hora certa, uso único.",
+    "Q": "Atrás e na paridade, quando o ataque vem; na frente, espera na mão.",
+    "R": "O Take the Bait salva o mesmo combate por quatro e manda o ataque a outro jogador."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Spectator Seating": {
    "notas": {},
@@ -3981,7 +4192,26 @@
    "veredito": "avaliar",
    "faz": "Terra: R ou W, desvirada com dois ou mais oponentes.",
    "porque": "Dual de vermelho e branco sem custo na mesa de quatro, no lugar do Elegant Parlor, que entra sempre virado; o Smoldering Marsh, que ela tirava antes, sai para a Blood Crypt.",
-   "sai": "Elegant Parlor"
+   "sai": "Elegant Parlor",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Duas cores do deck, vermelho e branco, num terreno.",
+    "I": "Um terreno por turno, sem efeito a mais.",
+    "T": "Desvirada e sem custo na mesa de quatro.",
+    "Q": "Viva sempre: conserta a cor em qualquer momento do jogo.",
+    "R": "Fica no nível de Luxury Suite e Vault of Champions; o deck tem seis terrenos que sempre entram virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Farewell": {
    "notas": {
@@ -4032,7 +4262,26 @@
    "sai": "Chaos Warp",
    "papel": "multiplica",
    "papel_dupla": "Remoção (limpeza)",
-   "papel_por_que": "Limpa a mesa e a criatura que sobra a cada oponente não pode atacar você."
+   "papel_por_que": "Limpa a mesa e a criatura que sobra a cada oponente não pode atacar você.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Limpa a mesa e blinda: a criatura que sobra a cada oponente não pode mais atacar você.",
+    "I": "Cada jogador fica com uma criatura; os seus encantamentos ficam, e você perde as suas outras criaturas.",
+    "T": "Cinco manas, feitiço.",
+    "Q": "Atrás e na paridade, com a mesa cheia; na frente, leva a sua mesa também.",
+    "R": "O deck já tem seis limpezas, acima da sua cota de três a quatro; só esta deixa a proibição de atacar."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Ginger, Queen of Sweets": {
    "notas": {
@@ -4058,7 +4307,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (dá a coroa)",
-   "papel_por_que": "Dá a coroa e, com ela, cria um Gingerbrute com ímpeto em toda manutenção, de todos."
+   "papel_por_que": "Dá a coroa e, com ela, cria um Gingerbrute com ímpeto em toda manutenção, de todos.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Multiplica a coroa: dá a coroa e, com ela, cria um Gingerbrute com ímpeto na manutenção de cada jogador.",
+    "I": "A coroa e até quatro fichas por rodada, que bloqueiam e retomam a coroa; precisa ficar em campo.",
+    "T": "Seis manas, incolor.",
+    "Q": "Paridade, na frente e atrás, quando retoma a coroa; sem a coroa, não cria nada.",
+    "R": "As Cortes multiplicam a coroa por quatro manas e não morrem nas limpezas de criatura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Starscream, Power Hungry // Starscream, Seeker Leader": {
    "notas": {
@@ -4077,7 +4345,26 @@
    "faz": "Voar, de 4. Com a coroa, cada carta que você compra faz um oponente perder 2. Quando criaturas causam dano de combate a você, vira um Veículo com voar, ameaça e pressa, que torna monarca o jogador que ele atinge se não houver monarca, e volta quando você vira o monarca.",
    "porque": "Com a coroa, a compra normal e a do monarca tiram 4 por volta; no lugar do Alexios, troca a pressão que roda a mesa por dano que você aponta e que só vai para os oponentes.",
    "papel": "recompensa",
-   "papel_por_que": "Com a coroa, cada carta que você compra tira 2 de vida de um oponente."
+   "papel_por_que": "Com a coroa, cada carta que você compra tira 2 de vida de um oponente.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Rende com a coroa: cada carta que você compra tira 2 de um oponente, e a coroa dá a segunda compra.",
+    "I": "Quatro de perda de vida por rodada com a coroa, apontados por você; precisa ficar em campo e vira Veículo quando você leva dano de combate.",
+    "T": "Quatro manas, ou três pelo lado de Veículo.",
+    "Q": "Paridade e na frente, com a coroa; atrás, o Veículo com voar, ameaça e ímpeto ajuda a retomá-la.",
+    "R": "O Irencrag Pyromancer converte a segunda compra em 3 de dano por três manas; os fechamentos passam da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Raven Eagle": {
    "notas": {
@@ -4097,7 +4384,26 @@
    "faz": "Voar, de 3. Ao entrar ou atacar, exila até uma carta de um cemitério; se for criatura, cria uma Pista. Quando você compra a segunda carta no turno, cada oponente perde 1 e você ganha 1.",
    "porque": "A compra do monarca no seu fim de turno é a segunda: dreno de 1 em cada oponente por volta, mais ódio de cemitério; no lugar do Royal Assassin, troca um matador de atacante por um dreno.",
    "papel": "recompensa",
-   "papel_por_que": "A compra do monarca no seu fim de turno drena 1 de cada oponente."
+   "papel_por_que": "A compra do monarca no seu fim de turno drena 1 de cada oponente.",
+   "tier_anterior": "C",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Rende de passagem com a segunda compra do turno, que é a da coroa; não dá nem segura a coroa.",
+    "I": "Um de dreno em cada oponente por rodada, e uma carta de cemitério exilada ao entrar ou atacar.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade e na frente, com a coroa; sem ela, é um voador que exila cemitério.",
+    "R": "O Irencrag Pyromancer tira 3 pela mesma segunda compra, pelo mesmo custo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Blood Crypt": {
    "notas": {},
@@ -4108,7 +4414,26 @@
    "veredito": "entra",
    "sai": "Smoldering Marsh",
    "faz": "Terreno — Pântano Montanha. Gera {B} ou {R}. Ao entrar, você pode pagar 2 de vida; se não pagar, entra virado.",
-   "porque": "As mesmas duas cores do Smoldering Marsh, mas desvirada quando você quer (o Marsh pede dois básicos, e o deck tem cinco), e com o tipo Pântano para revelar ao Shineshadow Snarl. Terra por terra, como Godless Shrine e Sacred Foundry no radar."
+   "porque": "As mesmas duas cores do Smoldering Marsh, mas desvirada quando você quer (o Marsh pede dois básicos, e o deck tem cinco), e com o tipo Pântano para revelar ao Shineshadow Snarl. Terra por terra, como Godless Shrine e Sacred Foundry no radar.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Duas cores do deck, preto e vermelho, num terreno.",
+    "I": "Um terreno por turno, sem efeito a mais.",
+    "T": "Desvirada por 2 de vida, e tem o tipo Pântano para o Shineshadow Snarl.",
+    "Q": "Viva sempre: conserta a cor em qualquer momento do jogo.",
+    "R": "Fica no nível de Luxury Suite e Vault of Champions; o deck tem seis terrenos que sempre entram virados."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Kor Haven": {
    "notas": {
@@ -4127,7 +4452,26 @@
    "faz": "Terreno lendário. Gera {C}. Por {1}{W} e virando: previne todo o dano de combate que a criatura atacante alvo causaria neste turno.",
    "porque": "O segundo Maze of Ith, e este gera mana: a cada volta, o atacante que pagou a taxa não leva a coroa. Sai o Hive of the Eye Tyrant, que entra virado depois do segundo terreno e só vira atacante por {3}{B}.",
    "papel_dupla": "Fortaleza",
-   "papel_por_que": "Terreno que anula um atacante por turno: a coroa fica."
+   "papel_por_que": "Terreno que anula um atacante por turno: a coroa fica.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fortaleza num terreno: previne o dano de combate de um atacante por volta, o que vinha buscar a coroa.",
+    "I": "Segura um atacante por turno sem gastar carta; contra dois ou mais, não basta.",
+    "T": "Entra desvirado e gera mana, mas cada uso custa {1}{W}; o Maze of Ith faz de graça.",
+    "Q": "Viva sempre: é terreno no início e defesa no resto do jogo.",
+    "R": "Só o Maze of Ith faz isso num terreno; a fortaleza de encantamentos cai numa limpeza, e esta fica."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Ancient Tomb": {
    "notas": {
@@ -4135,14 +4479,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "sai": "Field of Ruin",
    "faz": "Gera {C}{C} e causa 2 de dano a você.",
    "porque": "Duas manas num terreno: Ghostly Prison no turno 2 e a Marchesa no 3 sem pedra na mão, a lacuna de mana que a leitura do deck aponta. Fica como avaliar porque o dano é constante num deck que quer vida para segurar a coroa; sai um incolor por outro, o Rogue's Passage, que só retoma a coroa pagando {4}. Corte pelo critério do dono (13/11/2026): sai Field of Ruin, porque Rogue's Passage é peça de combo do deck.",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Terreno que gera duas manas e adianta a fortaleza um turno."
+   "papel_por_que": "Terreno que gera duas manas e adianta a fortaleza um turno.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Staple de ramp, incolor: não conserta as três cores nem serve a um verbo do deck.",
+    "I": "Duas manas num terreno: Ghostly Prison no turno 2 e a Marchesa no 3, com as cores certas ao lado.",
+    "T": "Desvirado, e causa 2 de dano a você a cada uso.",
+    "Q": "Início e paridade; atrás, o dano pesa, e incolor atrapalha a mão de três cores.",
+    "R": "O ramp está abaixo da faixa, e nenhum terreno da lista gera duas manas."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.7
   },
   "Serra's Emissary": {
    "notas": {},
@@ -4167,13 +4530,35 @@
    "sin_por_que": {
     "sin1": "Dá a coroa e, em toda volta como monarca, copia cada ficha de criatura além da compra: nível 3."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Goblin a cada manutenção e, sendo monarca, copia cada ficha de criatura; dá a coroa ao entrar.",
    "porque": "Dá a coroa e, em toda volta como monarca, copia cada ficha de criatura além da compra: nível 3. Ganho de +20.0; disputa com Knights of the Black Rose (tier B). Corte pelo critério do dono (13/11/2026): sai Caesar, Legion's Emperor, porque Knights of the Black Rose já é o corte de uma carta de letra mais alta.",
    "origem": "coleção MBC (2026-11-09)",
-   "sai": "Caesar, Legion's Emperor"
+   "sai": "Caesar, Legion's Emperor",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Multiplica a coroa: dá a coroa e, com ela, copia cada ficha de criatura sua em toda manutenção.",
+    "I": "A coroa e um Goblin 2/1 com ímpeto por volta, que dobra com a coroa junto das outras fichas; precisa ficar em campo.",
+    "T": "Seis manas.",
+    "Q": "Paridade, na frente e atrás: o Goblin com ímpeto nasce mesmo sem a coroa e ajuda a retomá-la.",
+    "R": "Nenhuma carta da lista copia fichas; Court of Grace e Skyline Despot criam uma por volta, sem dobrar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15,
+   "papel": "recompensa",
+   "papel_dupla": "habilita",
+   "papel_por_que": "Com a coroa, copia cada ficha de criatura sua em toda manutenção: é o que o deck ganha por ser o monarca; e dá a coroa ao entrar."
   }
  },
  "combos": [
@@ -4374,7 +4759,7 @@
     "por_que": "Dá a coroa ao entrar e cria Assassinos com pressa e toque mortífero para retomá-la. Comandante habilitadora pede proteção e plano B nas 99."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
