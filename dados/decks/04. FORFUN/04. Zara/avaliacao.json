@@ -3265,7 +3265,7 @@
    "rel": "INS",
    "veredito": "entra",
    "faz": "Artefato de 2. {1}, vira: termina o turno; só no seu turno.",
-   "porque": "Na etapa final, com a devolução da Zara na pilha, termina o turno e a exila: a emprestada fica. Repetível, e salva o Alchemist's Gambit. Fontes A, C e D. Corte pelo critério do dono (13/11/2026): sai Essence Capture, porque Mirror Sheen já é o corte de uma carta de letra mais alta.",
+   "porque": "Na etapa final, com a devolução da Zara na pilha, termina o turno e a exila: a emprestada fica. Repetível, e salva o Alchemist's Gambit. Fontes A, C e D. 8x8 (17/11/2026, ok do dono): sai Essence Capture; reforça Motor da Zara; sai de Counter, estourado.",
    "sai": "Essence Capture",
    "marcas": {
     "conv": 1
@@ -3311,8 +3311,8 @@
    "rel": "INS",
    "veredito": "entra",
    "faz": "Deusa lendária de 4, indestrutível, que não é criatura com devoção ao azul abaixo de cinco. Na sua etapa final, exila outra criatura sua e a devolve.",
-   "porque": "Ordenada acima da devolução, pisca a emprestada, que volta como objeto novo e sua; e repete o efeito de entrar. Sai a carta que mata a Zara. Fontes B e D. Sairia S pela tier list (11/11/2026). Corte pelo critério do dono (13/11/2026): sai Mirror Sheen, porque Nevinyrral's Disk é peça de combo do deck.",
-   "sai": "Mirror Sheen",
+   "porque": "Ordenada acima da devolução, pisca a emprestada, que volta como objeto novo e sua; e repete o efeito de entrar. Sai a carta que mata a Zara. Fontes B e D. Sairia S pela tier list (11/11/2026). 8x8 (17/11/2026, ok do dono): sai Order of Succession; reforça Motor da Zara; sai de Roubo, estourado (Mirror Sheen é da Cópia, que não pode encolher).",
+   "sai": "Order of Succession",
    "marcas": {
     "conv": 1
    },
@@ -3400,8 +3400,8 @@
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Encantamento de 2. Sacrifique uma criatura: 1 de dano em qualquer alvo.",
-   "porque": "Toda emprestada vira dano antes de voltar, e o Mob Rule vira letal. Fonte B.",
-   "sai": "Smoke",
+   "porque": "Toda emprestada vira dano antes de voltar, e o Mob Rule vira letal. Fonte B. 8x8 (17/11/2026): sai Mana Leak; corte refeito: Smoke é o corte do Wizard's Staff; sai de Counter, que fica em 8.",
+   "sai": "Mana Leak",
    "marcas": {
     "conv": 1
    },
@@ -3526,8 +3526,8 @@
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Equipamento de 2; equipar Mago {1}, equipar {3}: proeza, e cada gatilho da equipada dispara uma vez a mais.",
-   "porque": "Na Zara, por equipar {3}: duas criaturas por ataque. B a recusou achando que só equipa Mago; o texto tem os dois custos.",
-   "sai": "Goblin Electromancer",
+   "porque": "Na Zara, por equipar {3}: duas criaturas por ataque. B a recusou achando que só equipa Mago; o texto tem os dois custos. 8x8 (17/11/2026, ok do dono): sai Smoke; reforça Motor da Zara; sai de Counter, estourado (Goblin Electromancer é do Ramp, em 8).",
+   "sai": "Smoke",
    "papel": "multiplica",
    "papel_por_que": "Na Zara, o gatilho de ataque dispara duas vezes: duas criaturas da mão do defensor.",
    "tier_anterior": "A",
@@ -5859,6 +5859,45 @@
    "faz": "Dobra os gatilhos só de permanentes que você controla mas não possui.",
    "porque": "Sem vaga: as cartas do mesmo papel são tier S ou A, ou já são o corte de outra troca. Recompensa quem controla permanentes de outros donos, sem roubar: nível 2.",
    "origem": "coleção MBC (2026-11-09)"
+  },
+  "Silent Hallcreeper": {
+   "notas": {
+    "copia": 2,
+    "motor": 2
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "Ao conectar, vira cópia de outra criatura sua, a roubada inclusive, e a cópia fica."
+   },
+   "rel": "ALT",
+   "faz": "Criatura de 2, imbloqueável. Ao causar dano de combate a um jogador, escolhe um modo ainda não escolhido: dois marcadores +1/+1, comprar uma carta ou virar cópia de outra criatura sua.",
+   "porque": "Ataca junto com a Zara sem ser bloqueada e, no terceiro modo, vira cópia permanente da criatura emprestada: segura uma roubada. Está na Caixa. 8x8 (17/11/2026): sai Negate; sai de Counter, estourado (Steal Enchantment é o corte da Treachery, de letra mais alta).",
+   "funcao": "conversor",
+   "papel": "recompensa",
+   "papel_por_que": "Fica com a roubada como cópia permanente depois de conectar.",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Segura uma emprestada como cópia, depois de conectar.",
+    "I": "Não faz nada ao entrar; rende a partir do ataque.",
+    "T": "Duas manas por um atacante imbloqueável.",
+    "Q": "Paridade e na frente; atrás, morre fácil.",
+    "R": "Clone e Fated Infatuation também copiam, mas são de uso único."
+   },
+   "origem": "Caixa, 8x8 (2026-11-17)",
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "tier": "B",
+   "indice": 1.95,
+   "veredito": "avaliar",
+   "sai": "Negate"
   }
  },
  "combos": [
