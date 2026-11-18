@@ -5,10 +5,10 @@ var D = /*__DATA__*/null;
 var R = D.regua, CR = D.crit, DECKS = D.decks, ORS = D.origens;
 var O = ORS[0], CARTAS = O.cartas;   // a origem na tela: a Caixa ou uma pasta (motor/caixa.py, origens)
 var LS = 'mtg-hub:caixa:v1';
-var ui = { ver: 'tabela', agrupar: 'prioridade', ord: 'padrao', inv: false, dec: 'pendentes', tipos: [], cores: [], corModo: 'contem', sub: '', faixas: [], prios: [], dests: [], fechados: {}, deck: '', origem: '', q: '', ent: '' };
+var ui = { ver: 'tabela', agrupar: 'prioridade', ord: 'padrao', inv: false, dec: 'pendentes', tipos: [], cores: [], corModo: 'contem', sub: '', faixas: [], prios: [], dests: [], fechados: {}, deck: '', origem: '', q: '', ent: '', lugar: '' };
 try {
   var g = JSON.parse(localStorage.getItem(LS) || '{}');
-  ['ver', 'agrupar', 'ord', 'dec', 'deck', 'origem', 'ent', 'corModo', 'sub'].forEach(function (k) { if (g[k]) ui[k] = g[k]; });
+  ['ver', 'agrupar', 'ord', 'dec', 'deck', 'origem', 'ent', 'corModo', 'sub', 'lugar'].forEach(function (k) { if (g[k]) ui[k] = g[k]; });
   ui.inv = !!g.inv;
   if (Array.isArray(g.tipos)) ui.tipos = g.tipos; else if (g.tipo) ui.tipos = [g.tipo];   // o seletor antigo guardava um tipo só
   if (Array.isArray(g.cores)) ui.cores = g.cores.filter(function (k) { return 'WUBRGC'.indexOf(k) >= 0; });   // o botão Multicolorido saiu: o modo de cor resolve
@@ -17,7 +17,7 @@ try {
   if (Array.isArray(g.dests)) ui.dests = g.dests;
   if (g.fechados && typeof g.fechados === 'object') ui.fechados = g.fechados;
 } catch (e) { }
-function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, ord: ui.ord, inv: ui.inv, dec: ui.dec, tipos: ui.tipos, cores: ui.cores, corModo: ui.corModo, sub: ui.sub, faixas: ui.faixas, prios: ui.prios, dests: ui.dests, fechados: ui.fechados, deck: ui.deck, origem: ui.origem, ent: ui.ent })); } catch (e) { } }
+function guardaUI() { try { localStorage.setItem(LS, JSON.stringify({ ver: ui.ver, agrupar: ui.agrupar, ord: ui.ord, inv: ui.inv, dec: ui.dec, tipos: ui.tipos, cores: ui.cores, corModo: ui.corModo, sub: ui.sub, faixas: ui.faixas, prios: ui.prios, dests: ui.dests, fechados: ui.fechados, deck: ui.deck, origem: ui.origem, ent: ui.ent, lugar: ui.lugar })); } catch (e) { } }
 
 var DB = { db: null, pode: false, docs: {}, erro: '', ocupado: {} };   // docs: {coleção: {id: documento}}
 var PUB = location.protocol !== 'file:';
@@ -134,11 +134,25 @@ function decCopias(c, o) {
 function hojeLocal() { var d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
 function diasDesde(ent) { var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(ent || ''); if (!m) return null; return Math.round((hojeLocal() - new Date(+m[1], +m[2] - 1, +m[3])) / 864e5); }
 function entrouNos(cp, n) { var d = diasDesde(cp.ent); return d != null && d < n; }
+/* o lugar físico de cada cópia (a subpasta da lista em dados/caixa/listas/: "Caixa Solta", um bundle...; dono, 16/11/2026).
+   Só a Caixa tem lugares; "~" é a cópia sem lugar (lista solta na raiz). */
+var SEM_LUGAR = '~';
+function lugarDe(cp) { return cp.lugar || SEM_LUGAR; }
+function nomeLugar(k) { return k === SEM_LUGAR ? 'Sem lugar' : k; }
+function lugares() {   // [[lugar, cópias, valor]] da origem na tela, em ordem de nome, "Sem lugar" no fim
+  if (!eCaixa()) return [];
+  var m = {};
+  CARTAS.forEach(function (c) { c.copias.forEach(function (cp) { var k = lugarDe(cp); m[k] = m[k] || [k, 0, 0]; m[k][1]++; m[k][2] += cp.usd || 0; }); });
+  return Object.keys(m).sort(function (a, b) { return a === SEM_LUGAR ? 1 : b === SEM_LUGAR ? -1 : a.localeCompare(b); }).map(function (k) { return m[k]; });
+}
+function lugarAtivo() { return eCaixa() && ui.lugar && lugares().some(function (x) { return x[0] === ui.lugar; }) ? ui.lugar : ''; }
+function noLugar(cp) { var l = lugarAtivo(); return !l || lugarDe(cp) === l; }
 /* as cópias que a lista mostra, pelo filtro de decisão (pendentes, decididas ou todas) */
 function visCopias(c) {
   var dc = decCopias(c), out = [];
   c.copias.forEach(function (cp, i) {
     var feita = !!(dc[i] && dc[i].destino);
+    if (!noLugar(cp)) return;   // o lugar escolhido na fileira Lugar
     if (ui.dec !== 'todas' && (ui.dec === 'pendentes') === feita) return;
     if (ui.faixas.length && ui.faixas.indexOf(faixaDe(cp.usd)) < 0) return;
     if (ui.ent && !entrouNos(cp, +ui.ent)) return;   // entrada: os últimos 3, 7 ou 30 dias
@@ -311,6 +325,7 @@ function resumo() {
   CARTAS.forEach(function (c) {
     var dc = decCopias(c);
     c.copias.forEach(function (cp, i) {
+      if (!noLugar(cp)) return;
       if (dc[i] && dc[i].destino) { decid++; return; }
       var s = cp.sug, v = cp.usd || 0;
       pri[s.P][0]++; pri[s.P][1] += v; dest[s.d][0]++; dest[s.d][1] += v;
@@ -320,8 +335,12 @@ function resumo() {
   var it = function (b, t, z) { return '<span class="it' + (z ? ' z' : '') + '"><b class="num">' + b + '</b> ' + t + '</span>'; };
   // prioridade e sugestão filtram a lista abaixo: tocar marca (mais de um ao mesmo tempo), tocar de novo desmarca
   var fb = function (act, v, on, z, html, tit) { return '<button class="it' + (z ? ' z' : '') + '" data-act="' + act + '" data-v="' + v + '" aria-pressed="' + on + '"' + (z ? ' disabled' : '') + ' title="' + esc(tit) + '">' + html + '</button>'; };
-  var r = O.resumo;
-  return tarefasHtml() + '<div class="seg cx-fi" role="group" aria-label="Filtrar por prioridade"><span class="seg-l">Prioridade</span>' + ORDP.map(function (p) {
+  var r = O.resumo, L = lugares();
+  // Lugar: a caixa física onde a cópia está; com um lugar escolhido, a lista, os números abaixo e os dois botões de exportar valem só para ele
+  var lug = L.length ? '<div class="seg cx-fi cx-lug" role="group" aria-label="Filtrar por lugar"><span class="seg-l">Lugar</span>' +
+    fb('lugar', '', !lugarAtivo(), false, '<b>Todos</b> <small class="dim">' + L.reduce(function (s, x) { return s + x[1]; }, 0) + '</small>', 'Todas as caixas') +
+    L.map(function (x) { return fb('lugar', x[0], lugarAtivo() === x[0], false, '<b>' + esc(nomeLugar(x[0])) + '</b> <small class="dim">' + x[1] + ' · ' + usd(Math.round(x[2] * 100) / 100) + '</small>', 'Só as cópias de ' + nomeLugar(x[0]) + '; exportar baixa só este lugar'); }).join('') + '</div>' : '';
+  return tarefasHtml() + lug + '<div class="seg cx-fi" role="group" aria-label="Filtrar por prioridade"><span class="seg-l">Prioridade</span>' + ORDP.map(function (p) {
       return fb('prio', p, ui.prios.indexOf(p) >= 0, !pri[p][0], '<b class="num">' + pri[p][0] + ' ' + p + '</b>', 'Só as cópias de prioridade ' + p + ' (' + usd(pri[p][1]) + ')');
     }).join('') + (ui.prios.length ? '<button class="cx-limpa" data-act="prios-limpar">Limpar</button>' : '') + '</div>' +
     '<div class="seg cx-fi" role="group" aria-label="Filtrar por sugestão"><span class="seg-l">Sugestão</span>' + ORDD.map(function (d) {
@@ -798,7 +817,7 @@ function gaveta(c) {
     '<p class="cx-nt">' + (DB.db && DB.pode ? 'Deck: a carta vai ao radar do deck como "avaliar" e sai da lista de compras quando o /caixa aplicar. Guardar e Venda pedem a pasta física. Nada muda na decklist sem o seu pedido.'
       : PUB ? 'Só quem edita a Caixa grava decisões.' : 'Arquivo local: as decisões gravam só na Caixa publicada. Aqui a gaveta é para consulta.') + '</p>';
   return '<button class="cx-gav-x" data-act="fechar" aria-label="Fechar">×</button><div class="cx-gv"><div class="cx-gv-img">' + imgDe(c) +
-    '<p>Impressão da caixa: ' + esc(c.copias.map(function (x) { return x.imp + ', ' + x.acab; }).join('; ')) + '. ' + entradaTxt(c) + '<a href="https://www.ligamagic.com.br/?view=cards/card&card=' + encodeURIComponent(c.n) + '" target="_blank" rel="noopener noreferrer">Abrir na LigaMagic</a></p>' +
+    '<p>Impressão da caixa: ' + esc(c.copias.map(function (x) { return x.imp + ', ' + x.acab + (eCaixa() ? ', ' + nomeLugar(lugarDe(x)) : ''); }).join('; ')) + '. ' + entradaTxt(c) + '<a href="https://www.ligamagic.com.br/?view=cards/card&card=' + encodeURIComponent(c.n) + '" target="_blank" rel="noopener noreferrer">Abrir na LigaMagic</a></p>' +
     (c.fx ? '<p class="dim" style="white-space:pre-line">' + esc(c.fx) + '</p>' : '') + '</div>' +
     '<div><h2 id="cx-gav-t">' + esc(c.on || c.n) + (c.q > 1 ? '<span class="cx-xn">×' + c.q + '</span>' : '') + '</h2>' + (c.on ? '<p class="dim">' + esc(c.n) + '</p>' : '') +
     '<p class="cx-line">' + mana(c.cost) + ' ' + esc(c.line) + (c.pt ? ' ' + esc(c.pt) : '') + (rarDe(c) ? ' · ' + esc(rarDe(c)) : '') + ' · identidade ' + (mana(ordemCor(c.ident).split('').map(function (k) { return '{' + k + '}'; }).join('')) || 'incolor') + '</p>' +
@@ -999,6 +1018,63 @@ function gravar(c, i, nova) {
     .then(function () { DB.erro = ''; }, function (e) { DB.erro = (e && e.code) || 'erro'; aviso('Não gravou (' + DB.erro + ').'); })
     .then(function () { delete DB.ocupado[key]; render(); redesenharGaveta(); });
 }
+// Exportar: todas as cópias da origem aberta (Caixa ou pasta), ou só do lugar escolhido, sem os outros filtros da tela, para colegas e sites de preço
+// (pedido do dono, 16/11/2026). Colunas do ManaBox na frente, para os sites que importam esse formato; preço e destino atrás.
+var CONDS = { mint: 'Mint', near_mint: 'Near Mint', excellent: 'Excellent', good: 'Good', light_played: 'Lightly Played', played: 'Played', poor: 'Poor' };
+function csvCampo(v) { var t = v == null ? '' : String(v); return /[",\n;]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; }
+function csvDaOrigem(o) {
+  var linhas = {}, ordem = [];
+  o.cartas.forEach(function (c) { c.copias.forEach(function (cp) {
+    if (!noLugar(cp)) return;
+    var m = /^(\S+) (.+)$/.exec(cp.imp || '') || [null, '', ''];
+    var k = [c.n, m[1], m[2], cp.acab || 'normal', cp.idioma || 'en', cp.cond || '', cp.lugar || ''].join('|');
+    if (!linhas[k]) { linhas[k] = { c: c, set: m[1].toUpperCase(), num: m[2], acab: cp.acab || 'normal', idioma: cp.idioma || 'en', cond: cp.cond || '', rar: cp.rar || '', usd: cp.usd, dest: cp.sug && cp.sug.d ? NOMED[cp.sug.d] : '', lugar: cp.lugar || '', q: 0 }; ordem.push(k); }
+    linhas[k].q++;
+  }); });
+  ordem.sort(function (a, b) { return a.localeCompare(b); });
+  var cab = ['Name', 'Set code', 'Collector number', 'Foil', 'Quantity', 'Language', 'Condition', 'Rarity', 'Preço unitário US$', 'Preço unitário R$ (aprox.)', 'Total US$', 'Sugestão da Caixa', 'Lugar'];
+  var out = [cab.join(',')], q = 0, tot = 0;
+  ordem.forEach(function (k) {
+    var x = linhas[k], u = x.usd;
+    q += x.q; if (u != null) tot += u * x.q;
+    out.push([x.c.n, x.set, x.num, x.acab, x.q, x.idioma, CONDS[x.cond] || x.cond, x.rar,
+      u == null ? '' : u.toFixed(2), u == null || !CB ? '' : (u * CB.v).toFixed(2), u == null ? '' : (u * x.q).toFixed(2), x.dest, x.lugar].map(csvCampo).join(','));
+  });
+  return { txt: '﻿' + out.join('\r\n') + '\r\n', linhas: ordem.length, copias: q, total: tot };
+}
+// LigaMagic: "quantidade nome [EDIÇÃO]" (exemplo do dono, 16/11/2026), uma linha por carta e edição (foil e idioma somados).
+// Nome em inglês: a LigaMagic reconheceu todos; dois nomes em português do Scryfall ela não achou. Carta dividida, de preparar
+// e aventura vão com o nome completo (c.nl, "Grave Researcher // Reanimate"); as que se transformam, com o da frente. Ficha fica fora.
+function ligaDaOrigem(o) {
+  var linhas = {}, ordem = [], q = 0, tot = 0;
+  o.cartas.forEach(function (c) { if (c.tok) return; c.copias.forEach(function (cp) {
+    if (!noLugar(cp)) return;
+    var m = /^(\S+) (.+)$/.exec(cp.imp || ''), set = m ? m[1].toUpperCase() : '', n = c.nl || c.n.split(' // ')[0], k = n + '|' + set;
+    if (!linhas[k]) { linhas[k] = { n: n, set: set, q: 0 }; ordem.push(k); }
+    linhas[k].q++; q++; if (cp.usd != null) tot += cp.usd;
+  }); });
+  ordem.sort(function (a, b) { return a.localeCompare(b); });
+  return { txt: ordem.map(function (k) { var x = linhas[k]; return x.q + ' ' + x.n + (x.set ? ' [' + x.set + ']' : ''); }).join('\r\n') + '\r\n', linhas: ordem.length, copias: q, total: tot };
+}
+function exportarCsv(tipo) {
+  var liga = tipo === 'liga', r = liga ? ligaDaOrigem(O) : csvDaOrigem(O), nome = slug(O.k) + (lugarAtivo() ? '-' + slug(nomeLugar(lugarAtivo())) : '') + (liga ? '-ligamagic-' : '-') + hojeISO() + (liga ? '.txt' : '.csv');
+  var msg = (lugarAtivo() ? nomeLugar(lugarAtivo()) + ': ' : '') + pl(r.copias, 'cópia', 'cópias') + ' em ' + pl(r.linhas, 'linha', 'linhas') + ', ' + usd(Math.round(r.total * 100) / 100) + (CB ? ' (≈ ' + reais(r.total) + ')' : '');
+  var baixar = function () {
+    var url = URL.createObjectURL(new Blob([r.txt], { type: (liga ? 'text/plain' : 'text/csv') + ';charset=utf-8' })), a = document.createElement('a');
+    a.href = url; a.download = nome; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+  };
+  var pelaPagina = window.claude && typeof window.claude.use === 'function' ? window.claude.use('downloads') : Promise.resolve(null);
+  pelaPagina.then(function (dl) {
+    if (dl) return dl.save({ filename: nome, data: r.txt }).then(function () { aviso((liga ? 'Lista LigaMagic' : 'CSV') + ' salva: ' + msg + '.', 7000); }, function () { aviso('Download cancelado.', 4000); });
+    baixar();
+    if (!PUB) { aviso((liga ? 'Lista LigaMagic baixada (' : 'CSV baixado (') + nome + '): ' + msg + '.', 7000); return; }
+    // publicada: o claude.ai pode barrar o download; o CSV vai também para a área de transferência
+    var copiar = navigator.clipboard && navigator.clipboard.writeText ? navigator.clipboard.writeText(liga ? r.txt : r.txt.slice(1)) : Promise.reject();
+    copiar.then(function () { aviso((liga ? 'Lista LigaMagic (' : 'CSV (') + msg + ') baixada e copiada' + (liga ? ': cole direto na LigaMagic' : '') + '. Se o download não começou, cole num bloco de notas e salve como ' + nome + '.', 10000); },
+      function () { aviso((liga ? 'Lista LigaMagic pedida (' : 'CSV pedido (') + msg + '). Se o download não começou, abra a Caixa local (Abrir a Caixa.html) e exporte de lá.', 10000); });
+  }, function () { baixar(); });
+}
 function aviso(t, ms) { var el = $('#cx-aviso'); el.innerHTML = '<p class="cx-aviso">' + esc(t) + '</p>'; setTimeout(function () { if (el.textContent === t) el.innerHTML = ''; }, ms || 4000); }
 
 function ligarBanco() {
@@ -1074,13 +1150,15 @@ document.addEventListener('click', function (ev) {
   if (act === 'ui') { ui[a.getAttribute('data-k')] = a.getAttribute('data-v'); guardaUI(); render(); }
   else if (act === 'abrir') abrir(id);
   else if (act === 'precos') atualizarPrecos();
+  else if (act === 'exportar') exportarCsv(a.getAttribute('data-v'));
   else if (act === 'origem') { usarOrigem(a.getAttribute('data-v')); guardaUI(); render(); }
+  else if (act === 'lugar') { ui.lugar = a.getAttribute('data-v'); guardaUI(); render(); }
   else if (act === 'ord-inv') { ui.inv = !ui.inv; guardaUI(); render(); }
   else if (act === 'ord') { var ok = a.getAttribute('data-v'); if (ui.ord === ok) ui.inv = !ui.inv; else { ui.ord = ok; ui.inv = false; } guardaUI(); render(); }
   else if (act === 'tipos-limpar') { ui.tipos = []; ddAberta = false; guardaUI(); render(); }
   else if (act === 'cor') { var k = a.getAttribute('data-v'), i = ui.cores.indexOf(k); if (i >= 0) ui.cores.splice(i, 1); else ui.cores.push(k); guardaUI(); render(); }
   else if (act === 'cores-limpar') { ui.cores = []; guardaUI(); render(); }
-  else if (act === 'limpar-filtros') { ui.tipos = []; ui.cores = []; ui.sub = ''; ui.faixas = []; ui.prios = []; ui.dests = []; ui.ent = ''; ui.deck = ''; ui.dec = 'todas'; guardaUI(); render(); }
+  else if (act === 'limpar-filtros') { ui.lugar = ''; ui.tipos = []; ui.cores = []; ui.sub = ''; ui.faixas = []; ui.prios = []; ui.dests = []; ui.ent = ''; ui.deck = ''; ui.dec = 'todas'; guardaUI(); render(); }
   else if (act === 'faixa') { var fk = a.getAttribute('data-v'), fi = ui.faixas.indexOf(fk); if (fi >= 0) ui.faixas.splice(fi, 1); else ui.faixas.push(fk); guardaUI(); render(); }
   else if (act === 'faixas-limpar') { ui.faixas = []; guardaUI(); render(); }
   else if (act === 'prio' || act === 'dest') { var lp = act === 'prio' ? ui.prios : ui.dests, kv = a.getAttribute('data-v'), ix = lp.indexOf(kv); if (ix >= 0) lp.splice(ix, 1); else lp.push(kv); guardaUI(); render(); }
