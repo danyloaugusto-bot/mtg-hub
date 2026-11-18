@@ -3652,7 +3652,26 @@
    "sai": "Reshape",
    "marcas": {
     "efreet": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Busca o Frenetic Efreet (2/1), a Tavern Scoundrel ou o Krark: as criaturas que o plano manda achar.",
+    "I": "Vale a carta que busca, direto na mão, e ainda deixa um 1/1.",
+    "T": "Três manas, no padrão de tutor com corpo.",
+    "Q": "Viva sempre: tutor serve em qualquer momento.",
+    "R": "Só Gamble e Long-Term Plans acham o Efreet, abaixo do mínimo de quatro; nenhum outro tutor da lista busca criatura sem risco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.35
   },
   "Drift of Phantasms": {
    "notas": {
@@ -3673,7 +3692,26 @@
    "sai": "Possibility Storm",
    "marcas": {
     "efreet": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Transmuta por carta de valor 3: o Frenetic Efreet, o Yusri ou o Fiery Gambit.",
+    "I": "Vale a carta que busca, direto na mão.",
+    "T": "{1}{U}{U} só em velocidade de feitiço, e depois mais três manas para a carta buscada.",
+    "Q": "Tutor na paridade e na frente; atrás, é um 0/5 voador que bloqueia.",
+    "R": "Seria o terceiro caminho até o Efreet, que está abaixo do mínimo de quatro; Gamble faz por uma mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Strionic Resonator": {
    "notas": {
@@ -3686,14 +3724,33 @@
    "sin_por_que": {
     "sin1": "Copia o início de combate de um comandante pagando {2}: uma sequência a mais por turno, paga a cada uso."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Artefato de 2. {2}, vira: copia um gatilho seu.",
    "porque": "Uma terceira sequência de moedas por combate: mais 16 pontos na chance de matar um oponente (simulação de B). Fontes B e C.",
    "sai": "Fighting Chance",
    "papel": "multiplica",
-   "papel_por_que": "Copia o gatilho de combate dos comandantes, ou o de moeda vencida."
+   "papel_por_que": "Copia o gatilho de combate dos comandantes, ou o de moeda vencida.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Copia o início de combate de um comandante: mais uma sequência de moedas, pagando {2} a cada uso.",
+    "I": "Uma terceira sequência por combate, todo turno; também copia o gatilho de vitória do Okaun.",
+    "T": "Duas manas para baixar, mais {2} e virar em cada uso.",
+    "Q": "Paridade, na frente e atrás, com um comandante em campo; sem ele, não tem o que copiar.",
+    "R": "Seize the Day repete o combate uma vez; nenhuma carta da lista copia o gatilho todo turno por duas manas, mas as de moeda passaram da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Psychosis Crawler": {
    "notas": {
@@ -3706,7 +3763,7 @@
    "sin_por_que": {
     "sin2": "Transforma cada compra em 1 de perda de vida de cada oponente."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Horror artefato de 5, P/R igual às cartas na mão. Você compra: cada oponente perde 1.",
@@ -3716,7 +3773,26 @@
     "combo": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Cada compra do Zndrsplt faz cada oponente perder 1."
+   "papel_por_que": "Cada compra do Zndrsplt faz cada oponente perder 1.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Transforma cada compra, as do Zndrsplt inclusive, em 1 de vida perdida por oponente.",
+    "I": "Precisa ficar em campo; com o Efreet e o Zndrsplt, mata a mesa inteira.",
+    "T": "Cinco manas, o mesmo custo de um comandante.",
+    "Q": "Paridade e na frente; atrás, é um corpo do tamanho da mão.",
+    "R": "O Niv-Mizzet, Parun fere um alvo por compra e custa seis coloridas; ninguém na lista fere a mesa toda."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Edgar, King of Figaro": {
    "notas": {
@@ -3740,7 +3816,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Draw",
-   "papel_por_que": "Garante a vitória das primeiras moedas de cada turno."
+   "papel_por_que": "Garante a vitória das primeiras moedas de cada turno.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Garante a vitória da primeira moeda de cada turno: uma dobra e uma compra certas por combate.",
+    "I": "Ao entrar, compra uma por artefato seu, e a lista tem pedras e equipamentos; a moeda garantida pede que ele fique.",
+    "T": "Seis manas com {U}{U}, mais caro que cada comandante.",
+    "Q": "Paridade e na frente; atrás, a compra por artefato ainda rende.",
+    "R": "As cartas de moeda passaram da cota, e o Krark's Thumb já faz três em quatro em toda moeda, não só na primeira."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Deflecting Swat": {
    "notas": {
@@ -3757,7 +3852,26 @@
    "sai": "Ponder",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Cobre o ponto de falha do deck: a remoção em resposta ao início de combate do Okaun ou do Zndrsplt.",
+    "I": "Desvia a remoção para outro alvo: salva o turno e ainda pode matar uma criatura deles.",
+    "T": "De graça com um comandante em campo.",
+    "Q": "Paridade, na frente e atrás, com comandante em campo; sem ele, custa três.",
+    "R": "Na pilha, a lista só tem Invert Polarity e Muddle the Mixture, que custam mana e não tocam em habilidade."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.35
   },
   "Counterspell": {
    "notas": {
@@ -3766,7 +3880,7 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Instantânea de 2: anula uma mágica.",
@@ -3774,7 +3888,26 @@
    "sai": "Two-Handed Axe",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Anulação genérica: qualquer deck azul usaria.",
+    "I": "Troca de um por um: anula a remoção no turno do Okaun ou a vitória de alguém.",
+    "T": "Duas manas, instantânea; pede {U}{U}.",
+    "Q": "Viva sempre.",
+    "R": "O Muddle the Mixture só anula instantânea ou feitiço, e a lista tem pouca anulação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Steam Vents": {
    "notas": {},
@@ -3785,7 +3918,26 @@
    "veredito": "entra",
    "faz": "Terreno de choque Island Mountain: pague 2 ou entra virado.",
    "porque": "Dual desvirada no lugar de um terreno sempre virado. Fonte B. Corte pelo critério do dono (13/11/2026): sai Spinerock Knoll, porque Flamekin Village já é o corte de uma carta de letra mais alta.",
-   "sai": "Spinerock Knoll"
+   "sai": "Spinerock Knoll",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores do deck.",
+    "I": "Só mana, mas desvirada desde o turno 1.",
+    "T": "Desvirada pagando 2 de vida, quando precisar.",
+    "Q": "Viva sempre.",
+    "R": "É Island e Mountain: faz a Sulfur Falls entrar desvirada, o que Shivan Reef não faz."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Volcanic Island": {
    "notas": {},
@@ -3796,7 +3948,26 @@
    "veredito": "entra",
    "faz": "Dual original Island Mountain, sempre desvirada.",
    "porque": "Idem. Qualquer dual U/R desvirada cumpre quase o mesmo papel. Fonte B. Sai o Shivan Reef: dual por dual, sem o dano.",
-   "sai": "Shivan Reef"
+   "sai": "Shivan Reef",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores do deck.",
+    "I": "Só mana, mas sempre desvirada.",
+    "T": "Sem custo nenhum.",
+    "Q": "Viva sempre.",
+    "R": "Shivan Reef cobra 1 de dano por cor; Steam Vents, do radar, faz quase o mesmo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Spirebluff Canal": {
    "notas": {},
@@ -3807,7 +3978,26 @@
    "veredito": "entra",
    "faz": "Terreno: {U} ou {R}; desvirado com dois ou menos outros terrenos.",
    "porque": "Troca um incolor que repete o Thought Vessel por uma dual. Fonte B.",
-   "sai": "Reliquary Tower"
+   "sai": "Reliquary Tower",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores do deck.",
+    "I": "Só mana.",
+    "T": "Desvirada só até o terceiro terreno; depois entra virada.",
+    "Q": "Boa no início; comprada tarde, atrasa um turno.",
+    "R": "Sulfur Falls e Stormcarved Coast já são duais condicionais na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Roaming Throne": {
    "notas": {
@@ -3821,13 +4011,32 @@
    "sin_por_que": {
     "sin1": "Escolhendo o tipo de um comandante, os dois gatilhos dele disparam duas vezes em todo turno: duas sequências, e duas dobras ou compras por vitória."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Golem 4/4 de 4 com ward {2}. Escolhe um tipo; gatilho de outra criatura sua desse tipo dispara uma vez a mais.",
    "porque": "Escolhendo Cyclops, o gatilho de vitória do Okaun dispara duas vezes: cada moeda vencida o quadruplica, e o início de combate também repete. Nenhuma análise fez essa conta.",
    "papel": "multiplica",
-   "papel_por_que": "Com o tipo de um comandante, os gatilhos dele disparam uma vez a mais."
+   "papel_por_que": "Com o tipo de um comandante, os gatilhos dele disparam uma vez a mais.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Escolhendo Cyclops, os dois gatilhos do Okaun disparam duas vezes: duas sequências de moedas e quatro vezes a força por vitória.",
+    "I": "Rende no combate do mesmo turno, mas pede o comandante em campo e precisa sobreviver.",
+    "T": "Quatro manas, no padrão, com ward {2}.",
+    "Q": "Paridade e na frente; atrás, é um 4/4 com ward que bloqueia.",
+    "R": "Spark Double, Sakashima the Impostor e Irenicus's Vile Duplication já dão a sequência a mais por quatro manas, e a Lwaxana Troi entra fazendo o mesmo por duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Wizard's Staff": {
    "notas": {
@@ -3846,7 +4055,26 @@
    "faz": "Equipamento de 2, equipar {3}: proeza; gatilho da equipada dispara uma vez a mais.",
    "porque": "No Okaun, faz o que o Roaming Throne faz. Banco de B.",
    "papel": "multiplica",
-   "papel_por_que": "No comandante, os gatilhos dele disparam uma vez a mais."
+   "papel_por_que": "No comandante, os gatilhos dele disparam uma vez a mais.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "No Okaun ou no Zndrsplt, os gatilhos disparam duas vezes: mais uma sequência de moedas e o dobro por vitória.",
+    "I": "Dobra o comandante equipado todo turno; fica em campo se ele morrer.",
+    "T": "Duas manas mais equipar {3}: nenhum dos comandantes é Wizard.",
+    "Q": "Só com comandante em campo e cinco manas livres: paridade e na frente.",
+    "R": "Sakashima the Impostor e Spark Double já dão a sequência a mais; a Lwaxana Troi entra fazendo o mesmo por menos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Echo, Perceptive Prodigy": {
    "notas": {
@@ -3865,7 +4093,26 @@
    "faz": "Humana lendária 1/4 de 3 com vigilância. {1}, vira: copia uma habilidade ativada ou disparada de criatura sua.",
    "porque": "Uma terceira sequência por uma mana. Banco de B.",
    "papel": "multiplica",
-   "papel_por_que": "Copia o gatilho de moedas ou de vitória de um comandante, pagando a cada uso."
+   "papel_por_que": "Copia o gatilho de moedas ou de vitória de um comandante, pagando a cada uso.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Copia o início de combate de um comandante por {1}: mais uma sequência de moedas a cada uso.",
+    "I": "Precisa virar: só rende um turno depois de entrar, e se sobreviver.",
+    "T": "Três manas, mais {1} por uso.",
+    "Q": "Paridade e na frente; atrás, um 1/4 com vigilância segura o chão.",
+    "R": "As cartas de moeda passaram da cota; Seize the Day repete o combate sem depender de criatura viva."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Desperate Gambit": {
    "notas": {
@@ -3890,7 +4137,26 @@
     "joga": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Uma moeda; a vitória dobra o próximo dano do Okaun."
+   "papel_por_que": "Uma moeda; a vitória dobra o próximo dano do Okaun.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma moeda que, vencida, dobra o dano do Okaun e ainda dispara os dois comandantes.",
+    "I": "Perdendo a moeda, o próximo dano do Okaun é prevenido: pode anular o próprio golpe.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Só no turno do fechamento, com o Okaun já dobrado.",
+    "R": "Temur Battle Rage dá golpe duplo e atropelar sem depender de moeda."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Mithril Coat": {
    "notas": {
@@ -3905,7 +4171,26 @@
    "porque": "Proteção em velocidade instantânea. Banco de B.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Protege um comandante em resposta à remoção, e fica nele depois.",
+    "I": "Indestrutível salva de destruição e de dano, o do Blasphemous Act inclusive; não para exílio nem devolução à mão.",
+    "T": "Três manas com lampejo; reequipar custa {3}.",
+    "Q": "Paridade, na frente e atrás, com comandante em campo.",
+    "R": "Champion's Helm e Commander's Plate não entram em resposta; a lista tem pouca proteção na pilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Kediss, Emberclaw Familiar": {
    "notas": {
@@ -3918,13 +4203,32 @@
    "sin_por_que": {
     "sin2": "Leva o dano de combate do Okaun dobrado a cada outro oponente."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Elemental lendário 1/1 de 2. Comandante seu causa dano de combate a um oponente: o mesmo dano em cada outro oponente.",
    "porque": "O Okaun de 24 bate em todos; o dano espalhado não é dano de comandante. Fontes A e C.",
    "papel": "multiplica",
-   "papel_por_que": "O dano de combate do Okaun se repete em cada outro oponente."
+   "papel_por_que": "O dano de combate do Okaun se repete em cada outro oponente.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Leva o dano de combate do Okaun dobrado a cada outro oponente: a mesa inteira de uma vez.",
+    "I": "Mata a mesa quando o Okaun conecta; é um 1/1 que precisa sobreviver até o dano.",
+    "T": "Duas manas.",
+    "Q": "Só rende com o Okaun dobrado e sem bloqueio: na frente e na paridade com evasão.",
+    "R": "Só a Chandra's Ignition leva o dano a todos, uma vez e por cinco manas; o Kediss repete a cada combate."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3
   },
   "Fling": {
    "notas": {
@@ -3944,7 +4248,26 @@
    "faz": "Instantânea de 2: sacrifique uma criatura; dano igual à força dela num alvo.",
    "porque": "Converte o Okaun em dano em resposta a uma remoção; não é dano de comandante. Fontes A e C.",
    "papel": "recompensa",
-   "papel_por_que": "Sacrifica o Okaun dobrado e manda a força dele num alvo."
+   "papel_por_que": "Sacrifica o Okaun dobrado e manda a força dele num alvo.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Transforma a força do Okaun dobrado em dano num alvo, sem precisar conectar.",
+    "I": "Mata um oponente, até em resposta a uma remoção; não é dano de comandante.",
+    "T": "Duas manas, mas sacrifica o Okaun e cobra o imposto de comandante depois.",
+    "Q": "Só com o Okaun dobrado em campo.",
+    "R": "A Chandra's Ignition faz o mesmo na mesa inteira sem perder o Okaun; Temur Battle Rage já fecha por duas manas."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Laboratory Maniac": {
    "notas": {
@@ -3957,7 +4280,7 @@
    "sin_por_que": {
     "sin2": "Transforma o grimório vazio, comprado pelo Zndrsplt, em vitória."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Humano 2/2 de 3. Se você compraria com o grimório vazio, vence o jogo.",
@@ -3966,7 +4289,29 @@
     "combo": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "As compras do Zndrsplt com o grimório vazio viram vitória."
+   "papel_por_que": "As compras do Zndrsplt com o grimório vazio viram vitória.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Transforma o grimório vazio em vitória, depois que o Zndrsplt compra tudo.",
+    "I": "Sem o Frenetic Efreet e o Zndrsplt juntos, é só um 2/2.",
+    "T": "Três manas.",
+    "Q": "Só no turno do combo.",
+    "R": "Com o Efreet, o Okaun, a Tavern Scoundrel ou a Chance Encounter já fecham o jogo com uma peça a menos."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "dependência dupla"
+   ],
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Swan Song": {
    "notas": {
@@ -3982,7 +4327,26 @@
    "porque": "Seguro barato do turno do combo. Fonte A.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Anulação genérica: qualquer deck azul usaria.",
+    "I": "Troca de um por um, e deixa um Pássaro 2/2 voador com o oponente.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Viva sempre.",
+    "R": "O Muddle the Mixture anula os mesmos alvos e ainda acha o Krark's Thumb."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Fierce Guardianship": {
    "notas": {
@@ -3991,14 +4355,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Instantânea de 3, de graça com comandante: anula mágica que não é criatura.",
    "porque": "Proteção grátis. Game Changer: com ela, são quatro. Fontes A e C.",
    "marcas": {
     "protege": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cobre o ponto de falha: a remoção em resposta ao início de combate dos comandantes.",
+    "I": "Troca de um por um: anula a mágica que não é criatura.",
+    "T": "De graça com um comandante em campo.",
+    "Q": "Paridade, na frente e atrás, com comandante em campo; sem ele, custa três.",
+    "R": "Muddle the Mixture e Invert Polarity anulam, mas pedem mana aberta no turno em que os comandantes descem."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Jeska's Will": {
    "notas": {
@@ -4008,11 +4391,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Feitiço de 3: {R} por carta na mão de um oponente, ou exile as três do topo para jogar; com comandante, os dois.",
-   "porque": "Turno explosivo. Game Changer. Fontes A e C."
+   "porque": "Turno explosivo. Game Changer. Fontes A e C.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Staple vermelha: mana e cartas sem ligação com as moedas.",
+    "I": "Com um comandante, mana pela mão de um oponente e três cartas para jogar no turno.",
+    "T": "Três manas; só rende inteira com comandante em campo.",
+    "Q": "Paridade e na frente; cedo, sem comandante, é só um dos modos.",
+    "R": "O ramp está abaixo da cota, oito para dez, mas é mana de um turno só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.7
   },
   "Mana Vault": {
    "notas": {
@@ -4032,11 +4434,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Terreno: {C}{C}, com 2 de dano.",
-   "porque": "Aceleração na vaga de terreno. Game Changer. Fonte A."
+   "porque": "Aceleração na vaga de terreno. Game Changer. Fonte A.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Aceleração genérica e incolor, numa base em que oito terrenos já só dão incolor.",
+    "I": "Duas manas num terreno: comandante de cinco no turno 4, ou no 3 com uma pedra.",
+    "T": "Desvirado, sem custo de mana.",
+    "Q": "Ótimo no início; tarde, os 2 de dano por uso pesam.",
+    "R": "O ramp está abaixo da cota e nenhum terreno da lista rende duas manas desvirado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Slip Through Space": {
    "notas": {
@@ -4056,7 +4477,26 @@
    "porque": "O Okaun conecta por uma mana. Fonte C.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "O Okaun não pode ser bloqueado no turno: a força dobrada chega ao oponente."
+   "papel_por_que": "O Okaun não pode ser bloqueado no turno: a força dobrada chega ao oponente.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Deixa o Okaun dobrado imbloqueável no turno.",
+    "I": "Garante a conexão uma vez e repõe a carta.",
+    "T": "Uma mana.",
+    "Q": "No turno do fechamento; fora dele, pelo menos compra.",
+    "R": "Só Whispersilk Cloak e Rogue's Passage garantem a conexão; o Crash Through dá apenas atropelar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Mutalith Vortex Beast": {
    "notas": {
@@ -4083,7 +4523,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Uma moeda por oponente ao entrar."
+   "papel_por_que": "Uma moeda por oponente ao entrar.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Três moedas ao entrar, uma por oponente, e cada vitória dobra o Okaun e compra.",
+    "I": "As moedas vêm uma vez só; depois é um 6/6 com atropelar.",
+    "T": "Seis manas, nas duas cores.",
+    "Q": "Paridade e na frente.",
+    "R": "As cartas de moeda passaram da cota; o Yusri joga até cinco por ataque por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Soul's Fire": {
    "notas": {
@@ -4097,13 +4556,32 @@
    "sin_por_que": {
     "sin2": "Transforma a força do Okaun em dano num alvo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Instantânea de 3: uma criatura sua causa dano igual ao poder dela a qualquer alvo.",
    "porque": "Depois das moedas, o Okaun grande mata um oponente sem precisar conectar. Potencial do edh.wiki (+40%).",
    "papel": "recompensa",
-   "papel_por_que": "A força do Okaun dobrado vira dano em qualquer alvo, sem perdê-lo."
+   "papel_por_que": "A força do Okaun dobrado vira dano em qualquer alvo, sem perdê-lo.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Transforma a força do Okaun dobrado em dano num alvo, sem atacar.",
+    "I": "Mata um oponente depois das moedas, mesmo com o Okaun bloqueado; não é dano de comandante.",
+    "T": "Três manas, instantânea, sem sacrificar nada.",
+    "Q": "Só com o Okaun dobrado em campo.",
+    "R": "A Chandra's Ignition é a única da lista que dispensa a conexão; esta atinge um alvo só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Chaotic Strike": {
    "notas": {
@@ -4119,7 +4597,7 @@
     "sin1": "Uma moeda só, numa mágica de uso único.",
     "sin2": "A vitória dá +1/+1, só na própria moeda."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Instantânea de 2, só depois dos bloqueios: uma moeda, e a vitória dá +1/+1; compre uma carta.",
@@ -4129,7 +4607,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Uma moeda no combate, depois dos bloqueios (papel fraco)."
+   "papel_por_que": "Uma moeda no combate, depois dos bloqueios (papel fraco).",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Uma moeda só, numa mágica de uso único: liga-se às moedas de passagem.",
+    "I": "Uma chance de dobra depois dos bloqueios e +1/+1; a compra vem de qualquer jeito.",
+    "T": "Duas manas, e só no combate depois dos bloqueios.",
+    "Q": "Só no combate.",
+    "R": "As cartas de moeda passaram da cota; o Krark, the Thumbless e o Fiery Gambit jogam mais moedas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Brotherhood Regalia": {
    "notas": {
@@ -4142,7 +4639,7 @@
    "sin_por_que": {
     "sin2": "Deixa o Okaun imbloqueável."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Equipamento de 2; equipar lendária {1}, outra {3}: ward {2}, vira Assassino e não pode ser bloqueada.",
@@ -4152,7 +4649,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Proteção",
-   "papel_por_que": "O Okaun não pode ser bloqueado, com equipar lendária {1}."
+   "papel_por_que": "O Okaun não pode ser bloqueado, com equipar lendária {1}.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Deixa o Okaun dobrado imbloqueável, todo turno.",
+    "I": "O dano grande sempre conecta, e o ward {2} encarece a remoção.",
+    "T": "Duas manas e equipar {1} em lendária: três no total.",
+    "Q": "Paridade e na frente, com o Okaun em campo; atrás, o ward ainda protege.",
+    "R": "A Whispersilk Cloak faz o mesmo por cinco manas no total; só ela e o Rogue's Passage garantem a conexão."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Tezzeret the Seeker": {
    "notas": {
@@ -4165,14 +4681,33 @@
    "sin_por_que": {
     "sin1": "O −X põe o Krark's Thumb em campo."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Planeswalker de 5 com lealdade 4. +1: desvira até dois artefatos; −X: um artefato de valor até X do grimório para o campo.",
    "porque": "No −2, o Krark's Thumb vai direto para o campo; o +1 desvira o Sol Ring e as pedras. Potencial do edh.wiki (+8%).",
    "marcas": {
     "thumb": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "O −2 põe o Krark's Thumb direto em campo.",
+    "I": "Vale a carta que busca; o +1 desvira o Sol Ring e outra pedra.",
+    "T": "Cinco manas, o custo de um comandante.",
+    "Q": "Paridade e na frente; cedo, é caro demais.",
+    "R": "Treze caminhos até o Thumb para um mínimo de seis; Fabricate e Reckless Handling acham por menos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Relentless Assault": {
    "notas": {
@@ -4191,7 +4726,26 @@
    "faz": "Feitiço de 4: desvira quem atacou; depois desta fase principal, um combate e uma fase principal a mais.",
    "porque": "Um início de combate a mais é mais uma sequência de moedas para cada comandante, como o Seize the Day, sem a recapitulação. Potencial do edh.wiki (+8%).",
    "papel": "multiplica",
-   "papel_por_que": "Combate a mais: o início de combate dos comandantes joga moedas de novo."
+   "papel_por_que": "Combate a mais: o início de combate dos comandantes joga moedas de novo.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Um combate a mais repete o início de combate dos comandantes: mais uma sequência de moedas para cada um.",
+    "I": "Desvira quem atacou; o Okaun bate duas vezes no turno.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Só com os comandantes em campo e atacando.",
+    "R": "O Seize the Day faz o mesmo pelo mesmo custo e ainda tem recapitulação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Kazuul's Fury": {
    "notas": {
@@ -4212,7 +4766,26 @@
    "porque": "Ocupa vaga de terreno e, mais tarde, sacrifica o Okaun grande para matar um oponente. Entraria no lugar de um terreno sempre virado, com a troca feita à mão. Potencial do edh.wiki (+24%).",
    "papel": "recompensa",
    "papel_dupla": "Terreno (verso)",
-   "papel_por_que": "Sacrifica o Okaun dobrado e manda a força dele num alvo."
+   "papel_por_que": "Sacrifica o Okaun dobrado e manda a força dele num alvo.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Transforma a força do Okaun dobrado em dano num alvo, na vaga de terreno.",
+    "I": "Mata um oponente, até em resposta a uma remoção; não é dano de comandante.",
+    "T": "Três manas e sacrifica o Okaun; como terreno, entra virado.",
+    "Q": "Terreno no início, fechamento no fim: nunca é carta morta.",
+    "R": "Entra na cota de terrenos no lugar de um sempre virado; o Fling pede vaga de mágica."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Boompile": {
    "notas": {
@@ -4318,14 +4891,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Terreno lendário. Gera {U}. Canalizar, por {3}{U} e descartando-o: devolve à mão um artefato, criatura, encantamento ou planeswalker alvo; custa {1} a menos por criatura lendária que você controla.",
    "porque": "Fonte de azul desvirada que vira resposta: com os dois comandantes em campo, por {1}{U} devolve o bloqueador antes do ataque do Okaun ou a peça que trava o combo, sem gastar vaga de mágica. Sai a Tolaria West, que entra sempre virada e só busca carta de valor 0.",
    "sai": "Tolaria West",
    "papel_dupla": "Interação (devolve à mão)",
-   "papel_por_que": "Terreno que devolve uma permanente alvo em resposta."
+   "papel_por_que": "Terreno que devolve uma permanente alvo em resposta.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fonte de uma cor só; a resposta que carrega é genérica.",
+    "I": "Com os dois comandantes, devolve por {1}{U} o bloqueador ou a peça que trava o combo.",
+    "T": "Entra desvirada, sem custo.",
+    "Q": "Viva sempre: mana cedo, resposta tarde.",
+    "R": "Faz tudo que a Island faz e ainda responde; nenhum terreno da lista remove nada."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Spire of Industry": {
    "notas": {
@@ -4340,7 +4932,26 @@
    "porque": "O deck é cheio de artefatos (Krark's Thumb, pedras, equipamentos): o terreno dá azul ou vermelho desvirado quase sempre. Sai a Myriad Landscape, que entra virada e busca entre só doze básicos. Corte pelo critério do dono (13/11/2026): sai Flamekin Village, porque Myriad Landscape é terreno que busca outro.",
    "sai": "Flamekin Village",
    "papel_dupla": "Mana (as duas cores)",
-   "papel_por_que": "Terreno de qualquer cor com artefato em campo."
+   "papel_por_que": "Terreno de qualquer cor com artefato em campo.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores com um artefato em campo, e a lista tem pedras, o Thumb e equipamentos.",
+    "I": "Só mana.",
+    "T": "Sempre desvirada; a cor custa 1 de vida.",
+    "Q": "Viva sempre.",
+    "R": "Shivan Reef faz o mesmo sem pedir artefato."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Fiery Islet": {
    "notas": {
@@ -4355,7 +4966,26 @@
    "porque": "Dual desvirada a 1 de vida que, no fim do jogo, vira uma carta; no lugar da Desolate Lighthouse, incolor e com um filtro de três manas. Fica como avaliar porque o Zndrsplt já compra muito e o dano por uso soma com o do Shivan Reef. Você tem uma cópia no Master Of Evil, que é deck montado. Corte pelo critério do dono (13/11/2026): sai The Gold Saucer, porque Desolate Lighthouse já é o corte de uma carta de letra mais alta.",
    "sai": "The Gold Saucer",
    "papel_dupla": "Mana (dual) e draw",
-   "papel_por_que": "Dual que compra uma carta quando não precisa mais de mana."
+   "papel_por_que": "Dual que compra uma carta quando não precisa mais de mana.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores do deck.",
+    "I": "Só mana; no fim do jogo, vira uma carta.",
+    "T": "Desvirada, mas toda mana custa 1 de vida, sem opção incolor.",
+    "Q": "Viva sempre.",
+    "R": "Shivan Reef dá cor a 1 de dano e incolor de graça; o Zndrsplt já compra muito."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.75
   },
   "Hall of Echoes": {
    "notas": {},
@@ -4367,13 +4997,34 @@
     "sin1": "Moedas 2: ativada antes do combate, a cópia do Okaun ou do Zndrsplt joga as próprias moedas no início de combate, uma cópia do gatilho paga a cada uso; e não morre pela regra de lendárias.",
     "sin2": "Converter 3: a cópia do Zndrsplt converte cada moeda vencida em carta, ou a do Okaun é a própria dobra, como a régua põe no nível 3."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Terreno que vira cópia de uma criatura sua por 5 de mana.",
    "porque": "Copiado antes do combate, o Okaun ou o Zndrsplt joga as próprias moedas; sai um terreno tier C.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Desolate Lighthouse"
+   "sai": "Desolate Lighthouse",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno que vira cópia do Okaun ou do Zndrsplt antes do combate: mais uma sequência de moedas.",
+    "I": "A cópia joga as próprias moedas e, sendo o Okaun, ataca dobrada; dura só o turno.",
+    "T": "Dá só incolor, e cada cópia custa cinco manas.",
+    "Q": "Terreno no início; a cópia só com mana sobrando, na paridade e na frente.",
+    "R": "Nenhum terreno da lista repete o início de combate; a Desolate Lighthouse só filtra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85,
+   "papel": "multiplica",
+   "papel_por_que": "Por cinco manas vira cópia do Okaun ou do Zndrsplt antes do combate: mais uma sequência de moedas, na vaga de terreno."
   },
   "Mr. Spock, Science Officer": {
    "notas": {},
@@ -4383,13 +5034,35 @@
    "sin_por_que": {
     "sin2": "Dobra cada compra do Zndrsplt por moeda vencida e o dano do Niv-Mizzet por compra: converte bem, o 2 da régua, como quem dobra a força do Okaun; não joga moeda, então a primária fica em 0."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Toda compra sua vira duas, de forma contínua e só para você: dobra qualquer motor de compra.",
    "porque": "Cada moeda vencida vira duas cartas no Zndrsplt e cada compra vira dois disparos do Niv-Mizzet, Parun: converte bem (sinergia 2). Valor 16,5 contra 5,5 do Tribute Mage, a criatura mais fraca da curva, que só busca a peça de moeda (sinergia 1). (veredito da consulta do dono)",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Tribute Mage"
+   "sai": "Tribute Mage",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada moeda vencida vira duas cartas com o Zndrsplt, e dois disparos do Niv-Mizzet, Parun.",
+    "I": "Dobra toda compra sua enquanto ficar em campo, a do turno inclusive.",
+    "T": "Quatro manas com {U}{U}.",
+    "Q": "Paridade, na frente e atrás; no início, sem motor de compra, rende só a compra do turno.",
+    "R": "Nenhuma carta da lista dobra compras; o Rhystic Study depende dos oponentes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0,
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Dobra cada compra: a moeda vencida vira duas cartas com o Zndrsplt e dois disparos do Niv-Mizzet, Parun."
   },
   "Lwaxana Troi, Charming Guest": {
    "notas": {},
@@ -4407,7 +5080,28 @@
    "faz": "Por {2} e virando, faz cada habilidade disparada de outra criatura sua disparar uma vez a mais enquanto ela ficar virada, e ela pode não desvirar: um dobrador de gatilhos de uma criatura só, como o Strionic Resonator e o Roaming Throne.",
    "porque": "Mirando o Okaun, o início de combate joga duas séries de moedas e cada moeda vencida dobra a força duas vezes. Vale 22,5 contra 5,5 do Tribute Mage, a mais fraca do mesmo papel. (veredito da consulta do dono)",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Goblin Engineer"
+   "sai": "Goblin Engineer",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mirando o Okaun, os dois gatilhos disparam duas vezes: duas sequências de moedas e quatro vezes a força por vitória.",
+    "I": "Vale em todo combate enquanto ela ficar virada; pede o comandante em campo e precisa sobreviver.",
+    "T": "Duas manas, mais {2} uma vez só: ela pode não desvirar.",
+    "Q": "Paridade e na frente: sem comandante em campo, não faz nada.",
+    "R": "Spark Double e Sakashima the Impostor dão a sequência a mais por quatro manas, sem dobrar o gatilho de vitória."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3,
+   "papel": "multiplica",
+   "papel_por_que": "Mirando o Okaun, o início de combate e o gatilho de vitória disparam duas vezes: duas sequências de moedas e quatro vezes a força por vitória."
   },
   "Dominion Saboteur": {
    "notas": {},
@@ -4438,7 +5132,29 @@
    "faz": "Lampejo, escolhe dois: anula se não pagarem {2}, devolve criatura de valor até 2, imbloqueável no turno, ou compra e descarta duas.",
    "porque": "Deixa o Okaun imbloqueável no turno: \"imbloqueável, mesmo que só no turno\" é 2. Ganho de +10.5; disputa com Mogg Assassin (tier C).",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Mogg Assassin"
+   "sai": "Mogg Assassin",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Deixa o Okaun imbloqueável no turno e, na mesma carta, cobra {2} da remoção.",
+    "I": "Dois modos pequenos: a anulação é só uma taxa e a evasão dura um turno.",
+    "T": "Quatro manas com {U}{U}, com lampejo.",
+    "Q": "Viva sempre: sempre há dois modos úteis.",
+    "R": "Rogue's Passage dá a evasão na vaga de terreno, e Muddle the Mixture anula de verdade."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.75,
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Deixa o Okaun dobrado imbloqueável no turno, com lampejo, e o segundo modo taxa a remoção ou devolve um bloqueador pequeno."
   },
   "Colossal Clone Master": {
    "notas": {},
@@ -4463,13 +5179,35 @@
    "sin_por_que": {
     "sin2": "Dobra cada compra do Zndrsplt por moeda vencida: converte bem, sem ser a conversão em si."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Dobra todo ganho de vida e toda compra, menos a primeira de cada etapa de compra; sozinho, não ganha nem compra nada.",
    "porque": "Dobra cada compra do Zndrsplt por moeda vencida: converte bem, sem ser a conversão em si. Ganho de +14.5; disputa com Ral Zarek (tier B). Corte pelo critério do dono (13/11/2026): sai Midnight Clock, porque Ral Zarek já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Midnight Clock"
+   "sai": "Midnight Clock",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dobra cada compra do Zndrsplt por moeda vencida.",
+    "I": "Sozinho não compra nada: só rende com o Zndrsplt ou outro motor em campo.",
+    "T": "Cinco manas, o custo de um comandante.",
+    "Q": "Paridade e na frente, com o Zndrsplt em campo.",
+    "R": "O Mr. Spock entra fazendo o mesmo por quatro manas, e o Zndrsplt já enche a mão."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.3,
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Dobra cada compra do Zndrsplt por moeda vencida; sozinho, não compra nada."
   },
   "Tom Paris, Risk-Taker": {
    "notas": {},
@@ -4494,13 +5232,32 @@
    "sin_por_que": {
     "sin2": "Vira todas as criaturas dos oponentes: o Okaun passa sem bloqueio no turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Dois modos: anula, devolve uma permanente à mão, vira as criaturas dos oponentes ou compra uma.",
    "porque": "Vira todas as criaturas dos oponentes: o Okaun passa sem bloqueio no turno. Ganho de +13.5; disputa com Fabricate (tier B).",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Fabricate"
+   "sai": "Fabricate",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vira todas as criaturas dos oponentes: o Okaun passa sem bloqueio no turno.",
+    "I": "Dois modos: abre o caminho e compra, ou anula e devolve uma permanente.",
+    "T": "Quatro manas com {U}{U}{U}, numa base com oito terrenos incolores.",
+    "Q": "Viva sempre.",
+    "R": "A Cyclonic Rift abre o caminho por mais tempo e o Muddle the Mixture anula por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "World at War": {
    "notas": {},
@@ -4510,13 +5267,34 @@
    "sin_por_que": {
     "sin1": "Repete o início de combate dos comandantes com combate a mais, como o Relentless Assault: nível 2."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Depois da segunda fase principal, um combate e uma fase principal a mais, que desviram quem atacou; o rebound repete no turno seguinte.",
    "porque": "Repete o início de combate dos comandantes com combate a mais, como o Relentless Assault: nível 2. Ganho de +13.5; disputa com Ral Zarek (tier B). Corte pelo critério do dono (13/11/2026): sai Impulsive Maneuvers, porque Ral Zarek já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Impulsive Maneuvers"
+   "sai": "Impulsive Maneuvers",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Um combate a mais repete o início de combate dos comandantes: mais uma sequência de moedas para cada um.",
+    "I": "Dois combates a mais, um agora e outro no turno seguinte pelo rebound.",
+    "T": "Cinco manas, uma acima do padrão.",
+    "Q": "Só com os comandantes em campo e atacando.",
+    "R": "Só o Seize the Day dá dois combates a mais, e a recapitulação dele custa descartar três terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.7,
+   "papel": "multiplica",
+   "papel_por_que": "Um combate a mais neste turno e outro no seguinte: o início de combate dos comandantes se repete, com novas sequências de moedas."
   },
   "Jefferies Tube": {
    "notas": {},
@@ -4532,7 +5310,29 @@
    "faz": "Por {3}, deixa uma criatura imbloqueável no turno (ativada); por {4}, compra uma e põe um terreno da mão.",
    "porque": "Deixa o Okaun imbloqueável no turno. Ganho de +11.0; disputa com Crash Through (tier C).",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Crash Through"
+   "sai": "Crash Through",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Por {3}, deixa o Okaun imbloqueável no turno, todo turno.",
+    "I": "Garante a conexão de uma criatura; os outros modos são lentos.",
+    "T": "Uma mana para baixar, mas {3} a cada uso.",
+    "Q": "No fechamento; fora dele, compra por {4}.",
+    "R": "O Rogue's Passage faz o mesmo por quatro manas na vaga de terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Por {3}, deixa o Okaun dobrado imbloqueável no turno: o dano grande conecta."
   },
   "Own the Day": {
    "notas": {},
@@ -4542,13 +5342,34 @@
    "sin_por_que": {
     "sin1": "Repete o início de combate dos comandantes uma vez, com um combate a mais, o 2 da régua com o Relentless Assault e o Seize the Day."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Desvira as criaturas que atacaram e dá um combate e uma fase principal a mais, uma vez; o battlefront tira {1} do custo por oponente atacado no turno.",
    "porque": "O combate a mais repete o início de combate do Okaun e do Zndrsplt, com mais uma série de moedas. Vale 10,5 contra 0 do Possibility Storm, a mais fraca do mesmo papel na curva. (veredito da consulta do dono)",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Mirror March"
+   "sai": "Mirror March",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Um combate a mais repete o início de combate dos comandantes: mais uma sequência de moedas para cada um.",
+    "I": "Desvira quem atacou; o Okaun bate duas vezes no turno.",
+    "T": "Seis manas; atacando um oponente só, ainda custa cinco.",
+    "Q": "Só com os comandantes em campo e depois de atacar.",
+    "R": "O Seize the Day faz o mesmo por quatro manas e ainda tem recapitulação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.5,
+   "papel": "multiplica",
+   "papel_por_que": "Um combate a mais repete o início de combate do Okaun e do Zndrsplt, com mais uma sequência de moedas para cada um."
   },
   "Combat Celebrant": {
    "notas": {},
@@ -4558,13 +5379,34 @@
    "sin_por_que": {
     "sin1": "Repete o início de combate dos comandantes com um combate a mais, exaurindo a cada uso."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Exaurido ao atacar, desvira as suas outras criaturas e dá um combate a mais, a cada dois turnos.",
    "porque": "Repete o início de combate dos comandantes com um combate a mais, exaurindo a cada uso. Ganho de +10.5; disputa com Goblin Archaeologist (tier C).",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Goblin Archaeologist"
+   "sai": "Goblin Archaeologist",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Exaurido ao atacar, dá um combate a mais: outra sequência de moedas para cada comandante.",
+    "I": "Um 4/1 que precisa atacar e sobreviver, e só rende a cada dois turnos.",
+    "T": "Três manas, mas espera um turno para atacar.",
+    "Q": "Paridade e na frente.",
+    "R": "As cartas de moeda passaram da cota; o Seize the Day dá o combate a mais sem depender de criatura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45,
+   "papel": "multiplica",
+   "papel_por_que": "Exaurido ao atacar, dá um combate a mais: o início de combate dos comandantes se repete."
   }
  },
  "combos": [
@@ -4754,7 +5596,7 @@
     "por_que": "Cada moeda vencida, de qualquer jogador, compra uma carta: recompensa as mesmas moedas. Junto com o Okaun, pede habilitadoras em quantidade e algo que feche o jogo."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
