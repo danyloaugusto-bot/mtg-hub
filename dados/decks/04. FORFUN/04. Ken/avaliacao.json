@@ -3656,7 +3656,7 @@
     "sin1": "Equipamento que vai no Ken.",
     "sin2": "Rende mana a cada acerto num jogador, ao desvirar os terrenos, sem dar acerto a mais sozinha."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "veredito": "entra",
    "sai": "Battle Angels of Tyr",
@@ -3664,7 +3664,26 @@
    "porque": "Com Aggravated Assault, combates infinitos: cada acerto desvira os cinco terrenos que pagam o próximo combate. Sem conflito com as peças vermelhas, ao contrário da Sword of Fire and Ice. Corte pelo critério do dono (13/11/2026): sai Battle Angels of Tyr, porque Sword of Fire and Ice é peça de combo do deck.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (desvira terrenos no acerto)",
-   "papel_por_que": "+2/+2 e proteção no Ken; o acerto desvira os terrenos para a fase principal seguinte."
+   "papel_por_que": "+2/+2 e proteção no Ken; o acerto desvira os terrenos para a fase principal seguinte.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Equipamento que vai no Ken: +2/+2 sobe o feitiço de graça para valor 6, e incolor, não derruba as peças vermelhas.",
+    "I": "Cada acerto num jogador desvira todos os terrenos e o faz descartar; depende de conectar.",
+    "T": "Três manas e equipar {2}, no padrão das Swords.",
+    "Q": "Paridade, na frente e atrás; no início falta o Ken em campo.",
+    "R": "Nada na lista desvira terrenos: paga os sete combates extras de fase principal e fecha o laço com a Aggravated Assault; o ramp está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Angelfire Ignition": {
    "notas": {
@@ -3679,14 +3698,33 @@
     "sin1": "Feitiço que dá marcadores, atropelar e indestrutível ao Ken, sem ser Equipamento.",
     "sin2": "Feitiço que sai de graça com qualquer acerto, mas não é remoção em massa nem combate a mais."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Grim Reaper's Sprint",
    "faz": "Feitiço: dois marcadores +1/+1, vigilância, atropelar, vínculo, indestrutível e ímpeto até o fim do turno. Flashback {2}{R}{W}.",
    "porque": "Custa 3, então o Ken a conjura de graça com qualquer acerto. Dá o segundo atropelar do deck e deixa o Ken 6/4 de vez. Mira, então não funciona com a Sword of Fire and Ice no Ken.",
    "papel": "habilita",
-   "papel_por_que": "Veste o Ken de passagem: atropelar, indestrutível e ímpeto, com flashback."
+   "papel_por_que": "Veste o Ken de passagem: atropelar, indestrutível e ímpeto, com flashback.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Veste o Ken de vez com dois marcadores (6/4) e sai de graça pelo Shoryuken com qualquer acerto.",
+    "I": "Atropelar, indestrutível e ímpeto por um turno; só os marcadores ficam.",
+    "T": "Três manas, feitiço; o flashback custa quatro.",
+    "Q": "Paridade, na frente e atrás, com o Ken em campo.",
+    "R": "É o segundo atropelar, que hoje só a Embercleave dá; a Grim Reaper's Sprint custa cinco e não sai pelo Shoryuken."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Boros Signet": {
    "notas": {
@@ -3694,12 +3732,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Moraug, Fury of Akoum",
    "faz": "Artefato. {1}, virar: gera {R}{W}.",
-   "porque": "Pedra de 2 nas duas cores. Ramp é a maior lacuna do deck."
+   "porque": "Pedra de 2 nas duas cores. Ramp é a maior lacuna do deck.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: pedra das duas cores, sem ligação com o Ken.",
+    "I": "Uma mana a mais, nas cores do {R}{R} do Ken.",
+    "T": "Duas manas, com {1} para ativar.",
+    "Q": "Viva sempre.",
+    "R": "A Arcane Signet e o Talisman of Conviction fazem o mesmo; o ramp está bem abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Fellwar Stone": {
    "notas": {
@@ -3712,7 +3769,26 @@
    "veredito": "entra",
    "sai": "Port Razer",
    "faz": "Artefato. Virar: gera mana de uma cor que um terreno de oponente possa gerar.",
-   "porque": "Pedra de 2. Na mesa de quatro, quase sempre gera vermelho ou branco."
+   "porque": "Pedra de 2. Na mesa de quatro, quase sempre gera vermelho ou branco.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Infraestrutura: pedra genérica, sem ligação com o Ken.",
+    "I": "Uma mana a mais.",
+    "T": "Duas manas, sem custo para ativar.",
+    "Q": "A cor depende dos terrenos dos oponentes: pode faltar o vermelho do Ken.",
+    "R": "A Arcane Signet dá as duas cores sem condição; o ramp está bem abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Sword of the Animist": {
    "notas": {
@@ -3736,7 +3812,26 @@
    "porque": "Ramp por ataque, e o Ken ataca várias vezes por turno. Leva o Ken a 5, o custo do Slash the Ranks e do Chandra's Ignition.",
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Cada ataque do Ken põe um terreno básico em campo."
+   "papel_por_que": "Cada ataque do Ken põe um terreno básico em campo.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Equipamento que vai no Ken e rende um terreno básico a cada ataque, também nos combates extras.",
+    "I": "Um terreno por ataque, sem precisar acertar, e o Ken vai a 5 de força; depende de o Ken atacar.",
+    "T": "Duas manas e equipar {2}.",
+    "Q": "Desenvolvimento, paridade e atrás; na frente rende menos.",
+    "R": "É o único ramp repetível: a Dowsing Dagger pede acerto e dá bloqueadores; o ramp está bem abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Puresteel Paladin": {
    "notas": {
@@ -3758,7 +3853,26 @@
    "porque": "Compra a cada equipamento e equipar de graça com três artefatos, o que resolve o Colossus Hammer. Motor de compra no lugar de compra condicional. Corte pelo critério do dono (13/11/2026): sai Fall of the First Civilization, porque Battle Angels of Tyr já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (equipar 0)",
-   "papel_por_que": "Compra a cada Equipamento que entra; com metalcraft, equipar sai de graça."
+   "papel_por_que": "Compra a cada Equipamento que entra; com metalcraft, equipar sai de graça.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Rende a cada Equipamento: compra quando ele entra e, com três artefatos, todo equipar custa {0}, inclusive o do Colossus Hammer.",
+    "I": "Uma carta por Equipamento e o equipar de graça; é um 2/2 que precisa ficar em campo.",
+    "T": "Duas manas, mas {W}{W} num deck de seis Plains.",
+    "Q": "Paridade, na frente e atrás; no início falta o terceiro artefato.",
+    "R": "O Sram compra igual e a Sigarda's Aid anexa de graça; os dois somam, e a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Mask of Memory": {
    "notas": {
@@ -3782,7 +3896,26 @@
    "porque": "Compra por acerto, sem dar a escolha ao oponente, e enche o cemitério da Glamdring. É incolor: convive com tudo. Corte pelo critério do dono (13/11/2026): sai Land Tax, porque Risk Factor já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Cada acerto do Ken compra duas: mais feitiços para o Shoryuken."
+   "papel_por_que": "Cada acerto do Ken compra duas: mais feitiços para o Shoryuken.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Equipamento que vai no Ken: cada acerto compra duas e descarta uma, em todo combate.",
+    "I": "Uma carta líquida por acerto e cemitério para a Glamdring; sem força nem proteção, e depende de conectar.",
+    "T": "Duas manas e equipar {1}.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Sword of Fire and Ice já compra por acerto e a Akiri por ataque; a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Mithril Coat": {
    "notas": {
@@ -3794,7 +3927,7 @@
    "sin_por_que": {
     "sin1": "Equipamento que vai no Ken, e se anexa sozinho a ele ao entrar."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Danitha Capashen, Paragon",
@@ -3802,7 +3935,26 @@
    "porque": "Indestrutível em velocidade de instantânea, que se anexa sozinho ao Ken. Sai a carta que destrói os seus próprios equipamentos. Corte pelo critério do dono (13/11/2026): sai Danitha Capashen, Paragon, porque Fall of the First Civilization já é o corte de uma carta de letra mais alta.",
    "papel": "habilita",
    "papel_dupla": "Proteção (indestrutível)",
-   "papel_por_que": "Entra de lampejo já no Ken e o deixa indestrutível."
+   "papel_por_que": "Entra de lampejo já no Ken e o deixa indestrutível.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Equipamento de proteção que se anexa sozinho ao Ken, lendário, ao entrar.",
+    "I": "Indestrutível com lampejo, em resposta à remoção ou à limpeza; não segura exílio.",
+    "T": "Três manas com lampejo, sem pagar o equipar na entrada.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Darksteel Plate dá o mesmo indestrutível sem lampejo e com equipar {2}; o Hammer of Nazahn custa quatro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Steelshaper's Gift": {
    "notas": {
@@ -3825,7 +3977,26 @@
    "faz": "Feitiço: busca um equipamento.",
    "porque": "Tutor de 1 mana que o Ken conjura com qualquer acerto. Sai o feitiço de 8 manas.",
    "papel": "habilita",
-   "papel_por_que": "Busca o Equipamento que falta para o Ken por uma mana."
+   "papel_por_que": "Busca o Equipamento que falta para o Ken por uma mana.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Busca o Equipamento que falta no Ken e sai de graça pelo Shoryuken com qualquer acerto.",
+    "I": "Vale a carta que busca: Embercleave, Genji Glove ou Glamdring.",
+    "T": "Uma mana.",
+    "Q": "Viva sempre: sempre há uma peça para buscar.",
+    "R": "A Open the Armory e a Fighter Class já buscam Equipamento por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Kediss, Emberclaw Familiar": {
    "notas": {
@@ -3844,18 +4015,56 @@
    "faz": "Criatura lendária de 2 manas, com partner. Quando um comandante seu causa dano de combate a um oponente, causa a mesma quantidade a cada outro oponente.",
    "porque": "Cada acerto do Ken vira dano nos três oponentes. Não é dano de comandante, mas com três ou quatro combates fecha a mesa pela vida.",
    "papel": "multiplica",
-   "papel_por_que": "Cada acerto do Ken vale também contra os outros oponentes."
+   "papel_por_que": "Cada acerto do Ken vale também contra os outros oponentes.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Multiplica o que cada acerto do Ken rende, mas pela vida: não soma aos 21 de comandante nem dá outro Shoryuken.",
+    "I": "Cada dano de combate do Ken num oponente vai igual aos outros dois; é uma criatura de duas manas que precisa ficar em campo.",
+    "T": "Duas manas, sem custo por gatilho.",
+    "Q": "Paridade e na frente; atrás, sem o Ken conectando, não faz nada.",
+    "R": "Só a Chandra's Ignition alcança os três oponentes, e uma vez; nada na lista repete isso a cada acerto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.35
   },
   "Sacred Foundry": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "INS",
    "veredito": "entra",
    "sai": "Nykthos, Shrine to Nyx",
    "faz": "Terreno Mountain Plains. Entra desvirado se você pagar 2 de vida.",
-   "porque": "Dual desvirado com os dois tipos básicos, no lugar do terreno de devoção que raramente passa de 3."
+   "porque": "Dual desvirado com os dois tipos básicos, no lugar do terreno de devoção que raramente passa de 3.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno das duas cores do Ken.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado por 2 de vida.",
+    "Q": "Viva sempre.",
+    "R": "A Battlefield Forge e a Command Tower fazem o mesmo; é Mountain e Plains, e ocupa a vaga de um incolor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Deflecting Swat": {
    "notas": {
@@ -3867,12 +4076,31 @@
    "sin_por_que": {
     "sin1": "Protege o Ken de mágica com alvo, sem ser Equipamento."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "sai": "Response // Resurgence",
    "faz": "Instantânea. De graça se você controla um comandante. Muda os alvos de uma mágica ou habilidade.",
-   "porque": "A primeira proteção fora de equipamento, e de graça. Corte pelo critério do dono (13/11/2026): sai Response // Resurgence, porque Relentless Assault já é o corte de uma carta de letra mais alta."
+   "porque": "A primeira proteção fora de equipamento, e de graça. Corte pelo critério do dono (13/11/2026): sai Response // Resurgence, porque Relentless Assault já é o corte de uma carta de letra mais alta.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica de comandante: não é Equipamento nem dá acerto a mais.",
+    "I": "Desvia para outro alvo a remoção mirada no Ken; não segura limpeza sem alvo.",
+    "T": "De graça com o Ken em campo.",
+    "Q": "Paridade, na frente e atrás; sem o Ken em campo custa três.",
+    "R": "É a única proteção fora de Equipamento em velocidade de instantânea; Lightning Greaves e Swiftfoot Boots cobrem o mesmo antes da hora."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Mother of Runes": {
    "notas": {
@@ -3884,12 +4112,31 @@
    "sin_por_que": {
     "sin1": "Protege o Ken com proteção contra uma cor, sem ser Equipamento."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "sai": "Whispersilk Cloak",
    "faz": "1/1. Virar: uma criatura sua ganha proteção contra a cor que você escolher até o fim do turno.",
-   "porque": "Proteção repetível por 1 mana, que também tira bloqueadores de uma cor. Morre fácil e não protege de efeito sem alvo. Corte pelo critério do dono (13/11/2026): sai Whispersilk Cloak, porque Danitha Capashen, Paragon já é o corte de uma carta de letra mais alta."
+   "porque": "Proteção repetível por 1 mana, que também tira bloqueadores de uma cor. Morre fácil e não protege de efeito sem alvo. Corte pelo critério do dono (13/11/2026): sai Whispersilk Cloak, porque Danitha Capashen, Paragon já é o corte de uma carta de letra mais alta.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica: veste o Ken só de passagem, sem ser Equipamento.",
+    "I": "Proteção contra uma cor por turno, que também passa por bloqueadores dessa cor; é um 1/1 que precisa sobreviver e desvirar.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e na frente; atrás, morre na limpeza antes de salvar o Ken.",
+    "R": "Lightning Greaves, Swiftfoot Boots e Commander's Plate protegem sem depender de um 1/1 vivo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Temur Battle Rage": {
    "notas": {
@@ -3908,7 +4155,26 @@
    "faz": "Instantânea: golpe duplo; com uma criatura de poder 4 ou mais, também atropelar.",
    "porque": "Dada depois da etapa de first strike, o Ken bate de novo e atropela. A Glamdring a conjura de graça. É vermelha: não mira o Ken com a Sword of Fire and Ice.",
    "papel": "multiplica",
-   "papel_por_que": "Golpe duplo por um turno: um Shoryuken a mais."
+   "papel_por_que": "Golpe duplo por um turno: um Shoryuken a mais.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Golpe duplo no Ken por um turno: um segundo Shoryuken no combate, de passagem.",
+    "I": "Dobra o dano do Ken e dá atropelar, porque ele tem força 4; vale um turno só.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Só com o Ken atacando: paridade e na frente.",
+    "R": "Há seis fontes de golpe duplo na lista; só o atropelar é raro, e a Embercleave já o dá."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Blasphemous Act": {
    "notas": {
@@ -3938,7 +4204,26 @@
    "veredito": "avaliar",
    "sai": "Chaos Warp",
    "faz": "Suspender 4 por {1}{R}: quando o último marcador sai, todos descartam a mão e compram sete.",
-   "porque": "Reabastece a mão que o Shoryuken esvazia, mas demora quatro turnos e dá sete cartas aos oponentes também. Corte pelo critério do dono (13/11/2026): sai Chaos Warp, porque Razorgrass Ambush tem terreno no verso."
+   "porque": "Reabastece a mão que o Shoryuken esvazia, mas demora quatro turnos e dá sete cartas aos oponentes também. Corte pelo critério do dono (13/11/2026): sai Chaos Warp, porque Razorgrass Ambush tem terreno no verso.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: reabastece a mão que o Shoryuken esvazia, sem vestir o Ken nem dar acerto a mais.",
+    "I": "Sete cartas novas para você, e também para os três oponentes.",
+    "T": "Suspender por {1}{R} e esperar quatro manutenções.",
+    "Q": "Paridade, atrás e na frente com a mão vazia; no início, a mão cheia vai fora.",
+    "R": "Nenhuma carta da lista repõe a mão inteira; a Jeska's Will dá três cartas e a compra está abaixo da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "baixa",
+   "indice": 1.55
   },
   "Reforge the Soul": {
    "notas": {
@@ -3956,7 +4241,26 @@
    "veredito": "avaliar",
    "sai": "Darksteel Mutation",
    "faz": "Feitiço: todos descartam a mão e compram sete. Milagre {1}{R}.",
-   "porque": "Reabastece a mão que o Shoryuken esvazia, e com o milagre custa 2; é simétrica, e de valor 5 pede um acerto alto para sair de graça. Corte pelo critério do dono (13/11/2026): sai Darksteel Mutation, porque Razorgrass Ambush tem terreno no verso."
+   "porque": "Reabastece a mão que o Shoryuken esvazia, e com o milagre custa 2; é simétrica, e de valor 5 pede um acerto alto para sair de graça. Corte pelo critério do dono (13/11/2026): sai Darksteel Mutation, porque Razorgrass Ambush tem terreno no verso.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: reabastece a mão que o Shoryuken esvazia, sem vestir o Ken nem dar acerto a mais.",
+    "I": "Sete cartas novas para você, e também para os três oponentes.",
+    "T": "Cinco manas; de graça com o Ken a partir de 5 de força, ou {1}{R} no milagre, que é sorte.",
+    "Q": "Paridade, atrás e na frente com a mão vazia; no início, a mão cheia vai fora.",
+    "R": "Nenhuma carta da lista repõe a mão inteira; a Jeska's Will dá três cartas e a compra está abaixo da cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.7
   },
   "Plaza of Heroes": {
    "notas": {
@@ -3968,14 +4272,33 @@
    "sin_por_que": {
     "sin1": "Veste o Ken de passagem, sem ser Equipamento: terreno que dá proteção a ele, como Slayers' Stronghold e Rogue's Passage na régua (resistência a magia e indestrutível por um turno, uma vez)."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Opal Palace",
    "faz": "Gera {C}; ou uma mana de qualquer cor, só para conjurar mágica lendária; ou uma mana de uma cor entre as permanentes lendárias que você controla. Por {3}, virando e exilando este terreno: uma criatura lendária alvo ganha resistência a magia e indestrutível até o fim do turno.",
    "porque": "Paga o Ken, o Raiyuu e o Karlach em qualquer cor e, uma vez, salva o Ken da remoção ou da limpeza sem gastar carta da mão: a proteção fora de Equipamento que o deck pede. Sai o Opal Palace, que só rende marcadores depois que o Ken já morreu.",
    "papel_dupla": "Proteção do Ken",
-   "papel_por_que": "Terreno que dá ao Ken resistência a magia e indestrutível em resposta à remoção."
+   "papel_por_que": "Terreno que dá ao Ken resistência a magia e indestrutível em resposta à remoção.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno utilitário de proteção: paga o Ken em qualquer cor e, com ele em campo, gera {R} ou {W}.",
+    "I": "Um terreno por turno e, uma vez, resistência a magia e indestrutível no Ken.",
+    "T": "Desvirado; a proteção custa {3} e exila o terreno, e sem lendária em campo gera só incolor.",
+    "Q": "Início, paridade e atrás; a cor falha para mágica não lendária sem o Ken na mesa.",
+    "R": "O Opal Palace só rende depois que o Ken morre; fora dos Equipamentos, nenhum terreno o protege."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Inventors' Fair": {
    "notas": {
@@ -3988,14 +4311,33 @@
    "sin_por_que": {
     "sin1": "Busca Equipamento: é função da carta no plano, como Open the Armory e Steelshaper's Gift na régua, com a condição de três artefatos que o deck sempre cumpre."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Scavenger Grounds",
    "faz": "Terreno lendário. Na sua manutenção, se você controla três ou mais artefatos, ganha 1 de vida. Gera {C}. Por {4}, virando e sacrificando-o: busca um artefato no grimório, revela e põe na mão; só com três ou mais artefatos.",
    "porque": "Um tutor de Equipamento numa vaga de terreno: busca a Embercleave, a Genji Glove ou a Glamdring quando o Ken já está vestido, e o deck tem artefatos de sobra para a condição. Sai o Scavenger Grounds, ódio a cemitério que o plano não usa.",
    "papel_dupla": "Tutor de Equipamento",
-   "papel_por_que": "Terreno que busca um artefato: acha o Equipamento certo para o Ken."
+   "papel_por_que": "Terreno que busca um artefato: acha o Equipamento certo para o Ken.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor, o que pesa no {R}{R} do Ken, mas busca Equipamento, que é o equipar da conta.",
+    "I": "Tutor de artefato: vale a peça que busca, Embercleave, Genji Glove ou Glamdring.",
+    "T": "Desvirado; a busca custa {4}, o terreno e pede três artefatos.",
+    "Q": "Paridade, na frente e atrás; no início é só um incolor.",
+    "R": "O Axgard Armory busca o mesmo, mas entra virado e cobra {1}{R}{R}{W}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.7
   },
   "Eiganjo, Seat of the Empire": {
    "notas": {
@@ -4010,7 +4352,26 @@
    "faz": "Terreno lendário. Gera {W}. Canalizar, por {2}{W} e descartando-o: causa 4 de dano a uma criatura atacando ou bloqueando. Custa {1} a menos por criatura lendária que você controla.",
    "porque": "Mata o bloqueador que seguraria o Ken, no meio do combate, e com o Ken e mais um lendário em campo custa só {W}: responde ao receio do dono de ver o Ken bloqueado sem gastar vaga de mágica. Entra desvirada no lugar da Wind-Scarred Crag, que entra virada por 1 de vida.",
    "papel_dupla": "Remoção (bloqueador)",
-   "papel_por_que": "Terreno que tira do caminho o bloqueador do Ken."
+   "papel_por_que": "Terreno que tira do caminho o bloqueador do Ken.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno de uma cor só, o branco.",
+    "I": "Além da mana, 4 de dano no bloqueador que seguraria o Ken, no meio do combate.",
+    "T": "Desvirado; canalizar custa {2}{W}, e só {W} com o Ken e mais uma lendária em campo.",
+    "Q": "Viva sempre: fonte branca no início e remoção depois.",
+    "R": "Uma Plains não faz o segundo uso; a Razorgrass Ambush cobre o mesmo alvo, mas ocupa a vaga inteira."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "War Room": {
    "notas": {
@@ -4018,14 +4379,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Roadside Reliquary",
    "faz": "Gera {C}. Por {3}, virando e pagando vida igual ao número de cores do seu comandante (2 aqui): compra uma carta.",
    "porque": "Compra repetível que não depende de o Ken conectar, a lacuna que a leitura do deck aponta; incolor por incolor, no lugar do Roadside Reliquary, que se sacrifica por uma ou duas cartas. Você já tem (Caixa e Preta P).",
    "papel_dupla": "Draw",
-   "papel_por_que": "Terreno que compra todo turno com mana sobrando."
+   "papel_por_que": "Terreno que compra todo turno com mana sobrando.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 0,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Incolor, e compra genérica: não serve a nenhum verbo da conta.",
+    "I": "Uma carta por ativação.",
+    "T": "Desvirado; cada carta custa {3}, virar e 2 de vida.",
+    "Q": "Paridade e atrás, com mana sobrando; incolor pesa no {R}{R} do Ken.",
+    "R": "O Roadside Reliquary dá uma ou duas cartas uma vez só; a compra que não depende de conectar está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.2
   },
   "Danitha, Sword of Hope": {
    "notas": {},
@@ -4035,13 +4415,35 @@
    "sin_por_que": {
     "sin1": "É função no plano: rende com Equipamento, uma compra por volta a cada mágica de Equipamento, abaixo do 'compra a cada Equipamento' do nível 3 por ser uma vez por turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Golpe primeiro; compra uma ao conjurar Equipamento ou mágica que mira criatura sua, uma vez por turno.",
    "porque": "Compra uma por volta a cada mágica de Equipamento; sai uma tier C. Corte pelo critério do dono (13/11/2026): sai Risk Factor, porque Fear of Missing Out já é o corte de uma carta de letra mais alta.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Risk Factor"
+   "sai": "Risk Factor",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra ao conjurar Equipamento ou mágica que mira criatura sua: os Equipamentos e as Auras da lista disparam.",
+    "I": "Uma carta por turno, no máximo; precisa ficar em campo.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, enquanto houver Equipamento na mão.",
+    "R": "O Sram compra a cada Equipamento, sem limite por turno; a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8,
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Paga em carta cada mágica de Equipamento ou que mira o Ken, uma vez por turno."
   },
   "Warrior's Blades": {
    "notas": {},
@@ -4051,13 +4453,35 @@
    "sin_por_que": {
     "sin1": "Equipamento que vai no Ken: +2/+1, e o equipar barateia com os marcadores dele."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Ao entrar, 3 de dano em qualquer alvo e 3 de vida, uma vez; a equipada ganha +2/+1, e o equipar fica mais barato com marcadores.",
    "porque": "Equipamento +2/+1 cujo equipar barateia; sai uma tier C. Corte pelo critério do dono (13/11/2026): sai Dowsing Dagger, porque Risk Factor já é o corte de uma carta de letra mais alta.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Dowsing Dagger"
+   "sai": "Dowsing Dagger",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Equipamento que vai no Ken: +2/+1.",
+    "I": "3 de dano e 3 de vida uma vez, e depois só +2/+1: boa, não muda o jogo.",
+    "T": "Quatro manas e equipar {3}; quase não há marcador +1/+1 na lista para baratear.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Two-Handed Axe dobra a força por três manas, e o Lightning Bolt já faz os 3 de dano."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45,
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Equipamento que vai no Ken, +2/+1, e causa 3 de dano ao entrar."
   },
   "Return to the Light Realms": {
    "notas": {},
@@ -4086,13 +4510,34 @@
     "sin1": "Carta que busca Equipamento, o caso de 2 da régua (como o Steelshaper's Gift); duas buscas não chegam ao 3, que é render a cada Equipamento todo turno.",
     "sin2": "Feitiço que sai de graça pelo Shoryuken mas não é remoção em massa nem combate a mais, o caso de 1 da régua (Steelshaper's Gift)."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Recurso 3 pela regra de fazer duas vezes: busca um tipo (Aura, Equipamento ou Spacecraft) para a mão, que é 2 na rubrica, e o 'Beam me up' deixa conjurar de novo do cemitério, uma segunda busca. Traz uma carta por vez, então não ganha Draw; devolver uma criatura sua à mão é custo, não Resiliência.",
    "porque": "Busca o Equipamento certo para o Ken (Ken equipado 2) e, mais tarde, busca outro do cemitério com o 'Beam me up', que ainda pode devolver o Ken à mão para fugir de remoção na hora certa; sai de graça pelo Shoryuken. Sai o Risk Factor (valor 3, sem sinergia), e não o Razorgrass Ambush que o motor aponta, que é de duas faces e também é terreno. (veredito da consulta do dono) O Risk Factor já é a saída da Mask of Memory, por isso o campo de saída aponta o Razorgrass Ambush. Corte pelo critério do dono (13/11/2026): sai Fear of Missing Out, porque Razorgrass Ambush tem terreno no verso.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Fear of Missing Out"
+   "sai": "Fear of Missing Out",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Busca o Equipamento ou a Aura que falta no Ken e sai de graça pelo Shoryuken com qualquer acerto.",
+    "I": "Vale a carta que busca; do cemitério busca outra por {3}{W}, devolvendo uma criatura sua à mão.",
+    "T": "Duas manas.",
+    "Q": "Viva sempre: sempre há uma peça para buscar.",
+    "R": "A Open the Armory faz a mesma busca pelo mesmo custo; só a segunda conjuração é a mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1,
+   "papel": "habilita",
+   "papel_por_que": "Busca o Equipamento ou a Aura que falta no Ken, duas vezes com a conjuração do cemitério."
   },
   "The Holodeck": {
    "notas": {},
@@ -4117,13 +4562,37 @@
    "sin_por_que": {
     "sin1": "Equipamento que vai no Ken e o deixa imbloqueável."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Vem em duas cópias; cada criatura equipada fica imbloqueável ao atacar enquanto a outra cópia estiver equipada.",
    "porque": "Equipamento que vai no Ken e o deixa imbloqueável. Ganho de +10.0; disputa com Relentless Assault (tier C). Corte pelo critério do dono (13/11/2026): sai Lórien Brooch, porque Relentless Assault já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Trailblazer's Boots"
+   "sai": "Trailblazer's Boots",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Equipamento que vai no Ken e o deixa imbloqueável ao atacar, se outra criatura sua estiver com a cópia.",
+    "I": "Imbloqueável em todo ataque é dano de comandante garantido; cai se a outra criatura equipada morrer.",
+    "T": "Três manas e dois equipar de {2}: sete no total.",
+    "Q": "Só com o Ken e mais uma criatura em campo: paridade e na frente.",
+    "R": "A Whispersilk Cloak, a Trailblazer's Boots e o Rogue's Passage dão a evasão sem pedir a segunda criatura."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "dependência dupla"
+   ],
+   "confianca": "média",
+   "indice": 1.5,
+   "papel": "habilita",
+   "papel_por_que": "Equipamento que deixa o Ken imbloqueável ao atacar, com a cópia em outra criatura."
   },
   "Skullclamp": {
    "notas": {},
@@ -4133,13 +4602,38 @@
    "sin_por_que": {
     "sin1": "Equipamento que vai no Ken: +1/-1 fixo, e compra duas quando a equipada morre."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Duas cartas por {1} a cada criatura pequena que morre.",
    "porque": "Equipamento que vai no Ken: +1/-1 fixo (o Ken fica 5/1), e compra duas quando a equipada morre. Ganho de +23.5; disputa com Faithless Looting (tier B).",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Faithless Looting"
+   "sai": "Faithless Looting",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "No Ken, +1/-1 deixa o 4/2 em 5/1: qualquer bloqueador de força 1 o mata sem o first strike pago; nas outras criaturas, só compra se elas morrerem.",
+    "I": "Duas cartas quando a equipada morre; a lista quase não tem criatura de resistência 1 para sacrificar assim.",
+    "T": "Uma mana e equipar {1}.",
+    "Q": "Paridade e atrás, quando uma criatura sua vai morrer de qualquer jeito.",
+    "R": "O Sram, a Akiri e a Sword of Fire and Ice compram sem custar a resistência do Ken."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.45,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Equipamento que dá +1 de força ao Ken, ao custo de 1 de resistência, e compra duas quando a equipada morre."
   },
   "Starfleet Communicator": {
    "notas": {},
@@ -4151,13 +4645,38 @@
     "sin1": "Equipamento que vai no Ken.",
     "sin2": "Rende carta com o ataque, sem dar acerto a mais."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Vem com uma cópia: cada criatura equipada que ataca compra pelo número de outras com Comunicador e põe terrenos da mão.",
    "porque": "Equipamento que vai no Ken.; Rende carta com o ataque, sem dar acerto a mais. Ganho de +16.2; disputa com Relentless Assault (tier C).",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Relentless Assault"
+   "sai": "Relentless Assault",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Equipamento que vai no Ken: com a cópia em outra criatura, cada ataque dele compra uma carta e põe um terreno da mão.",
+    "I": "Uma carta por ataque, também nos combates extras; com uma criatura só não compra nada, e cai se a outra morrer.",
+    "T": "Três manas e dois equipar de {1}: cinco no total.",
+    "Q": "Só com o Ken e mais uma criatura em campo: paridade e na frente.",
+    "R": "A Akiri já compra uma por ataque sem pedir a segunda peça; a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "dependência dupla"
+   ],
+   "confianca": "média",
+   "indice": 1.65,
+   "papel": "recompensa",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Cada ataque do Ken equipado compra uma carta, com a cópia em outra criatura."
   },
   "Sun Titan": {
    "notas": {},
@@ -4184,13 +4703,35 @@
     "sin1": "Equipamento que vai no Ken: +2/+2 e proteção de branco e preto.",
     "sin2": "Rende vida e uma carta do cemitério a cada acerto, sem dar acerto a mais, como a Sword of Fire and Ice."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "+2/+2 e proteção de branco e preto; a cada acerto ganha 3 de vida e devolve uma criatura do cemitério à mão.",
    "porque": "Equipamento que vai no Ken: +2/+2 e proteção de branco e preto.; Rende vida e uma carta do cemitério a cada acerto, sem dar acerto a mais, como a Sword of Fire and Ice. Ganho de +10.8; disputa com Relentless Assault (tier C). Corte pelo critério do dono (13/11/2026): sai Darksteel Plate, porque Relentless Assault já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Darksteel Plate"
+   "sai": "Darksteel Plate",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Equipamento que vai no Ken: +2/+2 e proteção contra branco e preto.",
+    "I": "Cada acerto devolve à mão uma criatura do cemitério, como o Raiyuu ou o Reyav, e dá 3 de vida; depende de conectar.",
+    "T": "Três manas e equipar {2}, no padrão das Swords.",
+    "Q": "Paridade, na frente e atrás.",
+    "R": "A Sword of Fire and Ice e a Sword of Feast and Famine, do radar, rendem mais por acerto pelo mesmo custo."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.8,
+   "papel": "habilita",
+   "papel_dupla": "recompensa",
+   "papel_por_que": "Equipamento que vai no Ken, +2/+2 e proteção; cada acerto devolve uma criatura do cemitério à mão."
   }
  },
  "combos": [
@@ -4360,7 +4901,7 @@
     "por_que": "Cada acerto do Ken conjura de graça um feitiço da mão: recompensa o deck que o veste e lhe dá combates, e pede muitas habilitadoras."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
