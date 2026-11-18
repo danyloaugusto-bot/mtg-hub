@@ -2846,7 +2846,7 @@
    "sin_por_que": {
     "sin1": "Dá toque mortífero a todos os atacantes, de forma contínua."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "veredito": "entra",
    "faz": "2/6 de 5. As criaturas atacando têm toque mortífero. Quando uma criatura sua causa dano de combate a um jogador, compra.",
@@ -2854,7 +2854,26 @@
    "sai": "Colossification",
    "papel": "habilita",
    "papel_dupla": "Recompensa (compra ao conectar)",
-   "papel_por_que": "Todo atacante ganha toque mortífero: cada criatura que conecta dispara o Fynn."
+   "papel_por_que": "Todo atacante ganha toque mortífero: cada criatura que conecta dispara o Fynn.",
+   "tier_anterior": "S",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Todo atacante ganha toque mortífero e vira gatilho do Fynn, e cada conexão ainda compra: morde e repõe o gás.",
+    "I": "Vale no turno em que entra: Contaminator, Stalker e Plague Myr passam a disparar o Fynn, e cada conexão é uma carta.",
+    "T": "Cinco manas, num deck que quer jogar barato.",
+    "Q": "Paridade e na frente; atrás, é um 2/6 que segura o chão, mas a compra pede conexão.",
+    "R": "A Bow of Nylea, do radar, dá o mesmo toque mortífero por três, sem a compra; no deck, ninguém faz as duas coisas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Bow of Nylea": {
    "notas": {
@@ -2874,7 +2893,26 @@
    "porque": "Todo atacante dispara o Fynn, por 3 manas, num tipo de carta difícil de remover.",
    "sai": "Preposterous Proportions",
    "papel": "habilita",
-   "papel_por_que": "Todo atacante ganha toque mortífero: cada criatura que conecta dispara o Fynn."
+   "papel_por_que": "Todo atacante ganha toque mortífero: cada criatura que conecta dispara o Fynn.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Todo atacante tem toque mortífero: cada criatura que conecta vira dois venenos pelo Fynn.",
+    "I": "Não põe corpo em campo: rende conforme a mesa que já existe, mas vale desde o primeiro ataque.",
+    "T": "Três manas pelo efeito no time inteiro; os modos cobram mais {1}{G} por uso.",
+    "Q": "Paridade e na frente; atrás, sobra o ganho de 3 de vida ou os 2 de dano num voador.",
+    "R": "O Ohran Frostfang, do radar, faz o mesmo por cinco; no deck, Collar e Burrower dão toque mortífero a uma criatura só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Saryth, the Viper's Fang": {
    "notas": {
@@ -2888,7 +2926,7 @@
    "sin_por_que": {
     "sin1": "Dá toque mortífero às outras criaturas viradas, como ficam as que atacam sem vigilância, de forma contínua."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "3/4 de 4. As outras criaturas viradas têm toque mortífero; as desviradas têm hexproof.",
@@ -2896,7 +2934,26 @@
    "sai": "Caged Sun",
    "papel": "habilita",
    "papel_dupla": "Proteção (hexproof nas desviradas)",
-   "papel_por_que": "As criaturas viradas, como as que atacam, ganham toque mortífero e disparam o Fynn."
+   "papel_por_que": "As criaturas viradas, como as que atacam, ganham toque mortífero e disparam o Fynn.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As outras criaturas viradas têm toque mortífero: quem ataca vira gatilho do Fynn; as desviradas ganham hexproof.",
+    "I": "Vale no ataque do turno em que entra, mas depende de um 3/4 ficar em campo e não cobre a própria Saryth.",
+    "T": "Quatro manas, uma a mais que a Bow of Nylea pelo mesmo toque mortífero.",
+    "Q": "Paridade e na frente; atrás, o hexproof protege o Fynn desvirado da remoção pontual.",
+    "R": "A Bow of Nylea, do radar, dá o toque mortífero por três e não morre como criatura; a Saryth soma o hexproof."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Toski, Bearer of Secrets": {
    "notas": {
@@ -2908,14 +2965,33 @@
    "sin_por_que": {
     "sin1": "Rende quando uma criatura sua conecta, sem envenenar."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "1/1 indestrutível de 4, não pode ser anulado, ataca todo combate. Quando uma criatura sua causa dano de combate a um jogador, compra.",
    "porque": "Uma carta por conexão, e a mesa para de comprar junto com você.",
    "sai": "Font of Mythos",
    "papel": "recompensa",
-   "papel_por_que": "Compra a cada criatura sua que conecta: rende com o ataque dos corpos pequenos."
+   "papel_por_que": "Compra a cada criatura sua que conecta: rende com o ataque dos corpos pequenos.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Paga em carta cada conexão, que é o que o deck já faz todo turno; não envenena nem dá toque mortífero.",
+    "I": "Uma carta por criatura que conecta, num corpo indestrutível que não pode ser anulado.",
+    "T": "Quatro manas por um 1/1 obrigado a atacar todo combate.",
+    "Q": "Paridade e na frente; atrás, sem conexão, não compra.",
+    "R": "O Tome of Legends compra uma por ataque do Fynn; o Ohran Frostfang, do radar, tem a mesma compra e ainda dá toque mortífero."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Triumph of the Hordes": {
    "notas": {
@@ -2935,7 +3011,26 @@
    "sai": "Scytheclaw",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (atropelar ao time)",
-   "papel_por_que": "Infect e atropelar para o time no turno: fecha o jogo no veneno de uma vez."
+   "papel_por_que": "Infect e atropelar para o time no turno: fecha o jogo no veneno de uma vez.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O time inteiro envenena com atropelar: todo dano vira veneno, e quem tem toque mortífero ainda dispara o Fynn.",
+    "I": "Mata jogador no turno em que resolve: com toque mortífero e atropelar, 1 de dano fica no bloqueador e o resto vira veneno.",
+    "T": "Quatro manas; o End-Raze Forerunners cobra oito pelo atropelar.",
+    "Q": "Só na paridade e na frente, com mesa para atacar; atrás, é carta morta.",
+    "R": "O End-Raze Forerunners dá atropelar ao time, mas custa oito e não dá infectar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.5
   },
   "Champion of Lambholt": {
    "notas": {
@@ -2948,14 +3043,33 @@
    "sin_por_que": {
     "sin1": "Evasão para o time inteiro: criaturas de força menor que a dela não bloqueiam as suas."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "1/1 de 3. Criaturas com poder menor que o dela não bloqueiam as suas. Ganha +1/+1 a cada criatura que entra.",
    "porque": "Evasão permanente para a mesa toda, num deck que põe muitas criaturas.",
    "sai": "Skyreaping",
    "papel": "habilita",
-   "papel_por_que": "Criaturas menores não bloqueiam as suas: os corpos com toque mortífero conectam."
+   "papel_por_que": "Criaturas menores não bloqueiam as suas: os corpos com toque mortífero conectam.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Faz o time conectar: criatura com poder menor que o dela não bloqueia as suas. Não tem toque mortífero.",
+    "I": "Entra 1/1 e só barra bloqueador depois de crescer: pede duas ou três criaturas entrando e que ela sobreviva.",
+    "T": "Três manas, com rendimento atrasado.",
+    "Q": "Início, enquanto as criaturas de uma mana entram, e na frente; atrás, é um corpo sem toque mortífero.",
+    "R": "O End-Raze Forerunners é a única evasão de time do deck, a oito manas e por um turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Infectious Bite": {
    "notas": {
@@ -2970,7 +3084,7 @@
     "sin1": "Dá veneno fora do combate, uma vez.",
     "sin2": "Dá o primeiro veneno a todos os oponentes de uma vez."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Instantânea de 2: uma criatura sua causa dano igual ao poder numa de fora. Cada oponente recebe um veneno.",
@@ -2978,7 +3092,26 @@
    "sai": "Disorienting Choice",
    "papel": "habilita",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Dá o primeiro veneno a cada oponente, e o proliferar passa a render em todos."
+   "papel_por_que": "Dá o primeiro veneno a cada oponente, e o proliferar passa a render em todos.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá o primeiro veneno aos três oponentes de uma vez, que é o que o proliferar pede; não é dano de combate, não dispara o Fynn.",
+    "I": "Mata uma criatura com o dano de uma de toque mortífero, sem levar dano de volta, e marca a mesa inteira.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Início com o Fynn em campo, paridade e na frente; sem criatura sua, não faz nada.",
+    "R": "O Bushwhack mata por uma mana, mas é feitiço, a sua criatura leva o dano e ninguém recebe veneno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Contaminant Grafter": {
    "notas": {
@@ -2995,7 +3128,7 @@
     "sin1": "Envenena sozinha, com tóxico 1; sem toque mortífero, não dispara o Fynn.",
     "sin2": "Motor de proliferar: prolifera a cada combate em que criaturas suas conectam."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "5/5 atropelar e Toxic 1, de 5. Prolifera quando suas criaturas causam dano de combate a jogadores. Corrupted: compra no fim do turno.",
@@ -3003,7 +3136,26 @@
    "sai": "Soul's Majesty",
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (Toxic 1, atropelar)",
-   "papel_por_que": "Prolifera a cada combate em que suas criaturas conectam: motor de veneno."
+   "papel_por_que": "Prolifera a cada combate em que suas criaturas conectam: motor de veneno.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Prolifera sempre que alguma criatura sua conecta, e envenena sozinho com tóxico 1 e atropelar.",
+    "I": "Um proliferar por combate e uma compra por turno com um oponente em três venenos; precisa ficar em campo.",
+    "T": "Cinco manas, num deck que quer jogar barato.",
+    "Q": "Paridade e na frente.",
+    "R": "O Bloated Contaminator prolifera a cada golpe por três manas, e o proliferar já tem nove fontes no deck."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Evolution Sage": {
    "notas": {
@@ -3015,14 +3167,33 @@
    "sin_por_que": {
     "sin2": "Motor de proliferar: prolifera a cada terreno que entra."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "3/2 de 3. Landfall: prolifera.",
    "porque": "Um proliferar por terra, todo turno, com 35 terras e o ramp de buscar terra.",
    "sai": "Courage in Crisis",
    "papel": "multiplica",
-   "papel_por_que": "Prolifera a cada terra: soma veneno todo turno a quem já está marcado."
+   "papel_por_que": "Prolifera a cada terra: soma veneno todo turno a quem já está marcado.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Motor de proliferar sem mana e sem atacar: um veneno a mais em cada marcado a cada terreno que entra.",
+    "I": "Não faz nada ao entrar: rende um proliferar por terreno, se o 3/2 sobreviver e houver terreno na mão.",
+    "T": "Três manas, e o proliferar não cobra nada depois.",
+    "Q": "Paridade e na frente; no início ainda não há veneno, e no fim os terrenos rareiam com a compra curta.",
+    "R": "O Karn's Bastion prolifera todo turno por quatro manas, e o proliferar já tem nove fontes no deck."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Heroic Intervention": {
    "notas": {
@@ -3035,7 +3206,26 @@
    "veredito": "entra",
    "faz": "Instantânea de 2: suas permanentes ganham hexproof e indestrutível até o fim do turno.",
    "porque": "A única proteção contra limpeza de mesa. O orçamento do deck não tem teto.",
-   "sai": "Mask of Avacyn"
+   "sai": "Mask of Avacyn",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Cobre o ponto de falha do deck, a limpeza de mesa; proteção é pacote do deck, mas a carta não envenena.",
+    "I": "Salva a mesa inteira de destruição e de dano em massa; não salva de −1/−1 nem de exílio.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade e na frente, quando há mesa para salvar; no início e atrás, fica na mão.",
+    "R": "Nenhuma carta do deck protege a mesa inteira: Snakeskin Veil e Collective Resistance salvam uma criatura só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Rogue's Passage": {
    "notas": {
@@ -3047,13 +3237,32 @@
    "sin_por_que": {
     "sin1": "Deixa uma criatura só imbloqueável, pagando {4} a cada vez, sem toque mortífero."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terra incolor. 4, vira: uma criatura não pode ser bloqueada.",
    "porque": "O Fynn passando todo turno são dois venenos garantidos. Terra por terra. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força.",
    "papel": "habilita",
-   "papel_por_que": "Torna uma criatura com toque mortífero imbloqueável: o gatilho do Fynn fica garantido."
+   "papel_por_que": "Torna uma criatura com toque mortífero imbloqueável: o gatilho do Fynn fica garantido.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Terreno utilitário que serve ao morder: uma criatura com toque mortífero passa sem bloqueio.",
+    "I": "Dois venenos garantidos por turno, numa criatura só.",
+    "T": "Quatro manas e virar o terreno por uso, e só gera incolor.",
+    "Q": "Paridade e na frente, com mana sobrando; no início, é só um terreno incolor.",
+    "R": "O Access Tunnel, do radar, faz o mesmo por três manas em todas as criaturas com toque mortífero do deck."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Vorinclex, Monstrous Raider": {
    "notas": {
@@ -3066,14 +3275,33 @@
    "sin_por_que": {
     "sin2": "Dobra os marcadores que você põe, inclusive os de cada proliferar."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "6/6 atropelar e pressa. Marcadores que você põe são dobrados; os que os oponentes põem caem pela metade.",
    "porque": "Dobraria cada proliferar. Se o veneno do Fynn conta como posto por você não tem regra oficial: não conto com isso.",
    "sai": "Ezuri's Predation",
    "papel": "multiplica",
-   "papel_por_que": "Dobra os marcadores que você põe: o Fynn dá quatro venenos e o proliferar, dois."
+   "papel_por_que": "Dobra os marcadores que você põe: o Fynn dá quatro venenos e o proliferar, dois.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dobra os marcadores que você põe: cada proliferar vale dois. Se dobra o veneno do Fynn é dúvida de regra, e a conta não depende dele.",
+    "I": "Um 6/6 com atropelar e ímpeto que bate no turno em que entra; o dobro só rende enquanto ele ficar em campo.",
+    "T": "Seis manas.",
+    "Q": "Paridade e na frente; atrás, corta pela metade os marcadores dos oponentes.",
+    "R": "Nenhuma carta do deck dobra marcadores; a Contagion Engine prolifera duas vezes por ativação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Noxious Newt": {
    "notas": {
@@ -3095,7 +3323,26 @@
    "sai": "Karametra's Acolyte",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Corpo com toque mortífero que também gera mana."
+   "papel_por_que": "Corpo com toque mortífero que também gera mana.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Criatura com toque mortífero: cada conexão vale dois venenos pelo Fynn, e ainda gera {G}.",
+    "I": "Um corpo pequeno; rende só se passar e sobreviver, ou uma mana por turno.",
+    "T": "Duas manas, como a Ambush Viper, com a mana de brinde.",
+    "Q": "Início como ramp, paridade e na frente; virar por mana e atacar disputam a mesma criatura.",
+    "R": "Nenhuma carta do deck é ramp e gatilho do Fynn ao mesmo tempo; o Plague Myr gera mana, mas não tem toque mortífero."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Beast Whisperer": {
    "notas": {
@@ -3108,7 +3355,26 @@
    "veredito": "avaliar",
    "faz": "2/3 de 4. Quando você conjura uma criatura, compra.",
    "porque": "Compra num deck cheio de criaturas de 1 e 2 manas. Corte pelo critério do dono (13/11/2026): sai Explore, porque Endless Atlas é peça de combo do deck.",
-   "sai": "Explore"
+   "sai": "Explore",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra genérica: não morde, não envenena nem prolifera.",
+    "I": "Uma carta a cada criatura conjurada, num deck de criaturas de 1 e 2 manas; precisa ficar em campo.",
+    "T": "Quatro manas, sem cobrar nada por compra.",
+    "Q": "Paridade e na frente; atrás, reconstrói a mesa comprando.",
+    "R": "O Lifecrafter's Bestiary faz o mesmo por três, cobrando {G} a cada criatura; a compra está abaixo da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Venerated Rotpriest": {
    "notas": {
@@ -3140,13 +3406,32 @@
    "sin_por_que": {
     "sin1": "Dá evasão a uma criatura só, sem dar toque mortífero, como o Rogue's Passage."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Terreno. Gera {C}. Por {3}, virando: uma criatura alvo com poder 3 ou menos não pode ser bloqueada neste turno.",
    "porque": "Todas as criaturas com toque mortífero do deck têm poder 3 ou menos: por três manas, uma delas conecta e o Fynn dá dois venenos, garantidos, uma mana mais barato que o Rogue's Passage do radar. Entra desvirado, no lugar da Myriad Landscape, que entra virada e busca dois básicos num deck de 30 Florestas. Os jogadores do Fynn no EDHREC a usam em metade das listas. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força.",
-   "papel_dupla": "Conexão",
-   "papel_por_que": "Terreno que faz uma criatura com toque mortífero conectar."
+   "papel_por_que": "Por três manas, uma criatura com toque mortífero de poder 3 ou menos passa sem bloqueio: dois venenos do Fynn garantidos.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno utilitário que serve ao morder: uma criatura de poder 3 ou menos passa sem bloqueio, e as de toque mortífero do deck são pequenas.",
+    "I": "Dois venenos garantidos por turno, numa criatura só.",
+    "T": "Entra desvirado; três manas e virar o terreno por uso, e só gera incolor.",
+    "Q": "Paridade e na frente, com mana sobrando; no início, é só um terreno incolor.",
+    "R": "O Rogue's Passage, do radar, faz o mesmo por uma mana a mais; no deck, nenhum terreno dá evasão."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8,
+   "papel": "habilita"
   },
   "Inkmoth Nexus": {
    "notas": {
@@ -3159,14 +3444,33 @@
    "sin_por_que": {
     "sin1": "Vira uma criatura que envenena sozinha, com infectar e voar."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Terreno. Gera {C}. Por {1}: vira uma criatura artefato 1/1 Phyrexiano Blinkmoth com voar e infectar até o fim do turno; continua sendo terreno.",
    "porque": "Um veneno voador que sobrevive a toda limpeza de criaturas, porque fica terreno: cada golpe dele põe um veneno que o Karn's Bastion e a Contagion Engine proliferam. No lugar da Blighted Woodland, que custa {3}{G} e o próprio terreno para buscar dois básicos virados. Corte pelo critério do dono (13/11/2026): sai Temple of the False God, porque Blighted Woodland é terreno que busca outro.",
    "sai": "Temple of the False God",
-   "papel_dupla": "Veneno (infectar)",
-   "papel_por_que": "Terreno que vira um atacante voador com infectar."
+   "papel_por_que": "Terreno que vira um 1/1 voador com infectar: dá o primeiro veneno que o proliferar soma, e sobra depois de uma limpeza.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno que envenena: um 1/1 voador com infectar, que dá o primeiro veneno para o proliferar somar.",
+    "I": "Um veneno por golpe; não tem toque mortífero e não dispara o Fynn sozinho.",
+    "T": "Entra desvirado e vira criatura por {1}.",
+    "Q": "Terreno sempre; ataca na paridade e na frente e sobra depois de uma limpeza de criaturas.",
+    "R": "O Mirrex, do radar, cobra três manas por uma ficha com tóxico que não voa; no deck, nenhum terreno envenena."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1,
+   "papel": "habilita"
   },
   "Mirrex": {
    "notas": {
@@ -3183,8 +3487,27 @@
    "veredito": "avaliar",
    "faz": "Terreno. Gera {C}; ou uma mana de qualquer cor, só no turno em que entrou. Por {3}, virando: cria uma ficha 1/1 Phyrexian Mite artefato com tóxico 1 e que não pode bloquear.",
    "porque": "Com mana sobrando, uma criatura com tóxico por turno, que espalha o primeiro veneno e dá alvo ao proliferar; sem toque mortífero, não dispara o Fynn. No lugar do Throne of the High City, cujo monarca de {4} e o próprio terreno a mesa toma de volta num deck de corpos pequenos. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força.",
-   "papel_dupla": "Veneno (fichas com tóxico)",
-   "papel_por_que": "Terreno que cria atacantes com tóxico."
+   "papel_por_que": "Cria fichas 1/1 com tóxico 1, que espalham o primeiro veneno e dão alvo ao proliferar.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Terreno que envenena: cria fichas 1/1 com tóxico 1, que espalham o primeiro veneno.",
+    "I": "Uma ficha 1/1 por turno, que não bloqueia e não dispara o Fynn.",
+    "T": "Entra desvirado; três manas e virar o terreno por ficha.",
+    "Q": "Paridade e na frente, com mana sobrando; atrás, refaz a mesa devagar depois de uma limpeza.",
+    "R": "O Inkmoth Nexus, do radar, envenena por {1}, voando, e não morre em limpeza de criaturas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6,
+   "papel": "habilita"
   },
   "Boseiju, Who Endures": {
    "notas": {
@@ -3199,7 +3522,26 @@
    "faz": "Terreno lendário. Gera {G}. Canalizar, {1}{G} e descartá-lo: destrói um artefato, encantamento ou terreno não básico de um oponente, que pode buscar um terreno com tipo básico; custa {1} a menos por criatura lendária sua.",
    "porque": "Uma Floresta que, quando precisa, é remoção de artefato ou encantamento por {G} com o Fynn em campo: dupla função numa vaga de terreno, sem perder a fonte verde. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico.",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Floresta que vira remoção de artefato ou encantamento."
+   "papel_por_que": "Floresta que vira remoção de artefato ou encantamento.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Fonte de verde; a remoção não tem ligação com o veneno.",
+    "I": "Tira um artefato, encantamento ou terreno não básico, e o oponente ainda busca um terreno.",
+    "T": "Entra desvirado e gera {G}; canalizar custa só {G} com o Fynn em campo.",
+    "Q": "Terreno no início; resposta na paridade, atrás e na frente.",
+    "R": "Nenhum terreno do deck é também remoção; tira uma das 30 Forests que ligam o Endless Atlas, sem risco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Hall of Echoes": {
    "notas": {},
@@ -3209,13 +3551,34 @@
    "sin_por_que": {
     "sin1": "Presas 3: com a cópia do Fynn, cada criatura com toque mortífero que conecta dispara os dois gatilhos e dá quatro venenos, o que multiplica os gatilhos."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Terreno que vira cópia de uma criatura sua por 5 de mana.",
    "porque": "Com a cópia do Fynn, cada criatura com toque mortífero que conecta dá quatro venenos; sai um terreno tier C.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Throne of the High City"
+   "sai": "Throne of the High City",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Terreno utilitário que serve ao envenenar: copia o Fynn no turno, e cada conexão de toque mortífero vale quatro venenos.",
+    "I": "Dobra os venenos do Fynn no turno em que é usado; fora dele, não faz nada.",
+    "T": "Cinco manas por turno de uso, e só gera incolor.",
+    "Q": "Terreno no início; a cópia só entra na paridade e na frente, com seis terrenos ou mais.",
+    "R": "Nenhuma carta do deck copia o Fynn nem dobra o gatilho dele."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.05,
+   "papel": "multiplica",
+   "papel_por_que": "Vira cópia do Fynn no turno: cada conexão de toque mortífero passa a valer quatro venenos."
   },
   "Carnivorous Cultivator": {
    "notas": {},
@@ -3225,13 +3588,34 @@
    "sin_por_que": {
     "sin1": "Criatura com toque mortífero: um gatilho do Fynn, nível 2."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Toque mortífero; ao conectar devolve terreno do cemitério; o outro lado busca terreno e o põe no cemitério.",
    "porque": "Criatura de 2 com toque mortífero, um gatilho do Fynn; disputa com uma tier C.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Adaptive Sporesinger"
+   "sai": "Adaptive Sporesinger",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Criatura com toque mortífero: cada conexão vale dois venenos pelo Fynn.",
+    "I": "Um corpo pequeno; rende só se passar e sobreviver.",
+    "T": "Duas manas, como as outras de toque mortífero de 2.",
+    "Q": "Início, paridade e na frente; atrás, segura um atacante só.",
+    "R": "Par das de 2 manas, com um extra: o Enroot põe um terreno no cemitério e a conexão o devolve à mão, o que acha o Karn's Bastion."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1,
+   "papel": "habilita",
+   "papel_por_que": "Criatura de 2 com toque mortífero: um gatilho do Fynn, que ao conectar devolve um terreno do cemitério à mão."
   },
   "Arcane Amphisbaena": {
    "notas": {},
@@ -3241,13 +3625,34 @@
    "sin_por_que": {
     "sin1": "Criatura com toque mortífero: um gatilho do Fynn, nível 2."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Toque mortífero; ao entrar dá 2 de lealdade a um Jace, que vigia: filtro pequeno.",
    "porque": "Criatura de 2 com toque mortífero; disputa com uma tier C. Corte pelo critério do dono (13/11/2026): sai Loxodon Warhammer, porque Branchblight Stalker é peça de combo do deck.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Loxodon Warhammer"
+   "sai": "Loxodon Warhammer",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Criatura com toque mortífero: cada conexão vale dois venenos pelo Fynn.",
+    "I": "Um corpo pequeno; o Jace com 2 de lealdade só vigia duas vezes, sem chegar à compra.",
+    "T": "Duas manas, como as outras de toque mortífero de 2.",
+    "Q": "Início, paridade e na frente; atrás, segura um atacante só.",
+    "R": "Par da Deadly Recluse e do Thornweald Archer; o filtro do Jace é pouco para separar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9,
+   "papel": "habilita",
+   "papel_por_que": "Criatura de 2 com toque mortífero: um gatilho do Fynn; o Jace que ela cria só filtra o topo."
   },
   "Garruk, Curse Breaker": {
    "notas": {},
@@ -3257,13 +3662,35 @@
    "sin_por_que": {
     "sin1": "Atropelar para o time inteiro, mesmo que só até o seu próximo turno, pelo −4."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Compra a cada criatura de poder 4 ou mais que entra; +2 desvira dois terrenos; −3 cria um Beast 4/4; −4 dá +2/+2 e atropelar aos atacantes até o seu turno.",
    "porque": "O −4 dá atropelar ao time até o seu turno; compra com criatura de força 4 ou mais.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Natural Reclamation"
+   "sai": "Natural Reclamation",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O −4 dá atropelar e +2/+2 a quem ataca os oponentes; a compra pede criatura de poder 4 ou mais, e o deck é de 1/1.",
+    "I": "Um ataque com atropelar no time, ou uma Fera 4/4; a compra quase não dispara.",
+    "T": "Cinco manas, e o texto do dossiê não traz a lealdade inicial: não dá para afirmar que o −4 sai no turno em que entra.",
+    "Q": "Só na paridade e na frente, com mesa para atacar.",
+    "R": "O End-Raze Forerunners já dá atropelar ao time; o Triumph of the Hordes, do radar, faz isso por quatro e com infectar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "baixa",
+   "indice": 1.5,
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "O −4 dá atropelar e +2/+2 a quem ataca os oponentes, o que faz o time com toque mortífero conectar; o +2 desvira dois terrenos."
   },
   "Hunter's Axe": {
    "notas": {},
@@ -3273,13 +3700,34 @@
    "sin_por_que": {
     "sin1": "Dá toque mortífero à criatura equipada a cada ataque, como a Basilisk Collar do nível 2."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Equipamento de {G}: +2/+0 e, a cada ataque, atropelar ou toque mortífero à escolha.",
    "porque": "Dá toque mortífero à equipada a cada ataque, como a Basilisk Collar.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Strength in Numbers"
+   "sai": "Strength in Numbers",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá toque mortífero à equipada a cada ataque, que vira gatilho do Fynn; em quem já tem, dá atropelar.",
+    "I": "Uma criatura só, e só quando ataca: na defesa não dá nada.",
+    "T": "Uma mana e equipar 2, como a Basilisk Collar.",
+    "Q": "Início, paridade e na frente; atrás, não ajuda no bloqueio.",
+    "R": "A Basilisk Collar dá toque mortífero o tempo todo pelo mesmo custo, e o Flesh Burrower empresta o dele de graça."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05,
+   "papel": "habilita",
+   "papel_por_que": "Dá toque mortífero à equipada a cada ataque: qualquer criatura vira gatilho do Fynn."
   },
   "Ghalta the Unstoppable": {
    "notas": {},
@@ -3304,13 +3752,34 @@
    "sin_por_que": {
     "sin1": "Criatura com toque mortífero: um gatilho do Fynn."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Alcance, vigilância e toque mortífero.",
    "porque": "Criatura com toque mortífero: um gatilho do Fynn. Ganho de +12.8; disputa com Silklash Spider (tier C).",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Silklash Spider"
+   "sai": "Silklash Spider",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Criatura com toque mortífero: cada conexão vale dois venenos pelo Fynn.",
+    "I": "Um corpo só, sem efeito ao entrar; a vigilância deixa atacar e bloquear.",
+    "T": "Cinco manas por um gatilho que o deck paga com uma ou duas.",
+    "Q": "Paridade e na frente; atrás, bloqueia voador com alcance.",
+    "R": "As oito criaturas de 1 e 2 manas dão o mesmo gatilho; a Acidic Slime, pelas mesmas cinco, ainda tira uma permanente."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.55,
+   "papel": "habilita",
+   "papel_por_que": "Criatura com toque mortífero e vigilância: um gatilho do Fynn que ataca e ainda bloqueia."
   },
   "Moopsy": {
    "notas": {},
@@ -3320,13 +3789,34 @@
    "sin_por_que": {
     "sin1": "Criatura com toque mortífero: um gatilho do Fynn."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Toque mortífero por {G}.",
    "porque": "Criatura com toque mortífero: um gatilho do Fynn. Ganho de +11.8; disputa com Pollenbright Druid (tier B).",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Pollenbright Druid"
+   "sai": "Pollenbright Druid",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "É o morder: cada conexão vale dois venenos pelo Fynn.",
+    "I": "Um corpo pequeno; rende só se passar e sobreviver.",
+    "T": "Uma mana.",
+    "Q": "Início, paridade e na frente; atrás, segura um atacante, e por {2} também um voador.",
+    "R": "Par das quatro de uma mana com toque mortífero que o deck já tem."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05,
+   "papel": "habilita",
+   "papel_por_que": "Criatura de uma mana com toque mortífero: um gatilho do Fynn desde o turno 1."
   }
  },
  "combos": [
@@ -3541,7 +4031,7 @@
     "por_que": "Converte em dois venenos cada golpe de criatura sua com toque mortífero que conecta: o deck precisa de muitos corpos com toque mortífero e de quem dá toque mortífero."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
