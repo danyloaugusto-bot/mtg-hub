@@ -3431,7 +3431,31 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Recompensa (execução vira vitória)",
-   "papel_por_que": "Lorde +1/+1 dos Assassinos."
+   "papel_por_que": "Lorde +1/+1 dos Assassinos.",
+   "tier_anterior": "S",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Muda o executar: o jogador que perde depois de atacado por um Assassino seu dá a vitória da partida, e o Ezio é Assassino.",
+    "I": "Lord: +1/+1 nos outros Assassinos assim que entra; a vitória pede que ele fique em campo até a execução.",
+    "T": "Quatro manas em duas cores, ou {B}{B} depois de conectar.",
+    "Q": "Paridade e na frente; atrás, segura o chão com toque mortífero.",
+    "R": "Nenhuma carta da lista transforma a execução em vitória, e o deck só tem um lord, o Arno Dorian."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, a execução do Ezio tira um jogador por vez e pede o {W}{U}{B}{R}{G} de novo a cada um; com ele, a primeira execução encerra a partida.",
+    "O Arno Dorian é lord e o Bayek of Siwa dobra a chance de executar, mas nenhum dos dois faz a execução valer a mesa inteira.",
+    "Na paridade e na frente, o +1/+1 faz a tribo bater mais forte rumo aos 10; atrás, bloqueia com toque mortífero; no fim, vence no turno da execução."
+   ],
+   "indice": 2.5
   },
   "Command Tower": {
    "notas": {},
@@ -3445,7 +3469,26 @@
    "sai": "Ash Barrens",
    "marcas": {
     "cores": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Terreno que dá as cinco cores: paga o {B}{B} do freerunning e qualquer peça do {W}{U}{B}{R}{G}.",
+    "I": "Uma mana por turno, como todo terreno.",
+    "T": "Entra desvirado, sem custo nem condição.",
+    "Q": "Viva em todo momento do jogo.",
+    "R": "A lista só tem o Path of Ancestry dando qualquer cor sozinho, e ele entra virado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Arcane Signet": {
    "notas": {
@@ -3489,7 +3532,26 @@
    "sai": "Murder",
    "marcas": {
     "cores": 1
-   }
+   },
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Cada terreno seu passa a dar qualquer cor: cobre o ponto de falha, as cinco cores desviradas na hora de executar.",
+    "I": "Conserta a mana inteira e ainda é uma pedra; se for destruída, o conserto some.",
+    "T": "Três manas, o padrão da pedra que conserta cor.",
+    "Q": "Viva em todo momento: acelera cedo e paga o {W}{U}{B}{R}{G} no fim.",
+    "R": "O deck tem duas pedras, Haunted Screen e Crystal Skull, e nenhuma conserta os terrenos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.35
   },
   "Basim Ibn Ishaq": {
    "notas": {
@@ -3514,7 +3576,26 @@
    "sai": "Deflecting Palm",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Corpo Assassino que fica imbloqueável quando você conjura um histórico."
+   "papel_por_que": "Corpo Assassino que fica imbloqueável quando você conjura um histórico.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Assassino de 2 que fica imbloqueável ao conjurar uma histórica: conecta e abre o freerunning do turno.",
+    "I": "Uma carta por turno e a conexão quase certa; precisa ficar em campo.",
+    "T": "Duas manas, e a lista tem perto de 40 históricas para ligar o gatilho.",
+    "Q": "Início (turno 2), paridade, na frente e atrás, quando ainda compra.",
+    "R": "O Assassin Initiate e a Lydia Frye conectam cedo, mas nenhum dos dois compra a cada turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3
   },
   "Ezio, Blade of Vengeance": {
    "notas": {
@@ -3530,7 +3611,7 @@
     "sin1": "Rende a cada Assassino que conecta: uma carta por conexão.",
     "sin2": "Compra a cada conexão dos Assassinos, não só dele."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Humano Assassino lendário 5/5 de 5 com toque mortífero. Um Assassino seu acerta um jogador: compre.",
@@ -3538,7 +3619,26 @@
    "sai": "Tax Collector",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (Assassino)",
-   "papel_por_que": "Compra a cada Assassino que causa dano de combate a um jogador."
+   "papel_por_que": "Compra a cada Assassino que causa dano de combate a um jogador.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recompensa o conectar: cada Assassino que acerta um jogador compra uma carta.",
+    "I": "Corpo com toque mortífero e compra em série; precisa ficar em campo.",
+    "T": "Cinco manas, ou {B}{B} depois de conectar.",
+    "Q": "Paridade, na frente e atrás, como bloqueador com toque mortífero.",
+    "R": "O Coastal Piracy já compra por conexão de qualquer criatura, por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Achilles Davenport": {
    "notas": {
@@ -3555,7 +3655,7 @@
     "sin1": "Lorde de Assassinos: +1/+1 nos outros Assassinos.",
     "sin2": "Ameaça só nele mesmo, e freerunning próprio: ajuda de passagem."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Humano Assassino lendário 3/3 de 4, freerunning {U}{B}, com ameaça; outros Assassinos seus ganham +1/+1.",
@@ -3567,7 +3667,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (Assassino com ameaça)",
-   "papel_por_que": "Lorde +1/+1 dos Assassinos."
+   "papel_por_que": "Lorde +1/+1 dos Assassinos.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lord: +1/+1 nos outros Assassinos leva a mesa aos 10 mais rápido.",
+    "I": "O buff vale ao entrar, mas some se ele morrer; ameaça só nele.",
+    "T": "Quatro manas, ou {U}{B} pelo freerunning próprio, ou {B}{B} pelo do Ezio.",
+    "Q": "Paridade e na frente; atrás, o +1/+1 ajuda a bloquear.",
+    "R": "O Arno Dorian já é lord na lista; o deck pede três e tem um."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Desmond Miles": {
    "notas": {
@@ -3590,7 +3709,26 @@
    "porque": "Assassino de 2 que conecta, no lugar de uma conexão de 3 manas. Fonte B. Corte pelo critério do dono (13/11/2026): sai Distract the Guards, porque Towering Viewpoint já é o corte de uma carta de letra mais alta.",
    "sai": "Distract the Guards",
    "papel": "habilita",
-   "papel_por_que": "Corpo Assassino com ameaça que cresce com os outros Assassinos."
+   "papel_por_que": "Corpo Assassino com ameaça que cresce com os outros Assassinos.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Assassino de 2 com ameaça: conecta cedo e abre o freerunning.",
+    "I": "Cresce com os outros Assassinos e vigia ao acertar; sozinho é um 1/3.",
+    "T": "Duas manas, sem condição.",
+    "Q": "Início e paridade; na frente, bate forte com a tribo em campo.",
+    "R": "O Assassin Initiate faz a conexão cedo por uma mana, sem a ameaça."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Swiftfoot Boots": {
    "notas": {
@@ -3609,7 +3747,26 @@
    "veredito": "entra",
    "faz": "Equipamento de 2, equipar {1}: resistência a magia e ímpeto.",
    "porque": "Proteção para o Ezio que não barra a Regalia. Fontes B e C. Corte pelo critério do dono (13/11/2026): sai Hunter's Bow, porque Dead Weight já é o corte de uma carta de letra mais alta.",
-   "sai": "Hunter's Bow"
+   "sai": "Hunter's Bow",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Protege o Ezio, o ponto de falha, sem barrar a Brotherhood Regalia; o ímpeto faz ele conectar no turno em que volta.",
+    "I": "O Ezio deixa de ser alvo da remoção pontual; não segura limpeza.",
+    "T": "Duas manas e equipar {1}.",
+    "Q": "Início, paridade e na frente; atrás, sem o Ezio em campo, não faz nada.",
+    "R": "As Lavaspur Boots dão ímpeto e ward {1}, e o Haystack cobra {2} por uso; nenhuma dá resistência a magia."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Cover of Darkness": {
    "notas": {
@@ -3630,7 +3787,26 @@
    "faz": "Encantamento de 2: criaturas do tipo escolhido têm medo (só artefato ou preta bloqueia).",
    "porque": "Nomeando Assassino, a tribo conecta. Fonte C; banco de B.",
    "papel": "habilita",
-   "papel_por_que": "Dá medo à tribo escolhida: os Assassinos conectam."
+   "papel_por_que": "Dá medo à tribo escolhida: os Assassinos conectam.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Nomeando Assassino, a tribo inteira ganha medo: é o conectar para todos, não só para o Ezio.",
+    "I": "Só criatura preta ou artefato bloqueia; depende das cores da mesa.",
+    "T": "Duas manas, sem custo por turno.",
+    "Q": "Paridade e na frente; no início, com um Assassino em campo.",
+    "R": "A Brotherhood Regalia garante só uma criatura; o Bleeding Effect dá evasão ao time por quatro e com condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Eagle Vision": {
    "notas": {
@@ -3652,7 +3828,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Pelo freerunning, compra três por {1}{U}."
+   "papel_por_que": "Pelo freerunning, compra três por {1}{U}.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recompensa o conectar: três cartas por {1}{U} pelo freerunning.",
+    "I": "Três cartas de uma vez, sem deixar nada em campo.",
+    "T": "Duas manas depois de conectar; sem conexão, cinco.",
+    "Q": "Paridade e na frente; atrás, sem conexão, pesa.",
+    "R": "O Monastery Raid e o Petty Larceny já fazem a compra pelo freerunning."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Aya of Alexandria": {
    "notas": {
@@ -3676,7 +3871,26 @@
    "porque": "Tribo que cresce. Fonte A; banco de B.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (cria Assassinos)",
-   "papel_por_que": "Cada histórico que conecta cria um Assassino com ameaça."
+   "papel_por_que": "Cada histórico que conecta cria um Assassino com ameaça.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada criatura histórica que conecta cria um Assassino com ameaça, e quase toda a tribo é lendária.",
+    "I": "Corpo com ameaça e vínculo, e fichas a cada conexão; precisa ficar em campo.",
+    "T": "Quatro manas em vermelho e branco, ou {B}{B} depois de conectar.",
+    "Q": "Paridade, na frente e atrás, onde o vínculo segura a corrida.",
+    "R": "A Queen Marchesa cria Assassinos e ainda compra; a Origin of the Hidden Ones cria fichas em capítulos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Altaïr Ibn-La'Ahad": {
    "notas": {
@@ -3699,7 +3913,26 @@
    "faz": "Humano Assassino lendário 3/3 de 3 com golpe primeiro. Ao atacar, exila um Assassino do cemitério com memória e cria fichas atacando das criaturas com memória no exílio, exiladas no fim do combate.",
    "porque": "Bom sem o Rest in Peace. Fonte A; banco de B.",
    "papel": "habilita",
-   "papel_por_que": "Põe cópias de Assassinos exilados atacando a cada ataque."
+   "papel_por_que": "Põe cópias de Assassinos exilados atacando a cada ataque.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ao atacar, copia atacando os Assassinos que exilou do cemitério: mais corpos para conectar.",
+    "I": "As cópias somam a cada ataque, mas ele precisa atacar e sobreviver como 3/3.",
+    "T": "Três manas em três cores, ou {B}{B} depois de conectar.",
+    "Q": "Só com Assassino no seu cemitério: paridade e na frente.",
+    "R": "Nenhuma carta da lista reaproveita Assassino morto em todo ataque; a Restart Sequence devolve uma criatura uma vez."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Jacob Frye": {
    "notas": {
@@ -3721,7 +3954,26 @@
    "faz": "Humano Assassino lendário 3/2 de 3, parceiro com a Evie Frye. Assassinos seus acertam: exila um Assassino ou carta com freerunning do cemitério e conjura uma cópia.",
    "porque": "Recursão por conexão. Banco de B.",
    "papel": "recompensa",
-   "papel_por_que": "A conexão de Assassinos copia um Assassino ou freerunning do cemitério."
+   "papel_por_que": "A conexão de Assassinos copia um Assassino ou freerunning do cemitério.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Recompensa o conectar: copia do cemitério um Assassino ou uma carta com freerunning, e você pode conjurar a cópia.",
+    "I": "Uma mágica a mais por turno de conexão; depende do cemitério e de ficar em campo.",
+    "T": "Três manas, ou {B}{B} depois de conectar.",
+    "Q": "Paridade e na frente; atrás, com o cemitério cheio, repõe a mesa.",
+    "R": "A Layla Hassan já recompra uma histórica a cada conexão, e a Evie Frye, parceira dele, não está na lista."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Ratonhnhaké꞉ton": {
    "notas": {
@@ -3745,7 +3997,26 @@
    "porque": "Conecta na primeira vez, garantido. Banco de B.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (ficha e Equipamento ao conectar)",
-   "papel_por_que": "Corpo Assassino imbloqueável e com resistência até conectar."
+   "papel_por_que": "Corpo Assassino imbloqueável e com resistência até conectar.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Enquanto não causou dano, é imbloqueável com resistência a magia: a primeira conexão é certa e abre o freerunning.",
+    "I": "Uma ficha Assassino por conexão; depois do primeiro dano vira um corpo comum.",
+    "T": "Três manas em três cores, ou {B}{B} depois de conectar.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Lydia Frye conecta quase sempre e continua conectando; ele garante só a primeira vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Sorin Markov": {
    "notas": {
@@ -3758,14 +4029,33 @@
    "sin_por_que": {
     "sin2": "O −3 põe a vida de um oponente em 10: o Ezio conecta e executa em seguida."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Planeswalker de 6. +2: 2 de dano e ganhe 2; −3: a vida de um oponente vira 10; −7: controla um jogador no próximo turno.",
    "porque": "Com o Ezio, execução em duas cartas (Commander Spellbook 367-5712). Banco de B.",
    "papel": "habilita",
    "papel_dupla": "Remoção (2 de dano)",
-   "papel_por_que": "Põe um oponente em 10 de vida: abre a execução."
+   "papel_por_que": "Põe um oponente em 10 de vida: abre a execução.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "É o executar em duas cartas: o −3 põe um oponente em 10 de vida, e o Ezio conecta e paga.",
+    "I": "O −3 vale no turno em que entra, sem depender de sobreviver.",
+    "T": "Seis manas com {B}{B}{B} num deck de cinco cores e duas pedras; não é Assassino, não tem freerunning.",
+    "Q": "Paridade e na frente; atrás, o +2 só ganha tempo.",
+    "R": "Nenhuma carta da lista põe um oponente em 10 de uma vez; o Arbaaz Mir tira 1 por histórica."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.55
   },
   "Brotherhood Headquarters": {
    "notas": {},
@@ -3779,7 +4069,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: {C}; qualquer cor só para mágica Assassino, mágica com freerunning ou habilidade de fonte Assassino.",
-   "porque": "Melhor que o Courtyard, mas também não paga o WUBRG. Fonte B. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força."
+   "porque": "Melhor que o Courtyard, mas também não paga o WUBRG. Fonte B. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá qualquer cor só para Assassino, mágica com freerunning ou habilidade de Assassino: não paga o {W}{U}{B}{R}{G}.",
+    "I": "Uma mana por turno.",
+    "T": "Entra desvirado, sem custo.",
+    "Q": "Início e paridade; no turno da execução vale só como incolor.",
+    "R": "O Secluded Courtyard faz quase o mesmo; este ainda paga as mágicas com freerunning."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Exotic Orchard": {
    "notas": {},
@@ -3789,7 +4098,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: uma cor que um terreno de oponente produza.",
-   "porque": "Fonte de cor; depende da mesa. Banco de B."
+   "porque": "Fonte de cor; depende da mesa. Banco de B.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Com três oponentes, costuma dar várias das cinco cores.",
+    "I": "Uma mana por turno.",
+    "T": "Entra desvirado, mas as cores dependem dos terrenos da mesa.",
+    "Q": "Viva em todo momento do jogo.",
+    "R": "Melhor que o Crystal Grotto e a Ash Barrens; o Path of Ancestry dá as cinco sem depender de ninguém."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Mana Confluence": {
    "notas": {},
@@ -3799,7 +4127,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: vira e pague 1: qualquer cor.",
-   "porque": "Fonte das cinco cores desvirada, por 1 de vida a cada uso. Ganhou quem sai (09/11/2026): a Bountiful Landscape, que busca básico virado e não traz preto nem branco. Banco de B. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força."
+   "porque": "Fonte das cinco cores desvirada, por 1 de vida a cada uso. Ganhou quem sai (09/11/2026): a Bountiful Landscape, que busca básico virado e não traz preto nem branco. Banco de B. Sem corte livre do mesmo lado (13/11/2026): fica sem corte até abrir vaga; nada se força.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor, sempre: paga o freerunning e uma peça do {W}{U}{B}{R}{G}.",
+    "I": "Uma mana por turno.",
+    "T": "Entra desvirado, mas cobra 1 de vida a cada uso.",
+    "Q": "Viva em todo momento do jogo.",
+    "R": "A lista só tem o Path of Ancestry dando qualquer cor sozinho, e ele entra virado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Farseek": {
    "notas": {
@@ -3811,7 +4158,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de 2: busca um Plains, Island, Swamp ou Mountain, virado.",
-   "porque": "Ramp verde que acha básicos. Fonte C."
+   "porque": "Ramp verde que acha básicos. Fonte C.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ramp genérico; acha um básico de uma cor que falta, menos Forest.",
+    "I": "Um terreno a mais, virado.",
+    "T": "Duas manas, mas pede verde no turno 2.",
+    "Q": "Início e paridade; tarde, é carta fraca.",
+    "R": "O deck tem só duas pedras e nenhum ramp de terreno; a Chromatic Lantern, do radar, conserta mais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Etrata, the Silencer": {
    "notas": {
@@ -3835,7 +4201,26 @@
    "porque": "Outra execução, e com o Ramses vence. Fonte C.",
    "papel": "habilita",
    "papel_dupla": "Remoção (exila ao conectar)",
-   "papel_por_que": "Corpo Assassino imbloqueável."
+   "papel_por_que": "Corpo Assassino imbloqueável.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Assassina imbloqueável: conecta e abre o freerunning do turno.",
+    "I": "Exila uma criatura do jogador ao acertar, mas volta ao grimório a cada conexão.",
+    "T": "Quatro manas, ou {B}{B} depois de conectar.",
+    "Q": "Paridade, na frente e atrás, quando tira a ameaça.",
+    "R": "A Brotherhood Regalia já dá o imbloqueável todo turno, e o deck tem remoção de sobra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Kindred Dominance": {
    "notas": {
@@ -3847,13 +4232,32 @@
    "sin_por_que": {
     "sin1": "Escolhendo Assassino, poupa os Assassinos: liga-se por tipo escolhido."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de 7: escolha um tipo; destrói todas as criaturas que não são dele.",
    "porque": "Limpeza que poupa os Assassinos, no lugar da que mata o Ezio. Fonte C. Corte pelo critério do dono (13/11/2026): sai Mortify, porque Supreme Verdict é peça de combo do deck.",
    "sai": "Mortify",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "C",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 1,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Limpeza que, nomeando Assassino, deixa o Ezio e a tribo em pé para atacar.",
+    "I": "A mesa dos oponentes some de uma vez; não depende de ficar em campo.",
+    "T": "Sete manas num deck com duas pedras.",
+    "Q": "Atrás e na paridade; na frente, abre o ataque final.",
+    "R": "O deck quer três ou quatro limpezas e tem uma, o Supreme Verdict, que mata o Ezio."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Teferi's Protection": {
    "notas": {
@@ -3865,7 +4269,26 @@
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Instantânea de 3: até o seu turno, sua vida não muda, você tem proteção contra tudo, e suas permanentes saem de fase.",
-   "porque": "Salva a mesa inteira. Game Changer. Fonte C."
+   "porque": "Salva a mesa inteira. Game Changer. Fonte C.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica: não conecta nem executa, só guarda a mesa.",
+    "I": "Suas permanentes saem de fase e sua vida não muda até o seu turno: a limpeza deles não leva nada.",
+    "T": "Três manas, instantânea.",
+    "Q": "Atrás e na paridade, em resposta; no início fica parada na mão.",
+    "R": "A Smoke Bomb e o Haystack salvam uma criatura; nada na lista salva a tribo de uma limpeza."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Lightning Greaves": {
    "notas": {
@@ -3942,7 +4365,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Draw e Ramp",
-   "papel_por_que": "Dá aos Assassinos toque mortífero e compra com Tesouros ao conectar."
+   "papel_por_que": "Dá aos Assassinos toque mortífero e compra com Tesouros ao conectar.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá toque mortífero à tribo e faz a conexão pagar carta e dois Tesouros, a mana de qualquer cor para o {W}{U}{B}{R}{G}.",
+    "I": "Rende só com marcador de alvo no exílio do jogador atingido, e precisa ficar em campo.",
+    "T": "Três manas com {B}{B}; o freerunning não barateia.",
+    "Q": "Paridade e na frente; atrás, o toque mortífero segura o chão.",
+    "R": "O Coastal Piracy compra por conexão sem condição; Tesouro a lista não tem."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.3
   },
   "Evie Frye": {
    "notas": {
@@ -3966,7 +4408,26 @@
    "porque": "Filtra a mão e, descartando um Assassino, deixa o Ezio imbloqueável; ao entrar, traz o Jacob, que está no radar, do grimório para a mão. Potencial do edh.wiki (+62%).",
    "papel": "habilita",
    "papel_dupla": "Draw (saqueio)",
-   "papel_por_que": "Corpo Assassino que deixa uma criatura imbloqueável de forma repetível."
+   "papel_por_que": "Corpo Assassino que deixa uma criatura imbloqueável de forma repetível.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Assassina de 2 que, descartando criatura no saqueio, deixa o Ezio imbloqueável no turno.",
+    "I": "Troca uma carta por turno; o imbloqueável pede criatura na mão para descartar.",
+    "T": "Duas manas e {1} por uso.",
+    "Q": "Início, paridade e na frente.",
+    "R": "A Mary Read and Anne Bonny saqueia por três e não ajuda a conectar; o Jacob Frye, parceiro dela, não está na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Rooftop Bypass": {
    "notas": {
@@ -3987,7 +4448,26 @@
    "faz": "Encantamento de 3. Criaturas não ficha suas causam dano de combate a um jogador: uma ficha Assassino 1/1 com ameaça.",
    "porque": "Cada conexão vira mais um Assassino com ameaça, que também liga o freerunning. Potencial do edh.wiki (+54%).",
    "papel": "recompensa",
-   "papel_por_que": "Cada conexão de criatura que não é ficha cria um Assassino com ameaça."
+   "papel_por_que": "Cada conexão de criatura que não é ficha cria um Assassino com ameaça.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Recompensa o conectar: cada jogador atingido por criatura não ficha rende um Assassino com ameaça.",
+    "I": "Um corpo por conexão, turno após turno; encantamento, mais difícil de tirar.",
+    "T": "Três manas; não é Assassino, não sai por {B}{B}.",
+    "Q": "Paridade e na frente; no início, com o Ezio já conectando.",
+    "R": "A Queen Marchesa e a Origin of the Hidden Ones criam Assassinos, mas não a cada conexão."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Rogue's Passage": {
    "notas": {
@@ -3999,13 +4479,32 @@
    "sin_por_que": {
     "sin2": "Imbloqueável para qualquer criatura, mas pagando {4} por vez."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: {C}; {4}, vira: uma criatura não pode ser bloqueada no turno.",
    "porque": "Garante a conexão do Ezio na hora da execução, na vaga de terreno. Não dá cor, num deck que precisa das cinco. Potencial do edh.wiki (+46%).",
    "papel": "habilita",
-   "papel_por_que": "Terreno que deixa uma criatura imbloqueável por {4}."
+   "papel_por_que": "Terreno que deixa uma criatura imbloqueável por {4}.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Terreno utilitário do conectar: uma criatura imbloqueável no turno.",
+    "I": "Uma criatura, um turno, a cada uso.",
+    "T": "{4} por uso, e só gera incolor num deck de cinco cores.",
+    "Q": "Só no fim: no turno da execução, as quatro manas disputam com o {W}{U}{B}{R}{G}.",
+    "R": "A Brotherhood Regalia faz o mesmo no Ezio por {1}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.3
   },
   "Plaza of Heroes": {
    "notas": {
@@ -4013,25 +4512,63 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Terreno. Gera {C}; ou uma mana de qualquer cor, só para mágica lendária; ou uma mana de qualquer cor entre as cores das permanentes lendárias que você controla. Por {3}, virando e exilando-o: uma criatura lendária alvo ganha resistência a magia e indestrutível até o fim do turno.",
    "porque": "O deck tem mais de trinta lendárias: a mana para elas é de qualquer cor, e a terceira habilidade paga o WUBRG da execução com as cores das lendárias em campo, sem restrição. Ainda salva o Ezio uma vez. Entra desvirado, no lugar do Crystal Grotto, que cobra {1} por cor.",
    "sai": "Crystal Grotto",
    "papel_dupla": "Proteção (uma vez)",
-   "papel_por_que": "Terreno que fixa as cores das lendárias e salva o Ezio uma vez."
+   "papel_por_que": "Terreno que fixa as cores das lendárias e salva o Ezio uma vez.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor para mágica lendária, e a lista tem mais de trinta; o resto vem das cores das lendárias em campo.",
+    "I": "Mana por turno e, uma vez, resistência a magia e indestrutível no Ezio, exilando o terreno.",
+    "T": "Entra desvirado; para o {W}{U}{B}{R}{G} só dá a cor de lendária que já está em campo, e o Ezio é preto.",
+    "Q": "Viva em todo momento do jogo.",
+    "R": "Melhor que o Crystal Grotto, que cobra {1} por cor; o Path of Ancestry dá as cinco sem condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Spire of Industry": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Terreno. Gera {C}; virando e pagando 1 de vida, gera uma mana de qualquer cor, só se você controla um artefato.",
    "porque": "Com os equipamentos e as históricas, você controla um artefato quase sempre: fonte das cinco cores desvirada para o WUBRG, por 1 de vida. Entra no lugar da Ash Barrens, que só busca um básico para a mão. Corte pelo critério do dono (13/11/2026): sai Abstergo Entertainment, porque Ash Barrens já é o corte de uma carta de letra mais alta.",
-   "sai": "Abstergo Entertainment"
+   "sai": "Abstergo Entertainment",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor com um artefato em campo, e a lista tem equipamentos e pedras para isso.",
+    "I": "Uma mana por turno.",
+    "T": "Entra desvirado, mas cobra 1 de vida e pede artefato.",
+    "Q": "Viva em todo momento, com artefato em campo.",
+    "R": "Melhor que o Abstergo Entertainment, que cobra {1}; o Path of Ancestry dá as cinco sem condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Talon Gates of Madara": {
    "notas": {
@@ -4039,14 +4576,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Portão. Ao entrar, até uma criatura alvo sai de fase. Gera {C}, ou uma mana de qualquer cor por {1}. Por {4}, você o põe da mão em campo, a qualquer momento.",
    "porque": "Proteção em resposta: por {4}, sai da mão e tira o Ezio de fase, salvando até do exílio; e dá qualquer cor por {1} para o WUBRG. Entra no lugar da Perilous Landscape, que busca básico virado e não traz preto. Está também na Giada. Corte pelo critério do dono (13/11/2026): sai Ominous Cemetery, porque Perilous Landscape é terreno que busca outro.",
    "sai": "Ominous Cemetery",
    "papel_dupla": "Proteção (sai de fase)",
-   "papel_por_que": "Terreno que tira o Ezio de fase em resposta a uma remoção."
+   "papel_por_que": "Terreno que tira o Ezio de fase em resposta a uma remoção.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno que protege o Ezio: por {4}, sai da mão e tira ele de fase em resposta.",
+    "I": "Salva o Ezio de remoção ou limpeza uma vez, e depois fica como terreno.",
+    "T": "Qualquer cor só pagando {1}, e a proteção custa {4}.",
+    "Q": "Viva em todo momento: terreno cedo, proteção guardada na mão depois.",
+    "R": "O Haystack tira de fase por {2} todo turno, mas ocupa vaga de mágica; aqui é terreno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Access Tunnel": {
    "notas": {
@@ -4058,14 +4614,33 @@
    "sin_por_que": {
     "sin2": "Imbloqueável repetível para outra criatura: o Ezio é 3/2 e cabe no limite de poder 3."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno. Gera {C}. Por {3}, virando: uma criatura alvo com poder 3 ou menos não pode ser bloqueada neste turno.",
    "porque": "A conexão do Ezio garantida por três manas, uma a menos que o Rogue's Passage do radar, e quase toda a tribo cabe no limite. Fica como avaliar porque é incolor num deck que precisa das cinco cores; no lugar da Tranquil Landscape, que não traz preto. Corte pelo critério do dono (13/11/2026): sai Path of Ancestry, porque Tranquil Landscape é terreno que busca outro.",
    "sai": "Path of Ancestry",
-   "papel_dupla": "Conexão",
-   "papel_por_que": "Terreno que deixa o Ezio imbloqueável no turno da execução."
+   "papel_por_que": "Por {3}, o Ezio passa imbloqueável no turno: garante a conexão que abre o freerunning e a execução.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Terreno utilitário do conectar: o Ezio, de poder 3, passa imbloqueável.",
+    "I": "Uma criatura, um turno, a cada uso.",
+    "T": "{3} por uso, e só gera incolor num deck de cinco cores.",
+    "Q": "Paridade e na frente; no turno da execução, as três manas disputam com o {W}{U}{B}{R}{G}.",
+    "R": "A Brotherhood Regalia faz o mesmo no Ezio por {1}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45,
+   "papel": "habilita"
   },
   "Winds of Abandon": {
    "notas": {
@@ -4080,7 +4655,26 @@
    "porque": "A limpeza unilateral que o deck de ataque pede: com sobrecarga, a mesa dos oponentes some e os Assassinos atacam no mesmo turno; sem sobrecarga, é remoção de duas manas. Pela régua do dono, o deck quer 3 a 4 limpezas e tem uma, que mata o Ezio. No lugar do Primal Command, cinco manas que não decidem. Está também na Giada. Corte pelo critério do dono (13/11/2026): sai Dead Weight, porque Primal Command já é o corte de uma carta de letra mais alta.",
    "sai": "Dead Weight",
    "papel_dupla": "Remoção em massa",
-   "papel_por_que": "Limpeza unilateral: só as criaturas dos oponentes saem."
+   "papel_por_que": "Limpeza unilateral: só as criaturas dos oponentes saem.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica; com sobrecarga, exila só as criaturas dos oponentes e a tribo ataca livre.",
+    "I": "A mesa dos oponentes some de uma vez, por exílio; não depende de ficar em campo.",
+    "T": "Duas manas num alvo, seis na sobrecarga, e dá terreno básico a quem perdeu criatura.",
+    "Q": "Remoção barata no início; limpeza atrás, na paridade e na frente.",
+    "R": "O deck quer três ou quatro limpezas e tem uma, o Supreme Verdict, que mata o Ezio."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Massacre Girl, Most Wanted": {
    "notas": {},
@@ -4092,13 +4686,34 @@
     "sin1": "Assassino que ganha o freerunning, sem efeito voltado aos outros Assassinos.",
     "sin2": "Tira vida de oponente de forma repetível, a cada morte sua."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "entra",
    "faz": "A cada outra criatura ou planeswalker seu que morre, 1 de dano num oponente e 1 de vida para você; ganha marcador +1/+1 quando oponente toma dano fora de combate.",
    "porque": "Assassina com freerunning que tira vida de oponente a cada morte; sai uma tier C.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Alexios, Deimos of Kosmos"
+   "sai": "Alexios, Deimos of Kosmos",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Assassina que tira vida rumo aos 10, mas por morte de criatura sua, e o deck não sacrifica nada.",
+    "I": "Um de dano num oponente só, quando uma criatura sua morre.",
+    "T": "Cinco manas, ou {B}{B} depois de conectar.",
+    "Q": "Só quando a sua mesa está morrendo, em trocas ou limpeza.",
+    "R": "O Arbaaz Mir tira 1 de cada oponente a cada histórica, por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45,
+   "papel": "habilita",
+   "papel_por_que": "Corpo de Assassino que sai por {B}{B} e tira 1 de um oponente a cada criatura sua que morre, rumo aos 10."
   },
   "Vraska, the Cutting Glare": {
    "notas": {},
@@ -4110,13 +4725,35 @@
     "sin1": "Assassino que ganha o freerunning {B}{B}, sem efeito voltado aos outros Assassinos.",
     "sin2": "Evasão só em si mesma: toque mortífero."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Toque mortífero; ao entrar, com seis terrenos ou mais, destrói uma permanente de oponente, que ganha um Tesouro.",
    "porque": "Assassina de 3 com toque mortífero e freerunning; sai uma tier C.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Sigurd, Jarl of Ravensthorpe"
+   "sai": "Sigurd, Jarl of Ravensthorpe",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica em corpo de Assassino com toque mortífero.",
+    "I": "Destrói uma permanente de oponente ao entrar, que ganha um Tesouro; só com seis terrenos.",
+    "T": "Três manas em preto e verde; antes do sexto terreno é só o corpo.",
+    "Q": "Paridade e na frente; cedo, só bloqueia.",
+    "R": "O deck tem 16 remoções, e o Assassin's Trophy já pega qualquer permanente por duas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.5,
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Corpo de Assassino com toque mortífero para conectar; com seis terrenos, destrói uma permanente ao entrar."
   },
   "Garruk, Curse Breaker": {
    "notas": {},
@@ -4126,13 +4763,35 @@
    "sin_por_que": {
     "sin2": "Evasão para o time: o −4 dá atropelar a todo atacante até o seu próximo turno."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Compra a cada criatura de poder 4 ou mais que entra; +2 desvira dois terrenos; −3 cria um Beast 4/4; −4 dá +2/+2 e atropelar aos atacantes até o seu turno.",
    "porque": "O −4 dá +2/+2 e atropelar aos atacantes até o seu turno; ajuda a conectar.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Primal Command"
+   "sai": "Primal Command",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "O −4 dá +2/+2 e atropelar aos atacantes: ajuda a conectar de passagem; a compra pede poder 4, e a tribo é pequena.",
+    "I": "Um turno de buff, ou uma Besta 4/4, ou dois terrenos desvirados.",
+    "T": "Cinco manas com {G}{G}; não é Assassino.",
+    "Q": "Paridade e na frente.",
+    "R": "O Arno Dorian dá +2/+0 à tribo em todo ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35,
+   "papel": "multiplica",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "O −4 dá +2/+2 e atropelar aos atacantes que já estão em campo; o +2 desvira dois terrenos."
   },
   "Chandra, Torch of Defiance": {
    "notas": {},
@@ -4142,13 +4801,35 @@
    "sin_por_que": {
     "sin2": "Tira vida de cada oponente de forma repetível: o +1 causa 2 de dano a cada oponente quando você não conjura a carta exilada."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "+1 exila o topo para conjurar ou dá 2 a cada oponente; +1 gera {R}{R} todo turno; −3 dá 4 de dano a uma criatura, repetível; −7 é o emblema de 5 por mágica.",
    "porque": "Dois de dano em cada oponente quando não conjura a carta exilada, rumo aos 10 da execução.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Become Anonymous"
+   "sai": "Become Anonymous",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O +1 dá 2 de dano a cada oponente, todo turno, rumo aos 10; o outro +1 gera {R}{R}.",
+    "I": "Dano, mana ou remoção a cada turno; precisa ficar, e a tribo pequena defende mal.",
+    "T": "Quatro manas com {R}{R}; não é Assassino.",
+    "Q": "Paridade e na frente; atrás, o −3 mata uma criatura.",
+    "R": "O Arbaaz Mir já pinga a mesa por duas manas; a mana extra, a lista não tem."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0,
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "O +1 dá 2 de dano a cada oponente por turno e leva a mesa aos 10 da execução."
   },
   "Ajani's Anguish": {
    "notas": {},
@@ -4158,13 +4839,35 @@
    "sin_por_que": {
     "sin2": "Evasão (atropelar) para o time (nível 2)."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Ao entrar, X de dano em qualquer alvo, uma vez; suas criaturas têm atropelar.",
    "porque": "Atropelar para o time por uma mana; sai uma tier C. Corte pelo critério do dono (13/11/2026): sai Hidden Footblade, porque Haystack já é o corte de uma carta de letra mais alta.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Hidden Footblade"
+   "sai": "Hidden Footblade",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Atropelar para o time ajuda a conectar só de passagem: os Assassinos têm pouca força para passar dano.",
+    "I": "X de dano uma vez e uma palavra-chave fraca na tribo.",
+    "T": "Custo flexível, a partir de uma mana.",
+    "Q": "Início, como remoção pequena, e paridade.",
+    "R": "A Shanid dá ameaça às lendárias e ainda compra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45,
+   "papel": "habilita",
+   "papel_dupla": "Remoção",
+   "papel_por_que": "Atropelar para o time ajuda os Assassinos a conectar; ao entrar, X de dano num alvo."
   },
   "Ingris Stingerquill": {
    "notas": {},
@@ -4205,13 +4908,32 @@
    "sin_por_que": {
     "sin2": "Vira e atordoa uma criatura de oponente: impede um bloqueio uma vez."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Modal ao entrar: investiga duas vezes, ou vira uma criatura de oponente com dois marcadores de atordoamento.",
    "porque": "Shapeshifter não é Assassino nem tem changeling: não ganha o freerunning. Vira e atordoa uma criatura de oponente: impede um bloqueio uma vez. Ganho de +18.0; disputa com Eivor, Wolf-Kissed (tier B). Corte pelo critério do dono (13/11/2026): sai Escape Detection, porque Eivor, Wolf-Kissed já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Escape Detection"
+   "sai": "Escape Detection",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Não é Assassino; vira um bloqueador com dois marcadores de atordoamento, ou investiga duas vezes.",
+    "I": "Um bloqueador fora por duas voltas, ou duas Pistas que ainda custam {2} cada.",
+    "T": "Cinco manas, sem freerunning.",
+    "Q": "Paridade e na frente.",
+    "R": "O Assassin Gauntlet vira todas as criaturas de um oponente por três manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.15
   },
   "Gul Dukat, Colonial Prefect": {
    "notas": {},
@@ -4236,13 +4958,35 @@
    "sin_por_que": {
     "sin2": "Tira 2 de vida de cada oponente em três turnos: repetível."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Em três capítulos, cada jogador compra uma e sofre 2 de dano.",
    "porque": "Tira 2 de vida de cada oponente em três turnos: repetível. Ganho de +15.5; disputa com Apple of Eden, Isu Relic (tier C). Corte pelo critério do dono (13/11/2026): sai Jackdaw, porque Apple of Eden, Isu Relic já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Jackdaw"
+   "sai": "Jackdaw",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Leva a mesa rumo aos 10, mas fere você também e dá carta a todos; não é Assassino.",
+    "I": "Em três capítulos, 6 de dano em cada jogador e três cartas para cada um.",
+    "T": "Três manas; é Saga, conta como histórica para o Arbaaz Mir.",
+    "Q": "Paridade e na frente; atrás, o dano em você pesa.",
+    "R": "O Arbaaz Mir tira 1 por histórica, sem ferir você; ninguém tira 2 de cada um por turno."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.85,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Dois de dano em cada jogador por capítulo levam a mesa rumo aos 10; cada um compra uma."
   },
   "Dominion Infiltration": {
    "notas": {},
@@ -4254,13 +4998,34 @@
     "sin1": "Pela régua, 2 é 'carta que não é Assassino mas ... cria Assassinos': as fichas com metamorfo são Assassinos e, conectando, abrem o freerunning do turno.",
     "sin2": "Pela régua, 1 é 'ímpeto' de passagem: as fichas atacam no turno em que entram."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de X: cria de uma vez X fichas que copiam criaturas de oponentes, com metamorfo e ímpeto, exiladas na próxima etapa final.",
    "porque": "As fichas com metamorfo são Assassinos com ímpeto e, conectando, abrem o freerunning do Ezio (2/1, valor 14 contra 2 da Apple of Eden); o risco é a mesa não ter criatura boa para copiar e o feitiço virar nada. (veredito da consulta do dono) Corte pelo critério do dono (13/11/2026): sai The Animus, porque Apple of Eden, Isu Relic já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "The Animus"
+   "sai": "The Animus",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "As cópias têm metamorfo e ímpeto: são Assassinos por um turno, e conectando abrem o freerunning.",
+    "I": "Vale o que a mesa tiver para copiar, e as fichas somem na etapa final.",
+    "T": "{R}{R}{R} mais X num deck de cinco cores.",
+    "Q": "Só com criatura boa na mesa dos oponentes.",
+    "R": "A Origin of the Hidden Ones cria Assassinos que ficam em campo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.2,
+   "papel": "habilita",
+   "papel_por_que": "As cópias com metamorfo e ímpeto são Assassinos por um turno: conectando, abrem o freerunning."
   },
   "Professional Face-Breaker": {
    "notas": {},
@@ -4276,7 +5041,29 @@
    "faz": "Ameaça; cria um Tesouro quando suas criaturas causam dano de combate a um jogador; sacrificando um Tesouro, exila o topo do grimório para jogar no turno.",
    "porque": "Rende ficha (Tesouro) a cada conexão das suas criaturas, como o Coastal Piracy: nível 2. Ganho de +23.0; disputa com Ezio, Brash Novice (tier C).",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Ezio, Brash Novice"
+   "sai": "Ezio, Brash Novice",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Recompensa o conectar com Tesouro, a mana de qualquer cor que falta para o {W}{U}{B}{R}{G}.",
+    "I": "Um Tesouro por jogador atingido, que vira mana ou carta do topo; precisa ficar em campo.",
+    "T": "Três manas; não é Assassino, não sai por {B}{B}.",
+    "Q": "Paridade e na frente; no início, com o Ezio já conectando.",
+    "R": "A lista não tem nenhuma fonte de Tesouro e só duas pedras."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2,
+   "papel": "recompensa",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Cada jogador atingido em combate rende um Tesouro, mana de qualquer cor para o {W}{U}{B}{R}{G}."
   },
   "Herald's Horn": {
    "notas": {},
@@ -4286,13 +5073,35 @@
    "sin_por_que": {
     "sin1": "Não é Assassino, mas recompensa os Assassinos pelo tipo escolhido (desconto e carta), como o Metallic Mimic."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Criaturas do tipo escolhido custam 1 a menos; na manutenção, se o topo for desse tipo, vai para a mão.",
    "porque": "Não é Assassino, mas recompensa os Assassinos pelo tipo escolhido (desconto e carta), como o Metallic Mimic. Ganho de +18.5; disputa com Apple of Eden, Isu Relic (tier C).",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Apple of Eden, Isu Relic"
+   "sai": "Apple of Eden, Isu Relic",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Nomeando Assassino, barateia em {1}; no freerunning {B}{B} não há genérico para descontar.",
+    "I": "Um desconto pequeno e, às vezes, o Assassino do topo na manutenção.",
+    "T": "Três manas.",
+    "Q": "Início e paridade.",
+    "R": "A Crystal Skull joga históricas do topo e ainda gera mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.3,
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Nomeando Assassino, barateia a tribo em {1} e põe na mão o Assassino do topo."
   },
   "Alexander, Ship's Fool": {
    "notas": {},
@@ -4302,13 +5111,35 @@
    "sin_por_que": {
     "sin2": "Tira vida de oponente de forma repetível, com ímpeto (nível 2)."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Compra todo turno, mas todos compram; dano repetível num oponente ao acaso; vigilância e ímpeto.",
    "porque": "Tira vida de oponente de forma repetível, com ímpeto (nível 2). Ganho de +14.0; disputa com Eivor, Wolf-Kissed (tier B). Corte pelo critério do dono (13/11/2026): sai Mjölnir, Storm Hammer, porque Eivor, Wolf-Kissed já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Mjölnir, Storm Hammer"
+   "sai": "Mjölnir, Storm Hammer",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Tira vida de um oponente ao acaso: você não escolhe quem chega aos 10; não é Assassino.",
+    "I": "Dano que varia com os topos revelados, e todos compram uma.",
+    "T": "Cinco manas em vermelho e branco, sem freerunning.",
+    "Q": "Paridade e na frente.",
+    "R": "O Arbaaz Mir fere cada oponente por duas manas; o Mjölnir fere quem você ataca."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.35,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Virando, fere um oponente ao acaso todo turno, rumo aos 10; todos compram uma."
   },
   "Tom Paris, Risk-Taker": {
    "notas": {},
@@ -4318,13 +5149,37 @@
    "sin_por_que": {
     "sin2": "Evasão (voar) para o time, no turno."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Na segunda compra do turno, suas criaturas ganham voar, golpe duplo, vigilância e ímpeto até o fim do turno: condicional e por um turno.",
    "porque": "Evasão (voar) para o time, no turno. Ganho de +14.0; disputa com Eivor, Wolf-Kissed (tier B). Corte pelo critério do dono (13/11/2026): sai Towering Viewpoint, porque Eivor, Wolf-Kissed já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Towering Viewpoint"
+   "sai": "Towering Viewpoint",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 0,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Voar e golpe duplo para o time só na segunda compra do turno, e a compra do deck vem depois do dano de combate.",
+    "I": "Um turno forte quando liga; fora disso, um corpo sem texto.",
+    "T": "Seis manas em azul e vermelho, sem freerunning.",
+    "Q": "Só na frente, com compra extra antes do combate.",
+    "R": "O Bayek of Siwa dá golpe duplo às lendárias sem pedir compra."
+   },
+   "antissinergia": "nenhuma",
+   "travas": [
+    "dependência ausente"
+   ],
+   "confianca": "média",
+   "indice": 1.05,
+   "papel": "multiplica",
+   "papel_por_que": "Na segunda compra do turno, dá voar e golpe duplo aos atacantes que já estão em campo."
   },
   "Door of Destinies": {
    "notas": {},
@@ -4334,13 +5189,34 @@
    "sin_por_que": {
     "sin1": "Carta que não é Assassino mas recompensa os Assassinos, como o Metallic Mimic: nível 2."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Cada mágica do tipo escolhido que você conjura põe um marcador nela, e as suas criaturas desse tipo ganham +1/+1 por marcador: lorde que cresce sem limite.",
    "porque": "Carta que não é Assassino mas recompensa os Assassinos, como o Metallic Mimic: nível 2. Ganho de +12.5; disputa com Apple of Eden, Isu Relic (tier C). Corte pelo critério do dono (13/11/2026): sai Hidden Blade, porque Apple of Eden, Isu Relic já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Hidden Blade"
+   "sai": "Hidden Blade",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Nomeando Assassino, cada Assassino conjurado depois engorda a tribo inteira.",
+    "I": "Entra sem marcador: não muda nada no turno em que desce.",
+    "T": "Quatro manas por um artefato que começa vazio.",
+    "Q": "Só com Assassinos ainda na mão para conjurar.",
+    "R": "O Arno Dorian dá +2/+0 ao atacar já no turno em que entra; o Metallic Mimic só marca os que chegam depois."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.5,
+   "papel": "multiplica",
+   "papel_por_que": "Nomeando Assassino, cada Assassino conjurado dá +1/+1 à tribo inteira: lord que cresce."
   },
   "Cryptic Command": {
    "notas": {},
@@ -4350,13 +5226,35 @@
    "sin_por_que": {
     "sin2": "Vira os bloqueadores dos oponentes, como o Assassin Gauntlet."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Dois modos: anula, devolve uma permanente à mão, vira as criaturas dos oponentes ou compra uma.",
    "porque": "Vira os bloqueadores dos oponentes, como o Assassin Gauntlet. Ganho de +12.0; disputa com Apple of Eden, Isu Relic (tier C). Corte pelo critério do dono (13/11/2026): sai Haystack, porque Apple of Eden, Isu Relic já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Haystack"
+   "sai": "Haystack",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mágica genérica; um dos modos vira as criaturas dos oponentes e abre o ataque.",
+    "I": "Dois modos de quatro: anula, devolve, vira os bloqueadores ou compra.",
+    "T": "{U}{U}{U} num deck de cinco cores com pouca mana fixa.",
+    "Q": "Viva em todo momento: anula atrás, vira bloqueadores na frente.",
+    "R": "A lista não tem nenhuma anulação; para virar bloqueadores, já há o Assassin Gauntlet."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.7,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Vira as criaturas dos oponentes e abre o caminho para o Ezio conectar; o outro modo compra ou anula."
   },
   "Duelist's Heritage": {
    "notas": {},
@@ -4366,13 +5264,34 @@
    "sin_por_que": {
     "sin2": "Golpe duplo no Ezio a cada ataque dele, como o Bayek of Siwa."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Sempre que criaturas atacam, uma atacante ganha golpe duplo até o fim do turno, em qualquer combate.",
    "porque": "Golpe duplo no Ezio a cada ataque dele, como o Bayek of Siwa. Ganho de +11.0; disputa com Apple of Eden, Isu Relic (tier C). Corte pelo critério do dono (13/11/2026): sai Metallic Mimic, porque Apple of Eden, Isu Relic já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Metallic Mimic"
+   "sai": "Metallic Mimic",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Golpe duplo no Ezio em todo ataque: duas conexões e duas chances de execução no combate.",
+    "I": "Dobra o dano de um atacante por turno; o Ezio ainda precisa passar pelo bloqueio.",
+    "T": "Três manas; não é Assassino, não sai por {B}{B}.",
+    "Q": "Paridade e na frente; atrás, serve no ataque de um aliado da vez.",
+    "R": "O Bayek of Siwa dá golpe duplo a quase toda a tribo, não a um atacante só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0,
+   "papel": "multiplica",
+   "papel_por_que": "Golpe duplo no Ezio em todo ataque: dobra a conexão e a chance de execução."
   },
   "Concerted Effort": {
    "notas": {},
@@ -4382,13 +5301,34 @@
    "sin_por_que": {
     "sin2": "Evasão para o time, como o Shanid, se uma criatura sua já tiver."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Em cada manutenção, o time ganha voar, atropelar, golpe duplo, proteção e outras se uma criatura sua tiver: condicional.",
    "porque": "Evasão para o time, como o Shanid, se uma criatura sua já tiver. Ganho de +10.5; disputa com Apple of Eden, Isu Relic (tier C). Corte pelo critério do dono (13/11/2026): sai Adrestia, porque Apple of Eden, Isu Relic já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Adrestia"
+   "sai": "Adrestia",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Espalha voar, atropelar ou golpe duplo se uma criatura sua já tiver; ameaça, a evasão do Ezio, não entra na lista.",
+    "I": "Depende de quem está em campo na manutenção; sem a criatura certa, não faz nada.",
+    "T": "Quatro manas com {W}{W}.",
+    "Q": "Só na frente, com a criatura certa em campo.",
+    "R": "A Shanid dá ameaça às lendárias sem condição e ainda compra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.0,
+   "papel": "multiplica",
+   "papel_por_que": "Espalha para o time o voar, o atropelar ou o golpe duplo que uma criatura sua já tem."
   },
   "Niv-Mizzet, Ghost Counsel": {
    "notas": {},
@@ -4398,13 +5338,35 @@
    "sin_por_que": {
     "sin2": "Tira vida de cada oponente de forma repetível, virando, como o Arbaaz Mir."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Voa; cada ganho de vida pode virar compra de igual número de cartas; virando, cada oponente perde 1 e você ganha 1, o que já compra uma por turno.",
    "porque": "Tira vida de cada oponente de forma repetível, virando, como o Arbaaz Mir. Ganho de +26.0; disputa com Eivor, Wolf-Kissed (tier B).",
    "origem": "coleção FRC (2026-11-09)",
-   "sai": "Eivor, Wolf-Kissed"
+   "sai": "Eivor, Wolf-Kissed",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Virando, tira 1 de cada oponente por turno, rumo aos 10; não é Assassino.",
+    "I": "Um de vida de cada oponente e uma carta por turno; precisa ficar em campo.",
+    "T": "Seis manas com {W}{W}{B}{B}, sem freerunning.",
+    "Q": "Paridade e na frente.",
+    "R": "O Arbaaz Mir pinga cada oponente por duas manas, várias vezes por turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Virando, tira 1 de cada oponente por turno, rumo aos 10, e a vida ganha vira carta."
   },
   "Serra's Emissary": {
    "notas": {},
@@ -4414,13 +5376,34 @@
    "sin_por_que": {
     "sin2": "Escolhendo criatura, o Ezio e o time não podem ser bloqueados por criaturas: garante a conexão todo turno, como imbloqueável no Ezio."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Voa; você e o time ganham proteção do tipo de carta escolhido.",
    "porque": "Escolhendo criatura, o Ezio e o time não podem ser bloqueados por criaturas: garante a conexão todo turno, como imbloqueável no Ezio. Ganho de +18.5; disputa com Eivor, Wolf-Kissed (tier B). Corte pelo critério do dono (13/11/2026): sai Bleeding Effect, porque Eivor, Wolf-Kissed já é o corte de uma carta de letra mais alta.",
    "origem": "coleção FRC (2026-11-09)",
-   "sai": "Bleeding Effect"
+   "sai": "Bleeding Effect",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 0,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Escolhendo criatura, o Ezio e o time têm proteção contra criaturas: ninguém bloqueia, e a conexão é do time todo.",
+    "I": "A mesa dos oponentes deixa de bloquear e de ferir você em combate.",
+    "T": "Sete manas com {W}{W}{W} num deck de duas pedras, sem freerunning.",
+    "Q": "Na frente, fecha; atrás, segura os ataques.",
+    "R": "A Brotherhood Regalia garante só o Ezio; nada na lista deixa o time inteiro passar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.9,
+   "papel": "habilita",
+   "papel_por_que": "Escolhendo criatura, o Ezio e o time não podem ser bloqueados: garante a conexão."
   },
   "Archfiend of Despair": {
    "notas": {},
@@ -4445,13 +5428,35 @@
    "sin_por_que": {
     "sin2": "Sombra em si, quase imbloqueável, e compra a cada conexão das criaturas com sombra: rende carta a cada conexão."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Sombra em si e, por {3}, marcador de sombra permanente em outra criatura; compra a cada conexão de criatura com sombra.",
    "porque": "Sombra em si, quase imbloqueável, e compra a cada conexão das criaturas com sombra: rende carta a cada conexão. Ganho de +21.5; disputa com Ezio, Brash Novice (tier C). Corte pelo critério do dono (13/11/2026): sai Hemlock Vial, porque Ezio, Brash Novice já é o corte de uma carta de letra mais alta.",
    "origem": "coleção MBC (2026-11-09)",
-   "sai": "Hemlock Vial"
+   "sai": "Hemlock Vial",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Por {3}, o Ezio ganha um marcador de sombra que fica: só criatura com sombra bloqueia, e cada conexão dele compra.",
+    "I": "Conexão quase certa e uma carta por conexão; o marcador fica mesmo se ela morrer.",
+    "T": "Três manas em três cores e mais {3} por marcador; não é Assassino.",
+    "Q": "Paridade e na frente; no início, ela mesma conecta com sombra.",
+    "R": "A Brotherhood Regalia já deixa o Ezio imbloqueável por {1}; aqui vem a compra junto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0,
+   "papel": "habilita",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Por {3}, põe sombra no Ezio para ele conectar todo turno; cada conexão com sombra compra."
   }
  },
  "combos": [
@@ -4694,7 +5699,7 @@
     "por_que": "Converte a conexão em freerunning e, com o jogador em 10, em execução: o deck precisa de muitos Assassinos que conectem e de evasão."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
