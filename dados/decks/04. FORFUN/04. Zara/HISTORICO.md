@@ -39,3 +39,4 @@
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 14 cartas do radar com corte novo.
 - 13/11/2026: sem corte forçado (decisão do dono): Volcanic Island fica sem corte, como avaliar, até abrir vaga de terreno.
 - 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/zara-renegade-recruiter/theft.json): 25 cartas de sinergia +10 ou mais, 12 novas (as maiores: Unsummon (+27), Phantom Steed (+23), Corsair Captain (+22)); 3 saíram da lista. Nada foi ao radar.
+- 17/11/2026: 8x8 (ok do dono): Motor da Zara reforçado. Sundial of the Infinite (sai Essence Capture), Thassa, Deep-Dwelling (sai Order of Succession), Wizard's Staff (sai Smoke) e Silent Hallcreeper, da Caixa, como avaliar (sai Negate). Goblin Bombardment passa a tirar Mana Leak. Os cortes saem de Roubo e Counter; Cópia e Fechamento ficam.
