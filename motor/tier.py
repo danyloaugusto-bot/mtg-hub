@@ -8,6 +8,8 @@ pelo portão do S (régua em motor/tier.json).
   python motor/tier.py --deck "03. Valgavoth"                      # a tier list do deck, com o índice de cada carta
   python motor/tier.py --deck "03. Valgavoth" --conferir <arq.json>  # calcula as letras do arquivo, sem gravar
   python motor/tier.py --deck "03. Valgavoth" --gravar <arq.json>    # grava no avaliacao.json (só com o "pode" do dono)
+  python motor/tier.py --deck "03. Valgavoth" --radar-conferir <arq.json>  # o mesmo para cartas do radar (sem gravar)
+  python motor/tier.py --deck "03. Valgavoth" --radar-gravar <arq.json>    # grava a tier list do radar (só com o "pode")
 
 Formato do arquivo: {"conta": "...", "decisoes": ["..."], "estimacao": ["Carta"], "cartas": {carta: {"funcao", "lentes":
 {"E","I","T","Q","R"}, "lentes_por_que": {...}, "antissinergia", "travas": [...], "substituto", "confianca",
@@ -200,6 +202,64 @@ def aplicar(pasta, arquivo, gravar, avisar=print):
         avisar("conferido: %s; nada gravado" % pasta)
 
 
+def aplicar_radar(pasta, arquivo, gravar, avisar=print):
+    """A tier list das cartas do radar (pedido do dono, 15/11/2026): as mesmas lentes, a letra sai da régua com os pesos do
+    grupo deste deck. Só grava lentes, letra e índice; veredito e corte não mudam aqui. Mostra, para cada carta, a letra e o
+    índice da que sai: pela regra do radar, carta nova só entra se a letra e o índice dela forem maiores que os da que sai."""
+    caminho, av, recuo, fim = _ler_deck(pasta)
+    with open(arquivo, encoding="utf-8") as f:
+        novo = json.load(f)
+    grupo = grupo_de(os.path.dirname(caminho), av)
+    radar, cartas = av.get("radar") or {}, av["cartas"]
+    fora = sorted(set(novo["cartas"]) - set(radar))
+    if fora:
+        raise SystemExit("nada gravado: fora do radar deste deck: %s" % fora)
+    erros, linhas, antes, depois = [], [], collections.Counter(), collections.Counter()
+    for n, x in novo["cartas"].items():
+        c = radar[n]
+        antes[c.get("tier")] += 1
+        c.setdefault("tier_anterior", c.get("tier"))
+        for k in ("funcao", "lentes", "lentes_por_que"):
+            c[k] = x.get(k)
+        c["antissinergia"] = x.get("antissinergia") or "nenhuma"
+        for k in ("travas", "substituto", "confianca", "argumentos_s"):
+            if x.get(k):
+                c[k] = x[k]
+            else:
+                c.pop(k, None)
+        try:
+            c["indice"], c["tier"], _ = letra(c, grupo)
+        except Exception:   # lente faltando ou trava fora da régua: o conferir diz qual
+            c["tier"] = None
+        if c["tier"] != "S":
+            c.pop("argumentos_s", None)
+        e = conferir(c, n + " (radar)", grupo)
+        if e:
+            erros.append(e)
+            continue
+        depois[c["tier"]] += 1
+        s = cartas.get(c.get("sai") or "") or {}
+        aviso = ""
+        if c.get("veredito") == "entra" and s.get("lentes"):
+            si, sl, _ = letra(s, grupo)
+            if ORDEM.index(c["tier"]) > ORDEM.index(sl) or c["indice"] <= si:
+                aviso = "  << não supera a que sai (%s %s)" % (sl, ("%.2f" % si).replace(".", ","))
+        linhas.append("%s %s %-8s %-34s %s -> %s, sai %s%s" % (c["tier"], ("%.2f" % c["indice"]).replace(".", ","), c.get("veredito") or "", n,
+                                                          c["tier_anterior"], c["tier"], c.get("sai") or "-", aviso))
+    if erros:
+        raise SystemExit("nada gravado:\n  " + "\n  ".join(erros))
+    for l in sorted(linhas):
+        avisar(l)
+    avisar("antes : " + "  ".join("%s %d" % (k, antes[k]) for k in ORDEM))
+    avisar("depois: " + "  ".join("%s %d" % (k, depois[k]) for k in ORDEM))
+    if gravar:
+        with open(caminho, "w", encoding="utf-8", newline="\n") as f:
+            f.write(json.dumps(av, ensure_ascii=False, indent=recuo) + ("\n" if fim else ""))
+        avisar("gravado: radar de " + pasta)
+    else:
+        avisar("conferido: radar de %s; nada gravado" % pasta)
+
+
 def mostrar(pasta, avisar=print):
     caminho, av, _, _ = _ler_deck(pasta)
     grupo = grupo_de(os.path.dirname(caminho), av)
@@ -227,6 +287,8 @@ def main():
             return mostrar(a[1])
         if len(a) == 4 and a[2] in ("--conferir", "--gravar"):
             return aplicar(a[1], a[3], a[2] == "--gravar")
+        if len(a) == 4 and a[2] in ("--radar-conferir", "--radar-gravar"):
+            return aplicar_radar(a[1], a[3], a[2] == "--radar-gravar")
     raise SystemExit(__doc__)
 
 
