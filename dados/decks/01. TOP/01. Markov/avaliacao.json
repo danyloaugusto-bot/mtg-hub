@@ -3872,14 +3872,33 @@
     "sin1": "Vampiro: dispara a eminência, mas não tem efeito próprio voltado aos outros Vampiros.",
     "sin2": "Rende no ataque da horda, mas sem marcador: de passagem."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "veredito": "entra",
    "sai": "Vito, Fanatic of Aclazotz",
    "faz": "3/4. Sempre que um Vampiro seu ataca, cada oponente perde 1 de vida e você ganha 1.",
    "porque": "Transforma cada atacante em dano mesmo bloqueado: a horda passa a fechar a mesa inteira, não um jogador. Com Isshin, o dobro.",
    "papel": "recompensa",
-   "papel_por_que": "Cada Vampiro que ataca drena 1: a horda da eminência vira dano."
+   "papel_por_que": "Cada Vampiro que ataca drena 1: a horda da eminência vira dano.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que cobra 1 de cada oponente por Vampiro atacante: junta a investida e o dreno da conta.",
+    "I": "Com oito atacantes, 8 em cada oponente mesmo bloqueado; precisa da horda de pé e some se ele morrer.",
+    "T": "Quatro manas, com {B}{B}; rende no turno em que desce, se a horda já está em campo.",
+    "Q": "Paridade e na frente, drenando por cima do bloqueio; atrás, o ganho de vida segura a corrida.",
+    "R": "Nenhuma carta da lista drena por atacante: Blood Artist e Cruel Celebrant só cobram na morte."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Indulgent Aristocrat": {
    "notas": {
@@ -3902,7 +3921,26 @@
    "faz": "1/1 com vínculo. Por {2}, sacrificando uma criatura: põe um marcador +1/+1 em cada Vampiro seu.",
    "porque": "Vampiro de 1 que transforma qualquer ficha em +1/+1 para a tribo inteira, e é saída de sacrifício para o Skullclamp.",
    "papel": "multiplica",
-   "papel_por_que": "Sacrifica uma criatura para pôr marcador em todos os seus Vampiros."
+   "papel_por_que": "Sacrifica uma criatura para pôr marcador em todos os seus Vampiros.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 1 que dispara a eminência no turno 1 e coroa todos os Vampiros a cada ficha sacrificada.",
+    "I": "Um 1/1 com vínculo; cada marcador cobra {2} e um corpo.",
+    "T": "Uma mana; a habilidade custa {2} por vez.",
+    "Q": "Turno 1 para a eminência, ralo de mana na paridade e na frente, e saída de sacrifício em resposta à limpeza.",
+    "R": "O Cordial Vampire coroa de graça a cada morte; a Yahenni já é saída de sacrifício grátis para a Skullclamp."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.35
   },
   "Emeritus of Woe": {
    "notas": {
@@ -3916,7 +3954,7 @@
    "sin_por_que": {
     "sin1": "Vampiro: dispara a eminência, mas não tem efeito próprio voltado aos outros Vampiros."
    },
-   "tier": "S",
+   "tier": "A",
    "rel": "INS",
    "veredito": "entra",
    "sai": "Olivia, Crimson Bride",
@@ -3924,7 +3962,26 @@
    "porque": "Tutor em criatura, como você liberou: busca Skullclamp, Shared Animosity ou o combo. A cópia é feitiço e não dispara a eminência; o Emeritus dispara.",
    "papel": "habilita",
    "papel_dupla": "Tutor",
-   "papel_por_que": "Vampiro que dispara a eminência e busca qualquer carta."
+   "papel_por_que": "Vampiro que dispara a eminência e busca qualquer carta.",
+   "tier_anterior": "S",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que dispara a eminência e traz o tutor em criatura, como a decisão do deck pede.",
+    "I": "Tutor sem restrição: vale a carta que busca (Skullclamp, Shared Animosity, uma peça do laço do Vito).",
+    "T": "Quatro manas pelo 5/4 e mais {1}{B} pela cópia do Demonic Tutor: seis no total.",
+    "Q": "Viva sempre: busca o motor cedo, a limpeza atrás e o fechamento na frente.",
+    "R": "A lista não tem nenhum tutor hoje."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.35
   },
   "Bloodletter of Aclazotz": {
    "notas": {
@@ -3938,14 +3995,33 @@
    "sin_por_que": {
     "sin1": "Vampiro: dispara a eminência, mas não tem efeito próprio voltado aos outros Vampiros."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Carmen, Cruel Skymarcher",
    "faz": "2/4 voador. Durante o seu turno, se um oponente perderia vida, perde o dobro.",
    "porque": "Dobra o combate e os drenos no seu turno; com o Sanctum Seeker, cada atacante tira 2 de cada oponente.",
    "papel": "multiplica",
-   "papel_por_que": "No seu turno, a perda de vida dos oponentes dobra: dano da horda e drenos."
+   "papel_por_que": "No seu turno, a perda de vida dos oponentes dobra: dano da horda e drenos.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que dobra, no seu turno, o dano da horda e os drenos do Blood Artist e do Cruel Celebrant.",
+    "I": "Dobra a vida perdida no ataque; sem a horda em campo, é só um 2/4 voador.",
+    "T": "Quatro manas, com {B}{B}{B} numa base de três cores sem pedras.",
+    "Q": "Paridade e na frente; atrás, só bloqueia.",
+    "R": "Shared Animosity e Akroma's Will já fecham; nenhuma carta da lista dobra a perda de vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Isshin, Two Heavens as One": {
    "notas": {
@@ -3958,14 +4034,33 @@
    "sin_por_que": {
     "sin2": "Dobra o gatilho de ataque do Edgar: multiplica a coroação."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "March of the Canonized",
    "faz": "3/4. Se uma criatura atacando dispara uma habilidade de permanente sua, ela dispara uma vez a mais.",
    "porque": "Dobra os marcadores do Edgar, o Sanctum Seeker, a Shared Animosity, o Preacher e o Clavileño. É Humano: morre para o seu Olivia's Wrath.",
    "papel": "multiplica",
-   "papel_por_que": "Gatilhos de ataque disparam uma vez a mais, como o do Edgar e o do Mavren."
+   "papel_por_que": "Gatilhos de ataque disparam uma vez a mais, como o do Edgar e o do Mavren.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dobra a coroação do ataque do Edgar, mas é Humano: não dispara a eminência nem ganha o buff dos lords.",
+    "I": "Nada na entrada; dobra os gatilhos de ataque do Edgar, da Shared Animosity, do Preacher e do Clavileño enquanto ficar.",
+    "T": "Três manas, uma de cada cor, numa base sem pedras.",
+    "Q": "Paridade e na frente, com o Edgar ou a Animosity em campo.",
+    "R": "O Roaming Throne já dobra os gatilhos da tribo, inclusive a eminência, e conta como Vampiro."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Stensian Sanguinist": {
    "notas": {
@@ -3979,14 +4074,33 @@
    "sin_por_que": {
     "sin1": "Vampiro: dispara a eminência, mas não tem efeito próprio voltado aos outros Vampiros."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Gifted Aetherborn",
    "faz": "2/2. Sempre que você ataca, uma criatura ganha toque mortífero; se ela causar dano de combate a um jogador, ele fica preparado: cópia de Exsanguinate (cada oponente perde X, você ganha o total).",
    "porque": "Vampiro de 2 que vira um Exsanguinate em cada turno em que a horda conecta.",
    "papel": "recompensa",
-   "papel_por_que": "O ataque que conecta vira um Exsanguinate escalado pela mana."
+   "papel_por_que": "O ataque que conecta vira um Exsanguinate escalado pela mana.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 2 que dispara a eminência e vira dreno na mesa inteira quando a horda conecta.",
+    "I": "Cópia de Exsanguinate em cada turno em que a criatura marcada causa dano a um jogador; precisa ficar em campo.",
+    "T": "Duas manas pelo corpo; a cópia cobra {X}{B}{B}, num deck de 32 terrenos sem pedras.",
+    "Q": "Início como Vampiro de 2; paridade e na frente como ralo de mana que atinge os três oponentes.",
+    "R": "Fora do combate, a lista só fecha pelo laço do Vito; Blood Artist e Cruel Celebrant cobram 1 por morte."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Crippling Fear": {
    "notas": {
@@ -3998,13 +4112,32 @@
    "sin_por_que": {
     "sin1": "Escolhe Vampiro: poupa a horda por tipo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "sai": "Anguished Unmaking",
    "faz": "Feitiço: escolha um tipo de criatura; as criaturas que não são desse tipo ganham −3/−3 até o fim do turno.",
    "porque": "Escolha Vampiro: só as criaturas deles levam −3/−3, e o Isshin, 3/4, sobrevive. Complementa o Toxic Deluge, que fica como reset geral. Corte pelo critério do dono (13/11/2026): sai Anguished Unmaking, porque Kindred Charge já é o corte de uma carta de letra mais alta.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Escolhendo Vampiro, a horda inteira fica de pé e ataca em seguida.",
+    "I": "Limpa só as criaturas pequenas deles: −3/−3 fixo deixa as grandes.",
+    "T": "Quatro manas, e unilateral.",
+    "Q": "Paridade, na frente e atrás: não depende do tamanho da horda.",
+    "R": "A lista já tem quatro limpezas, a cota do deck, e a Olivia's Wrath cresce com a horda."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Blood Crypt": {
    "notas": {
@@ -4017,7 +4150,26 @@
    "veredito": "entra",
    "sai": "Temple of the False God",
    "faz": "Terreno (Swamp Mountain): gera {B} ou {R}; entra virado, a menos que você pague 2 de vida.",
-   "porque": "B/R desvirada e alvo das buscas do Arid Mesa e do Fabled Passage."
+   "porque": "B/R desvirada e alvo das buscas do Arid Mesa e do Fabled Passage.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Preto e vermelho, duas das três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada por 2 de vida, desde o turno 1.",
+    "Q": "Viva sempre.",
+    "R": "Tem os tipos Swamp e Mountain: liga o Dragonskull Summit e é alvo da Arid Mesa; a Luxury Suite é o par."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Godless Shrine": {
    "notas": {
@@ -4030,7 +4182,26 @@
    "veredito": "entra",
    "sai": "Valgavoth's Lair",
    "faz": "Terreno (Plains Swamp): gera {W} ou {B}; entra virado, a menos que você pague 2 de vida.",
-   "porque": "W/B desvirada, o par que a lista mais pede."
+   "porque": "W/B desvirada, o par que a lista mais pede.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Branco e preto, o par mais pedido da lista.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirada por 2 de vida, desde o turno 1.",
+    "Q": "Viva sempre.",
+    "R": "A lista não tem terreno duplo de branco e preto desvirado sem condição; é alvo da Arid Mesa pelo tipo Plains."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "Three Tree City": {
    "notas": {
@@ -4042,12 +4213,31 @@
    "sin_por_que": {
     "sin1": "Rende pela contagem de Vampiros."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "sai": "Crystal Grotto",
    "faz": "Terreno lendário: escolha um tipo; gera {C}. Por {2}, vire: gera de uma cor tantas manas quanto criaturas suas do tipo.",
-   "porque": "Sem pedras, é a aceleração que cabe no deck: com dez Vampiros, {2} vira dez manas de uma cor. Corte pelo critério do dono (13/11/2026): sai Crystal Grotto, porque Shattered Landscape é terreno que busca outro."
+   "porque": "Sem pedras, é a aceleração que cabe no deck: com dez Vampiros, {2} vira dez manas de uma cor. Corte pelo critério do dono (13/11/2026): sai Crystal Grotto, porque Shattered Landscape é terreno que busca outro.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Terreno utilitário: a horda de Vampiros vira mana de uma cor, a aceleração que cabe num deck sem pedras.",
+    "I": "Com seis Vampiros, {2} viram seis manas: paga o Edgar e mais um Vampiro no mesmo turno.",
+    "T": "Desvirado, mas sozinho só gera incolor; a habilidade cobra {2} e pede três Vampiros para dar lucro.",
+    "Q": "Paridade e na frente rende muito; no início e depois de uma limpeza é um terreno incolor.",
+    "R": "A lista não tem nenhuma aceleração de mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Scheming Silvertongue": {
    "notas": {
@@ -4070,7 +4260,26 @@
    "porque": "Vampiro de 2 voador que vira compra quando o vínculo da horda funciona.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Vampiro voador de 2 manas que dispara a eminência e compra duas com ganho de vida."
+   "papel_por_que": "Vampiro voador de 2 manas que dispara a eminência e compra duas com ganho de vida.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro de 2 que dispara a eminência, sem nada voltado aos outros Vampiros.",
+    "I": "Um 1/3 com voar e vínculo; a compra pede 2 de vida ganhos no turno e mais {B}{B}.",
+    "T": "Duas manas pelo corpo; cada cópia de Sign in Blood custa {B}{B} e 2 de vida.",
+    "Q": "Início como bloqueador voador; paridade e na frente, compra quando o vínculo da horda funciona.",
+    "R": "Welcoming Vampire, Idol of Oblivion e Skullclamp compram sem condição de vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Champion of Dusk": {
    "notas": {
@@ -4091,7 +4300,26 @@
    "porque": "Recarga de mão com a horda em campo; com quinze Vampiros, são 15 de vida de uma vez, e depois de uma limpeza compra pouco.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Compra uma carta por Vampiro em campo."
+   "papel_por_que": "Compra uma carta por Vampiro em campo.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que transforma a horda em mão: compra uma carta por Vampiro seu.",
+    "I": "Na entrada, com seis Vampiros, seis cartas e 6 de vida; não precisa sobreviver.",
+    "T": "Cinco manas, perto do custo do Edgar.",
+    "Q": "Paridade e na frente; depois de uma limpeza compra uma ou duas.",
+    "R": "A Pact of the Serpent faz a mesma compra por 3 manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Iroas, God of Victory": {
    "notas": {
@@ -4108,11 +4336,31 @@
    "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
-   "sai": "Drana and Linvala",
+   "sai": "Lich-Knights' Conquest",
    "faz": "Indestrutível; só é criatura com devoção a vermelho e branco 7. Suas criaturas têm ameaça; previne todo dano causado às suas criaturas atacantes.",
    "porque": "Ameaça na horda e nenhum dano nos atacantes: atacar todo turno sai de graça. Corte pelo critério do dono (13/11/2026): sai Drana and Linvala, porque Blood for the Blood God! já é o corte de uma carta de letra mais alta.",
    "papel": "multiplica",
-   "papel_por_que": "Ameaça para o time e nenhum dano aos atacantes: a horda ataca de graça."
+   "papel_por_que": "Ameaça para o time e nenhum dano aos atacantes: a horda ataca de graça.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Não é Vampiro: não dispara a eminência, e a devoção 7 a vermelho e branco não chega nesta lista.",
+    "I": "Ameaça na horda inteira e nenhum dano nos atacantes: o ataque passa a sair sem perda.",
+    "T": "Quatro manas, vermelho e branco, o par menos usado.",
+    "Q": "Paridade e na frente; atrás, não muda a mesa.",
+    "R": "Só Cover of Darkness, Shared Animosity e Akroma's Will atravessam bloqueio hoje."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65,
+   "nota_8x8": "16/11/2026: Proteção tem 3 cartas; sai do Banquete (9), não da Drana and Linvala (Vampiro do mesmo nível)."
   },
   "Marsh Flats": {
    "notas": {
@@ -4125,7 +4373,26 @@
    "veredito": "entra",
    "sai": "Descendants' Fury",
    "faz": "Terreno: paga 1 de vida e se sacrifica para buscar uma Plains ou Swamp e pô-la em campo.",
-   "porque": "Sem pedras, um terreno a mais: acha o Savai Triome, a Godless Shrine e a Blood Crypt."
+   "porque": "Sem pedras, um terreno a mais: acha o Savai Triome, a Godless Shrine e a Blood Crypt.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Busca Plains, Swamp ou o Savai Triome, que dá as três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, por 1 de vida; o Triome vem virado.",
+    "Q": "Viva sempre.",
+    "R": "Arid Mesa e Fabled Passage já buscam; sem os terrenos de choque na lista, os alvos são básicos e o Triome."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Bloodstained Mire": {
    "notas": {
@@ -4138,7 +4405,26 @@
    "veredito": "entra",
    "sai": "Temple of Malice",
    "faz": "Terreno: paga 1 de vida e se sacrifica para buscar uma Swamp ou Mountain e pô-la em campo.",
-   "porque": "Sem pedras, um terreno a mais: acha o Savai Triome, a Blood Crypt e a Godless Shrine. Corte pelo critério do dono (13/11/2026): sai Temple of Malice, porque Faithless Looting já é o corte de uma carta de letra mais alta."
+   "porque": "Sem pedras, um terreno a mais: acha o Savai Triome, a Blood Crypt e a Godless Shrine. Corte pelo critério do dono (13/11/2026): sai Temple of Malice, porque Faithless Looting já é o corte de uma carta de letra mais alta.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Busca Swamp, Mountain ou o Savai Triome, que dá as três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado, por 1 de vida; o Triome vem virado.",
+    "Q": "Viva sempre.",
+    "R": "Arid Mesa e Fabled Passage já buscam; sem os terrenos de choque na lista, os alvos são básicos e o Triome."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Sorin, Imperious Bloodlord": {
    "notas": {
@@ -4165,7 +4451,26 @@
    "porque": "Transforma ficha ou Vampiro em 3 de dano e 3 de vida todo turno, e o −3 põe um Vampiro grande em campo sem pagar. Corte pelo critério do dono (13/11/2026): sai Blood for the Blood God!, porque Faithless Looting já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "A cada turno, sacrifica uma ficha de Vampiro para causar 3 de dano em qualquer alvo e ganhar 3."
+   "papel_por_que": "A cada turno, sacrifica uma ficha de Vampiro para causar 3 de dano em qualquer alvo e ganhar 3.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Só rende com Vampiros e usa as fichas como custo, mas não é Vampiro: não dispara a eminência.",
+    "I": "Troca uma ficha por 3 de dano e 3 de vida por turno; o −3 põe em campo sem conjurar, sem ficha da eminência.",
+    "T": "Três manas, uma cor só.",
+    "Q": "Início com o marcador, paridade e atrás com os 3 de dano; precisa de corpos para se defender.",
+    "R": "Yahenni já é a saída de sacrifício; Rite of Oblivion e Ruthless Lawbringer removem pagando com ficha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Patron of the Vein": {
    "notas": {
@@ -4182,7 +4487,7 @@
     "sin1": "Vampiro: dispara a eminência, mas não tem efeito próprio voltado aos outros Vampiros.",
     "sin2": "Põe marcador em todos os Vampiros a cada criatura de oponente que morre: evento repetível, multiplica a coroação."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "sai": "Faithless Looting",
@@ -4190,7 +4495,26 @@
    "porque": "Remoção na entrada e, depois, cada morte do lado deles cresce a horda inteira; funciona com o Toxic Deluge e o Crippling Fear.",
    "papel": "multiplica",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Destrói uma criatura e, a cada morte de oponente, põe marcador em todos os Vampiros."
+   "papel_por_que": "Destrói uma criatura e, a cada morte de oponente, põe marcador em todos os Vampiros.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que coroa todos os Vampiros a cada criatura deles que morre.",
+    "I": "Destrói uma criatura na entrada; os marcadores dependem de ele ficar e de as criaturas deles morrerem.",
+    "T": "Seis manas: disputa o turno com o Edgar numa lista sem pedras.",
+    "Q": "Paridade e na frente; atrás, a remoção e o 4/4 voador ainda valem.",
+    "R": "O Cordial Vampire coroa por 2 manas e conta também as suas mortes."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.75
   },
   "Twilight Prophet": {
    "notas": {
@@ -4205,7 +4529,7 @@
    "sin_por_que": {
     "sin1": "Vampiro: dispara a eminência, mas não tem efeito próprio voltado aos outros Vampiros."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "sai": "Cemetery Gatekeeper",
@@ -4213,7 +4537,26 @@
    "porque": "Com dez permanentes (fácil com a horda), vira compra e dreno todo turno, e voa por cima dos bloqueadores. Corte pelo critério do dono (13/11/2026): sai Cemetery Gatekeeper, porque Faithless Looting já é o corte de uma carta de letra mais alta.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Com a bênção da cidade, que a horda dá cedo, compra e drena toda manutenção."
+   "papel_por_que": "Com a bênção da cidade, que a horda dá cedo, compra e drena toda manutenção.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vampiro que dispara a eminência; a horda de fichas dá as dez permanentes da bênção.",
+    "I": "Uma carta e um dreno em cada oponente por manutenção; só começa no turno seguinte, se ficar.",
+    "T": "Quatro manas, com {B}{B}; a bênção vem fácil com as fichas.",
+    "Q": "Paridade e na frente, compra e drena; atrás, bloqueia voando e a bênção não se perde.",
+    "R": "A compra já tem Welcoming Vampire, Idol of Oblivion, Skullclamp e Necropotence."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Plaza of Heroes": {
    "notas": {
@@ -4222,14 +4565,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Windbrisk Heights",
    "faz": "Gera {C}; ou uma mana de qualquer cor, só para mágica lendária; ou uma mana de qualquer cor entre as das permanentes lendárias suas. Por {3}, virando e exilando-o, uma criatura lendária alvo ganha hexproof e indestrutível até o fim do turno.",
    "porque": "Paga o Edgar em qualquer cor, porque ele é lendário, e com ele ou outra lenda em campo (Elenda, Olivia Voldaren, Florian, Baron Bertram, Yahenni) vira fonte das três cores sem custo de vida; por {3}, salva o Edgar ou a Elenda de uma remoção. Sai o Windbrisk Heights, que entra virado e esconde uma carta ao acaso.",
    "papel_dupla": "Proteção",
-   "papel_por_que": "Terreno que dá hexproof e indestrutível a uma lenda em resposta à remoção."
+   "papel_por_que": "Terreno que dá hexproof e indestrutível a uma lenda em resposta à remoção.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Qualquer cor para o Edgar e as lendas; com o Edgar em campo, as três cores para tudo.",
+    "I": "Um terreno por turno; a proteção por {3} salva uma lenda uma vez.",
+    "T": "Desvirado, mas incolor para o Vampiro não lendário enquanto não há lenda em campo.",
+    "Q": "Viva sempre.",
+    "R": "Nenhum outro terreno da lista protege o Edgar ou a Elenda de remoção."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Sulfurous Springs": {
    "notas": {
@@ -4242,7 +4604,26 @@
    "veredito": "entra",
    "sai": "Dragonskull Summit",
    "faz": "Gera {C}; ou {B} ou {R}, com 1 de dano em você.",
-   "porque": "Preto ou vermelho sempre desvirado, o mesmo par do Temple of Malice, que sai por entrar virado; o 1 de dano as fichas com vínculo repõem. Num deck sem pedras, terreno desvirado no turno 1 vale um Vampiro a mais. Corte pelo critério do dono (13/11/2026): sai Dragonskull Summit, porque Temple of Malice já é o corte de uma carta de letra mais alta."
+   "porque": "Preto ou vermelho sempre desvirado, o mesmo par do Temple of Malice, que sai por entrar virado; o 1 de dano as fichas com vínculo repõem. Num deck sem pedras, terreno desvirado no turno 1 vale um Vampiro a mais. Corte pelo critério do dono (13/11/2026): sai Dragonskull Summit, porque Temple of Malice já é o corte de uma carta de letra mais alta.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Preto e vermelho, duas das três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Sempre desvirado; a cor cobra 1 de dano.",
+    "Q": "Viva sempre.",
+    "R": "A Luxury Suite dá o mesmo par desvirada e sem dano."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Battlefield Forge": {
    "notas": {
@@ -4255,7 +4636,26 @@
    "veredito": "entra",
    "sai": "Temple of Triumph",
    "faz": "Gera {C}; ou {R} ou {W}, com 1 de dano em você.",
-   "porque": "Vermelho ou branco sempre desvirado, no lugar do Temple of Triumph, o templo do par menos usado e sempre virado; o 1 de dano as fichas com vínculo repõem."
+   "porque": "Vermelho ou branco sempre desvirado, no lugar do Temple of Triumph, o templo do par menos usado e sempre virado; o 1 de dano as fichas com vínculo repõem.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Vermelho e branco, duas das três cores.",
+    "I": "Um terreno por turno.",
+    "T": "Sempre desvirado; a cor cobra 1 de dano.",
+    "Q": "Viva sempre.",
+    "R": "É o par que a lista menos usa, e a Needleverge Pathway já o cobre desvirada."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Vault of Champions": {
    "notas": {
@@ -4263,12 +4663,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "veredito": "entra",
    "sai": "Nomad Outpost",
    "faz": "Entra virado a menos que você tenha dois ou mais oponentes. Gera {W} ou {B}.",
-   "porque": "Na mesa de quatro entra sempre desvirado com o par que a lista mais pede, no lugar do Crystal Grotto, que gera incolor ou cobra {1} pela cor. Corte pelo critério do dono (13/11/2026): sai Nomad Outpost, porque Crystal Grotto já é o corte de uma carta de letra mais alta."
+   "porque": "Na mesa de quatro entra sempre desvirado com o par que a lista mais pede, no lugar do Crystal Grotto, que gera incolor ou cobra {1} pela cor. Corte pelo critério do dono (13/11/2026): sai Nomad Outpost, porque Crystal Grotto já é o corte de uma carta de letra mais alta.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Branco e preto, o par mais pedido da lista.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado na mesa de quatro, sem custo de vida.",
+    "Q": "Viva sempre.",
+    "R": "Hoje o par só vem da Brightclimb Pathway, que dá uma cor só, e de templo e filtro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.2
   },
   "The Immortal Sun": {
    "notas": {},
@@ -4278,13 +4697,35 @@
    "sin_por_que": {
     "sin2": "Lorde do time inteiro: +1/+1 em todos os Vampiros."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Compra uma a mais por turno; mágicas custam 1 a menos; o time ganha +1/+1.",
    "porque": "Lorde do time inteiro: +1/+1 em todos os Vampiros. Ganho de +21.8; disputa com Kindred Charge (tier B).",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Kindred Charge"
+   "sai": "Kindred Charge",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Artefato genérico: o +1/+1 pega a horda de passagem, não dispara a eminência.",
+    "I": "+1/+1 no time, uma carta a mais por turno e mágicas 1 mais baratas, enquanto ficar.",
+    "T": "Seis manas: o mesmo turno do Edgar, numa lista sem pedras.",
+    "Q": "Paridade e na frente; atrás, seis manas que não mexem na mesa.",
+    "R": "Os lords dão o mesmo +1/+1 por 2 ou 3 manas, e a compra já tem motores baratos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.25,
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "Dá +1/+1 a todas as criaturas, como um lord da horda, e ainda compra uma carta a mais por turno."
   }
  },
  "combos": [
@@ -4398,7 +4839,7 @@
     "por_que": "Converte cada mágica de Vampiro conjurada em ficha e cada ataque em marcador para a horda: recompensa o que o deck faz. Precisa de muitas habilitadoras, Vampiros baratos acima de tudo."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
