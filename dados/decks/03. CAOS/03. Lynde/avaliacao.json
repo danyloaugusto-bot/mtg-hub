@@ -3595,7 +3595,7 @@
    "sin_por_que": {
     "sin1": "Rende a cada Maldição no jogador: o dano cresce com o empilhamento."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Curse of Leeches",
@@ -3603,7 +3603,26 @@
    "porque": "O fechamento que o próprio tema oferece: cresce com o empilhamento e dobra com a Curse of Bloodletting. Sai a mais fraca das 16.",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (Maldição que gira)",
-   "papel_por_que": "Dano igual ao número de Maldições no amaldiçoado: rende com o ciclo cheio."
+   "papel_por_que": "Dano igual ao número de Maldições no amaldiçoado: rende com o ciclo cheio.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É Maldição e paga o empilhamento: o dano é o número de Maldições no amaldiçoado.",
+    "I": "Sozinha, 1 de dano por volta; na pilha do fim do jogo, 4 ou 5, e dobra com a Curse of Bloodletting.",
+    "T": "Cinco manas por um dano que começa em 1.",
+    "Q": "Paridade e na frente, com a pilha feita; cedo e atrás, é só mais um ingresso caro do repasse.",
+    "R": "O Torment of Scarabs tira 3 por volta por quatro manas, mas o fechamento está abaixo da cota e nada mais cresce com a pilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Curse of Fool's Wisdom": {
    "notas": {
@@ -3617,14 +3636,33 @@
    "sin_por_que": {
     "sin1": "Maldição: entra num jogador, volta pela Lynde quando sai do campo e pode ser repassada."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Ensnared by the Mara",
    "faz": "Maldição 4BB. Sempre que o amaldiçoado compra, ele perde 2 e você ganha 2. Madness {3}{B}.",
    "porque": "A Surveillance e a Verbosity não fazem o amaldiçoado comprar: a Fool's Wisdom rende em outro jogador, como quem ataca o da Verbosity ou o alvo da Surveillance, e cada compra dele custa 2 de vida.",
    "papel": "habilita",
-   "papel_por_que": "Maldição que gira e drena 2 a cada compra do amaldiçoado."
+   "papel_por_que": "Maldição que gira e drena 2 a cada compra do amaldiçoado.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "É Maldição: entra num jogador, volta pela Lynde e pode ser repassada.",
+    "I": "Dreno de 2 por compra do amaldiçoado: no ritmo normal, 2 por volta; só explode com o Windfall.",
+    "T": "Seis manas; o madness de {3}{B} depende de descarte, e a lista tem pouco (Windfall, Relic of Sauron).",
+    "Q": "Só na paridade tardia e na frente; cedo e atrás, seis manas não descem.",
+    "R": "O Torment of Scarabs e a Maddening Hex ferem mais por menos, mas o fechamento está abaixo da cota e esta devolve vida."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.5
   },
   "Bitterheart Witch": {
    "notas": {
@@ -3640,14 +3678,33 @@
     "sin1": "Ao morrer, busca uma Maldição e a põe em campo: uma vez, não é motor.",
     "sin2": "Bloqueador com toque mortífero: desencoraja o ataque a você."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Darkstar Augur",
    "faz": "Humana 4B, 1/2 toque mortífero. Ao morrer, busca uma Maldição e a põe na mesa anexada a um jogador.",
    "porque": "Tutor de Maldição que bloqueia com toque mortífero; a Claws of Gix a sacrifica na hora certa. Sai a compra que cobra vida.",
    "papel": "habilita",
-   "papel_por_que": "Ao morrer, busca uma Maldição e a anexa a um jogador."
+   "papel_por_que": "Ao morrer, busca uma Maldição e a anexa a um jogador.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Busca uma Maldição e a põe direto em campo, uma vez, ao morrer.",
+    "I": "Põe o Cruel Reality ou a Curse of Misfortunes em campo sem pagar; antes disso, é um bloqueador com toque mortífero.",
+    "T": "Cinco manas por um 1/2, e o tutor só vem quando ela morre.",
+    "Q": "Paridade e atrás, como bloqueador que ninguém quer matar; no início é cara demais.",
+    "R": "Só a Curse of Misfortunes busca Maldição na lista; a Crystal Chimes só recupera do cemitério."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Paradox Haze": {
    "notas": {
@@ -3660,14 +3717,38 @@
    "sin_por_que": {
     "sin1": "Dobra a manutenção da Lynde: dois repasses e quatro cartas por turno, e a Curse of Misfortunes busca duas vezes."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Powerbalance",
    "faz": "Aura 2U, encantar jogador. Na primeira manutenção do turno do encantado, ele ganha uma manutenção a mais.",
    "porque": "Em você, a Lynde e a Curse of Misfortunes disparam duas vezes por turno. Não é Maldição: a Lynde não a recicla, e ela tem de ficar em você.",
    "papel": "multiplica",
-   "papel_por_que": "Na sua mesa, dobra a manutenção: a Lynde repassa duas Maldições e compra quatro."
+   "papel_por_que": "Na sua mesa, dobra a manutenção: a Lynde repassa duas Maldições e compra quatro.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Em você, dobra a manutenção: a Lynde repassa duas vezes e a Curse of Misfortunes busca duas vezes.",
+    "I": "Com a Lynde, até quatro cartas e duas Maldições repassadas por volta; sozinha, nada.",
+    "T": "Três manas, mas só rende com a Lynde ou a Misfortunes em campo e tem de ficar em você.",
+    "Q": "Paridade e na frente; no início ainda não há o que dobrar, e atrás não defende.",
+    "R": "Nenhuma carta da lista dobra a manutenção; a Lwaxana Troi, do radar, só dobra a Lynde e é criatura."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ela, o repasse fica em uma Maldição e duas cartas por volta, e a Curse of Misfortunes busca uma só.",
+    "As cópias (Copy Enchantment, Estrid's Invocation) dobram uma Maldição, não a manutenção; a Lwaxana Troi, do radar, só dobra a Lynde e morre nas limpezas da própria lista.",
+    "Na paridade e na frente: desce por três manas antes ou depois da Lynde e dobra toda manutenção dali em diante."
+   ],
+   "indice": 2.5
   },
   "Entity Tracker": {
    "notas": {
@@ -3687,7 +3768,26 @@
    "faz": "Humano 2U, 2/3 lampejo. Sempre que um encantamento seu entra, compra uma carta.",
    "porque": "Toda Maldição que a Lynde devolve entra em você: uma carta por fim de turno, além das duas do repasse.",
    "papel": "recompensa",
-   "papel_por_que": "Compra a cada encantamento seu que entra, inclusive a Maldição que volta pela Lynde."
+   "papel_por_que": "Compra a cada encantamento seu que entra, inclusive a Maldição que volta pela Lynde.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Paga cada Maldição que entra: a que você conjura e a que a Lynde devolve no fim do turno.",
+    "I": "Uma carta por Maldição, toda volta, enquanto o 2/3 ficar na mesa.",
+    "T": "Três manas, com lampejo.",
+    "Q": "Paridade e na frente; atrás ainda compra, mas não segura a mesa.",
+    "R": "Compra sobra: a Lynde já dá duas por volta, e a Curse of Surveillance e a Curse of Verbosity compram também."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Lightning Greaves": {
    "notas": {
@@ -3719,7 +3819,26 @@
    "faz": "Encantamento 1UU que entra como cópia de qualquer artefato ou encantamento.",
    "porque": "Segunda Curse of Misfortunes ou segundo Cruel Reality. Cópia do tipo certo, no lugar do clone de criatura.",
    "papel": "multiplica",
-   "papel_por_que": "Entra como cópia de uma Maldição e volta com ela."
+   "papel_por_que": "Entra como cópia de uma Maldição e volta com ela.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Entra como cópia de uma Maldição e volta com ela pela Lynde.",
+    "I": "Segunda Curse of Misfortunes ou segundo Cruel Reality; também copia pedra ou a Claws of Gix.",
+    "T": "Três manas.",
+    "Q": "Paridade e na frente; no início copia pedra, atrás depende do que há na mesa.",
+    "R": "Copy Enchantment, Estrid's Invocation e Clever Impersonator já fazem a cópia; esta é a quarta."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Counterspell": {
    "notas": {
@@ -3728,12 +3847,31 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Sauron's Ransom",
    "faz": "Instantânea UU: anula uma mágica.",
-   "porque": "A lista não anula nada. Sai uma compra genérica num deck em que compra sobra."
+   "porque": "A lista não anula nada. Sai uma compra genérica num deck em que compra sobra.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Anulação genérica: não toca em Maldição nem no ciclo.",
+    "I": "Troca de uma por uma: para a mágica que fecha o jogo alheio ou a remoção na Lynde.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, na frente e atrás; pede {U}{U} de pé num deck de três cores.",
+    "R": "A lista não anula nada, e o deck é fraco contra combo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.85
   },
   "Disrupt Decorum": {
    "notas": {
@@ -3756,7 +3894,26 @@
    "porque": "Uma rodada de trégua garantida, e cada ataque dispara Opulence, Verbosity e Disturbance no amaldiçoado. Corte pelo critério do dono (13/11/2026): sai Nightscape Familiar, porque Lazav, Dimir Mastermind já é o corte de uma carta de letra mais alta.",
    "papel": "habilita",
    "papel_dupla": "Proteção (goad em massa)",
-   "papel_por_que": "Manda todas as criaturas atacarem outro jogador e dispara as Maldições de ataque."
+   "papel_por_que": "Manda todas as criaturas atacarem outro jogador e dispara as Maldições de ataque.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Goad em massa: manda os ataques para outro jogador e dispara Opulence, Verbosity e Disturbance.",
+    "I": "Uma rodada inteira de ataques longe de você, com a mesa se ferindo; vale uma vez.",
+    "T": "Quatro manas, feitiço.",
+    "Q": "Paridade e atrás, quando as mesas deles estão cheias; no início não há o que incitar.",
+    "R": "O Alexios ataca todo turno, mas é uma criatura só; goad em massa a lista não tem."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Curse of the Pierced Heart": {
    "notas": {
@@ -3777,7 +3934,26 @@
    "faz": "Maldição 1R. Na manutenção do amaldiçoado, 1 de dano nele ou num planeswalker dele.",
    "porque": "A quinta maldição de custo 2 ou menos, o ingresso barato do ciclo, e dobra com a Bloodletting. Sai a carta que dá compra a um oponente. Corte pelo critério do dono (13/11/2026): sai Captive Audience, porque Keen Duelist já é o corte de uma carta de letra mais alta.",
    "papel": "habilita",
-   "papel_por_que": "Maldição de 2 que gira e causa 1 por volta."
+   "papel_por_que": "Maldição de 2 que gira e causa 1 por volta.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Maldição barata: ingresso do repasse, e conta na pilha.",
+    "I": "1 de dano por volta no amaldiçoado; o que vale são as duas cartas do repasse.",
+    "T": "Duas manas.",
+    "Q": "Início, como ingresso do ciclo, e paridade; no fim, o dano é pequeno.",
+    "R": "As Maldições de até duas manas estão abaixo da cota, quatro para cinco; a Trespasser's Curse faz papel igual."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Blood Crypt": {
    "notas": {},
@@ -3788,7 +3964,26 @@
    "veredito": "entra",
    "sai": "Temple of the False God",
    "faz": "Terreno Swamp Mountain. Entra desvirado se você pagar 2 de vida.",
-   "porque": "Dual com tipos básicos, desvirado, no lugar do terreno que não gera cor."
+   "porque": "Dual com tipos básicos, desvirado, no lugar do terreno que não gera cor.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Duas cores do deck, preto e vermelho.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado por 2 de vida.",
+    "Q": "Viva sempre.",
+    "R": "A Luxury Suite gera as mesmas cores desvirada; esta tem os tipos Swamp e Mountain."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Fierce Guardianship": {
    "notas": {
@@ -3813,14 +4008,33 @@
    "sin_por_que": {
     "sin1": "Lucra com as compras que as Maldições dão à mesa, mas não mexe no ciclo."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "sai": "Extravagant Replication",
    "faz": "4/5 toque mortífero. Você ganha 2 por carta que compra; oponente perde 2 por carta que compra.",
    "porque": "As suas maldições fazem a mesa comprar, e a Lynde faz você comprar duas por giro.",
    "papel": "recompensa",
-   "papel_por_que": "Cada compra da Lynde dá 2 de vida; cada compra que a Surveillance dá aos oponentes tira 2."
+   "papel_por_que": "Cada compra da Lynde dá 2 de vida; cada compra que a Surveillance dá aos oponentes tira 2.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Staple: lucra com as compras, mas não é Maldição nem alimenta o ciclo.",
+    "I": "2 de perda por compra de cada oponente e 4 de vida por giro da Lynde, enquanto o 4/5 ficar.",
+    "T": "Quatro manas por um 4/5 com toque mortífero e dreno.",
+    "Q": "Viva sempre: bloqueia atrás, drena na paridade e na frente.",
+    "R": "O fechamento está abaixo da cota; o Notion Thief já lucra com as compras alheias."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Curse of Echoes": {
    "notas": {
@@ -3866,7 +4080,7 @@
    "sin_por_que": {
     "sin1": "Saída de sacrifício repetível que manda a Maldição ao cemitério para voltar pela Lynde (2, como Claws of Gix), e ainda conjura Maldição uma vez por turno pagando vida: faz duas vezes, sobe para 3."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Demônio 6/6 com voar e atropelar; uma vez por turno conjura encantamento pagando vida em vez de mana; {2}{B}, sacrifica outro encantamento: +X/+0.",
@@ -3874,7 +4088,26 @@
    "sai": "Varragoth, Bloodsky Sire",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Sacrifica uma Maldição para ela voltar pela Lynde e conjura encantamento pagando vida."
+   "papel_por_que": "Sacrifica uma Maldição para ela voltar pela Lynde e conjura encantamento pagando vida.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Amaldiçoa pagando vida no lugar de mana e é saída: sacrifica a Maldição para a Lynde devolver.",
+    "I": "Uma Maldição por turno sem mana e um 6/6 com voar e atropelar, enquanto ficar na mesa.",
+    "T": "Seis manas, e cada sacrifício custa {2}{B}.",
+    "Q": "Paridade e na frente; atrás, pagar vida pesa, e no início não desce.",
+    "R": "As quatro saídas da lista custam menos (Claws of Gix, Despotic Scepter); a cota de saída está cheia."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Otawara, Soaring City": {
    "notas": {
@@ -3883,40 +4116,97 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Terreno lendário. Gera {U}. Canalizar, por {3}{U} e descartando-o: devolve à mão um artefato, criatura, encantamento ou planeswalker alvo; custa {1} a menos por criatura lendária que você controla.",
    "porque": "Fonte de azul desvirada que vira resposta: com a Lynde em campo, por {2}{U} devolve a criatura que vem para cima de você ou a permanente que trava o ciclo, sem gastar vaga de mágica. Sai o Unknown Shores, o pior conserto de cor da lista.",
    "sai": "Unknown Shores",
    "papel_dupla": "Interação (devolve à mão)",
-   "papel_por_que": "Terreno que devolve uma permanente alvo em resposta."
+   "papel_por_que": "Terreno que devolve uma permanente alvo em resposta.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Uma cor só; a devolução é resposta genérica.",
+    "I": "Terreno que vira resposta: devolve à mão a criatura que ataca você ou a permanente que trava o ciclo.",
+    "T": "Entra desvirado; canalizar custa {3}{U}, ou {2}{U} com a Lynde em campo.",
+    "Q": "Viva sempre: é terreno, e resposta quando precisa.",
+    "R": "Como fonte de azul, a Island cobre; nenhum terreno da lista vira resposta."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Dragonskull Summit": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Entra virado a menos que você controle um Swamp ou uma Mountain. Gera {B} ou {R}.",
    "porque": "Dual que entra desvirada com um Pântano ou Montanha em campo, inclusive a Xander's Lounge e o Blood Crypt do radar. Você já tem (Caixa). Sai a Surtland Frostpyre, que entra sempre virada e cuja limpeza pequena custa cinco manas.",
    "sai": "Surtland Frostpyre",
    "papel_dupla": "Mana (dual)",
-   "papel_por_que": "Dual desvirada: estrutura de mana."
+   "papel_por_que": "Dual desvirada: estrutura de mana.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Duas cores do deck, preto e vermelho.",
+    "I": "Um terreno por turno.",
+    "T": "Só entra desvirado com Swamp ou Mountain em campo: cinco básicos na lista.",
+    "Q": "Viva sempre.",
+    "R": "A Luxury Suite gera as mesmas cores sem condição."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Shipwreck Marsh": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Entra virado a menos que você controle dois ou mais outros terrenos. Gera {U} ou {B}.",
    "porque": "Dual desvirada do terceiro terreno em diante, no lugar do Mortuary Mire, que entra sempre virado e só devolve a Lynde ao topo quando ela foi ao cemitério. Você já tem (Caixa).",
    "sai": "Mortuary Mire",
    "papel_dupla": "Mana (dual)",
-   "papel_por_que": "Dual desvirada: estrutura de mana."
+   "papel_por_que": "Dual desvirada: estrutura de mana.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Duas cores do deck, azul e preto.",
+    "I": "Um terreno por turno.",
+    "T": "Desvirado do terceiro terreno em diante; virado nos dois primeiros turnos.",
+    "Q": "Viva sempre.",
+    "R": "A Underground River gera as mesmas cores desvirada desde o turno 1."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Maze of Ith": {
    "notas": {
@@ -3924,14 +4214,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Virando, desvira uma criatura atacante alvo e previne todo o dano de combate que ela causaria e sofreria neste turno. Não gera mana.",
    "porque": "A fortaleza que o deck pede: todo turno, o maior atacante que vem para você não causa dano, sem gastar mágica nem mana, enquanto as maldições giram. Fica como avaliar porque não gera mana: a base cai de 36 para 35 fontes, no limite da referência, por isso sai o Dreadship Reef, incolor no uso normal. Você tem uma cópia na Queen, que é deck montado.",
    "sai": "Dreadship Reef",
    "papel_dupla": "Defesa (anula um atacante por turno)",
-   "papel_por_que": "Terreno que neutraliza o maior atacante contra você a cada turno."
+   "papel_por_que": "Terreno que neutraliza o maior atacante contra você a cada turno.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fortaleza genérica: segura um atacante, não muda quem ataca quem e não gera mana.",
+    "I": "Todo turno, o maior atacante que vem para você não causa dano.",
+    "T": "Uso sem mana, mas ocupa vaga de terreno sem gerar mana, com a Lynde de quatro em três cores.",
+    "Q": "Paridade e atrás; no início, é um terreno a menos na curva.",
+    "R": "Propaganda e Kazuul cobram o ataque em massa; a defesa da lista é curta."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.7
   },
   "Lwaxana Troi, Charming Guest": {
    "notas": {},
@@ -3941,13 +4250,34 @@
    "sin_por_que": {
     "sin1": "Dobra a manutenção da Lynde, o 3 da régua com o Paradox Haze: mirando a Lynde, a passagem da Maldição e a compra disparam duas vezes."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Por {2} e virando, faz cada habilidade disparada de outra criatura sua disparar uma vez a mais enquanto ela ficar virada, e ela pode não desvirar: um dobrador de gatilhos de uma criatura só, como o Strionic Resonator e o Roaming Throne.",
    "porque": "Mirando a Lynde, a manutenção dispara duas vezes: duas Maldições repassadas e o dobro da compra. Vale 18 contra 1 do Hydroelectric Specimen. (veredito da consulta do dono) Corte pelo critério do dono (13/11/2026): sai Lazav, Dimir Mastermind, porque Hydroelectric Specimen tem terreno no verso.",
    "origem": "coleção TRK (2026-11-09)",
-   "sai": "Lazav, Dimir Mastermind"
+   "sai": "Lazav, Dimir Mastermind",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mirando a Lynde, a manutenção dispara duas vezes: duas Maldições repassadas.",
+    "I": "Com a Lynde, até quatro cartas por volta; sem ela em campo, nada.",
+    "T": "Duas manas e mais {2} para ativar; depois fica virada sem custo.",
+    "Q": "Só com a Lynde em campo e Maldições em você; atrás e no início é um corpo sem função.",
+    "R": "Nenhuma carta da lista dobra a Lynde; o Paradox Haze, do radar, dobra a manutenção inteira sem ser criatura."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.15,
+   "papel": "multiplica",
+   "papel_por_que": "Mirando a Lynde, o gatilho da manutenção dispara duas vezes: duas Maldições repassadas e o dobro da compra."
   },
   "Koloth, Tribble Hunter": {
    "notas": {},
@@ -3957,13 +4287,34 @@
    "sin_por_que": {
     "sin2": "Goad em massa nas Tribbles dos oponentes (nível 2)."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Duas fichas por turno; todas as Tribbles, também as dos oponentes, ficam instigadas.",
    "porque": "Goad em massa nas Tribbles dos oponentes (nível 2). Ganho de +11.0; disputa com Varragoth, Bloodsky Sire (tier B). Corte pelo critério do dono (13/11/2026): sai Crystal Chimes, porque Varragoth, Bloodsky Sire já é o corte de uma carta de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Crystal Chimes"
+   "sai": "Crystal Chimes",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Todo turno, cada jogador ganha duas Tribbles incitadas, que atacam e nunca você: dispara as Maldições de ataque.",
+    "I": "Seis atacantes 2/1 por volta batendo entre os oponentes, mais os seus dois, enquanto ele ficar.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente; atrás, as suas Tribbles não bloqueiam.",
+    "R": "O Alexios é uma criatura só; goad todo turno em vários corpos a lista não tem."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.0,
+   "papel": "habilita",
+   "papel_por_que": "Dá a cada jogador duas Tribbles incitadas por turno, que atacam e nunca você: dispara as Maldições de ataque no amaldiçoado."
   },
   "The Unluckiest Planeswalker": {
    "notas": {},
@@ -3973,13 +4324,35 @@
    "sin_por_que": {
     "sin1": "Passa aos oponentes as Maldições anexadas a você e compra duas por Aura: faz o ciclo girar uma vez: nível 2."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Uma mana de qualquer cor por turno; compra duas por Aura sua, só ao descartar a mão.",
    "porque": "Passa aos oponentes as Maldições anexadas a você e compra duas por Aura: faz o ciclo girar uma vez: nível 2. Ganho de +13.5; disputa com Sundering Eruption (tier C). Corte pelo critério do dono (13/11/2026): sai Plea for Power, porque Sundering Eruption tem terreno no verso.",
    "origem": "coleção MBC (2026-11-09)",
-   "sai": "Plea for Power"
+   "sai": "Plea for Power",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Mana para Maldição toda volta, e o −3 passa aos oponentes as Maldições que estão em você, uma vez.",
+    "I": "Uma mana de qualquer cor por volta; o −3 troca a mão por duas cartas por Aura sua.",
+    "T": "Três manas; o −3 demora, e a lealdade inicial não consta do texto.",
+    "Q": "Início, como ramp, e paridade; atrás, cai a qualquer ataque, com a defesa curta da lista.",
+    "R": "Os três Talismãs aceleram por duas manas sem poder ser atacados, e a Lynde já repassa e compra."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "baixa",
+   "indice": 1.8,
+   "papel": "habilita",
+   "papel_dupla": "Ramp",
+   "papel_por_que": "Gera mana para conjurar Maldição toda volta, e o −3 passa aos oponentes as Maldições anexadas a você e compra duas por Aura."
   },
   "Sifa Grent": {
    "notas": {},
@@ -3989,13 +4362,34 @@
    "sin_por_que": {
     "sin2": "Goad repetível em até duas criaturas: manda os ataques para outro jogador."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "A cada morte de criatura, oponente alvo perde 1 e você ganha 1; +1 provoca (goad) até duas criaturas, repetível.",
    "porque": "Goad repetível em até duas criaturas: manda os ataques para outro jogador. Ganho de +11.0; disputa com Plea for Power (tier C). Corte pelo critério do dono (13/11/2026): sai Keen Duelist, porque Plea for Power já é o corte de uma carta de letra mais alta.",
    "origem": "coleção MBC (2026-11-09)",
-   "sai": "Keen Duelist"
+   "sai": "Keen Duelist",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Goad repetível em até duas criaturas: manda os ataques para o amaldiçoado e longe de você.",
+    "I": "As duas maiores ameaças atacam outro jogador toda volta, e cada morte de criatura drena 1; precisa ficar.",
+    "T": "Cinco manas em duas cores.",
+    "Q": "Paridade e atrás, tirando de você os dois piores atacantes; no início não desce.",
+    "R": "O Alexios manda um atacante só; goad repetível nas criaturas deles a lista não tem."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85,
+   "papel": "habilita",
+   "papel_por_que": "Goad repetível em até duas criaturas: manda os ataques para o amaldiçoado, o que dispara Opulence, Verbosity e Disturbance."
   }
  },
  "combos": [
@@ -4171,7 +4565,7 @@
     "por_que": "Toda Maldição que cai do campo volta para ela, e cada repasse na manutenção compra duas: recompensa o ciclo. O deck precisa de muitas Maldições e saídas que as mandem ao cemitério."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
