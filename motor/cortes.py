@@ -3,7 +3,7 @@
 
 Quando duas ou mais cartas do radar (entra ou avaliar) apontam a mesma carta do deck como "sai", a de letra mais alta fica
 com o corte; a seguinte leva o próximo corte mais fraco ainda livre, e assim por diante. Corte protegido (comandante, S, A,
-carta que fica por decisão do dono, de estimação, MDFC, terreno que busca outro, peça de combo) nunca é corte, e a carta do
+carta que fica por decisão do dono, de estimação, MDFC, terreno que busca outro, peça de combo com todas as peças no deck; armadilha não conta) nunca é corte, e a carta do
 radar que apontava para um corte protegido também é reposta. O corte novo segue a regra de sempre: do mesmo lado (terreno
 por terreno), de preferência da mesma função (o critério de maior nota da carta que entra), a letra mais baixa primeiro
 (D, C, B) e, dentro da letra, o menor índice da tier list.
@@ -65,7 +65,7 @@ def resolver(pasta):
     av = dados.ler_json(os.path.join(dados.pasta_deck(pasta), "avaliacao.json"))
     ix = {n: (x.get("indice") or 0) for n, x in av["cartas"].items()}
     por_id = {c["id"]: c for c in m["cards"]}
-    combo = {i for cb in m.get("combos") or [] for i in cb.get("p") or []}
+    combo = {i for cb in m.get("combos") or [] if cb.get("kind") != "Armadilha" and set(cb.get("p") or []) <= {c["id"] for c in m["cards"]} for i in cb.get("p") or []}
     ativos = [r for r in m["cands"] if r.get("verdict") in ("entra", "avaliar") and r.get("sai")]
     # a letra mais alta escolhe primeiro; empate: entra antes de avaliar, depois o maior valor no placar
     ativos.sort(key=lambda r: (ORDEM.find(r.get("tier") or "D"), 0 if r["verdict"] == "entra" else 1, -encaixe.valor(r["s3"]), r["n"]))
