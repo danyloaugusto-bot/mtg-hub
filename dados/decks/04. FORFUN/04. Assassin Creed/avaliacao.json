@@ -3424,8 +3424,8 @@
    "rel": "INS",
    "veredito": "entra",
    "faz": "Humano Assassino lendário 4/4 de 4 com toque mortífero; outros Assassinos seus ganham +1/+1. Um jogador perde o jogo depois de ser atacado por um Assassino seu no turno: você vence.",
-   "porque": "A execução do Ezio vira vitória da partida. Sai a carta que desliga oito do deck. Fonte C, só como lord; banco de B. Corte pelo critério do dono (13/11/2026): sai The Aesir Escape Valhalla, porque Rest in Peace é peça de combo do deck.",
-   "sai": "The Aesir Escape Valhalla",
+   "porque": "A execução do Ezio vira vitória da partida. Sai a carta que desliga oito do deck. Fonte C, só como lord; banco de B. 8x8 (17/11/2026, ok do dono): sai Rest in Peace; reforça Fechamento; sai de Removal, estourado (Rest in Peace desliga oito cartas da lista).",
+   "sai": "Rest in Peace",
    "marcas": {
     "lord": 1
    },
@@ -3526,10 +3526,9 @@
    "sin_por_que": {},
    "tier": "A",
    "rel": "ALT",
-   "veredito": "entra",
+   "veredito": "avaliar",
    "faz": "Artefato de 3: qualquer cor; seus terrenos dão qualquer cor.",
-   "porque": "Cada terreno vira fonte das cinco cores: a carta que liga a execução. Fonte B.",
-   "sai": "Murder",
+   "porque": "Cada terreno vira fonte das cinco cores: a carta que liga a execução. Fonte B. 8x8 (17/11/2026): vira avaliar, sem corte: Progenitor's Icon e Weather Maker, da Caixa, fecham o Ramp; as cópias da Lantern estão no Turtle Power! e no Zur.",
    "marcas": {
     "cores": 1
    },
@@ -4767,9 +4766,8 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Compra a cada criatura de poder 4 ou mais que entra; +2 desvira dois terrenos; −3 cria um Beast 4/4; −4 dá +2/+2 e atropelar aos atacantes até o seu turno.",
-   "porque": "O −4 dá +2/+2 e atropelar aos atacantes até o seu turno; ajuda a conectar.",
+   "porque": "O −4 dá +2/+2 e atropelar aos atacantes até o seu turno; ajuda a conectar. 8x8 (17/11/2026): sem corte livre: Primal Command passou à Geyadrone Dihada, de letra mais alta.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Primal Command",
    "tier_anterior": "A",
    "funcao": "fechamento",
    "lentes": {
@@ -5077,9 +5075,8 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Criaturas do tipo escolhido custam 1 a menos; na manutenção, se o topo for desse tipo, vai para a mão.",
-   "porque": "Não é Assassino, mas recompensa os Assassinos pelo tipo escolhido (desconto e carta), como o Metallic Mimic. Ganho de +18.5; disputa com Apple of Eden, Isu Relic (tier C).",
+   "porque": "Não é Assassino, mas recompensa os Assassinos pelo tipo escolhido (desconto e carta), como o Metallic Mimic. Ganho de +18.5; disputa com Apple of Eden, Isu Relic (tier C). 8x8 (17/11/2026): sem corte livre: Apple of Eden passou ao Progenitor's Icon, de letra mais alta.",
    "origem": "coleção TRC (2026-11-09)",
-   "sai": "Apple of Eden, Isu Relic",
    "tier_anterior": "A",
    "funcao": "infraestrutura",
    "lentes": {
@@ -5457,6 +5454,162 @@
    "papel": "habilita",
    "papel_dupla": "Draw",
    "papel_por_que": "Por {3}, põe sombra no Ezio para ele conectar todo turno; cada conexão com sombra compra."
+  },
+  "Progenitor's Icon": {
+   "notas": {
+    "ramp": 2,
+    "historico": 1
+   },
+   "sin": {
+    "sin1": 1
+   },
+   "sin_por_que": {
+    "sin1": "Escolhe o tipo Assassino para dar lampejo à próxima mágica dele: liga-se aos Assassinos de passagem."
+   },
+   "rel": "ALT",
+   "faz": "Artefato de 3. Ao entrar, escolhe um tipo de criatura. {T}: uma mana de qualquer cor; ou {T}: a próxima mágica do tipo escolhido no turno pode ser conjurada como se tivesse lampejo.",
+   "porque": "Pedra de qualquer cor para o WUBRG da execução, e artefato que dispara o Histórico. Está na Caixa. 8x8 (17/11/2026, ok do dono): sai Apple of Eden, Isu Relic; reforça Ramp (fontes de qualquer cor para o WUBRG); sai de Draw, estourado.",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Mana de qualquer cor: corrige o WUBRG, sem mexer no plano.",
+    "I": "Entra e já dá mana no turno seguinte.",
+    "T": "Três manas por uma pedra de qualquer cor.",
+    "Q": "Útil em qualquer posição da mesa.",
+    "R": "Só duas pedras na lista; a régua do deck pede 7 fontes de qualquer cor."
+   },
+   "origem": "Caixa, 8x8 (2026-11-17)",
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "tier": "B",
+   "indice": 1.85,
+   "veredito": "avaliar",
+   "sai": "Apple of Eden, Isu Relic"
+  },
+  "Weather Maker": {
+   "notas": {
+    "ramp": 2,
+    "fechamento": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Com três marcadores, 3 de dano em qualquer alvo: tira vida de um oponente, de passagem, rumo aos 10."
+   },
+   "rel": "ALT",
+   "faz": "Artefato. Cada terreno que entra põe um marcador. {T}: uma mana de qualquer cor; tirando dois marcadores, {C}{C}; tirando três, 3 de dano em qualquer alvo.",
+   "porque": "Pedra de qualquer cor, e cada Landscape sacrificada dá dois marcadores; o dano vai no oponente rumo à execução. Está na Caixa. 8x8 (17/11/2026): sai Murder; reforça Ramp, sai de Removal pontual (Fatal Push é peça de combo com as Landscapes).",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Mana de qualquer cor para o WUBRG, e um pingo de vez em quando.",
+    "I": "Entra e dá mana no turno seguinte.",
+    "T": "Pedra de qualquer cor com uso extra.",
+    "Q": "Útil em qualquer posição da mesa.",
+    "R": "Só duas pedras na lista; a régua do deck pede 7 fontes de qualquer cor."
+   },
+   "origem": "Caixa, 8x8 (2026-11-17)",
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "tier": "B",
+   "indice": 1.85,
+   "veredito": "avaliar",
+   "sai": "Murder"
+  },
+  "Geyadrone Dihada": {
+   "notas": {
+    "fechamento": 2,
+    "removal": 1,
+    "historico": 1
+   },
+   "sin": {
+    "sin2": 2
+   },
+   "sin_por_que": {
+    "sin2": "+1: cada oponente perde 2 de vida, todo turno: tira vida de forma repetível, rumo aos 10."
+   },
+   "rel": "ALT",
+   "faz": "Planeswalker lendário de 4 (U B R). +1: cada oponente perde 2 de vida e você ganha 2; −3: toma uma criatura ou planeswalker até o fim do turno; −7: toma tudo com marcador de corrupção.",
+   "porque": "Leva a mesa aos 10 de vida, 2 por oponente a cada turno, e é lendária: dispara o Histórico. Está na Caixa. 8x8 (17/11/2026, ok do dono): sai Primal Command; reforça Fechamento; sai de Draw, estourado.",
+   "funcao": "fechamento",
+   "papel": "multiplica",
+   "papel_por_que": "Põe a mesa inteira na faixa de execução do Ezio.",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Pinga todos os oponentes rumo aos 10 da execução.",
+    "I": "Já pinga no turno em que entra.",
+    "T": "Quatro manas por um pingo de mesa repetível.",
+    "Q": "Na frente e na paridade; atrás, apanha.",
+    "R": "Arbaaz Mir e Mjölnir também pingam; nenhum na mesa inteira por 2."
+   },
+   "origem": "Caixa, 8x8 (2026-11-17)",
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "tier": "B",
+   "indice": 2.0,
+   "veredito": "avaliar",
+   "sai": "Primal Command"
+  },
+  "Crackling Doom": {
+   "notas": {
+    "removal": 3,
+    "fechamento": 1
+   },
+   "sin": {
+    "sin2": 1
+   },
+   "sin_por_que": {
+    "sin2": "Tira 2 de vida de cada oponente, uma vez."
+   },
+   "rel": "ALT",
+   "faz": "Instantânea {R}{W}{B}: 2 de dano em cada oponente, e cada oponente sacrifica a criatura de maior poder que controla.",
+   "porque": "Remoção de mesa unilateral: pega a maior ameaça de cada oponente, passa por indestrutível e resistência a magia, e pinga a mesa rumo aos 10 da execução. Está na Caixa. 8x8 (18/11/2026, ok do dono): sai Casualties of War; remoção de mesa no lugar de uma pontual de 6 manas (Deflecting Palm e Dead Weight já são cortes do Basim e da Winds of Abandon).",
+   "funcao": "resposta",
+   "origem": "Caixa, 8x8 (2026-11-18)",
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Tira a maior ameaça de cada oponente e pinga a mesa rumo aos 10.",
+    "I": "Instantânea: resolve na hora, até no turno do oponente.",
+    "T": "Três manas por até três remoções e 6 de dano na mesa.",
+    "Q": "Útil atrás, na paridade e na frente.",
+    "R": "A única remoção de mesa instantânea da lista; sacrifício passa por indestrutível e hexproof."
+   },
+   "argumentos_s": [
+    "Supreme Verdict leva os Assassinos junto e a Winds of Abandon é feitiço; ela é a única que tira a maior ameaça de cada oponente na hora, sem tocar nos seus.",
+    "Swords e Fatal Push tiram uma criatura de um oponente; nenhuma tira a maior de todos, passa por indestrutível e ainda pinga a mesa.",
+    "Atrás, segura a mesa; na paridade, abre caminho para o ataque; na frente, os 2 de dano em cada um levam a mesa à faixa da execução."
+   ],
+   "tier": "S",
+   "sai": "Casualties of War",
+   "indice": 2.55,
+   "veredito": "entra"
   }
  },
  "combos": [
