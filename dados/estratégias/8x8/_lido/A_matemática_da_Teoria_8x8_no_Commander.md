@@ -1,0 +1,668 @@
+# A_matemática_da_Teoria_8x8_no_Commander.m4a
+
+Transcrição local (faster-whisper medium), idioma pt, 29:06 de áudio. Pode ter erros de nomes de cartas: confira no Scryfall.
+
+- [00:00] Imagina a seguinte cena, quatro pessoas reunidas ali numa mesa para jogar Commander.
+- [00:05] A partida já tá rolando há, sei lá, umas duas horas.
+- [00:08] Clássico, né? Aquela partida que não acaba nunca.
+- [00:11] Exato.
+- [00:11] Aquela partida que não acaba nunca.
+- [00:13] Exato. E aí, alguém trouxe um baralho que, nossa, a pessoa passou semanas montando.
+- [00:18] Analisou as artes, a história, escolheu a dedo, cada uma daquelas 100 cartas.
+- [00:24] Aham. Todo mundo já passou por isso ou conhece alguém que fez isso.
+- [00:27] Pois é. Mas o lance é que, matematicamente falando, antes mesmo de comprar a mão inicial,
+- [00:33] essa pessoa já tinha perdido o jogo.
+- [00:35] Caramba.
+- [00:36] É. E isso é o famoso pesadelo logístico de quem constrói baralhas, sabe?
+- [00:40] Sim.
+- [00:41] A pessoa passa a partida inteira comprando terrenos sem ter o que jogar.
+- [00:44] Ou o pior cenário, né?
+- [00:46] Ou o pior cenário.
+- [00:47] Fica com a mão cheia de mágicas superpoderosas, cartas incríveis,
+- [00:50] mas sem um único terreno no campo para conjurar aquilo tudo.
+- [00:53] É, de chorar.
+- [00:55] Aquele baralho maravilhoso, cheio de sinergias, vira basicamente um cemitério de boas intenções.
+- [01:01] Com certeza.
+- [01:02] E a pessoa passa essas duas horas que você mencionou apenas assistindo o resto da mesa se divertir.
+- [01:06] É muito frustrante.
+- [01:08] E é para evitar exatamente esse cenário trágico que, no nosso mergulho de hoje,
+- [01:12] a gente vai analisar a fundo a probabilidade fria e calculista da construção de decks.
+- [01:17] Isso.
+- [01:19] Nós reunimos relatórios de probabilidade hipergeométrica,
+- [01:22] que parece um nome assustador, mas a gente vai explicar.
+- [01:25] A gente destrincha isso.
+- [01:27] E cruzamos esses dados com o material de vários estrategistas e criadores de conteúdo da comunidade.
+- [01:32] Sim, canais muito bons, tipo Lente Prismática, Rebel Lily, Tap & Turn Gaming,
+- [01:37] Caverna das Lhamas e o Magic Addict 24.
+- [01:39] Exatamente.
+- [01:41] O nosso grande objetivo hoje é entender a famosa teoria 8x8.
+- [01:46] Queremos ver se ela é realmente a salvação matemática do formato, sabe?
+- [01:50] Ou se, como algumas pessoas argumentam, ela é só uma camisa de força criativa que tira a graça do jogo.
+- [01:56] Bom, para quem não está familiarizado com a estrutura básica,
+- [02:00] você pode dar uma resumida no que é essa teoria?
+- [02:02] Claro.
+- [02:03] A teoria 8x8 é, no fundo, uma tentativa de organizar o caos.
+- [02:07] No commander, a regra é que você joga com exatamente 100 cartas.
+- [02:10] 100 cartas cravadas.
+- [02:12] Nem mais, nem menos.
+- [02:14] Isso.
+- [02:15] E se você tira o seu comandante, que fica ali separadinho na zona de comando,
+- [02:18] sobram 99 cartas no baralho principal.
+- [02:21] Certo.
+- [02:22] Aí, a teoria sugere que você reserve 35 desses espaços especificamente para os seus terrenos.
+- [02:28] O que é uma quantidade bem padrão, né?
+- [02:30] Sim, bem segura.
+- [02:32] Fazendo as contas, 99 menos 35 deixa você com exatas 64 cartas para preencher.
+- [02:39] E aí entra a matemática bonita da coisa.
+- [02:42] Porque 64 dividido por 8 dá exatamente 8.
+- [02:46] Exato.
+- [02:47] A ideia central, então, é que você pegue essas 64 cartas e divida em 8 pacotes funcionais.
+- [02:55] E cada pacote vai ter 8 cartas.
+- [02:57] Ah, tipo um pacote só para aceleração de mana, outro pacote só para compra de cartas,
+- [03:03] outro para remoção de criaturas.
+- [03:05] Isso mesmo.
+- [03:06] E por aí vai, dependendo do que o seu baralho precisa fazer para vencer.
+- [03:10] E olha, lendo o material do lente prismática, junto com aquele relatório técnico,
+- [03:15] eles usaram uma analogia que eu achei, assim, brilhante para explicar isso.
+- [03:18] A da pizza?
+- [03:19] Essa mesmo.
+- [03:21] Eles comparam o baralho inteiro a uma pizza, onde você tem a massa, a base e você tem as coberturas.
+- [03:27] É uma analogia incrivelmente precisa quando a gente fala de design de jogos, sabe?
+- [03:31] A massa da pizza é a infraestrutura do seu baralho.
+- [03:35] Aquilo que ninguém acha super empolgante, mas precisa estar lá.
+- [03:38] Com certeza.
+- [03:41] São aquelas cartas que não vão ganhar o jogo sozinhas e não são vistosas,
+- [03:45] mas que fazem o jogo simplesmente acontecer.
+- [03:48] A aceleração de mana, que a galera chama de Ramp, né?
+- [03:51] Isso.
+- [03:52] O Ramp, as mágicas que fazem você comprar mais cartas e as interações ou remoções para parar os oponentes.
+- [03:59] Sem isso, a sua pizza não tem massa.
+- [04:02] Ela desmancha.
+- [04:03] Faz todo o sentido.
+- [04:05] E as coberturas seriam, no caso, os motivos reais de você ter montado aquele baralho.
+- [04:10] Exato.
+- [04:11] São os dragões gigantes, as suas cartas de estimação, aqueles combos que dão uma nostalgia boa, os sabores, né?
+- [04:18] E o grande erro que os relatórios apontam é que as pessoas ficam tão empolgadas escolhendo esses sabores
+- [04:25] que colocam 80 coberturas diferentes.
+- [04:27] Aham.
+- [04:28] Querem botar bacon, calabresa, frango, tudo de uma vez.
+- [04:31] E esquecem da massa.
+- [04:32] E aí, quando vai para o forno ou para a mesa de jogo, no nosso caso, a estrutura inteira desmorona.
+- [04:38] A pizza não assa direito.
+- [04:40] É o que mais acontece.
+- [04:41] A pessoa vai numa loja, tira uma carta brilhante nova num pacote de expansão e quer enfiar no deck de qualquer jeito.
+- [04:48] E o resultado prático disso é que falta espaço para as engrenagens funcionarem.
+- [04:52] Mas, olha, eu preciso fazer o papel de advogado do diabo aqui.
+- [04:56] Manda.
+- [04:57] Lendo isso tudo, eu confesso que fiquei com uma dúvida bem genuína.
+- [05:01] Porque, assim, o commander é, por natureza, um formato de expressão pessoal, não é?
+- [05:06] Sim, é um formato casual por excelência.
+- [05:08] Então, se essa regra me obriga a colocar oito cartas rígidas de compra, oito de remoção, oito de aceleração,
+- [05:16] eu vou ter que tirar os meus monstros gigantes?
+- [05:18] Para colocar um artefato sem graça de duas manas, né?
+- [05:22] Eu sei bem como é o sentimento.
+- [05:24] Isso.
+- [05:25] Essa matemática toda acaba transformando a construção do baralho num processo super robótico,
+- [05:31] tipo, sugando a diversão da galera?
+- [05:33] Olha, é uma preocupação válida.
+- [05:35] Mas o que é fascinante aqui é que o efeito prático relatado por quem realmente aplica a teoria
+- [05:41] é o inverso disso.
+- [05:42] Sério? O inverso?
+- [05:44] Sim.
+- [05:45] Pensa comigo.
+- [05:46] Quando você tem uma tela totalmente em branco, sem regra nenhuma,
+- [05:50] você costuma sofrer de paralisia de decisão.
+- [05:52] Ah, claro. Tem o quê?
+- [05:54] Dezenas de milhares de cartas na história da Magic.
+- [05:56] Exatamente. Oitenta mil cartas, sei lá.
+- [05:59] A estrutura de oito pacotes atua como um limitador criativo super saudável.
+- [06:04] Entendi.
+- [06:05] Ele meio que afunila as suas opções para você não enlouquecer.
+- [06:08] Isso.
+- [06:09] E quando você garante que a massa da pizza está estatisticamente perfeita,
+- [06:14] você elimina a parte frustrante do jogo.
+- [06:17] A parte de ficar só assistindo.
+- [06:18] Exato.
+- [06:19] O método não te impede de jogar com seus monstros favoritos.
+- [06:22] Ele só garante que, quando o jogo começar,
+- [06:25] você de fato tenha recursos para conjurar eles.
+- [06:28] Tá. Eu entendo a necessidade de uma base sólida.
+- [06:31] Evita dor de cabeça.
+- [06:33] Mas enquanto eu li aquelas análises de probabilidade,
+- [06:36] uma pergunta não saía da minha cabeça.
+- [06:38] Qual? Por que o número oito?
+- [06:40] Essa mesma.
+- [06:41] Por que exatamente oito?
+- [06:43] Assim, a estética do oito por oito é bonitinha, claro.
+- [06:45] 64 dividido por oito é um número redondo.
+- [06:48] É perfeito para marketing, né?
+- [06:50] Sim, mas por que não pacotes de dez cartas?
+- [06:53] Ou pacotes de seis?
+- [06:55] Aí eu fui checar os cálculos de probabilidade hipergeométrica
+- [06:58] naqueles relatórios.
+- [06:59] E os números são intensos, não são?
+- [07:01] Assustadores.
+- [07:03] Quando você entende a natureza do formato, cai na real.
+- [07:06] Porque o commander é o que a comunidade chama de formato singleton, certo?
+- [07:10] Isso. A regra do singleton diz que, tirando os terrenos básicos,
+- [07:14] você só pode ter uma única cópia de cada carta no baralho inteiro.
+- [07:18] Não dá para colocar quatro cópias da mesma mágica forte
+- [07:21] como nos outros formatos de 60 cartas.
+- [07:23] De jeito nenhum.
+- [07:25] E isso muda absolutamente toda a matemática do jogo.
+- [07:28] A consistência vai lá para baixo.
+- [07:30] E a tabela mostra o impacto prático disso perfeitamente.
+- [07:33] Imagina que você colocou uma carta incrível no seu baralho,
+- [07:36] uma carta única, e você precisa muito dela.
+- [07:39] Para o seu plano de jogo rodar.
+- [07:41] Isso. Sabe qual é a chance de você comprar essa carta específica
+- [07:44] na sua mão inicial de sete cartas?
+- [07:46] É bem baixa, eu imagino.
+- [07:48] É de minúsculos 11,7%.
+- [07:51] Nossa. Ou seja, em quase 90% dos jogos, ela não vai estar lá.
+- [07:56] Exato. E mesmo se o jogo avançar, digamos,
+- [07:59] você compra uma carta por turno e chega no turno sete.
+- [08:02] A probabilidade de ter visto aquela carta sobe para apenas 20%.
+- [08:06] 20% no turno sete.
+- [08:08] É muito pouco.
+- [08:09] É muito pouco.
+- [08:11] Eu pensei numa analogia.
+- [08:12] É como fazer as malas para uma viagem de dez dias
+- [08:15] achando que um único par de meias vai ser suficiente.
+- [08:18] Porque você, sei lá, espera achar uma lavanderia pelo caminho.
+- [08:21] Exatamente. Mas no jogo, esperança não é estratégia.
+- [08:25] Com certeza não.
+- [08:26] E é por isso que a lógica dos pacotes existe.
+- [08:29] O segredo é que você não precisa comprar uma carta específica.
+- [08:33] Você precisa comprar um efeito específico.
+- [08:36] Isso.
+- [08:37] Se você precisa destruir uma criatura enorme do oponente,
+- [08:40] tanto faz se você faz isso com a carta A, com a carta B ou a C.
+- [08:43] O importante é o efeito acontecer.
+- [08:46] E é aí que o bendito número oito se justifica matematicamente.
+- [08:50] Olha isso.
+- [08:51] Os números sobem bastante, né?
+- [08:53] Muito.
+- [08:54] Se você agrupar oito cartas diferentes,
+- [08:56] mas que fazem essencialmente a mesma coisa,
+- [08:59] tipo oito cartas de aceleração de mana.
+- [09:01] Ou o seu pacote de ramp.
+- [09:03] Isso.
+- [09:03] A sua chance de ter pelo menos uma dessas oito na mão inicial
+- [09:07] salta daqueles míseros 11% para impressionantes 65,4%.
+- [09:13] Nossa. De 11 para 65.
+- [09:16] É mais da metade das partidas, começando com a peça que você precisa.
+- [09:19] Sim.
+- [09:20] E até o turno sete, essa chance bate 85,3%.
+- [09:25] Quase garantido.
+- [09:26] A redundância é, literalmente, a alma desse formato.
+- [09:30] E a matemática que você levantou agora prova que oito
+- [09:32] não é só um nome bonitinho para teoria.
+- [09:34] Não. É a ciência do jogo.
+- [09:36] Exato. Oito é o piso.
+- [09:38] É o limiar estatístico de confiabilidade.
+- [09:41] Se o seu baralho precisa obrigatoriamente acelerar
+- [09:43] a produção de mana nos primeiros turnos...
+- [09:46] O que quase todo baralho precisa, né?
+- [09:48] Sim.
+- [09:49] Se ele precisa disso e você coloca só cinco cartas com esse efeito,
+- [09:52] os números dizem claramente que o baralho vai falhar
+- [09:55] na maior parte das vezes.
+- [09:56] Fica batendo na trave.
+- [09:58] Exato.
+- [09:58] Mas olha, tem um porém aí.
+- [10:00] No vácuo, ter 85% de chance parece o cenário ideal.
+- [10:05] Mas as partidas não acontecem no vácuo.
+- [10:07] Exatamente.
+- [10:07] Essa matemática assume que todo baralho funciona da mesma forma mecânica.
+- [10:12] E nós sabemos que isso não é verdade.
+- [10:14] Nem de longe.
+- [10:15] O commander é o formato da diversidade.
+- [10:17] Sim.
+- [10:17] E se a criatura que lidera o seu baralho,
+- [10:20] o seu comandante ali na zona de comando,
+- [10:22] quebra completamente as regras normais do jogo?
+- [10:24] Aí a gente precisa adaptar.
+- [10:26] Como que a comunidade pega essa teoria matemática super inflexível
+- [10:29] e ajusta para umas estratégias mais exóticas?
+- [10:33] Essa é a evolução natural da teoria.
+- [10:35] E os criadores de conteúdo que a gente analisou hoje
+- [10:38] exploram isso muito bem.
+- [10:40] A Rebel Lily, por exemplo, tem um conceito ótimo.
+- [10:43] Ah, a teoria do cubo dela, certo?
+- [10:45] Isso mesmo. A Cube Theory.
+- [10:46] Ela pega oito por oito tradicional e divide no meio,
+- [10:49] em duas metades bem claras.
+- [10:51] Como funciona?
+- [10:52] Ela sugere quatro pacotes de fundação,
+- [10:54] que são a aceleração, a compra, a remoção e a proteção.
+- [10:59] Aquela nossa massa da pizza.
+- [11:01] Tá. Quatro pacotes básicos.
+- [11:03] E os outros quatro.
+- [11:04] São os pacotes puramente estratégicos,
+- [11:06] montados para fazer o deck vencer o jogo.
+- [11:09] As sinergias, combos.
+- [11:10] Mas a regra de ouro dela
+- [11:12] é que o comandante é quem vai ditar a proporção disso tudo.
+- [11:15] Eu achei fascinante o exemplo que ela dá no vídeo
+- [11:17] com comandantes de custo muito baixo.
+- [11:20] O Finn.
+- [11:20] Isso. O Finn, the Fang Bearer.
+- [11:23] Para a galera que não conhece,
+- [11:24] é um comandante verde que custa só duas manas.
+- [11:27] Super baratinho.
+- [11:28] Muito. E o objetivo dele é colocar criaturas minúsculas
+- [11:31] com a habilidade de toque mortífero na mesa
+- [11:33] logo no primeiro ou segundo turno,
+- [11:35] para envenenar os oponentes bem rápido.
+- [11:37] Uma estratégia super agressiva.
+- [11:39] Sim. E se você joga com ele,
+- [11:41] o seu pacote inteiro de aceleração de mana, o seu Ramp,
+- [11:44] se torna quase inútil.
+- [11:45] Você não precisa gerar dez manas num turno.
+- [11:48] Você só precisa de duas ou três.
+- [11:50] Porque as mágicas dele já são muito baratas, faz todo sentido.
+- [11:53] Então a Rebel Lily argumenta que você pode simplesmente pegar
+- [11:56] esses oito espaços do Ramp
+- [11:58] e transformar em mais criaturas com veneno.
+- [12:00] Você quebra a regra dos oito pacotes tradicionais.
+- [12:03] Porque o seu comandante anulou a necessidade de um deles.
+- [12:06] O mesmo vale para uma comandante como a T'Chana, Voice of Thunder.
+- [12:10] Ah, essa eu conheço. Ela é enorme.
+- [12:12] Sim. E ela tem um efeito massivo embutido
+- [12:15] de comprar cartas quando entra em campo.
+- [12:17] Se a sua própria líder já garante que a sua mão
+- [12:19] vai ficar cheia de cartas no meio do jogo...
+- [12:21] Você não precisa de um pacote de oito cartas de compra no deck.
+- [12:24] Exato. Mantê esse pacote rígido de compra no baralho principal,
+- [12:28] vira um desperdício de eficiência.
+- [12:30] Você pega essa matemática e redistribui.
+- [12:33] Mas olha, a adaptação mais radical de todas que eu encontrei
+- [12:36] nesses materiais não foi a da Rebel Lily.
+- [12:39] Foi a do canal Tap and Turn Gaming.
+- [12:41] Ah, a estrutura que altera o cálculo base.
+- [12:43] Isso. Eles alteram o CERN da matemática.
+- [12:46] Em vez de deixar o comandante fora da conta,
+- [12:48] como naquela teoria clássica de 64 cartas mais 35 terrenos.
+- [12:53] Eles incluem o comandante na conta das oitenta, né?
+- [12:56] Exatamente. Eles incluem o comandante como parte de um dos pacotes de oito.
+- [13:01] O exemplo do vídeo deles foi com o Yarok, The Desecrated.
+- [13:05] Excelente exemplo de comandante que centraliza o jogo.
+- [13:08] Sim, ele é um comandante que dobra os efeitos das suas criaturas
+- [13:12] quando elas entram no campo de batalha.
+- [13:14] E o canal colocou o Yarok como parte integral do pacote de sinergia de entrada.
+- [13:19] Ele conta como uma das oito cartas.
+- [13:21] É uma sacada genial.
+- [13:22] E a lógica por trás dessa decisão revela muito
+- [13:25] sobre como a mecânica do jogo funciona de verdade.
+- [13:27] O Yarok não é só um comandante ali parado.
+- [13:30] Ele é o motor do deck.
+- [13:32] Exato. Ele é o motor que faz as outras 99 cartas funcionarem no máximo do potencial.
+- [13:38] Mas, peraí. Pra mim, rolou um conflito quando eu li isso.
+- [13:42] Qual conflito?
+- [13:43] Pensa bem. Se a teoria dos pacotes existe justamente pra gerar redundância matemática...
+- [13:48] Porque as cartas estão perdidas no meio do baralho, certo?
+- [13:51] Isso. Porque eu tenho chance de não comprar.
+- [13:53] Não faz sentido colocar o comandante nesse cálculo. Faz.
+- [13:56] Porque o comandante já começa o jogo separado de tudo lá na zona de comando.
+- [14:01] Ele está sempre disponível.
+- [14:02] Exato. Ele nunca vai precisar ser comprado aleatoriamente.
+- [14:05] Então, contar com ele como uma das oito cartas
+- [14:08] não dilui a matemática daquele pacote dentro do baralho principal.
+- [14:12] Você fica com sete cartas escondidas em vez de oito.
+- [14:15] Olha, parece que dilui, mas na prática é o contrário.
+- [14:18] Ele atua como uma âncora absoluta para a sua probabilidade.
+- [14:22] Como assim?
+- [14:22] Pensa na função do Yarok.
+- [14:24] O pacote dele é focado em efeitos que desencadeiam ao entrar no campo de batalha.
+- [14:28] E a função dele é dobrar esses efeitos.
+- [14:30] Tá. Ele potencializa o que já está acontecendo.
+- [14:33] Isso.
+- [14:34] O fato de ele estar eternamente disponível na zona de comando,
+- [14:37] sem depender de sorte para contra,
+- [14:39] significa que ele funciona meio que como uma nona carta invisível.
+- [14:43] Ah, entendi.
+- [14:44] Ele garante que o investimento de mana e recursos do jogador
+- [14:47] naquele tipo de mecânica nunca seja em vão.
+- [14:50] A estrutura se apoia na certeza do líder para dar uma aliviada
+- [14:54] na pressão estatística das outras sete cartas que estão escondidas.
+- [14:57] Nossa, isso faz muito sentido.
+- [14:59] É uma forma de dizer para si mesmo, tipo,
+- [15:01] meu líder garante tanto esse efeito
+- [15:03] que eu não preciso me desesperar
+- [15:05] enfiando trocentas cópias idênticas no baralho principal.
+- [15:08] É exatamente esse o recado.
+- [15:10] E você confia no seu comandante para carregar aquele pacote nas costas.
+- [15:14] Agora, é importante também a gente notar que essa teoria toda
+- [15:17] não é a prova de balas em qualquer situação ou nível de jogo.
+- [15:21] Ah, não. Tem limitações severas.
+- [15:23] O pessoal da Caverna das Leomas pontuou isso super bem.
+- [15:25] Eles apontam que o 8x8 é simplesmente perfeito,
+- [15:29] porque eles chamam de níveis de poder de 1 a 4.
+- [15:31] Que seriam as mesas casuais e as mesas otimizadas, né?
+- [15:34] Onde a galera joga para se divertir ou num nível um pouco mais focado.
+- [15:37] Isso.
+- [15:38] Mas eles avisam com todas as letras
+- [15:40] que a teoria quebra completamente quando chegamos no nível 5.
+- [15:43] Que é o CEDH, o commander competitivo.
+- [15:46] É, exato.
+- [15:47] Onde o bicho pega de verdade.
+- [15:48] E por que ela quebra aí?
+- [15:50] Porque a própria mecânica e o ritmo do jogo competitivo justificam essa quebra.
+- [15:54] Numa mesa casual, o jogo dura turnos e turnos.
+- [15:57] As famosas duas horas que eu falei no começo.
+- [15:59] Isso.
+- [16:00] Mas no CEDH, o objetivo passa a ser vencer a partida no turno 2, turno 3,
+- [16:06] ou impedir que os seus oponentes vençam nesses turnos.
+- [16:08] É um jogo na velocidade da luz.
+- [16:10] Exatamente.
+- [16:11] Nesse cenário super rápido,
+- [16:13] a redundância de ter oito cartas parecidas,
+- [16:16] mas que fazem a mesma coisa de forma genérica,
+- [16:18] se torna extremamente ineficiente.
+- [16:21] Tá, mas se eles não usam os pacotes de 8, eles usam o quê?
+- [16:25] Eles substituem a ideia de pacotes genéricos por tutores universais.
+- [16:29] Tutores.
+- [16:30] As mágicas de busca.
+- [16:32] Isso.
+- [16:32] São aquelas mágicas que permitem que você pegue o baralho na mão,
+- [16:35] olhe todas as cartas e busque a carta exata que você precisa.
+- [16:40] Como o Demonic Tutor, que custa só duas manas.
+- [16:42] Perfeito.
+- [16:44] No competitivo, a matemática de ficar esperando a carta certa aparecer
+- [16:47] perde todo o espaço para essa busca cirúrgica.
+- [16:50] Você não quer uma carta parecida.
+- [16:52] Você quer a peça exata do seu combo infinito para ganhar agora.
+- [16:56] É, realmente é um ecossistema completamente diferente.
+- [16:59] A matemática da paciência não funciona ali.
+- [17:01] De jeito nenhum.
+- [17:03] O CEDH é outro mundo.
+- [17:05] Mas, voltando para o nosso mundo,
+- [17:07] o mundo da galera que joga nas mesas casuais e otimizadas,
+- [17:10] tem o alerta do canal Magic Addict 24,
+- [17:13] que eu acho crucial a gente mencionar.
+- [17:15] Sobre os limpa-mesas.
+- [17:16] Isso.
+- [17:17] Ele diz que seguir cegamente essa ideia de criar pacotes genéricos
+- [17:20] pode, tipo, destruir a experiência de todo mundo na mesa.
+- [17:23] E pode mesmo.
+- [17:24] O exemplo dos limpa-mesas, os famosos Board Wipes,
+- [17:27] é o melhor para ilustrar isso.
+- [17:29] Para quem não sabe, Board Wipes são aquelas mágicas grandonas
+- [17:32] que destroem todas as criaturas do jogo de uma vez só.
+- [17:34] Causa um reset na partida.
+- [17:36] Aí, imagina que você segue a teoria à risca
+- [17:39] e reserva um pacote inteiro de oito cartas
+- [17:42] só para essas mágicas de destruir tudo.
+- [17:44] O seu baralho vai ser insuportável.
+- [17:46] Insuportável para os oponentes
+- [17:48] e, pelo que ele fala, insuportável para você mesmo também.
+- [17:51] Com certeza.
+- [17:52] Imagina a situação.
+- [17:54] Você abre a sua mão inicial com três terrenos,
+- [17:57] uma criatura pequena e três mágicas de destruir o mundo inteiro.
+- [18:01] Nossa, você não consegue fazer nada.
+- [18:02] Pois é.
+- [18:03] Você não desenvolve seu próprio jogo, não cria seu exército
+- [18:06] e fica só lá, resetando o jogo dos outros a cada turno.
+- [18:10] Ninguém se diverte.
+- [18:11] E o jogo não avança.
+- [18:13] É uma falha grave na transição da teoria do papel para a prática.
+- [18:17] E aí que entra para mim a minha parte favorita de toda essa pesquisa.
+- [18:21] Os conceitos de subdivisão e sobreposição.
+- [18:23] Ah, sim.
+- [18:24] Onde o deck building vira arte.
+- [18:26] Exato.
+- [18:27] É como você pega essa regra matemática meio restrita,
+- [18:30] de 64 espaços, e faz ela respirar.
+- [18:34] O lente prismática detalhou um caso prático super brilhante
+- [18:37] resolvendo esse exato problema dos limpa-mesas.
+- [18:40] Foi com aquele deck da Kemba, K-Regent, não foi?
+- [18:43] Esse mesmo.
+- [18:44] A Kemba é uma comandante branca
+- [18:46] que basicamente cria dezenas de fichas de gato
+- [18:49] se ela estiver equipada com várias espadas e artefatos.
+- [18:52] Então, ela precisa de muitas criaturas na mesa para ser forte.
+- [18:55] Isso.
+- [18:55] Ela cria um exército enorme.
+- [18:57] Agora, pensa bem.
+- [18:59] Se o jogador que está usando a Kemba
+- [19:00] lançar uma daquelas mágicas de limpa-mesa.
+- [19:03] Ele destrói o próprio exército que ele demorou uns cinco turnos para construir?
+- [19:06] Exato.
+- [19:07] Seria um tiro no pé gigantesco.
+- [19:09] Então, o que o construtor desse baralho fez
+- [19:12] para não ficar refém da teoria?
+- [19:14] Ele pegou aquele pacote obrigatório de oito respostas para o tabuleiro
+- [19:17] e dividiu ao meio.
+- [19:18] Ah, a subdivisão.
+- [19:20] Isso.
+- [19:21] Ele colocou quatro limpa-mesas bem estritos
+- [19:24] para o caso de emergências absolutas
+- [19:26] e usou os outros quatro espaços matemáticos da pacote
+- [19:29] para colocar mágicas de recursão e mágicas de proteção pontual.
+- [19:33] Entendi.
+- [19:34] Então, numericamente, o baralho ainda tem as oito ferramentas
+- [19:38] focadas no controle do estado do tabuleiro.
+- [19:40] Exatamente.
+- [19:41] A matemática hipergeométrica daqueles nossos oito pares de meias
+- [19:45] continua funcionando.
+- [19:46] Ela garante que ele vai achar uma resposta.
+- [19:49] Mas essas ferramentas são drasticamente mais flexíveis para o plano dele.
+- [19:53] É.
+- [19:53] A subdivisão de pacotes é onde a verdadeira habilidade
+- [19:56] de quem constrói o baralho aparece.
+- [19:58] Você mantém o volume estatístico de oito cartas
+- [20:01] para a probabilidade de te ajudar,
+- [20:02] mas ganha flexibilidade tática.
+- [20:05] Você não fica engessado?
+- [20:06] De forma alguma.
+- [20:08] E, além disso,
+- [20:09] tem dados nos relatórios mostrando que, em mesas multiplayer,
+- [20:12] com três oponentes contra você,
+- [20:14] certas funções vitais precisam até ultrapassar esse número oito.
+- [20:18] É, o pessoal aumentando os pacotes, né?
+- [20:20] Sim, expandindo pacotes de compra de cartas
+- [20:23] ou de ramp para 10 ou até 12 espaços
+- [20:25] para garantir fluxo de jogo.
+- [20:27] Só que aí a gente bate num muro de concreto.
+- [20:30] Porque o espaço físico dentro da caixa do baralho é inflexível.
+- [20:34] São 100 cartas cravadas e ponto final.
+- [20:37] Se você quer aumentar um pacote para 12 cartas,
+- [20:40] inevitavelmente tem que roubar espaço de outro pacote.
+- [20:43] É o cobertor curto.
+- [20:44] Puxa de um lado, descobre do outro.
+- [20:46] Perfeito.
+- [20:47] E é aí que a técnica da sobreposição,
+- [20:50] que os gringos chamam de overlap, brilha muito.
+- [20:53] É um conceito mágico, literalmente.
+- [20:56] É fazer uma carta valer por duas ou três, certo?
+- [20:59] Exatamente.
+- [21:00] Fazer uma única carta ocupa múltiplos espaços matemáticos
+- [21:04] na teoria 8x8.
+- [21:06] Um exemplo que eu achei sensacional nos dados
+- [21:08] é o do Planeswalker Ugin The Ineffable.
+- [21:11] Nossa, o Ugin é uma carta pesadíssima.
+- [21:14] Muito forte.
+- [21:15] Pensa nas habilidades dele.
+- [21:17] Em um baralho incolor, ele diminui em dois manas
+- [21:20] ao custo de todas as suas mágicas.
+- [21:22] Ou seja, ele serve como um pacote de aceleração de mana.
+- [21:25] Ele é um ramp.
+- [21:26] Exato.
+- [21:26] Além disso, ele tem uma habilidade de destruir permanentes coloridas.
+- [21:30] O que faz dele uma excelente carta de remoção.
+- [21:33] Sim, e não para por aí.
+- [21:34] Ele pode criar fichas de criaturas que, quando morrem,
+- [21:37] devolvem cartas exiladas para sua mão,
+- [21:39] gerando vantagem e compra indireto de cartas.
+- [21:42] Caramba!
+- [21:43] O Ugin é a própria personificação do conceito de overlap.
+- [21:46] É.
+- [21:47] Fisicamente, ali na mesa, ele é uma carta só.
+- [21:49] Mas, matematicamente,
+- [21:51] para aquele método de planilhas do 8x8,
+- [21:54] ele preencha a cota de três pacotes diferentes.
+- [21:56] Ele te dá uma folga gigantesca nos 64 espaços, né?
+- [21:59] Pensando um pouco sobre a economia do jogo,
+- [22:02] o Ugin me lembra muito aquele processo de contratar um funcionário no mundo real.
+- [22:06] Como assim?
+- [22:07] Imagina que você tem três tarefas na sua empresa.
+- [22:09] Acelerar recursos,
+- [22:10] garantir a segurança
+- [22:12] e pesquisar novos projetos.
+- [22:13] Você poderia contratar três funcionários diferentes
+- [22:16] e pagar salários bem baixos para eles.
+- [22:18] Que, no médio, seriam mágicas baratas de um ou dois manas.
+- [22:21] Que fazem apenas uma única coisa.
+- [22:23] Isso.
+- [22:23] Ou você pode contratar o Ugin.
+- [22:27] O Ugin, como funcionário, faz as três funções sozinho com excelência,
+- [22:31] economizando três espaços físicos na sua empresa.
+- [22:33] Ou seja, na caixa do seu barário.
+- [22:35] Mas tem um custo alto para isso.
+- [22:37] Sim.
+- [22:38] O salário desse funcionário mega versatile é altíssimo.
+- [22:41] O Ugin custa seis manas para ser conjurado.
+- [22:44] E esse salário altíssimo é o que a teoria chama de taxa de versatilidade.
+- [22:48] Não existe almoço grátis no Magic.
+- [22:50] Exatamente.
+- [22:51] Tudo tem um preço.
+- [22:52] O canal Tap & Turn Gaming explora muito bem os limites dessa taxa de versatilidade.
+- [22:57] No vídeo sobre aquele deck do Yarok que comentamos,
+- [23:00] eles falam sobre o DreamMeeter.
+- [23:02] A criatura com lampejo.
+- [23:03] Ela mesma.
+- [23:04] É uma criatura que, quando entra em campo,
+- [23:06] devolve outra criatura para a mão do dono.
+- [23:09] Ou seja, age como uma remoção.
+- [23:11] Aham.
+- [23:11] E ela ainda permite que você olhe várias cartas do topo do baralho,
+- [23:15] coloque o que não quer no cemitério e organize suas próximas compras.
+- [23:18] Seleção de cartas.
+- [23:19] Exato.
+- [23:20] Ela ocupa dois pacotes diferentes simultaneamente.
+- [23:23] Mas, assim como seu funcionário Ugin,
+- [23:26] o DreamMeeter custa astronômicas seis manas.
+- [23:29] É uma taxa pesada para um efeito que você poderia ter por duas manas se fosse separado.
+- [23:34] Sim.
+- [23:34] Eles também citam a mágica Release to the Wind.
+- [23:37] Essa carta pode exilar uma permanente sua
+- [23:39] para salvá-la de uma mágica de remoção do oponente.
+- [23:42] O que conta matematicamente para o seu pacote de proteção.
+- [23:46] Isso.
+- [23:46] Mas depois, ela permite que você conjure essa carta exilada de graça,
+- [23:50] fazendo com que todos os efeitos de entrada aconteçam novamente.
+- [23:54] Então, ela também atua fortemente no pacote de sinergia do deck.
+- [23:57] Muito eficiente.
+- [23:59] E sabe de uma coisa?
+- [24:00] Tem um outro jeito de fazer esse overlap que me deixou de queixo caído quando eu vi.
+- [24:04] Usar os terrenos.
+- [24:05] Sim.
+- [24:06] Até mesmo os terrenos ajudam nessa economia de espaço
+- [24:09] e ajudam a burlar a matemática de um jeito legal.
+- [24:12] A galera usa muito os MDFCs, que são aquelas cartas de dupla face.
+- [24:17] Ah, que de um lado é uma mágica normal e no verso é um terreno.
+- [24:20] Exato.
+- [24:21] Ou então os terrenos utilitários, que não geram só mana.
+- [24:24] O melhor exemplo disso é a War Room.
+- [24:26] Um ótimo terreno para o formato.
+- [24:28] Sim.
+- [24:29] Na hora de construir o deck e separar as cartas na mesa,
+- [24:32] a War Room entra na pilha dos 35 terrenos.
+- [24:34] Ela é a sua infraestrutura obrigatória, a massa da sua pizza.
+- [24:38] Ok, ela não gastou nenhum dos 64 slots preciosos das mágicas.
+- [24:42] Perfeito.
+- [24:43] Mas imagina que chega o turno 10.
+- [24:45] Você não tem mais nenhuma carta na mão e está sobrando mana.
+- [24:48] Você vira a War Room,
+- [24:49] parga um pouco de vida e ela faz o quê?
+- [24:51] Você compra uma carta.
+- [24:53] Isso.
+- [24:53] O terreno se disfarçou de feitiço de compra.
+- [24:56] Você efetivamente trapaceou a regra matemática,
+- [24:59] colocando uma ferramenta extra no seu pacote de vantagem de cartas
+- [25:02] sem gastar o limite restrito de mágicas.
+- [25:05] É super inteligente.
+- [25:06] Mas a gente tem que ter um cuidado gigante aí.
+- [25:09] O perigo real dessa tática de overlap é a ganância.
+- [25:12] É o quê? Colocar a carta versátil demais?
+- [25:14] Exatamente.
+- [25:15] O jogador iniciante muitas vezes descobre essa técnica de sobreposição
+- [25:19] e resolve, sei lá, encher o baralho
+- [25:22] só com esses funcionários multifuncionais que fazem tudo de uma vez.
+- [25:25] E qual o problema disso?
+- [25:27] Lembra da taxa de versatilidade.
+- [25:29] Se toda a carta do seu baralho custar cinco, seis ou sete manas
+- [25:33] porque faz três coisas ao mesmo tempo, sabe o que vai acontecer?
+- [25:36] A partida vai acabar antes de eu conjurar a primeira carta.
+- [25:38] Exato.
+- [25:39] O segredo para uma curva de mana sustentável e um deck que realmente roda
+- [25:43] é ter um equilíbrio superfino.
+- [25:45] Então tem que misturar?
+- [25:46] Sim.
+- [25:47] Você tem que usar aquelas mágicas baratinhas e superfocadas
+- [25:50] que trocam recurso um para um nos primeiros turnos
+- [25:53] e só misturar isso com alguns desses pesos pesados de alta versatilidade
+- [25:57] que vão estabilizar o jogo mais para o final.
+- [25:59] Ah, faz sentido.
+- [26:00] Até porque a gente não pode esquecer que no commander você joga contra três pessoas.
+- [26:05] Os seus recursos se esgotam muito mais rápido.
+- [26:08] Três vezes mais rápido.
+- [26:09] Por isso o overlap é necessário, mas com responsabilidade matemática.
+- [26:13] Bom, chegando ao fim dessa nossa mega análise de tantos relatórios e dados,
+- [26:19] eu acho que o que fica muito, muito claro
+- [26:21] é que a teoria 8x8 está bem longe de ser só um algoritmo frio
+- [26:25] desenhado para matar a nossa criatividade.
+- [26:28] Longe disso.
+- [26:29] Na verdade, ela é tipo o melhor escudo matemático
+- [26:32] que um construtor de baralhos pode usar contra a aleatoriedade cruel do formato singleton.
+- [26:38] A teoria é a garantia de que a massa da sua pizza vai estar lá.
+- [26:41] Bem assada, estruturada, sem rachar no meio
+- [26:45] e capaz de aguentar o peso daquelas suas escolhas mais absurdas e excêntricas de cobertura.
+- [26:50] Com certeza.
+- [26:51] Porque ao garantir que a base matemática e a probabilidade de compra funcionem a seu favor,
+- [26:56] o jogador está assegurando a própria diversão.
+- [26:59] É verdade.
+- [27:00] Afinal, as suas cartas de estimação, seus dragões e as suas sinergias exóticas
+- [27:04] só vão importar se elas de fato conseguiriam entrar no campo de batalha.
+- [27:08] Se ficarem presas na mão, é frustração pura.
+- [27:11] O 8x8 é a estrutura invisível que sustenta o caos visível e maravilhoso que é uma mesa de commander.
+- [27:17] Nossa, definiu perfeitamente.
+- [27:19] E é incrível ver isso funcionando.
+- [27:21] Mas para a gente encerrar de verdade o nosso papo de hoje,
+- [27:24] eu quero propor uma reflexão final baseada numa tendência bem forte que o jogo tem tomado nos últimos anos.
+- [27:31] Manda, o que está rolando?
+- [27:32] Todo mundo sabe que o Magic moderno está sofrendo com o famoso Power Creep,
+- [27:36] o aumento constante do nível de poder.
+- [27:39] E como?
+- [27:40] As cartas estão muito mais fortes do que há cinco anos.
+- [27:43] Exato.
+- [27:43] A empresa lança cartas cada vez mais fortes e absurdamente multifuncionais
+- [27:48] por um custo de mana cada vez menor.
+- [27:50] A taxa de versatilidade está caindo.
+- [27:52] O uro de antigamente hoje em dia custaria muito menos.
+- [27:55] Então, a minha provocação para quem está nos ouvindo é a seguinte.
+- [27:59] Se o design do jogo chega num ponto crítico,
+- [28:02] onde quase todas as cartas novas passarem a preencher naturalmente três, quatro categorias da teoria simultaneamente.
+- [28:10] Uma inflação de overlap.
+- [28:11] Isso.
+- [28:12] Será que a matemática baseada no número 8 vai se tornar obsoleta?
+- [28:17] Olha, é uma ótima pergunta.
+- [28:19] Porém, se chegar a um ponto onde as mágicas serão tão eficientes e tão sobrepostas umas às outras
+- [28:25] que pacotes hipercompactos de quatro ou cinco cartas
+- [28:29] serão suficientes para sustentar todas as engrenagens de um baralho.
+- [28:33] Trazendo a matemática dos 11% para algo muito maior logo de cara,
+- [28:37] porque toda carta faz de tudo.
+- [28:39] Exatamente.
+- [28:40] É um cenário assustador,
+- [28:42] mas totalmente possível com a quantidade de texto que as cartas novas têm.
+- [28:46] Fica aí como um ponto para quem nos ouve, fica de olho nos próximos lançamentos
+- [28:50] e, claro, testar nas suas próprias mesas com seus grupos de jogo.
+- [28:54] Com certeza.
+- [28:55] A melhor forma de validar a teoria é jogando.
+- [28:57] Falou e disse.
+- [28:58] Muito obrigado a todo mundo que acompanhou a gente mais essa investigação estratégica.
+- [29:02] Muito obrigada, pessoal.
+- [29:03] A gente se vê no nosso próximo mergulho.
+- [29:05] Até lá.
