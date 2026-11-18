@@ -3383,7 +3383,31 @@
     "desvira": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Cada Elfo desvira na primeira vez que vira no seu turno: a Lathril e os dez ativam de novo."
+   "papel_por_que": "Cada Elfo desvira na primeira vez que vira no seu turno: a Lathril e os dez ativam de novo.",
+   "tier_anterior": "S",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A Lathril e os dez Elfos que a pagam desviram uma vez no seu turno: segunda ativação sem outro desvirador.",
+    "I": "Vale no turno em que entra: os Elfos de mana geram em dobro e a Lathril drena 20 de cada oponente.",
+    "T": "Quatro manas, no padrão, num corpo que conta para os dez.",
+    "Q": "Início (dobra os Elfos de mana no turno 4), paridade e na frente; depois de uma limpeza não faz nada.",
+    "R": "O Seedborn Muse desvira no turno alheio e a Vitalize uma vez só; nenhum repete no seu turno, todo turno."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, a segunda ativação no seu turno depende de comprar a Vitalize ou de fechar a mana infinita com Staff ou Mantle.",
+    "O Seedborn Muse custa cinco, não é Elfo e só desvira no turno dos outros; a Vitalize é de uma vez; Seeker e Puppet Strings desviram só a Lathril e pedem outros dez Elfos.",
+    "No início (dobra a mana de Priest e Archdruid), na paridade (os Elfos atacam ou geram mana e ainda pagam a Lathril) e na frente (20 de cada oponente por turno)."
+   ],
+   "indice": 2.45
   },
   "Illusionist's Bracers": {
    "notas": {
@@ -3406,7 +3430,26 @@
     "dreno": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Na Lathril, copia a ativação: cada dreno de 10 vira dois."
+   "papel_por_que": "Na Lathril, copia a ativação: cada dreno de 10 vira dois.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Copia a ativação da Lathril: 20 de cada oponente com os mesmos dez Elfos.",
+    "I": "Pede equipar e a Lathril pronta; daí em diante toda ativação vale por duas.",
+    "T": "Duas manas e {3} para equipar: cinco no total na primeira vez.",
+    "Q": "Paridade e na frente: só rende com a Lathril e dez Elfos em campo.",
+    "R": "Nada na lista copia a ativação; os desviradores pedem outros dez Elfos ou mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "High Perfect Morcant": {
    "notas": {
@@ -3418,7 +3461,7 @@
    "sin_por_que": {
     "sin1": "Elfo que rende a cada Elfo que entra, mas não aumenta a conta; o proliferar disputa os Elfos desvirados."
    },
-   "tier": "S",
+   "tier": "B",
    "rel": "INS",
    "veredito": "entra",
    "faz": "Elfo lendário de 4. Ele ou outro Elfo seu entra: cada oponente põe um marcador −1/−1 numa criatura dele. Vire três Elfos: proliferar.",
@@ -3426,7 +3469,26 @@
    "sai": "Kodama's Reach",
    "papel": "recompensa",
    "papel_dupla": "Remoção (−1/−1 a cada Elfo que entra)",
-   "papel_por_que": "Cada Elfo que entra põe um marcador −1/−1 numa criatura de cada oponente."
+   "papel_por_que": "Cada Elfo que entra põe um marcador −1/−1 numa criatura de cada oponente.",
+   "tier_anterior": "S",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Elfa que conta para os dez e cobra cada Elfo que entra; o proliferar vira três Elfos que pagariam a Lathril.",
+    "I": "Um marcador −1/−1 por oponente ao entrar; o resto pede ficar, e é o oponente quem escolhe a criatura.",
+    "T": "Quatro manas em duas cores, no padrão.",
+    "Q": "Paridade, na frente e atrás contra mesa de fichas e corpos pequenos.",
+    "R": "A remoção passou da cota, e a Eyeblight Massacre já limpa os pequenos de uma vez."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Heroic Intervention": {
    "notas": {
@@ -3463,7 +3525,26 @@
    "sai": "Damnable Pact",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Elfo que conta para os dez, busca outro Elfo e gera mana de qualquer cor."
+   "papel_por_que": "Elfo que conta para os dez, busca outro Elfo e gera mana de qualquer cor.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez e põe no topo o Priest, o Seeker ou outra peça de Elfo.",
+    "I": "Vale a carta que busca, mas ela vai para o topo, não para a mão; a mana pede uma volta.",
+    "T": "Três manas por tutor e mana de qualquer cor, no padrão.",
+    "Q": "Início como mana, paridade e na frente como tutor.",
+    "R": "O Harald só olha as cinco do topo; a lista não tem outro tutor de Elfo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Skullclamp": {
    "notas": {
@@ -3476,12 +3557,31 @@
    "sin_por_que": {
     "sin1": "Converte as fichas de Elfo em cartas, mas qualquer criatura pequena serve."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Equipamento de 1: +1/−1; a criatura equipada morre: compre duas.",
    "porque": "Ficha 1/1 vira duas cartas por uma mana. Nas três fontes.",
-   "sai": "Phyrexian Arena"
+   "sai": "Phyrexian Arena",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Staple de compra: qualquer ficha serve, e a ficha que morre deixa de pagar a Lathril.",
+    "I": "Cada ficha 1/1 vira duas cartas por {1}; pede equipar a cada vez.",
+    "T": "Uma mana e {1} para equipar: a compra mais barata que existe.",
+    "Q": "Paridade, na frente e atrás, na reconstrução; no início não tem ficha.",
+    "R": "Nenhuma compra da lista rende duas cartas por uma mana; a Phyrexian Arena dá uma por turno."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Thousand-Year Elixir": {
    "notas": {
@@ -3494,7 +3594,7 @@
    "sin_por_que": {
     "sin2": "Desvira uma criatura por {1}, e a Lathril ativa no turno em que entra."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Artefato de 3. Suas criaturas ativam como se tivessem ímpeto; {1}, vira: desvira uma criatura.",
@@ -3504,7 +3604,26 @@
     "desvira": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Desvira uma criatura por uma mana e dá ímpeto às ativações: a Lathril ativa no turno em que entra."
+   "papel_por_que": "Desvira uma criatura por uma mana e dá ímpeto às ativações: a Lathril ativa no turno em que entra.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A Lathril ativa no turno em que entra e desvira por {1}; a segunda ativação pede outros dez Elfos.",
+    "I": "O ímpeto das ativações vale na hora, também para os Elfos de mana que acabaram de entrar.",
+    "T": "Três manas e {1} por desvirar, uma vez por turno.",
+    "Q": "Paridade, na frente e atrás, quando a Lathril volta e ativa sem esperar a volta.",
+    "R": "O Puppet Strings só desvira e cobra {2}; nada na lista dá ímpeto às ativações."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Throne of the God-Pharaoh": {
    "notas": {
@@ -3517,7 +3636,7 @@
    "sin_por_que": {
     "sin2": "Rende com as criaturas viradas pela ativação, sem desvirar: mais 11 de cada oponente."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Artefato lendário de 2. No seu fim de turno, cada oponente perde vida igual às suas criaturas viradas.",
@@ -3527,7 +3646,26 @@
     "dreno": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "No fim do turno, os Elfos virados pela ativação tiram vida de cada oponente."
+   "papel_por_que": "No fim do turno, os Elfos virados pela ativação tiram vida de cada oponente.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Converte os Elfos virados pela Lathril em mais dano: onze viradas, 11 de cada oponente no fim do turno.",
+    "I": "Rende já no fim do turno em que entra, mas só com a mesa virada.",
+    "T": "Duas manas, sem custo de ativação.",
+    "Q": "Paridade e na frente: pede a mesa cheia e virada.",
+    "R": "Shaman of the Pack e Skemfar Shadowsage drenam uma vez só; nada na lista repete todo turno."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.05
   },
   "Doubling Season": {
    "notas": {
@@ -3540,14 +3678,33 @@
    "sin_por_que": {
     "sin1": "Não é Elfo, mas dobra as fichas, os Elfos da Lathril inclusive."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Encantamento de 5: dobra as suas fichas e marcadores.",
    "porque": "Fichas e marcadores do Dionus e da Marwyn. Fontes A, B e C.",
    "sai": "Return Upon the Tide",
    "papel": "multiplica",
-   "papel_por_que": "Dobra as fichas de Elfo: a conta dos dez anda duas vezes mais rápido."
+   "papel_por_que": "Dobra as fichas de Elfo: a conta dos dez anda duas vezes mais rápido.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dobra as fichas de Elfo da Lathril, do Lys Alana e da Elven Ambush; os marcadores pesam pouco aqui.",
+    "I": "Não faz nada ao entrar: dobra o que vier depois.",
+    "T": "Cinco manas sem efeito imediato.",
+    "Q": "Paridade e na frente: precisa de um gerador de fichas já rodando.",
+    "R": "A Parallel Lives dobra as fichas por quatro; o Primal Vigor já ocupa essa vaga na lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Parallel Lives": {
    "notas": {
@@ -3559,14 +3716,33 @@
    "sin_por_que": {
     "sin1": "Não é Elfo, mas dobra as fichas, os Elfos da Lathril inclusive."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Encantamento de 4: dobra as suas fichas.",
    "porque": "O Primal Vigor sem dar o mesmo aos oponentes. Fontes B e C.",
    "sai": "Primal Vigor",
    "papel": "multiplica",
-   "papel_por_que": "Dobra as fichas de Elfo: a conta dos dez anda duas vezes mais rápido."
+   "papel_por_que": "Dobra as fichas de Elfo: a conta dos dez anda duas vezes mais rápido.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dobra as fichas de Elfo que pagam a Lathril, e só as suas.",
+    "I": "Não faz nada ao entrar: dobra o que vier depois.",
+    "T": "Quatro manas, no padrão do efeito.",
+    "Q": "Paridade e na frente: precisa de um gerador de fichas já rodando.",
+    "R": "O Primal Vigor faz o mesmo, mas dobra também as fichas dos oponentes; Elven Ambush e Elvish Promenade dobram de uma vez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Llanowar Elves": {
    "notas": {
@@ -3586,7 +3762,26 @@
    "sai": "Jagged-Scar Archers",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Elfo de uma mana que conta para os dez."
+   "papel_por_que": "Elfo de uma mana que conta para os dez.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Elfo de mana de turno 1 que conta para os dez.",
+    "I": "Uma mana fixa; precisa ficar em campo.",
+    "T": "Uma mana que volta como uma por turno.",
+    "Q": "Início, paridade e na frente, como corpo para os dez.",
+    "R": "A lista só tem dois Elfos de mana de turno 1, Elvish Mystic e Fyndhorn Elves."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Selfless Safewright": {
    "notas": {
@@ -3609,7 +3804,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Proteção",
-   "papel_por_que": "Elfo com lampejo que conta para os dez e protege os Elfos de remoção por um turno."
+   "papel_por_que": "Elfo com lampejo que conta para os dez e protege os Elfos de remoção por um turno.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez e protege a Lathril e os outros Elfos da limpeza; o Seedborn Muse fica de fora.",
+    "I": "Salva a mesa de Elfos de uma limpeza que destrói; não segura −X/−X nem exílio em massa sem alvo.",
+    "T": "Cinco manas com lampejo, pagas com os Elfos pelo convocar.",
+    "Q": "Paridade e na frente: só vale com mesa para proteger.",
+    "R": "A proteção está abaixo da cota: só a Revitalizing Repast, e numa criatura só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.05
   },
   "Elvish Warmaster": {
    "notas": {
@@ -3631,7 +3845,26 @@
    "sai": "Gala Greeters",
    "papel": "habilita",
    "papel_dupla": "Recompensa (+2/+2 e toque mortífero aos Elfos)",
-   "papel_por_que": "Cada turno em que entra um Elfo, cria outro."
+   "papel_por_que": "Cada turno em que entra um Elfo, cria outro.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Um Elfo Guerreiro por turno em que outro Elfo entra: aumenta a conta da Lathril em série.",
+    "I": "Não faz nada ao entrar e rende uma ficha por turno, se ficar em campo.",
+    "T": "Duas manas, e a ficha sai de graça.",
+    "Q": "Início, paridade e na frente.",
+    "R": "O Imperious Perfect custa três e cobra {G} por ficha; é o gerador em série mais barato."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Elderfang Venom": {
    "notas": {
@@ -3644,7 +3877,7 @@
    "sin_por_que": {
     "sin1": "Não é Elfo, mas existe por causa deles: dá toque mortífero aos Elfos atacantes e drena a cada Elfo que morre."
    },
-   "tier": "A",
+   "tier": "C",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Encantamento de 4. Elfos atacantes com toque mortífero; Elfo seu morre: cada oponente perde 1.",
@@ -3654,7 +3887,26 @@
     "dreno": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Cada Elfo que morre drena 1, e os que atacam têm toque mortífero."
+   "papel_por_que": "Cada Elfo que morre drena 1, e os que atacam têm toque mortífero.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Existe por causa dos Elfos, mas paga pela morte deles e pelo ataque, e o deck quer os Elfos vivos e desvirados.",
+    "I": "Não faz nada ao entrar; só rende quando a limpeza alheia leva a mesa.",
+    "T": "Quatro manas em duas cores por um efeito condicional.",
+    "Q": "Atrás, na limpeza, e na paridade, com o toque mortífero no ataque.",
+    "R": "O Poison-Tip Archer faz o dreno por morte num corpo de Elfo que conta para os dez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Nadier's Nightblade": {
    "notas": {
@@ -3667,7 +3919,7 @@
    "sin_por_que": {
     "sin1": "Elfo comum: conta para os dez; o dreno rende com qualquer ficha que sai."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Elfo de 3. Ficha sua sai do campo: cada oponente perde 1.",
@@ -3677,7 +3929,26 @@
     "dreno": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Cada ficha que sai de campo drena 1; o deck faz muitas fichas de Elfo."
+   "papel_por_que": "Cada ficha que sai de campo drena 1; o deck faz muitas fichas de Elfo.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez; o dreno pede ficha saindo do campo, e a lista quase não sacrifica fichas.",
+    "I": "Não faz nada ao entrar; rende na limpeza alheia ou com o Bolas's Citadel.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade e atrás, quando as fichas morrem.",
+    "R": "O Poison-Tip Archer drena por qualquer criatura que morre, não só ficha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Quest for Renewal": {
    "notas": {
@@ -3700,7 +3971,26 @@
     "desvira": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Com quatro marcadores, desvira as criaturas no turno de cada oponente: ativação a mais na volta."
+   "papel_por_que": "Com quatro marcadores, desvira as criaturas no turno de cada oponente: ativação a mais na volta.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Desvira a Lathril e os Elfos no desvirar de cada outro jogador: uma ativação por turno alheio.",
+    "I": "Pede quatro marcadores, que uma ativação da Lathril dá de uma vez; rende a partir do turno seguinte.",
+    "T": "Duas manas, sem custo depois.",
+    "Q": "Paridade e na frente: só rende com a Lathril e os dez Elfos.",
+    "R": "O Seedborn Muse faz o mesmo e desvira os terrenos, mas custa cinco e morre nas limpezas de criatura."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.3
   },
   "Tyvar Kell": {
    "notas": {
@@ -3717,7 +4007,7 @@
     "sin1": "Não é Elfo, mas cria um Elfo por turno e dá mana aos Elfos.",
     "sin2": "O +1 desvira um Elfo por turno: a Lathril de novo, se houver outros dez Elfos."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Planeswalker de 4. Elfos têm \"vira: {B}\"; +1: marcador e desvira um Elfo; 0: um Elfo Guerreiro.",
@@ -3728,7 +4018,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (desvira um Elfo)",
-   "papel_por_que": "Cria um Elfo por turno, ou desvira um Elfo; os Elfos ainda geram mana preta."
+   "papel_por_que": "Cria um Elfo por turno, ou desvira um Elfo; os Elfos ainda geram mana preta.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Não é Elfo, mas faz um Elfo Guerreiro por turno ou desvira a Lathril com o +1.",
+    "I": "Na hora, uma ficha ou um desvirar; os Elfos ganham mana preta, que disputa com o dreno.",
+    "T": "Quatro manas, no padrão de um planeswalker.",
+    "Q": "Paridade, na frente e atrás, refazendo a mesa uma ficha por turno.",
+    "R": "Junta gerador de ficha e desvirador; Seeker of Skybreak e Puppet Strings cobrem só o desvirar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Arcane Signet": {
    "notas": {
@@ -3764,7 +4073,26 @@
     "desvira": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Devolve um Elfo à mão para desvirar uma criatura, como a Lathril, uma vez por turno."
+   "papel_por_que": "Devolve um Elfo à mão para desvirar uma criatura, como a Lathril, uma vez por turno.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Desvira a Lathril ou o Priest sem mana, mas não é Elfo e devolve um Elfo à mão.",
+    "I": "Um desvirar por turno; a segunda ativação pede outros dez Elfos.",
+    "T": "Uma mana, e a ativação não custa mana.",
+    "Q": "Início (desvira o Elfo de mana), paridade e na frente.",
+    "R": "A lista tem só seis desviradores; o Seeker of Skybreak faz o mesmo num corpo de Elfo."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Overgrown Tomb": {
    "notas": {},
@@ -3775,7 +4103,26 @@
    "veredito": "entra",
    "faz": "Terreno: {B} ou {G}; pague 2 ou entra virado.",
    "porque": "Dual desvirada. Fontes B e C.",
-   "sai": "Jungle Hollow"
+   "sai": "Jungle Hollow",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores do deck.",
+    "I": "Mana, sem efeito na mesa.",
+    "T": "Entra desvirado pagando 2 de vida, que o dreno da Lathril repõe.",
+    "Q": "Serve em qualquer momento do jogo.",
+    "R": "É Swamp e Forest, o que liga o Woodland Cemetery; os duais da lista fazem a mana igual."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Woodland Cemetery": {
    "notas": {},
@@ -3786,7 +4133,26 @@
    "veredito": "entra",
    "faz": "Terreno: {B} ou {G}; virado sem Swamp ou Forest.",
    "porque": "Dual desvirada. Fonte B.",
-   "sai": "Temple of Malady"
+   "sai": "Temple of Malady",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores do deck.",
+    "I": "Mana, sem efeito na mesa.",
+    "T": "Desvirado se houver Swamp ou Forest em campo; virado na mão sem básico.",
+    "Q": "Serve em qualquer momento do jogo.",
+    "R": "Troca um terreno que sempre entra virado; os outros duais da lista fazem a mana igual."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.95
   },
   "Wirewood Lodge": {
    "notas": {
@@ -3810,7 +4176,26 @@
     "desvira": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Terreno que desvira um Elfo por uma mana, como a Lathril depois do dreno."
+   "papel_por_que": "Terreno que desvira um Elfo por uma mana, como a Lathril depois do dreno.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Terreno que serve ao drenar: por {G}, desvira a Lathril ou o Priest of Titania.",
+    "I": "Um desvirar por turno desde que entra; a segunda ativação pede outros dez Elfos.",
+    "T": "Entra desvirado, mas gera só incolor e cobra {G} pelo desvirar.",
+    "Q": "Paridade e na frente como desvirador; no início é um terreno incolor.",
+    "R": "É o único desvirador que não ocupa vaga de mágica, numa lista com só seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Gaea's Cradle": {
    "notas": {
@@ -3822,12 +4207,36 @@
    "sin_por_que": {
     "sin1": "Rende pelo número de criaturas suas, sem citar Elfos."
    },
-   "tier": "A",
+   "tier": "S",
    "rel": "INS",
    "veredito": "entra",
    "faz": "Terreno lendário: {G} por criatura sua.",
    "porque": "Mana enorme com a mesa de Elfos, no lugar do Twilight Mire, que sozinho só gera incolor. Game Changer. Fonte B.",
-   "sai": "Twilight Mire"
+   "sai": "Twilight Mire",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 3,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno que serve ao rampar: {G} por criatura, e as fichas de Elfo contam.",
+    "I": "Com dez Elfos, dez manas num terreno só, sem virar nenhum Elfo que paga a Lathril.",
+    "T": "Terreno, sem custo, e entra desvirado.",
+    "Q": "Início (com um Elfo de mana já vale um básico), paridade e na frente; depois de uma limpeza não gera nada.",
+    "R": "Nenhum terreno faz isso; Priest of Titania e Circle of Dreams Druid fazem num corpo, e o ramp já passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "argumentos_s": [
+    "Sem ele, a mana grande depende só de criaturas (Priest, Archdruid, Channeler), que morrem na limpeza e viram em vez de pagar a Lathril.",
+    "Nenhum terreno da lista gera mais de uma mana; os Elfos que geram por contagem entram com enjoo e disputam os dez desvirados.",
+    "No início (turno 3 com três criaturas), na paridade (paga fichas e desviradores no mesmo turno) e na frente (paga Staff of Domination e Umbral Mantle)."
+   ],
+   "indice": 2.4
   },
   "Circle of Dreams Druid": {
    "notas": {
@@ -3850,7 +4259,26 @@
    "sai": "Llanowar Visionary",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Elfo que gera uma mana por criatura sua; fecha a mana infinita com o Staff."
+   "papel_por_que": "Elfo que gera uma mana por criatura sua; fecha a mana infinita com o Staff.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "{G} por criatura, fichas incluídas, num Elfo que conta para os dez e fecha a mana infinita com Staff ou Mantle.",
+    "I": "Não faz nada ao entrar: precisa ficar em campo uma volta.",
+    "T": "Três manas, mas {G}{G}{G} num deck de duas cores.",
+    "Q": "Início, paridade e na frente; depois de uma limpeza gera uma mana só.",
+    "R": "O Priest of Titania faz por duas manas; é o quarto gerador por contagem da lista."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Finale of Devastation": {
    "notas": {
@@ -3860,12 +4288,33 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Feitiço de X+2: uma criatura de valor até X do grimório ou cemitério para o campo; com X 10 ou mais, +X/+X e ímpeto para o time.",
    "porque": "Tutor e fechamento numa carta. Fonte A.",
-   "sai": "Harvest Season"
+   "sai": "Harvest Season",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tutor genérico: acha a peça que falta, e com X = 10 é o plano B de combate, não o dreno.",
+    "I": "Vale a criatura que busca, direto em campo; com X = 10 costuma acabar o jogo.",
+    "T": "X mais {G}{G}, feitiço; barato para o Priest, caro para o Seedborn Muse.",
+    "Q": "Início (Priest), paridade (Seedborn Muse), atrás (traz do cemitério) e na frente (X = 10).",
+    "R": "A lista não tem tutor de criatura; o Craterhoof cobre o fechamento de combate."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.9,
+   "papel": "recompensa",
+   "papel_por_que": "Com X = 10 e a mesa cheia de Elfos, dá +X/+X e ímpeto a todos: fecha o jogo pelo combate, como o Craterhoof; com X menor, busca a peça que falta."
   },
   "Chord of Calling": {
    "notas": {
@@ -3879,7 +4328,26 @@
    "veredito": "entra",
    "faz": "Instantânea de X+3, convocar: uma criatura de valor até X para o campo.",
    "porque": "Acha o Dionus ou o Seedborn em velocidade instantânea, pagando com Elfos. Fonte A.",
-   "sai": "Bounty of Skemfar"
+   "sai": "Bounty of Skemfar",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tutor genérico; o convocar usa os Elfos, mas vira os que pagariam a Lathril.",
+    "I": "Vale a criatura que busca, direto em campo e em velocidade instantânea.",
+    "T": "X mais {G}{G}{G}; o convocar com a mesa de Elfos paga boa parte.",
+    "Q": "Paridade, na frente e atrás, achando a resposta ou a proteção no turno alheio.",
+    "R": "A lista não tem tutor de criatura; a Bounty of Skemfar só olha as seis do topo."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.75
   },
   "Mirkwood Bats": {
    "notas": {
@@ -3901,7 +4369,26 @@
     "dreno": 1
    },
    "papel": "recompensa",
-   "papel_por_que": "Cada ficha criada ou sacrificada drena 1; os geradores de Elfos alimentam."
+   "papel_por_que": "Cada ficha criada ou sacrificada drena 1; os geradores de Elfos alimentam.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Não é Elfo e não conta para os dez; paga por qualquer ficha criada, não só de Elfo.",
+    "I": "Cada ficha criada tira 1 de cada oponente (a Elven Ambush com dez Elfos tira 10); precisa ficar em campo.",
+    "T": "Quatro manas, no padrão.",
+    "Q": "Paridade e na frente: pede os geradores de ficha rodando.",
+    "R": "Nada na lista paga pela ficha criada; Shaman of the Pack e Skemfar Shadowsage drenam uma vez só."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Tyvar, Jubilant Brawler": {
    "notas": {
@@ -3914,7 +4401,7 @@
    "sin_por_que": {
     "sin2": "O +1 desvira uma criatura por turno, e a Lathril ativa no turno em que entra."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Planeswalker de 3. Criaturas suas ativam como se tivessem ímpeto; +1: desvira uma criatura; −2: reanima uma de valor até 2.",
@@ -3923,7 +4410,26 @@
     "desvira": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Dá ímpeto às ativações e desvira uma criatura por turno, como a Lathril."
+   "papel_por_que": "Dá ímpeto às ativações e desvira uma criatura por turno, como a Lathril.",
+   "tier_anterior": "A",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "A Lathril ativa no turno em que entra, e o +1 a desvira; a segunda ativação pede outros dez Elfos.",
+    "I": "O ímpeto das ativações e um desvirar valem na hora.",
+    "T": "Três manas; o desvirar é de graça, mas só no seu turno.",
+    "Q": "Paridade, na frente e atrás, trazendo de volta um Elfo de até duas manas, como o Priest.",
+    "R": "O Thousand-Year Elixir do radar faz o mesmo sem ser atacado; na lista, só o Puppet Strings e o Seeker desviram."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Champions of the Perfect": {
    "notas": {
@@ -3943,7 +4449,26 @@
    "porque": "Compra por criatura num corpo grande. Fonte A; banco de B.",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Elfo que compra a cada criatura conjurada."
+   "papel_por_que": "Elfo que compra a cada criatura conjurada.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez e compra a cada criatura conjurada.",
+    "I": "Não compra ao entrar: precisa ficar em campo.",
+    "T": "Quatro manas e ainda exila um Elfo seu, da mão ou do campo, enquanto ficar.",
+    "Q": "Paridade, na frente e atrás, na reconstrução.",
+    "R": "O Beast Whisperer faz a mesma compra sem o custo extra; a compra já está na cota."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Swiftfoot Boots": {
    "notas": {
@@ -3990,11 +4515,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Feitiço de X+1: uma criatura verde de valor até X para o campo.",
-   "porque": "Tutor de criatura que volta ao grimório. Opcional de A."
+   "porque": "Tutor de criatura que volta ao grimório. Opcional de A.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tutor genérico de criatura verde; não cita Elfos.",
+    "I": "Vale a criatura que busca, direto em campo.",
+    "T": "X mais {G}: uma mana a mais que a criatura buscada.",
+    "Q": "Início (Priest), paridade (Lys Alana), atrás (Beast Whisperer) e na frente (Seedborn Muse).",
+    "R": "A lista não tem tutor de criatura, e ele ainda volta ao grimório."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.1
   },
   "Worldly Tutor": {
    "notas": {
@@ -4015,11 +4559,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Feitiço de 4: sacrifique uma criatura verde; uma criatura verde do grimório para o campo.",
-   "porque": "Põe o Craterhoof ou o Dionus em campo. Game Changer; opcional de A."
+   "porque": "Põe o Craterhoof ou o Dionus em campo. Game Changer; opcional de A.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Tutor genérico; sacrifica uma criatura verde, e uma ficha de Elfo serve.",
+    "I": "Vale a criatura que busca: o Seedborn Muse ou o Craterhoof direto em campo.",
+    "T": "Quatro manas e um sacrifício, feitiço.",
+    "Q": "Paridade e na frente; atrás, ainda acha o motor de compra se houver uma criatura verde.",
+    "R": "A lista não tem tutor de criatura; o Green Sun's Zenith do radar acha quase o mesmo sem sacrifício."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.75
   },
   "Demonic Tutor": {
    "notas": {
@@ -4053,7 +4616,26 @@
    "porque": "Contra mesa de contramágica. Opcional de A.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (os Elfos viram 5/5)",
-   "papel_por_que": "Elfo de uma mana que conta para os dez e protege as mágicas verdes de anulação."
+   "papel_por_que": "Elfo de uma mana que conta para os dez e protege as mágicas verdes de anulação.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Elfo de uma mana que conta para os dez; protege as mágicas verdes de contramágica.",
+    "I": "Só muda o jogo contra mesa azul; a Lathril, preta e verde, também fica protegida.",
+    "T": "Uma mana.",
+    "Q": "Paridade e na frente contra controle; no resto é um corpo 1/1.",
+    "R": "Não cobre o ponto de falha do deck, que é a limpeza, e não a contramágica."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Quirion Ranger": {
    "notas": {
@@ -4077,7 +4659,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (desvira a Lathril)",
-   "papel_por_que": "Elfo que conta para os dez e desvira uma criatura por turno, devolvendo uma Floresta."
+   "papel_por_que": "Elfo que conta para os dez e desvira uma criatura por turno, devolvendo uma Floresta.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez e desvira a Lathril ou o Priest sem mana.",
+    "I": "Um desvirar por turno; a segunda ativação pede outros dez Elfos.",
+    "T": "Uma mana; o custo é devolver um Forest à mão.",
+    "Q": "Início (desvira o Elfo de mana), paridade e na frente.",
+    "R": "A lista tem só seis desviradores; o Seeker of Skybreak faz o mesmo por duas manas."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "Second Harvest": {
    "notas": {
@@ -4096,7 +4697,26 @@
    "faz": "Instantânea de 4: uma cópia de cada ficha sua.",
    "porque": "Dobra as fichas no fim do turno anterior ao seu. Fonte C.",
    "papel": "multiplica",
-   "papel_por_que": "Copia todas as fichas: a mesa de Elfos dobra de uma vez."
+   "papel_por_que": "Copia todas as fichas: a mesa de Elfos dobra de uma vez.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Copia cada ficha de Elfo sua, em velocidade instantânea; os Elfos que não são ficha ficam de fora.",
+    "I": "Dobra as fichas na hora: com cinco, fecha os dez da Lathril.",
+    "T": "Quatro manas, instantânea.",
+    "Q": "Paridade e na frente: sem fichas em campo é carta morta.",
+    "R": "A Elven Ambush custa o mesmo e conta todos os Elfos, não só as fichas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.65
   },
   "Presence of Gond": {
    "notas": {
@@ -4115,7 +4735,26 @@
    "faz": "Aura de 3: a criatura ganha \"vira: um Elfo Guerreiro 1/1\".",
    "porque": "Ficha por turno. Fonte C.",
    "papel": "habilita",
-   "papel_por_que": "A criatura encantada cria um Elfo por turno."
+   "papel_por_que": "A criatura encantada cria um Elfo por turno.",
+   "tier_anterior": "C",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cria um Elfo Guerreiro por turno, mas vira a criatura encantada, que deixa de pagar a Lathril.",
+    "I": "Uma ficha por turno, e só depois que a criatura perde o enjoo.",
+    "T": "Três manas numa aura que morre junto com a criatura.",
+    "Q": "Início e paridade.",
+    "R": "O Imperious Perfect faz a ficha por {G} e ainda é lord; o Elvish Warmaster do radar faz por duas manas."
+   },
+   "antissinergia": "leve",
+   "confianca": "alta",
+   "indice": 1.25
   },
   "Herald's Horn": {
    "notas": {
@@ -4135,7 +4774,26 @@
    "porque": "Redutor e compra. Fonte C.",
    "papel": "habilita",
    "papel_dupla": "Ramp e Draw",
-   "papel_por_que": "Desconto e Elfo do topo para a mão: acelera a chegada aos dez."
+   "papel_por_que": "Desconto e Elfo do topo para a mão: acelera a chegada aos dez.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 0
+   },
+   "lentes_por_que": {
+    "E": "Barateia os Elfos em {1} e puxa o Elfo do topo na manutenção.",
+    "I": "Desconto de uma mana e uma carta de vez em quando.",
+    "T": "Três manas por um redutor.",
+    "Q": "Início, paridade e atrás, como compra lenta.",
+    "R": "O Emerald Medallion dá o desconto por duas manas, e o ramp já passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.4
   },
   "Vanquisher's Banner": {
    "notas": {
@@ -4155,7 +4813,26 @@
    "porque": "Lorde e compra. Fonte C.",
    "papel": "multiplica",
    "papel_dupla": "Draw",
-   "papel_por_que": "Lorde +1/+1 da tribo escolhida e compra a cada mágica de Elfo."
+   "papel_por_que": "Lorde +1/+1 da tribo escolhida e compra a cada mágica de Elfo.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord e compra a cada Elfo conjurado; o +1/+1 não muda o dreno.",
+    "I": "O bônus vale na hora; a compra pede conjurar Elfos depois.",
+    "T": "Cinco manas.",
+    "Q": "Paridade e na frente.",
+    "R": "O Leaf-Crowned Visionary é lord com compra por duas manas, e conta para os dez."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Prowess of the Fair": {
    "notas": {
@@ -4174,7 +4851,26 @@
    "faz": "Encantamento de 2. Elfo seu não-ficha morre: um Elfo Guerreiro 1/1.",
    "porque": "Resposta a limpeza; primeiro do banco de B.",
    "papel": "habilita",
-   "papel_por_que": "Cada Elfo que não é ficha e morre volta como ficha de Elfo."
+   "papel_por_que": "Cada Elfo que não é ficha e morre volta como ficha de Elfo.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Mágica de Elfo (dispara o Lys Alana) que repõe com uma ficha cada Elfo não-ficha que morre.",
+    "I": "Não faz nada ao entrar; rende quando a limpeza vem, e só pelos Elfos que não são ficha.",
+    "T": "Duas manas, sem custo depois.",
+    "Q": "Atrás, depois da limpeza, e na paridade, nas trocas de combate.",
+    "R": "O deck é fraco para reconstruir: nada na lista repõe os Elfos que morrem."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Arbor Elf": {
    "notas": {
@@ -4194,7 +4890,26 @@
    "sai": "Craterhoof Behemoth",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Elfo de uma mana que conta para os dez."
+   "papel_por_que": "Elfo de uma mana que conta para os dez.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Elfo de turno 1 que conta para os dez e acelera desvirando um Forest.",
+    "I": "Uma mana por turno; precisa ficar em campo.",
+    "T": "Uma mana, mas só rende com um Forest em campo.",
+    "Q": "Início, paridade e na frente, como corpo para os dez.",
+    "R": "A lista só tem dois Elfos de mana de turno 1; o Llanowar Elves do radar faz sem pedir Forest."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Bayou": {
    "notas": {},
@@ -4204,17 +4919,55 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno Swamp Forest, sempre desvirado.",
-   "porque": "O melhor dual, Reserved List e sem preço no Scryfall. Fonte C."
+   "porque": "O melhor dual, Reserved List e sem preço no Scryfall. Fonte C.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores do deck.",
+    "I": "Mana, sem efeito na mesa.",
+    "T": "Sempre desvirado, sem custo.",
+    "Q": "Serve em qualquer momento do jogo.",
+    "R": "O Overgrown Tomb do radar faz o mesmo por 2 de vida; a Command Tower já dá as duas cores."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Blooming Marsh": {
    "notas": {},
    "sin": {},
    "sin_por_que": {},
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno: {B} ou {G}; desvirado com dois ou menos outros terrenos.",
-   "porque": "Dual de início. Fonte C."
+   "porque": "Dual de início. Fonte C.",
+   "tier_anterior": "C",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dá as duas cores do deck.",
+    "I": "Mana, sem efeito na mesa.",
+    "T": "Desvirado só até o terceiro terreno; depois entra virado.",
+    "Q": "Bom no início; da paridade em diante é um terreno lento.",
+    "R": "Overgrown Tomb e Woodland Cemetery, do radar, entram desvirados o jogo todo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Morcant's Loyalist": {
    "notas": {
@@ -4234,7 +4987,26 @@
    "porque": "Lorde do banco de B.",
    "papel": "multiplica",
    "papel_dupla": "Recursão",
-   "papel_por_que": "Lorde +1/+1 dos outros Elfos; ao morrer, devolve um Elfo do cemitério à mão."
+   "papel_por_que": "Lorde +1/+1 dos outros Elfos; ao morrer, devolve um Elfo do cemitério à mão.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez; o +1/+1 não muda o dreno.",
+    "I": "Um bônus de combate e um Elfo de volta à mão quando morre.",
+    "T": "Três manas em duas cores, no padrão de um lord.",
+    "Q": "Paridade e na frente.",
+    "R": "Há cinco lords na lista, três deles com mana, ficha ou compra junto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Elvish Champion": {
    "notas": {
@@ -4254,7 +5026,26 @@
    "porque": "Lorde do banco de B.",
    "papel": "multiplica",
    "papel_dupla": "Evasão (passagem por floresta)",
-   "papel_por_que": "Lorde +1/+1 dos Elfos."
+   "papel_por_que": "Lorde +1/+1 dos Elfos.",
+   "tier_anterior": "C",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez; o +1/+1 não muda o dreno, e o bônus vale também para Elfos dos oponentes.",
+    "I": "Bônus de combate; o deslizar em floresta só vale contra quem tem Forest.",
+    "T": "Três manas, no padrão de um lord.",
+    "Q": "Paridade e na frente.",
+    "R": "Há cinco lords na lista, três deles com mana, ficha ou compra junto."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Ezuri, Renegade Leader": {
    "notas": {
@@ -4364,7 +5155,26 @@
    "porque": "Cada Elfo do topo é carta a mais, e o próprio Realmwalker conta como Elfo. Potencial do edh.wiki (+27%).",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Metamorfo, conta como Elfo, e conjura Elfos do topo."
+   "papel_por_que": "Metamorfo, conta como Elfo, e conjura Elfos do topo.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Changeling conta como Elfo para os dez, e cada Elfo no topo é uma carta a mais.",
+    "I": "Não rende ao entrar: precisa ficar, e depende do topo ser criatura.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, na reconstrução.",
+    "R": "A compra já está na cota; Beast Whisperer e Leaf-Crowned Visionary compram a cada Elfo conjurado."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Wood Elves": {
    "notas": {
@@ -4383,7 +5193,26 @@
    "porque": "Ramp de terreno num corpo que também paga a Lathril. Potencial do edh.wiki (+25%).",
    "papel": "habilita",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Elfo que conta para os dez e busca uma Floresta para o campo."
+   "papel_por_que": "Elfo que conta para os dez e busca uma Floresta para o campo.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez e traz um Forest desvirado.",
+    "I": "Um terreno em campo na hora, que fica mesmo depois da limpeza.",
+    "T": "Três manas por um corpo e um terreno.",
+    "Q": "Início, paridade e atrás.",
+    "R": "O Llanowar Visionary já faz ramp com carta por três; o ramp passou da cota."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Galadhrim Brigade": {
    "notas": {
@@ -4403,7 +5232,26 @@
    "porque": "Cada pagamento é mais um Elfo para os dez da Lathril, e cada cópia também é lorde. Potencial do edh.wiki (+25%).",
    "papel": "habilita",
    "papel_dupla": "Multiplicadora (lorde +1/+1)",
-   "papel_por_que": "Com o pelotão, entra junto com cópias: vários Elfos de uma vez."
+   "papel_por_que": "Com o pelotão, entra junto com cópias: vários Elfos de uma vez.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cria Elfos de uma vez só: cada {1}{G} do esquadrão é mais um corpo para os dez.",
+    "I": "Os corpos entram na hora; com sete manas são três Elfos lords.",
+    "T": "Três manas e {1}{G} por cópia.",
+    "Q": "Início como lord de três, paridade e na frente como despejo de mana.",
+    "R": "Elvish Promenade e Elven Ambush dobram a mesa por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Eladamri, Korvecdal": {
    "notas": {
@@ -4422,7 +5270,26 @@
    "porque": "Vantagem de carta a cada turno. Potencial do edh.wiki (+25%).",
    "papel": "habilita",
    "papel_dupla": "Draw e Ramp",
-   "papel_por_que": "Elfo que conjura criaturas do topo e põe criatura em campo de graça."
+   "papel_por_que": "Elfo que conjura criaturas do topo e põe criatura em campo de graça.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Elfo que conta para os dez e conjura criaturas do topo; a ativação vira três criaturas que pagariam a Lathril.",
+    "I": "Não rende ao entrar: precisa ficar, e depende do topo ser criatura.",
+    "T": "Três manas, no padrão.",
+    "Q": "Paridade, na frente e atrás, na reconstrução.",
+    "R": "A compra já está na cota; Beast Whisperer e Leaf-Crowned Visionary compram a cada Elfo conjurado."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Talon Gates of Madara": {
    "notas": {
@@ -4433,14 +5300,33 @@
    "marcas": {
     "protege": 1
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Secluded Courtyard",
    "faz": "Ao entrar, até uma criatura alvo sai de fase. Gera {C}, ou uma mana de qualquer cor por {1}. Por {4}, você o põe da mão em campo, a qualquer momento.",
    "porque": "Proteção num terreno: por {4}, sai da mão e tira a Lathril de fase em resposta à remoção ou à limpeza, o que o deck quase não tem (só a Revitalizing Repast). Também tira de fase o atacante de um oponente, e por {1} dá qualquer cor. Sai o Secluded Courtyard, que paga os Elfos em qualquer cor, o que a base de duas cores já faz.",
    "papel_dupla": "Proteção (sai de fase)",
-   "papel_por_que": "Terreno que tira a Lathril de fase em resposta a uma remoção."
+   "papel_por_que": "Terreno que tira a Lathril de fase em resposta a uma remoção.",
+   "tier_anterior": "A",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Gera incolor, ou uma cor por {1}; a proteção não é um dos verbos, mas cobre o ponto de falha.",
+    "I": "Tira a Lathril de fase, e só ela, em resposta à remoção ou à limpeza.",
+    "T": "Entra desvirado; como proteção custa {4} da mão.",
+    "Q": "Serve como terreno em qualquer momento e como proteção quando a Lathril está em campo.",
+    "R": "A proteção está abaixo da cota: só a Revitalizing Repast, e esta não ocupa vaga de mágica."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.9
   },
   "Mutavault": {
    "notas": {
@@ -4457,8 +5343,27 @@
    "veredito": "avaliar",
    "faz": "Gera {C}. Por {1}, vira uma criatura 2/2 de todos os tipos de criatura até o fim do turno. Continua sendo terreno.",
    "porque": "Por {1}, vira um Elfo 2/2 e conta como o décimo Elfo desvirado da Lathril (virar outra criatura como custo não depende de enjoo de invocação), e escapa das limpezas de feitiço como terreno. Gera só incolor. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de uma Floresta.",
-   "papel_dupla": "Elfo de reserva",
-   "papel_por_que": "Terreno que vira Elfo por {1} e paga a ativação da Lathril."
+   "papel_por_que": "Por {1}, vira um Elfo 2/2 e conta como um dos dez que a Lathril vira para drenar; como terreno, escapa das limpezas.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Por {1}, vira Elfo e conta como um dos dez da Lathril; a mana é incolor.",
+    "I": "Um Elfo a mais na conta, por turno.",
+    "T": "Entra desvirado, mas gera só incolor e cobra {1} para virar criatura.",
+    "Q": "Paridade, na frente e atrás, porque escapa da limpeza; no início a mana incolor atrapalha.",
+    "R": "É o único terreno que conta como Elfo; como fonte de mana, um Forest faz melhor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8,
+   "papel": "habilita"
   },
   "Shizo, Death's Storehouse": {
    "notas": {
@@ -4476,7 +5381,26 @@
    "faz": "Terreno lendário. Gera {B}. Por {B} e virando, uma criatura lendária alvo ganha medo até o fim do turno (só pode ser bloqueada por criaturas artefato ou pretas).",
    "porque": "Dá medo à Lathril, que já tem ameaça, por {B}: ela conecta e cria Elfos pelo dano, o jeito de aumentar a conta sem gastar carta. Gera {B} como um Pântano. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de um Pântano.",
    "papel_dupla": "Evasão da Lathril",
-   "papel_por_que": "Terreno que dá medo à Lathril para o dano de combate virar Elfos."
+   "papel_por_que": "Terreno que dá medo à Lathril para o dano de combate virar Elfos.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fonte de uma cor só; o medo soma pouco à ameaça que a Lathril já tem.",
+    "I": "A Lathril conecta e cria dois Elfos: pouco na conta dos dez.",
+    "T": "Entra desvirado, sem custo; {B} pelo medo.",
+    "Q": "Serve em qualquer momento do jogo.",
+    "R": "Faz a mana de um Swamp, com um bônus pequeno, e não tem o tipo Swamp."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.9
   },
   "Boseiju, Who Endures": {
    "notas": {
@@ -4490,7 +5414,26 @@
    "faz": "Terreno lendário. Gera {G}. Canalizar, por {1}{G} e descartando-o: destrói um artefato, encantamento ou terreno não básico de um oponente, que pode buscar um terreno com tipo básico; custa {1} a menos por criatura lendária sua.",
    "porque": "Remoção de artefato, encantamento ou terreno não básico num terreno, por {G} com a Lathril em campo: a resposta ao Rhystic Study ou à Rule of Law sem ocupar vaga de mágica. Gera {G} como uma Floresta. Fica como avaliar e sem quem sai porque o painel não troca uma cópia só de um básico: a ideia é pô-lo no lugar de uma Floresta.",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Terreno que, descartado, destrói artefato, encantamento ou terreno não básico."
+   "papel_por_que": "Terreno que, descartado, destrói artefato, encantamento ou terreno não básico.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fonte de uma cor só; a remoção é genérica, sem ligação com os Elfos.",
+    "I": "Destrói o artefato ou encantamento que trava o deck, em velocidade instantânea.",
+    "T": "Entra desvirado; canalizar por {G} com a Lathril em campo.",
+    "Q": "Serve em qualquer momento: mana cedo, resposta depois.",
+    "R": "Faz a mana de um Forest e dá uma remoção sem ocupar vaga de mágica; o Reclamation Sage cobre o mesmo alvo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.1
   },
   "Massacre Wurm": {
    "notas": {
@@ -4502,14 +5445,33 @@
    "marcas": {
     "dreno": 1
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "sai": "Puppet Strings",
    "faz": "Criatura 6/5 de {3}{B}{B}{B}. Ao entrar, as criaturas dos oponentes ganham −2/−2 até o fim do turno. Sempre que uma criatura de um oponente morre, ele perde 2 de vida.",
    "porque": "Limpeza de um lado só, como a regra do dono (08/11/2026): 3 a 4 limpezas por deck, de preferência unilaterais: os Elfos ficam, as fichas e os corpos pequenos deles morrem e cada morte tira 2. Não é Elfo e custa seis. Fica como avaliar no lugar do Overrun, o plano de combate que o Craterhoof já cobre. Corte pelo critério do dono (13/11/2026): sai Puppet Strings, porque Overrun já é o corte de uma carta de letra mais alta.",
    "papel_dupla": "Remoção em massa",
-   "papel_por_que": "Limpa o lado deles poupando os Elfos, e drena a cada morte."
+   "papel_por_que": "Limpa o lado deles poupando os Elfos, e drena a cada morte.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Não é Elfo e não conta para os dez; a limpeza poupa a sua mesa.",
+    "I": "−2/−2 nas criaturas dos oponentes e 2 de vida por morte; não mata criatura grande.",
+    "T": "Seis manas com {B}{B}{B}, num deck quase todo verde.",
+    "Q": "Paridade e atrás, contra mesa de fichas e corpos pequenos.",
+    "R": "A lista já tem três limpezas de um lado só; a Eyeblight Massacre faz o mesmo −2/−2 por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.2
   }
  },
  "combos": [
@@ -4703,7 +5665,7 @@
     "por_que": "Vira dez Elfos para tirar 10 de cada oponente: recompensa a mesa larga de Elfos. O deck precisa de muitas habilitadoras, e o dano de combate dela ainda cria Elfos."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
