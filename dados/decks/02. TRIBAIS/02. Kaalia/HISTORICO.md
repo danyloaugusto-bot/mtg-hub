@@ -35,3 +35,5 @@
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 22 cartas do radar com corte novo.
 - 13/11/2026: sem corte forçado (decisão do dono): Hall of Echoes fica sem corte, como avaliar, até abrir vaga de terreno.
 - 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/kaalia-of-the-vast/aggro.json): 25 cartas de sinergia +10 ou mais, 13 novas (as maiores: Bloodthirster (+25), Phyrexian Arena (+24), Hall of the Bandit Lord (+20)); 7 saíram da lista. Nada foi ao radar.
+- 17/11/2026: 8x8 (ok do dono): Blindagem e Multiplicador reforçados. Entram Isshin (sai Ao, the Dawn Sky) e Neriv (sai Resolute Archangel), os dois da Caixa, e Lightning Greaves (sai Infiltration Lens) e Swiftfoot Boots (sai Wedding Ring). Os cortes saem de Carga e Combustível, estourados; Trava e Fechamento ficam como estão.
+- 18/11/2026: ok do dono. Mother of Runes, Talisman of Hierarchy e Grand Abolisher rebaixadas a avaliar (os cortes tiravam de pacote curto). Rune-Scarred Demon: a única cópia da Caixa vem para cá.
