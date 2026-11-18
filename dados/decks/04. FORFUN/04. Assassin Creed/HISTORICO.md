@@ -39,3 +39,5 @@
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 23 cartas do radar com corte novo.
 - 13/11/2026: sem corte forçado (decisão do dono): Brotherhood Headquarters e Mana Confluence ficam sem corte, como avaliar, até abrir vaga de terreno.
 - 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/ezio-auditore-da-firenze/assassins.json): 25 cartas de sinergia +10 ou mais, 7 novas (as maiores: Thraximundar (+48), Desynchronization (+44), The Lord of Pain (+36)); 1 saíram da lista. Nada foi ao radar.
+- 17/11/2026: 8x8 (ok do dono): Ramp e Fechamento reforçados. Ramses (sai Rest in Peace, que é armadilha e não combo) e, da Caixa, como avaliar: Progenitor's Icon (sai Apple of Eden), Weather Maker (sai Murder) e Geyadrone Dihada (sai Primal Command). Chromatic Lantern vira avaliar sem corte; Garruk e Herald's Horn ficam sem corte. Placar com as trocas: 855 -> 838.
+- 18/11/2026: ok do dono. Crackling Doom (Caixa, S, entra) no radar, sai Casualties of War: remoção de mesa unilateral e instantânea no lugar de uma pontual de 6 manas.
