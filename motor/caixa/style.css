@@ -16,6 +16,8 @@
 .cx-pbt small{font-weight:700;opacity:.75;margin-left:4px}
 .cx-pbt.velho{background:#e6ad45;box-shadow:0 0 0 3px rgba(230,173,69,.35)}
 .cx-pbt:disabled{opacity:.7;cursor:progress}
+.cx-xbt{flex:none;background:transparent;color:var(--gold);border:1.5px solid var(--gold);border-radius:999px;padding:6px 14px;font:800 14.5px var(--fb);cursor:pointer}
+.cx-xbt:hover,.cx-xbt:focus-visible{background:rgba(245,165,36,.12)}
 /* placar de valor: um cartão por lista (Caixa e pastas), como no ManaBox */
 .cx-placar{flex-basis:100%;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:10px;margin-bottom:4px}
 .cx-pl-c{display:flex;justify-content:space-between;gap:10px;text-align:left;background:#1b1b1e;border:0;border-left:5px solid var(--oc);border-radius:12px;padding:10px 14px;color:var(--bone);cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.05)}
@@ -235,6 +237,9 @@ span.cx-mi-M{border-radius:50%;background:conic-gradient(#f8e7b9 0 20%,#b3ceea 0
   .cx-grp button{padding:5px 9px;font-size:13.5px}
   .cx-tot{order:3;flex-basis:100%;font-size:13.5px}
   .cx-pbt{order:4;padding:5px 12px;font-size:13.5px}
+  .cx-xbt{order:4;padding:4px 11px;font-size:13.5px}
+  .cx-dec{white-space:normal}
+  .cx-dec .bt-c{white-space:normal;max-width:100%;text-align:left}
   .cx-saldo{order:4}
   .cx-placar{grid-template-columns:minmax(0,1fr)}
   .cx-pg .busca{order:2}
