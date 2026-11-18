@@ -209,7 +209,7 @@ def corte(m, s3, carta):
     sinergias, com a maior nota), do mesmo lado (terreno por terreno), fora comandante, S, A e as que ficam por decisão do dono.
     Sem nenhuma da mesma função, a mais fraca do mesmo lado."""
     lados = encaixe._lados(carta)
-    combo = {i for cb in m.get("combos") or [] for i in cb.get("p") or []}   # peça de combo do deck não sai (Dark Depths na Tergrid)
+    combo = {i for cb in m.get("combos") or [] if cb.get("kind") != "Armadilha" and set(cb.get("p") or []) <= {c["id"] for c in m["cards"]} for i in cb.get("p") or []}   # peça de combo do deck não sai (Dark Depths na Tergrid)
     base = [c for c in m["cards"] if not c.get("cmd") and not c.get("nocut") and not c.get("fica") and c["q"] == 1
             and c.get("tier") not in ("S", "A") and not c.get("mdfc") and c["id"] not in combo and not _busca_terreno(c) and encaixe._lados(c) & lados]
     if not base:
