@@ -67,7 +67,7 @@ def contexto(m):
     ncrit = [sum(c["q"] for c in m["cards"] if c["s3"][i] >= minimo) for i in range(len(ks))]
     mult = [sat["abaixo"] if ncrit[i] < faixa[i][0] else sat["acima"] if ncrit[i] > faixa[i][1] else sat["dentro"] for i in range(len(ks))]
     import destinos   # aqui dentro: destinos importa este módulo
-    combo = {i for cb in m.get("combos") or [] for i in cb.get("p") or []}
+    combo = {i for cb in m.get("combos") or [] if cb.get("kind") != "Armadilha" and set(cb.get("p") or []) <= {c["id"] for c in m["cards"]} for i in cb.get("p") or []}
     def menor(lados):
         # as mesmas proteções do destinos.corte: S, A, peça de combo, terreno que busca outro (regras do dono);
         # carta com terreno no verso (MDFC) conta como terreno: só sai quando quem entra também joga como terreno (15/11/2026)
