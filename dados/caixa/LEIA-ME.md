@@ -5,7 +5,7 @@ As cartas que estão numa caixa, sem destino. A página da Caixa (`Abrir a Caixa
 ## Para pôr cartas novas
 
 1. Exporte só o lote novo. No ManaBox, em CSV (traz coleção, número, foil e idioma, e o preço depende disso). Texto no formato da decklist também serve: `1 Nome da carta (SET) 123`, com `*F*` para foil.
-2. Salve em `dados/caixa/listas/`, com um número na frente: `02. lote 20-10.csv`, `03. lote 25-10.csv`.
+2. Salve na pasta do **lugar** onde as cartas estão, dentro de `dados/caixa/listas/`: `Caixa Solta/`, `Bundle Duskmourn/`, `Madeira 1/`… Cada subpasta é uma caixa física; o nome dela aparece na fileira **Lugar** da página, e os botões CSV e Lista LigaMagic baixam só o lugar escolhido. Caixa nova é só criar a subpasta. Arquivo solto na raiz de `listas/` aparece como "Sem lugar".
 3. Exportou a caixa inteira de novo, com as cartas antigas junto? Substitua o arquivo antigo, com o mesmo nome. Se somar um arquivo novo, as cartas contam em dobro.
 4. Peça no Claude Code: `/caixa`. Ele lê as listas, consulta o Scryfall e o EDHREC do que é novo, dá entrada no cadastro às cartas novas, avalia a sinergia (mostrando antes de gravar), monta a Caixa e o hub e mostra o resumo.
 
@@ -15,7 +15,7 @@ Não edite nem apague linhas das listas para tirar o que saiu: isso é feito pel
 
 | Arquivo | O que é | Quem mexe |
 |---|---|---|
-| `listas/` | Uma lista por lote, como saiu do aplicativo | Você |
+| `listas/<lugar>/` | Uma lista por lote, como saiu do aplicativo, na subpasta da caixa física onde as cartas estão | Você |
 | `decisoes.json` | As decisões da Caixa, cópia a cópia (o banco da Caixa publicada prevalece) | A página e o `/caixa` |
 | `compras.json` | O retrato da lista de compras do hub publicado | O `/caixa` |
 | `bundles.txt`, `bulk.txt` | O que foi para Bundles e para o Bulk | O `/caixa aplicar` |
