@@ -3109,7 +3109,31 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Goblin vira {R}: converte a horda em mana e alimenta os gatilhos de morte."
+   "papel_por_que": "Goblin vira {R}: converte a horda em mana e alimenta os gatilhos de morte.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Goblin que conta para o Krenko e saída de sacrifício grátis: cada ficha vira {R}.",
+    "I": "A mana vem na hora, do tamanho da mesa, mas é um 1/1 que precisa ficar.",
+    "T": "Uma mana, sem custo de ativação.",
+    "Q": "Início como corpo de 1, paridade e atrás, quando sacrifica a horda em resposta à limpeza.",
+    "R": "O Ashnod's Altar dá duas manas por ficha, mas custa três, não é Goblin e a mana é incolor."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ele, a horda só vira mana vermelha pelo Brightstone Ritual, que é de uma vez: some a saída grátis que paga o fechamento no turno da ativação.",
+    "O Ashnod's Altar cobre a saída, mas custa três, dá incolor e a Goblin Matron não o busca; o Skirk é Goblin de uma mana e ainda soma no X do Krenko.",
+    "No início é corpo de 1 para o Krenko contar, na paridade vira cada ficha em {R} e atrás sacrifica a horda em resposta à limpeza."
+   ],
+   "indice": 2.45
   },
   "Thornbite Staff": {
    "notas": {
@@ -3125,7 +3149,7 @@
     "sin1": "Não é Goblin, mas desvira o Krenko a cada criatura que morre: ele ativa de novo.",
     "sin2": "Rende a cada criatura que morre, desvirando a equipada para outra ativação."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Equipamento de 2, equipar {4}: '{2}, vira: 1 de dano' e 'uma criatura morre: desvire esta'.",
@@ -3133,7 +3157,26 @@
    "sai": "Worldfire",
    "papel": "multiplica",
    "papel_dupla": "Recompensa (dano a cada morte)",
-   "papel_por_que": "No Krenko, cada criatura que morre o desvira: mais ativações no turno."
+   "papel_por_que": "No Krenko, cada criatura que morre o desvira: mais ativações no turno.",
+   "tier_anterior": "A",
+   "funcao": "motor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "No Krenko, cada criatura que morre o desvira: com o Bombardment ou o Ashnod's, ele ativa de novo a cada ficha sacrificada.",
+    "I": "Não faz nada ao entrar: pede o Krenko equipado e uma saída de sacrifício em campo.",
+    "T": "Duas manas mais {4} para equipar; só prende de graça em Xamã, e o Krenko não é.",
+    "Q": "Só na paridade ou na frente, com o Krenko vivo e seis manas livres.",
+    "R": "Nada na lista desvira o Krenko; o Marvin só copia a ativação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.9
   },
   "Sol Ring": {
    "notas": {
@@ -3166,7 +3209,31 @@
    "sai": "Lavabrink Floodgates",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Cada ficha 1/1 equipada morre e compra duas."
+   "papel_por_que": "Cada ficha 1/1 equipada morre e compra duas.",
+   "tier_anterior": "S",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 3,
+    "T": 3,
+    "Q": 3,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Cada ficha 1/1 equipada morre pelo +1/-1 e vira duas cartas: a horda do Krenko vira mão.",
+    "I": "Rende na hora, na medida da mesa: {1} por ficha, duas cartas cada.",
+    "T": "Uma mana para descer e {1} para equipar.",
+    "Q": "Viva sempre: no início em qualquer Goblin 1/1, na paridade e na frente com as fichas, atrás para refazer a mão.",
+    "R": "A compra da lista é quase toda de filtro; o Outpost Siege dá uma carta por turno por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "argumentos_s": [
+    "Sem ela, a horda vira dano e mana, mas não vira carta: a compra do deck continua sendo filtro e uma carta por turno.",
+    "O Outpost Siege e o Grenzo dão uma carta por turno ou por acerto; nenhuma carta da lista troca {1} e uma ficha por duas cartas, quantas vezes a mana der.",
+    "No início equipa um Goblin de 1, na paridade e na frente converte as sobras do Krenko, e atrás refaz a mão depois da limpeza."
+   ],
+   "indice": 3.0
   },
   "Goblin Chieftain": {
    "notas": {
@@ -3190,7 +3257,26 @@
     "imp": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "Lorde +1/+1 e ímpeto aos Goblins: o Krenko ativa no turno em que entra."
+   "papel_por_que": "Lorde +1/+1 e ímpeto aos Goblins: o Krenko ativa no turno em que entra.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lord e ímpeto sem pagar: o Krenko ativa no turno em que entra e cada ficha nasce 2/2 atacando.",
+    "I": "O bônus e o ímpeto valem na hora, mas é um 2/2 que precisa ficar.",
+    "T": "Três manas, no padrão de lord.",
+    "Q": "Início, paridade e na frente; atrás, sem horda, é só um 2/2.",
+    "R": "Há seis fontes de ímpeto e quatro lords, mas nenhuma carta da lista faz as duas coisas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.25
   },
   "Swiftfoot Boots": {
    "notas": {
@@ -3223,7 +3309,7 @@
    "sin_por_que": {
     "sin1": "Goblin comum: conta para o X do Krenko, sem ser lorde nem dar ímpeto aos outros Goblins."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Goblin Guerreiro 3/3 de 3 com golpe primeiro. Ao entrar, 1 de dano em cada oponente e em cada criatura e planeswalker deles.",
@@ -3234,7 +3320,26 @@
    },
    "papel": "habilita",
    "papel_dupla": "Remoção (limpeza)",
-   "papel_por_que": "Goblin que conta para o X do Krenko e limpa as fichas 1/1 dos oponentes."
+   "papel_por_que": "Goblin que conta para o X do Krenko e limpa as fichas 1/1 dos oponentes.",
+   "tier_anterior": "A",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Goblin que conta para o Krenko e limpeza só do lado deles, como o dono pede.",
+    "I": "Na hora, mas é 1 de dano: só leva fichas e criaturas de resistência 1.",
+    "T": "Três manas vermelhas por um 3/3 com golpe primeiro e o efeito; no mono-red, o {R}{R}{R} não pesa.",
+    "Q": "Paridade e na frente, para tirar bloqueadores pequenos; atrás, contra mesa de fichas.",
+    "R": "Só o Mizzium Mortars limpa um lado só, e a lista quer três limpezas unilaterais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Pashalik Mons": {
    "notas": {
@@ -3252,7 +3357,7 @@
     "sin1": "Goblin comum: cria Goblins só por ativação paga, sem ser lorde.",
     "sin2": "Rende 1 de dano a cada Goblin seu que morre, e sacrifica Goblins por ativação paga."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Goblin Guerreiro lendário 2/2 de 3. Ele ou outro Goblin seu morre: 1 de dano; {3}{R}, sacrifique um Goblin: duas fichas.",
@@ -3260,7 +3365,26 @@
    "sai": "Relic Robber",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (sacrifica Goblin e cria duas fichas)",
-   "papel_por_que": "Cada Goblin seu que morre causa 1 de dano em qualquer alvo."
+   "papel_por_que": "Cada Goblin seu que morre causa 1 de dano em qualquer alvo.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Goblin que rende 1 de dano a cada Goblin seu que morre; a saída própria custa {3}{R}.",
+    "I": "Com o Bombardment ou o Ashnod's em campo, cada ficha sacrificada vale 1 a mais; sozinho, espera as mortes.",
+    "T": "Três manas pelo 2/2; a ativação dele é cara.",
+    "Q": "Paridade, na frente e atrás, quando a limpeza deles vira dano.",
+    "R": "O Goblin Bombardment converte sem depender de outra saída; nenhuma carta da lista rende pela morte em si."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Idol of Oblivion": {
    "notas": {
@@ -3280,7 +3404,26 @@
    "sai": "Rummaging Goblin",
    "papel": "recompensa",
    "papel_dupla": "Draw",
-   "papel_por_que": "Compra uma carta em cada turno em que você cria ficha."
+   "papel_por_que": "Compra uma carta em cada turno em que você cria ficha.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Compra ligada ao plano: o Krenko cria ficha todo turno e libera a ativação.",
+    "I": "Uma carta por turno, e só no turno em que você criou ficha.",
+    "T": "Duas manas, e virar não custa nada.",
+    "Q": "Paridade, na frente e atrás, se houver quem crie ficha; no início fica parado.",
+    "R": "A compra da lista é de filtro; o Outpost Siege dá a mesma carta por turno por quatro manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.0
   },
   "The One Ring": {
    "notas": {
@@ -3311,7 +3454,26 @@
    "porque": "Uma ativação de vinte fichas são 20 em cada oponente. Fontes B e C.",
    "sai": "Door of Destinies",
    "papel": "recompensa",
-   "papel_por_que": "Cada ficha que entra causa 1 de dano a cada oponente."
+   "papel_por_que": "Cada ficha que entra causa 1 de dano a cada oponente.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada criatura que entra é 1 de dano em cada oponente: uma ativação do Krenko vira dano na mesa toda.",
+    "I": "Nada ao entrar; depois rende a cada ativação, e é encantamento, fica.",
+    "T": "Duas manas, sem custo de ativação.",
+    "Q": "Início, paridade e na frente; atrás, sem horda entrando, não faz nada.",
+    "R": "O Raid Bombardment pede ataque e força até 2; nada na lista causa dano na entrada das fichas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.2
   },
   "Chaos Warp": {
    "notas": {
@@ -3356,7 +3518,26 @@
    "sai": "Goblin Rally",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Goblin com ímpeto que põe na mão os Goblins entre as quatro do topo."
+   "papel_por_que": "Goblin com ímpeto que põe na mão os Goblins entre as quatro do topo.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Goblin que conta para o Krenko e leva à mão os Goblins das quatro do topo.",
+    "I": "Com 25 Goblins na lista, vem um em média; o 2/2 com ímpeto pesa pouco.",
+    "T": "Quatro manas por um corpo e cerca de uma carta.",
+    "Q": "Paridade, na frente e atrás, para refazer a mão depois da limpeza.",
+    "R": "A compra da lista é de filtro; o Muxus põe em campo, mas custa seis."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Deflecting Swat": {
    "notas": {
@@ -3386,7 +3567,26 @@
    "pontual": true,
    "marcas": {
     "poupa": 1
-   }
+   },
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Não é Goblin nem se liga à horda; serve ao plano só por poupar o seu lado.",
+    "I": "1 de dano: leva fichas e criaturas de resistência 1, e mais nada.",
+    "T": "{R} no alvo, {1}{R} com sobrecarga, em velocidade de instantânea.",
+    "Q": "Paridade e na frente, para abrir o bloqueio antes do ataque; atrás, contra mesa de fichas.",
+    "R": "Só o Mizzium Mortars limpa um lado só, e a lista quer três limpezas unilaterais."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.75
   },
   "Umbral Mantle": {
    "notas": {
@@ -3404,7 +3604,26 @@
    "faz": "Equipamento de 3, equipar {0}: '{3}, desvire: +2/+2'.",
    "porque": "No Krenko com o Ashnod's, laço (659-2034-2816). Fonte B.",
    "papel": "multiplica",
-   "papel_por_que": "No Krenko, desvira por {3}: mais uma ativação no turno."
+   "papel_por_que": "No Krenko, desvira por {3}: mais uma ativação no turno.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "No Krenko, {3} o desvira para outra ativação; não é Goblin nem cria nada sozinha.",
+    "I": "Cada {3} dobra a horda de novo, mas pede o Krenko em campo e já virado.",
+    "T": "Três manas para descer, equipar {0} e {3} a cada uso.",
+    "Q": "Só na paridade ou na frente, com o Krenko vivo e mana sobrando.",
+    "R": "Nada na lista desvira o Krenko; o Marvin só copia a ativação."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.85
   },
   "Staff of Domination": {
    "notas": {
@@ -3417,13 +3636,32 @@
    "sin_por_que": {
     "sin1": "Não é Goblin, mas desvira o Krenko por {3}: mais uma ativação no turno."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Artefato de 3 com cinco habilidades, entre elas desvirar uma criatura e comprar.",
    "porque": "Com o Ashnod's, laço com compra (659-2034-2645). Fonte B.",
    "papel": "multiplica",
-   "papel_por_que": "Desvira o Krenko por {3} e se desvira por {1}: mais ativações no turno."
+   "papel_por_que": "Desvira o Krenko por {3} e se desvira por {1}: mais ativações no turno.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 1,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Desvira o Krenko para outra ativação; não se liga à horda de outro jeito.",
+    "I": "Cada ativação extra custa {3} mais {1} para desvirar o cajado; comprar custa {5}.",
+    "T": "Três manas para descer e quatro por uso.",
+    "Q": "Só com o Krenko em campo e muita mana sobrando.",
+    "R": "Nada na lista desvira o Krenko; o Marvin copia a ativação por duas manas."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Phyrexian Altar": {
    "notas": {
@@ -3447,7 +3685,26 @@
    },
    "papel": "recompensa",
    "papel_dupla": "Ramp",
-   "papel_por_que": "Cada ficha vira uma mana de qualquer cor e alimenta os gatilhos de morte."
+   "papel_por_que": "Cada ficha vira uma mana de qualquer cor e alimenta os gatilhos de morte.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Saída de sacrifício grátis: cada ficha vira uma mana de cor.",
+    "I": "A mana vem na hora, do tamanho da mesa, e o artefato fica.",
+    "T": "Três manas, sem custo de ativação.",
+    "Q": "Paridade, na frente e atrás, quando sacrifica a horda em resposta à limpeza.",
+    "R": "O Ashnod's Altar já faz o papel e dá duas manas por ficha; o ganho aqui é a mana vermelha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Thousand-Year Elixir": {
    "notas": {
@@ -3460,7 +3717,7 @@
    "sin_por_que": {
     "sin1": "Não é Goblin, mas deixa o Krenko ativar no turno em que entra e o desvira por {1}."
    },
-   "tier": "B",
+   "tier": "A",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Artefato de 3: habilidades das suas criaturas como se tivessem ímpeto; {1}, vira: desvira uma criatura.",
@@ -3469,7 +3726,26 @@
     "imp": 1
    },
    "papel": "multiplica",
-   "papel_por_que": "O Krenko ativa no turno em que entra, e o Elixir o desvira para outra ativação."
+   "papel_por_que": "O Krenko ativa no turno em que entra, e o Elixir o desvira para outra ativação.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "O Krenko e o Marvin ativam no turno em que entram, e {1} desvira um deles: duas ativações por turno.",
+    "I": "Com o Krenko em campo dobra a horda duas vezes no turno; sem ele, não faz nada.",
+    "T": "Três manas e {1} por desvirada.",
+    "Q": "Paridade, na frente e atrás, quando o Krenko volta já ativando.",
+    "R": "Há seis fontes de ímpeto, mas nenhuma desvira o Krenko; em troca, as fichas não ganham ímpeto para atacar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Purphoros, God of the Forge": {
    "notas": {
@@ -3487,7 +3763,26 @@
    "faz": "Deus lendário de 4: outra criatura sua entra, 2 de dano em cada oponente.",
    "porque": "O Impact Tremors em dobro. Fonte B.",
    "papel": "recompensa",
-   "papel_por_que": "Cada criatura que entra causa 2 a cada oponente: uma ativação do Krenko fecha o jogo."
+   "papel_por_que": "Cada criatura que entra causa 2 a cada oponente: uma ativação do Krenko fecha o jogo.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Cada criatura que entra são 2 de dano em cada oponente: a ativação do Krenko rende em dobro.",
+    "I": "Nada ao entrar; depois rende a cada ativação, e é indestrutível, fica.",
+    "T": "Quatro manas; o Impact Tremors, do radar, dá metade por duas.",
+    "Q": "Paridade, na frente e atrás, porque sobrevive à limpeza; no início é caro.",
+    "R": "Nada na lista causa dano na entrada das fichas; o Raid Bombardment pede ataque."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Siege-Gang Commander": {
    "notas": {
@@ -3512,7 +3807,26 @@
    "porque": "Fichas e saída de dano. Fontes B e C.",
    "papel": "habilita",
    "papel_dupla": "Recompensa (sacrifica Goblin por 2 de dano)",
-   "papel_por_que": "Entra com três fichas Goblin."
+   "papel_por_que": "Entra com três fichas Goblin.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Quatro Goblins numa carta para o Krenko contar, e uma saída que vira 2 de dano por {1}{R}.",
+    "I": "Na entrada, quatro corpos; o dano é pago, ficha a ficha.",
+    "T": "Cinco manas, e {1}{R} por ativação.",
+    "Q": "Paridade, na frente e atrás, para refazer a mesa.",
+    "R": "A lista já cria fichas de sobra, e o Goblin Bombardment converte sem pagar mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Goblin Recruiter": {
    "notas": {
@@ -3532,7 +3846,26 @@
    "porque": "Prepara o Muxus e o Ringleader. Fonte A.",
    "papel": "habilita",
    "papel_dupla": "Tutor",
-   "papel_por_que": "Goblin que empilha no topo os Goblins que o deck quiser."
+   "papel_por_que": "Goblin que empilha no topo os Goblins que o deck quiser.",
+   "tier_anterior": "B",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Goblin que arruma o topo com os Goblins que a mesa pede, para o Muxus ou as próximas compras.",
+    "I": "Não soma carta: só ordena o topo, e deixa um 1/1.",
+    "T": "Duas manas pelo corpo e a busca.",
+    "Q": "Início, paridade e atrás, para preparar a retomada.",
+    "R": "A Goblin Matron põe o Goblin na mão, pronto para jogar."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Conspicuous Snoop": {
    "notas": {
@@ -3552,7 +3885,26 @@
    "porque": "Compra de Goblins. Fontes B e C.",
    "papel": "habilita",
    "papel_dupla": "Draw",
-   "papel_por_que": "Goblin que conjura Goblins do topo do grimório."
+   "papel_por_que": "Goblin que conjura Goblins do topo do grimório.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Goblin que conjura Goblins do topo: compra dentro da tribo.",
+    "I": "Só rende quando o topo é Goblin, um em quatro, e é um corpo frágil que precisa ficar.",
+    "T": "Duas manas.",
+    "Q": "Início, paridade e atrás, enquanto sobreviver.",
+    "R": "O Grenzo e o Outpost Siege já dão carta do topo sem depender do tipo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Ancient Tomb": {
    "notas": {},
@@ -3571,11 +3923,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Feitiço de 3: {R} por carta na mão de um oponente; com comandante, também exila três e você joga.",
-   "porque": "Mana e compra. Game Changer. Fontes A e B."
+   "porque": "Mana e compra. Game Changer. Fontes A e B.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Staple vermelha: não se liga à horda nem aos Goblins.",
+    "I": "Com o Krenko em campo, mana do tamanho da mão de um oponente e três cartas para jogar no turno.",
+    "T": "Três manas; sem comandante em campo, só um dos modos.",
+    "Q": "Paridade, na frente e atrás; no início, sem o Krenko, rende metade.",
+    "R": "A lista tem poucas pedras; o Brightstone Ritual dá mana do tamanho da horda, mas não dá carta."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.75
   },
   "Gamble": {
    "notas": {
@@ -3584,11 +3955,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "avaliar",
    "faz": "Feitiço {R}: busca qualquer carta e descarta uma ao acaso.",
-   "porque": "Acha a peça do laço. Game Changer. Fonte B."
+   "porque": "Acha a peça do laço. Game Changer. Fonte B.",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Staple vermelha: tutor sem ligação com a horda.",
+    "I": "Vale a carta que busca: o Bombardment, o Shared Animosity ou a peça que faltar.",
+    "T": "Uma mana, mas o descarte ao acaso pode levar a própria carta buscada.",
+    "Q": "Viva sempre: acha o ímpeto cedo, o conversor na paridade e a retomada atrás.",
+    "R": "A Goblin Matron só busca Goblin; nada na lista busca encantamento ou artefato."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.9
   },
   "Vanquisher's Banner": {
    "notas": {
@@ -3608,7 +3998,26 @@
    "porque": "Lord e compra. Fonte B.",
    "papel": "multiplica",
    "papel_dupla": "Draw",
-   "papel_por_que": "Lorde +1/+1 para os Goblins e compra a cada Goblin conjurado."
+   "papel_por_que": "Lorde +1/+1 para os Goblins e compra a cada Goblin conjurado.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Lord de +1/+1 e compra a cada Goblin conjurado; as fichas do Krenko não compram.",
+    "I": "O bônus vale na hora e fica; a compra vem com cada Goblin da mão.",
+    "T": "Cinco manas; os lords da lista custam duas ou três.",
+    "Q": "Paridade, na frente e atrás, para refazer a mão.",
+    "R": "Há quatro lords mais baratos, mas a compra da lista é de filtro."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Blasphemous Act": {
    "notas": {
@@ -3625,7 +4034,29 @@
    "veredito": "avaliar",
    "faz": "Feitiço de 9, uma a menos por criatura: 13 de dano em cada criatura.",
    "porque": "Com o Eldrazi Monument, só o lado deles morre; com o Brash Taunter e o Fiery, 117. Fontes A e C.",
-   "massa": true
+   "massa": true,
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 3,
+    "T": 3,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "A horda só barateia o custo; os 13 de dano matam o Krenko e os Goblins junto.",
+    "I": "Vira a mesa: leva quase toda criatura.",
+    "T": "Com a mesa cheia, sai por uma a três manas.",
+    "Q": "Só atrás, ou com o Eldrazi Monument em campo.",
+    "R": "O Mizzium Mortars com sobrecarga limpa só o lado deles."
+   },
+   "antissinergia": "material",
+   "travas": [
+    "antissinergia material"
+   ],
+   "confianca": "alta",
+   "indice": 1.8
   },
   "Abrade": {
    "notas": {
@@ -3633,11 +4064,30 @@
    },
    "sin": {},
    "sin_por_que": {},
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Instantânea de 2: 3 numa criatura ou destrói um artefato.",
-   "porque": "Resposta barata. Fonte B."
+   "porque": "Resposta barata. Fonte B.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Remoção genérica: não se liga à horda.",
+    "I": "Troca de um por um: 3 de dano numa criatura ou um artefato.",
+    "T": "Duas manas, instantânea, dois modos.",
+    "Q": "Paridade e atrás; na frente, quando tira o bloqueador.",
+    "R": "O Mizzium Mortars causa 4 pelo mesmo custo, e o Red Sun's Twilight já cuida dos artefatos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.35
   },
   "Pyroblast": {
    "notas": {
@@ -3649,7 +4099,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Instantânea {R}: anula mágica azul ou destrói permanente azul.",
-   "porque": "A anulação do vermelho. Fonte B."
+   "porque": "A anulação do vermelho. Fonte B.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Não se liga à horda; só protege o Krenko de mágica azul.",
+    "I": "Anula ou destrói, mas só o que é azul.",
+    "T": "Uma mana, instantânea.",
+    "Q": "Só com azul na mesa: fora disso, carta morta.",
+    "R": "A lista não tem nenhuma resposta na pilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.6
   },
   "Cavern of Souls": {
    "notas": {},
@@ -3663,7 +4132,26 @@
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Terreno do tipo escolhido: {C}, ou qualquer cor para criatura dele, que não pode ser anulada.",
-   "porque": "Goblins que não são anulados. Fonte A. Sem quem sai: os três terrenos fracos já têm troca; no lugar de uma Montanha, se a mesa tiver azul."
+   "porque": "Goblins que não são anulados. Fonte A. Sem quem sai: os três terrenos fracos já têm troca; no lugar de uma Montanha, se a mesa tiver azul.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Fonte de cor só para Goblins; para o resto do deck dá incolor.",
+    "I": "Os Goblins não são anulados: só pesa com azul na mesa.",
+    "T": "Entra desvirado.",
+    "Q": "Terreno: viva sempre.",
+    "R": "A Mountain paga tudo em vermelho e ainda conta para o Gauntlet of Power."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.7
   },
   "Three Tree City": {
    "notas": {
@@ -3677,7 +4165,7 @@
     "sin1": "Terreno que escolhe o tipo: de passagem.",
     "sin2": "Mana do tamanho da horda por {2}, todo turno."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "faz": "Terreno lendário do tipo escolhido: {C}; {2}, vira: uma mana de uma cor por criatura desse tipo.",
@@ -3685,7 +4173,26 @@
    "papel": "recompensa",
    "papel_dupla": "Ramp",
    "papel_por_que": "Uma mana por Goblin seu: a horda vira mana num terreno.",
-   "sai": "Path of Ancestry"
+   "sai": "Path of Ancestry",
+   "tier_anterior": "A",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Terreno que serve ao explodir: {2} e virar dão uma mana vermelha por Goblin.",
+    "I": "Depois de uma ativação do Krenko, paga o fechamento e o resto da mão no mesmo turno.",
+    "T": "Entra desvirado, mas sem a horda dá só incolor.",
+    "Q": "Terreno: viva sempre.",
+    "R": "O Brightstone Ritual faz o mesmo uma vez só; nenhum terreno da lista cresce com a horda."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.15
   },
   "Goblin Trashmaster": {
    "notas": {
@@ -3709,7 +4216,26 @@
    "porque": "Lord e remoção de artefato. Fontes A e C.",
    "papel": "multiplica",
    "papel_dupla": "Recompensa (sacrifica Goblin para destruir artefato)",
-   "papel_por_que": "Lorde +1/+1 para os outros Goblins."
+   "papel_por_que": "Lorde +1/+1 para os outros Goblins.",
+   "tier_anterior": "B",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Lord de +1/+1, e cada ficha sacrificada destrói um artefato.",
+    "I": "O bônus vale na hora; a saída só serve se houver artefato para mirar.",
+    "T": "Quatro manas; os lords da lista custam duas ou três.",
+    "Q": "Paridade, na frente e atrás, contra mesa de artefatos.",
+    "R": "Rundvelt, Bandit Lord, Patchwork Banner e Icon já dão o +1/+1 por menos, e o Red Sun's Twilight cuida dos artefatos."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.6
   },
   "Goblin Chirurgeon": {
    "notas": {
@@ -3724,14 +4250,33 @@
     "sin1": "Goblin comum: conta para o X do Krenko, sem ser lorde nem dar ímpeto aos outros Goblins.",
     "sin2": "Saída de sacrifício grátis: cada Goblin regenera uma criatura."
    },
-   "tier": "C",
+   "tier": "B",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Goblin Xamã 0/2 de 1. Sacrifique um Goblin: regenera uma criatura.",
    "porque": "Protege o Krenko de destruição. Fonte A.",
    "papel": "habilita",
    "papel_dupla": "Proteção (regenerar)",
-   "papel_por_que": "Goblin de 1 e saída de sacrifício sem custo para os gatilhos de morte."
+   "papel_por_que": "Goblin de 1 e saída de sacrifício sem custo para os gatilhos de morte.",
+   "tier_anterior": "C",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Goblin que troca uma ficha por regenerar o Krenko: protege o ponto de falha com o que a horda tem de sobra.",
+    "I": "Um 0/2; a regeneração não cobre exílio, devolução nem -X/-X.",
+    "T": "Uma mana, e a ativação custa só um Goblin.",
+    "Q": "Início como corpo de 1, paridade e na frente, guardando o Krenko.",
+    "R": "A lista não tem nenhuma proteção; o Eldrazi Monument dá indestrutível, mas custa cinco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.0
   },
   "Krenko, Tin Street Kingpin": {
    "notas": {
@@ -3745,13 +4290,32 @@
    "sin_por_que": {
     "sin1": "Goblin comum que cria fichas Goblin a cada ataque; não é lorde nem dá ímpeto."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "MED",
    "veredito": "avaliar",
    "faz": "Goblin lendário 1/2 de 3. Ao atacar, +1/+1 e fichas iguais à força.",
    "porque": "Outro gerador. Fonte C.",
    "papel": "habilita",
-   "papel_por_que": "Cria fichas Goblin a cada ataque, cada vez mais."
+   "papel_por_que": "Cria fichas Goblin a cada ataque, cada vez mais.",
+   "tier_anterior": "B",
+   "funcao": "motor",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Goblin que cria fichas ao atacar, e mais a cada ataque.",
+    "I": "Nada ao entrar: precisa atacar e sobreviver, começando como 1/2.",
+    "T": "Três manas.",
+    "Q": "Só no início e na frente, quando dá para atacar sem morrer no bloqueio.",
+    "R": "Legion Warboss e Goblin Rabblemaster criam ficha por turno sem pôr o próprio corpo em risco."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.45
   },
   "Lightning Greaves": {
    "notas": {
@@ -3822,7 +4386,26 @@
    "porque": "O Impact Tremors em corpo de Goblin: uma ativação de vinte fichas são 20 em cada oponente, e o Goblin Matron o busca. Potencial do edh.wiki (+32%).",
    "papel": "recompensa",
    "papel_dupla": "Habilitadora (ficha Goblin a cada ataque)",
-   "papel_por_que": "Cada criatura que entra causa 1 a cada oponente: a ativação do Krenko vira dano."
+   "papel_por_que": "Cada criatura que entra causa 1 a cada oponente: a ativação do Krenko vira dano.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Goblin que cria uma ficha a cada ataque e causa 1 de dano em cada oponente por criatura que entra.",
+    "I": "Rende a cada ativação do Krenko, mas é um 2/2 que precisa ficar.",
+    "T": "Três manas pelos dois efeitos.",
+    "Q": "Início, paridade e na frente; atrás, sem horda entrando, rende pouco.",
+    "R": "Nada na lista causa dano na entrada das fichas, e a Goblin Matron o busca."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Howlsquad Heavy": {
    "notas": {
@@ -3849,7 +4432,26 @@
    },
    "papel": "multiplica",
    "papel_dupla": "Habilitadora (ficha a cada combate)",
-   "papel_por_que": "Ímpeto aos outros Goblins: o Krenko ativa no turno em que entra."
+   "papel_por_que": "Ímpeto aos outros Goblins: o Krenko ativa no turno em que entra.",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Ímpeto para os Goblins sem pagar, uma ficha por combate e, na velocidade máxima, {R} por Goblin.",
+    "I": "O ímpeto vale na hora e o Krenko ativa; a mana demora, e é um 2/3 que precisa ficar.",
+    "T": "Três manas pelo ímpeto e a ficha por turno.",
+    "Q": "Início, paridade e na frente; atrás, a velocidade ainda não chegou.",
+    "R": "Há seis fontes de ímpeto, mas só esta cria ficha todo turno e depois gera mana."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Goblin Grenade": {
    "notas": {
@@ -3872,7 +4474,26 @@
    "porque": "Uma ficha 1/1 vira 5 de dano por uma mana: remoção, ou o último ponto de vida de alguém. Potencial do edh.wiki (+30%).",
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Um Goblin vira 5 de dano em qualquer alvo."
+   "papel_por_que": "Um Goblin vira 5 de dano em qualquer alvo.",
+   "tier_anterior": "B",
+   "funcao": "resposta",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 2,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Usa um Goblin como custo: uma ficha vira 5 de dano em qualquer alvo.",
+    "I": "Troca de um por um, uma vez só.",
+    "T": "Uma mana e uma ficha; é feitiço.",
+    "Q": "Paridade, atrás como remoção e na frente como os últimos 5 de vida.",
+    "R": "O Mizzium Mortars remove por duas e limpa com sobrecarga; o Goblin War Strike fecha pelo tamanho da horda."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.8
   },
   "Warren Instigator": {
    "notas": {
@@ -3891,7 +4512,26 @@
    "faz": "Goblin Berserker 1/1 de 2 com golpe duplo. Causa dano a um oponente: pode pôr um Goblin da mão em campo.",
    "porque": "Até dois Goblins de graça por ataque, se ele conectar; um 1/1 sem evasão raramente conecta numa mesa de quatro. Potencial do edh.wiki (+38%).",
    "papel": "habilita",
-   "papel_por_que": "Goblin que põe outro Goblin da mão em campo ao causar dano."
+   "papel_por_que": "Goblin que põe outro Goblin da mão em campo ao causar dano.",
+   "tier_anterior": "C",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Goblin que põe Goblins da mão em campo quando causa dano a um oponente.",
+    "I": "Um 1/1 sem evasão: numa mesa de quatro, quase nunca conecta.",
+    "T": "Duas manas.",
+    "Q": "Só no início, antes de haver bloqueadores.",
+    "R": "O Muxus põe Goblins em campo sem precisar conectar, e o Warchief os barateia."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 1.45
   },
   "Massive Raid": {
    "notas": {
@@ -3911,7 +4551,26 @@
    "porque": "Depois de uma ativação do Krenko, tira um oponente do jogo de instantâneo; antes disso, é remoção. Potencial do edh.wiki (+34%).",
    "papel": "recompensa",
    "papel_dupla": "Remoção",
-   "papel_por_que": "Dano igual às suas criaturas em qualquer alvo: a horda vira dano."
+   "papel_por_que": "Dano igual às suas criaturas em qualquer alvo: a horda vira dano.",
+   "tier_anterior": "B",
+   "funcao": "fechamento",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Dano do tamanho da horda em qualquer alvo; não é Goblin.",
+    "I": "Depois de uma ativação tira um oponente; é de uma vez só.",
+    "T": "Três manas, instantânea.",
+    "Q": "Na frente fecha; antes disso é remoção cara.",
+    "R": "O Goblin War Strike faz a mesma conta por {R}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Untimely Malfunction": {
    "notas": {
@@ -3928,7 +4587,26 @@
    "veredito": "entra",
    "sai": "Goblin Guide",
    "faz": "Instantânea de 2, um modo: destrói um artefato; muda o alvo de uma mágica ou habilidade de alvo único; ou até duas criaturas não bloqueiam no turno.",
-   "porque": "O Krenko é a habilitadora e o deck só tem uma proteção: esta desvia a remoção de alvo único dele e, sem ameaça, quebra artefato ou abre o bloqueio; no lugar do Goblin Guide, um 2/2 de 1 que só pressiona cedo e pesa pouco no X do Krenko."
+   "porque": "O Krenko é a habilitadora e o deck só tem uma proteção: esta desvia a remoção de alvo único dele e, sem ameaça, quebra artefato ou abre o bloqueio; no lugar do Goblin Guide, um 2/2 de 1 que só pressiona cedo e pesa pouco no X do Krenko.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Não se liga à horda; guarda o Krenko, que é o ponto de falha.",
+    "I": "Um modo por vez: desvia a remoção de alvo único, quebra um artefato ou tira dois bloqueadores.",
+    "T": "Duas manas, instantânea.",
+    "Q": "Paridade, atrás para salvar o Krenko e na frente para abrir o bloqueio.",
+    "R": "A lista não tem nenhuma proteção nem resposta na pilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.75
   },
   "Commander's Plate": {
    "notas": {
@@ -3939,12 +4617,31 @@
     "sin1": "Não é Goblin e não se liga à ativação do Krenko.",
     "sin2": "Não sacrifica nem rende por criatura."
    },
-   "tier": "B",
+   "tier": "C",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Treasure Nabber",
    "faz": "Equipamento de 1: +3/+3 e proteção contra cada cor fora da identidade do comandante; equipar comandante {3}, equipar {5}.",
-   "porque": "Proteção para a habilitadora: no Krenko, protege contra branco, azul, preto e verde e o faz 6/6, mas não para remoção vermelha, incolor nem limpeza sem alvo; no lugar do Treasure Nabber, cujo roubo depende de oponente virar artefato para mana."
+   "porque": "Proteção para a habilitadora: no Krenko, protege contra branco, azul, preto e verde e o faz 6/6, mas não para remoção vermelha, incolor nem limpeza sem alvo; no lugar do Treasure Nabber, cujo roubo depende de oponente virar artefato para mana.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 1,
+    "T": 2,
+    "Q": 1,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica de comandante: não se liga à horda.",
+    "I": "Protege o Krenko de quatro cores, mas não de vermelho, incolor nem de limpeza sem alvo.",
+    "T": "Uma mana mais {3} para equipar, e só na sua vez.",
+    "Q": "Só na paridade e na frente, com o Krenko já equipado antes da remoção.",
+    "R": "A lista não tem proteção; a Mithril Coat, do radar, entra em resposta e cobre a limpeza de dano."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.4
   },
   "Mithril Coat": {
    "notas": {},
@@ -3958,7 +4655,26 @@
    "veredito": "entra",
    "sai": "Caterwauling Boggart",
    "faz": "Equipamento lendário indestrutível de 3 com lampejo: ao entrar, prende-se a uma criatura lendária sua; a equipada é indestrutível; equipar {3}.",
-   "porque": "Proteção para a habilitadora: entra em resposta à remoção e se prende ao Krenko sem pagar equipar, contra destruição e dano (não contra exílio nem -X/-X); no lugar do Caterwauling Boggart, de 4, cuja ameaça à horda vale menos que manter o Krenko vivo."
+   "porque": "Proteção para a habilitadora: entra em resposta à remoção e se prende ao Krenko sem pagar equipar, contra destruição e dano (não contra exílio nem -X/-X); no lugar do Caterwauling Boggart, de 4, cuja ameaça à horda vale menos que manter o Krenko vivo.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Proteção genérica: não se liga à horda; guarda o Krenko, que é o ponto de falha.",
+    "I": "Entra em resposta e deixa o Krenko indestrutível, e fica; não cobre exílio nem -X/-X.",
+    "T": "Três manas com lampejo, sem pagar equipar no Krenko.",
+    "Q": "Paridade, na frente e atrás, com três manas abertas.",
+    "R": "A lista não tem nenhuma proteção; o Eldrazi Monument custa cinco e não tem lampejo."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Tibalt's Trickery": {
    "notas": {
@@ -3974,7 +4690,26 @@
    "veredito": "entra",
    "sai": "Dragon Fodder",
    "faz": "Instantânea de 2: anula uma mágica; o controlador mói 1 a 3, exila do topo até uma mágica de outro nome e pode conjurá-la de graça.",
-   "porque": "Proteção para a habilitadora que cobre o que as outras não cobrem: anula a remoção vermelha ou incolor e a limpeza sem alvo, ao preço de o oponente conjurar outra carta ao acaso; no lugar do Dragon Fodder, duas fichas que o Krenko faz numa ativação."
+   "porque": "Proteção para a habilitadora que cobre o que as outras não cobrem: anula a remoção vermelha ou incolor e a limpeza sem alvo, ao preço de o oponente conjurar outra carta ao acaso; no lugar do Dragon Fodder, duas fichas que o Krenko faz numa ativação.",
+   "tier_anterior": "B",
+   "funcao": "proteção",
+   "lentes": {
+    "E": 1,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 3
+   },
+   "lentes_por_que": {
+    "E": "Não se liga à horda; anula a remoção ou a limpeza que mataria o Krenko.",
+    "I": "Anula qualquer mágica, mas o oponente conjura outra do topo de graça.",
+    "T": "Duas manas, instantânea, com o preço do sorteio.",
+    "Q": "Paridade, na frente e atrás, com duas manas abertas.",
+    "R": "A lista não tem nenhuma resposta na pilha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.95
   },
   "Court of Embereth": {
    "notas": {
@@ -3995,7 +4730,26 @@
    "faz": "Encantamento de 4: ao entrar, você vira o monarca; na sua manutenção, uma ficha Cavaleiro 3/1 e, se for o monarca, X de dano em cada oponente, X suas criaturas.",
    "porque": "Uma das recompensas que faltam: toda manutenção, dano em cada oponente do tamanho da horda, sem combate nem sacrifício, e o monarca compra uma por turno; no lugar do Chainsaw, cujo marcador só cresce a equipada.",
    "papel": "recompensa",
-   "papel_por_que": "Dano a cada oponente do tamanho da horda, toda manutenção."
+   "papel_por_que": "Dano a cada oponente do tamanho da horda, toda manutenção.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 3,
+    "I": 2,
+    "T": 2,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Toda manutenção, dano em cada oponente do tamanho da horda, sem combate nem sacrifício.",
+    "I": "Ao entrar dá o monarca, uma carta por turno; o dano espera a manutenção e pede manter a coroa.",
+    "T": "Quatro manas.",
+    "Q": "Paridade e na frente, com a horda bloqueando para segurar o monarca; no início, só compra.",
+    "R": "Só o Bandit Lord repete dano do tamanho da horda, e pede virar e pagar {R}."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 2.25
   },
   "Mana Echoes": {
    "notas": {
@@ -4009,14 +4763,33 @@
     "sin1": "Rende com criaturas do mesmo tipo, sem citar Goblins (Shared Animosity).",
     "sin2": "Rende mana a cada criatura que entra (Idol of Oblivion)."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "ALT",
    "veredito": "entra",
    "sai": "Faithless Looting",
    "faz": "Encantamento de 4: cada criatura que entra pode render {C} igual ao número de criaturas suas que compartilham um tipo com ela.",
    "porque": "A outra recompensa que falta: cada ficha que o Krenko cria rende {C} do tamanho da horda, e uma ativação vira mana para descer o resto da mão no mesmo turno; no lugar do Faithless Looting, filtro que perde carta.",
    "papel": "recompensa",
-   "papel_por_que": "Cada Goblin que entra vira mana do tamanho da horda."
+   "papel_por_que": "Cada Goblin que entra vira mana do tamanho da horda.",
+   "tier_anterior": "A",
+   "funcao": "conversor",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 2,
+    "Q": 1,
+    "R": 1
+   },
+   "lentes_por_que": {
+    "E": "Cada ficha que entra rende {C} do tamanho da horda; a mana é incolor.",
+    "I": "Uma ativação do Krenko vira dezenas de manas, mas a lista tem poucos usos para incolor.",
+    "T": "Quatro manas.",
+    "Q": "Só com o Krenko ativando: paridade e na frente.",
+    "R": "Ashnod's Altar e Brightstone Ritual já tiram mana da horda, e o Ritual dá vermelha."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "média",
+   "indice": 1.65
   },
   "Castle Embereth": {
    "notas": {
@@ -4035,7 +4808,26 @@
    "faz": "Terreno: gera {R}; entra virado se você não controla uma Montanha. Por {1}{R}{R} e virando: suas criaturas ganham +1/+0 até o fim do turno.",
    "porque": "Com 28 Montanhas entra desvirado, e por três manas dá +1/+0 à horda inteira: depois de uma ativação do Krenko são 20 de dano a mais num terreno, sem gastar vaga de mágica. Sai o Opal Palace, que sem pagar {1} dá só incolor.",
    "papel_dupla": "Buff (a horda inteira)",
-   "papel_por_que": "Terreno que dá +1/+0 à horda inteira por ativação."
+   "papel_por_que": "Terreno que dá +1/+0 à horda inteira por ativação.",
+   "tier_anterior": "B",
+   "funcao": "infraestrutura",
+   "lentes": {
+    "E": 2,
+    "I": 1,
+    "T": 3,
+    "Q": 3,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Fonte vermelha que serve ao atacar: +1/+0 para a horda inteira por {1}{R}{R}.",
+    "I": "O bônus é pago e dura um turno.",
+    "T": "Com 28 Mountains entra desvirado e dá {R}.",
+    "Q": "Terreno: viva sempre.",
+    "R": "A Mountain dá a mesma mana sem o bônus; o Den of the Bugbear é o outro terreno que soma à horda."
+   },
+   "antissinergia": "nenhuma",
+   "confianca": "alta",
+   "indice": 2.15
   },
   "Ajani Unrelenting": {
    "notas": {},
@@ -4047,13 +4839,35 @@
     "sin1": "Dá ímpeto ao time, e o Krenko ativa no turno em que entra.",
     "sin2": "O −2 compra uma carta por criatura sua: efeito do tamanho da horda."
    },
-   "tier": "A",
+   "tier": "B",
    "rel": "MED",
    "veredito": "entra",
    "faz": "Cada lealdade ativada cria um Cadete 2/2; +1 dá +1/+0 e ímpeto ao time por um turno; −2 descarta a mão e compra por criatura; −3 dá 4 de dano a toda criatura que não seja ficha sua.",
    "porque": "Ímpeto para a horda e o Krenko ativa no turno em que entra; o −2 compra uma por criatura. Ganho de +30,8; os cortes tier C do mesmo papel já são de outras trocas, então sai uma B.",
    "origem": "coleção FRA (2026-11-09)",
-   "sai": "Gauntlet of Power"
+   "sai": "Gauntlet of Power",
+   "tier_anterior": "A",
+   "funcao": "habilitador",
+   "lentes": {
+    "E": 2,
+    "I": 2,
+    "T": 1,
+    "Q": 2,
+    "R": 2
+   },
+   "lentes_por_que": {
+    "E": "Não é Goblin: o +1 dá ímpeto ao time e o Krenko ativa; o −2 compra uma carta por criatura.",
+    "I": "Um modo por turno: ímpeto na hora ou a mão refeita pelo tamanho da horda.",
+    "T": "Seis manas; o ímpeto da lista custa três.",
+    "Q": "Paridade, na frente e atrás, quando o −3 limpa a mesa e poupa as suas fichas.",
+    "R": "Há seis fontes de ímpeto mais baratas; nenhuma carta da lista compra pelo tamanho da horda."
+   },
+   "antissinergia": "leve",
+   "confianca": "média",
+   "indice": 1.8,
+   "papel": "multiplica",
+   "papel_dupla": "Draw",
+   "papel_por_que": "O +1 dá ímpeto ao time, então o Krenko ativa no turno em que entra e as fichas já atacam; o −2 compra uma carta por criatura."
   }
  },
  "combos": [
@@ -4528,7 +5342,7 @@
     "por_que": "Cria uma ficha Goblin por Goblin a cada ativação: é o motor da horda. Precisa de proteção, ímpeto e de recompensas que convertam as fichas."
    }
   ],
-  "revisado": "2026-10-18"
+  "revisado": "2026-11-15"
  },
  "tier_lista": {
   "versao": 1,
