@@ -4,7 +4,8 @@
     python testes/todos.py --deck "02. Clavileño"
 
 O teste de origem (testes/origem.py) comparava o Clavileño com o painel do kit que deu origem ao motor. Saiu da bateria em
-13/11/2026, quando o dono trocou quatro cartas do deck: a lista deixou de ser a do kit. Ele ainda roda à mão.
+13/11/2026, quando o dono trocou quatro cartas do deck: a lista deixou de ser a do kit. Aposentado em 15/11/2026 (decisão do
+dono): o arquivo saiu do projeto e fica no histórico do git.
 """
 import os, subprocess, sys
 import comum
