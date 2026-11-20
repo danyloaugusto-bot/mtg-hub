@@ -44,3 +44,4 @@
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 2 S, 7 A, 67 B, 21 C, 3 D, com a comandante; Nevinyrral's Disk em D (desliga a Evelyn e a mesa); Crimson Honor Guard corrigida para 4/5.
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 13 cartas do radar com corte novo.
 - 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/evelyn-the-covetous/vampires.json): 25 cartas de sinergia +10 ou mais, 17 novas (as maiores: Leyline of Anticipation (+29), Lord Xander, the Collector (+27), New Blood (+27)); 8 saíram da lista. Nada foi ao radar.
+- 20/11/2026: 8x8, ok do dono. Keeper of Secrets em avaliar (o corte, Thought Vessel, levava Mana e cor a 7). Placar com as trocas 1012,5 -> 1003,5.
