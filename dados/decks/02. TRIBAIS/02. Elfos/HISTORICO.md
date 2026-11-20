@@ -41,3 +41,4 @@
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 3 S, 12 A, 57 B, 26 C, 2 D, com a comandante; Priest of Titania e Elvish Archdruid em S; Sol Ring em B, porque o ramp já passa da cota.
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 4 cartas do radar com corte novo.
 - 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/lathril-blade-of-the-elves.json): 25 cartas de sinergia +10 ou mais, 16 novas (as maiores: Gilt-Leaf Palace (+34), Elven Chorus (+22), Wellwisher (+21)); 8 saíram da lista. Nada foi ao radar.
+- 20/11/2026: 8x8, ok do dono: mantido o plano do radar, que troca o pacote Buff (cartas C e D) e parte do Ramp2 por motores de desvirar e de vitória (Dionus, Illusionist's Bracers, Quest for Renewal, Gaea's Cradle). Sem mudança no radar.
