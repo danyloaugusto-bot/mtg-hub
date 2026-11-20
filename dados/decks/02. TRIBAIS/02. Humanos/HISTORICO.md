@@ -53,3 +53,4 @@
 - 11/11/2026: tier list refeita pelo método novo (função e cinco notas por carta, com frase; a letra sai da conta): 6 S, 13 A, 58 B, 21 C, 2 D, com o comandante; Stroke of Midnight foi de A para C; texto da Crackdown corrigido.
 - 13/11/2026: cortes repetidos no radar resolvidos pelo critério do dono (motor/cortes.py): a carta de letra mais alta fica com o corte mais fraco, a seguinte leva o próximo livre; 8 cartas do radar com corte novo.
 - 15/11/2026: potenciais relidos pelo JSON do EDHREC (commanders/greymond-avacyns-stalwart/humans.json): 25 cartas de sinergia +10 ou mais, 4 novas (as maiores: Angel of Glory's Rise (+24), Soul Warden (+23), Haliya, Guided by Light (+23)); 4 saíram da lista. Nada foi ao radar.
+- 20/11/2026: 8x8, ok do dono. Firemane Commando (C) em avaliar (o corte, Verge Rangers, levava o Ramp a 6). Placar com as trocas 1123,5 -> 1127.
